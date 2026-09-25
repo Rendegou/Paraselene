@@ -1,0 +1,25 @@
+# 依赖与构建产物
+node_modules/
+dist/
+target/
+src-tauri/target/
+*.log
+
+# 密钥与凭据（红线，见 AGENTS.md §4）
+secrets/
+.env
+.env.*
+*.key
+*.pem
+
+# 本地数据与语料（永不提交：私人对话记录、导出包、记忆库）
+data/
+*.zip
+ChatGPT-*
+corpus/
+
+# 系统与编辑器
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/

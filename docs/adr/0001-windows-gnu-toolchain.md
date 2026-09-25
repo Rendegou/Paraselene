@@ -20,6 +20,7 @@ AGENTS.md 初版写的是"Rust stable MSVC 为正式打包路径"。T00 实测�
 - 好处：零系统级安装（不动注册表/系统目录），整个工具链一个文件夹可整体删除；构建链路已验证：`cargo check/test/build --workspace` 全绿。
 - 代价：多一个 PATH 前置步骤；`pnpm tauri dev/build` 前必须先设置 PATH（已写入 AGENTS.md §2 与 evidence/T00）。打包安装包（T08）时 NSIS/MSI 在 gnu 下的表现需重新实测。
 - 已知坑（记录在案）：Git Bash 的 `link.exe`（GNU coreutils）会抢 PATH 导致 MSVC 式报错，排查时先 `where link`；MSYS2 的 gcc-libs 16.2.0-4 是 2353 字节的空元包，运行库 DLL 要用 15.2.0-14 提取。
+- 已知坑（2026-09-26 T01 补记）：T00 只验证了 windres + lld 链接，**便携工具链当时不能编译 C**——缺 mingw-w64 CRT 头文件（headers-git），首次编译 libsqlite3-sys 报 `stdarg.h: No such file or directory`；且 `cc1.exe` 不在 `bin/` 下，PATH 未前置 `mingw64/bin` 时会因找不到 `libgmp-10.dll` 等 DLL 而**静默失败**（无任何输出）。修复：从 TUNA 补提取 `mingw-w64-x86_64-headers-git` + `mingw-w64-x86_64-crt-git`（13.0.0.r380，装入 `mingw64/include` 与 `mingw64/lib`）、`mingw-w64-x86_64-windows-default-manifest-20260815-1`（`default-manifest.o`）、`mingw-w64-x86_64-winpthreads-14.0.0.r426`（`libpthread.a` 等导入库）。重装工具链时这四个包缺一不可。
 
 ## 验证
 

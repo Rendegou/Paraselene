@@ -8,14 +8,14 @@
 
 ## 2. 当前阶段与下一步
 
-**当前阶段：Phase 0（T00）已 PASS（2026-09-26）。** 脚手架全绿、桌宠原型真机渲染成功、技术基线锁定（ADR-0001/0002）。
+**当前阶段：Phase 0/1（T00、T01）已 PASS（2026-09-26）。** 脚手架与记忆底座建成：ChatGPT 导出 100 篇、Codex 273、Kimi 152 真实会话入库（104K 消息），中文检索 trigram 方案定案（recall@5 96%）。
 
-下一步（看板 T01，依赖已满足）：
+下一步（看板 T02，依赖已满足）：
 
-1. 移植 local-ai-chat-manager 的 parser/scanner/storage 到 crates/memory-core（按 docs/reuse-inventory.md §2，注意 FTS5 中文分词坑）；
-2. 新增 ChatGPT Markdown 导出适配器（`#### You:` / `#### ChatGPT:` 分段），用 `D:\MyAgent\` 的真实导出包做导入实测；
-3. 建中文检索题集（≥20 条人工标注），对比字符 n-gram / 关键词 / 语义召回，为 G05 定索引方案；
-4. 四空间 schema 与出处检索 API（T02 可接续）。
+1. 四空间 schema（个人/旧想法/小说/学习）与隔离测试（G06）；
+2. 出处检索 API（每条结果可回溯到原文位置，G08 的底座）；
+3. **索引瘦身**（T01 遗留风险：104K 消息 trigram 索引 1.4GB，需 cap 工具输出/工具消息不进 FTS/contentless 等手段，影响 G19）；
+4. 旧想法状态机（G07）可接续（T04）。
 
 ## 3. 里程碑顺序与理由
 

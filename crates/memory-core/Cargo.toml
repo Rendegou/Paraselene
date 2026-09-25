@@ -2,7 +2,28 @@
 name = "paraselene-memory-core"
 version = "0.1.0"
 edition = "2021"
-description = "幻月记忆核心：导入适配、索引、四空间存储、出处检索。纯 Rust，不依赖 Tauri，可独立 cargo test（AGENTS.md §3）"
+description = "幻月记忆核心引擎：解析 / 指纹 / 存储 / 检索（T01 移植自 local-ai-chat-manager）。纯 Rust，不依赖 Tauri，可独立 cargo test（AGENTS.md §3）"
 license = "MIT"
 
 [dependencies]
+# 本地索引：bundled 自带 SQLite 且默认编译开启 FTS5（libsqlite3-sys build.rs 带 -DSQLITE_ENABLE_FTS5）。
+# 偏离说明：rusqlite 0.32 没有独立的 `fts5` feature，bundled 即等价于「bundled + FTS5」。
+rusqlite = { version = "0.32", features = ["bundled"] }
+# 文件指纹：比 SHA256 更快，适合大文件增量扫描
+blake3 = "1"
+# 序列化：IPC 与快照文件统一使用 camelCase
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# 错误类型：禁止大量 unwrap，统一分类
+thiserror = "2"
+# 时间处理：统一输出 RFC3339（可字符串排序）
+chrono = { version = "0.4", features = ["serde"] }
+# 目录遍历 / id 生成：为扫描编排与 T02 四空间隔离预留（本片未直接使用）
+walkdir = "2"
+uuid = { version = "1", features = ["v4"] }
+
+[dev-dependencies]
+# 单测需要临时目录（parser / fingerprint 测试沿用源项目写法）
+tempfile = "3"
+# 真实导出包导入实测（examples/import_chatgpt_export.rs）需要读 zip；不进 lib 依赖
+zip = { version = "8", default-features = false, features = ["deflate"] }

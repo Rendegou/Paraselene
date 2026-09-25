@@ -19,4 +19,7 @@ pub use session::{
 /// 索引 schema 版本（存 SQLite `user_version`）。
 /// 迁移脚本按版本递增，只增不改（见 storage::migrations）。
 /// v2：新增 message_fts_trigram（G05 中文检索方案，2026-09-26 题集评测结论）。
-pub const INDEX_SCHEMA_VERSION: u32 = 2;
+/// v3：新增四空间用户确认层（works / memories / memory_sources / memory_links，Goal §4.2）。
+/// v4：trigram 索引瘦身——tool 角色不进 trigram、文本截 4096 字符、独立表形态
+/// （真实库实测 trigram postings 从约 885MB 降到约 183MB，整库 1.51GB → 805MB）。
+pub const INDEX_SCHEMA_VERSION: u32 = 4;

@@ -122,8 +122,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         stats.messages
     );
 
-    // ---- 变体 B 准备：trigram 表（ad hoc；若进正式 schema 则迁移脚本用同一份 DDL）----
-    ensure_trigram_table(&db)?;
+    // ---- 变体 B 准备：trigram 表由迁移负责建（V2 引入、V4 瘦身为独立表），
+    // 这里只做存在性断言，不再 ad hoc 建表（避免与正式 schema 漂移）。----
+    assert!(
+        db.with_conn(|conn| {
+            Ok(conn.query_row(
+                "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='message_fts_trigram'",
+                [],
+                |r| r.get::<_, i64>(0),
+            )? > 0)
+        })?,
+        "message_fts_trigram 应由迁移创建"
+    );
 
     // ---- 逐题评测 ----
     let mut results: Vec<(Question, QResult, QResult)> = Vec::new();
@@ -265,47 +275,6 @@ fn build_file_map(zip_path: &str) -> Result<HashMap<String, String>, Box<dyn std
         }
     }
     Ok(map)
-}
-
-/// 建 trigram 索引表 + 触发器（external content，与 message_fts 同款结构）。
-/// 已存在则跳过（IF NOT EXISTS）；首次创建后对存量数据做一次 rebuild。
-fn ensure_trigram_table(db: &Database) -> Result<(), Box<dyn std::error::Error>> {
-    db.with_conn(|conn| {
-        // 坑：external content 表上 `SELECT count(*)` 读的是内容表（messages），
-        // 不能用来判断索引是否已建 —— 必须查 sqlite_master。
-        let exists: i64 = conn.query_row(
-            "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='message_fts_trigram'",
-            [],
-            |r| r.get(0),
-        )?;
-        if exists > 0 {
-            return Ok(());
-        }
-        conn.execute_batch(
-            "CREATE VIRTUAL TABLE message_fts_trigram USING fts5(
-                text,
-                session_id UNINDEXED,
-                content='messages',
-                content_rowid='rowid',
-                tokenize='trigram'
-            );
-            CREATE TRIGGER messages_fts_tri_ai AFTER INSERT ON messages BEGIN
-                INSERT INTO message_fts_trigram (rowid, text, session_id) VALUES (new.rowid, new.text, new.session_id);
-            END;
-            CREATE TRIGGER messages_fts_tri_ad AFTER DELETE ON messages BEGIN
-                INSERT INTO message_fts_trigram (message_fts_trigram, rowid, text, session_id)
-                VALUES ('delete', old.rowid, old.text, old.session_id);
-            END;
-            CREATE TRIGGER messages_fts_tri_au AFTER UPDATE ON messages BEGIN
-                INSERT INTO message_fts_trigram (message_fts_trigram, rowid, text, session_id)
-                VALUES ('delete', old.rowid, old.text, old.session_id);
-                INSERT INTO message_fts_trigram (rowid, text, session_id) VALUES (new.rowid, new.text, new.session_id);
-            END;
-            INSERT INTO message_fts_trigram (message_fts_trigram) VALUES ('rebuild');",
-        )?;
-        Ok(())
-    })?;
-    Ok(())
 }
 
 /// 把问题切成 3–6 字滑窗 n-gram，组成 FTS5 OR 短语查询。

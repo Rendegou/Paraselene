@@ -4,7 +4,8 @@
 //! `crates/aichat-core`，按幻月单机场景裁剪：去掉多机同步（machine-id 三元组主键、
 //! `sync_files` 表、Git 同步）与归档（archive）相关字段与查询；会话主键从
 //! `<source>:<machine-id>:<external_id>` 简化为 `<source>:<external_id>`。
-//! 四空间隔离不在本片范围（T02）。
+//! 四空间用户确认层（Goal §4.2）已落地于 [`spaces`]；T05/T06 的领域细化（小说稿件
+//! 版本树、学习题目结构）经 `memories.payload` JSON 扩展，不在本片范围。
 //!
 //! 模块契约（AGENTS.md §7）：
 //! - [`parser`]：JSONL 流式解析（容错、BOM/CRLF、时间戳规范化、content 块拼接）；
@@ -13,6 +14,7 @@
 //! - [`model`]：会话 / 消息归一化模型，适配器与存储层之间的唯一契约；
 //! - [`adapters`]：Codex（rollout JSONL）/ Kimi（wire.jsonl）会话适配器（detect → scan → parse）；
 //! - [`imports`]：显式导入（预览 → 确认 → 托管副本 → 入库），含 ChatGPT Markdown 导出；
+//! - [`spaces`]：四空间用户确认层（Goal §4.2）：CRUD / 隔离 / 状态机 / 出处链 / 显式跨空间链接；
 //! - [`paths`]：路径工具与隐私红线（`is_forbidden_path`，AGENTS.md §4）。
 //!
 //! 已知限制（reuse-inventory §2.2 原项目坑，必须随移植处理）：
@@ -27,10 +29,14 @@
 //!   `storage::search::tests::中文按连续字符串命中_已知限制行为基线`。
 //!   **G05 结论（2026-09-26 题集评测，24 题真实语料）**：unicode61 方案 recall@5 0/24
 //!   （隐式 AND 之下任一中文字段不命中即全灭）；trigram + n-gram OR 方案
-//!   recall@5 23/24、top-1 20/24。正式 schema 已并存 `message_fts_trigram`（v2 迁移），
+//!   recall@5 23/24、top-1 20/24。正式 schema 已并存 `message_fts_trigram`，
 //!   查询侧中文走 [`storage::build_trigram_match_query`]，拉丁短词 / 前缀仍走
 //!   unicode61 的 `build_match_query`。trigram 的固有边界：查询须 ≥3 字符，
 //!   且无法跨越「释义不同但字面不重叠」的语义鸿沟（题集 q08 即此类，留待未来语义召回）。
+//!   **V4 瘦身（2026-09-26 实测）**：trigram 表改为独立表（不再 external content），
+//!   role='tool' 不进 trigram（实测占其 postings 约 3/4），文本截 4096 字符入索引
+//!   （原文完整保留在 messages 表）——真实库 trigram 从约 885MB 降到约 183MB，
+//!   整库 1.51GB → 805MB（VACUUM 后）。
 
 pub mod adapters;
 pub mod error;
@@ -39,6 +45,7 @@ pub mod model;
 pub mod parser;
 pub mod paths;
 pub mod scanner;
+pub mod spaces;
 pub mod storage;
 
 pub use adapters::{
@@ -53,6 +60,9 @@ pub use imports::{
 pub use model::{
     DetectionResult, MessageKind, NormalizedMessage, NormalizedSession, ParsedSessionInfo,
     RawFileRef, Role, SessionDescriptor, SourceKind, INDEX_SCHEMA_VERSION,
+};
+pub use spaces::{
+    Memory, MemoryLinkView, MemorySource, NewMemory, Space, UpdateMemory, Work, IDEA_STATUSES,
 };
 pub use storage::{
     build_match_query, build_trigram_match_query, Database, DatabaseSink, FingerprintRow,

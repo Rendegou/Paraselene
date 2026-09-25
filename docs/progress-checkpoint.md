@@ -12,16 +12,16 @@
 
 ## 当前事实
 
-- **T00、T01 已 PASS（2026-09-26）**：脚手架全绿；记忆底座建成——引擎移植 + ChatGPT 导出适配器（100 篇/772 消息）+ Codex 273/Kimi 152 真实会话入库（共 104,463 消息）+ 中文检索 trigram 方案定案（24 题题集 recall@5 96%）；证据 docs/evidence/T00-20260926.md、T01-20260926.md。G04、G05 已 PASS。
+- **T00、T01、T02 已 PASS（2026-09-26）**：脚手架 + 记忆底座 + 四空间/出处 API 建成；索引瘦身 1.51GB→805MB；G04、G05、G06 已 PASS。证据 docs/evidence/T00/T01/T02-20260926.md。
 - **技术基线已锁定**：ADR-0001（windows-gnu 工具链 + 便携 MinGW @ `C:\tools\paraselene-build\mingw64`，构建前加 PATH；lib 仅 rlib）；ADR-0002（Python 沙箱 = Pyodide，WebView2 禁 Node 集成）。
-- **已知风险（T02 必须处理）**：104K 真实消息 trigram 索引达 1.4GB，需索引瘦身（cap 工具输出长度 / 工具消息不进 FTS / contentless）；详见 T01 证据"限制说明"。
+- **已知风险（G19 前必须再评）**：805MB 索引对"轻量常驻"仍是重资产；候选手段：按来源选择性索引（G18 授权天然支持）、会话级索引、VACUUM 常规化。详见 T02 证据。
 - 仓库：`D:\paraselene`（Git main，远端 https://github.com/Rendegou/Paraselene.git）。项目定名**幻月 / Paraselene**。
 - 仓库卫生规则生效：只提交代码与说明文档；语料、密钥、本地数据永不提交（AGENTS.md §4）；题集与事实清单在 `data/`（已 gitignore）。
 - DeepSeek Key 已验证有效（2026-09-26 实测 HTTP 200），存于 `secrets/deepseek.key`（已 gitignore）；当前可用模型 `deepseek-flash` / `deepseek-v4-pro`，模型名运行时不写死。
 - 产品方向已定稿：`windows-companion-agent-brief.md` v0.1。
 - 测试素材就位（均在仓库外 `D:\MyAgent\`，永不提交）：`D:\MyAgent\chatgpt-export-markdown-part-01-of-03.zip`；`D:\MyAgent\codex\ChatGPT-MyStroy.md`。
 - 可复用代码已盘点：`docs/reuse-inventory.md`。核心资产：Cumulonimbus agent 底座（`D:\mycli`，Gitee，MIT）、local-ai-chat-manager（`D:\harnessremotedesktop`，MIT，T01 已大规模移植）。
-- 下一步：T02（四空间 schema 与出处检索 API，依赖 T01 已满足）；T03（桌宠外壳）可并行认领但需不同负责人。
+- 下一步：T03（桌宠外壳完善，依赖已满足）或 T04（旧想法花园，依赖 T02 已满足）。
 
 ## 任务看板（T00–T08）
 
@@ -39,13 +39,13 @@
   - 验证: cargo test 38/38 退出码 0；真实导出包导入 100 篇/772 消息/0 失败/去重复验通过；中文检索题集 24 题 recall@5 96%（trigram 定案进 schema V2）；Codex 273 + Kimi 152 真实会话入库 0 失败（G04、G05 同步 PASS）
   - 退出码: 0
   - 证据: docs/evidence/T01-20260926.md
-- [ ] T02 四空间 schema 与出处检索 API
-  - 状态: NOT_RUN
+- [x] T02 四空间 schema 与出处检索 API
+  - 状态: PASS
   - 依赖: T01
-  - 负责人: 待认领
-  - 验证: 隔离测试通过（跨空间默认不互通）；出处检索 API 有集成测试
-  - 退出码: -
-  - 证据: docs/evidence/T02-YYYYMMDD.md
+  - 负责人: kimi/paraselene-t02（2026-09-26 认领）
+  - 验证: 48 测试全绿；隔离测试通过（跨空间默认不互通，隔离下沉 DDL CHECK，G06 PASS）；出处检索 API 有集成测试；索引瘦身 1.51GB→805MB（-47%）recall 96% 不回退；v2→v3→v4 真实库迁移零丢失
+  - 退出码: 0
+  - 证据: docs/evidence/T02-20260926.md
 - [ ] T03 桌宠外壳：透明窗口/托盘/小卡片/形象包
   - 状态: NOT_RUN
   - 依赖: T00（可与 T01–T02 并行认领，负责人需不同）
@@ -93,7 +93,7 @@
 
 每次验收后更新，不能沿用过期数字。
 
-- PASS（有当期证据）：G04（ChatGPT 导出适配器 100 篇 0 失败，T01 证据）、G05（Codex/Kimi 适配器真实入库 + 24 题题集 recall@5 96%，T01 证据）。
-- NEEDS_RECHECK：G01–G03、G06–G20（尚无证据）。
+- PASS（有当期证据）：G04（ChatGPT 导出适配器 100 篇 0 失败，T01 证据）、G05（Codex/Kimi 适配器真实入库 + 24 题题集 recall@5 96%，T01 证据）、G06（四空间隔离自动化测试，T02 证据）。
+- NEEDS_RECHECK：G01–G03、G07–G20（尚无证据）。
 - PARTIAL：无。
 - BLOCKED：无。

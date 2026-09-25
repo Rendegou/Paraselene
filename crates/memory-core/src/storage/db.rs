@@ -369,12 +369,15 @@ impl Database {
     /// 清空整个索引（「重建索引」功能）。
     pub fn reset(&self) -> Result<()> {
         self.with_tx(|tx| {
+            // message_fts 是 external content 表，用 'rebuild' 命令；
+            // message_fts_trigram 是 V4 起的独立表，没有 rebuild 语义，直接清空
+            // （消息行已删，au/ad 触发器本就会逐行清理，这里是兜底）。
             tx.execute_batch(
                 "DELETE FROM messages;
                  DELETE FROM sessions;
                  DELETE FROM raw_files;
                  INSERT INTO message_fts (message_fts) VALUES ('rebuild');
-                 INSERT INTO message_fts_trigram (message_fts_trigram) VALUES ('rebuild');",
+                 DELETE FROM message_fts_trigram;",
             )?;
             Ok(())
         })

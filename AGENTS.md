@@ -13,17 +13,17 @@
 ## 2. 环境硬约束
 
 - Windows 11 开发机；Shell 一律用 **PowerShell 7（`pwsh`）**，禁止 Windows PowerShell 5.1。
-- Node.js 22、Rust stable（**MSVC 工具链**为正式打包路径；MinGW 仅应急验证）。
+- Node.js 22、Rust **`stable-x86_64-pc-windows-gnu`**（本机无 MSVC，依据 docs/adr/0001）；构建前必须 `export PATH="/c/tools/paraselene-build/mingw64/bin:$PATH"`（便携 MinGW，含 windres/gcc，见 ADR-0001）。
 - 本地开发**禁用 Docker**；需要的运行时全部原生进程。
 - 一切路径、脚本、文档必须跨会话可复现：新机器按文档能重建环境。
 
 ## 3. 技术基线
 
-- **Tauri 2 + Rust**：Cargo workspace；核心逻辑为纯 Rust crate（不依赖 Tauri，可独立 `cargo test`），`src-tauri` 只做窗口/托盘/IPC 转发。
+- **Tauri 2 + Rust**：Cargo workspace；核心逻辑为纯 Rust crate（不依赖 Tauri，可独立 `cargo test`），`src-tauri` 只做窗口/托盘/IPC 转发；lib crate-type 仅 `rlib`（ADR-0001）。
 - 前端 React + TypeScript + Vite；所有 IPC 调用收敛到**单一封装层**（参考 local-ai-chat-manager 的 `lib/ipc.ts` 模式），禁止组件内直接调 Tauri API。
 - 本地存储 **SQLite（FTS5）**；记忆原文与索引只留本机。
 - 模型：**DeepSeek 官方 API，用户自带 Key（BYOK）**；不使用网页版 ChatGPT 反代、Cookie 或登录态。
-- Python 执行环境：首选 Pyodide（WASM，天然隔离），备选受限本地进程；由 T00 技术 spike 实测后用 ADR 锁定，未锁定前不得大面积开发依赖该选择的代码。
+- Python 执行环境：**Pyodide（WASM），已由 ADR-0002 锁定**，练习窗口按需加载；**WebView2 禁止开启 Node 集成/Node.js 桥接**（否则沙箱失效）。
 - 关键选型与版本用 `docs/adr/NNNN-主题.md` 锁定。
 
 ## 4. 密钥与隐私红线（不可协商）

@@ -1,0 +1,8 @@
+[package]
+name = "paraselene-memory-core"
+version = "0.1.0"
+edition = "2021"
+description = "幻月记忆核心：导入适配、索引、四空间存储、出处检索。纯 Rust，不依赖 Tauri，可独立 cargo test（AGENTS.md §3）"
+license = "MIT"
+
+[dependencies]

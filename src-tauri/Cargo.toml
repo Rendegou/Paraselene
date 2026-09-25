@@ -1,0 +1,24 @@
+[package]
+name = "paraselene"
+version = "0.1.0"
+edition = "2021"
+description = "幻月桌宠外壳：窗口/托盘/IPC 转发。业务逻辑一律放 crates/，本 crate 不写业务（AGENTS.md §3）"
+
+[lib]
+name = "paraselene_lib"
+# 仅 rlib：幻月是 Windows-only 桌宠，不需要移动端的 staticlib/cdylib；
+# 且 rustup 自包含模式的 lld 链接 cdylib 时触发 export ordinal 上限（90895 > 65535），见 docs/adr/0001。
+crate-type = ["rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+paraselene-memory-core = { path = "../crates/memory-core" }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

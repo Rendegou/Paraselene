@@ -62,10 +62,10 @@
 
 ## 3. 推荐技术基线
 
-- Tauri 2（窗口/托盘/透明）、Rust stable MSVC、React 18 + TypeScript + Vite、SQLite（rusqlite bundled FTS5）。
+- Tauri 2（窗口/托盘/透明）、Rust **`stable-x86_64-pc-windows-gnu`**（本机无 MSVC，ADR-0001 锁定；便携 MinGW 在 `C:\tools\paraselene-build\mingw64`，构建前加 PATH）、React 18 + TypeScript + Vite、SQLite（rusqlite bundled FTS5）。
 - DeepSeek 官方 API（2026-09-26 实测 Key 有效，当前模型：`deepseek-flash`——低延迟陪伴/提示，`deepseek-v4-pro`——复杂小说规划/学习解释；模型名运行时拉 `/models` 获取不写死，沿用 mycli `/model` 的模式；闲置不调用）。
 - **LLM 层优先移植 Cumulonimbus（`D:\mycli`，MIT）的 `src/llm/openai-compat.ts`**（OpenAI 兼容流式 + 工具调用收集，DeepSeek 直接可用）；对话调度采用其事件总线/取消信号树/状态机模式（Rust 侧重写），详见 `docs/reuse-inventory.md` §1。
-- Python 执行：Pyodide（首选）或受限本地进程——T00 spike 实测后 ADR 锁定。
+- Python 执行：**Pyodide（WASM），ADR-0002 已锁定**；WebView2 禁 Node 集成；练习窗口按需加载。
 - 前端状态与 IPC：单一 `lib/ipc.ts` 封装层 + 轻量 store（沿用 local-ai-chat-manager 模式）。
 - 以上版本的最终锁定以 `docs/adr/` 为准。
 

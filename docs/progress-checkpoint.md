@@ -12,25 +12,25 @@
 
 ## 当前事实
 
-- 仓库已初始化：`D:\paraselene`（Git main）。项目定名**幻月 / Paraselene**（"幻月"= paraselene，大气光学中的伴月现象；用户拍板，备选月晕/望舒已弃用）。
+- **T00 已 PASS（2026-09-26）**：脚手架全绿（check/test/build + typecheck + vite build），`pnpm tauri dev` 冒烟启动成功，桌宠原型（透明圆月+拖动+托盘）已在真机渲染；证据 docs/evidence/T00-20260926.md。
+- **技术基线已锁定**：ADR-0001（windows-gnu 工具链 + 便携 MinGW @ `C:\tools\paraselene-build\mingw64`，构建前加 PATH；lib 仅 rlib）；ADR-0002（Python 沙箱 = Pyodide，WebView2 禁 Node 集成）。
+- 仓库已初始化：`D:\paraselene`（Git main，远端 https://github.com/Rendegou/Paraselene.git）。项目定名**幻月 / Paraselene**。
 - 仓库卫生规则生效：只提交代码与说明文档；语料、密钥、本地数据永不提交（AGENTS.md §4）。
-- DeepSeek Key 已验证有效（2026-09-26 实测 HTTP 200），存于 `secrets/deepseek.key`（已 gitignore，`git check-ignore` 验证过）；当前可用模型 `deepseek-flash` / `deepseek-v4-pro`，模型名运行时不写死。
-- GitHub 远端尚未创建：本机无 gh CLI 且未认证，需用户创建空仓库后添加 remote，或安装 gh 并登录。
-- 仓库尚未脚手架化：无 Cargo workspace、无 Tauri 工程，只有规划文档（AGENTS.md / Goal / brief / 本看板 / 复用清单）。
+- DeepSeek Key 已验证有效（2026-09-26 实测 HTTP 200），存于 `secrets/deepseek.key`（已 gitignore）；当前可用模型 `deepseek-flash` / `deepseek-v4-pro`，模型名运行时不写死。
 - 产品方向已定稿：`windows-companion-agent-brief.md` v0.1。
-- 技术选型未锁定：Python 执行方案（Pyodide vs 受限进程）待 T00 spike 后 ADR 锁定。
 - 测试素材就位（均在仓库外 `D:\MyAgent\`，永不提交）：`D:\MyAgent\chatgpt-export-markdown-part-01-of-03.zip`（100 篇真实导出，可用于 G04/G05 题集；注意缺第 2、3 部分，覆盖有限）；`D:\MyAgent\codex\ChatGPT-MyStroy.md`（58 回合小说共创记录，小说模块需求来源 + 种子内容 + 导入测试语料）。
 - 可复用代码已盘点：`docs/reuse-inventory.md`。核心资产：Cumulonimbus agent 底座（`D:\mycli`，Gitee，MIT——LLM 抽象可移植、调度模式 Rust 重写）、local-ai-chat-manager 会话导入与 FTS 检索（`D:\harnessremotedesktop`，MIT）。
+- 下一步：T01（记忆底座移植，依赖 T00 已满足）；T03（桌宠外壳）可并行认领但需不同负责人。
 
 ## 任务看板（T00–T08）
 
-- [ ] T00 仓库脚手架与技术 spike
-  - 状态: NOT_RUN
+- [x] T00 仓库脚手架与技术 spike
+  - 状态: PASS
   - 依赖: 无
-  - 负责人: 待认领
-  - 验证: 原型可启动；spike 对比数据；ADR-0001（技术基线）、ADR-0002（Python 沙箱）落 docs/adr/
-  - 退出码: -
-  - 证据: docs/evidence/T00-YYYYMMDD.md
+  - 负责人: kimi/paraselene-t00
+  - 验证: `cargo check/test/build --workspace` 退出码 0；`pnpm typecheck`/`pnpm build` 退出码 0；`pnpm tauri dev` 冒烟启动成功（paraselene.exe 运行，空闲内存 ≈35MB，截图 docs/evidence/T00-20260926-pet.png）；Pyodide vs 本地进程 spike 数据落 ADR-0002（结论：Pyodide，WebView2 禁 Node 集成）；技术基线锁定 ADR-0001（windows-gnu + 便携 MinGW @ C:\tools\paraselene-build）
+  - 退出码: 0
+  - 证据: docs/evidence/T00-20260926.md
 - [ ] T01 记忆底座：移植 parser/scanner/storage + ChatGPT 导出适配器
   - 状态: NOT_RUN
   - 依赖: T00

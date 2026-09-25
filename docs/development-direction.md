@@ -8,14 +8,14 @@
 
 ## 2. 当前阶段与下一步
 
-**当前阶段：规划完成，Phase 0（脚手架与技术 spike）未开工。**
+**当前阶段：Phase 0（T00）已 PASS（2026-09-26）。** 脚手架全绿、桌宠原型真机渲染成功、技术基线锁定（ADR-0001/0002）。
 
-下一步（看板 T00）：
+下一步（看板 T01，依赖已满足）：
 
-1. 初始化 Cargo workspace + Tauri 2 脚手架（按 Goal §4.1 结构）；
-2. Tauri 透明窗口/托盘/拖动原型，实测资源占用；
-3. Python 执行方案 spike：Pyodide vs 受限本地进程，实测内存/启动/隔离性，写 ADR 锁定；
-4. 建立性能基线测量脚本（冷启动、驻留内存、CPU），为 G19 门槛提供数据。
+1. 移植 local-ai-chat-manager 的 parser/scanner/storage 到 crates/memory-core（按 docs/reuse-inventory.md §2，注意 FTS5 中文分词坑）；
+2. 新增 ChatGPT Markdown 导出适配器（`#### You:` / `#### ChatGPT:` 分段），用 `D:\MyAgent\` 的真实导出包做导入实测；
+3. 建中文检索题集（≥20 条人工标注），对比字符 n-gram / 关键词 / 语义召回，为 G05 定索引方案；
+4. 四空间 schema 与出处检索 API（T02 可接续）。
 
 ## 3. 里程碑顺序与理由
 

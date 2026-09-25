@@ -1,0 +1,5 @@
+# 幻月 / Paraselene — Cargo workspace
+# 纯 Rust 核心（crates/）不依赖 Tauri，可独立 `cargo test`；src-tauri 只做窗口/托盘/IPC 转发（AGENTS.md §3）。
+[workspace]
+members = ["crates/memory-core", "src-tauri"]
+resolver = "2"

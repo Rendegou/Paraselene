@@ -12,7 +12,7 @@
 
 ## 当前事实
 
-- **T00、T01、T02 已 PASS（2026-09-26）**：脚手架 + 记忆底座 + 四空间/出处 API 建成；索引瘦身 1.51GB→805MB；G04、G05、G06 已 PASS。证据 docs/evidence/T00/T01/T02-20260926.md。
+- **T00、T01、T02、T07 已 PASS（2026-09-26）**：脚手架 + 记忆底座 + 四空间/出处 API + LLM 核心层建成；索引瘦身 1.51GB→805MB；DeepSeek Key 已入 Windows 凭据管理器，真实 API 链路冒烟通过；G04、G05、G06、G15、G16 已 PASS。证据 docs/evidence/T00/T01/T02/T07-20260926.md。
 - **技术基线已锁定**：ADR-0001（windows-gnu 工具链 + 便携 MinGW @ `C:\tools\paraselene-build\mingw64`，构建前加 PATH；lib 仅 rlib）；ADR-0002（Python 沙箱 = Pyodide，WebView2 禁 Node 集成）。
 - **已知风险（G19 前必须再评）**：805MB 索引对"轻量常驻"仍是重资产；候选手段：按来源选择性索引（G18 授权天然支持）、会话级索引、VACUUM 常规化。详见 T02 证据。
 - 仓库：`D:\paraselene`（Git main，远端 https://github.com/Rendegou/Paraselene.git）。项目定名**幻月 / Paraselene**。
@@ -74,13 +74,13 @@
   - 验证: G12–G14 测试记录（口令协议、沙箱隔离测试、学习轨迹演示）
   - 退出码: -
   - 证据: docs/evidence/T06-YYYYMMDD.md
-- [ ] T07 模型接入与隐私设置
-  - 状态: NOT_RUN
-  - 依赖: T02, T03
-  - 负责人: 待认领
-  - 验证: G15、G16、G18 证据（Key 存储检查、外发预览演示、默认不采集检查）
-  - 退出码: -
-  - 证据: docs/evidence/T07-YYYYMMDD.md
+- [x] T07 模型接入与隐私设置
+  - 状态: PASS
+  - 依赖: T02
+  - 负责人: kimi/paraselene-t07（2026-09-26 认领；LLM 核心不依赖 T03 外壳，先行）
+  - 验证: 83 测试全绿；llm-core（SSE 状态机移植+CloudGate+预览/发送分离）；Key 存 Windows 凭据管理器且全仓库无明文；kill switch 组装期拒绝；真实 API 冒烟通过（fetch_models 2 模型 + max_tokens=1 流式）；G15、G16 PASS，G18 代码面 PASS（UI 面待 T03）
+  - 退出码: 0
+  - 证据: docs/evidence/T07-20260926.md
 - [ ] T08 性能实测与打包
   - 状态: NOT_RUN
   - 依赖: T04, T05, T06, T07
@@ -93,7 +93,8 @@
 
 每次验收后更新，不能沿用过期数字。
 
-- PASS（有当期证据）：G04（ChatGPT 导出适配器 100 篇 0 失败，T01 证据）、G05（Codex/Kimi 适配器真实入库 + 24 题题集 recall@5 96%，T01 证据）、G06（四空间隔离自动化测试，T02 证据）。
-- NEEDS_RECHECK：G01–G03、G07–G20（尚无证据）。
+- PASS（有当期证据）：G04（ChatGPT 导出适配器 100 篇 0 失败，T01 证据）、G05（Codex/Kimi 适配器真实入库 + 24 题题集 recall@5 96%，T01 证据）、G06（四空间隔离自动化测试，T02 证据）、G15（Key 凭据管理器 + kill switch + 全仓库无明文，T07 证据）、G16（外发前预览同源结构，T07 证据）。
+- PARTIAL：G18（无采集代码面 PASS；数据源授权 UI 待 T03）。
+- NEEDS_RECHECK：G01–G03、G07–G14、G17、G19、G20（尚无证据）。
 - PARTIAL：无。
 - BLOCKED：无。

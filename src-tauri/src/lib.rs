@@ -5,6 +5,8 @@
 //! 当前为占位原型：窗口配置在 tauri.conf.json（透明/无边框/置顶/不进任务栏/不可缩放），
 //! 托盘提供「显示/退出」，IPC 仅暴露 ping 用于验证前端 ↔ Rust 链路。
 
+pub mod commands;
+
 use tauri::menu::{Menu, MenuItem};
 use tauri::tray::TrayIconBuilder;
 use tauri::Manager;
@@ -43,11 +45,30 @@ fn setup_tray(app: &tauri::AppHandle) -> tauri::Result<()> {
     Ok(())
 }
 
+/// 初始化记忆库（app 数据目录下 index.db；settings KV 存每空间云开关等运行状态）。
+fn setup_database(app: &tauri::AppHandle) -> tauri::Result<std::sync::Arc<paraselene_memory_core::Database>> {
+    let dir = app.path().app_data_dir()?;
+    let db = paraselene_memory_core::Database::open(&dir.join("index.db"))
+        .map_err(|e| tauri::Error::AssetNotFound(format!("记忆库初始化失败: {e}")))?;
+    Ok(std::sync::Arc::new(db))
+}
+
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![ping])
+        .invoke_handler(tauri::generate_handler![
+            ping,
+            commands::key::set_api_key,
+            commands::key::has_api_key,
+            commands::key::delete_api_key,
+            commands::llm::llm_chat_preview,
+            commands::llm::llm_chat_send,
+            commands::llm::llm_fetch_models,
+        ])
         .setup(|app| {
             setup_tray(app.handle())?;
+            // LLM 状态：memory-core 的 Database（Arc 供异步命令克隆）
+            let db = setup_database(app.handle())?;
+            app.manage(commands::llm::LlmState { db });
             Ok(())
         })
         .run(tauri::generate_context!())

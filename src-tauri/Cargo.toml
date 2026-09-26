@@ -18,6 +18,11 @@ tauri = { version = "2", features = ["tray-icon"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 paraselene-memory-core = { path = "../crates/memory-core" }
+paraselene-llm-core = { path = "../crates/llm-core" }
+# llm_chat_send 消费 llm-core 的事件流（StreamExt::next）
+futures-util = "0.3"
+# G15：Key 存 Windows 凭据管理器（系统安全存储），Key 永不出 Rust 侧
+keyring = "4"
 
 [features]
 default = ["custom-protocol"]

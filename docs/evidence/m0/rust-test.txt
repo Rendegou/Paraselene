@@ -6,4 +6,3 @@ test tests::empty_stale_or_wrong_scalar_range_is_rejected ... ok
 test tests::unicode_coordinates_are_checked_and_line_endings_change_hash ... ok
 
 test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-

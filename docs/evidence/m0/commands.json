@@ -1,0 +1,127 @@
+[
+  {
+    "Check": "dart-format",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe",
+    "Arguments": [
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "bin"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract",
+    "ExitCode": 0
+  },
+  {
+    "Check": "dart-analyze",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe",
+    "Arguments": [
+      "analyze",
+      "--fatal-infos"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract",
+    "ExitCode": 0
+  },
+  {
+    "Check": "dart-test",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe",
+    "Arguments": [
+      "test",
+      "--reporter",
+      "expanded"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract",
+    "ExitCode": 0
+  },
+  {
+    "Check": "dart-probe",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe",
+    "Arguments": [
+      "run",
+      "bin/synthetic_probe.dart"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-format",
+    "Executable": "cargo",
+    "Arguments": [
+      "fmt",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\contract-oracle\\Cargo.toml",
+      "--check"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-test",
+    "Executable": "cargo",
+    "Arguments": [
+      "test",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\contract-oracle\\Cargo.toml",
+      "--target-dir",
+      "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0",
+      "--locked",
+      "--offline"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-clippy",
+    "Executable": "cargo",
+    "Arguments": [
+      "clippy",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\contract-oracle\\Cargo.toml",
+      "--target-dir",
+      "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0",
+      "--locked",
+      "--offline",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-build",
+    "Executable": "cargo",
+    "Arguments": [
+      "build",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\contract-oracle\\Cargo.toml",
+      "--target-dir",
+      "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0",
+      "--locked",
+      "--offline"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-vector-verify",
+    "Executable": "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0\\debug\\paraselene-contract-oracle.exe",
+    "Arguments": [
+      "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\test\\fixtures\\test_vectors.json"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-vector-golden",
+    "Executable": "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0\\debug\\paraselene-contract-oracle.exe",
+    "Arguments": [
+      "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\test\\fixtures\\test_vectors.json"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0,
+    "Vectors": 5
+  }
+]

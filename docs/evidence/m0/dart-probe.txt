@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "vectors": [
+    {
+      "id": "mixed-0",
+      "body": "a😀b",
+      "fromUtf16": 0,
+      "toUtf16": 4,
+      "startScalar": 0,
+      "endScalar": 3,
+      "quote": "a😀b"
+    },
+    {
+      "id": "mixed-1",
+      "body": "中👩‍🚀é\r\n⁧العربية⁩",
+      "fromUtf16": 0,
+      "toUtf16": 19,
+      "startScalar": 0,
+      "endScalar": 17,
+      "quote": "中👩‍🚀é\r\n⁧العربية⁩"
+    },
+    {
+      "id": "mixed-2",
+      "body": "é é\r\nא",
+      "fromUtf16": 0,
+      "toUtf16": 7,
+      "startScalar": 0,
+      "endScalar": 7,
+      "quote": "é é\r\nא"
+    },
+    {
+      "id": "mixed-3",
+      "body": "😀",
+      "fromUtf16": 0,
+      "toUtf16": 2,
+      "startScalar": 0,
+      "endScalar": 1,
+      "quote": "😀"
+    },
+    {
+      "id": "emoji-inner",
+      "body": "a😀b",
+      "fromUtf16": 1,
+      "toUtf16": 3,
+      "startScalar": 1,
+      "endScalar": 2,
+      "quote": "😀"
+    }
+  ]
+}

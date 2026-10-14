@@ -1,0 +1,9 @@
+name: text_contract
+description: Exact author text coordinates and independent language contracts.
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: '>=3.8.1 <4.0.0'
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.15

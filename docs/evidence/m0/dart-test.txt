@@ -1,0 +1,11 @@
+00:00 +0: loading test\text_contract_test.dart
+00:00 +0: test\text_contract_test.dart: normalization, CRLF and bidi differences remain stale
+00:00 +1: test\text_contract_test.dart: seeded independent scalar-prefix oracle and mixed roundtrips
+00:00 +2: test\text_contract_test.dart: empty/full boundaries and 200k scalar body
+00:00 +3: test\text_contract_test.dart: malformed UTF16 and unsafe ranges are rejected
+00:00 +4: test\text_contract_test.dart: frozen snapshot requires exact body restoration, not quote search
+00:00 +5: test\text_contract_test.dart: locale case/script/region and explicit traditional fallback
+00:00 +6: test\text_contract_test.dart: UI/work/document/output are independent metadata
+00:00 +7: test\text_contract_test.dart: shared Rust vectors preserve exact body and quote
+00:00 +8: test\text_contract_test.dart: Rust fingerprint wire values remain unchanged and lengths agree
+00:00 +9: All tests passed!

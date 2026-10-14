@@ -1,0 +1,37 @@
+[
+  {
+    "id": "mixed-0",
+    "bodyHash": "104c1bbbaa4bc9fc07c4e76e9d25ab9adfa98c2c83ac2ab33bf5f7c03e7aff16",
+    "quoteHash": "104c1bbbaa4bc9fc07c4e76e9d25ab9adfa98c2c83ac2ab33bf5f7c03e7aff16",
+    "utf16Length": 4,
+    "scalarLength": 3
+  },
+  {
+    "id": "mixed-1",
+    "bodyHash": "f45c4dc8c76df349e12a6bbfab3903ce2fbc1d00ee1b86edd2ad6b92d1524d2a",
+    "quoteHash": "f45c4dc8c76df349e12a6bbfab3903ce2fbc1d00ee1b86edd2ad6b92d1524d2a",
+    "utf16Length": 19,
+    "scalarLength": 17
+  },
+  {
+    "id": "mixed-2",
+    "bodyHash": "f32ca2b0a6bebbef617f80612f9d11353cf0fd53328b048e4471e065641677df",
+    "quoteHash": "f32ca2b0a6bebbef617f80612f9d11353cf0fd53328b048e4471e065641677df",
+    "utf16Length": 7,
+    "scalarLength": 7
+  },
+  {
+    "id": "mixed-3",
+    "bodyHash": "728105475d1a9e2f0164862a43e44bea39fa5d8b73d484f9137b8ae65a66dd7a",
+    "quoteHash": "728105475d1a9e2f0164862a43e44bea39fa5d8b73d484f9137b8ae65a66dd7a",
+    "utf16Length": 2,
+    "scalarLength": 1
+  },
+  {
+    "id": "emoji-inner",
+    "bodyHash": "104c1bbbaa4bc9fc07c4e76e9d25ab9adfa98c2c83ac2ab33bf5f7c03e7aff16",
+    "quoteHash": "728105475d1a9e2f0164862a43e44bea39fa5d8b73d484f9137b8ae65a66dd7a",
+    "utf16Length": 4,
+    "scalarLength": 3
+  }
+]

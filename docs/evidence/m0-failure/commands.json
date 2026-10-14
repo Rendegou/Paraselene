@@ -1,0 +1,21 @@
+[
+  {
+    "Check": "rust-vector-verify",
+    "Executable": "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0\\debug\\paraselene-contract-oracle.exe",
+    "Arguments": [
+      "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\test\\fixtures\\test_vectors.json"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-vector-golden",
+    "Executable": "D:\\MyAgent\\paraselene-flutter\\build\\rust-m0\\debug\\paraselene-contract-oracle.exe",
+    "Arguments": [
+      "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\test\\fixtures\\test_vectors.json"
+    ],
+    "Directory": "D:\\MyAgent\\paraselene-flutter",
+    "ExitCode": 1,
+    "Vectors": 5
+  }
+]

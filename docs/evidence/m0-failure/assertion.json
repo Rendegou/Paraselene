@@ -1,0 +1,5 @@
+{
+  "InjectedGoldenMismatchExit": 1,
+  "GoldenCheckExit": 1,
+  "FaultGateAssertion": "PASS"
+}

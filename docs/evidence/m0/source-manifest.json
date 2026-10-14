@@ -1,0 +1,22 @@
+[
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\rust\\contract-oracle\\src\\main.rs",
+    "SHA256": "8670CAF8CBBC6B5C9039403FD5A3C09009988414C1414E7FBC88220A98F6A403"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\scripts\\check-m0.ps1",
+    "SHA256": "D395590BF02885733451F884FB321E7A6487E46B270F4C0987D495210ADF91D4"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\lib\\text_contract.dart",
+    "SHA256": "BBC0405810671F78DA3D8932BCEE1B12A8F98ECF6DC6BB42E2EC2F4FB6A4BC62"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\lib\\domain\\models\\language_preferences.dart",
+    "SHA256": "F31356AD5C8298AA0666FF83E7DD9EA902BF977B7530E42FED375398CCCA3DFB"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\lib\\domain\\editing\\text_coordinates.dart",
+    "SHA256": "CCF176F186C8C6041BDFF4238625309D0E4F3C6580C68CAE5BD8B6AC097D077B"
+  }
+]

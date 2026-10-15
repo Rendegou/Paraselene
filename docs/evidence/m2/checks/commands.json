@@ -1,0 +1,96 @@
+[
+  {
+    "Check": "arb-parity",
+    "Executable": "pwsh",
+    "Arguments": [
+      "-NoProfile",
+      "-File",
+      "D:\\MyAgent\\paraselene-flutter\\scripts\\check-m2-l10n.ps1"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "gen-l10n",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "gen-l10n"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "dart-format",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe",
+    "Arguments": [
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "integration_test",
+      "bin"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "flutter-analyze",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "analyze",
+      "--fatal-infos"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "behavior-and-layout",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "--exclude-tags",
+      "golden"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "real-font-goldens",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "test/m2_golden_test.dart",
+      "--tags",
+      "golden"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "windows-workbench",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "integration_test/m2_app_test.dart",
+      "-d",
+      "windows"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "m1-diagnostic-regression",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "integration_test/m1_app_test.dart",
+      "-d",
+      "windows"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "windows-release",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "build",
+      "windows",
+      "--release"
+    ],
+    "ExitCode": 0
+  }
+]

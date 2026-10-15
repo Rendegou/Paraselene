@@ -1,0 +1,7 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_golden_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: Chinese manuscript with bundled fonts
+00:00 +1: RTL mirrored directory and Arabic specimen
+00:00 +2: (tearDownAll)
+00:00 +2: All tests passed!

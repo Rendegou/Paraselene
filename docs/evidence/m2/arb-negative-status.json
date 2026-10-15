@@ -1,0 +1,5 @@
+{
+  "InjectedWrongPlaceholder": "wrongCode",
+  "ExitCode": 1,
+  "ExpectedFailure": true
+}

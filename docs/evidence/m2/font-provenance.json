@@ -1,0 +1,44 @@
+{
+  "fontToolsVersion": "4.67.0",
+  "fonts": [
+    {
+      "source": "D:\\MyAgent\\paraselene-work\\src\\assets\\fonts\\NotoSansSC-Regular.woff2",
+      "sourceSha256": "8f08687884967709fcef6276470fab490cf9802c712e897685e04e50e1e08483",
+      "asset": "NotoSansSC-Regular.ttf",
+      "sha256": "ab0b39d7247643dec2b24788242ee249c4b9fb875f2e89c05783a20916c7b1b2",
+      "bytes": 9932268
+    },
+    {
+      "source": "D:\\MyAgent\\paraselene-work\\src\\assets\\fonts\\NotoSansSC-Medium.woff2",
+      "sourceSha256": "ff55877b32dce49ea40acb106d15399e45ba3e29beea4f7d8a72362bd4337c3b",
+      "asset": "NotoSansSC-Medium.ttf",
+      "sha256": "e604fd1bc15b5486ba160c6f6ec82e18cbfd3e4f35b5bdb19c61cbc49921b1f8",
+      "bytes": 9925688
+    },
+    {
+      "source": "D:\\MyAgent\\paraselene-work\\src\\assets\\fonts\\NotoSansSC-Semibold.woff2",
+      "sourceSha256": "6bdf8b27e3f6fd0542e2c93c8f8f6f7d95ffd4334f38f51782ec818c389a6ad6",
+      "asset": "NotoSansSC-Semibold.ttf",
+      "sha256": "7ad8d58d79d48c4eca9488998a7cf09ab32b733431291dd309300f0fa40d02af",
+      "bytes": 9922328
+    },
+    {
+      "source": "D:\\MyAgent\\paraselene-work\\src\\assets\\fonts\\NotoSerifSC-Regular.woff2",
+      "sourceSha256": "39119be8a687db78da9c9f48d8df17cfc03ce9aae395225fd482484e265d1b8c",
+      "asset": "NotoSerifSC-Regular.ttf",
+      "sha256": "e15abc6a6af756362cb14defdbf1279cc31509551d21dc451338a3d10b20c97e",
+      "bytes": 13938492
+    },
+    {
+      "source": "https://github.com/google/fonts/tree/main/ofl/notonaskharabic",
+      "asset": "NotoNaskhArabic.ttf",
+      "sha256": "67b5a525a661b607971fbd3f96a81b89d3a768e74534fca84f18ac97e6fab72f",
+      "bytes": 307592
+    }
+  ],
+  "uiCodepointsChecked": 210,
+  "missingUi": [],
+  "bodySampleMissing": [],
+  "arabicGlyphsChecked": "العربية",
+  "status": "PASS"
+}

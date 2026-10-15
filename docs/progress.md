@@ -4,7 +4,8 @@
 
 - M0 Text/Locale Contract：IMPLEMENTED，9项Dart测试/2项Rust测试、静态检查、5组跨语言向量通过；独立审查已修正质量入口失败证据记录，最终交付验证见 `docs/evidence/M0-20261015.md`。
 - M1 Windows runner/FRB/storage：IMPLEMENTED。Build Tools安装退出0；Windows doctor、Release构建、182项Rust测试、严格Clippy、真实FFI/CLI与Windows集成通过。独立复制包移除SDK PATH后验收通过，缺DLL退出1。FRB2.11.1生成绑定重跑无变化；5个core crate的79份快照及原工程559份文件不变。最终独立审查与证据见 `docs/evidence/M1-20261015.md`。
-- M2–M9：NOT_RUN。
+- M2 多语言与视觉工作台：IMPLEMENTED。中英47条ARB、脚本感知fallback、离线字体、目录/作品选择/专注/宽稿/错误区已实现；301项非golden检查（含288组双语布局矩阵）、2项真实字体golden、真实Windows缩放/语言切换、M1诊断回归与Release构建通过。九项统一检查均退出0，独立整体审查批准。详见 `docs/evidence/M2-20261015.md`。
+- M3–M9：NOT_RUN。
 
 本轮实施授权已获得。之前规划中的“本轮不实施”仅约束规划交付，不限制本次用户明确要求执行。
 

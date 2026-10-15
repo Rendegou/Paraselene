@@ -9,6 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
   flutter_rust_bridge: 2.11.1
   text_contract:
     path: ../../packages/text_contract
@@ -21,4 +24,23 @@ dev_dependencies:
   flutter_lints: ^5.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
+  assets:
+    - assets/fonts/NotoSansSC-OFL.txt
+    - assets/fonts/NotoSerifSC-OFL.txt
+    - assets/fonts/NotoNaskhArabic-OFL.txt
+  fonts:
+    - family: Notebook Sans
+      fonts:
+        - asset: assets/fonts/NotoSansSC-Regular.ttf
+        - asset: assets/fonts/NotoSansSC-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoSansSC-Semibold.ttf
+          weight: 600
+    - family: Notebook Serif
+      fonts:
+        - asset: assets/fonts/NotoSerifSC-Regular.ttf
+    - family: Noto Arabic
+      fonts:
+        - asset: assets/fonts/NotoNaskhArabic.ttf

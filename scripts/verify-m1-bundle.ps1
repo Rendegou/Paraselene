@@ -1,11 +1,12 @@
-param([string]$BundleDirectory)
+param([string]$BundleDirectory, [string]$EvidenceDirectory)
 $ErrorActionPreference = 'Stop'
 $m1Root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 if (!$BundleDirectory) { $BundleDirectory = Join-Path $m1Root 'apps\desktop\build\windows\x64\runner\Release' }
 $m1Build = Join-Path $m1Root 'build'
 $m1Copy = Join-Path $m1Build ('m1-distribution-' + [Guid]::NewGuid().ToString('N'))
 if (![IO.Path]::GetFullPath($m1Copy).StartsWith($m1Build + '\', [StringComparison]::OrdinalIgnoreCase)) { throw 'Invalid bundle destination' }
-$m1Evidence = Join-Path $m1Root 'docs\evidence\m1'
+$m1Evidence = if ($EvidenceDirectory) { [IO.Path]::GetFullPath($EvidenceDirectory) } else { Join-Path $m1Root 'docs\evidence\m1' }
+New-Item -ItemType Directory -Force -Path $m1Evidence | Out-Null
 Copy-Item -LiteralPath $BundleDirectory -Destination $m1Copy -Recurse
 $m1Exe = Join-Path $m1Copy 'paraselene_flutter.exe'
 $m1Dll = Join-Path $m1Copy 'paraselene_bridge.dll'

@@ -1,0 +1,5 @@
+Exception: D:\MyAgent\paraselene-flutter\scripts\check-m2-l10n.ps1:22
+Line |
+  22 |  … m2Actual) { throw "ARB placeholders differ: $($m2File.Name)/$m2Key" } …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | ARB placeholders differ: app_zh_Hans.arb/errorCode

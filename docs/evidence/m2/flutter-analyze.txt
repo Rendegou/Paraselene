@@ -1,0 +1,9 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Analyzing desktop...
+
+   info - Statements in an if should be enclosed in a block - integration_test\support\windows_surface.dart:48:7 - curly_braces_in_flow_control_structures
+  error - The name 'Size' is defined in the libraries 'dart:ffi' and 'dart:ui' - integration_test\support\windows_surface.dart:70:3 - ambiguous_import
+  error - 'Size' isn't a function - integration_test\support\windows_surface.dart:75:14 - invocation_of_non_function
+  error - The name 'Size' is defined in the libraries 'dart:ffi' and 'dart:ui' - integration_test\support\windows_surface.dart:75:14 - ambiguous_import
+
+4 issues found. (ran in 3.6s)

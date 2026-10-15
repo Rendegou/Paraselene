@@ -1,0 +1,28 @@
+{
+  "Milestone": "M2",
+  "Status": "PASS",
+  "Date": "2026-10-15",
+  "PublishedUiLocales": [
+    "en",
+    "zh-Hans"
+  ],
+  "ArbKeys": 47,
+  "ArbFiles": 3,
+  "BehaviorTestsPassed": 301,
+  "LayoutCases": 288,
+  "RealFontGoldensPassed": 2,
+  "QualityChecksPassed": 9,
+  "WindowsWorkbench": "PASS",
+  "NativeWindowResize": "PASS",
+  "NativeDpr": 1.5,
+  "M1Regression": "PASS",
+  "ReleaseBuild": "PASS",
+  "CopiedBundle": "PASS",
+  "SameProcessNativeRetry": "PASS",
+  "OriginalFilesVerified": 559,
+  "OriginalStatusEntries": 176,
+  "IndependentReview": "APPROVED",
+  "AuthorData": "NOT_ACCESSED",
+  "CloudEnabled": false,
+  "Editor": "M3_NOT_RUN"
+}

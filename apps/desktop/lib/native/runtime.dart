@@ -10,8 +10,22 @@ final class NativeRuntime {
   static Future<void>? _initialization;
 
   /// Initializes FRB once using an absolute DLL path, failing if unavailable.
-  static Future<void> initialize({bool diagnosticOverride = false}) =>
-      _initialization ??= _initialize(diagnosticOverride);
+  static Future<void> initialize({bool diagnosticOverride = false}) {
+    final previous = _initialization;
+    if (previous != null) return previous;
+    final pending = _initialize(diagnosticOverride);
+    _initialization = pending;
+    return _resetAfterFailure(pending);
+  }
+
+  static Future<void> _resetAfterFailure(Future<void> pending) async {
+    try {
+      await pending;
+    } catch (_) {
+      if (identical(_initialization, pending)) _initialization = null;
+      rethrow;
+    }
+  }
 
   static Future<void> _initialize(bool diagnosticOverride) async {
     if (!Platform.isWindows) throw StateError('windows_required');

@@ -1,2 +1,4 @@
 # Frozen reused core sources retain exact bytes across Windows checkouts.
 rust/core/** -text whitespace=cr-at-eol
+# Keep vendored license text byte-for-byte, including upstream whitespace.
+apps/desktop/assets/fonts/*-OFL.txt -text whitespace=cr-at-eol,-blank-at-eol

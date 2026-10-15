@@ -2,9 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'probe/probe.dart';
+import 'l10n/generated/app_localizations.dart';
+import 'theme/workbench_theme.dart';
+import 'theme/font_licenses.dart';
+import 'workspace/workbench_app.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+  registerFontLicenses();
   if (args.contains('--m1-probe')) {
     var code = 0;
     Map<String, Object> report;
@@ -25,7 +30,7 @@ Future<void> main(List<String> args) async {
     }
     exit(code);
   }
-  runApp(const MainApp());
+  runApp(args.contains('--m1-ui') ? const MainApp() : const WorkbenchApp());
 }
 
 /// M1 synthetic acceptance surface; no author library or cloud backend.
@@ -34,11 +39,11 @@ class MainApp extends StatelessWidget {
   final bool diagnosticOverride;
   @override
   Widget build(BuildContext context) => MaterialApp(
-    title: '幻月 · M1 合成验收',
-    theme: ThemeData(
-      useMaterial3: true,
-      scaffoldBackgroundColor: const Color(0xfffaf9f6),
-    ),
+    locale: workbenchLocales[1],
+    supportedLocales: workbenchLocales,
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
+    onGenerateTitle: (context) => AppLocalizations.of(context).diagnosticTitle,
+    theme: workbenchTheme(),
     home: AcceptanceScreen(diagnosticOverride: diagnosticOverride),
   );
 }
@@ -52,24 +57,24 @@ class AcceptanceScreen extends StatefulWidget {
 
 class _AcceptanceScreenState extends State<AcceptanceScreen> {
   bool _running = false;
-  String _status = '尚未运行真实 DLL 验收';
+  bool _passed = false;
+  String? _errorType;
   Future<void> _run() async {
     setState(() {
       _running = true;
-      _status = '正在验证 Rust / SQLite 合成合同…';
+      _errorType = null;
+      _passed = false;
     });
     try {
-      final report = await runM1Probe(
-        diagnosticOverride: widget.diagnosticOverride,
-      );
+      await runM1Probe(diagnosticOverride: widget.diagnosticOverride);
       if (!mounted) return;
       setState(() {
-        _status = 'PASS · ${report.toJson()['checks']}';
+        _passed = true;
       });
     } catch (error) {
       if (!mounted) return;
       setState(() {
-        _status = 'FAIL · ${error.runtimeType}';
+        _errorType = error.runtimeType.toString();
       });
     } finally {
       if (mounted) {
@@ -81,33 +86,45 @@ class _AcceptanceScreenState extends State<AcceptanceScreen> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('幻月 · M1 合成验收')),
-    body: SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '真实 Rust 桥接验收',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 16),
-            const Text('仅创建临时合成数据库。验证精确文本、修订冲突、取消与通知。\nM1 云能力关闭；作者资料库尚未接入。'),
-            const SizedBox(height: 24),
-            FilledButton(
-              onPressed: _running ? null : _run,
-              child: Text(_running ? '验收运行中' : '运行 M1 合成验收'),
-            ),
-            const SizedBox(height: 24),
-            Semantics(
-              liveRegion: true,
-              child: Text(_status, key: const Key('probe-status')),
-            ),
-          ],
+  Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
+    final status = _running
+        ? strings.diagnosticRunning
+        : _errorType != null
+        ? strings.diagnosticFail(_errorType!)
+        : _passed
+        ? strings.diagnosticPass
+        : strings.diagnosticIdle;
+    return Scaffold(
+      appBar: AppBar(title: Text(strings.diagnosticTitle)),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsetsDirectional.all(32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                strings.diagnosticTitle,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 16),
+              Text(strings.syntheticNotice),
+              const SizedBox(height: 24),
+              FilledButton(
+                onPressed: _running ? null : _run,
+                child: Text(
+                  _running ? strings.diagnosticRunning : strings.diagnosticRun,
+                ),
+              ),
+              const SizedBox(height: 24),
+              Semantics(
+                liveRegion: true,
+                child: Text(status, key: const Key('probe-status')),
+              ),
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

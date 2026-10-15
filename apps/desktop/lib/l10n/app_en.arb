@@ -1,0 +1,206 @@
+{
+  "@@locale": "en",
+  "appTitle": "Paraselene",
+  "@appTitle": {
+    "description": "Workbench: appTitle"
+  },
+  "workspaceTitle": "Writing workspace",
+  "@workspaceTitle": {
+    "description": "Workbench: workspaceTitle"
+  },
+  "chooseWork": "Choose a work",
+  "@chooseWork": {
+    "description": "Workbench: chooseWork"
+  },
+  "works": "Works",
+  "@works": {
+    "description": "Workbench: works"
+  },
+  "chapters": "Chapters",
+  "@chapters": {
+    "description": "Workbench: chapters"
+  },
+  "noWorksTitle": "A quiet place for your next story",
+  "@noWorksTitle": {
+    "description": "Workbench: noWorksTitle"
+  },
+  "noWorksBody": "This temporary library is empty. Open the work picker or create sample material to explore the workspace.",
+  "@noWorksBody": {
+    "description": "Workbench: noWorksBody"
+  },
+  "createDemo": "Create sample material",
+  "@createDemo": {
+    "description": "Workbench: createDemo"
+  },
+  "loading": "Loading the workspace…",
+  "@loading": {
+    "description": "Workbench: loading"
+  },
+  "retry": "Try again",
+  "@retry": {
+    "description": "Workbench: retry"
+  },
+  "errorTitle": "The workspace could not be loaded",
+  "@errorTitle": {
+    "description": "Workbench: errorTitle"
+  },
+  "errorBody": "Your material has not been changed. Try loading it again.",
+  "@errorBody": {
+    "description": "Workbench: errorBody"
+  },
+  "emptyChapters": "This work has no chapters yet.",
+  "@emptyChapters": {
+    "description": "Workbench: emptyChapters"
+  },
+  "chooseChapter": "Choose a chapter to read.",
+  "@chooseChapter": {
+    "description": "Workbench: chooseChapter"
+  },
+  "readOnlyHint": "Read-only preview · editing arrives in the next milestone",
+  "@readOnlyHint": {
+    "description": "Workbench: readOnlyHint"
+  },
+  "focusOn": "Focus mode",
+  "@focusOn": {
+    "description": "Workbench: focusOn"
+  },
+  "focusOff": "Leave focus mode",
+  "@focusOff": {
+    "description": "Workbench: focusOff"
+  },
+  "wideOn": "Wide manuscript",
+  "@wideOn": {
+    "description": "Workbench: wideOn"
+  },
+  "wideOff": "Comfortable width",
+  "@wideOff": {
+    "description": "Workbench: wideOff"
+  },
+  "languageLabel": "Interface language",
+  "@languageLabel": {
+    "description": "Workbench: languageLabel"
+  },
+  "chineseLabel": "简体中文",
+  "@chineseLabel": {
+    "description": "Workbench: chineseLabel"
+  },
+  "englishLabel": "English",
+  "@englishLabel": {
+    "description": "Workbench: englishLabel"
+  },
+  "realMode": "REAL · Rust bridge",
+  "@realMode": {
+    "description": "Workbench: realMode"
+  },
+  "syntheticMode": "SYNTHETIC · memory fixture",
+  "@syntheticMode": {
+    "description": "Workbench: syntheticMode"
+  },
+  "syntheticNotice": "Temporary sample library · no author data · cloud disabled",
+  "@syntheticNotice": {
+    "description": "Workbench: syntheticNotice"
+  },
+  "workLanguage": "Work language",
+  "@workLanguage": {
+    "description": "Workbench: workLanguage"
+  },
+  "documentLanguage": "Chapter language",
+  "@documentLanguage": {
+    "description": "Workbench: documentLanguage"
+  },
+  "outputLanguage": "Model output language",
+  "@outputLanguage": {
+    "description": "Workbench: outputLanguage"
+  },
+  "mixedLanguage": "Mixed",
+  "@mixedLanguage": {
+    "description": "Workbench: mixedLanguage"
+  },
+  "undeterminedLanguage": "Not specified",
+  "@undeterminedLanguage": {
+    "description": "Workbench: undeterminedLanguage"
+  },
+  "languageIndependence": "Changing the interface language does not translate or alter your manuscript.",
+  "@languageIndependence": {
+    "description": "Workbench: languageIndependence"
+  },
+  "openDirectory": "Open chapter directory",
+  "@openDirectory": {
+    "description": "Workbench: openDirectory"
+  },
+  "closeDialog": "Close",
+  "@closeDialog": {
+    "description": "Workbench: closeDialog"
+  },
+  "chapterCount": "{count, plural, =0{No chapters} =1{1 chapter} other{{count} chapters}}",
+  "@chapterCount": {
+    "description": "Workbench: chapterCount",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "diagnosticsLabel": "M1 diagnostics",
+  "@diagnosticsLabel": {
+    "description": "Workbench: diagnosticsLabel"
+  },
+  "diagnosticTitle": "Native bridge acceptance",
+  "@diagnosticTitle": {
+    "description": "Workbench: diagnosticTitle"
+  },
+  "diagnosticIdle": "The native acceptance check has not run.",
+  "@diagnosticIdle": {
+    "description": "Workbench: diagnosticIdle"
+  },
+  "diagnosticRunning": "Checking the real Rust / SQLite contracts…",
+  "@diagnosticRunning": {
+    "description": "Workbench: diagnosticRunning"
+  },
+  "diagnosticRun": "Run native acceptance",
+  "@diagnosticRun": {
+    "description": "Workbench: diagnosticRun"
+  },
+  "diagnosticPass": "Native acceptance passed.",
+  "@diagnosticPass": {
+    "description": "Workbench: diagnosticPass"
+  },
+  "diagnosticFail": "Native acceptance failed. Error type: {type}",
+  "@diagnosticFail": {
+    "description": "Workbench: diagnosticFail",
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "backToWorkspace": "Back to workspace",
+  "@backToWorkspace": {
+    "description": "Workbench: backToWorkspace"
+  },
+  "startupError": "The native workspace could not start.",
+  "@startupError": {
+    "description": "Workbench: startupError"
+  },
+  "realDataLabel": "Sample data",
+  "@realDataLabel": {
+    "description": "Workbench: realDataLabel"
+  },
+  "languageFallback": "This language is not translated yet. English is shown.",
+  "@languageFallback": {
+    "description": "Workbench: languageFallback"
+  },
+  "untitledWork": "Untitled work",
+  "@untitledWork": {
+    "description": "Workbench: untitledWork"
+  },
+  "errorCode": "Error code: {code}",
+  "@errorCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    },
+    "description": "Safe diagnostic code for a repository failure"
+  }
+}

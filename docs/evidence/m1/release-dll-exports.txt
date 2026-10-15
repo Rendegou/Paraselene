@@ -1,0 +1,54 @@
+Microsoft (R) COFF/PE Dumper Version 14.44.35229.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file apps\desktop\build\windows\x64\runner\Release\paraselene_bridge.dll
+
+File Type: DLL
+
+  Section contains the following exports for paraselene_bridge.dll
+
+    00000000 characteristics
+    FFFFFFFF time date stamp
+        0.00 version
+           1 ordinal base
+          27 number of functions
+          27 number of names
+
+    ordinal hint RVA      name
+
+          1    0 0004DB70 frb_create_shutdown_callback
+          2    1 00010830 frb_dart_fn_deliver_output
+          3    2 0004E720 frb_dart_opaque_dart2rust_encode
+          4    3 0004DB80 frb_dart_opaque_drop_thread_box_persistent_handle
+          5    4 0004E770 frb_dart_opaque_rust2dart_decode
+          6    5 0004DCC0 frb_free_wire_sync_rust2dart_dco
+          7    6 0004DD30 frb_free_wire_sync_rust2dart_sse
+          8    7 00010920 frb_get_rust_content_hash
+          9    8 0004DD50 frb_init_frb_dart_api_dl
+         10    9 00010930 frb_pde_ffi_dispatcher_primary
+         11    A 001E6700 frb_pde_ffi_dispatcher_sync
+         12    B 0004FF30 frb_rust_vec_u8_free
+         13    C 0004FF50 frb_rust_vec_u8_new
+         14    D 0004FFD0 frb_rust_vec_u8_resize
+         15    E 00010980 frbgen_paraselene_flutter_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession
+         16    F 000109C0 frbgen_paraselene_flutter_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession
+         17   10 00075B60 free_zero_copy_buffer_f32
+         18   11 00075BA0 free_zero_copy_buffer_f64
+         19   12 00075BE0 free_zero_copy_buffer_i16
+         20   13 00075B60 free_zero_copy_buffer_i32
+         21   14 00075BA0 free_zero_copy_buffer_i64
+         22   15 00075C20 free_zero_copy_buffer_i8
+         23   16 00075BE0 free_zero_copy_buffer_u16
+         24   17 00075B60 free_zero_copy_buffer_u32
+         25   18 00075BA0 free_zero_copy_buffer_u64
+         26   19 00075C20 free_zero_copy_buffer_u8
+         27   1A 00075C60 store_dart_post_cobject
+
+  Summary
+
+        7000 .data
+       18000 .pdata
+       66000 .rdata
+        2000 .reloc
+      1EC000 .text

@@ -1,0 +1,18 @@
+[package]
+name = "paraselene-novel-core"
+version = "0.1.0"
+edition = "2021"
+description = "幻月小说共写上下文与完整试写校验；纯 Rust，不依赖 Tauri"
+license = "MIT"
+
+[dependencies]
+paraselene-memory-core = { path = "../memory-core" }
+paraselene-llm-core = { path = "../llm-core" }
+futures-util = "0.3"
+futures-channel = "0.3"
+blake3 = "1"
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

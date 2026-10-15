@@ -3,7 +3,7 @@
 2026-10-15；Owner：当前迁移会话。原工程只读，独立分支 `codex/flutter-migration-20261015`。
 
 - M0 Text/Locale Contract：IMPLEMENTED，9项Dart测试/2项Rust测试、静态检查、5组跨语言向量通过；独立审查已修正质量入口失败证据记录，最终交付验证见 `docs/evidence/M0-20261015.md`。
-- M1 Windows runner/FRB/storage：BLOCKED_ENVIRONMENT / WAITING_TOOLCHAIN_APPROVAL。Flutter doctor明确缺Visual Studio；vswhere -all未发现产品。已向作者请求安装Build Tools C++ Desktop/Windows SDK/CMake授权，未获答复前不安装。Rust MSVC toolchain已存在；尚未构建runner/FRB/数据库。
+- M1 Windows runner/FRB/storage：IMPLEMENTED。Build Tools安装退出0；Windows doctor、Release构建、182项Rust测试、严格Clippy、真实FFI/CLI与Windows集成通过。独立复制包移除SDK PATH后验收通过，缺DLL退出1。FRB2.11.1生成绑定重跑无变化；5个core crate的79份快照及原工程559份文件不变。最终独立审查与证据见 `docs/evidence/M1-20261015.md`。
 - M2–M9：NOT_RUN。
 
 本轮实施授权已获得。之前规划中的“本轮不实施”仅约束规划交付，不限制本次用户明确要求执行。

@@ -1,0 +1,4 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart
+00:00 +0: real DLL preserves synthetic contracts and releases sessions
+00:05 +1: All tests passed!

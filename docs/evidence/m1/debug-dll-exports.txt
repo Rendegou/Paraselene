@@ -1,0 +1,54 @@
+Microsoft (R) COFF/PE Dumper Version 14.44.35229.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\paraselene_bridge.dll
+
+File Type: DLL
+
+  Section contains the following exports for paraselene_bridge.dll
+
+    00000000 characteristics
+    FFFFFFFF time date stamp
+        0.00 version
+           1 ordinal base
+          27 number of functions
+          27 number of names
+
+    ordinal hint RVA      name
+
+          1    0 000C3190 frb_create_shutdown_callback = frb_create_shutdown_callback
+          2    1 00034BD0 frb_dart_fn_deliver_output = frb_dart_fn_deliver_output
+          3    2 000C31F0 frb_dart_opaque_dart2rust_encode = frb_dart_opaque_dart2rust_encode
+          4    3 000C7060 frb_dart_opaque_drop_thread_box_persistent_handle = frb_dart_opaque_drop_thread_box_persistent_handle
+          5    4 000CC460 frb_dart_opaque_rust2dart_decode = frb_dart_opaque_rust2dart_decode
+          6    5 000C3240 frb_free_wire_sync_rust2dart_dco = frb_free_wire_sync_rust2dart_dco
+          7    6 000C32C0 frb_free_wire_sync_rust2dart_sse = frb_free_wire_sync_rust2dart_sse
+          8    7 00034CB0 frb_get_rust_content_hash = frb_get_rust_content_hash
+          9    8 000C3340 frb_init_frb_dart_api_dl = frb_init_frb_dart_api_dl
+         10    9 00034CC0 frb_pde_ffi_dispatcher_primary = frb_pde_ffi_dispatcher_primary
+         11    A 00034D20 frb_pde_ffi_dispatcher_sync = frb_pde_ffi_dispatcher_sync
+         12    B 000C70B0 frb_rust_vec_u8_free = frb_rust_vec_u8_free
+         13    C 000C7130 frb_rust_vec_u8_new = frb_rust_vec_u8_new
+         14    D 000C7190 frb_rust_vec_u8_resize = frb_rust_vec_u8_resize
+         15    E 00034DC0 frbgen_paraselene_flutter_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession = frbgen_paraselene_flutter_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession
+         16    F 00034E10 frbgen_paraselene_flutter_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession = frbgen_paraselene_flutter_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession
+         17   10 001448B0 free_zero_copy_buffer_f32 = free_zero_copy_buffer_f32
+         18   11 00144940 free_zero_copy_buffer_f64 = free_zero_copy_buffer_f64
+         19   12 001449D0 free_zero_copy_buffer_i16 = free_zero_copy_buffer_i16
+         20   13 00144A60 free_zero_copy_buffer_i32 = free_zero_copy_buffer_i32
+         21   14 00144AF0 free_zero_copy_buffer_i64 = free_zero_copy_buffer_i64
+         22   15 00144B80 free_zero_copy_buffer_i8 = free_zero_copy_buffer_i8
+         23   16 00144C10 free_zero_copy_buffer_u16 = free_zero_copy_buffer_u16
+         24   17 00144CA0 free_zero_copy_buffer_u32 = free_zero_copy_buffer_u32
+         25   18 00144D30 free_zero_copy_buffer_u64 = free_zero_copy_buffer_u64
+         26   19 00144DC0 free_zero_copy_buffer_u8 = free_zero_copy_buffer_u8
+         27   1A 00146B20 store_dart_post_cobject = store_dart_post_cobject
+
+  Summary
+
+       15000 .data
+       2B000 .pdata
+       8B000 .rdata
+        3000 .reloc
+      2DD000 .text

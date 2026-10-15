@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\lib\\native\\generated\\api.dart",
+    "SHA256": "B014A585CB4D59EB518A42DA5341BD7278068BA29C9DA1DBA6C2884986282A09"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\lib\\native\\generated\\frb_generated.dart",
+    "SHA256": "5D3631DBD4F648D565263351177C89F694E29FFFB2BEC036B77FFD442C272426"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\lib\\native\\generated\\frb_generated.io.dart",
+    "SHA256": "3E8993F66D71571E861A69E86314258BEE13FDC9E3B8C6A652F70A5EED7AAF29"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\lib\\native\\generated\\frb_generated.web.dart",
+    "SHA256": "39FC5DADB5E760D1C520FC13F153F0BC02FB71FE4B6CA1AC1C569081B49D59D2"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\lib\\native\\generated\\api\\models.dart",
+    "SHA256": "4497021E4F8014264A5DA005173468713D4FB3BB173AE92210ED66CB38638A6C"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\rust\\bridge\\src\\frb_generated.rs",
+    "SHA256": "9ADB640314EFA5512E9ADEA3C50484EEF135C0EFC324CA4231DB422225E16C30"
+  }
+]

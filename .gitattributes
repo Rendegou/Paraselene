@@ -1,0 +1,2 @@
+# Frozen reused core sources retain exact bytes across Windows checkouts.
+rust/core/** -text whitespace=cr-at-eol

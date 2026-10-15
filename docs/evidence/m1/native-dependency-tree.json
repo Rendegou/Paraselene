@@ -1,0 +1,572 @@
+[
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "MSVCP140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "VCRUNTIME140_1.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "api-ms-win-crt-math-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "api-ms-win-crt-stdio-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "concrt140.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "ADVAPI32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "IPHLPAPI.DLL",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "ole32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "OLEAUT32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "PSAPI.DLL",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "SHLWAPI.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "RPCRT4.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "WINMM.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "WS2_32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "IMM32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "USER32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "OPENGL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "bcrypt.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "api-ms-win-core-path-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "ntdll.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "OLEACC.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "UIAutomationCore.DLL",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "PROPSYS.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "dxgi.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "GDI32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "d3d9.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "CRYPT32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "dwmapi.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "flutter_windows.dll",
+    "Dependency": "dbghelp.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "msvcp140_1.dll",
+    "Dependency": "MSVCP140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_1.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_1.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_1.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_1.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "MSVCP140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "VCRUNTIME140_1.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "api-ms-win-crt-math-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "api-ms-win-crt-stdio-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "api-ms-win-crt-locale-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_2.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "MSVCP140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "VCRUNTIME140_1.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "api-ms-win-crt-locale-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "ADVAPI32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "msvcp140_atomic_wait.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "msvcp140_codecvt_ids.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140_codecvt_ids.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140_codecvt_ids.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "VCRUNTIME140_1.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-locale-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-stdio-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-filesystem-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-time-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-environment-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-math-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-convert-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "api-ms-win-crt-utility-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "msvcp140.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "bcryptprimitives.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "kernel32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-core-synch-l1-2-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "ntdll.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-utility-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-time-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-math-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_bridge.dll",
+    "Dependency": "api-ms-win-crt-stdio-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "dwmapi.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "flutter_windows.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "USER32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "SHELL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "ole32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "ADVAPI32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "MSVCP140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "VCRUNTIME140_1.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "api-ms-win-crt-stdio-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "api-ms-win-crt-math-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "paraselene_flutter.exe",
+    "Dependency": "api-ms-win-crt-locale-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140_1.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140_1.dll",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140_1.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140_1.dll",
+    "Dependency": "VCRUNTIME140.dll",
+    "Resolution": "bundled"
+  },
+  {
+    "Binary": "vcruntime140_1.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  },
+  {
+    "Binary": "vcruntime140.dll",
+    "Dependency": "api-ms-win-crt-runtime-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140.dll",
+    "Dependency": "api-ms-win-crt-string-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140.dll",
+    "Dependency": "api-ms-win-crt-heap-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140.dll",
+    "Dependency": "api-ms-win-crt-stdio-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140.dll",
+    "Dependency": "api-ms-win-crt-convert-l1-1-0.dll",
+    "Resolution": "Windows API set"
+  },
+  {
+    "Binary": "vcruntime140.dll",
+    "Dependency": "KERNEL32.dll",
+    "Resolution": "Windows System32"
+  }
+]

@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "core/memory-core", "core/novel-core", "core/llm-core",
+    "core/character-core", "core/learning-core",
+    "contract-oracle", "application", "bridge",
+]
+resolver = "2"

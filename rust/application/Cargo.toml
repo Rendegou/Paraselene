@@ -1,0 +1,15 @@
+[package]
+name = "paraselene-application"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[dependencies]
+paraselene-memory-core = { path = "../core/memory-core" }
+tokio = { version = "1", features = ["rt-multi-thread", "time", "sync", "macros"] }
+serde = { version = "1", features = ["derive"] }
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Storage_FileSystem"] }
+
+[dev-dependencies]
+tempfile = "3"
+blake3 = "1"

@@ -1,0 +1,555 @@
+[
+  {
+    "Crate": "memory-core",
+    "RelativePath": "Cargo.toml",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\Cargo.toml",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\Cargo.toml",
+    "SHA256": "C30B3F0A6DAEB2756F35D9E7B0249E74FAA2884E343F5F46D9736E86D7EF6E9E"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\error.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\error.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\error.rs",
+    "SHA256": "57093D6EC10B47C82F3143D4449E4B0607493105495C624965FA22A6175F1D63"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\ideas.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\ideas.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\ideas.rs",
+    "SHA256": "5F8D5290F1B5DB4878EE3198DDFB22BCF6232AFECD3AB7C4C45A15DD9FB50750"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\import_file.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\import_file.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\import_file.rs",
+    "SHA256": "E1B2501748DCB52AE145BC243A5D6994093327BA40D552CE0FC261C5514F530D"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\imports.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\imports.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\imports.rs",
+    "SHA256": "1D74F5A45C50D370BE5ABEFF246C183A276706C11E76E5362BB90420CA3C6208"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\learning.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\learning.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\learning.rs",
+    "SHA256": "15A3C6C92BBAC0D67970D7E37E2DEEE3558D26D3F96A1DBC1FF5312CA17251FE"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\lib.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\lib.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\lib.rs",
+    "SHA256": "84F4BF8F703EDF30BDBAECCA2A5812249FA5EF5DC2EC453CEF48F70DC73A3FD9"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\paths.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\paths.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\paths.rs",
+    "SHA256": "4A175489B5056C98BF72F035E95DDD3A0303DAE3DCA7B4714A7961489E32D530"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\spaces.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\spaces.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\spaces.rs",
+    "SHA256": "77FF043D621D66ADCCF2E5548E18636073562F8B4757C26E1FAB6706E407E9EA"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\adapters\\codex.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\adapters\\codex.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\adapters\\codex.rs",
+    "SHA256": "E3148B436023EAB40D6F552ECD37FE9270585EBA8D53F669DE6F7AFB3A275BD4"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\adapters\\kimi.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\adapters\\kimi.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\adapters\\kimi.rs",
+    "SHA256": "BC75AB0CF4300DE0C59AC3B11734287C9486416DD50DAFE8B65DFDEBDABF3BF3"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\adapters\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\adapters\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\adapters\\mod.rs",
+    "SHA256": "F52CCF0506CA323A7FA931D39356342E225765E985A5AA368BC4250267A42D55"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\model\\message.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\model\\message.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\model\\message.rs",
+    "SHA256": "E21D210384C88F06468D8C59F6013EA4E08619A50D48F08334BE419753791D3C"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\model\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\model\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\model\\mod.rs",
+    "SHA256": "E315E196F78F1508C420777D56BA6EDD5D8CD001954F4475893F618F90BCCFAE"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\model\\session.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\model\\session.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\model\\session.rs",
+    "SHA256": "2C6995460EFE457E9CDACB6BEF3DF87777A9D61DABEFC4B4AC9817EC856AF4DE"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\archive.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\archive.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\archive.rs",
+    "SHA256": "77A8D4C457E09A6614C81C80122DE94498169AF6FD2A1058419B27EA74769D5F"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\author_versions.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\author_versions.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\author_versions.rs",
+    "SHA256": "4B14FFBB5EB2FA35E81875ABF37CFB303A85B301A33E2CC9C4DFF3244D595BF9"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\derived_tests.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\derived_tests.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\derived_tests.rs",
+    "SHA256": "60846CD6BBB49D5E15A03D85843B1C48AE82365AAD05AF18484E66FA408B5C7D"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\derived.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\derived.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\derived.rs",
+    "SHA256": "B2651EEB3CD35E00FB6B15A08D449CDE17A7BBFAAE192BF887F1D9018797451B"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\directory.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\directory.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\directory.rs",
+    "SHA256": "75BAE596173FC546BA2593BB98912EA6F36C66D4AD82EE35C26A6C4F2219159E"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\drafts.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\drafts.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\drafts.rs",
+    "SHA256": "B0570BE573D5AA4E82D70F7EA393401B1D2EBD14FEC63A665D2170D665D6A3CF"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\lore_edit.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\lore_edit.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\lore_edit.rs",
+    "SHA256": "3C70AABFA4C7529D120ABA964EE01CD6FCF2C4211B40A627C8CF5160B8162179"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\lore_sources.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\lore_sources.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\lore_sources.rs",
+    "SHA256": "4DA8D1F693038FAEAD00B52139EE17BBB3E76CCB37F4A77B3F22A6C1CF776D90"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\lore.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\lore.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\lore.rs",
+    "SHA256": "B85DF3F97ABE1D5B7B30A7527966D6F6F08E6BFBBD974E16F9EFB3C44B7DCFA0"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\mod.rs",
+    "SHA256": "CFB936145995FFCB44AC9064E101568F8A89C685AA0D66FA4F88C16F8D8DF6D6"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\operations.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\operations.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\operations.rs",
+    "SHA256": "14D66A8D17A2C4AA92A89C54F13356F67EACCBFF0E33194F51DBC17EFDD73A58"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\patch_apply.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\patch_apply.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\patch_apply.rs",
+    "SHA256": "B304C3156CD555AD559ACA036FB2485C3DD25097F70C1FAAE8398215D65479DF"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\patches.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\patches.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\patches.rs",
+    "SHA256": "22EB1DB49030CB77612777E4B89FD9D31C053C6D5BC49E0428374CED5734BFF0"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\thread_snapshot.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\thread_snapshot.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\thread_snapshot.rs",
+    "SHA256": "0CFD69302343546830BA0A84CBBDB586716C332DDEDD5C7039FBED23A7FB98B8"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\threads.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\threads.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\threads.rs",
+    "SHA256": "BDAF8E5349B913A0D6DE754BF4925171AAD7C6C16B690A251ED70C02FD6EC5E5"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\versions.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\versions.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\versions.rs",
+    "SHA256": "A9BFF907E99AB56120C7CC6B8C4BCBD164056F5CB9124355F69C31F8E6FF7669"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\novel\\working_copies.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\novel\\working_copies.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\novel\\working_copies.rs",
+    "SHA256": "B026FFDA69106144E87C3DB95B12249177BBE56F2577D738CE125C69FDAEFD24"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\parser\\jsonl.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\parser\\jsonl.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\parser\\jsonl.rs",
+    "SHA256": "B4AE8D1736F682F8AC321852CB5B1968C5F89CDF65567B349531C219C4EF1D5C"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\parser\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\parser\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\parser\\mod.rs",
+    "SHA256": "A1FF538CE955B1055CE0D3CED33853093EB0B3BF8C5713CF4E2B192AF73650BB"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\scanner\\fingerprint.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\scanner\\fingerprint.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\scanner\\fingerprint.rs",
+    "SHA256": "F89D1D50ACE16B6E4D1FFAA3A79D1E5834221EC01055A1DCE9532BB45D4ADE44"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\scanner\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\scanner\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\scanner\\mod.rs",
+    "SHA256": "8B1A97FC7B75775FFECFF99F7AE9C29BEF24B7BEBE96FE1AE3B5C7C6AD9818F3"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\client_mvp_migration_tests.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\client_mvp_migration_tests.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\client_mvp_migration_tests.rs",
+    "SHA256": "6F952F03DD4C1DFA61E9BCD07488EE8979FC1B895444905CFB35D10400B14D44"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\client_mvp_v11.sql",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\client_mvp_v11.sql",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\client_mvp_v11.sql",
+    "SHA256": "45A5AF12F55C82E6BDA7E7856BD4E939167C8DA1BE6E808E781090F604E24308"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\client_mvp_v12.sql",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\client_mvp_v12.sql",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\client_mvp_v12.sql",
+    "SHA256": "FF421DF286A37009B18EFB10E39F254B5F8097CD3B96522E6A76D3D462470106"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\db.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\db.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\db.rs",
+    "SHA256": "DBACDD1430840BE078D016E994263652D6EE88687C7B80D2FC0E32EFA51E167A"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\migrations.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\migrations.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\migrations.rs",
+    "SHA256": "4CB180D9DBA5608982B9C0882360899767C7F3DCB59044097E4E83A9EBFEC8D1"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\mod.rs",
+    "SHA256": "DF3A3738764F1D639E12DEF9DCC5DB114EA80747DD3F550165175CAC4E14A070"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\search.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\search.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\search.rs",
+    "SHA256": "90C417E9219E2DEB3FE5FFCBFB6ED69968CDBA9C74C80F032FD967FA19EBF2CD"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\sessions.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\sessions.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\sessions.rs",
+    "SHA256": "C66994FB2F337D52B4645963C5E215CB5F1D08488BB12B0769EA853EAD2C2655"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "src\\storage\\types.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\src\\storage\\types.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\src\\storage\\types.rs",
+    "SHA256": "753844EDBB52153A19F160E0E3E1370EAE4137BEDB1DE646CABC7724A4E5A556"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "tests\\client_mvp_author_versions.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\tests\\client_mvp_author_versions.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\tests\\client_mvp_author_versions.rs",
+    "SHA256": "472A239837D7536E0FC13815899AA8592B349448911D9C1220EE7C82CF56435A"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "tests\\client_mvp_operations.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\tests\\client_mvp_operations.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\tests\\client_mvp_operations.rs",
+    "SHA256": "771905A1E22C51D37AE5D254F3D57A32795BEE20558B334F707EFEB4A98EBC4C"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "tests\\client_mvp_storage.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\tests\\client_mvp_storage.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\tests\\client_mvp_storage.rs",
+    "SHA256": "CB79CD23E9D5DC7BC6D3C9F01CE5B4260DECFA80A16E8851851553E76E364B56"
+  },
+  {
+    "Crate": "memory-core",
+    "RelativePath": "tests\\novel_lore.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\memory-core\\tests\\novel_lore.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\memory-core\\tests\\novel_lore.rs",
+    "SHA256": "40449A4DB847DD8EC62EA02B30F9BACCD65EBE55A9FCCA59F605B61DC96601DC"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "Cargo.toml",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\Cargo.toml",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\Cargo.toml",
+    "SHA256": "CA5B2C7D9772F309AA6B80DEBA3A18515C07067778FFCA5379488CA357AD399B"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\edit.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\edit.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\edit.rs",
+    "SHA256": "2922547FE2E29F931F2E63878D79C596259BC80EF5497BD107D453209904F6C4"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\generation.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\generation.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\generation.rs",
+    "SHA256": "A8272D00528DF953096F8450145515CE792FDADA3D91BF14183F0247EB706309"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\lib.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\lib.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\lib.rs",
+    "SHA256": "1331D137985F94C42A128D312AA2B26904B8D80409E30F687F3EF24159933131"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\quality.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\quality.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\quality.rs",
+    "SHA256": "B52AB15FBEC5700752694F6AFF5809D473A2E8334198F5AEF22D37377A0267E4"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\rpg.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\rpg.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\rpg.rs",
+    "SHA256": "5AE53121498B5926C1B38E8ED342E9103F47EE7B0153AF0F09AEE6E42DAE92CE"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\stream.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\stream.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\stream.rs",
+    "SHA256": "C203CFAB7A225E951AF6F0C4BEDD9B1D996009A3D8CFA71D6E04741B4003A503"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\working_edit.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\working_edit.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\working_edit.rs",
+    "SHA256": "689988E87A43C50DD946CD4EE455C1414536C2EC18822B7183A63A4A46631CD7"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\working_generation.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\working_generation.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\working_generation.rs",
+    "SHA256": "C99697977D08C1D851004035D4F9ECB32396B7C9D16E1F1D12801C8F0D1EB330"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\working_output.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\working_output.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\working_output.rs",
+    "SHA256": "C8E9790723E08537D830D3798945BF80C7BEEAC0B3085C8EA91616E735DB3C0D"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\context\\budget.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\context\\budget.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\context\\budget.rs",
+    "SHA256": "4406FA9536D8DA8DF8D7DA502571751179C17261FEA2520BB1A77ED768539990"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\context\\manifest.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\context\\manifest.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\context\\manifest.rs",
+    "SHA256": "054BA29C8AF2A695BB0D24ED3AFEB5EB7DC73D70A5E52669C3BB4D959C91E3B1"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\context\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\context\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\context\\mod.rs",
+    "SHA256": "78E3AFDBC2B7AEF2DBDA2857F7083DE7DF87F91C6506DD47DB226F21EC4B09A1"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\context\\retrieval.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\context\\retrieval.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\context\\retrieval.rs",
+    "SHA256": "B2FDEA45F4BEA0D9D8315EE427E3EDAD1D9318D3930D091C807DE6E81E4D3F8A"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\patch\\diff.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\patch\\diff.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\patch\\diff.rs",
+    "SHA256": "E933F449BA3E009BCB484198C52D70AAA9EACF5F8D7D879FDB3777C2A270A29E"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "src\\patch\\mod.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\src\\patch\\mod.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\src\\patch\\mod.rs",
+    "SHA256": "2ADCA843CB0D208CCB393955DCD4FCF1DA8DF2089A045489E09551B71707C6CD"
+  },
+  {
+    "Crate": "novel-core",
+    "RelativePath": "tests\\working_edit.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\novel-core\\tests\\working_edit.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\novel-core\\tests\\working_edit.rs",
+    "SHA256": "81FB510F304C0B49077DA2A1174BEEAEE06C48E31DB78C0432E2A229C578B0C3"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "Cargo.toml",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\Cargo.toml",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\Cargo.toml",
+    "SHA256": "4B952C7DD4867BB36A1A238288A0770518F135B49374ECF1EF94AC9CBD8D604E"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\client.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\client.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\client.rs",
+    "SHA256": "AF1E0A84293DBB30006056C426E6FE0D7A17348E749868E84D4F5F0C0D186450"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\context.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\context.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\context.rs",
+    "SHA256": "1553FF1EC8BDBF02B0CA67977D99C210898910273EAC880392A95095784031A1"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\error.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\error.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\error.rs",
+    "SHA256": "CA76203B73562B29B70F52F2FDF8FD6C3B24293EB9842AEB12A2AAF74872A34C"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\lib.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\lib.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\lib.rs",
+    "SHA256": "D8DAC2A28C28DB51BCC24A526B33818E113F70B99B109AC90A823AF08440D932"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\openai.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\openai.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\openai.rs",
+    "SHA256": "006E57DFFE2825B069E2992861EE0BBFDB9248136A982E3ECE8E092961CE9852"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\preview.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\preview.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\preview.rs",
+    "SHA256": "36A9D07C083CD97C5105CDB760AABB2A9B79BF19523CF78DE19614549FF0BD60"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\provider.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\provider.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\provider.rs",
+    "SHA256": "89872D446D893716DD6EC650753E5B274D0092837C4A1C02C1B042C782DA078F"
+  },
+  {
+    "Crate": "llm-core",
+    "RelativePath": "src\\sse.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\llm-core\\src\\sse.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\llm-core\\src\\sse.rs",
+    "SHA256": "26A986617C4B3B348AB524C296CBFC332DE33B54963CAB022AEED1F57DA8FA8E"
+  },
+  {
+    "Crate": "character-core",
+    "RelativePath": "Cargo.toml",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\character-core\\Cargo.toml",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\character-core\\Cargo.toml",
+    "SHA256": "DD14510F3706DF2AA8DBD2BF8A1087978B71B62768F522BED20D67F9CC4D6283"
+  },
+  {
+    "Crate": "character-core",
+    "RelativePath": "src\\lib.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\character-core\\src\\lib.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\character-core\\src\\lib.rs",
+    "SHA256": "2E7FF86E0FEF09AD6450ED3377FA7DA55E217BBD5CDEDFA3B457744A8BFD6B5E"
+  },
+  {
+    "Crate": "learning-core",
+    "RelativePath": "Cargo.toml",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\learning-core\\Cargo.toml",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\learning-core\\Cargo.toml",
+    "SHA256": "D0A459989C7E29B856C9770FC5423C2CDB7DD4B2F1E7C392CD0093141511758E"
+  },
+  {
+    "Crate": "learning-core",
+    "RelativePath": "src\\lib.rs",
+    "OriginalPath": "D:\\MyAgent\\paraselene-work\\crates\\learning-core\\src\\lib.rs",
+    "TargetPath": "D:\\MyAgent\\paraselene-flutter\\rust\\core\\learning-core\\src\\lib.rs",
+    "SHA256": "0735081314EB9022118B900DBCBC502FB6A995A9D2BBE04B639345B5FA3D85E0"
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "Milestone": "M1",
+  "Status": "PASS",
+  "Date": "2026-10-15",
+  "RustTestsPassed": 182,
+  "RustTestsFailed": 0,
+  "LocalChecksPassed": 8,
+  "WindowsBuild": "PASS",
+  "WindowsIntegration": "PASS",
+  "CopiedBundle": "PASS",
+  "MissingDllExpectedFailure": "PASS",
+  "CodegenFresh": "PASS",
+  "SourcePreservation": "PASS",
+  "IndependentReview": "APPROVED",
+  "SyntheticOnly": true,
+  "CloudEnabled": false,
+  "AuthorDatabaseAccess": "NOT_RUN",
+  "ProductionLocalization": "M2_NOT_RUN",
+  "CleanMachineInstallation": "M8_NOT_RUN"
+}

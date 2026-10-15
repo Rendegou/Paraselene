@@ -1,0 +1,31 @@
+Microsoft (R) COFF/PE Dumper Version 14.44.35229.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file apps\desktop\build\windows\x64\runner\Release\paraselene_bridge.dll
+
+File Type: DLL
+
+  Image has the following dependencies:
+
+    bcryptprimitives.dll
+    kernel32.dll
+    api-ms-win-core-synch-l1-2-0.dll
+    KERNEL32.dll
+    ntdll.dll
+    VCRUNTIME140.dll
+    api-ms-win-crt-string-l1-1-0.dll
+    api-ms-win-crt-heap-l1-1-0.dll
+    api-ms-win-crt-utility-l1-1-0.dll
+    api-ms-win-crt-time-l1-1-0.dll
+    api-ms-win-crt-runtime-l1-1-0.dll
+    api-ms-win-crt-math-l1-1-0.dll
+    api-ms-win-crt-stdio-l1-1-0.dll
+
+  Summary
+
+        7000 .data
+       18000 .pdata
+       66000 .rdata
+        2000 .reloc
+      1EC000 .text

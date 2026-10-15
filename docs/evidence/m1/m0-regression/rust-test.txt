@@ -1,0 +1,11 @@
+   Compiling cc v1.5.1
+   Compiling blake3 v1.8.7
+   Compiling paraselene-contract-oracle v0.1.0 (D:\MyAgent\paraselene-flutter\rust\contract-oracle)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.38s
+     Running unittests src\main.rs (build\rust-m0\debug\deps\paraselene_contract_oracle-2dafc59c765d49c5.exe)
+
+running 2 tests
+test tests::empty_stale_or_wrong_scalar_range_is_rejected ... ok
+test tests::unicode_coordinates_are_checked_and_line_endings_change_hash ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

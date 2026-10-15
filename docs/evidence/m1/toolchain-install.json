@@ -1,0 +1,10 @@
+{
+  "Stage": "completed",
+  "StartedUtc": "2026-10-14T18:14:50.642149Z",
+  "UpdatedUtc": "2026-10-14T18:39:32.1128315Z",
+  "ExitCode": 0,
+  "Message": "Installer completed; toolchain validation still required.",
+  "InstallPath": "D:\\MyAgent\\build-tools\\vs2022",
+  "CachePath": "D:\\MyAgent\\toolchain-downloads\\vs2022\\packages",
+  "LogDirectory": "D:\\MyAgent\\toolchain-downloads\\vs2022\\logs"
+}

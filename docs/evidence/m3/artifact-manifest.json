@@ -1,0 +1,119 @@
+{
+  "Scope": "Final full-height Flutter profile spike; no author data",
+  "ProfileResultSha256": "7E4BADFD0D04EF70A42E38AB8D3ED22E21B0C1722A6239FA8BAACF4B22B589E7",
+  "AppSoSha256": "875937FDABA16B0E1C6B30591BC6DB0F0E97F77C187A17085A10A57D3C1C3BA0",
+  "Files": [
+    {
+      "Path": "data\\app.so",
+      "Bytes": 9683872,
+      "Sha256": "875937FDABA16B0E1C6B30591BC6DB0F0E97F77C187A17085A10A57D3C1C3BA0"
+    },
+    {
+      "Path": "data\\flutter_assets\\AssetManifest.bin",
+      "Bytes": 367,
+      "Sha256": "20F016DD14569D5AFBDD59A49A93FB8AF52529CFDC0CE5F3F0235CD95316727A"
+    },
+    {
+      "Path": "data\\flutter_assets\\AssetManifest.json",
+      "Bytes": 345,
+      "Sha256": "4236B1A1B31754B97BC2AF8873F95047FC24F6F124D8570159429DD766B8B6D1"
+    },
+    {
+      "Path": "data\\flutter_assets\\FontManifest.json",
+      "Bytes": 391,
+      "Sha256": "BD3B719386643270A4B4BC1BA4516A899BC05993C2FAAFCFBB6AEC3611E10BAB"
+    },
+    {
+      "Path": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+      "Bytes": 1645184,
+      "Sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+    },
+    {
+      "Path": "data\\flutter_assets\\NativeAssetsManifest.json",
+      "Bytes": 45,
+      "Sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+    },
+    {
+      "Path": "data\\flutter_assets\\NOTICES.Z",
+      "Bytes": 89089,
+      "Sha256": "97832C92CB2310411D642D4E0ABCAA0C78F0C30600BCAD3DFFE3978B967D95E2"
+    },
+    {
+      "Path": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+      "Bytes": 21320,
+      "Sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+    },
+    {
+      "Path": "data\\icudtl.dat",
+      "Bytes": 778864,
+      "Sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+    },
+    {
+      "Path": "file_selector_windows_plugin.dll",
+      "Bytes": 111616,
+      "Sha256": "290AEEBDA37FAF32417FEDAD70BC65C9EFECC393F317B741415B3FCCA2E42800"
+    },
+    {
+      "Path": "flutter_windows.dll",
+      "Bytes": 23511552,
+      "Sha256": "0518A1FE47FEE3A9AA05576436EB5F5D1571266D9A5DED41F4C5C06F686C8CF0"
+    },
+    {
+      "Path": "native_assets.json",
+      "Bytes": 45,
+      "Sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+    },
+    {
+      "Path": "paraselene_editor_spike.exe",
+      "Bytes": 92160,
+      "Sha256": "C1AD0553BEDE7E4E90E21AF9AFCF843B01152CB61282C245DD9BED36A4D594C7"
+    },
+    {
+      "Path": "url_launcher_windows_plugin.dll",
+      "Bytes": 98304,
+      "Sha256": "8D4ACAD739ED425C756573385E8F156B803795A754AF4107068B3551B17EC5E6"
+    }
+  ],
+  "Sources": [
+    {
+      "Path": "spikes\\editor_comparison\\lib\\benchmark_runner.dart",
+      "Sha256": "24EEED06D14462BC097ED4B95BB054A9EF34A15633BFD258CC009B7E215F7241"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\lib\\candidate_a.dart",
+      "Sha256": "54EA74BD7465D002B1A363211D3821265B7CCB00B78AD9EF6829B7C506726C35"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\lib\\candidate_b.dart",
+      "Sha256": "85266FDA2FE278DC08A7AE211254AB0894F3BA236D384784369F43E37925B47A"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\lib\\fixtures.dart",
+      "Sha256": "AB2EC3086517C6F1899711EBA44E486A1AEE5E771E033FBB47B7757ED45B8C39"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\lib\\main.dart",
+      "Sha256": "AB30B4D4887BCDADCEAA24C70E2718C08ECE378313F9BFAD3179CA3728D98554"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\lib\\plain_projection.dart",
+      "Sha256": "B943E67F29197B806038CE4247D6FA73759DB927BC02048BFE57FF98F567D79F"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\pubspec.lock",
+      "Sha256": "8DEC622EA0D908C2A1CF3CF0BC6B23B4EF077D446FE7E053AC46F0843D1ED52B"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\pubspec.yaml",
+      "Sha256": "114E20B533B63478D52502E7DEE1754A23A4CF5165BEE0AFB39F16A9ED86D36C"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\test\\candidate_a_test.dart",
+      "Sha256": "CA45274C091179DE06DB49EF1C2EF034DDF251D09E57C2DAA1608F16722B9DB8"
+    },
+    {
+      "Path": "spikes\\editor_comparison\\test\\candidate_b_test.dart",
+      "Sha256": "5DBC5C87505BC6E2A349F17039F4A45D12E72EC60B1AB84693E6D7BD2C151EA1"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: complete numeric matrix passes without accepting M3
+ok 1 - complete numeric matrix passes without accepting M3
+  ---
+  duration_ms: 2.4569
+  type: 'test'
+  ...
+# Subtest: slow input cannot retain PASS from stale summary fields
+ok 2 - slow input cannot retain PASS from stale summary fields
+  ---
+  duration_ms: 0.6651
+  type: 'test'
+  ...
+# Subtest: slow load cannot retain PASS from stale summary fields
+ok 3 - slow load cannot retain PASS from stale summary fields
+  ---
+  duration_ms: 0.6562
+  type: 'test'
+  ...
+# Subtest: sustained scroll cannot retain PASS from stale summary fields
+ok 4 - sustained scroll cannot retain PASS from stale summary fields
+  ---
+  duration_ms: 0.9159
+  type: 'test'
+  ...
+# Subtest: reported failed budget cannot retain PASS from stale summary fields
+ok 5 - reported failed budget cannot retain PASS from stale summary fields
+  ---
+  duration_ms: 0.6902
+  type: 'test'
+  ...
+# Subtest: missing case fails closed as NOT_RUN
+ok 6 - missing case fails closed as NOT_RUN
+  ---
+  duration_ms: 0.3494
+  type: 'test'
+  ...
+# Subtest: insufficient input fails closed as NOT_RUN
+ok 7 - insufficient input fails closed as NOT_RUN
+  ---
+  duration_ms: 0.3606
+  type: 'test'
+  ...
+# Subtest: missing budget fails closed as NOT_RUN
+ok 8 - missing budget fails closed as NOT_RUN
+  ---
+  duration_ms: 0.4761
+  type: 'test'
+  ...
+# Subtest: invalid sample fails closed as NOT_RUN
+ok 9 - invalid sample fails closed as NOT_RUN
+  ---
+  duration_ms: 0.5593
+  type: 'test'
+  ...
+# Subtest: CRLF status and error derive from current input
+ok 10 - CRLF status and error derive from current input
+  ---
+  duration_ms: 0.7859
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 76.4002

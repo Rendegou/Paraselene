@@ -1,0 +1,32 @@
+name: paraselene_editor_spike
+description: Isolated synthetic A/B editor acceptance experiment.
+publish_to: none
+version: 0.0.1
+environment:
+  sdk: ^3.8.1
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_quill: 11.5.0
+  text_contract:
+    path: ../../packages/text_contract
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Notebook Sans
+      fonts:
+        - asset: ../../apps/desktop/assets/fonts/NotoSansSC-Regular.ttf
+    - family: Notebook Serif
+      fonts:
+        - asset: ../../apps/desktop/assets/fonts/NotoSerifSC-Regular.ttf
+    - family: Noto Arabic
+      fonts:
+        - asset: ../../apps/desktop/assets/fonts/NotoNaskhArabic.ttf

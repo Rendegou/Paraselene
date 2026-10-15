@@ -6,6 +6,7 @@ requests, and does not replace the M2 read-only desktop application.
 Run from this folder using PowerShell 7 and the pinned Flutter 3.32.1 / Dart 3.8.1:
 
 ```pwsh
+./prepare-fonts.ps1
 flutter pub get
 flutter analyze --fatal-infos
 flutter test
@@ -16,7 +17,11 @@ flutter build windows --profile
 The profile argument writes `docs/evidence/m3/flutter-profile.json` at the explicit
 workspace path in `main.dart`, then exits. Without it, use the diagnostic controls
 for A/B, synthetic fixture, SLOT and SAVE IME TRACE. Diagnostic strings are not a
-localized product surface. Fonts reference the M2 licensed assets directly.
+localized product surface. The preparation script stages the licensed M2 fonts
+and OFL notices locally with hash checks; startup explicitly awaits their load.
+The original package-external font references failed to include fonts in the
+Windows bundle. Earlier measurements did not validate the declared font; retain
+them as superseded evidence, not a font-matched comparison.
 
 A uses raw EditableText plus an equal-length LF-to-WidgetSpan rendering probe.
 B uses flutter_quill 11.5.0 and a plain-text projection around a block embed.

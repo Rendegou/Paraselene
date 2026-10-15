@@ -1,0 +1,49 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: raw CRLF emoji and composition survive layout/locale rebuild
+00:00 +1: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: LF replacement consumes layout space with equal UTF-16 offsets
+00:00 +2: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: CRLF slot Ctrl+C emits exact source to platform clipboard channel (variant: TargetPlatform.windows)
+00:00 +4: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: no LF cannot allocate a source-preserving inline slot
+00:00 +5: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: loads exact 10000 UTF-16 units without normalization
+00:00 +6: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: loads exact 200000 UTF-16 units without normalization
+00:01 +7: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: raw roundtrip []
+00:01 +8: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: raw roundtrip [110, 111, 32, 102, 105, 110, 97, 108, 32, 110, 101, 119, 108, 105, 110, 101]
+00:01 +9: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: raw roundtrip [97, 10]
+00:01 +10: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: raw roundtrip [97, 13, 10, 98, 10]
+00:01 +11: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: raw roundtrip [55357, 56898, 55357, 56425, 8205, 55357, 56507, 101, 769, 32, 1575, 1604, 1593, 1585, 1576, 1610, 1577, 13, 10, 23614]
+00:01 +12: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: UTF16 scalar mapping rejects surrogate splits
+00:01 +13: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: intact embed maps selection to exact raw UTF16 coordinates
+00:01 +14: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: FAIL evidence: deleting transient embed leaves an author newline
+00:01 +15: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: FAIL evidence: native plain copy contains synthetic block boundary
+00:01 +16: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:02 +17: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:02 +18: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:02 +19: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:02 +20: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:02 +21: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:02 +22: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +23: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +24: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +25: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +26: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +27: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +28: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +29: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +30: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +31: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +32: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +33: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +34: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +35: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +36: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +37: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +38: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:03 +39: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:04 +40: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +41: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: small LTR CRLF emoji combining and mixed RTL geometry matches full painter
+00:05 +42: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: empty document has one editable row; giant grapheme fails explicitly
+00:05 +43: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: shared transform round trips document and viewport
+00:05 +44: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: (tearDownAll)
+00:05 +44: All tests passed!
+EXIT_CODE=0

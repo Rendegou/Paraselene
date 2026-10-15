@@ -1,0 +1,15 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Analyzing editor_comparison...                                  
+
+   info - Unnecessary constructor invocation - lib\c_layout.dart:53:20 - prefer_collection_literals
+   info - The import of 'package:characters/characters.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/widgets.dart' - lib\c_native.dart:2:8 - unnecessary_import
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/widgets.dart' - lib\c_native.dart:3:8 - unnecessary_import
+  error - Undefined name 'FramePhase' - lib\c_profile.dart:160:51 - undefined_identifier
+  error - Undefined name 'FramePhase' - lib\c_profile.dart:161:52 - undefined_identifier
+  error - Undefined name 'FramePhase' - lib\c_profile.dart:162:53 - undefined_identifier
+   info - Unnecessary constructor invocation - lib\c_scene.dart:9:18 - prefer_collection_literals
+   info - The import of 'package:characters/characters.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\c_viewport.dart:2:8 - unnecessary_import
+  error - The named parameter 'textSelection' isn't defined - lib\c_viewport.dart:171:13 - undefined_named_parameter
+
+9 issues found. (ran in 4.9s)
+EXIT_CODE=1

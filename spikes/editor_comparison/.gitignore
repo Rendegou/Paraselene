@@ -34,6 +34,8 @@ migrate_working_dir/
 /build/
 # Flutter stages referenced ../../apps font assets here during a build.
 /apps/
+# Locally staged licensed M2 fonts; reproduce with prepare-fonts.ps1.
+/assets/fonts/
 
 # Symbolication related
 app.*.symbols

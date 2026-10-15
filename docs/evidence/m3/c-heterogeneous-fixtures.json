@@ -1,0 +1,16 @@
+{
+  "Scope": "Independent PowerShell reproduction of deterministic cFixture generator; source SHA identifies the Dart generator",
+  "GeneratorSha256": "F038FE69B9969B001C1708BE1D27C45E41B5EF59FBE16AE1D59FD478722258BB",
+  "Fixtures": [
+    {
+      "Fixture": "heterogeneous",
+      "Utf16Units": 200000,
+      "Sha256": "EF92A1450C54750246D5059169576F47FE693352ECFA875DC1818784B13668B0"
+    },
+    {
+      "Fixture": "heterogeneous-single-line",
+      "Utf16Units": 200000,
+      "Sha256": "D7BBDBD61A708DAC704A1DCD38AAC71EDA1429E6862ACBA0FDDC6F24973E961D"
+    }
+  ]
+}

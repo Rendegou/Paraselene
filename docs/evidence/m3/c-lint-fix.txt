@@ -1,0 +1,26 @@
+Computing fixes in editor_comparison...
+Applying fixes...
+
+lib\c_layout.dart
+  curly_braces_in_flow_control_structures - 3 fixes
+
+lib\c_main.dart
+  curly_braces_in_flow_control_structures - 6 fixes
+
+lib\c_native.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+
+lib\c_scene.dart
+  curly_braces_in_flow_control_structures - 3 fixes
+
+lib\c_viewport.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+
+test\c_layout_test.dart
+  curly_braces_in_flow_control_structures - 3 fixes
+
+test\c_viewport_test.dart
+  curly_braces_in_flow_control_structures - 1 fix
+
+20 fixes made in 7 files.
+EXIT_CODE=0

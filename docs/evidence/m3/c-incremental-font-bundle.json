@@ -1,0 +1,22 @@
+{
+  "Scope": "Bundle presence and SHA256 only; runtime FontLoader verification is separate",
+  "AppSoSha256": "09F0429DEDCCF437F7A28C27BB75170161A294446F0D66ED1FAEFC5B064549B4",
+  "Fonts": [
+    {
+      "Family": "Noto Arabic",
+      "Asset": "assets/fonts/NotoNaskhArabic.ttf",
+      "Sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+    },
+    {
+      "Family": "Notebook Sans",
+      "Asset": "assets/fonts/NotoSansSC-Regular.ttf",
+      "Sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+    },
+    {
+      "Family": "Notebook Serif",
+      "Asset": "assets/fonts/NotoSerifSC-Regular.ttf",
+      "Sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+    }
+  ],
+  "LicenseFilesVerified": 3
+}

@@ -1,0 +1,4 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Building Windows application...                                    28.3s
+√ Built build\windows\x64\runner\Profile\paraselene_editor_spike.exe
+EXIT_CODE=0

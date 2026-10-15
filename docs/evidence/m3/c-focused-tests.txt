@@ -1,0 +1,18 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: (setUpAll)
+00:00 +0: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: raw CRLF delimiters and final empty row are retained without hidden gaps
+00:00 +1: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: SLOT occupies one real gap and toggling never mutates raw
+00:00 +2: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:01 +3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:01 +4: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:01 +5: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:01 +6: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:01 +7: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:02 +8: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:03 +9: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: small LTR CRLF emoji combining and mixed RTL geometry matches full painter
+00:03 +10: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: empty document has one editable row; giant grapheme fails explicitly
+00:03 +11: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: shared transform round trips document and viewport
+00:03 +12: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: (tearDownAll)
+00:03 +12: All tests passed!
+EXIT_CODE=0

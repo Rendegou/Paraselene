@@ -1,0 +1,17 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart
+00:00 +0: global select-all/delete/undo/redo preserves raw UTF-16 exactly
+00:00 +1: bounded windows map raw UTF-16 without splitting graphemes
+00:00 +2: single-line 200k input has bounded middle and end contexts
+00:00 +3: repeated text composition keeps its known local window pinned
+00:00 +4: inactive composing outside context projects to empty without changing global
+00:00 +5: local replacement changes exact region and preserves reverse affinity
+00:00 +6: paragraph boundary context allows native Backspace over CRLF
+00:00 +7: composition spans LF, pins context, and commits one undo transaction
+00:00 +8: surrogate-half, malformed text and pinned overflow fail atomically
+00:00 +9: emoji diff expands shared surrogate prefix without losing raw neighbors
+00:00 +10: active composition overflow cannot switch context or change history
+00:00 +11: global composition remains authoritative if bounded context unavailable
+00:00 +12: seeded scalar-boundary edits undo/redo exact independent snapshots
+00:00 +13: All tests passed!
+EXIT_CODE=0

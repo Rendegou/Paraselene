@@ -1,0 +1,50 @@
+{
+  "fixture": "unicode",
+  "syntheticOnly": true,
+  "events": [
+    {
+      "callback": 1,
+      "length": 49,
+      "selection": [
+        10,
+        10
+      ],
+      "composing": [
+        10,
+        10
+      ],
+      "composingText": "",
+      "containsNiHao": false
+    },
+    {
+      "callback": 2,
+      "length": 50,
+      "selection": [
+        11,
+        11
+      ],
+      "composing": [
+        10,
+        11
+      ],
+      "composingText": "n",
+      "containsNiHao": false
+    },
+    {
+      "callback": 3,
+      "length": 54,
+      "selection": [
+        2,
+        2
+      ],
+      "composing": [
+        -1,
+        -1
+      ],
+      "composingText": "",
+      "containsNiHao": false
+    }
+  ],
+  "finalText": "M3 合成输入法验收nnini\r\n中文 · English · العربية · 👩‍💻 · é\r\n",
+  "attached": true
+}

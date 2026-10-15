@@ -1,0 +1,55 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: raw CRLF emoji and composition survive layout/locale rebuild
+00:00 +1: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: LF replacement consumes layout space with equal UTF-16 offsets
+00:00 +2: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +4: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +5: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +6: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +7: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +8: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +9: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +10: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +11: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: FAIL evidence: native plain copy contains synthetic block boundary
+00:00 +12: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: CRLF slot Ctrl+C emits exact source to platform clipboard channel (variant: TargetPlatform.windows)
+00:00 +13: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +14: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +15: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +16: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:01 +17: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:01 +18: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: cold heterogeneous document shapes only visible exact paragraphs
+00:01 +19: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +20: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +21: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +22: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +23: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +24: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +25: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +26: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +27: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +28: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +29: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +30: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +31: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +32: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:03 +33: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:03 +34: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:03 +35: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:03 +36: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:03 +37: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:04 +38: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:04 +39: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:04 +40: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:04 +41: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:04 +42: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous scrolling paints every visible pixel from current raw
+00:04 +43: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lazy heterogeneous-single-line scrolling paints every visible pixel from current raw
+00:05 +44: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: tall viewport leases more than 32 visible painters safely
+00:05 +45: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: SLOT and locale probe preserve active native connection and composition
+00:06 +46: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: one native global client paints bounded pages and global callback selection
+00:06 +47: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: keyboard deletion honors grapheme boundaries and global undo
+00:06 +48: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: platform caret inside combining cluster deletes entire grapheme
+00:06 +49: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: composition retains keyboard ownership and same viewport survives slot
+00:06 +50: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: clipboard mocks preserve CRLF and failures are visible state
+00:06 +51: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: (tearDownAll)
+00:06 +51: All tests passed!

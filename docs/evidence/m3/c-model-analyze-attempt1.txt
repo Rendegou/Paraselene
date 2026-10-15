@@ -1,0 +1,10 @@
+Captured console output from initial flutter analyze --no-pub attempt before test-string lint fixes.
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Analyzing editor_comparison...
+
+   info - Use interpolation to compose strings and values - test\c_window_document_test.dart:108:50 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - test\c_window_document_test.dart:127:52 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - test\c_window_document_test.dart:178:9 - prefer_interpolation_to_compose_strings
+
+3 issues found. (ran in 3.8s)
+EXIT_CODE=1

@@ -8,9 +8,11 @@ import 'candidate_a.dart';
 import 'candidate_b.dart';
 import 'fixtures.dart';
 import 'benchmark_runner.dart';
+import 'spike_fonts.dart';
 
-void main(List<String> args) {
+Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+  await loadSpikeFonts();
   runApp(SpikeApp(autoProfile: args.contains('--profile-run')));
 }
 

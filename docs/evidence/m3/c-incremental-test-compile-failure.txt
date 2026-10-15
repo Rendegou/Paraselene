@@ -1,0 +1,71 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: raw CRLF emoji and composition survive layout/locale rebuild
+00:00 +1: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: LF replacement consumes layout space with equal UTF-16 offsets
+00:00 +2: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: raw roundtrip []
+00:00 +3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +4: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +5: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +6: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +7: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +8: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +9: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +10: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+00:00 +11: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart: native select all delete undo restores exact source (variant: TargetPlatform.windows)
+lib/c_layout_frontier.dart:69:30: Error: The argument type 'num' can't be assigned to the parameter type 'double'.
+      return prepareViewport(bounded, viewportHeight);
+                             ^
+00:00 +12: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +13: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +13 -1: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_layout_test.dart: lib/c_layout_frontier.dart:69:30: Error: The argument type 'num' can't be assigned to the parameter type 'double'.
+        return prepareViewport(bounded, viewportHeight);
+                               ^
+  .
+00:00 +14 -1: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +14 -2: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_a_test.dart [E]
+  Error: the Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 907:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone.dart 1538:47                     _rootRunUnary
+  dart:async/zone.dart 1429:19                     _CustomZone.runUnary
+  dart:async/future_impl.dart 951:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 980:13               Future._propagateToListeners
+  dart:async/future_impl.dart 865:9                Future._propagateToListeners
+  dart:async/future_impl.dart 723:5                Future._completeWithValue
+  dart:async/future_impl.dart 807:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone.dart 1525:13                     _rootRun
+  dart:async/zone.dart 1422:19                     _CustomZone.run
+  dart:async/zone.dart 1321:7                      _CustomZone.runGuarded
+  dart:async/zone.dart 1362:23                     _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:21         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:00 +15 -2: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+00:00 +16 -2: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/candidate_b_test.dart: discussion reserves real block height
+lib/c_layout_frontier.dart:69:30: Error: The argument type 'num' can't be assigned to the parameter type 'double'.
+      return prepareViewport(bounded, viewportHeight);
+                             ^
+00:02 +17 -3: loading D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_viewport_test.dart: lib/c_layout_frontier.dart:69:30: Error: The argument type 'num' can't be assigned to the parameter type 'double'.
+        return prepareViewport(bounded, viewportHeight);
+                               ^
+  .
+00:03 +17 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: global select-all/delete/undo/redo preserves raw UTF-16 exactly
+00:03 +18 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: bounded windows map raw UTF-16 without splitting graphemes
+00:03 +19 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: single-line 200k input has bounded middle and end contexts
+00:03 +20 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: repeated text composition keeps its known local window pinned
+00:03 +21 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: inactive composing outside context projects to empty without changing global
+00:03 +22 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: local replacement changes exact region and preserves reverse affinity
+00:03 +23 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: paragraph boundary context allows native Backspace over CRLF
+00:03 +24 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: composition spans LF, pins context, and commits one undo transaction
+00:03 +25 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: surrogate-half, malformed text and pinned overflow fail atomically
+00:03 +26 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: emoji diff expands shared surrogate prefix without losing raw neighbors
+00:03 +27 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: active composition overflow cannot switch context or change history
+00:03 +28 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: global composition remains authoritative if bounded context unavailable
+00:03 +29 -3: D:/MyAgent/paraselene-flutter/spikes/editor_comparison/test/c_window_document_test.dart: seeded scalar-boundary edits undo/redo exact independent snapshots
+00:04 +30 -3: Some tests failed.

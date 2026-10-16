@@ -1,0 +1,64 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.31s
+     Running unittests src\lib.rs (build/rust-m1-msvc\debug\deps\paraselene_application-7fcf1b286b5654b8.exe)
+
+running 1 test
+test storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.95s
+
+     Running tests\m4_hardening.rs (build/rust-m1-msvc\debug\deps\m4_hardening-a058d6c4e742cac2.exe)
+
+running 6 tests
+test ui_session_optional_fields_and_fractional_scroll ... ok
+test review_context_is_bound_before_decision ... ok
+test reorder_preserves_lore_absolute_position ... ok
+test actual_sqlite_write_lock_keeps_revision_and_retry_succeeds ... ok
+test chapter_directory_failure_rolls_back_insert_and_retry_is_single ... ok
+test prepared_review_rejects_revision_hash_identity_and_head_drift ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.39s
+
+     Running tests\m4_workspace.rs (build/rust-m1-msvc\debug\deps\m4_workspace-c116633801b42534.exe)
+
+running 11 tests
+test archive_restore_preserves_everything ... ok
+test ui_session_validation ... ok
+test rename_chapter_validation ... ok
+test discard_draft_requires_matching_revision ... ok
+test two_works_two_chapters_flow ... ok
+test recent_works_order_dedupe_and_limit ... ok
+test reorder_full_set_and_archived_positions ... ok
+test confirm_version_tree_and_conflicts ... ok
+test rollback_moves_head_and_drops_draft ... ok
+test empty_body_save_and_reopen_persists ... ok
+test damaged_recent_record_is_backed_up ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.23s
+
+     Running tests\provenance.rs (build/rust-m1-msvc\debug\deps\provenance-7a3ceff97fb6b261.exe)
+
+running 3 tests
+test unknown_preexisting_database_and_hardlink_are_rejected_untouched ... ok
+test open_handles_pin_database_marker_and_root_against_replacement ... ok
+test registered_database_reopens_but_linked_alias_does_not ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.84s
+
+     Running tests\session.rs (build/rust-m1-msvc\debug\deps\session-ef5d8dca058e3317.exe)
+
+running 5 tests
+test unmarked_root_rejected_without_database_creation ... ok
+test cancellation_close_unsubscribe_and_bounded_events ... ok
+test distinct_jobs_complete_out_of_order ... ok
+test dropped_future_and_retention_limit ... ok
+test cas_unicode_reopen_identity_and_close ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.87s
+
+   Doc-tests paraselene_application
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

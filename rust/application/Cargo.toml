@@ -8,8 +8,13 @@ license = "MIT"
 paraselene-memory-core = { path = "../core/memory-core" }
 tokio = { version = "1", features = ["rt-multi-thread", "time", "sync", "macros"] }
 serde = { version = "1", features = ["derive"] }
-windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Storage_FileSystem"] }
+serde_json = "1"
+blake3 = "1"
+rusqlite = { version = "0.32", features = ["backup", "serialize"] }
+uuid = { version = "1", features = ["v4"] }
+chrono = "0.4"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Storage_FileSystem", "Win32_Security_Cryptography"] }
 
 [dev-dependencies]
 tempfile = "3"
-blake3 = "1"
+

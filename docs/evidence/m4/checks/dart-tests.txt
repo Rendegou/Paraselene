@@ -1,0 +1,358 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: two listeners never receive stale state after reentrant publication
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: 350ms debounce resets and equal text does not increment sequence
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: timer failure has no unhandled Future and retains error until retry
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: flight installed before saving listeners reenter flush
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: edit during final saved notification drains under same flight
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: flushAll revisits previously clean slots changed while another waits
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: listener exceptions are diagnostics and cannot become save failure
+00:00 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: invalid identity reply cannot advance revision or erase draft
+00:00 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: invalid body reply cannot advance revision or erase draft
+00:00 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: invalid revision reply cannot advance revision or erase draft
+00:00 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: delimiter-containing identities cannot collide and dispose is safe
+00:00 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: snapshot acknowledgement preserves edits and coalesces next write
+00:00 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: late reply isolated from selected chapter and same id in other work
+00:00 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: failed barrier keeps text and CAS through edits and explicit retry
+00:00 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: stable CAS conflicts never refresh revision and block hydrate
+00:00 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: empty exact text submits; reload rejected until settled
+00:00 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: close and switch barriers wait for newest text across documents
+00:00 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: flushAll failure does not prevent independent document saving
+00:00 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: release requires settled unobserved slot; saved notification has flight
+00:00 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:01 +19: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_golden_test.dart
+Warning: A tag was used that wasn't specified in dart_test.yaml.
+  golden was used in the suite itself
+
+00:01 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:01 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:01 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +22: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +23: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +24: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +25: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +26: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +27: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +28: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +29: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +30: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +31: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +32: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +33: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +34: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +35: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +36: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +37: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +38: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +39: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +40: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +41: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +42: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +43: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +44: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +45: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +46: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +47: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +48: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +49: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +50: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +51: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +52: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +53: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +54: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +55: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +56: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +57: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +58: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +59: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +60: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +61: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +62: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +63: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +64: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +65: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +66: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +67: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +68: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +69: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +70: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +71: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +72: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +73: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +74: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +75: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +76: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +77: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +78: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +79: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +80: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +81: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +82: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +83: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +84: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +85: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +86: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +87: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +88: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +89: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +90: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +91: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +92: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +93: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +94: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +95: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +96: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +97: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +98: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +99: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +100: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +101: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +102: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +103: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +104: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +105: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +106: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +107: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +108: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +109: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +110: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +111: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +112: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:06 +113: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +114: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +115: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +116: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +117: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +118: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +119: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +120: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +121: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +122: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +123: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +124: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +125: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +126: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +127: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +128: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +129: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +130: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +131: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +132: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +133: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +134: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +135: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +136: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +137: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +138: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +139: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:07 +140: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +141: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +142: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +143: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +144: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +145: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +146: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +147: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +148: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +149: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +150: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +151: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +152: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +153: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +154: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +155: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +156: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +157: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +158: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +159: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +160: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +161: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +162: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +163: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +164: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +165: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +166: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +167: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +168: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +169: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +170: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:08 +171: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +172: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +173: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +174: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +175: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +176: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +177: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +178: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +179: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +180: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +181: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +182: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +183: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +184: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +185: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +186: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +187: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +188: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:09 +189: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +190: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +191: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +192: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +193: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +194: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +195: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +196: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +197: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:09 +198: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:09 +199: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:09 +200: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:09 +201: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:09 +202: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:09 +203: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:09 +204: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +205: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +206: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +207: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +208: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +209: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +210: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +211: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +212: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +213: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +214: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +215: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +216: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +217: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +218: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +219: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +220: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +221: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +222: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +223: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +224: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +225: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +226: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +227: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +228: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +229: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +229: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: dispose with dirty text completes without skipping release
+workspace_disposed_with_dirty_text
+00:10 +230: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +231: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +232: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +233: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +234: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +235: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +236: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:10 +237: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +238: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +239: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +240: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +241: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +242: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +243: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +244: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +245: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +246: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +247: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +248: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +249: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +250: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +251: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +252: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +253: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +254: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +255: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +256: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +257: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +258: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +259: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +260: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +261: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +262: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +263: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:11 +264: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +265: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +266: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +267: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +268: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +269: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +270: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +271: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +272: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +273: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +274: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +275: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +276: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +277: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +278: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +279: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +280: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +281: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +282: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +283: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:12 +284: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:12 +285: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:12 +286: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:12 +287: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:12 +288: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:12 +289: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 plain bold=false
+00:12 +290: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +291: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +292: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +293: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +294: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +295: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +296: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +297: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +298: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +299: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +300: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +301: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +302: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +303: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +304: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +305: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +306: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +307: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +308: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +309: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +310: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +311: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +312: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +313: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +314: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +315: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +316: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +317: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +318: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +319: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +320: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +321: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +322: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +323: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +324: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +325: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:13 +326: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +327: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +328: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +329: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +330: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +331: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +332: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +333: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +334: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +335: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +336: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +337: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +338: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +339: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +340: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +341: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +342: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +343: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +344: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:14 +345: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:15 +346: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: synthetic fixture prepared decision rejects changed context and body
+00:15 +347: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: synthetic fixture two works, CAS, exact text, versions and workspace state
+00:15 +348: All tests passed!

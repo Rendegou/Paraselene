@@ -1,0 +1,369 @@
+warning: unused import: `super::*`
+   --> core\memory-core\src\novel\patches.rs:156:9
+    |
+156 |     use super::*;
+    |         ^^^^^^^^
+    |
+    = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `鏂扮嚎绋嬩繚瀛樹负revision1涓擟AS鏇存柊閫掑` should have a snake case name
+   --> core\memory-core\src\novel\threads.rs:132:8
+    |
+132 |     fn 鏂扮嚎绋嬩繚瀛樹负revision1涓擟AS鏇存柊閫掑() {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `鏂扮嚎绋嬩繚瀛樹负revision1涓擾cas鏇存柊閫掑`
+    |
+    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `paraselene-memory-core` (lib test) generated 2 warnings (run `cargo fix --lib -p paraselene-memory-core --tests` to apply 1 suggestion)
+warning: unused variable: `anchor`
+   --> core\memory-core\tests\novel_lore.rs:134:13
+    |
+134 |         let anchor = db
+    |             ^^^^^^ help: if this is intentional, prefix it with an underscore: `_anchor`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: function `浣滆€呰瀹氱洿鎺ョ‘璁AI鍙兘鏄€欓€変笖纭鍒嗙` should have a snake case name
+  --> core\memory-core\tests\novel_lore.rs:23:8
+   |
+23 |     fn 浣滆€呰瀹氱洿鎺ョ‘璁AI鍙兘鏄€欓€変笖纭鍒嗙() {
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `浣滆€呰瀹氱洿鎺ョ‘璁ai鍙兘鏄€欓€変笖纭鍒嗙`
+   |
+   = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
+
+warning: `paraselene-memory-core` (test "novel_lore") generated 2 warnings (run `cargo fix --test "novel_lore" -p paraselene-memory-core` to apply 1 suggestion)
+warning: unused variable: `first`
+   --> core\novel-core\src\context\mod.rs:352:27
+    |
+352 |         let (db, work_id, first, _) = work_with_late_reveal();
+    |                           ^^^^^ help: if this is intentional, prefix it with an underscore: `_first`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: `paraselene-novel-core` (lib test) generated 1 warning (run `cargo fix --lib -p paraselene-novel-core --tests` to apply 1 suggestion)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.30s
+     Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_application-48b9af32a2c09642.exe)
+
+running 3 tests
+test storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry ... ok
+test owned_fault_tests::rolled_back_conflict_does_not_poison ... ok
+test owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.95s
+
+     Running unittests src\bin\m4_owned_helper.rs (build\rust-m1-msvc\debug\deps\m4_owned_helper-3ef33a9a93518c7a.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\m4_hardening.rs (build\rust-m1-msvc\debug\deps\m4_hardening-321b0b1dec97a39e.exe)
+
+running 6 tests
+test ui_session_optional_fields_and_fractional_scroll ... ok
+test actual_sqlite_write_lock_keeps_revision_and_retry_succeeds ... ok
+test review_context_is_bound_before_decision ... ok
+test reorder_preserves_lore_absolute_position ... ok
+test chapter_directory_failure_rolls_back_insert_and_retry_is_single ... ok
+test prepared_review_rejects_revision_hash_identity_and_head_drift ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.29s
+
+     Running tests\m4_migration.rs (build\rust-m1-msvc\debug\deps\m4_migration-5968b15f2ca85c7a.exe)
+
+running 1 test
+test v10_to_v12_preserves_versions_sources_and_archive_thread_counts_after_reopen ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+     Running tests\m4_owned_store.rs (build\rust-m1-msvc\debug\deps\m4_owned_store-0ae8b9ad84197b3b.exe)
+
+running 6 tests
+test empty_store_opens_with_initial_state ... ok
+test killed_process_recovers_last_published_snapshot ... ok
+test unknown_store_content_is_rejected ... ok
+test tampered_payload_and_unknown_content_are_rejected ... ok
+test two_processes_save_and_restore_exact_state ... ok
+test second_writer_is_rejected_then_recovers ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.36s
+
+     Running tests\m4_selection.rs (build\rust-m1-msvc\debug\deps\m4_selection-e9b6945dc4cfcb8a.exe)
+
+running 2 tests
+test failed_selection_preserves_state_and_calls_after_close_fail ... ok
+test concurrent_selection_snapshots_keep_selected_and_recent_consistent ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.97s
+
+     Running tests\m4_workspace.rs (build\rust-m1-msvc\debug\deps\m4_workspace-9a8f47ddf118ed5a.exe)
+
+running 11 tests
+test rename_chapter_validation ... ok
+test recent_works_order_dedupe_and_limit ... ok
+test archive_restore_preserves_everything ... ok
+test rollback_moves_head_and_drops_draft ... ok
+test confirm_version_tree_and_conflicts ... ok
+test two_works_two_chapters_flow ... ok
+test discard_draft_requires_matching_revision ... ok
+test ui_session_validation ... ok
+test reorder_full_set_and_archived_positions ... ok
+test empty_body_save_and_reopen_persists ... ok
+test damaged_recent_record_is_backed_up ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.13s
+
+     Running tests\provenance.rs (build\rust-m1-msvc\debug\deps\provenance-100102d9939c42a6.exe)
+
+running 3 tests
+test unknown_preexisting_database_and_hardlink_are_rejected_untouched ... ok
+test open_handles_pin_database_marker_and_root_against_replacement ... ok
+test registered_database_reopens_but_linked_alias_does_not ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.79s
+
+     Running tests\session.rs (build\rust-m1-msvc\debug\deps\session-9db5b9311b16a74d.exe)
+
+running 5 tests
+test unmarked_root_rejected_without_database_creation ... ok
+test cancellation_close_unsubscribe_and_bounded_events ... ok
+test distinct_jobs_complete_out_of_order ... ok
+test dropped_future_and_retention_limit ... ok
+test cas_unicode_reopen_identity_and_close ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.77s
+
+     Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_memory_core-1bddda75a87981ee.exe)
+
+running 108 tests
+test imports::tests::chatgpt_姝ｅ父瑙ｆ瀽瑙掕壊鍒嗘涓庢爣棰?... ok
+test adapters::codex::tests::rollout_鏂囦欢鍚嶆彁鍙栦細璇漣d ... ok
+test adapters::kimi::tests::鐩綍鍚嶄笌椤圭洰鍚嶆帹瀵?... ok
+test imports::tests::chatgpt_绌哄垎娈佃璺宠繃 ... ok
+test imports::tests::chatgpt_缂烘棩鏈熺敤鏂囦欢鏃堕棿鍏滃簳骞舵爣娉?... ok
+test imports::tests::chatgpt_鍥剧墖鍗犱綅鏂囨湰淇濈暀 ... ok
+test imports::tests::chatgpt_浠ｇ爜鍥存爮鍐呯殑浜曞彿鏍囬涓嶅垏娈?... ok
+test imports::tests::鏍煎紡鎺㈡祴_閫氱敤_markdown_妯℃澘涓嶈鍒や负_chatgpt ... ok
+test imports::tests::鏍煎紡鎺㈡祴_棣栬闈炴爣棰樹絾鏈夊垎娈垫爣璁癬涓嶈惤_chatgpt ... ok
+test adapters::codex::tests::rollout_瑙ｆ瀽_瑙掕壊绉嶇被涓庡幓閲?... ok
+test imports::tests::閲嶅瀵煎叆_鍐呭鍝堝笇娲剧敓鍚宊id_鎵樼鍓湰鍘婚噸 ... ok
+test adapters::codex::tests::rollout_鍧忚涓嶄腑鏂笖鏍囬璺宠繃绯荤粺娉ㄥ叆 ... ok
+test adapters::kimi::tests::wire_瑙ｆ瀽_鐢ㄦ埛鍘婚噸涓庡垎鐗囧悎骞?... ok
+test adapters::kimi::tests::wire_state_json_鏍囬涓庢湭鐭ヤ簨浠?... ok
+test import_file::tests::棰勮鏂囨湰鍙涓旇В鏋愬嚭澶?... ok
+test import_file::tests::zip_鍙彇_markdown_鍧忔潯鐩粰璁℃暟涓嶉樆鏂ソ浼氳瘽 ... ok
+test adapters::kimi::tests::wire_agent_message_appended_鎸夎鑹插垎娴?... ok
+test adapters::codex::tests::rollout_澶ф枃浠舵祦寮忚В鏋愯鏁版纭?... ok
+test learning::tests::瀛︿範杞ㄨ抗鍙啓瀛︿範鐩爣涓旇杽寮辩偣鍦ㄩ€氳繃鍚庢秷澶?... ok
+test novel::derived::tests::绱Н鎽樿鍦ㄤ换浣曞墠搴忕珷鍙樺寲鏃朵繚瀹堝け鏁?... ok
+test novel::archive::tests::閲嶅褰掓。骞傜瓑涓旇法浣滃搧褰掓。鎷掔粷 ... ok
+test novel::archive::tests::褰掓。鎭㈠寰€杩斾繚鐣欐鏂囩増鏈笌缂栬緫绋?... ok
+test novel::derived::tests::淇敼绔犺妭鍚庢憳瑕乨irty骞跺叆闃熼噸寤?... ok
+test novel::drafts::tests::涓嶆帴鍙椾笉瀛樺湪浣滃搧涓庣┖姝ｆ枃 ... ok
+test ideas::tests::鍘熸枃绉婚櫎鍚庡彧鎶ュ憡淇濈暀鐨勫嚭澶勭煭寮曠敤 ... ok
+test novel::lore_sources::tests::缁戝畾骞跺垪鍑哄嚭澶勫線杩斾笖閲嶅缁戝畾骞傜瓑 ... ok
+test novel::patch_apply::tests::鍊欓€夌姸鎬佸啓澶辫触鍥炴粴鍚屼簨鍔℃鏂?... ok
+test ideas::tests::鐩爣缂栬緫鍙兘缁忓凡杞崲鏃ф兂娉曚笖鏍￠獙闀垮害涓庡垹闄ょ姸鎬?... ok
+test imports::tests::scan_imports_寰€杩擾鍐嶆壂鎻忚烦杩?... ok
+test novel::derived::tests::閲嶅缓鍙戝竷鍓嶆牳瀵规潵婧恄鏈熼棿鍐嶄慨鏀规嫆缁濇棫浜х墿 ... ok
+test novel::drafts::tests::杩囨湡璇曞啓涓嶈兘瑕嗙洊鏂版绋夸笖涓㈠純涓嶆敼姝ｇ ... ok
+test novel::patch_apply::tests::鐩稿悓revision浣嗘鏂噃ash涓嶅悓涓嶈兘缁曡繃閲囩撼鏍￠獙 ... ok
+test learning::tests::瀛︿範杞ㄨ抗閲嶅紑鍚庝粛淇濈暀浠ｇ爜缁撴灉鍜屾彁绀虹骇鍒?... ok
+test novel::drafts::tests::鏈‘璁よ瘯鍐欎笉杩涘叆姝ｇ涓婁笅鏂囦笖浣滃搧闅旂 ... ok
+test novel::patch_apply::tests::姝ｆ枃绔炰簤淇濆瓨涓庡ご鐗堟湰婕傜Щ閮芥嫆缁濋噰绾?... ok
+test parser::jsonl::tests::鍐呭鏁扮粍鎷兼帴涓嶄涪鏁版嵁 ... ok
+test parser::jsonl::tests::鍧忚涓嶄細涓柇瑙ｆ瀽 ... ok
+test novel::drafts::tests::妯″瀷璇曞啓浠呰兘淇濆瓨鍒伴瑙堟椂鐨勭‘璁ょ増鏈?... ok
+test novel::derived::tests::閲嶅惎鎭㈠running鍥瀜ueued ... ok
+test parser::jsonl::tests::鏃堕棿鎴宠鑼冨寲 ... ok
+test paths::tests::璇嶆硶瑙勮寖鍖栧鐞嗙浉瀵规 ... ok
+test novel::patch_apply::tests::鍏ㄩ儴閲囩撼鍙敼缂栬緫绋夸笖閲嶅璇锋眰涓嶄細浜屾鍐欏叆 ... ok
+test paths::tests::闅愮鐩綍琚嫤鎴?... ok
+test scanner::fingerprint::tests::鏈彉鍖栨椂涓嶉噸澶嶈绠楀搱甯?... ok
+test scanner::fingerprint::tests::閲嶅啓浣嗗唴瀹圭浉鍚屽彧鏇存柊鍏冧俊鎭?... ok
+test ideas::tests::鐘舵€佸彧缁忕‘璁よ縼绉籣鏃х姸鎬佹棤娉曡鐩?... ok
+test novel::lore_sources::tests::璺ㄤ綔鍝侀敋鐐逛笌鏈煡鏉＄洰缁戝畾鎷掔粷 ... ok
+test scanner::fingerprint::tests::鍐呭鍙樺寲鏃舵娴嬩负_changed ... ok
+test novel::derived::tests::閲嶅缓鎴愬姛鍙戝竷ready涓攃laim杩囨湡鍚庢嫆缁濋噸澶嶅畬鎴?... ok
+test parser::jsonl::tests::鏀寔_bom_涓巁crlf ... ok
+test novel::drafts::tests::寮曠敤浜虹墿鍗℃洿鏂颁笌淇濆瓨璇曞啓鍦ㄥ悓涓€浜嬪姟妫€鏌?... ok
+test ideas::tests::宸茶浆鎹㈢洰鏍囧彲閲嶆柊鎵撳紑涓庣紪杈慱浣滃搧鍚嶅悓姝ヤ笖鍑哄涓嶅彉 ... ok
+test ideas::tests::缈婚槄鍊欓€変笉浼氬弽澶嶇粰鍑哄悓涓€鏉?... ok
+test ideas::tests::鐢ㄦ埛纭鍚庢墠璺ㄧ┖闂村垱寤哄皬璇翠綔鍝乢淇濈暀鍑哄涓斾笉閲嶅 ... ok
+test import_file::tests::鏄庣‘纭鍚庢墠钀藉簱_閲嶅纭涓嶉噸澶嶅叆搴?... ok
+test ideas::tests::鍊欓€変笉钀藉簱_纭鍚庡嚭澶勫彲鍥炲埌鍘熸秷鎭?... ok
+test storage::migrations::client_mvp_migration_tests::future_database_is_rejected_without_writes ... ok
+test novel::patch_apply::tests::閮ㄥ垎閲囩撼鍚屾鏇存柊缁戝畾涓旀棫鍊欓€夊揩鐓ф嫆缁?... ok
+test parser::jsonl::tests::澶ф枃浠舵祦寮忚В鏋愪笖鍐呭瓨骞崇ǔ ... ok
+test novel::tests::閲嶅懡鍚嶆洿鏂版爣棰樹笖涓嶈Е纰扮増鏈爲 ... ok
+test novel::tests::鐩綍鎽樿涓嶅惈姝ｆ枃浣嗗甫瀛楁暟涓庨『搴?... ok
+test novel::tests::閲嶆帓蹇呴』鏄叏闆嗙簿纭帓鍒椾笖椤哄簭鐢熸晥 ... ok
+test novel::threads::tests::绾跨▼褰掑睘閿欒涓庢湭鐭ユ枃妗ｆ嫆缁?... ok
+test novel::patches::tests::鏂囨。鍒犻櫎绾ц仈娓呯悊patch涓旀湭鐭ユ枃妗ｆ嫆缁濅繚瀛?... ok
+test novel::threads::tests::鏂扮嚎绋嬩繚瀛樹负revision1涓擟AS鏇存柊閫掑 ... ok
+test novel::working_copies::tests::涔愯閿佹嫆缁濊繃鏈焤evision涓旀甯搁€掑 ... ok
+test novel::threads::tests::闈炴硶蹇収涓庡綊灞炰笉鍖归厤鎷掔粷 ... ok
+test novel::versions::tests::鍥炴粴淇濈暀鏃у垎鏀笖鏂扮‘璁ょ増鏈寕鍦ㄥ洖婊氱増鏈笂 ... ok
+test novel::working_copies::tests::宸插瓨鍦ㄧ紪杈戠鏃跺垱寤烘嫆缁濅笖鍒犻櫎骞傜瓑 ... ok
+test novel::threads::tests::鍦ㄩ€旇姹傛仮澶嶆椂鏍囪interrupted涓斾笉閲嶅彂 ... ok
+test novel::patches::tests::patch淇濆瓨璇诲彇涓庣姸鎬佹満骞傜瓑 ... ok
+test storage::search::tests::fts_鏌ヨ鏋勯€犲畨鍏?... ok
+test storage::search::tests::trigram_鏌ヨ鏋勯€?... ok
+test novel::working_copies::tests::缂栬緫绋垮垱寤鸿鍙栦笌hash涓€鑷?... ok
+test novel::working_copies::tests::绌烘鏂囩紪杈戠淇濆瓨鎭㈠浼樺厛涓旀樉寮忎涪寮冨甫revision鏍￠獙 ... ok
+test novel::versions::tests::閲囩撼鏃跺師瀛愬鏍镐汉鐗╁崱鐗堟湰_鎷掔粷杩囨湡瑕嗙洊鍐冲畾 ... ok
+test spaces::tests::杞垹鍚庨粯璁ゆ煡璇笉鍙 ... ok
+test spaces::tests::novel_蹇呴』鎸備綔鍝乢鍏朵粬绌洪棿绂佹鎸備綔鍝?... ok
+test spaces::tests::绾犳鐢辨棫鎯虫硶杞崲鐨勫皬璇寸洰鏍囦細鍚屾浣滃搧鏍囬 ... ok
+test spaces::tests::idea_鐘舵€佹満_鍚堟硶涓庨潪娉曡縼绉?... ok
+test spaces::tests::鍥涚┖闂確鎸塤space_鏌ヨ浜掍笉杩斿洖瀵规柟鏁版嵁 ... ok
+test ideas::tests::鍏朵粬鐩爣绌洪棿涓庡厤鎵撴壈鐢辩敤鎴锋樉寮忚缃?... ok
+test spaces::tests::鏈摼鎺ユ椂璺ㄧ┖闂翠笉鍙揪_閾炬帴鍚庡崟鍚戝彲瑙?... ok
+test spaces::tests::鍑哄閾綺娣诲姞璇诲彇涓巃nchor闄愬埗 ... ok
+test spaces::tests::鐢ㄦ埛绾犳涓庡垹闄よ姹傜┖闂村拰褰撳墠鐗堟湰涓斾繚鐣欏嚭澶?... ok
+test storage::migrations::tests::fts5_鍙敤涓旇Е鍙戝櫒鍚屾 ... ok
+test novel::working_copies::tests::鏂囦欢搴撳叧闂噸寮€鍚庣紪杈戠涓巖evision瀛樻椿 ... ok
+test spaces::tests::search_鍛戒腑鎼哄甫浼氳瘽鍏冩暟鎹彲鍙嶆煡 ... ok
+test ideas::tests::绌哄簱涓嶇紪閫燺纭鎷掔粷鍔╂墜鍙婇潪娉曠姸鎬?... ok
+test storage::migrations::client_mvp_migration_tests::v10_upgrade_preserves_data_and_reopens ... ok
+test storage::migrations::client_mvp_migration_tests::v12_failure_preserves_v11_threads_and_retry_reopens ... ok
+test storage::migrations::client_mvp_migration_tests::failed_v11_rolls_back_and_can_resume ... ok
+test storage::migrations::tests::insert_or_replace_涓嶄細璁fts_娈嬬暀鏃у唴瀹?... ok
+test storage::migrations::tests::trigram_鐦﹁韩瑙勫垯_tool涓嶈繘绱㈠紩涓旀枃鏈埅鏂?... ok
+test storage::migrations::tests::trigram_琛ㄩ殢杩佺Щ鍒涘缓涓旇Е鍙戝櫒鍚屾 ... ok
+test storage::migrations::tests::v2_搴撳崌绾у悗_鍥涚┖闂磋〃灏辩华涓旀暟鎹笉涓?... ok
+test storage::migrations::tests::v4_搴撳崌绾у悗_灏忚琛ㄥ彲鐢ㄤ笖鍘熶綔鍝佽蹇嗕笉涓?... ok
+test storage::migrations::tests::v1_搴撳崌绾у悗_trigram_鍥炲～瀛橀噺鏁版嵁 ... ok
+test storage::migrations::tests::v7_鍗囩骇鍚巁绔犲簭淇濇寔鏃㈡湁灞曠ず椤哄簭 ... ok
+test storage::migrations::tests::v7_缂栬緫绋胯〃灏辩华涓旈殢鏂囨。绾ц仈鍒犻櫎 ... ok
+test storage::migrations::tests::杩佺Щ鍙噸澶嶆墽琛屼笖鐗堟湰姝ｇ‘ ... ok
+test storage::search::tests::trigram_鏌ヨ鏋勯€燺绔埌绔?... ok
+test storage::migrations::tests::v5_鍗囩骇鍒板涔犺建杩逛笉鏀规棫灏忚涓庡涔犵洰鏍?... ok
+test storage::migrations::tests::绾ц仈鍒犻櫎浼氳瘽娑堟伅 ... ok
+test storage::search::tests::涓枃鍙ヤ腑鐗囨搴旇繘鍏ユ寮忔悳绱㈢粨鏋?... ok
+test storage::migrations::tests::v3_搴撳崌绾у悗_trigram_鐦﹁韩閲嶅缓 ... ok
+test storage::search::tests::鍐欏叆_鎼滅储_楂樹寒寰€杩?... ok
+test storage::search::tests::涓枃鐭煡璇㈠洖閫€涓庨暱鏌ヨ浣跨敤_trigram ... ok
+
+test result: ok. 108 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.75s
+
+     Running tests\client_mvp_author_versions.rs (build\rust-m1-msvc\debug\deps\client_mvp_author_versions-513df114341c043a.exe)
+
+running 6 tests
+test restoring_the_current_head_discards_only_the_expected_editing_copy ... ok
+test confirmation_context_change_rejects_without_mutating_manuscript ... ok
+test confirmation_rejects_empty_body_and_rolls_back_version_if_rebase_write_fails ... ok
+test rollback_checks_both_versions_and_rolls_back_head_when_discard_fails ... ok
+test confirmation_rejects_stale_head_and_revision_then_rebases_saved_snapshot ... ok
+test confirmation_rejects_old_working_base_even_after_loading_current_head ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests\client_mvp_operations.rs (build\rust-m1-msvc\debug\deps\client_mvp_operations-cdb3a6f1441e3544.exe)
+
+running 5 tests
+test 鎿嶄綔鍞竴涓斿彇娑堝悗杩熷埌瀹屾暣鍥炲涓嶅叆鍊欓€?... ok
+test 鐢熸垚鏈熼棿浣滆€呬繚瀛樻柊姝ｆ枃鍚庢棫鍥炲涓嶈兘鐢熸垚鍊欓€?... ok
+test 瀹屾垚鍝嶅簲涓庡€欓€変竴璧锋寔涔呭寲涓斾笉淇敼璁ㄨ鑽夌鍜屾鏂?... ok
+test 杈撳嚭鎻愪氦澶辫触涓嶇暀涓嬪绔嬪€欓€?... ok
+test 鏂囦欢搴撻噸寮€淇濈暀杈撳嚭鍜屽湪閫旂姸鎬佷笖涓嶈嚜鍔ㄥ彂璇锋眰 ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests\client_mvp_storage.rs (build\rust-m1-msvc\debug\deps\client_mvp_storage-34ff212b0439a2a4.exe)
+
+running 6 tests
+test thread_snapshot_validates_emoji_coordinates_and_foreign_target ... ok
+test author_lore_save_without_confirmation_keeps_author_origin ... ok
+test archive_restore_retains_threads_versions_and_editing ... ok
+test location_empty_lore_and_source_binding_respect_scope ... ok
+test threads_cas_scope_validation_and_recovery_are_independent ... ok
+test empty_manuscript_survives_reopen_and_discard_requires_cas ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests\novel_lore.rs (build\rust-m1-msvc\debug\deps\novel_lore-35c418d4ce1dcafe.exe)
+
+running 6 tests
+test tests::鐗堟湰閾句箰瑙傞攣涓庝綔鐢ㄨ寖鍥?... ok
+test tests::鍑哄閿氱偣鏍￠獙鐗堟湰褰掑睘杈圭晫涓巋ash ... ok
+test tests::鍚屽悕寮備汉涓嶈嚜鍔ㄥ悎骞禵鍒悕鍙绱?... ok
+test tests::浣滆€呰瀹氱洿鎺ョ‘璁AI鍙兘鏄€欓€変笖纭鍒嗙 ... ok
+test tests::鍥炴函鏀硅瀹氫繚鐣欏叏閮ㄥ巻鍙蹭笖鍙洖婧煡鐪?... ok
+test tests::澶寸増鏈Щ鍔ㄥ悗閿氱偣鍙樻棫鐗堜笖鏂囨。鍒犻櫎绾ц仈娓呯悊 ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_novel_core-72f09e468e3121d0.exe)
+
+running 34 tests
+test context::budget::tests::浼扮畻鍚閲忎笖闅忔枃鏈闀?... ok
+test context::retrieval::tests::鍒悕鎵╁睍鍔犲叆瑙勮寖鍚?... ok
+test edit::tests::閫夋閲嶅啓鍜岀画鍐欏彧鏀瑰彉鎵€閫変綅缃甠鏀寔涓枃涓庤〃鎯呭瓧绗?... ok
+test context::retrieval::tests::棰勭畻瑁佸壀鍒嗗嚭淇濈暀涓庣渷鐣?... ok
+test patch::diff::tests::crlf琛屽熬涓嶆姌鍙?... ok
+test context::manifest::tests::manifest鍒嗗眰璁℃暟涓庣渷鐣ヨ褰?... ok
+test patch::tests::鍗曞潡搴旂敤鍚庡叾浣欏潡鎸夊師鏂囬噸瀹氶敋涓嶅亸绉婚敊浣?... ok
+test patch::diff::tests::澶氬潡鎸夎鍒嗙粍涓斾笉閲嶅彔 ... ok
+test context::retrieval::tests::妫€绱㈠懡涓鏁板苟缁欏嚭鐗囨鍧愭爣 ... ok
+test patch::diff::tests::瀛楃骇宸紓鍚堝苟涓烘浛鎹㈠苟鏀寔emoji ... ok
+test edit::tests::鍙敼瀵圭櫧鎷掔粷鍔ㄤ綔鍙樺寲涓庝笉瀹屾暣寮曞彿 ... ok
+test patch::tests::鍚屽彞閲嶅鍙懡涓€欓€夋湰鏉ョ殑浣嶇疆涓旀涔夊嵆鍓旈櫎 ... ok
+test context::budget::tests::棰勭畻閰嶉鍚堣涓嶈秴鎬婚绠?... ok
+test patch::tests::杩囨湡澶寸増鏈繃鏈焤evision涓巋ash涓嶇涓€寰嬫嫆缁?... ok
+test quality::tests::conflict_requires_explicit_character_rule_and_literal_match ... ok
+test quality::tests::unresolved_questions_keep_exact_confirmed_source ... ok
+test patch::tests::绾彃鍏ュ潡缁忛敋琛岄噸瀹氶敋 ... ok
+test stream::tests::鍙帴鍙楀畬鏁村仠姝㈢殑闈炵┖鍥炲 ... ok
+test patch::tests::澶氬潡缁熶竴鍋忕Щ搴旂敤鍚庨€夋涔嬪閫愬瓧涓嶅彉 ... ok
+test patch::tests::閲嶅彔鎵嬪伐patch琚牎楠屾嫆缁?... ok
+test patch::tests::閲嶅搴旂敤鍥爃ash鍙樺寲鑰屽箓绛夋嫆缁?... ok
+test patch::diff::tests::琛屾暟瓒呬笂闄愰€€鍖栦负鏁存枃鍗曞潡 ... ok
+test generation::tests::寰呭喅璁浠呮潵鑷綋鍓嶇‘璁ょ増鏈琠杩涘叆棰勮骞堕殢鍥炴粴娑堝け ... ok
+test rpg::tests::璺戝洟涓存椂鍦烘櫙鍜岀帺瀹跺洖澶嶄笉姹℃煋涓嬩竴绔犱笂涓嬫枃 ... ok
+test stream::tests::瀹屾暣妯″瀷鍥炲浠呰繘璇曞啓_纭鍚庢墠杩涘叆涓嬩竴娆′笂涓嬫枃 ... ok
+test rpg::tests::璺戝洟鍦烘櫙鏍煎紡涓庣帺瀹跺洖澶嶇殑杈圭晫 ... ok
+test generation::tests::浜虹墿鍗℃湭瀹氳涓嶄細浣滀负纭害鏉熸敞鍏?... ok
+test generation::tests::浜戝紑鍏冲湪缁勮鏃堕樆鏂?... ok
+test generation::tests::鍙敞鍏ユ湰浣滃搧宸茬‘璁ゅ唴瀹筥浜虹墿鍗℃槸纭害鏉?... ok
+test generation::tests::閫夋棰勮缁戝畾褰撳墠姝ｇ涓斾粎寮曠敤纭璁惧畾 ... ok
+test generation::tests::鍏朵粬宸茬‘璁よ瀹氬彉鍖栦娇棰勮鐗堟湰绛惧悕澶辨晥 ... ok
+test context::tests::瑁呴厤鍙惈鐩爣绔犲簭浠ュ唴鐨勬绱㈣瘉鎹?... ok
+test context::tests::蹇呴渶鏉愭枡瓒呴绠楀嵆鎷掔粷骞剁粰鍑哄師鍥?... ok
+test context::tests::manifest璁板綍浼扮畻鍣ㄨ韩浠戒笌鐪佺暐鍘熷洜 ... ok
+
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
+     Running tests\working_edit.rs (build\rust-m1-msvc\debug\deps\working_edit-af431470c6b0cf0e.exe)
+
+running 9 tests
+test 浜戝叧闂椂涓嶇鍙戣鍒掍笖姝ｆ枃浠嶄繚鐣?... ok
+test 鍙栨秷璇诲彇浼氫涪寮冪敓鎴恌uture涓斾笉杩斿洖瀹屾暣鍊欓€?... ok
+test 褰掓。绔犺妭涓嶈兘鐢ㄤ簬鏂伴瑙堟垨鏃ц鍒掑彂閫?... ok
+test 瀹屾暣鍊欓€夊彧淇敼缂栬緫绋夸笖涓嶈兘閲嶅閲囩撼鎴栬法绔犻噰绾?... ok
+test 棰勮鎸夎璁洪殧绂讳笖鍙兘娑堣垂涓€娆″彇娑堥樆姝㈠畬鎴愭彁浜?... ok
+test 鏈‘璁ょ殑缂栬緫绋垮彲浠ラ瑙堜笖emoji鍧愭爣绮剧‘鎹㈢畻 ... ok
+test 鏃evision姝ｆ枃鏀瑰姩鍗婁釜emoji鍙婄嚎绋嬪綊灞為敊璇潎鎷掔粷 ... ok
+test 鍙甫鍏ユ湰浣滃搧鏄惧紡纭璧勬枡涓旇祫鏂欑増鏈紓绉讳綔搴熼瑙?... ok
+test 鍊欓€夊畬鎴愬悗浣滆€呮敼绋挎垨鎷掔粷閮戒笉鑳借鐩栨鏂?... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+   Doc-tests paraselene_application
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests paraselene_memory_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests paraselene_novel_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

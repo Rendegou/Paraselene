@@ -1,0 +1,14 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.03s
+     Running tests\m4_hardening.rs (build/rust-m1-msvc\debug\deps\m4_hardening-a058d6c4e742cac2.exe)
+
+running 6 tests
+test ui_session_optional_fields_and_fractional_scroll ... ok
+test review_context_is_bound_before_decision ... ok
+test actual_sqlite_write_lock_keeps_revision_and_retry_succeeds ... ok
+test reorder_preserves_lore_absolute_position ... ok
+test chapter_directory_failure_rolls_back_insert_and_retry_is_single ... ok
+test prepared_review_rejects_revision_hash_identity_and_head_drift ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.42s
+

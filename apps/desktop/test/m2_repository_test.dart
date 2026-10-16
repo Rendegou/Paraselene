@@ -8,12 +8,12 @@ import 'package:paraselene_flutter/workspace/workspace_controller.dart';
 
 class DelayedRepository extends SyntheticWorkspaceRepository {
   DelayedRepository() : super(withDemo: true);
-  final first = Completer<String>();
+  final first = Completer<ChapterDocument>();
   var loads = 0;
   @override
-  Future<String> loadBody(String workId, String chapterId) {
+  Future<ChapterDocument> loadDocument(String workId, String chapterId) {
     loads++;
-    return loads == 1 ? first.future : Future.value('new selection\r\ne\u0301');
+    return loads == 1 ? first.future : super.loadDocument(workId, chapterId);
   }
 }
 
@@ -93,20 +93,35 @@ void main() {
     },
   );
 
-  test('later selection wins over an older pending body', () async {
-    final repository = DelayedRepository();
-    final controller = WorkspaceController(repository);
-    final pending = controller.refresh();
-    await Future<void>.delayed(Duration.zero);
-    await controller.selectChapter(controller.chapters.first);
-    repository.first.complete('stale body');
-    await pending;
-    expect(controller.body, 'new selection\r\ne\u0301');
-    await controller.close();
-  });
+  test(
+    'chapter tap during a pending load is rejected; in-flight body lands exactly',
+    () async {
+      final repository = DelayedRepository();
+      final controller = WorkspaceController(repository);
+      final pending = controller.refresh();
+      await Future<void>.delayed(Duration.zero);
+      // The M4 barrier replaces the old newer-wins race: during a load the
+      // selection is rejected, and the legitimate in-flight body lands intact.
+      expect(controller.isBusy, isTrue);
+      expect(
+        await controller.selectChapter(controller.chapters.first),
+        isFalse,
+      );
+      repository.first.complete(
+        const ChapterDocument(
+          workId: 'demo-work',
+          documentId: 'demo-chapter',
+          body: demoBody,
+        ),
+      );
+      await pending;
+      expect(controller.body.codeUnits, demoBody.codeUnits);
+      await controller.close();
+    },
+  );
 
   test(
-    'switching work invalidates a pending body from the first work',
+    'work switch during a pending load is rejected; after it the switch applies',
     () async {
       final repository = DelayedRepository();
       final controller = WorkspaceController(repository);
@@ -116,11 +131,19 @@ void main() {
         id: 'demo-work',
         title: 'Explicit selection',
       );
-      await controller.selectWork(selected);
-      repository.first.complete('older work body');
+      expect(await controller.selectWork(selected), isFalse);
+      repository.first.complete(
+        const ChapterDocument(
+          workId: 'demo-work',
+          documentId: 'demo-chapter',
+          body: demoBody,
+        ),
+      );
       await pending;
+      expect(controller.body.codeUnits, demoBody.codeUnits);
+      expect(await controller.selectWork(selected), isTrue);
       expect(controller.currentWork, same(selected));
-      expect(controller.body, 'new selection\r\ne\u0301');
+      expect(controller.body.codeUnits, demoBody.codeUnits);
       await controller.close();
     },
   );
@@ -141,7 +164,13 @@ void main() {
       await Future<void>.delayed(Duration.zero);
       await controller.close();
       final before = notifications;
-      repository.first.complete('late');
+      repository.first.complete(
+        const ChapterDocument(
+          workId: 'demo-work',
+          documentId: 'demo-chapter',
+          body: 'late',
+        ),
+      );
       await pending;
       expect(notifications, before);
     },

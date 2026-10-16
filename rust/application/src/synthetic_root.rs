@@ -33,6 +33,7 @@ static REGISTRY: OnceLock<Mutex<HashMap<PathBuf, Provenance>>> = OnceLock::new()
 pub(crate) struct GuardedRoot {
     root: PathBuf,
     _handles: Vec<File>,
+    cleanup: bool,
 }
 impl GuardedRoot {
     pub fn database_path(&self) -> PathBuf {
@@ -86,6 +87,7 @@ impl GuardedRoot {
         Ok(Self {
             root,
             _handles: handles,
+            cleanup: false,
         })
     }
 }
@@ -105,7 +107,7 @@ fn allowed(root: &Path) -> Result<(), AppError> {
         Err(err("invalid_synthetic_root"))
     }
 }
-fn pin_directories(root: &Path) -> Result<Vec<File>, AppError> {
+pub(crate) fn pin_directories(root: &Path) -> Result<Vec<File>, AppError> {
     let mut handles = Vec::new();
     for path in root.ancestors().collect::<Vec<_>>().into_iter().rev() {
         let file = OpenOptions::new()
@@ -178,4 +180,46 @@ fn info(file: &File, directory: bool) -> Result<Identity, AppError> {
         volume: info.dwVolumeSerialNumber,
         index: ((info.nFileIndexHigh as u64) << 32) | info.nFileIndexLow as u64,
     })
+}
+
+pub(crate) fn validate_file(file: &File) -> Result<(), AppError> {
+    info(file, false).map(|_| ())
+}
+
+impl GuardedRoot {
+    pub(crate) fn create_owned() -> Result<Self, AppError> {
+        let root =
+            std::env::temp_dir().join(format!("paraselene-m1-owned-{}", uuid::Uuid::new_v4()));
+        std::fs::create_dir(&root).map_err(|_| err("storage_io"))?;
+        std::fs::write(
+            root.join("M1_SYNTHETIC_ONLY"),
+            b"paraselene-m1-synthetic-v1\n",
+        )
+        .map_err(|_| err("storage_io"))?;
+        let mut guard = Self::prepare(root.to_str().ok_or_else(|| err("storage_io"))?)?;
+        guard.cleanup = true;
+        Ok(guard)
+    }
+}
+impl Drop for GuardedRoot {
+    fn drop(&mut self) {
+        if !self.cleanup {
+            return;
+        }
+        // Only remove files in the freshly created, still pinned fixture. Never recursively delete.
+        self._handles.clear();
+        for name in NAMES.into_iter().chain(["M1_SYNTHETIC_ONLY"]) {
+            if let Err(error) = std::fs::remove_file(self.root.join(name)) {
+                eprintln!("owned fixture cleanup: {error}");
+            }
+        }
+        if let Err(error) = std::fs::remove_dir(&self.root) {
+            eprintln!("owned fixture cleanup: {error}");
+        }
+        if let Some(registry) = REGISTRY.get() {
+            if let Ok(mut registry) = registry.lock() {
+                registry.remove(&self.root);
+            }
+        }
+    }
 }

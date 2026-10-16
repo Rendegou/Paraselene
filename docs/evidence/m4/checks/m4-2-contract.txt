@@ -1,0 +1,5 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart
+00:00 +0: actual DLL two works, CAS, exact text, versions and workspace state
+00:02 +1: synthetic fixture two works, CAS, exact text, versions and workspace state
+00:02 +2: All tests passed!

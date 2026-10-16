@@ -1,8 +1,14 @@
 //! Synthetic-only M1 storage and lifecycle boundary. No credentials or network.
+mod chapter_create;
+mod chapters;
+mod confirmation;
 mod jobs;
+mod owned_session;
+mod owned_store;
 mod synthetic_root;
 mod types;
-use paraselene_memory_core::{Database, NovelKind};
+mod workspace;
+use paraselene_memory_core::Database;
 use std::{
     collections::{HashMap, VecDeque},
     sync::{Arc, Mutex, MutexGuard},
@@ -17,6 +23,9 @@ pub struct Session {
 }
 pub(crate) struct State {
     pub db: Option<Database>,
+    pub selected: Option<String>,
+    owned: Option<owned_store::OwnedStore>,
+    poisoned: bool,
     guards: Option<synthetic_root::GuardedRoot>,
     pub jobs: HashMap<String, watch::Sender<bool>>,
     pub outcomes: HashMap<String, JobResult>,
@@ -37,6 +46,9 @@ impl Session {
         Ok(Self {
             inner: Arc::new(Mutex::new(State {
                 db: Some(db),
+                selected: None,
+                owned: None,
+                poisoned: false,
                 guards: Some(guards),
                 jobs: HashMap::new(),
                 outcomes: HashMap::new(),
@@ -46,11 +58,16 @@ impl Session {
         })
     }
     pub(crate) fn lock(&self) -> Result<MutexGuard<'_, State>, AppError> {
-        self.inner.lock().map_err(|_| err("internal_error"))
+        let state = self.inner.lock().map_err(|_| err("internal_error"))?;
+        if state.poisoned {
+            return Err(err("durable_save_failed"));
+        }
+        Ok(state)
     }
+    /// Read or mutate through the durable barrier: owned sessions publish a
+    /// sealed snapshot after any change, and poison the session on failure.
     fn with_db<T>(&self, f: impl FnOnce(&Database) -> Result<T, AppError>) -> Result<T, AppError> {
-        let state = self.lock()?;
-        f(state.db.as_ref().ok_or_else(|| err("session_closed"))?)
+        self.with_state(|state| f(state.db.as_ref().ok_or_else(|| err("session_closed"))?))
     }
     /// Report actual schema and fixed bridge capability/build identifiers.
     pub fn handshake(&self) -> Result<Handshake, AppError> {
@@ -94,25 +111,14 @@ impl Session {
                 .map_err(core_error)?
                 .into_iter()
                 .filter(|d| d.kind == "chapter")
-                .map(|d| ChapterInfo {
-                    id: d.id,
-                    work_id: d.work_id,
-                    title: d.title,
-                })
+                .map(chapters::chapter_info)
                 .collect())
         })
     }
-    /// Create an empty chapter in an existing work.
+    /// Create an empty chapter in an existing work and append it to the end of
+    /// the work's full document order (the core assigns no position itself).
     pub fn create_chapter(&self, work_id: String, title: String) -> Result<ChapterInfo, AppError> {
-        self.with_db(|db| {
-            db.create_novel_document(&work_id, NovelKind::Chapter, &title)
-                .map(|d| ChapterInfo {
-                    id: d.id,
-                    work_id: d.work_id,
-                    title: d.title,
-                })
-                .map_err(core_error)
-        })
+        self.with_db(|db| chapter_create::create(db, &work_id, &title))
     }
     /// Load exact UTF-8 working text after checking both identities.
     pub fn load(&self, work_id: String, document_id: String) -> Result<DocumentSnapshot, AppError> {
@@ -123,6 +129,11 @@ impl Session {
                 work_id,
                 document_id,
                 revision: copy.as_ref().map(|c| c.revision),
+                base_head_version: copy
+                    .as_ref()
+                    .map(|c| c.base_head_version.clone())
+                    .unwrap_or_else(|| doc.head_version_id.clone()),
+                head_version_id: doc.head_version_id.clone(),
                 body: copy
                     .as_ref()
                     .map(|c| c.body.clone())
@@ -161,19 +172,24 @@ impl Session {
                 work_id,
                 document_id,
                 revision: Some(copy.revision),
+                base_head_version: copy.base_head_version.clone(),
+                head_version_id: doc.head_version_id.clone(),
                 body: copy.body,
                 content_hash: Some(copy.content_hash),
             })
         })
     }
     /// Close idempotently, cancelling pending work before releasing the DB.
+    /// A poisoned session must still release the DB, fixture and process lock;
+    /// closing never republishes, so bypassing the poison check is safe here.
     pub fn close(&self) -> Result<(), AppError> {
-        let mut state = self.lock()?;
+        let mut state = self.inner.lock().map_err(|_| err("internal_error"))?;
         for cancel in state.jobs.values() {
             cancel.send_replace(true);
         }
         state.db.take();
         state.guards.take();
+        state.owned.take();
         state.events.clear();
         Ok(())
     }
@@ -182,7 +198,7 @@ impl Session {
         self.with_db(|_| Err(err("cloud_disabled")))
     }
 }
-fn verify(
+pub(crate) fn verify(
     db: &Database,
     work: &str,
     document: &str,
@@ -199,7 +215,7 @@ fn verify(
 pub(crate) fn err(code: &str) -> AppError {
     AppError { code: code.into() }
 }
-fn core_error(e: paraselene_memory_core::Error) -> AppError {
+pub(crate) fn core_error(e: paraselene_memory_core::Error) -> AppError {
     use paraselene_memory_core::Error::*;
     err(match e {
         NotFound(_) => "not_found",
@@ -208,3 +224,8 @@ fn core_error(e: paraselene_memory_core::Error) -> AppError {
         _ => "storage_error",
     })
 }
+
+#[cfg(test)]
+mod owned_fault_tests;
+#[cfg(test)]
+mod storage_fault_tests;

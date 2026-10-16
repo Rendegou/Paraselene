@@ -1,0 +1,10 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.52s
+     Running tests\m4_selection.rs (build/rust-m1-msvc\debug\deps\m4_selection-4d8c83333303c70f.exe)
+
+running 2 tests
+test failed_selection_preserves_state_and_calls_after_close_fail ... ok
+test concurrent_selection_snapshots_keep_selected_and_recent_consistent ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.00s
+

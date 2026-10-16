@@ -6,22 +6,34 @@
 import '../frb_generated.dart';
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
-// These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `clone`, `clone`, `clone`, `clone`, `clone`, `clone`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `from`, `from`, `from`, `from`, `from`, `from`, `from`
+// These function are ignored because they are on traits that is not defined in current crate (put an empty `#[frb]` on it to unignore): `clone`, `clone`, `clone`, `clone`, `clone`, `clone`, `clone`, `clone`, `clone`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `fmt`, `from`, `from`, `from`, `from`, `from`, `from`, `from`, `from`, `from`, `from`
 
-/// Chapter metadata retaining explicit work identity.
+/// Chapter metadata retaining explicit work identity, head and directory state.
 class BridgeChapter {
   final String id;
   final String workId;
   final String title;
+  final String? headVersionId;
+  final PlatformInt64 orderIndex;
+  final bool archived;
 
   const BridgeChapter({
     required this.id,
     required this.workId,
     required this.title,
+    this.headVersionId,
+    required this.orderIndex,
+    required this.archived,
   });
 
   @override
-  int get hashCode => id.hashCode ^ workId.hashCode ^ title.hashCode;
+  int get hashCode =>
+      id.hashCode ^
+      workId.hashCode ^
+      title.hashCode ^
+      headVersionId.hashCode ^
+      orderIndex.hashCode ^
+      archived.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -30,14 +42,21 @@ class BridgeChapter {
           runtimeType == other.runtimeType &&
           id == other.id &&
           workId == other.workId &&
-          title == other.title;
+          title == other.title &&
+          headVersionId == other.headVersionId &&
+          orderIndex == other.orderIndex &&
+          archived == other.archived;
 }
 
 /// Exact text and nullable i64 revision/hash, preserving the original CAS semantics.
+/// `base_head_version` is the draft's confirmed base (or the live head when no
+/// draft exists); `head_version_id` is always the live confirmed head.
 class BridgeDocument {
   final String workId;
   final String documentId;
   final PlatformInt64? revision;
+  final String? baseHeadVersion;
+  final String? headVersionId;
   final String body;
   final String? contentHash;
 
@@ -45,6 +64,8 @@ class BridgeDocument {
     required this.workId,
     required this.documentId,
     this.revision,
+    this.baseHeadVersion,
+    this.headVersionId,
     required this.body,
     this.contentHash,
   });
@@ -54,6 +75,8 @@ class BridgeDocument {
       workId.hashCode ^
       documentId.hashCode ^
       revision.hashCode ^
+      baseHeadVersion.hashCode ^
+      headVersionId.hashCode ^
       body.hashCode ^
       contentHash.hashCode;
 
@@ -65,6 +88,8 @@ class BridgeDocument {
           workId == other.workId &&
           documentId == other.documentId &&
           revision == other.revision &&
+          baseHeadVersion == other.baseHeadVersion &&
+          headVersionId == other.headVersionId &&
           body == other.body &&
           contentHash == other.contentHash;
 }
@@ -160,6 +185,69 @@ class BridgeJob {
           status == other.status;
 }
 
+/// Exact text for the user's preview and an opaque token to return after approval.
+class BridgePreparedConfirmation {
+  final String body;
+  final String token;
+
+  const BridgePreparedConfirmation({required this.body, required this.token});
+
+  @override
+  int get hashCode => body.hashCode ^ token.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BridgePreparedConfirmation &&
+          runtimeType == other.runtimeType &&
+          body == other.body &&
+          token == other.token;
+}
+
+/// Immutable confirmed version with exact body for preview.
+class BridgeVersion {
+  final String id;
+  final String documentId;
+  final String? parentVersionId;
+  final String body;
+  final String origin;
+  final String createdAt;
+  final bool isHead;
+
+  const BridgeVersion({
+    required this.id,
+    required this.documentId,
+    this.parentVersionId,
+    required this.body,
+    required this.origin,
+    required this.createdAt,
+    required this.isHead,
+  });
+
+  @override
+  int get hashCode =>
+      id.hashCode ^
+      documentId.hashCode ^
+      parentVersionId.hashCode ^
+      body.hashCode ^
+      origin.hashCode ^
+      createdAt.hashCode ^
+      isHead.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BridgeVersion &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          documentId == other.documentId &&
+          parentVersionId == other.parentVersionId &&
+          body == other.body &&
+          origin == other.origin &&
+          createdAt == other.createdAt &&
+          isHead == other.isHead;
+}
+
 /// Work index metadata; chapter bodies are loaded only on demand.
 class BridgeWork {
   final String id;
@@ -177,4 +265,30 @@ class BridgeWork {
           runtimeType == other.runtimeType &&
           id == other.id &&
           title == other.title;
+}
+
+/// Selected work, recent list and a stable warning code for damaged settings.
+class BridgeWorkspaceState {
+  final String? selectedWorkId;
+  final List<BridgeWork> recentWorks;
+  final String? warning;
+
+  const BridgeWorkspaceState({
+    this.selectedWorkId,
+    required this.recentWorks,
+    this.warning,
+  });
+
+  @override
+  int get hashCode =>
+      selectedWorkId.hashCode ^ recentWorks.hashCode ^ warning.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BridgeWorkspaceState &&
+          runtimeType == other.runtimeType &&
+          selectedWorkId == other.selectedWorkId &&
+          recentWorks == other.recentWorks &&
+          warning == other.warning;
 }

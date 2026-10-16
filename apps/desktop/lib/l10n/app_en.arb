@@ -202,5 +202,187 @@
       }
     },
     "description": "Safe diagnostic code for a repository failure"
+  },
+  "saveDirty": "Unsaved changes",
+  "@saveDirty": {
+    "description": "Workbench: M4 save status: saveDirty"
+  },
+  "saveSaving": "Saving…",
+  "@saveSaving": {
+    "description": "Workbench: M4 save status: saveSaving"
+  },
+  "saveSaved": "All changes saved",
+  "@saveSaved": {
+    "description": "Workbench: M4 save status: saveSaved"
+  },
+  "saveConflict": "Save conflict — your draft is kept",
+  "@saveConflict": {
+    "description": "Workbench: M4 save status: saveConflict"
+  },
+  "saveError": "Save failed — your draft is kept",
+  "@saveError": {
+    "description": "Workbench: M4 save status: saveError"
+  },
+  "retrySave": "Retry save",
+  "@retrySave": {
+    "description": "Workbench: M4 save status: retrySave"
+  },
+  "editorTemporaryHint": "Temporary editing surface. Long-form editor performance validation is still pending.",
+  "@editorTemporaryHint": {
+    "description": "Workbench: M4 save status: editorTemporaryHint"
+  },
+  "draftRestored": "Recovered a local draft",
+  "@draftRestored": {
+    "description": "Workbench: M4 save status: draftRestored"
+  },
+  "draftRestoredBase": "Recovered a local draft based on an older confirmed version",
+  "@draftRestoredBase": {
+    "description": "Workbench: M4 save status: draftRestoredBase"
+  },
+  "durableSaveFailed": "Changes could not be made durable. Export your draft before reopening.",
+  "@durableSaveFailed": {
+    "description": "Workbench: M4 save status: durableSaveFailed"
+  },
+  "newChapter": "New chapter",
+  "@newChapter": {
+    "description": "Workbench: M4 actions newChapter"
+  },
+  "newWork": "New work",
+  "@newWork": {
+    "description": "Workbench: M4 actions newWork"
+  },
+  "renameChapter": "Rename chapter",
+  "@renameChapter": {
+    "description": "Workbench: M4 actions renameChapter"
+  },
+  "archiveChapter": "Archive chapter",
+  "@archiveChapter": {
+    "description": "Workbench: M4 actions archiveChapter"
+  },
+  "restoreChapter": "Restore chapter",
+  "@restoreChapter": {
+    "description": "Workbench: M4 actions restoreChapter"
+  },
+  "archivedChapters": "Archived",
+  "@archivedChapters": {
+    "description": "Workbench: M4 actions archivedChapters"
+  },
+  "confirmChapter": "Confirm chapter",
+  "@confirmChapter": {
+    "description": "Workbench: M4 actions confirmChapter"
+  },
+  "confirmTitle": "Confirm this exact text?",
+  "@confirmTitle": {
+    "description": "Workbench: M4 actions confirmTitle"
+  },
+  "confirmNotice": "A new confirmed version is created. The working draft is kept and rebased onto it.",
+  "@confirmNotice": {
+    "description": "Workbench: M4 actions confirmNotice"
+  },
+  "confirmAction": "Confirm",
+  "@confirmAction": {
+    "description": "Workbench: M4 actions confirmAction"
+  },
+  "versionsTitle": "Confirmed versions",
+  "@versionsTitle": {
+    "description": "Workbench: M4 actions versionsTitle"
+  },
+  "emptyVersions": "No confirmed versions yet.",
+  "@emptyVersions": {
+    "description": "Workbench: M4 actions emptyVersions"
+  },
+  "versionCurrent": "current",
+  "@versionCurrent": {
+    "description": "Workbench: M4 actions versionCurrent"
+  },
+  "rollbackAction": "Roll back to this version",
+  "@rollbackAction": {
+    "description": "Workbench: M4 actions rollbackAction"
+  },
+  "rollbackTitle": "Roll back to this version?",
+  "@rollbackTitle": {
+    "description": "Workbench: M4 actions rollbackTitle"
+  },
+  "rollbackNotice": "The confirmed head moves to this version. Your current working draft will be discarded.",
+  "@rollbackNotice": {
+    "description": "Workbench: M4 actions rollbackNotice"
+  },
+  "titleRequired": "Title cannot be empty",
+  "@titleRequired": {
+    "description": "Workbench: M4 actions titleRequired"
+  },
+  "createAction": "Create",
+  "@createAction": {
+    "description": "Workbench: M4 actions createAction"
+  },
+  "cancelAction": "Cancel",
+  "@cancelAction": {
+    "description": "Workbench: M4 actions cancelAction"
+  },
+  "chapterTitleLabel": "Chapter title",
+  "@chapterTitleLabel": {
+    "description": "Workbench: M4 actions chapterTitleLabel"
+  },
+  "workTitleLabel": "Work title",
+  "@workTitleLabel": {
+    "description": "Workbench: M4 actions workTitleLabel"
+  },
+  "exportDraft": "Export draft",
+  "@exportDraft": {
+    "description": "Workbench: M4 export exportDraft"
+  },
+  "exportDone": "Draft exported",
+  "@exportDone": {
+    "description": "Workbench: M4 export exportDone"
+  },
+  "exportFailed": "Export failed",
+  "@exportFailed": {
+    "description": "Workbench: M4 export exportFailed"
+  },
+  "exportPathLabel": "Location",
+  "@exportPathLabel": {
+    "description": "Workbench: M4 export exportPathLabel"
+  },
+  "exportOmitted": "{count} chapters could not be read and were omitted",
+  "@exportOmitted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "description": "Recovery export omissions"
+  },
+  "exportChapters": "{count} chapters exported",
+  "@exportChapters": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    },
+    "description": "Recovery export chapter count"
+  },
+  "closeFailedTitle": "Changes could not be saved",
+  "@closeFailedTitle": {
+    "description": "Workbench: M4 export closeFailedTitle"
+  },
+  "closeFailedBody": "You can retry, export your draft, or keep editing. The window stays open.",
+  "@closeFailedBody": {
+    "description": "Workbench: M4 export closeFailedBody"
+  },
+  "retryClose": "Retry",
+  "@retryClose": {
+    "description": "Workbench: M4 export retryClose"
+  },
+  "keepEditing": "Keep editing",
+  "@keepEditing": {
+    "description": "Workbench: M4 export keepEditing"
+  },
+  "exitAnyway": "Exit anyway",
+  "@exitAnyway": {
+    "description": "Workbench: M4 export exitAnyway"
+  },
+  "exitAnywayHint": "Your draft was exported. Exit now without saving again?",
+  "@exitAnywayHint": {
+    "description": "Workbench: M4 export exitAnywayHint"
   }
 }

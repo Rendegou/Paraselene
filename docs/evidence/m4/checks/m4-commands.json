@@ -1,0 +1,160 @@
+[
+  {
+    "Check": "rust-fmt",
+    "Executable": "cargo",
+    "Arguments": [
+      "fmt",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\Cargo.toml",
+      "-p",
+      "paraselene-application",
+      "-p",
+      "paraselene-bridge",
+      "--check"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-tests",
+    "Executable": "cargo",
+    "Arguments": [
+      "+stable-x86_64-pc-windows-msvc",
+      "test",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\Cargo.toml",
+      "-p",
+      "paraselene-application",
+      "-p",
+      "paraselene-memory-core",
+      "-p",
+      "paraselene-novel-core",
+      "--target-dir",
+      "D:\\MyAgent\\paraselene-flutter\\build\\rust-m1-msvc",
+      "--locked",
+      "--offline"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-clippy",
+    "Executable": "cargo",
+    "Arguments": [
+      "+stable-x86_64-pc-windows-msvc",
+      "clippy",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\Cargo.toml",
+      "-p",
+      "paraselene-application",
+      "-p",
+      "paraselene-bridge",
+      "--all-targets",
+      "--no-deps",
+      "--target-dir",
+      "D:\\MyAgent\\paraselene-flutter\\build\\rust-m1-msvc",
+      "--locked",
+      "--offline",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "rust-bridge-build",
+    "Executable": "cargo",
+    "Arguments": [
+      "+stable-x86_64-pc-windows-msvc",
+      "build",
+      "--manifest-path",
+      "D:\\MyAgent\\paraselene-flutter\\rust\\Cargo.toml",
+      "-p",
+      "paraselene-bridge",
+      "--target-dir",
+      "D:\\MyAgent\\paraselene-flutter\\build\\rust-m1-msvc",
+      "--locked",
+      "--offline"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "gen-l10n-freshness",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "gen-l10n"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "dart-fmt",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\cache\\dart-sdk\\bin\\dart.exe",
+    "Arguments": [
+      "format",
+      "--output=none",
+      "--set-exit-if-changed",
+      "lib",
+      "test",
+      "integration_test"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "flutter-analyze",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "analyze",
+      "--fatal-infos"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "dart-tests",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "windows-release-build",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "build",
+      "windows",
+      "--release"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "windows-integration-m1",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "integration_test/m1_app_test.dart",
+      "-d",
+      "windows"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "windows-integration-m2",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "integration_test/m2_app_test.dart",
+      "-d",
+      "windows"
+    ],
+    "ExitCode": 0
+  },
+  {
+    "Check": "windows-integration-m4",
+    "Executable": "D:\\flutter_sdk\\flutter\\bin\\flutter.bat",
+    "Arguments": [
+      "test",
+      "integration_test/m4_app_test.dart",
+      "-d",
+      "windows"
+    ],
+    "ExitCode": 0
+  }
+]

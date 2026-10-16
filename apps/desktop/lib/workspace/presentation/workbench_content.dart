@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import '../../theme/workbench_theme.dart';
 import '../data/workspace_repository.dart';
 import '../workspace_controller.dart';
+import 'manuscript_editor.dart';
 import 'workbench_chrome.dart';
 
 /// Resolves the four workspace phases at one boundary.
@@ -103,7 +103,8 @@ class WorkspaceStatus extends StatelessWidget {
   }
 }
 
-/// Read-only author text, kept separate from the interface translation harness.
+/// Author text surface: the temporary M4 editor carries the header, metadata,
+/// save status and exact text in one scrollable plane.
 class ManuscriptPreview extends StatelessWidget {
   const ManuscriptPreview({
     required this.controller,
@@ -115,72 +116,8 @@ class ManuscriptPreview extends StatelessWidget {
   final WorkbenchLabels labels;
   final bool wide;
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-    child: Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(
-          maxWidth: wide
-              ? WorkbenchTokens.wideWidth
-              : WorkbenchTokens.comfortableWidth,
-        ),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(28, 28, 28, 64),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              if (controller.currentWork != null)
-                Text(
-                  controller.currentWork!.title,
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-              const SizedBox(height: 16),
-              Semantics(
-                header: true,
-                child: Text(
-                  controller.currentChapter?.title ??
-                      labels(labels.strings.chooseChapter),
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ),
-              const SizedBox(height: 14),
-              LanguageMetadata(labels: labels),
-              const SizedBox(height: 12),
-              Text(
-                labels(labels.strings.readOnlyHint),
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-              const SizedBox(height: 32),
-              SelectableText(
-                controller.body,
-                key: const ValueKey('manuscript-body'),
-                textDirection: TextDirection.ltr,
-                style: Theme.of(context).textTheme.bodyLarge,
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-/// Unknown source metadata is disclosed without guessing from the UI locale.
-class LanguageMetadata extends StatelessWidget {
-  const LanguageMetadata({required this.labels, super.key});
-  final WorkbenchLabels labels;
-  @override
-  Widget build(BuildContext context) {
-    final s = labels.strings;
-    return Wrap(
-      spacing: 16,
-      runSpacing: 8,
-      children: [
-        Text(labels('${s.workLanguage}: ${s.undeterminedLanguage}')),
-        Text(labels('${s.documentLanguage}: ${s.undeterminedLanguage}')),
-        Text(labels('${s.outputLanguage}: ${s.undeterminedLanguage}')),
-      ],
-    );
-  }
+  Widget build(BuildContext context) =>
+      ManuscriptEditor(controller: controller, labels: labels, wide: wide);
 }
 
 /// Actionable state messages disclose a technical code without raw exceptions.

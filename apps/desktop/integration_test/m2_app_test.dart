@@ -32,7 +32,10 @@ void main() {
       expect(find.text('REAL · Rust 桥接'), findsOneWidget);
       await tester.tap(find.text('创建示例材料'));
       await waitFor(tester, () => find.byKey(bodyKey).evaluate().isNotEmpty);
-      expect(tester.widget<SelectableText>(find.byKey(bodyKey)).data, demoBody);
+      expect(
+        tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
+        demoBody,
+      );
       final window = WindowsSurface();
       final sizes = <String, Object>{};
       for (final width in [1400, 800, 1200]) {
@@ -44,14 +47,17 @@ void main() {
           'height': window.clientSize.height,
         };
         expect(
-          tester.widget<SelectableText>(find.byKey(bodyKey)).data,
+          tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
           demoBody,
         );
       }
       await capture(tester, 'windows-real-zh.png');
       await chooseLanguage(tester, '界面语言', 'English');
       expect(find.text('Writing workspace'), findsOneWidget);
-      expect(tester.widget<SelectableText>(find.byKey(bodyKey)).data, demoBody);
+      expect(
+        tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
+        demoBody,
+      );
       await capture(tester, 'windows-real-en.png');
       await chooseLanguage(tester, 'Interface language', '简体中文');
       expect(find.text('写作工作台'), findsOneWidget);

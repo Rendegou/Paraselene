@@ -1,0 +1,3 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+   Compiling paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.39s

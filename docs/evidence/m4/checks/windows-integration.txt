@@ -1,0 +1,19 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m1_app_test.dart
+Building Windows application...                                    17.2s
+鈭?Built build\windows\x64\runner\Debug\paraselene_flutter.exe
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m1_app_test.dart: Windows app runs actual M1 synthetic acceptance
+00:06 +1: D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m1_app_test.dart: (tearDownAll)
+00:06 +1: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m2_app_test.dart
+Building Windows application...                                    16.3s
+鈭?Built build\windows\x64\runner\Debug\paraselene_flutter.exe
+Error waiting for a debug connection: The log reader stopped unexpectedly, or never started.
+00:22 +1 -1: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m2_app_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m2_app_test.dart": Unable to start the app on the device.
+00:22 +1 -1: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m4_app_test.dart
+Building Windows application...                                    15.3s
+鈭?Built build\windows\x64\runner\Debug\paraselene_flutter.exe
+Error waiting for a debug connection: The log reader stopped unexpectedly, or never started.
+00:38 +1 -2: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m4_app_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m4_app_test.dart": Unable to start the app on the device.
+00:38 +1 -2: Some tests failed.

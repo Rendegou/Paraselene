@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/workspace/data/demo_content.dart';
 import 'package:paraselene_flutter/workspace/data/synthetic_workspace_repository.dart';
+import 'package:paraselene_flutter/workspace/data/workspace_repository.dart';
 
 import 'support/m2_harness.dart';
 
@@ -20,7 +21,13 @@ void main() {
       matching: find.byType(TextButton),
     );
     expect(tester.widget<TextButton>(button).onPressed, isNull);
-    repository.pending.complete(demoBody);
+    repository.pending.complete(
+      const ChapterDocument(
+        workId: 'demo-work',
+        documentId: 'demo-chapter',
+        body: demoBody,
+      ),
+    );
     await tester.flushWorkbench();
     expect(tester.widget<TextButton>(button).onPressed, isNotNull);
     await tester.activate('选择作品');
@@ -97,13 +104,15 @@ void main() {
 
 class DelayedBodyRepository extends SyntheticWorkspaceRepository {
   DelayedBodyRepository() : super(withDemo: true);
-  final pending = Completer<String>();
+  final pending = Completer<ChapterDocument>();
   @override
-  Future<String> loadBody(String workId, String chapterId) => pending.future;
+  Future<ChapterDocument> loadDocument(String workId, String chapterId) =>
+      pending.future;
 }
 
+/// Exact text of the temporary editor surface, found by its stable key.
 String? rawBody(WidgetTester tester) =>
-    tester.widget<SelectableText>(find.byKey(manuscriptKey)).data;
+    tester.widget<TextField>(find.byKey(manuscriptKey)).controller!.text;
 
 void layoutMatrix() {
   for (final locale in const [chinese, Locale('en')]) {

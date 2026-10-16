@@ -67,7 +67,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => -1232759732;
+  int get rustContentHash => 1430292987;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -85,6 +85,13 @@ abstract class RustLibApi extends BaseApi {
 
   Future<void> crateApiCoreSessionClose({required CoreSession that});
 
+  Future<BridgeChapter> crateApiCoreSessionConfirmChapter({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String reviewToken,
+  });
+
   Future<BridgeChapter> crateApiCoreSessionCreateChapter({
     required CoreSession that,
     required String workId,
@@ -96,6 +103,18 @@ abstract class RustLibApi extends BaseApi {
     required String title,
   });
 
+  Future<void> crateApiCoreSessionDiscardDraft({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    PlatformInt64? expectedRevision,
+  });
+
+  Future<String?> crateApiCoreSessionGetUiSession({
+    required CoreSession that,
+    required String workId,
+  });
+
   Future<BridgeHandshake> crateApiCoreSessionHandshake({
     required CoreSession that,
   });
@@ -105,9 +124,20 @@ abstract class RustLibApi extends BaseApi {
     required String jobId,
   });
 
+  Future<List<BridgeChapter>> crateApiCoreSessionListArchivedChapters({
+    required CoreSession that,
+    required String workId,
+  });
+
   Future<List<BridgeChapter>> crateApiCoreSessionListChapters({
     required CoreSession that,
     required String workId,
+  });
+
+  Future<List<BridgeVersion>> crateApiCoreSessionListVersions({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
   });
 
   Future<List<BridgeWork>> crateApiCoreSessionListWorks({
@@ -120,11 +150,43 @@ abstract class RustLibApi extends BaseApi {
     required String documentId,
   });
 
+  Future<CoreSession> crateApiCoreSessionOpenOwnedSynthetic();
+
   Future<CoreSession> crateApiCoreSessionOpenSynthetic({required String root});
 
   Future<BridgeEvents> crateApiCoreSessionPollEvents({
     required CoreSession that,
     required BigInt subscription,
+  });
+
+  Future<BridgePreparedConfirmation> crateApiCoreSessionPrepareConfirmation({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    String? expectedHead,
+    required PlatformInt64 expectedRevision,
+  });
+
+  Future<BridgeChapter> crateApiCoreSessionRenameChapter({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String title,
+  });
+
+  Future<void> crateApiCoreSessionReorderChapters({
+    required CoreSession that,
+    required String workId,
+    required List<String> orderedIds,
+  });
+
+  Future<BridgeChapter> crateApiCoreSessionRollbackChapter({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String versionId,
+    String? expectedHead,
+    PlatformInt64? expectedRevision,
   });
 
   Future<BridgeDocument> crateApiCoreSessionSave({
@@ -135,7 +197,25 @@ abstract class RustLibApi extends BaseApi {
     required String body,
   });
 
+  Future<BridgeWork> crateApiCoreSessionSelectWork({
+    required CoreSession that,
+    required String workId,
+  });
+
   Future<void> crateApiCoreSessionSend({required CoreSession that});
+
+  Future<BridgeChapter> crateApiCoreSessionSetChapterArchived({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required bool archived,
+  });
+
+  Future<void> crateApiCoreSessionSetUiSession({
+    required CoreSession that,
+    required String workId,
+    required String value,
+  });
 
   Future<BigInt> crateApiCoreSessionSubscribe({
     required CoreSession that,
@@ -151,6 +231,10 @@ abstract class RustLibApi extends BaseApi {
   Future<void> crateApiCoreSessionUnsubscribe({
     required CoreSession that,
     required BigInt subscription,
+  });
+
+  Future<BridgeWorkspaceState> crateApiCoreSessionWorkspaceState({
+    required CoreSession that,
   });
 
   Future<void> crateApiInitApp();
@@ -242,6 +326,48 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       const TaskConstMeta(debugName: "CoreSession_close", argNames: ["that"]);
 
   @override
+  Future<BridgeChapter> crateApiCoreSessionConfirmChapter({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String reviewToken,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_String(reviewToken, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 3,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_chapter,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionConfirmChapterConstMeta,
+        argValues: [that, workId, documentId, reviewToken],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionConfirmChapterConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_confirm_chapter",
+        argNames: ["that", "workId", "documentId", "reviewToken"],
+      );
+
+  @override
   Future<BridgeChapter> crateApiCoreSessionCreateChapter({
     required CoreSession that,
     required String workId,
@@ -260,7 +386,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 3,
+            funcId: 4,
             port: port_,
           );
         },
@@ -298,7 +424,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 4,
+            funcId: 5,
             port: port_,
           );
         },
@@ -320,6 +446,86 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<void> crateApiCoreSessionDiscardDraft({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    PlatformInt64? expectedRevision,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_opt_box_autoadd_i_64(expectedRevision, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 6,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionDiscardDraftConstMeta,
+        argValues: [that, workId, documentId, expectedRevision],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionDiscardDraftConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_discard_draft",
+        argNames: ["that", "workId", "documentId", "expectedRevision"],
+      );
+
+  @override
+  Future<String?> crateApiCoreSessionGetUiSession({
+    required CoreSession that,
+    required String workId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 7,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_opt_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionGetUiSessionConstMeta,
+        argValues: [that, workId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionGetUiSessionConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_get_ui_session",
+        argNames: ["that", "workId"],
+      );
+
+  @override
   Future<BridgeHandshake> crateApiCoreSessionHandshake({
     required CoreSession that,
   }) {
@@ -334,7 +540,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 5,
+            funcId: 8,
             port: port_,
           );
         },
@@ -372,7 +578,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 6,
+            funcId: 9,
             port: port_,
           );
         },
@@ -394,6 +600,44 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<List<BridgeChapter>> crateApiCoreSessionListArchivedChapters({
+    required CoreSession that,
+    required String workId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 10,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_list_bridge_chapter,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionListArchivedChaptersConstMeta,
+        argValues: [that, workId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionListArchivedChaptersConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_list_archived_chapters",
+        argNames: ["that", "workId"],
+      );
+
+  @override
   Future<List<BridgeChapter>> crateApiCoreSessionListChapters({
     required CoreSession that,
     required String workId,
@@ -410,7 +654,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 7,
+            funcId: 11,
             port: port_,
           );
         },
@@ -432,6 +676,46 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<List<BridgeVersion>> crateApiCoreSessionListVersions({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 12,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_list_bridge_version,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionListVersionsConstMeta,
+        argValues: [that, workId, documentId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionListVersionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_list_versions",
+        argNames: ["that", "workId", "documentId"],
+      );
+
+  @override
   Future<List<BridgeWork>> crateApiCoreSessionListWorks({
     required CoreSession that,
   }) {
@@ -446,7 +730,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 8,
+            funcId: 13,
             port: port_,
           );
         },
@@ -486,7 +770,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 9,
+            funcId: 14,
             port: port_,
           );
         },
@@ -507,6 +791,37 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   );
 
   @override
+  Future<CoreSession> crateApiCoreSessionOpenOwnedSynthetic() {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 15,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionOpenOwnedSyntheticConstMeta,
+        argValues: [],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionOpenOwnedSyntheticConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_open_owned_synthetic",
+        argNames: [],
+      );
+
+  @override
   Future<CoreSession> crateApiCoreSessionOpenSynthetic({required String root}) {
     return handler.executeNormal(
       NormalTask(
@@ -516,7 +831,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 10,
+            funcId: 16,
             port: port_,
           );
         },
@@ -555,7 +870,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 11,
+            funcId: 17,
             port: port_,
           );
         },
@@ -574,6 +889,198 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       const TaskConstMeta(
         debugName: "CoreSession_poll_events",
         argNames: ["that", "subscription"],
+      );
+
+  @override
+  Future<BridgePreparedConfirmation> crateApiCoreSessionPrepareConfirmation({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    String? expectedHead,
+    required PlatformInt64 expectedRevision,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_opt_String(expectedHead, serializer);
+          sse_encode_i_64(expectedRevision, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 18,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_prepared_confirmation,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionPrepareConfirmationConstMeta,
+        argValues: [that, workId, documentId, expectedHead, expectedRevision],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionPrepareConfirmationConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_prepare_confirmation",
+        argNames: [
+          "that",
+          "workId",
+          "documentId",
+          "expectedHead",
+          "expectedRevision",
+        ],
+      );
+
+  @override
+  Future<BridgeChapter> crateApiCoreSessionRenameChapter({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String title,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_String(title, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 19,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_chapter,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionRenameChapterConstMeta,
+        argValues: [that, workId, documentId, title],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionRenameChapterConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_rename_chapter",
+        argNames: ["that", "workId", "documentId", "title"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionReorderChapters({
+    required CoreSession that,
+    required String workId,
+    required List<String> orderedIds,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_list_String(orderedIds, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 20,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionReorderChaptersConstMeta,
+        argValues: [that, workId, orderedIds],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionReorderChaptersConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_reorder_chapters",
+        argNames: ["that", "workId", "orderedIds"],
+      );
+
+  @override
+  Future<BridgeChapter> crateApiCoreSessionRollbackChapter({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String versionId,
+    String? expectedHead,
+    PlatformInt64? expectedRevision,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_String(versionId, serializer);
+          sse_encode_opt_String(expectedHead, serializer);
+          sse_encode_opt_box_autoadd_i_64(expectedRevision, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 21,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_chapter,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionRollbackChapterConstMeta,
+        argValues: [
+          that,
+          workId,
+          documentId,
+          versionId,
+          expectedHead,
+          expectedRevision,
+        ],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionRollbackChapterConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_rollback_chapter",
+        argNames: [
+          "that",
+          "workId",
+          "documentId",
+          "versionId",
+          "expectedHead",
+          "expectedRevision",
+        ],
       );
 
   @override
@@ -599,7 +1106,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 12,
+            funcId: 22,
             port: port_,
           );
         },
@@ -620,6 +1127,44 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   );
 
   @override
+  Future<BridgeWork> crateApiCoreSessionSelectWork({
+    required CoreSession that,
+    required String workId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 23,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_work,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSelectWorkConstMeta,
+        argValues: [that, workId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSelectWorkConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_select_work",
+        argNames: ["that", "workId"],
+      );
+
+  @override
   Future<void> crateApiCoreSessionSend({required CoreSession that}) {
     return handler.executeNormal(
       NormalTask(
@@ -632,7 +1177,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 13,
+            funcId: 24,
             port: port_,
           );
         },
@@ -651,6 +1196,88 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       const TaskConstMeta(debugName: "CoreSession_send", argNames: ["that"]);
 
   @override
+  Future<BridgeChapter> crateApiCoreSessionSetChapterArchived({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required bool archived,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_bool(archived, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 25,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_chapter,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSetChapterArchivedConstMeta,
+        argValues: [that, workId, documentId, archived],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSetChapterArchivedConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_set_chapter_archived",
+        argNames: ["that", "workId", "documentId", "archived"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionSetUiSession({
+    required CoreSession that,
+    required String workId,
+    required String value,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(value, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 26,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSetUiSessionConstMeta,
+        argValues: [that, workId, value],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSetUiSessionConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_set_ui_session",
+        argNames: ["that", "workId", "value"],
+      );
+
+  @override
   Future<BigInt> crateApiCoreSessionSubscribe({
     required CoreSession that,
     required int capacity,
@@ -667,7 +1294,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 14,
+            funcId: 27,
             port: port_,
           );
         },
@@ -707,7 +1334,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 15,
+            funcId: 28,
             port: port_,
           );
         },
@@ -745,7 +1372,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 16,
+            funcId: 29,
             port: port_,
           );
         },
@@ -767,6 +1394,42 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<BridgeWorkspaceState> crateApiCoreSessionWorkspaceState({
+    required CoreSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 30,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bridge_workspace_state,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionWorkspaceStateConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionWorkspaceStateConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_workspace_state",
+        argNames: ["that"],
+      );
+
+  @override
   Future<void> crateApiInitApp() {
     return handler.executeNormal(
       NormalTask(
@@ -775,7 +1438,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 17,
+            funcId: 31,
             port: port_,
           );
         },
@@ -850,12 +1513,15 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   BridgeChapter dco_decode_bridge_chapter(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
-    if (arr.length != 3)
-      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    if (arr.length != 6)
+      throw Exception('unexpected arr length: expect 6 but see ${arr.length}');
     return BridgeChapter(
       id: dco_decode_String(arr[0]),
       workId: dco_decode_String(arr[1]),
       title: dco_decode_String(arr[2]),
+      headVersionId: dco_decode_opt_String(arr[3]),
+      orderIndex: dco_decode_i_64(arr[4]),
+      archived: dco_decode_bool(arr[5]),
     );
   }
 
@@ -863,14 +1529,16 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   BridgeDocument dco_decode_bridge_document(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
-    if (arr.length != 5)
-      throw Exception('unexpected arr length: expect 5 but see ${arr.length}');
+    if (arr.length != 7)
+      throw Exception('unexpected arr length: expect 7 but see ${arr.length}');
     return BridgeDocument(
       workId: dco_decode_String(arr[0]),
       documentId: dco_decode_String(arr[1]),
       revision: dco_decode_opt_box_autoadd_i_64(arr[2]),
-      body: dco_decode_String(arr[3]),
-      contentHash: dco_decode_opt_String(arr[4]),
+      baseHeadVersion: dco_decode_opt_String(arr[3]),
+      headVersionId: dco_decode_opt_String(arr[4]),
+      body: dco_decode_String(arr[5]),
+      contentHash: dco_decode_opt_String(arr[6]),
     );
   }
 
@@ -923,6 +1591,37 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  BridgePreparedConfirmation dco_decode_bridge_prepared_confirmation(
+    dynamic raw,
+  ) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 2)
+      throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+    return BridgePreparedConfirmation(
+      body: dco_decode_String(arr[0]),
+      token: dco_decode_String(arr[1]),
+    );
+  }
+
+  @protected
+  BridgeVersion dco_decode_bridge_version(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 7)
+      throw Exception('unexpected arr length: expect 7 but see ${arr.length}');
+    return BridgeVersion(
+      id: dco_decode_String(arr[0]),
+      documentId: dco_decode_String(arr[1]),
+      parentVersionId: dco_decode_opt_String(arr[2]),
+      body: dco_decode_String(arr[3]),
+      origin: dco_decode_String(arr[4]),
+      createdAt: dco_decode_String(arr[5]),
+      isHead: dco_decode_bool(arr[6]),
+    );
+  }
+
+  @protected
   BridgeWork dco_decode_bridge_work(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     final arr = raw as List<dynamic>;
@@ -935,9 +1634,28 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  BridgeWorkspaceState dco_decode_bridge_workspace_state(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    final arr = raw as List<dynamic>;
+    if (arr.length != 3)
+      throw Exception('unexpected arr length: expect 3 but see ${arr.length}');
+    return BridgeWorkspaceState(
+      selectedWorkId: dco_decode_opt_String(arr[0]),
+      recentWorks: dco_decode_list_bridge_work(arr[1]),
+      warning: dco_decode_opt_String(arr[2]),
+    );
+  }
+
+  @protected
   PlatformInt64 dco_decode_i_64(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dcoDecodeI64(raw);
+  }
+
+  @protected
+  List<String> dco_decode_list_String(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_String).toList();
   }
 
   @protected
@@ -950,6 +1668,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   List<BridgeJob> dco_decode_list_bridge_job(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return (raw as List<dynamic>).map(dco_decode_bridge_job).toList();
+  }
+
+  @protected
+  List<BridgeVersion> dco_decode_list_bridge_version(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return (raw as List<dynamic>).map(dco_decode_bridge_version).toList();
   }
 
   @protected
@@ -1067,7 +1791,17 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     var var_id = sse_decode_String(deserializer);
     var var_workId = sse_decode_String(deserializer);
     var var_title = sse_decode_String(deserializer);
-    return BridgeChapter(id: var_id, workId: var_workId, title: var_title);
+    var var_headVersionId = sse_decode_opt_String(deserializer);
+    var var_orderIndex = sse_decode_i_64(deserializer);
+    var var_archived = sse_decode_bool(deserializer);
+    return BridgeChapter(
+      id: var_id,
+      workId: var_workId,
+      title: var_title,
+      headVersionId: var_headVersionId,
+      orderIndex: var_orderIndex,
+      archived: var_archived,
+    );
   }
 
   @protected
@@ -1076,12 +1810,16 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     var var_workId = sse_decode_String(deserializer);
     var var_documentId = sse_decode_String(deserializer);
     var var_revision = sse_decode_opt_box_autoadd_i_64(deserializer);
+    var var_baseHeadVersion = sse_decode_opt_String(deserializer);
+    var var_headVersionId = sse_decode_opt_String(deserializer);
     var var_body = sse_decode_String(deserializer);
     var var_contentHash = sse_decode_opt_String(deserializer);
     return BridgeDocument(
       workId: var_workId,
       documentId: var_documentId,
       revision: var_revision,
+      baseHeadVersion: var_baseHeadVersion,
+      headVersionId: var_headVersionId,
       body: var_body,
       contentHash: var_contentHash,
     );
@@ -1128,6 +1866,37 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  BridgePreparedConfirmation sse_decode_bridge_prepared_confirmation(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_body = sse_decode_String(deserializer);
+    var var_token = sse_decode_String(deserializer);
+    return BridgePreparedConfirmation(body: var_body, token: var_token);
+  }
+
+  @protected
+  BridgeVersion sse_decode_bridge_version(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_id = sse_decode_String(deserializer);
+    var var_documentId = sse_decode_String(deserializer);
+    var var_parentVersionId = sse_decode_opt_String(deserializer);
+    var var_body = sse_decode_String(deserializer);
+    var var_origin = sse_decode_String(deserializer);
+    var var_createdAt = sse_decode_String(deserializer);
+    var var_isHead = sse_decode_bool(deserializer);
+    return BridgeVersion(
+      id: var_id,
+      documentId: var_documentId,
+      parentVersionId: var_parentVersionId,
+      body: var_body,
+      origin: var_origin,
+      createdAt: var_createdAt,
+      isHead: var_isHead,
+    );
+  }
+
+  @protected
   BridgeWork sse_decode_bridge_work(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var var_id = sse_decode_String(deserializer);
@@ -1136,9 +1905,36 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  BridgeWorkspaceState sse_decode_bridge_workspace_state(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var var_selectedWorkId = sse_decode_opt_String(deserializer);
+    var var_recentWorks = sse_decode_list_bridge_work(deserializer);
+    var var_warning = sse_decode_opt_String(deserializer);
+    return BridgeWorkspaceState(
+      selectedWorkId: var_selectedWorkId,
+      recentWorks: var_recentWorks,
+      warning: var_warning,
+    );
+  }
+
+  @protected
   PlatformInt64 sse_decode_i_64(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return deserializer.buffer.getPlatformInt64();
+  }
+
+  @protected
+  List<String> sse_decode_list_String(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <String>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_String(deserializer));
+    }
+    return ans_;
   }
 
   @protected
@@ -1163,6 +1959,20 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     var ans_ = <BridgeJob>[];
     for (var idx_ = 0; idx_ < len_; ++idx_) {
       ans_.add(sse_decode_bridge_job(deserializer));
+    }
+    return ans_;
+  }
+
+  @protected
+  List<BridgeVersion> sse_decode_list_bridge_version(
+    SseDeserializer deserializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    var len_ = sse_decode_i_32(deserializer);
+    var ans_ = <BridgeVersion>[];
+    for (var idx_ = 0; idx_ < len_; ++idx_) {
+      ans_.add(sse_decode_bridge_version(deserializer));
     }
     return ans_;
   }
@@ -1309,6 +2119,9 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     sse_encode_String(self.id, serializer);
     sse_encode_String(self.workId, serializer);
     sse_encode_String(self.title, serializer);
+    sse_encode_opt_String(self.headVersionId, serializer);
+    sse_encode_i_64(self.orderIndex, serializer);
+    sse_encode_bool(self.archived, serializer);
   }
 
   @protected
@@ -1320,6 +2133,8 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     sse_encode_String(self.workId, serializer);
     sse_encode_String(self.documentId, serializer);
     sse_encode_opt_box_autoadd_i_64(self.revision, serializer);
+    sse_encode_opt_String(self.baseHeadVersion, serializer);
+    sse_encode_opt_String(self.headVersionId, serializer);
     sse_encode_String(self.body, serializer);
     sse_encode_opt_String(self.contentHash, serializer);
   }
@@ -1358,6 +2173,28 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_bridge_prepared_confirmation(
+    BridgePreparedConfirmation self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(self.body, serializer);
+    sse_encode_String(self.token, serializer);
+  }
+
+  @protected
+  void sse_encode_bridge_version(BridgeVersion self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_String(self.id, serializer);
+    sse_encode_String(self.documentId, serializer);
+    sse_encode_opt_String(self.parentVersionId, serializer);
+    sse_encode_String(self.body, serializer);
+    sse_encode_String(self.origin, serializer);
+    sse_encode_String(self.createdAt, serializer);
+    sse_encode_bool(self.isHead, serializer);
+  }
+
+  @protected
   void sse_encode_bridge_work(BridgeWork self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_String(self.id, serializer);
@@ -1365,9 +2202,29 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_bridge_workspace_state(
+    BridgeWorkspaceState self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_opt_String(self.selectedWorkId, serializer);
+    sse_encode_list_bridge_work(self.recentWorks, serializer);
+    sse_encode_opt_String(self.warning, serializer);
+  }
+
+  @protected
   void sse_encode_i_64(PlatformInt64 self, SseSerializer serializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     serializer.buffer.putPlatformInt64(self);
+  }
+
+  @protected
+  void sse_encode_list_String(List<String> self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_String(item, serializer);
+    }
   }
 
   @protected
@@ -1391,6 +2248,18 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     sse_encode_i_32(self.length, serializer);
     for (final item in self) {
       sse_encode_bridge_job(item, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_list_bridge_version(
+    List<BridgeVersion> self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    for (final item in self) {
+      sse_encode_bridge_version(item, serializer);
     }
   }
 
@@ -1502,6 +2371,18 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
   Future<void> close() =>
       RustLib.instance.api.crateApiCoreSessionClose(that: this);
 
+  /// Confirm the exact prepared review; context/head/revision drift rejects the decision.
+  Future<BridgeChapter> confirmChapter({
+    required String workId,
+    required String documentId,
+    required String reviewToken,
+  }) => RustLib.instance.api.crateApiCoreSessionConfirmChapter(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    reviewToken: reviewToken,
+  );
+
   /// Creates a real chapter under an existing work.
   Future<BridgeChapter> createChapter({
     required String workId,
@@ -1516,6 +2397,22 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
   Future<BridgeWork> createWork({required String title}) => RustLib.instance.api
       .crateApiCoreSessionCreateWork(that: this, title: title);
 
+  /// Explicitly discards the working copy; the CAS revision must match.
+  Future<void> discardDraft({
+    required String workId,
+    required String documentId,
+    PlatformInt64? expectedRevision,
+  }) => RustLib.instance.api.crateApiCoreSessionDiscardDraft(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    expectedRevision: expectedRevision,
+  );
+
+  /// Reads the raw per-work UI session JSON, if any.
+  Future<String?> getUiSession({required String workId}) => RustLib.instance.api
+      .crateApiCoreSessionGetUiSession(that: this, workId: workId);
+
   /// Reports actual loaded schema; callers must reject incompatible protocol versions.
   Future<BridgeHandshake> handshake() =>
       RustLib.instance.api.crateApiCoreSessionHandshake(that: this);
@@ -1524,11 +2421,28 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
   Future<BridgeJob> jobStatus({required String jobId}) => RustLib.instance.api
       .crateApiCoreSessionJobStatus(that: this, jobId: jobId);
 
+  /// Lists archived chapters only.
+  Future<List<BridgeChapter>> listArchivedChapters({required String workId}) =>
+      RustLib.instance.api.crateApiCoreSessionListArchivedChapters(
+        that: this,
+        workId: workId,
+      );
+
   /// Lists only metadata for chapters belonging to the supplied work.
   Future<List<BridgeChapter>> listChapters({required String workId}) => RustLib
       .instance
       .api
       .crateApiCoreSessionListChapters(that: this, workId: workId);
+
+  /// Lists confirmed versions newest first, including exact bodies.
+  Future<List<BridgeVersion>> listVersions({
+    required String workId,
+    required String documentId,
+  }) => RustLib.instance.api.crateApiCoreSessionListVersions(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+  );
 
   /// Returns work metadata without loading all chapter bodies.
   Future<List<BridgeWork>> listWorks() =>
@@ -1550,6 +2464,60 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
       .api
       .crateApiCoreSessionPollEvents(that: this, subscription: subscription);
 
+  /// Prepare exact saved text and an opaque token before showing the confirmation decision.
+  Future<BridgePreparedConfirmation> prepareConfirmation({
+    required String workId,
+    required String documentId,
+    String? expectedHead,
+    required PlatformInt64 expectedRevision,
+  }) => RustLib.instance.api.crateApiCoreSessionPrepareConfirmation(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    expectedHead: expectedHead,
+    expectedRevision: expectedRevision,
+  );
+
+  /// Renames a chapter; titles live outside the version tree.
+  Future<BridgeChapter> renameChapter({
+    required String workId,
+    required String documentId,
+    required String title,
+  }) => RustLib.instance.api.crateApiCoreSessionRenameChapter(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    title: title,
+  );
+
+  /// Reorders the non-archived chapters; the server keeps archived chapters
+  /// and non-chapter documents at their absolute positions.
+  Future<void> reorderChapters({
+    required String workId,
+    required List<String> orderedIds,
+  }) => RustLib.instance.api.crateApiCoreSessionReorderChapters(
+    that: this,
+    workId: workId,
+    orderedIds: orderedIds,
+  );
+
+  /// Rolls the head back to an existing version without copying version rows;
+  /// the working copy is discarded exactly as the CAS revision dictates.
+  Future<BridgeChapter> rollbackChapter({
+    required String workId,
+    required String documentId,
+    required String versionId,
+    String? expectedHead,
+    PlatformInt64? expectedRevision,
+  }) => RustLib.instance.api.crateApiCoreSessionRollbackChapter(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    versionId: versionId,
+    expectedHead: expectedHead,
+    expectedRevision: expectedRevision,
+  );
+
   /// Saves through core CAS; stale expected revisions never silently overwrite text.
   Future<BridgeDocument> save({
     required String workId,
@@ -1564,9 +2532,35 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     body: body,
   );
 
+  /// Selects an existing work and remembers it as the most recent one.
+  Future<BridgeWork> selectWork({required String workId}) => RustLib
+      .instance
+      .api
+      .crateApiCoreSessionSelectWork(that: this, workId: workId);
+
   /// No credential/network backend exists in this M1 bridge; always fails closed.
   Future<void> send() =>
       RustLib.instance.api.crateApiCoreSessionSend(that: this);
+
+  /// Archives or restores a chapter; versions, drafts and threads survive.
+  Future<BridgeChapter> setChapterArchived({
+    required String workId,
+    required String documentId,
+    required bool archived,
+  }) => RustLib.instance.api.crateApiCoreSessionSetChapterArchived(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    archived: archived,
+  );
+
+  /// Writes the per-work UI session JSON after key/size/range validation.
+  Future<void> setUiSession({required String workId, required String value}) =>
+      RustLib.instance.api.crateApiCoreSessionSetUiSession(
+        that: this,
+        workId: workId,
+        value: value,
+      );
 
   /// Starts a bounded notification queue owned by this session.
   Future<BigInt> subscribe({required int capacity}) => RustLib.instance.api
@@ -1587,4 +2581,8 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
       .instance
       .api
       .crateApiCoreSessionUnsubscribe(that: this, subscription: subscription);
+
+  /// Returns the runtime selection, the recent list and any warning code.
+  Future<BridgeWorkspaceState> workspaceState() =>
+      RustLib.instance.api.crateApiCoreSessionWorkspaceState(that: this);
 }

@@ -167,4 +167,144 @@ class AppLocalizationsEn extends AppLocalizations {
   String errorCode(String code) {
     return 'Error code: $code';
   }
+
+  @override
+  String get saveDirty => 'Unsaved changes';
+
+  @override
+  String get saveSaving => 'Saving…';
+
+  @override
+  String get saveSaved => 'All changes saved';
+
+  @override
+  String get saveConflict => 'Save conflict — your draft is kept';
+
+  @override
+  String get saveError => 'Save failed — your draft is kept';
+
+  @override
+  String get retrySave => 'Retry save';
+
+  @override
+  String get editorTemporaryHint =>
+      'Temporary editing surface. Long-form editor performance validation is still pending.';
+
+  @override
+  String get draftRestored => 'Recovered a local draft';
+
+  @override
+  String get draftRestoredBase =>
+      'Recovered a local draft based on an older confirmed version';
+
+  @override
+  String get durableSaveFailed =>
+      'Changes could not be made durable. Export your draft before reopening.';
+
+  @override
+  String get newChapter => 'New chapter';
+
+  @override
+  String get newWork => 'New work';
+
+  @override
+  String get renameChapter => 'Rename chapter';
+
+  @override
+  String get archiveChapter => 'Archive chapter';
+
+  @override
+  String get restoreChapter => 'Restore chapter';
+
+  @override
+  String get archivedChapters => 'Archived';
+
+  @override
+  String get confirmChapter => 'Confirm chapter';
+
+  @override
+  String get confirmTitle => 'Confirm this exact text?';
+
+  @override
+  String get confirmNotice =>
+      'A new confirmed version is created. The working draft is kept and rebased onto it.';
+
+  @override
+  String get confirmAction => 'Confirm';
+
+  @override
+  String get versionsTitle => 'Confirmed versions';
+
+  @override
+  String get emptyVersions => 'No confirmed versions yet.';
+
+  @override
+  String get versionCurrent => 'current';
+
+  @override
+  String get rollbackAction => 'Roll back to this version';
+
+  @override
+  String get rollbackTitle => 'Roll back to this version?';
+
+  @override
+  String get rollbackNotice =>
+      'The confirmed head moves to this version. Your current working draft will be discarded.';
+
+  @override
+  String get titleRequired => 'Title cannot be empty';
+
+  @override
+  String get createAction => 'Create';
+
+  @override
+  String get cancelAction => 'Cancel';
+
+  @override
+  String get chapterTitleLabel => 'Chapter title';
+
+  @override
+  String get workTitleLabel => 'Work title';
+
+  @override
+  String get exportDraft => 'Export draft';
+
+  @override
+  String get exportDone => 'Draft exported';
+
+  @override
+  String get exportFailed => 'Export failed';
+
+  @override
+  String get exportPathLabel => 'Location';
+
+  @override
+  String exportOmitted(int count) {
+    return '$count chapters could not be read and were omitted';
+  }
+
+  @override
+  String exportChapters(int count) {
+    return '$count chapters exported';
+  }
+
+  @override
+  String get closeFailedTitle => 'Changes could not be saved';
+
+  @override
+  String get closeFailedBody =>
+      'You can retry, export your draft, or keep editing. The window stays open.';
+
+  @override
+  String get retryClose => 'Retry';
+
+  @override
+  String get keepEditing => 'Keep editing';
+
+  @override
+  String get exitAnyway => 'Exit anyway';
+
+  @override
+  String get exitAnywayHint =>
+      'Your draft was exported. Exit now without saving again?';
 }

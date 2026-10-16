@@ -1,0 +1,11 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository persists exact state across real sessions
+00:06 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:06 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_owned_repository_test.dart: owned repository maps unknown works and conflicts to stable codes
+00:09 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:09 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:12 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: synthetic fixture prepared decision rejects changed context and body
+00:12 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: synthetic fixture two works, CAS, exact text, versions and workspace state
+00:12 +8: All tests passed!

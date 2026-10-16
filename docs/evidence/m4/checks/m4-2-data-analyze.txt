@@ -1,0 +1,11 @@
+Analyzing data, m4_repository_test.dart...
+
+   info - lib\workspace\data\real_workspace_repository.dart:161:18 - The member 'loadBody' overrides an inherited member but isn't annotated with '@override'. Try adding the '@override' annotation. - annotate_overrides
+   info - lib\workspace\data\synthetic_workspace_repository.dart:160:18 - The member 'loadBody' overrides an inherited member but isn't annotated with '@override'. Try adding the '@override' annotation. - annotate_overrides
+   info - lib\workspace\data\synthetic_workspace_repository.dart:164:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\data\synthetic_workspace_repository.dart:220:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\data\synthetic_workspace_repository.dart:235:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\data\synthetic_workspace_repository.dart:276:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\data\synthetic_workspace_repository.dart:307:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+7 issues found.

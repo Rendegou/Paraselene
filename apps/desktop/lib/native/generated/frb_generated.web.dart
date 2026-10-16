@@ -71,16 +71,33 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   BridgeJob dco_decode_bridge_job(dynamic raw);
 
   @protected
+  BridgePreparedConfirmation dco_decode_bridge_prepared_confirmation(
+    dynamic raw,
+  );
+
+  @protected
+  BridgeVersion dco_decode_bridge_version(dynamic raw);
+
+  @protected
   BridgeWork dco_decode_bridge_work(dynamic raw);
 
   @protected
+  BridgeWorkspaceState dco_decode_bridge_workspace_state(dynamic raw);
+
+  @protected
   PlatformInt64 dco_decode_i_64(dynamic raw);
+
+  @protected
+  List<String> dco_decode_list_String(dynamic raw);
 
   @protected
   List<BridgeChapter> dco_decode_list_bridge_chapter(dynamic raw);
 
   @protected
   List<BridgeJob> dco_decode_list_bridge_job(dynamic raw);
+
+  @protected
+  List<BridgeVersion> dco_decode_list_bridge_version(dynamic raw);
 
   @protected
   List<BridgeWork> dco_decode_list_bridge_work(dynamic raw);
@@ -155,10 +172,26 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   BridgeJob sse_decode_bridge_job(SseDeserializer deserializer);
 
   @protected
+  BridgePreparedConfirmation sse_decode_bridge_prepared_confirmation(
+    SseDeserializer deserializer,
+  );
+
+  @protected
+  BridgeVersion sse_decode_bridge_version(SseDeserializer deserializer);
+
+  @protected
   BridgeWork sse_decode_bridge_work(SseDeserializer deserializer);
 
   @protected
+  BridgeWorkspaceState sse_decode_bridge_workspace_state(
+    SseDeserializer deserializer,
+  );
+
+  @protected
   PlatformInt64 sse_decode_i_64(SseDeserializer deserializer);
+
+  @protected
+  List<String> sse_decode_list_String(SseDeserializer deserializer);
 
   @protected
   List<BridgeChapter> sse_decode_list_bridge_chapter(
@@ -167,6 +200,11 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
 
   @protected
   List<BridgeJob> sse_decode_list_bridge_job(SseDeserializer deserializer);
+
+  @protected
+  List<BridgeVersion> sse_decode_list_bridge_version(
+    SseDeserializer deserializer,
+  );
 
   @protected
   List<BridgeWork> sse_decode_list_bridge_work(SseDeserializer deserializer);
@@ -256,10 +294,28 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   void sse_encode_bridge_job(BridgeJob self, SseSerializer serializer);
 
   @protected
+  void sse_encode_bridge_prepared_confirmation(
+    BridgePreparedConfirmation self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_bridge_version(BridgeVersion self, SseSerializer serializer);
+
+  @protected
   void sse_encode_bridge_work(BridgeWork self, SseSerializer serializer);
 
   @protected
+  void sse_encode_bridge_workspace_state(
+    BridgeWorkspaceState self,
+    SseSerializer serializer,
+  );
+
+  @protected
   void sse_encode_i_64(PlatformInt64 self, SseSerializer serializer);
+
+  @protected
+  void sse_encode_list_String(List<String> self, SseSerializer serializer);
 
   @protected
   void sse_encode_list_bridge_chapter(
@@ -270,6 +326,12 @@ abstract class RustLibApiImplPlatform extends BaseApiImpl<RustLibWire> {
   @protected
   void sse_encode_list_bridge_job(
     List<BridgeJob> self,
+    SseSerializer serializer,
+  );
+
+  @protected
+  void sse_encode_list_bridge_version(
+    List<BridgeVersion> self,
     SseSerializer serializer,
   );
 

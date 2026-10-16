@@ -380,6 +380,264 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error code: {code}'**
   String errorCode(String code);
+
+  /// Workbench: M4 save status: saveDirty
+  ///
+  /// In en, this message translates to:
+  /// **'Unsaved changes'**
+  String get saveDirty;
+
+  /// Workbench: M4 save status: saveSaving
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get saveSaving;
+
+  /// Workbench: M4 save status: saveSaved
+  ///
+  /// In en, this message translates to:
+  /// **'All changes saved'**
+  String get saveSaved;
+
+  /// Workbench: M4 save status: saveConflict
+  ///
+  /// In en, this message translates to:
+  /// **'Save conflict — your draft is kept'**
+  String get saveConflict;
+
+  /// Workbench: M4 save status: saveError
+  ///
+  /// In en, this message translates to:
+  /// **'Save failed — your draft is kept'**
+  String get saveError;
+
+  /// Workbench: M4 save status: retrySave
+  ///
+  /// In en, this message translates to:
+  /// **'Retry save'**
+  String get retrySave;
+
+  /// Workbench: M4 save status: editorTemporaryHint
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary editing surface. Long-form editor performance validation is still pending.'**
+  String get editorTemporaryHint;
+
+  /// Workbench: M4 save status: draftRestored
+  ///
+  /// In en, this message translates to:
+  /// **'Recovered a local draft'**
+  String get draftRestored;
+
+  /// Workbench: M4 save status: draftRestoredBase
+  ///
+  /// In en, this message translates to:
+  /// **'Recovered a local draft based on an older confirmed version'**
+  String get draftRestoredBase;
+
+  /// Workbench: M4 save status: durableSaveFailed
+  ///
+  /// In en, this message translates to:
+  /// **'Changes could not be made durable. Export your draft before reopening.'**
+  String get durableSaveFailed;
+
+  /// Workbench: M4 actions newChapter
+  ///
+  /// In en, this message translates to:
+  /// **'New chapter'**
+  String get newChapter;
+
+  /// Workbench: M4 actions newWork
+  ///
+  /// In en, this message translates to:
+  /// **'New work'**
+  String get newWork;
+
+  /// Workbench: M4 actions renameChapter
+  ///
+  /// In en, this message translates to:
+  /// **'Rename chapter'**
+  String get renameChapter;
+
+  /// Workbench: M4 actions archiveChapter
+  ///
+  /// In en, this message translates to:
+  /// **'Archive chapter'**
+  String get archiveChapter;
+
+  /// Workbench: M4 actions restoreChapter
+  ///
+  /// In en, this message translates to:
+  /// **'Restore chapter'**
+  String get restoreChapter;
+
+  /// Workbench: M4 actions archivedChapters
+  ///
+  /// In en, this message translates to:
+  /// **'Archived'**
+  String get archivedChapters;
+
+  /// Workbench: M4 actions confirmChapter
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm chapter'**
+  String get confirmChapter;
+
+  /// Workbench: M4 actions confirmTitle
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm this exact text?'**
+  String get confirmTitle;
+
+  /// Workbench: M4 actions confirmNotice
+  ///
+  /// In en, this message translates to:
+  /// **'A new confirmed version is created. The working draft is kept and rebased onto it.'**
+  String get confirmNotice;
+
+  /// Workbench: M4 actions confirmAction
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirmAction;
+
+  /// Workbench: M4 actions versionsTitle
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed versions'**
+  String get versionsTitle;
+
+  /// Workbench: M4 actions emptyVersions
+  ///
+  /// In en, this message translates to:
+  /// **'No confirmed versions yet.'**
+  String get emptyVersions;
+
+  /// Workbench: M4 actions versionCurrent
+  ///
+  /// In en, this message translates to:
+  /// **'current'**
+  String get versionCurrent;
+
+  /// Workbench: M4 actions rollbackAction
+  ///
+  /// In en, this message translates to:
+  /// **'Roll back to this version'**
+  String get rollbackAction;
+
+  /// Workbench: M4 actions rollbackTitle
+  ///
+  /// In en, this message translates to:
+  /// **'Roll back to this version?'**
+  String get rollbackTitle;
+
+  /// Workbench: M4 actions rollbackNotice
+  ///
+  /// In en, this message translates to:
+  /// **'The confirmed head moves to this version. Your current working draft will be discarded.'**
+  String get rollbackNotice;
+
+  /// Workbench: M4 actions titleRequired
+  ///
+  /// In en, this message translates to:
+  /// **'Title cannot be empty'**
+  String get titleRequired;
+
+  /// Workbench: M4 actions createAction
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get createAction;
+
+  /// Workbench: M4 actions cancelAction
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancelAction;
+
+  /// Workbench: M4 actions chapterTitleLabel
+  ///
+  /// In en, this message translates to:
+  /// **'Chapter title'**
+  String get chapterTitleLabel;
+
+  /// Workbench: M4 actions workTitleLabel
+  ///
+  /// In en, this message translates to:
+  /// **'Work title'**
+  String get workTitleLabel;
+
+  /// Workbench: M4 export exportDraft
+  ///
+  /// In en, this message translates to:
+  /// **'Export draft'**
+  String get exportDraft;
+
+  /// Workbench: M4 export exportDone
+  ///
+  /// In en, this message translates to:
+  /// **'Draft exported'**
+  String get exportDone;
+
+  /// Workbench: M4 export exportFailed
+  ///
+  /// In en, this message translates to:
+  /// **'Export failed'**
+  String get exportFailed;
+
+  /// Workbench: M4 export exportPathLabel
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get exportPathLabel;
+
+  /// Recovery export omissions
+  ///
+  /// In en, this message translates to:
+  /// **'{count} chapters could not be read and were omitted'**
+  String exportOmitted(int count);
+
+  /// Recovery export chapter count
+  ///
+  /// In en, this message translates to:
+  /// **'{count} chapters exported'**
+  String exportChapters(int count);
+
+  /// Workbench: M4 export closeFailedTitle
+  ///
+  /// In en, this message translates to:
+  /// **'Changes could not be saved'**
+  String get closeFailedTitle;
+
+  /// Workbench: M4 export closeFailedBody
+  ///
+  /// In en, this message translates to:
+  /// **'You can retry, export your draft, or keep editing. The window stays open.'**
+  String get closeFailedBody;
+
+  /// Workbench: M4 export retryClose
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retryClose;
+
+  /// Workbench: M4 export keepEditing
+  ///
+  /// In en, this message translates to:
+  /// **'Keep editing'**
+  String get keepEditing;
+
+  /// Workbench: M4 export exitAnyway
+  ///
+  /// In en, this message translates to:
+  /// **'Exit anyway'**
+  String get exitAnyway;
+
+  /// Workbench: M4 export exitAnywayHint
+  ///
+  /// In en, this message translates to:
+  /// **'Your draft was exported. Exit now without saving again?'**
+  String get exitAnywayHint;
 }
 
 class _AppLocalizationsDelegate

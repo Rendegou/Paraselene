@@ -6,11 +6,11 @@ warning: unused import: `super::*`
     |
     = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
 
-warning: function `新线程保存为revision1且CAS更新递增` should have a snake case name
+warning: function `鏂扮嚎绋嬩繚瀛樹负revision1涓擟AS鏇存柊閫掑` should have a snake case name
    --> core\memory-core\src\novel\threads.rs:132:8
     |
-132 |     fn 新线程保存为revision1且CAS更新递增() {
-    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `新线程保存为revision1且_cas更新递增`
+132 |     fn 鏂扮嚎绋嬩繚瀛樹负revision1涓擟AS鏇存柊閫掑() {
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `鏂扮嚎绋嬩繚瀛樹负revision1涓擾cas鏇存柊閫掑`
     |
     = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
 
@@ -24,11 +24,11 @@ warning: unused variable: `anchor`
     |
     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
 
-warning: function `作者设定直接确认_AI只能是候选且确认分离` should have a snake case name
+warning: function `浣滆€呰瀹氱洿鎺ョ‘璁AI鍙兘鏄€欓€変笖纭鍒嗙` should have a snake case name
   --> core\memory-core\tests\novel_lore.rs:23:8
    |
-23 |     fn 作者设定直接确认_AI只能是候选且确认分离() {
-   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `作者设定直接确认_ai只能是候选且确认分离`
+23 |     fn 浣滆€呰瀹氱洿鎺ョ‘璁AI鍙兘鏄€欓€変笖纭鍒嗙() {
+   |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `浣滆€呰瀹氱洿鎺ョ‘璁ai鍙兘鏄€欓€変笖纭鍒嗙`
    |
    = note: `#[warn(non_snake_case)]` (part of `#[warn(nonstandard_style)]`) on by default
 
@@ -42,23 +42,40 @@ warning: unused variable: `first`
     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
 
 warning: `paraselene-novel-core` (lib test) generated 1 warning (run `cargo fix --lib -p paraselene-novel-core --tests` to apply 1 suggestion)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.95s
-     Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_application-39e93801040320b6.exe)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.97s
+     Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_application-6d0ea8e60cbabbfc.exe)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running tests\provenance.rs (build\rust-m1-msvc\debug\deps\provenance-a2028a1da55a5e02.exe)
+     Running tests\m4_workspace.rs (build\rust-m1-msvc\debug\deps\m4_workspace-c3380bace4867416.exe)
+
+running 11 tests
+test archive_restore_preserves_everything ... ok
+test ui_session_validation ... ok
+test reorder_full_set_and_archived_positions ... ok
+test rollback_moves_head_and_drops_draft ... ok
+test discard_draft_requires_matching_revision ... ok
+test rename_chapter_validation ... ok
+test recent_works_order_dedupe_and_limit ... ok
+test confirm_version_tree_and_conflicts ... ok
+test two_works_two_chapters_flow ... ok
+test empty_body_save_and_reopen_persists ... ok
+test damaged_recent_record_is_backed_up ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.22s
+
+     Running tests\provenance.rs (build\rust-m1-msvc\debug\deps\provenance-7bb806fcb092d49f.exe)
 
 running 3 tests
 test unknown_preexisting_database_and_hardlink_are_rejected_untouched ... ok
 test open_handles_pin_database_marker_and_root_against_replacement ... ok
 test registered_database_reopens_but_linked_alias_does_not ... ok
 
-test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.28s
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.85s
 
-     Running tests\session.rs (build\rust-m1-msvc\debug\deps\session-1042c20eaafef593.exe)
+     Running tests\session.rs (build\rust-m1-msvc\debug\deps\session-f5432e07e0ecd786.exe)
 
 running 5 tests
 test unmarked_root_rejected_without_database_creation ... ok
@@ -67,223 +84,223 @@ test distinct_jobs_complete_out_of_order ... ok
 test dropped_future_and_retention_limit ... ok
 test cas_unicode_reopen_identity_and_close ... ok
 
-test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.97s
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.81s
 
      Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_memory_core-3fd8402cd7e00f1d.exe)
 
 running 108 tests
-test adapters::codex::tests::rollout_文件名提取会话id ... ok
-test imports::tests::格式探测_首行非标题但有分段标记_不落_chatgpt ... ok
-test imports::tests::chatgpt_代码围栏内的井号标题不切段 ... ok
-test imports::tests::chatgpt_正常解析角色分段与标题 ... ok
-test imports::tests::chatgpt_图片占位文本保留 ... ok
-test imports::tests::chatgpt_空分段被跳过 ... ok
-test imports::tests::格式探测_通用_markdown_模板不误判为_chatgpt ... ok
-test adapters::kimi::tests::目录名与项目名推导 ... ok
-test imports::tests::chatgpt_缺日期用文件时间兜底并标注 ... ok
-test adapters::codex::tests::rollout_解析_角色种类与去重 ... ok
-test import_file::tests::预览文本只读且解析出处 ... ok
-test adapters::codex::tests::rollout_坏行不中断且标题跳过系统注入 ... ok
-test adapters::kimi::tests::wire_agent_message_appended_按角色分流 ... ok
-test imports::tests::重复导入_内容哈希派生同_id_托管副本去重 ... ok
-test adapters::kimi::tests::wire_解析_用户去重与分片合并 ... ok
-test adapters::kimi::tests::wire_state_json_标题与未知事件 ... ok
-test import_file::tests::zip_只取_markdown_坏条目给计数不阻断好会话 ... ok
-test adapters::codex::tests::rollout_大文件流式解析计数正确 ... ok
-test learning::tests::学习轨迹只写学习目标且薄弱点在通过后消失 ... ok
-test learning::tests::学习轨迹重开后仍保留代码结果和提示级别 ... ok
-test novel::derived::tests::累积摘要在任何前序章变化时保守失效 ... ok
-test novel::derived::tests::修改章节后摘要dirty并入队重建 ... ok
-test novel::archive::tests::重复归档幂等且跨作品归档拒绝 ... ok
-test novel::archive::tests::归档恢复往返保留正文版本与编辑稿 ... ok
-test imports::tests::scan_imports_往返_再扫描跳过 ... ok
-test novel::derived::tests::重建发布前核对来源_期间再修改拒绝旧产物 ... ok
-test ideas::tests::原文移除后只报告保留的出处短引用 ... ok
-test novel::drafts::tests::未确认试写不进入正稿上下文且作品隔离 ... ok
-test novel::drafts::tests::不接受不存在作品与空正文 ... ok
-test novel::drafts::tests::模型试写仅能保存到预览时的确认版本 ... ok
-test novel::drafts::tests::引用人物卡更新与保存试写在同一事务检查 ... ok
-test novel::derived::tests::重建成功发布ready且claim过期后拒绝重复完成 ... ok
-test novel::drafts::tests::过期试写不能覆盖新正稿且丢弃不改正稿 ... ok
-test novel::derived::tests::重启恢复running回queued ... ok
-test ideas::tests::候选不落库_确认后出处可回到原消息 ... ok
-test parser::jsonl::tests::内容数组拼接不丢数据 ... ok
-test parser::jsonl::tests::坏行不会中断解析 ... ok
-test novel::patch_apply::tests::相同revision但正文hash不同不能绕过采纳校验 ... ok
-test novel::patch_apply::tests::全部采纳只改编辑稿且重复请求不会二次写入 ... ok
-test parser::jsonl::tests::时间戳规范化 ... ok
-test paths::tests::词法规范化处理相对段 ... ok
-test paths::tests::隐私目录被拦截 ... ok
-test parser::jsonl::tests::支持_bom_与_crlf ... ok
-test scanner::fingerprint::tests::内容变化时检测为_changed ... ok
-test scanner::fingerprint::tests::未变化时不重复计算哈希 ... ok
-test novel::patches::tests::文档删除级联清理patch且未知文档拒绝保存 ... ok
-test scanner::fingerprint::tests::重写但内容相同只更新元信息 ... ok
-test novel::tests::重排必须是全集精确排列且顺序生效 ... ok
-test novel::patch_apply::tests::候选状态写失败回滚同事务正文 ... ok
-test novel::tests::重命名更新标题且不触碰版本树 ... ok
-test novel::tests::目录摘要不含正文但带字数与顺序 ... ok
-test novel::lore_sources::tests::跨作品锚点与未知条目绑定拒绝 ... ok
-test ideas::tests::已转换目标可重新打开与编辑_作品名同步且出处不变 ... ok
-test import_file::tests::明确确认后才落库_重复确认不重复入库 ... ok
-test novel::patch_apply::tests::正文竞争保存与头版本漂移都拒绝采纳 ... ok
+test adapters::codex::tests::rollout_鏂囦欢鍚嶆彁鍙栦細璇漣d ... ok
+test adapters::kimi::tests::鐩綍鍚嶄笌椤圭洰鍚嶆帹瀵?... ok
+test imports::tests::鏍煎紡鎺㈡祴_棣栬闈炴爣棰樹絾鏈夊垎娈垫爣璁癬涓嶈惤_chatgpt ... ok
+test imports::tests::鏍煎紡鎺㈡祴_閫氱敤_markdown_妯℃澘涓嶈鍒や负_chatgpt ... ok
+test imports::tests::chatgpt_鍥剧墖鍗犱綅鏂囨湰淇濈暀 ... ok
+test imports::tests::chatgpt_绌哄垎娈佃璺宠繃 ... ok
+test imports::tests::chatgpt_姝ｅ父瑙ｆ瀽瑙掕壊鍒嗘涓庢爣棰?... ok
+test imports::tests::chatgpt_浠ｇ爜鍥存爮鍐呯殑浜曞彿鏍囬涓嶅垏娈?... ok
+test imports::tests::chatgpt_缂烘棩鏈熺敤鏂囦欢鏃堕棿鍏滃簳骞舵爣娉?... ok
+test adapters::codex::tests::rollout_鍧忚涓嶄腑鏂笖鏍囬璺宠繃绯荤粺娉ㄥ叆 ... ok
+test import_file::tests::棰勮鏂囨湰鍙涓旇В鏋愬嚭澶?... ok
+test adapters::codex::tests::rollout_瑙ｆ瀽_瑙掕壊绉嶇被涓庡幓閲?... ok
+test adapters::kimi::tests::wire_state_json_鏍囬涓庢湭鐭ヤ簨浠?... ok
+test imports::tests::閲嶅瀵煎叆_鍐呭鍝堝笇娲剧敓鍚宊id_鎵樼鍓湰鍘婚噸 ... ok
+test import_file::tests::zip_鍙彇_markdown_鍧忔潯鐩粰璁℃暟涓嶉樆鏂ソ浼氳瘽 ... ok
+test adapters::kimi::tests::wire_agent_message_appended_鎸夎鑹插垎娴?... ok
+test adapters::kimi::tests::wire_瑙ｆ瀽_鐢ㄦ埛鍘婚噸涓庡垎鐗囧悎骞?... ok
+test adapters::codex::tests::rollout_澶ф枃浠舵祦寮忚В鏋愯鏁版纭?... ok
+test novel::archive::tests::褰掓。鎭㈠寰€杩斾繚鐣欐鏂囩増鏈笌缂栬緫绋?... ok
+test novel::archive::tests::閲嶅褰掓。骞傜瓑涓旇法浣滃搧褰掓。鎷掔粷 ... ok
+test novel::derived::tests::淇敼绔犺妭鍚庢憳瑕乨irty骞跺叆闃熼噸寤?... ok
+test novel::derived::tests::绱Н鎽樿鍦ㄤ换浣曞墠搴忕珷鍙樺寲鏃朵繚瀹堝け鏁?... ok
+test learning::tests::瀛︿範杞ㄨ抗鍙啓瀛︿範鐩爣涓旇杽寮辩偣鍦ㄩ€氳繃鍚庢秷澶?... ok
+test imports::tests::scan_imports_寰€杩擾鍐嶆壂鎻忚烦杩?... ok
+test novel::derived::tests::閲嶅缓鍙戝竷鍓嶆牳瀵规潵婧恄鏈熼棿鍐嶄慨鏀规嫆缁濇棫浜х墿 ... ok
+test novel::patch_apply::tests::姝ｆ枃绔炰簤淇濆瓨涓庡ご鐗堟湰婕傜Щ閮芥嫆缁濋噰绾?... ok
+test novel::patch_apply::tests::鐩稿悓revision浣嗘鏂噃ash涓嶅悓涓嶈兘缁曡繃閲囩撼鏍￠獙 ... ok
+test novel::patch_apply::tests::鍊欓€夌姸鎬佸啓澶辫触鍥炴粴鍚屼簨鍔℃鏂?... ok
+test novel::drafts::tests::寮曠敤浜虹墿鍗℃洿鏂颁笌淇濆瓨璇曞啓鍦ㄥ悓涓€浜嬪姟妫€鏌?... ok
+test novel::drafts::tests::涓嶆帴鍙椾笉瀛樺湪浣滃搧涓庣┖姝ｆ枃 ... ok
+test novel::drafts::tests::杩囨湡璇曞啓涓嶈兘瑕嗙洊鏂版绋夸笖涓㈠純涓嶆敼姝ｇ ... ok
+test novel::derived::tests::閲嶅惎鎭㈠running鍥瀜ueued ... ok
+test learning::tests::瀛︿範杞ㄨ抗閲嶅紑鍚庝粛淇濈暀浠ｇ爜缁撴灉鍜屾彁绀虹骇鍒?... ok
+test novel::patch_apply::tests::鍏ㄩ儴閲囩撼鍙敼缂栬緫绋夸笖閲嶅璇锋眰涓嶄細浜屾鍐欏叆 ... ok
+test novel::drafts::tests::鏈‘璁よ瘯鍐欎笉杩涘叆姝ｇ涓婁笅鏂囦笖浣滃搧闅旂 ... ok
+test parser::jsonl::tests::鍐呭鏁扮粍鎷兼帴涓嶄涪鏁版嵁 ... ok
+test ideas::tests::鍘熸枃绉婚櫎鍚庡彧鎶ュ憡淇濈暀鐨勫嚭澶勭煭寮曠敤 ... ok
+test parser::jsonl::tests::鍧忚涓嶄細涓柇瑙ｆ瀽 ... ok
+test novel::drafts::tests::妯″瀷璇曞啓浠呰兘淇濆瓨鍒伴瑙堟椂鐨勭‘璁ょ増鏈?... ok
+test parser::jsonl::tests::鏃堕棿鎴宠鑼冨寲 ... ok
+test paths::tests::璇嶆硶瑙勮寖鍖栧鐞嗙浉瀵规 ... ok
+test paths::tests::闅愮鐩綍琚嫤鎴?... ok
+test parser::jsonl::tests::鏀寔_bom_涓巁crlf ... ok
+test novel::derived::tests::閲嶅缓鎴愬姛鍙戝竷ready涓攃laim杩囨湡鍚庢嫆缁濋噸澶嶅畬鎴?... ok
+test scanner::fingerprint::tests::鏈彉鍖栨椂涓嶉噸澶嶈绠楀搱甯?... ok
+test ideas::tests::鐘舵€佸彧缁忕‘璁よ縼绉籣鏃х姸鎬佹棤娉曡鐩?... ok
+test scanner::fingerprint::tests::閲嶅啓浣嗗唴瀹圭浉鍚屽彧鏇存柊鍏冧俊鎭?... ok
+test scanner::fingerprint::tests::鍐呭鍙樺寲鏃舵娴嬩负_changed ... ok
+test novel::lore_sources::tests::缁戝畾骞跺垪鍑哄嚭澶勫線杩斾笖閲嶅缁戝畾骞傜瓑 ... ok
+test novel::lore_sources::tests::璺ㄤ綔鍝侀敋鐐逛笌鏈煡鏉＄洰缁戝畾鎷掔粷 ... ok
+test ideas::tests::鐢ㄦ埛纭鍚庢墠璺ㄧ┖闂村垱寤哄皬璇翠綔鍝乢淇濈暀鍑哄涓斾笉閲嶅 ... ok
+test ideas::tests::鐩爣缂栬緫鍙兘缁忓凡杞崲鏃ф兂娉曚笖鏍￠獙闀垮害涓庡垹闄ょ姸鎬?... ok
+test import_file::tests::鏄庣‘纭鍚庢墠钀藉簱_閲嶅纭涓嶉噸澶嶅叆搴?... ok
+test ideas::tests::缈婚槄鍊欓€変笉浼氬弽澶嶇粰鍑哄悓涓€鏉?... ok
+test ideas::tests::宸茶浆鎹㈢洰鏍囧彲閲嶆柊鎵撳紑涓庣紪杈慱浣滃搧鍚嶅悓姝ヤ笖鍑哄涓嶅彉 ... ok
+test ideas::tests::鍊欓€変笉钀藉簱_纭鍚庡嚭澶勫彲鍥炲埌鍘熸秷鎭?... ok
 test storage::migrations::client_mvp_migration_tests::future_database_is_rejected_without_writes ... ok
-test ideas::tests::翻阅候选不会反复给出同一条 ... ok
-test ideas::tests::状态只经确认迁移_旧状态无法覆盖 ... ok
-test novel::lore_sources::tests::绑定并列出出处往返且重复绑定幂等 ... ok
-test ideas::tests::目标编辑只能经已转换旧想法且校验长度与删除状态 ... ok
-test ideas::tests::用户确认后才跨空间创建小说作品_保留出处且不重复 ... ok
-test novel::threads::tests::在途请求恢复时标记interrupted且不重发 ... ok
-test novel::threads::tests::新线程保存为revision1且CAS更新递增 ... ok
-test novel::patch_apply::tests::部分采纳同步更新绑定且旧候选快照拒绝 ... ok
-test ideas::tests::其他目标空间与免打扰由用户显式设置 ... ok
-test novel::patches::tests::patch保存读取与状态机幂等 ... ok
-test novel::versions::tests::回滚保留旧分支且新确认版本挂在回滚版本上 ... ok
-test novel::working_copies::tests::乐观锁拒绝过期revision且正常递增 ... ok
-test novel::working_copies::tests::已存在编辑稿时创建拒绝且删除幂等 ... ok
-test novel::versions::tests::采纳时原子复核人物卡版本_拒绝过期覆盖决定 ... ok
-test novel::threads::tests::线程归属错误与未知文档拒绝 ... ok
-test storage::search::tests::fts_查询构造安全 ... ok
-test storage::search::tests::trigram_查询构造 ... ok
-test novel::threads::tests::非法快照与归属不匹配拒绝 ... ok
-test parser::jsonl::tests::大文件流式解析且内存平稳 ... ok
-test novel::working_copies::tests::空正文编辑稿保存恢复优先且显式丢弃带revision校验 ... ok
-test novel::working_copies::tests::编辑稿创建读取与hash一致 ... ok
-test spaces::tests::纠正由旧想法转换的小说目标会同步作品标题 ... ok
-test spaces::tests::软删后默认查询不可见 ... ok
-test novel::working_copies::tests::文件库关闭重开后编辑稿与revision存活 ... ok
-test storage::migrations::tests::v1_库升级后_trigram_回填存量数据 ... ok
-test storage::migrations::tests::trigram_瘦身规则_tool不进索引且文本截断 ... ok
-test storage::migrations::tests::trigram_表随迁移创建且触发器同步 ... ok
-test storage::migrations::tests::v2_库升级后_四空间表就绪且数据不丢 ... ok
-test storage::migrations::tests::fts5_可用且触发器同步 ... ok
-test storage::migrations::tests::insert_or_replace_不会让_fts_残留旧内容 ... ok
-test storage::migrations::tests::v3_库升级后_trigram_瘦身重建 ... ok
-test spaces::tests::novel_必须挂作品_其他空间禁止挂作品 ... ok
-test spaces::tests::idea_状态机_合法与非法迁移 ... ok
-test spaces::tests::四空间_按_space_查询互不返回对方数据 ... ok
-test spaces::tests::用户纠正与删除要求空间和当前版本且保留出处 ... ok
-test storage::migrations::tests::v4_库升级后_小说表可用且原作品记忆不丢 ... ok
-test spaces::tests::出处链_添加读取与anchor限制 ... ok
-test spaces::tests::未链接时跨空间不可达_链接后单向可见 ... ok
-test spaces::tests::search_命中携带会话元数据可反查 ... ok
-test ideas::tests::空库不编造_确认拒绝助手及非法状态 ... ok
-test storage::migrations::client_mvp_migration_tests::failed_v11_rolls_back_and_can_resume ... ok
-test storage::migrations::tests::v5_升级到学习轨迹不改旧小说与学习目标 ... ok
-test storage::migrations::tests::v7_升级后_章序保持既有展示顺序 ... ok
-test storage::migrations::tests::级联删除会话消息 ... ok
-test storage::migrations::tests::迁移可重复执行且版本正确 ... ok
-test storage::migrations::tests::v7_编辑稿表就绪且随文档级联删除 ... ok
-test storage::search::tests::中文句中片段应进入正式搜索结果 ... ok
-test storage::search::tests::trigram_查询构造_端到端 ... ok
-test storage::search::tests::中文短查询回退与长查询使用_trigram ... ok
-test storage::search::tests::写入_搜索_高亮往返 ... ok
-test storage::migrations::client_mvp_migration_tests::v10_upgrade_preserves_data_and_reopens ... ok
+test novel::patch_apply::tests::閮ㄥ垎閲囩撼鍚屾鏇存柊缁戝畾涓旀棫鍊欓€夊揩鐓ф嫆缁?... ok
+test parser::jsonl::tests::澶ф枃浠舵祦寮忚В鏋愪笖鍐呭瓨骞崇ǔ ... ok
+test novel::tests::鐩綍鎽樿涓嶅惈姝ｆ枃浣嗗甫瀛楁暟涓庨『搴?... ok
+test novel::threads::tests::鍦ㄩ€旇姹傛仮澶嶆椂鏍囪interrupted涓斾笉閲嶅彂 ... ok
+test novel::patches::tests::鏂囨。鍒犻櫎绾ц仈娓呯悊patch涓旀湭鐭ユ枃妗ｆ嫆缁濅繚瀛?... ok
+test novel::tests::閲嶆帓蹇呴』鏄叏闆嗙簿纭帓鍒椾笖椤哄簭鐢熸晥 ... ok
+test novel::tests::閲嶅懡鍚嶆洿鏂版爣棰樹笖涓嶈Е纰扮増鏈爲 ... ok
+test novel::threads::tests::闈炴硶蹇収涓庡綊灞炰笉鍖归厤鎷掔粷 ... ok
+test novel::patches::tests::patch淇濆瓨璇诲彇涓庣姸鎬佹満骞傜瓑 ... ok
+test novel::threads::tests::鏂扮嚎绋嬩繚瀛樹负revision1涓擟AS鏇存柊閫掑 ... ok
+test novel::threads::tests::绾跨▼褰掑睘閿欒涓庢湭鐭ユ枃妗ｆ嫆缁?... ok
+test novel::working_copies::tests::涔愯閿佹嫆缁濊繃鏈焤evision涓旀甯搁€掑 ... ok
+test novel::working_copies::tests::缂栬緫绋垮垱寤鸿鍙栦笌hash涓€鑷?... ok
+test novel::versions::tests::閲囩撼鏃跺師瀛愬鏍镐汉鐗╁崱鐗堟湰_鎷掔粷杩囨湡瑕嗙洊鍐冲畾 ... ok
+test storage::search::tests::fts_鏌ヨ鏋勯€犲畨鍏?... ok
+test storage::search::tests::trigram_鏌ヨ鏋勯€?... ok
+test novel::working_copies::tests::宸插瓨鍦ㄧ紪杈戠鏃跺垱寤烘嫆缁濅笖鍒犻櫎骞傜瓑 ... ok
+test novel::working_copies::tests::绌烘鏂囩紪杈戠淇濆瓨鎭㈠浼樺厛涓旀樉寮忎涪寮冨甫revision鏍￠獙 ... ok
+test novel::versions::tests::鍥炴粴淇濈暀鏃у垎鏀笖鏂扮‘璁ょ増鏈寕鍦ㄥ洖婊氱増鏈笂 ... ok
+test spaces::tests::绾犳鐢辨棫鎯虫硶杞崲鐨勫皬璇寸洰鏍囦細鍚屾浣滃搧鏍囬 ... ok
+test spaces::tests::杞垹鍚庨粯璁ゆ煡璇笉鍙 ... ok
+test spaces::tests::鍥涚┖闂確鎸塤space_鏌ヨ浜掍笉杩斿洖瀵规柟鏁版嵁 ... ok
+test spaces::tests::鍑哄閾綺娣诲姞璇诲彇涓巃nchor闄愬埗 ... ok
+test spaces::tests::idea_鐘舵€佹満_鍚堟硶涓庨潪娉曡縼绉?... ok
+test novel::working_copies::tests::鏂囦欢搴撳叧闂噸寮€鍚庣紪杈戠涓巖evision瀛樻椿 ... ok
+test spaces::tests::鏈摼鎺ユ椂璺ㄧ┖闂翠笉鍙揪_閾炬帴鍚庡崟鍚戝彲瑙?... ok
+test spaces::tests::novel_蹇呴』鎸備綔鍝乢鍏朵粬绌洪棿绂佹鎸備綔鍝?... ok
+test ideas::tests::鍏朵粬鐩爣绌洪棿涓庡厤鎵撴壈鐢辩敤鎴锋樉寮忚缃?... ok
+test storage::migrations::tests::fts5_鍙敤涓旇Е鍙戝櫒鍚屾 ... ok
+test ideas::tests::绌哄簱涓嶇紪閫燺纭鎷掔粷鍔╂墜鍙婇潪娉曠姸鎬?... ok
+test spaces::tests::search_鍛戒腑鎼哄甫浼氳瘽鍏冩暟鎹彲鍙嶆煡 ... ok
+test spaces::tests::鐢ㄦ埛绾犳涓庡垹闄よ姹傜┖闂村拰褰撳墠鐗堟湰涓斾繚鐣欏嚭澶?... ok
 test storage::migrations::client_mvp_migration_tests::v12_failure_preserves_v11_threads_and_retry_reopens ... ok
+test storage::migrations::client_mvp_migration_tests::v10_upgrade_preserves_data_and_reopens ... ok
+test storage::migrations::client_mvp_migration_tests::failed_v11_rolls_back_and_can_resume ... ok
+test storage::migrations::tests::insert_or_replace_涓嶄細璁fts_娈嬬暀鏃у唴瀹?... ok
+test storage::migrations::tests::v1_搴撳崌绾у悗_trigram_鍥炲～瀛橀噺鏁版嵁 ... ok
+test storage::migrations::tests::v5_鍗囩骇鍒板涔犺建杩逛笉鏀规棫灏忚涓庡涔犵洰鏍?... ok
+test storage::migrations::tests::v7_鍗囩骇鍚巁绔犲簭淇濇寔鏃㈡湁灞曠ず椤哄簭 ... ok
+test storage::migrations::tests::v4_搴撳崌绾у悗_灏忚琛ㄥ彲鐢ㄤ笖鍘熶綔鍝佽蹇嗕笉涓?... ok
+test storage::migrations::tests::trigram_鐦﹁韩瑙勫垯_tool涓嶈繘绱㈠紩涓旀枃鏈埅鏂?... ok
+test storage::migrations::tests::v3_搴撳崌绾у悗_trigram_鐦﹁韩閲嶅缓 ... ok
+test storage::migrations::tests::trigram_琛ㄩ殢杩佺Щ鍒涘缓涓旇Е鍙戝櫒鍚屾 ... ok
+test storage::search::tests::涓枃鍙ヤ腑鐗囨搴旇繘鍏ユ寮忔悳绱㈢粨鏋?... ok
+test storage::migrations::tests::绾ц仈鍒犻櫎浼氳瘽娑堟伅 ... ok
+test storage::search::tests::trigram_鏌ヨ鏋勯€燺绔埌绔?... ok
+test storage::migrations::tests::v2_搴撳崌绾у悗_鍥涚┖闂磋〃灏辩华涓旀暟鎹笉涓?... ok
+test storage::migrations::tests::杩佺Щ鍙噸澶嶆墽琛屼笖鐗堟湰姝ｇ‘ ... ok
+test storage::migrations::tests::v7_缂栬緫绋胯〃灏辩华涓旈殢鏂囨。绾ц仈鍒犻櫎 ... ok
+test storage::search::tests::涓枃鐭煡璇㈠洖閫€涓庨暱鏌ヨ浣跨敤_trigram ... ok
+test storage::search::tests::鍐欏叆_鎼滅储_楂樹寒寰€杩?... ok
 
-test result: ok. 108 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.84s
+test result: ok. 108 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.94s
 
      Running tests\client_mvp_author_versions.rs (build\rust-m1-msvc\debug\deps\client_mvp_author_versions-8f1914021fbdf034.exe)
 
 running 6 tests
-test rollback_checks_both_versions_and_rolls_back_head_when_discard_fails ... ok
-test restoring_the_current_head_discards_only_the_expected_editing_copy ... ok
 test confirmation_rejects_old_working_base_even_after_loading_current_head ... ok
+test restoring_the_current_head_discards_only_the_expected_editing_copy ... ok
+test confirmation_context_change_rejects_without_mutating_manuscript ... ok
 test confirmation_rejects_empty_body_and_rolls_back_version_if_rebase_write_fails ... ok
 test confirmation_rejects_stale_head_and_revision_then_rebases_saved_snapshot ... ok
-test confirmation_context_change_rejects_without_mutating_manuscript ... ok
+test rollback_checks_both_versions_and_rolls_back_head_when_discard_fails ... ok
 
-test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
 
      Running tests\client_mvp_operations.rs (build\rust-m1-msvc\debug\deps\client_mvp_operations-265a508c94c9223f.exe)
 
 running 5 tests
-test 操作唯一且取消后迟到完整回复不入候选 ... ok
-test 生成期间作者保存新正文后旧回复不能生成候选 ... ok
-test 完成响应与候选一起持久化且不修改讨论草稿和正文 ... ok
-test 输出提交失败不留下孤立候选 ... ok
-test 文件库重开保留输出和在途状态且不自动发请求 ... ok
+test 杈撳嚭鎻愪氦澶辫触涓嶇暀涓嬪绔嬪€欓€?... ok
+test 瀹屾垚鍝嶅簲涓庡€欓€変竴璧锋寔涔呭寲涓斾笉淇敼璁ㄨ鑽夌鍜屾鏂?... ok
+test 鎿嶄綔鍞竴涓斿彇娑堝悗杩熷埌瀹屾暣鍥炲涓嶅叆鍊欓€?... ok
+test 鐢熸垚鏈熼棿浣滆€呬繚瀛樻柊姝ｆ枃鍚庢棫鍥炲涓嶈兘鐢熸垚鍊欓€?... ok
+test 鏂囦欢搴撻噸寮€淇濈暀杈撳嚭鍜屽湪閫旂姸鎬佷笖涓嶈嚜鍔ㄥ彂璇锋眰 ... ok
 
-test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
 
      Running tests\client_mvp_storage.rs (build\rust-m1-msvc\debug\deps\client_mvp_storage-d696630f8432014e.exe)
 
 running 6 tests
-test thread_snapshot_validates_emoji_coordinates_and_foreign_target ... ok
 test archive_restore_retains_threads_versions_and_editing ... ok
-test location_empty_lore_and_source_binding_respect_scope ... ok
 test author_lore_save_without_confirmation_keeps_author_origin ... ok
+test thread_snapshot_validates_emoji_coordinates_and_foreign_target ... ok
+test location_empty_lore_and_source_binding_respect_scope ... ok
 test threads_cas_scope_validation_and_recovery_are_independent ... ok
 test empty_manuscript_survives_reopen_and_discard_requires_cas ... ok
 
-test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
 
      Running tests\novel_lore.rs (build\rust-m1-msvc\debug\deps\novel_lore-05070c1cee171deb.exe)
 
 running 6 tests
-test tests::版本链乐观锁与作用范围 ... ok
-test tests::回溯改设定保留全部历史且可回溯查看 ... ok
-test tests::同名异人不自动合并_别名可检索 ... ok
-test tests::出处锚点校验版本归属边界与hash ... ok
-test tests::作者设定直接确认_AI只能是候选且确认分离 ... ok
-test tests::头版本移动后锚点变旧版且文档删除级联清理 ... ok
+test tests::浣滆€呰瀹氱洿鎺ョ‘璁AI鍙兘鏄€欓€変笖纭鍒嗙 ... ok
+test tests::澶寸増鏈Щ鍔ㄥ悗閿氱偣鍙樻棫鐗堜笖鏂囨。鍒犻櫎绾ц仈娓呯悊 ... ok
+test tests::鍑哄閿氱偣鏍￠獙鐗堟湰褰掑睘杈圭晫涓巋ash ... ok
+test tests::鍥炴函鏀硅瀹氫繚鐣欏叏閮ㄥ巻鍙蹭笖鍙洖婧煡鐪?... ok
+test tests::鍚屽悕寮備汉涓嶈嚜鍔ㄥ悎骞禵鍒悕鍙绱?... ok
+test tests::鐗堟湰閾句箰瑙傞攣涓庝綔鐢ㄨ寖鍥?... ok
 
 test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
 
      Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_novel_core-47c1c6f11852cd75.exe)
 
 running 34 tests
-test context::budget::tests::估算含裕量且随文本增长 ... ok
-test context::manifest::tests::manifest分层计数与省略记录 ... ok
-test context::budget::tests::预算配额合计不超总预算 ... ok
-test quality::tests::conflict_requires_explicit_character_rule_and_literal_match ... ok
-test patch::tests::纯插入块经锚行重定锚 ... ok
-test edit::tests::只改对白拒绝动作变化与不完整引号 ... ok
-test edit::tests::选段重写和续写只改变所选位置_支持中文与表情字符 ... ok
-test patch::diff::tests::crlf行尾不折叠 ... ok
-test context::retrieval::tests::别名扩展加入规范名 ... ok
-test patch::diff::tests::多块按行分组且不重叠 ... ok
-test patch::diff::tests::字级差异合并为替换并支持emoji ... ok
-test patch::tests::单块应用后其余块按原文重定锚不偏移错位 ... ok
-test patch::tests::同句重复只命中候选本来的位置且歧义即剔除 ... ok
-test patch::tests::重叠手工patch被校验拒绝 ... ok
-test patch::tests::过期头版本过期revision与hash不符一律拒绝 ... ok
-test patch::tests::重复应用因hash变化而幂等拒绝 ... ok
-test context::retrieval::tests::检索命中计数并给出片段坐标 ... ok
+test context::budget::tests::棰勭畻閰嶉鍚堣涓嶈秴鎬婚绠?... ok
+test context::budget::tests::浼扮畻鍚閲忎笖闅忔枃鏈闀?... ok
+test context::retrieval::tests::鍒悕鎵╁睍鍔犲叆瑙勮寖鍚?... ok
+test patch::tests::閲嶅彔鎵嬪伐patch琚牎楠屾嫆缁?... ok
+test edit::tests::鍙敼瀵圭櫧鎷掔粷鍔ㄤ綔鍙樺寲涓庝笉瀹屾暣寮曞彿 ... ok
+test context::retrieval::tests::棰勭畻瑁佸壀鍒嗗嚭淇濈暀涓庣渷鐣?... ok
+test context::retrieval::tests::妫€绱㈠懡涓鏁板苟缁欏嚭鐗囨鍧愭爣 ... ok
+test context::manifest::tests::manifest鍒嗗眰璁℃暟涓庣渷鐣ヨ褰?... ok
+test patch::diff::tests::crlf琛屽熬涓嶆姌鍙?... ok
+test patch::diff::tests::澶氬潡鎸夎鍒嗙粍涓斾笉閲嶅彔 ... ok
+test patch::tests::鍗曞潡搴旂敤鍚庡叾浣欏潡鎸夊師鏂囬噸瀹氶敋涓嶅亸绉婚敊浣?... ok
+test patch::tests::鍚屽彞閲嶅鍙懡涓€欓€夋湰鏉ョ殑浣嶇疆涓旀涔夊嵆鍓旈櫎 ... ok
+test edit::tests::閫夋閲嶅啓鍜岀画鍐欏彧鏀瑰彉鎵€閫変綅缃甠鏀寔涓枃涓庤〃鎯呭瓧绗?... ok
+test patch::diff::tests::琛屾暟瓒呬笂闄愰€€鍖栦负鏁存枃鍗曞潡 ... ok
 test quality::tests::unresolved_questions_keep_exact_confirmed_source ... ok
-test patch::tests::多块统一偏移应用后选段之外逐字不变 ... ok
-test stream::tests::只接受完整停止的非空回复 ... ok
-test context::retrieval::tests::预算裁剪分出保留与省略 ... ok
-test patch::diff::tests::行数超上限退化为整文单块 ... ok
-test stream::tests::完整模型回复仅进试写_确认后才进入下一次上下文 ... ok
-test rpg::tests::跑团场景格式与玩家回复的边界 ... ok
-test context::tests::manifest记录估算器身份与省略原因 ... ok
-test generation::tests::人物卡未定行不会作为硬约束注入 ... ok
-test generation::tests::待决议题仅来自当前确认版本_进入预览并随回滚消失 ... ok
-test generation::tests::其他已确认设定变化使预览版本签名失效 ... ok
-test generation::tests::云开关在组装时阻断 ... ok
-test generation::tests::选段预览绑定当前正稿且仅引用确认设定 ... ok
-test context::tests::必需材料超预算即拒绝并给出原因 ... ok
-test context::tests::装配只含目标章序以内的检索证据 ... ok
-test rpg::tests::跑团临时场景和玩家回复不污染下一章上下文 ... ok
-test generation::tests::只注入本作品已确认内容_人物卡是硬约束 ... ok
+test patch::tests::閲嶅搴旂敤鍥爃ash鍙樺寲鑰屽箓绛夋嫆缁?... ok
+test quality::tests::conflict_requires_explicit_character_rule_and_literal_match ... ok
+test patch::tests::澶氬潡缁熶竴鍋忕Щ搴旂敤鍚庨€夋涔嬪閫愬瓧涓嶅彉 ... ok
+test patch::tests::绾彃鍏ュ潡缁忛敋琛岄噸瀹氶敋 ... ok
+test patch::diff::tests::瀛楃骇宸紓鍚堝苟涓烘浛鎹㈠苟鏀寔emoji ... ok
+test patch::tests::杩囨湡澶寸増鏈繃鏈焤evision涓巋ash涓嶇涓€寰嬫嫆缁?... ok
+test stream::tests::鍙帴鍙楀畬鏁村仠姝㈢殑闈炵┖鍥炲 ... ok
+test rpg::tests::璺戝洟涓存椂鍦烘櫙鍜岀帺瀹跺洖澶嶄笉姹℃煋涓嬩竴绔犱笂涓嬫枃 ... ok
+test context::tests::manifest璁板綍浼扮畻鍣ㄨ韩浠戒笌鐪佺暐鍘熷洜 ... ok
+test generation::tests::浜虹墿鍗℃湭瀹氳涓嶄細浣滀负纭害鏉熸敞鍏?... ok
+test rpg::tests::璺戝洟鍦烘櫙鏍煎紡涓庣帺瀹跺洖澶嶇殑杈圭晫 ... ok
+test context::tests::蹇呴渶鏉愭枡瓒呴绠楀嵆鎷掔粷骞剁粰鍑哄師鍥?... ok
+test generation::tests::閫夋棰勮缁戝畾褰撳墠姝ｇ涓斾粎寮曠敤纭璁惧畾 ... ok
+test context::tests::瑁呴厤鍙惈鐩爣绔犲簭浠ュ唴鐨勬绱㈣瘉鎹?... ok
+test generation::tests::寰呭喅璁浠呮潵鑷綋鍓嶇‘璁ょ増鏈琠杩涘叆棰勮骞堕殢鍥炴粴娑堝け ... ok
+test generation::tests::鍙敞鍏ユ湰浣滃搧宸茬‘璁ゅ唴瀹筥浜虹墿鍗℃槸纭害鏉?... ok
+test stream::tests::瀹屾暣妯″瀷鍥炲浠呰繘璇曞啓_纭鍚庢墠杩涘叆涓嬩竴娆′笂涓嬫枃 ... ok
+test generation::tests::鍏朵粬宸茬‘璁よ瀹氬彉鍖栦娇棰勮鐗堟湰绛惧悕澶辨晥 ... ok
+test generation::tests::浜戝紑鍏冲湪缁勮鏃堕樆鏂?... ok
 
-test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.23s
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
 
      Running tests\working_edit.rs (build\rust-m1-msvc\debug\deps\working_edit-b768d72272cd6857.exe)
 
 running 9 tests
-test 云关闭时不签发计划且正文仍保留 ... ok
-test 只带入本作品显式确认资料且资料版本漂移作废预览 ... ok
-test 归档章节不能用于新预览或旧计划发送 ... ok
-test 未确认的编辑稿可以预览且emoji坐标精确换算 ... ok
-test 旧revision正文改动半个emoji及线程归属错误均拒绝 ... ok
-test 预览按讨论隔离且只能消费一次取消阻止完成提交 ... ok
-test 取消读取会丢弃生成future且不返回完整候选 ... ok
-test 完整候选只修改编辑稿且不能重复采纳或跨章采纳 ... ok
-test 候选完成后作者改稿或拒绝都不能覆盖正文 ... ok
+test 瀹屾暣鍊欓€夊彧淇敼缂栬緫绋夸笖涓嶈兘閲嶅閲囩撼鎴栬法绔犻噰绾?... ok
+test 褰掓。绔犺妭涓嶈兘鐢ㄤ簬鏂伴瑙堟垨鏃ц鍒掑彂閫?... ok
+test 鍙栨秷璇诲彇浼氫涪寮冪敓鎴恌uture涓斾笉杩斿洖瀹屾暣鍊欓€?... ok
+test 浜戝叧闂椂涓嶇鍙戣鍒掍笖姝ｆ枃浠嶄繚鐣?... ok
+test 棰勮鎸夎璁洪殧绂讳笖鍙兘娑堣垂涓€娆″彇娑堥樆姝㈠畬鎴愭彁浜?... ok
+test 鏃evision姝ｆ枃鏀瑰姩鍗婁釜emoji鍙婄嚎绋嬪綊灞為敊璇潎鎷掔粷 ... ok
+test 鏈‘璁ょ殑缂栬緫绋垮彲浠ラ瑙堜笖emoji鍧愭爣绮剧‘鎹㈢畻 ... ok
+test 鍙甫鍏ユ湰浣滃搧鏄惧紡纭璧勬枡涓旇祫鏂欑増鏈紓绉讳綔搴熼瑙?... ok
+test 鍊欓€夊畬鎴愬悗浣滆€呮敼绋挎垨鎷掔粷閮戒笉鑳借鐩栨鏂?... ok
 
-test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
 
    Doc-tests paraselene_application
 
@@ -302,3 +319,4 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

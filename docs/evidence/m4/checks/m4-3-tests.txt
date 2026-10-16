@@ -1,0 +1,22 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: two listeners never receive stale state after reentrant publication
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: 350ms debounce resets and equal text does not increment sequence
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: timer failure has no unhandled Future and retains error until retry
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: flight installed before saving listeners reenter flush
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: edit during final saved notification drains under same flight
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: flushAll revisits previously clean slots changed while another waits
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: listener exceptions are diagnostics and cannot become save failure
+00:00 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: invalid identity reply cannot advance revision or erase draft
+00:00 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: invalid body reply cannot advance revision or erase draft
+00:00 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: invalid revision reply cannot advance revision or erase draft
+00:00 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_race_test.dart: delimiter-containing identities cannot collide and dispose is safe
+00:00 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: snapshot acknowledgement preserves edits and coalesces next write
+00:00 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: late reply isolated from selected chapter and same id in other work
+00:00 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: failed barrier keeps text and CAS through edits and explicit retry
+00:00 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: stable CAS conflicts never refresh revision and block hydrate
+00:00 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: empty exact text submits; reload rejected until settled
+00:00 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: close and switch barriers wait for newest text across documents
+00:00 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: flushAll failure does not prevent independent document saving
+00:00 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/domain/editing/save_coordinator_test.dart: release requires settled unobserved slot; saved notification has flight
+00:00 +19: All tests passed!

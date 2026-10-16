@@ -1,0 +1,7 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m1_app_test.dart
+Building Windows application...                                    16.7s
+鈭?Built build\windows\x64\runner\Debug\paraselene_flutter.exe
+00:00 +0: Windows app runs actual M1 synthetic acceptance
+00:06 +1: (tearDownAll)
+00:06 +1: All tests passed!

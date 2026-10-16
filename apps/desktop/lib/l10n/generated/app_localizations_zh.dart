@@ -161,6 +161,139 @@ class AppLocalizationsZh extends AppLocalizations {
   String errorCode(String code) {
     return '错误代码：$code';
   }
+
+  @override
+  String get saveDirty => '有未保存更改';
+
+  @override
+  String get saveSaving => '保存中…';
+
+  @override
+  String get saveSaved => '已保存';
+
+  @override
+  String get saveConflict => '保存冲突——草稿已保留';
+
+  @override
+  String get saveError => '保存失败——草稿已保留';
+
+  @override
+  String get retrySave => '重试保存';
+
+  @override
+  String get editorTemporaryHint => '临时编辑区：长文编辑器性能验收尚未完成。';
+
+  @override
+  String get draftRestored => '已恢复本机编辑稿';
+
+  @override
+  String get draftRestoredBase => '已恢复本机编辑稿（基于旧确认版本）';
+
+  @override
+  String get durableSaveFailed => '更改未能持久化。请导出草稿后再重新打开。';
+
+  @override
+  String get newChapter => '新建章节';
+
+  @override
+  String get newWork => '新建作品';
+
+  @override
+  String get renameChapter => '重命名章节';
+
+  @override
+  String get archiveChapter => '归档章节';
+
+  @override
+  String get restoreChapter => '恢复章节';
+
+  @override
+  String get archivedChapters => '已归档';
+
+  @override
+  String get confirmChapter => '确认本章';
+
+  @override
+  String get confirmTitle => '确认以下正文？';
+
+  @override
+  String get confirmNotice => '将创建新的确认版本，编辑稿保留并以新版本为基准。';
+
+  @override
+  String get confirmAction => '确认';
+
+  @override
+  String get versionsTitle => '确认版本';
+
+  @override
+  String get emptyVersions => '还没有确认版本。';
+
+  @override
+  String get versionCurrent => '当前';
+
+  @override
+  String get rollbackAction => '回退到此版本';
+
+  @override
+  String get rollbackTitle => '回退到此版本？';
+
+  @override
+  String get rollbackNotice => '正稿将回退到该版本，当前编辑稿将被丢弃。';
+
+  @override
+  String get titleRequired => '标题不能为空';
+
+  @override
+  String get createAction => '创建';
+
+  @override
+  String get cancelAction => '取消';
+
+  @override
+  String get chapterTitleLabel => '章节标题';
+
+  @override
+  String get workTitleLabel => '作品标题';
+
+  @override
+  String get exportDraft => '导出草稿';
+
+  @override
+  String get exportDone => '草稿已导出';
+
+  @override
+  String get exportFailed => '导出失败';
+
+  @override
+  String get exportPathLabel => '位置';
+
+  @override
+  String exportOmitted(int count) {
+    return '$count 个章节未能读取，已略过';
+  }
+
+  @override
+  String exportChapters(int count) {
+    return '已导出 $count 个章节';
+  }
+
+  @override
+  String get closeFailedTitle => '更改未能保存';
+
+  @override
+  String get closeFailedBody => '可以重试、导出草稿或继续编辑，窗口保持打开。';
+
+  @override
+  String get retryClose => '重试';
+
+  @override
+  String get keepEditing => '继续编辑';
+
+  @override
+  String get exitAnyway => '仍然退出';
+
+  @override
+  String get exitAnywayHint => '草稿已导出。现在不再保存并退出？';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -320,4 +453,137 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
   String errorCode(String code) {
     return '错误代码：$code';
   }
+
+  @override
+  String get saveDirty => '有未保存更改';
+
+  @override
+  String get saveSaving => '保存中…';
+
+  @override
+  String get saveSaved => '已保存';
+
+  @override
+  String get saveConflict => '保存冲突——草稿已保留';
+
+  @override
+  String get saveError => '保存失败——草稿已保留';
+
+  @override
+  String get retrySave => '重试保存';
+
+  @override
+  String get editorTemporaryHint => '临时编辑区：长文编辑器性能验收尚未完成。';
+
+  @override
+  String get draftRestored => '已恢复本机编辑稿';
+
+  @override
+  String get draftRestoredBase => '已恢复本机编辑稿（基于旧确认版本）';
+
+  @override
+  String get durableSaveFailed => '更改未能持久化。请导出草稿后再重新打开。';
+
+  @override
+  String get newChapter => '新建章节';
+
+  @override
+  String get newWork => '新建作品';
+
+  @override
+  String get renameChapter => '重命名章节';
+
+  @override
+  String get archiveChapter => '归档章节';
+
+  @override
+  String get restoreChapter => '恢复章节';
+
+  @override
+  String get archivedChapters => '已归档';
+
+  @override
+  String get confirmChapter => '确认本章';
+
+  @override
+  String get confirmTitle => '确认以下正文？';
+
+  @override
+  String get confirmNotice => '将创建新的确认版本，编辑稿保留并以新版本为基准。';
+
+  @override
+  String get confirmAction => '确认';
+
+  @override
+  String get versionsTitle => '确认版本';
+
+  @override
+  String get emptyVersions => '还没有确认版本。';
+
+  @override
+  String get versionCurrent => '当前';
+
+  @override
+  String get rollbackAction => '回退到此版本';
+
+  @override
+  String get rollbackTitle => '回退到此版本？';
+
+  @override
+  String get rollbackNotice => '正稿将回退到该版本，当前编辑稿将被丢弃。';
+
+  @override
+  String get titleRequired => '标题不能为空';
+
+  @override
+  String get createAction => '创建';
+
+  @override
+  String get cancelAction => '取消';
+
+  @override
+  String get chapterTitleLabel => '章节标题';
+
+  @override
+  String get workTitleLabel => '作品标题';
+
+  @override
+  String get exportDraft => '导出草稿';
+
+  @override
+  String get exportDone => '草稿已导出';
+
+  @override
+  String get exportFailed => '导出失败';
+
+  @override
+  String get exportPathLabel => '位置';
+
+  @override
+  String exportOmitted(int count) {
+    return '$count 个章节未能读取，已略过';
+  }
+
+  @override
+  String exportChapters(int count) {
+    return '已导出 $count 个章节';
+  }
+
+  @override
+  String get closeFailedTitle => '更改未能保存';
+
+  @override
+  String get closeFailedBody => '可以重试、导出草稿或继续编辑，窗口保持打开。';
+
+  @override
+  String get retryClose => '重试';
+
+  @override
+  String get keepEditing => '继续编辑';
+
+  @override
+  String get exitAnyway => '仍然退出';
+
+  @override
+  String get exitAnywayHint => '草稿已导出。现在不再保存并退出？';
 }

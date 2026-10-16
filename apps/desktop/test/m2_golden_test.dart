@@ -27,7 +27,7 @@ void main() {
         tester.useSurface(const Size(1280, 900));
         await tester.pumpWorkbench(rtl: rtl);
         expect(
-          tester.widget<SelectableText>(find.byKey(manuscriptKey)).data,
+          tester.widget<TextField>(find.byKey(manuscriptKey)).controller!.text,
           demoBody,
         );
         expect(find.textContaining('العربية'), findsOneWidget);

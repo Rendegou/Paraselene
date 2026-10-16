@@ -384,5 +384,9 @@
   "exitAnywayHint": "Your draft was exported. Exit now without saving again?",
   "@exitAnywayHint": {
     "description": "Workbench: M4 export exitAnywayHint"
+  },
+  "recoveryFilenameSuffix": "readable_chapter_recovery",
+  "@recoveryFilenameSuffix": {
+    "description": "Localized suffix of the recovery export filename."
   }
 }

@@ -55,9 +55,11 @@ final class RecoveryExporter {
     required WorkspaceWork work,
     required List<WorkspaceChapter> chapters,
     required List<SaveState> loadedStates,
+    String filenameSuffix = 'recovery',
   }) async {
     final drafts = {
-      for (final state in loadedStates) state.documentId: state.body,
+      for (final state in loadedStates)
+        if (state.workId == work.id) state.documentId: state.body,
     };
     final buffer = StringBuffer('# ${work.title}\n\n');
     final omitted = <String>[];
@@ -80,7 +82,8 @@ final class RecoveryExporter {
       written++;
     }
     final path = await _gateway.pickSavePath(
-      suggestedName: '${_safeName(work.title)}_可读章节恢复稿.txt',
+      suggestedName:
+          '${_safeName(work.title)}_${_safeName(filenameSuffix)}.txt',
     );
     if (path == null) return null;
     final content = buffer.toString();

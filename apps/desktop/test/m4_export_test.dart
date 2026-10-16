@@ -100,6 +100,36 @@ void main() {
     },
   );
 
+  test(
+    'same chapter id in another work cannot replace this work body',
+    () async {
+      final repo = SyntheticWorkspaceRepository();
+      final (work, chapters) = await seed(repo);
+      final target = '${temp.path}\\isolated.txt';
+      final exporter = RecoveryExporter(repo, _FixedGateway(target));
+      await exporter.export(
+        work: work,
+        chapters: chapters,
+        loadedStates: [
+          _state('other-work', chapters.first.id, 'foreign draft'),
+        ],
+      );
+      final content = await File(target).readAsString();
+      expect(content, contains('后端第一章'));
+      expect(content, isNot(contains('foreign draft')));
+    },
+  );
+
+  test('write failure never returns a verified outcome', () async {
+    final repo = SyntheticWorkspaceRepository();
+    final (work, chapters) = await seed(repo);
+    final exporter = RecoveryExporter(repo, _FixedGateway(temp.path));
+    await expectLater(
+      exporter.export(work: work, chapters: chapters, loadedStates: const []),
+      throwsA(isA<FileSystemException>()),
+    );
+  });
+
   test('a cancelled dialog writes nothing and reports nothing', () async {
     final repo = SyntheticWorkspaceRepository();
     final (work, chapters) = await seed(repo);

@@ -294,6 +294,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get exitAnywayHint => '草稿已导出。现在不再保存并退出？';
+
+  @override
+  String get recoveryFilenameSuffix => '可读章节恢复稿';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -586,4 +589,7 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
 
   @override
   String get exitAnywayHint => '草稿已导出。现在不再保存并退出？';
+
+  @override
+  String get recoveryFilenameSuffix => '可读章节恢复稿';
 }

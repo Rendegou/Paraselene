@@ -121,6 +121,7 @@ class _ManuscriptEditorState extends State<ManuscriptEditor> {
                 TextField(
                   key: const ValueKey('manuscript-body'),
                   controller: _text,
+                  readOnly: widget.controller.isBusy,
                   onChanged: widget.controller.editing.edit,
                   maxLines: null,
                   textDirection: TextDirection.ltr,

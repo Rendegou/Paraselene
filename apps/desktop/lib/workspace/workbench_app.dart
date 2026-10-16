@@ -3,12 +3,12 @@ import 'dart:developer' as developer;
 import 'dart:ui' show AppExitResponse;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:text_contract/domain/models/language_preferences.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../theme/workbench_theme.dart';
 import 'data/real_workspace_repository.dart';
+import 'data/recovery_export.dart';
 import 'data/workspace_repository.dart';
 import 'presentation/export_flow.dart';
 import 'presentation/workbench_chrome.dart';
@@ -36,12 +36,16 @@ Locale resolveWorkbenchLocale(Locale requested) {
 class WorkbenchApp extends StatefulWidget {
   const WorkbenchApp({
     this.repository,
+    this.savePathGateway = const FileSelectorGateway(),
     this.initialLocale,
     this.pseudoLocalize = false,
     this.rtlHarness = false,
     super.key,
   });
   final WorkspaceRepository? repository;
+
+  /// Native save dialog by default; injectable for isolated widget tests.
+  final SavePathGateway savePathGateway;
   final Locale? initialLocale;
   final bool pseudoLocalize;
   final bool rtlHarness;
@@ -53,46 +57,58 @@ class _WorkbenchAppState extends State<WorkbenchApp> {
   late Locale _locale;
   WorkspaceController? _controller;
   bool _failed = false;
-  bool _exiting = false;
-  bool _exportedThisExit = false;
-  late final AppLifecycleListener _lifecycleListener = AppLifecycleListener(
-    onExitRequested: _onExitRequested,
-  );
+  final _navigatorKey = GlobalKey<NavigatorState>();
+  Future<AppExitResponse>? _exitFlight;
+  late final AppLifecycleListener _lifecycleListener;
 
   @override
   void initState() {
     super.initState();
+    _lifecycleListener = AppLifecycleListener(
+      onExitRequested: _onExitRequested,
+    );
     _locale = resolveWorkbenchLocale(
       widget.initialLocale ?? WidgetsBinding.instance.platformDispatcher.locale,
     );
     unawaited(_start());
   }
 
-  /// Two-phase Windows close: the exit request waits for the save barrier;
-  /// a failed barrier cancels the exit and keeps the window with retry and
-  /// export entries. Repeated requests share this one barrier.
-  Future<AppExitResponse> _onExitRequested() async {
-    final controller = _controller;
-    if (controller == null) return AppExitResponse.exit;
-    if (_exiting) return AppExitResponse.cancel;
-    _exiting = true;
+  /// One framework exit request owns saving, retries and recovery dialogs.
+  Future<AppExitResponse> _onExitRequested() =>
+      _exitFlight ??= Future<AppExitResponse>.microtask(_requestExit);
+
+  Future<AppExitResponse> _requestExit() async {
     try {
-      if (_exportedThisExit) return AppExitResponse.exit;
-      final ok = await controller.closeBarrier();
-      if (ok) return AppExitResponse.exit;
-      if (mounted) unawaited(_showCloseFailed(controller));
+      final controller = _controller;
+      if (controller == null) return AppExitResponse.exit;
+      while (mounted) {
+        if (await controller.closeBarrier()) return AppExitResponse.exit;
+        final dialogContext = _navigatorKey.currentContext;
+        if (!mounted || dialogContext == null || !dialogContext.mounted) {
+          return AppExitResponse.cancel;
+        }
+        final action = await _closeDecision(dialogContext);
+        if (!mounted) return AppExitResponse.cancel;
+        if (action == 'retry') {
+          await controller.retrySave();
+          continue;
+        }
+        if (action == 'export') return await _exportExit(controller);
+        return AppExitResponse.cancel;
+      }
+      return AppExitResponse.cancel;
+    } catch (error, stack) {
+      developer.log('workspace_exit_failed', error: error, stackTrace: stack);
       return AppExitResponse.cancel;
     } finally {
-      _exiting = false;
+      _exitFlight = null;
     }
   }
 
-  /// Retry, export, or keep editing; the explicit force-exit is offered only
-  /// after a successful export and is always user-triggered.
-  Future<void> _showCloseFailed(WorkspaceController controller) async {
+  Future<String?> _closeDecision(BuildContext context) {
     final s = AppLocalizations.of(context);
     final labels = WorkbenchLabels(s, widget.pseudoLocalize);
-    final action = await showDialog<String>(
+    return showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(labels(s.closeFailedTitle)),
@@ -113,17 +129,23 @@ class _WorkbenchAppState extends State<WorkbenchApp> {
         ],
       ),
     );
-    if (!mounted) return;
-    if (action == 'retry') {
-      // A stored save failure blocks the barrier itself, so retry explicitly.
-      await controller.retrySave();
-      final ok = await controller.closeBarrier();
-      if (ok) await SystemNavigator.pop();
-      return;
-    }
-    if (action == 'export' && mounted) {
-      await RecoveryExportFlow.run(context, controller, labels);
-      if (!mounted) return;
+  }
+
+  Future<AppExitResponse> _exportExit(WorkspaceController controller) async {
+    var response = AppExitResponse.cancel;
+    await controller.recoveryBarrier(() async {
+      final context = _navigatorKey.currentContext;
+      if (!mounted || context == null) return;
+      final s = AppLocalizations.of(context);
+      final labels = WorkbenchLabels(s, widget.pseudoLocalize);
+      final result = await RecoveryExportFlow.run(
+        context,
+        controller,
+        labels,
+        gateway: widget.savePathGateway,
+        barrierHeld: true,
+      );
+      if (!context.mounted || result != RecoveryExportResult.success) return;
       final exit = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
@@ -142,10 +164,11 @@ class _WorkbenchAppState extends State<WorkbenchApp> {
         ),
       );
       if (exit == true) {
-        _exportedThisExit = true;
-        await SystemNavigator.pop();
+        controller.acceptRecoveryExit();
+        response = AppExitResponse.exit;
       }
-    }
+    });
+    return response;
   }
 
   Future<void> _start() async {
@@ -189,6 +212,7 @@ class _WorkbenchAppState extends State<WorkbenchApp> {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+    navigatorKey: _navigatorKey,
     debugShowCheckedModeBanner: false,
     onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
     locale: _locale,

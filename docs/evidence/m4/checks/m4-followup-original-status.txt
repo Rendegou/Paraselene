@@ -1,0 +1,176 @@
+ M .gitignore
+ M AGENTS.md
+ M Cargo.lock
+ M Cargo.toml
+ M crates/llm-core/Cargo.toml
+ M crates/llm-core/examples/deepseek_smoke.rs
+ M crates/llm-core/src/client.rs
+ M crates/llm-core/src/context.rs
+ M crates/llm-core/src/error.rs
+ M crates/llm-core/src/lib.rs
+ M crates/llm-core/src/openai.rs
+ M crates/llm-core/src/provider.rs
+ M crates/llm-core/src/sse.rs
+ M crates/memory-core/Cargo.toml
+ M crates/memory-core/examples/retrieval_eval.rs
+ M crates/memory-core/src/adapters/codex.rs
+ M crates/memory-core/src/adapters/kimi.rs
+ M crates/memory-core/src/adapters/mod.rs
+ M crates/memory-core/src/error.rs
+ M crates/memory-core/src/imports.rs
+ M crates/memory-core/src/lib.rs
+ M crates/memory-core/src/model/message.rs
+ M crates/memory-core/src/model/mod.rs
+ M crates/memory-core/src/model/session.rs
+ M crates/memory-core/src/parser/mod.rs
+ M crates/memory-core/src/paths.rs
+ M crates/memory-core/src/scanner/mod.rs
+ M crates/memory-core/src/spaces.rs
+ M crates/memory-core/src/storage/db.rs
+ M crates/memory-core/src/storage/migrations.rs
+ M crates/memory-core/src/storage/search.rs
+ M crates/memory-core/src/storage/sessions.rs
+ M docs/adr/0001-windows-gnu-toolchain.md
+ M docs/adr/0002-python-sandbox-pyodide.md
+ M docs/development-direction.md
+ M docs/evidence/T00-20260926.md
+ M docs/evidence/T02-20260926.md
+ M docs/evidence/T07-20260926.md
+ M docs/progress-checkpoint.md
+ M docs/reuse-inventory.md
+ M index.html
+ M package.json
+ M pnpm-lock.yaml
+ M scripts/perf-baseline.ps1
+ M spikes/pyodide/package.json
+ M src-tauri/Cargo.toml
+ M src-tauri/capabilities/default.json
+ M src-tauri/examples/store_key.rs
+ M src-tauri/gen/schemas/acl-manifests.json
+ M src-tauri/gen/schemas/capabilities.json
+ M src-tauri/gen/schemas/desktop-schema.json
+ M src-tauri/gen/schemas/windows-schema.json
+ M src-tauri/src/commands/key.rs
+ M src-tauri/src/commands/llm.rs
+ M src-tauri/src/commands/mod.rs
+ M src-tauri/src/lib.rs
+ M src-tauri/tauri.conf.json
+ M src-tauri/tests/ipc_smoke.rs
+ M src/App.tsx
+ M src/lib/ipc.ts
+ M src/main.tsx
+ M vite.config.ts
+ M windows-companion-agent-brief.md
+ M "\345\271\273\346\234\210-Agent\346\211\247\350\241\214Goal.md"
+?? .impeccable/
+?? DESIGN.md
+?? PRODUCT.md
+?? README.md
+?? crates/character-core/
+?? crates/learning-core/
+?? crates/llm-core/src/preview.rs
+?? crates/memory-core/examples/idea_smoke.rs
+?? crates/memory-core/examples/import_preview_smoke.rs
+?? crates/memory-core/src/ideas.rs
+?? crates/memory-core/src/import_file.rs
+?? crates/memory-core/src/learning.rs
+?? crates/memory-core/src/novel/
+?? crates/memory-core/src/storage/client_mvp_migration_tests.rs
+?? crates/memory-core/src/storage/client_mvp_v11.sql
+?? crates/memory-core/src/storage/client_mvp_v12.sql
+?? crates/memory-core/tests/
+?? crates/novel-core/
+?? docs/adr/0003-longform-novel-workbench.md
+?? docs/design-concepts/
+?? docs/design-reference-audit-20260926.md
+?? docs/engineering/
+?? docs/evidence/CLIENT-MVP-A-20261012.md
+?? docs/evidence/CLIENT-MVP-A-NATIVE-20261012.md
+?? docs/evidence/CLIENT-MVP-B-20261013.md
+?? docs/evidence/CLIENT-MVP-B-NATIVE-20261013.md
+?? docs/evidence/CLIENT-MVP-B-STORAGE-20261013.md
+?? docs/evidence/CLIENT-MVP-C-20261014.md
+?? docs/evidence/CLIENT-MVP-INTERACTION-20261014.md
+?? docs/evidence/CLIENT-MVP-PLAN-20261012.md
+?? docs/evidence/NOVEL-COWRITE-20261012-desktop.jpg
+?? docs/evidence/NOVEL-COWRITE-20261012-live.jpg
+?? docs/evidence/NOVEL-COWRITE-20261012-narrow.jpg
+?? docs/evidence/NOVEL-COWRITE-20261012.md
+?? docs/evidence/NOVEL-UI-20261012.md
+?? docs/evidence/PARAGRAPH-20261012-cowrite-1280.jpg
+?? docs/evidence/PARAGRAPH-20261012-cowrite-desktop.jpg
+?? docs/evidence/PARAGRAPH-20261012-cowrite-narrow.jpg
+?? docs/evidence/PARAGRAPH-20261012-delivered.jpg
+?? docs/evidence/PARAGRAPH-20261012-quiet-1280.jpg
+?? docs/evidence/PARAGRAPH-20261012-quiet-desktop.jpg
+?? docs/evidence/PARAGRAPH-20261012-quiet-narrow.jpg
+?? docs/evidence/PARAGRAPH-20261012-reference-1280.jpg
+?? docs/evidence/PARAGRAPH-20261012-reference-desktop.jpg
+?? docs/evidence/PARAGRAPH-20261012-reference-narrow.jpg
+?? docs/evidence/PARAGRAPH-UI-20261012.md
+?? docs/evidence/T03-20260926.md
+?? docs/evidence/T03-direct-drag-blink-20260928.md
+?? docs/evidence/T03-idle-qa-20260926.csv
+?? docs/evidence/T03-pet-curious-20260927.md
+?? docs/evidence/T04-20260927.md
+?? docs/evidence/T05-20260927.md
+?? docs/evidence/T05-20260928.md
+?? docs/evidence/T05-plan-20261003.md
+?? docs/evidence/T05A-20261003.md
+?? docs/evidence/T05B-20261003.md
+?? docs/evidence/T05B-spike-webview2-ime.png
+?? docs/evidence/T05B-spike-webview2-pass.png
+?? docs/evidence/T05C-20261003.md
+?? docs/evidence/T05D-20261003.md
+?? docs/evidence/T06-20260928.md
+?? docs/evidence/T06-20261001.md
+?? docs/evidence/T07-import-20260927.md
+?? docs/evidence/T07-memory-20260928.md
+?? docs/evidence/studio-desktop-20261012.png
+?? docs/evidence/studio-framework-20261012.png
+?? docs/evidence/studio-map-20261012.png
+?? docs/evidence/studio-mobile-20261012.png
+?? docs/handoff/
+?? docs/novel/
+?? public/
+?? scripts/check-quality.ps1
+?? scripts/notification-state.rs
+?? scripts/prepare-learning-assets.ps1
+?? scripts/prepare-webview2-probe.ps1
+?? scripts/quality/
+?? scripts/run-webview2-probe.ps1
+?? spikes/pyodide/package-lock.json
+?? spikes/webview2-probe/
+?? src-tauri/examples/learning-regression.js
+?? src-tauri/examples/learning_window_probe.rs
+?? src-tauri/examples/native_workspace_probe.rs
+?? src-tauri/examples/notebook_window_probe.rs
+?? src-tauri/examples/sandbox_probe.rs
+?? src-tauri/examples/scoped_sandbox_probe.rs
+?? src-tauri/learning/
+?? src-tauri/src/commands/character.rs
+?? src-tauri/src/commands/ideas.rs
+?? src-tauri/src/commands/import.rs
+?? src-tauri/src/commands/memory.rs
+?? src-tauri/src/commands/novel.rs
+?? src-tauri/src/commands/studio_export.rs
+?? src-tauri/src/commands/studio_generation.rs
+?? src-tauri/src/commands/studio_workspace.rs
+?? src-tauri/src/commands/studio_workspace_tests.rs
+?? src-tauri/src/learning_window.rs
+?? src-tauri/src/quiet.rs
+?? src/App.css
+?? src/IdeaPage.css
+?? src/IdeaPage.tsx
+?? src/ImportSection.css
+?? src/ImportSection.tsx
+?? src/LegacyApp.tsx
+?? src/MemoryPage.css
+?? src/MemoryPage.tsx
+?? src/NovelEditor.tsx
+?? src/TargetPage.css
+?? src/TargetPage.tsx
+?? src/assets/
+?? src/features/
+?? src/test-env.d.ts
+?? tools/

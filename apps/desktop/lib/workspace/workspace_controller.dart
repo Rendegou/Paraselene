@@ -6,66 +6,16 @@ import 'package:flutter/foundation.dart';
 import 'data/workspace_repository.dart';
 import 'editing_session.dart';
 
+part 'workspace_state.dart';
+
 /// Loading and error are explicit even when previous metadata remains visible.
 enum WorkspacePhase { loading, empty, content, error }
 
 /// Coordinates works, chapters, editing and preferences behind one busy
 /// barrier: a failed flush keeps the current identity, text and revision in
 /// place, and retry/export stay reachable. Newer user intent wins races.
-final class WorkspaceController extends ChangeNotifier {
-  WorkspaceController(this.repository, {EditingSession? editingSession})
-    : editing = editingSession ?? EditingSession(repository);
-
-  final WorkspaceRepository repository;
-  final EditingSession editing;
-
-  WorkspacePhase _phase = WorkspacePhase.loading;
-  List<WorkspaceWork> _works = const [];
-  List<WorkspaceChapter> _chapters = const [];
-  List<WorkspaceChapter> _archived = const [];
-  WorkspaceWork? _currentWork;
-  WorkspaceChapter? _currentChapter;
-  String? _errorCode;
-  String? _noticeCode;
-  bool _busy = false;
-  bool _disposed = false;
-  int _generation = 0;
-  bool _seedPending = false;
-
-  bool _wide = false;
-  double _scrollTop = 0;
-  bool _applyScrollPending = false;
-  bool _prefsDirty = false;
-  int _prefsVersion = 0;
-  Timer? _prefsTimer;
-  static const _prefsDebounce = Duration(milliseconds: 350);
-
-  WorkspacePhase get phase => _phase;
-  WorkspaceMode get mode => repository.mode;
-  List<WorkspaceWork> get works => _works;
-  List<WorkspaceChapter> get chapters => _chapters;
-  List<WorkspaceChapter> get archivedChapters => _archived;
-  WorkspaceWork? get currentWork => _currentWork;
-  WorkspaceChapter? get currentChapter => _currentChapter;
-
-  /// Exact text of the open chapter; owned by the editing session.
-  String get body => editing.body;
-  String? get errorCode => _errorCode;
-
-  /// Non-blocking notice code (e.g. `recent_works_damaged`).
-  String? get noticeCode => _noticeCode;
-
-  /// A barrier is running; navigation and window close must wait or retry.
-  bool get isBusy => _busy || _phase == WorkspacePhase.loading;
-
-  /// Wide-manuscript preference, restored from the per-work UI session.
-  bool get wide => _wide;
-
-  /// Restored scroll position; applied once by the editor after layout.
-  double get pendingScrollTop => _scrollTop;
-
-  /// True once per chapter open until the editor applied the restored offset.
-  bool get applyScrollPending => _applyScrollPending;
+final class WorkspaceController extends _WorkspaceState {
+  WorkspaceController(super.repository, {super.editingSession});
 
   bool _active(int generation) => !_disposed && generation == _generation;
 
@@ -92,15 +42,17 @@ final class WorkspaceController extends ChangeNotifier {
     Future<void> Function() action, {
     bool flush = true,
   }) async {
-    if (_disposed || _busy) return false;
+    if (_disposed || _busy || _closed) return false;
     _busy = true;
+    final idle = _idle = Completer<void>();
     _errorCode = null;
     notifyListeners();
     try {
       if (flush) {
-        await editing.flushAll();
-        await _flushPrefs();
+        await _drain();
       }
+      if (_disposed) return false;
+      editing.inputLocked = true;
       await action();
       return true;
     } catch (error) {
@@ -109,7 +61,10 @@ final class WorkspaceController extends ChangeNotifier {
           : 'workspace_unavailable';
       return false;
     } finally {
+      editing.inputLocked = _closed;
       _busy = false;
+      _idle = null;
+      idle.complete();
       if (!_disposed) notifyListeners();
     }
   }
@@ -120,7 +75,9 @@ final class WorkspaceController extends ChangeNotifier {
   }
 
   /// Creates an explicit synthetic fixture through the injected repository.
-  Future<void> seedDemo() => _refresh(seed: true);
+  Future<void> seedDemo() async {
+    await _barrier(() => _refresh(seed: true));
+  }
 
   Future<void> _refresh({required bool seed}) async {
     if (_disposed) return;
@@ -154,6 +111,10 @@ final class WorkspaceController extends ChangeNotifier {
   /// Cold start: restore the selected or most recent work, then its per-work
   /// chapter/wide/scroll preferences. Damaged records surface a notice code.
   Future<void> restoreSession() async {
+    await _barrier(_restoreSession);
+  }
+
+  Future<void> _restoreSession() async {
     if (_disposed) return;
     final generation = _begin();
     try {
@@ -189,32 +150,50 @@ final class WorkspaceController extends ChangeNotifier {
     int generation, {
     required bool restore,
   }) async {
-    await repository.selectWork(work.id);
     final chapters = await repository.listChapters(work.id);
     final archived = await repository.listArchivedChapters(work.id);
+    final prefs = restore ? await _loadPrefs(work.id) : null;
     if (!_active(generation)) return;
+    final preferred = chapters
+        .where((c) => c.id == prefs?.chapterId)
+        .firstOrNull;
+    final chapter = preferred ?? chapters.firstOrNull;
+    // Publish the directory before the body load so navigation can observe
+    // the new chapter list during the load await. A load failure rolls the
+    // directory back to the previous work.
+    final previousWork = _currentWork;
+    final previousChapter = _currentChapter;
+    final previousChapters = _chapters;
+    final previousArchived = _archived;
+    final previousPhase = _phase;
     _currentWork = work;
     _chapters = List.unmodifiable(chapters);
     _archived = List.unmodifiable(archived);
-    final prefs = restore ? await _loadPrefs(work.id) : null;
+    _phase = WorkspacePhase.content;
+    notifyListeners();
+    ChapterDocument? loaded;
+    try {
+      loaded = chapter == null
+          ? null
+          : await repository.loadDocument(work.id, chapter.id);
+    } catch (_) {
+      _currentWork = previousWork;
+      _currentChapter = previousChapter;
+      _chapters = previousChapters;
+      _archived = previousArchived;
+      _phase = previousPhase;
+      rethrow;
+    }
     if (!_active(generation)) return;
-    if (chapters.isEmpty) {
-      if (editing.hasOpenChapter) editing.release();
-      _clearChapterOnly();
-      _phase = WorkspacePhase.content;
-      notifyListeners();
-      return;
-    }
-    final preferred = prefs?.chapterId == null
-        ? null
-        : chapters.where((c) => c.id == prefs!.chapterId).firstOrNull;
-    await _openChapter(preferred ?? chapters.first, generation);
-    if (prefs != null && _active(generation)) {
-      _wide = prefs.wide;
-      _scrollTop = preferred == null ? 0 : prefs.scrollTop;
-      _applyScrollPending = true;
-      notifyListeners();
-    }
+    await repository.selectWork(work.id);
+    if (!_active(generation)) return;
+    if (chapter == null && editing.hasOpenChapter) editing.release();
+    _currentChapter = chapter;
+    _wide = prefs?.wide ?? false;
+    _scrollTop = preferred == null ? 0 : prefs?.scrollTop ?? 0;
+    _applyScrollPending = chapter != null;
+    if (loaded != null) editing.adopt(loaded);
+    notifyListeners();
   }
 
   /// Switches chapters behind the barrier; the previous text is flushed first.
@@ -357,91 +336,33 @@ final class WorkspaceController extends ChangeNotifier {
   // Preferences (per-work UI session)
   // ------------------------------------------------------------------
 
-  /// Records the wide-manuscript preference and schedules persistence.
-  void setWide(bool wide) {
-    if (_wide == wide) return;
-    _wide = wide;
-    _markPrefsDirty();
-    notifyListeners();
-  }
-
-  /// Records the live scroll offset (fractional, clamped by the backend).
-  void noteScrollTop(double offset) {
-    if (_currentChapter == null || !offset.isFinite) return;
-    _scrollTop = offset;
-    _markPrefsDirty();
-  }
-
-  /// The editor applied the restored scroll offset after layout.
-  void markScrollApplied() {
-    _applyScrollPending = false;
-  }
-
-  void _markPrefsDirty() {
-    _prefsDirty = true;
-    _prefsVersion++;
-    _prefsTimer?.cancel();
-    _prefsTimer = Timer(_prefsDebounce, () => unawaited(_flushPrefsSafely()));
-  }
-
-  /// A background preference failure becomes a visible notice and stays dirty
-  /// so the next barrier retries it; navigation still blocks there.
-  Future<void> _flushPrefsSafely() async {
-    try {
-      await _flushPrefs();
-    } catch (error) {
-      _noticeCode = error is WorkspaceFailure ? error.code : 'prefs_failed';
-      if (!_disposed) notifyListeners();
-    }
-  }
-
-  Future<void> _flushPrefs() async {
-    _prefsTimer?.cancel();
-    _prefsTimer = null;
-    if (!_prefsDirty) return;
-    final work = _currentWork;
-    if (work == null) return;
-    final value = jsonEncode({
-      'schemaVersion': 1,
-      if (_currentChapter != null) 'chapterId': _currentChapter!.id,
-      'wide': _wide,
-      'scrollTop': _scrollTop,
-    });
-    // Clear dirty only when no newer preference arrived during the await:
-    // a scroll event in the window must not lose its pending write.
-    final version = _prefsVersion;
-    await repository.setUiSession(work.id, value);
-    if (version == _prefsVersion) _prefsDirty = false;
-  }
-
-  Future<_Prefs?> _loadPrefs(String workId) async {
-    final raw = await repository.getUiSession(workId);
-    if (raw == null) return null;
-    try {
-      final json = jsonDecode(raw);
-      if (json is! Map<String, dynamic>) return null;
-      return _Prefs(
-        chapterId: json['chapterId'] is String
-            ? json['chapterId'] as String
-            : null,
-        wide: json['wide'] == true,
-        scrollTop: (json['scrollTop'] as num?)?.toDouble() ?? 0,
-      );
-    } on FormatException {
-      _noticeCode = 'invalid_ui_session';
-      return null;
-    }
-  }
-
   // ------------------------------------------------------------------
   // Close barrier
   // ------------------------------------------------------------------
 
   /// Two-phase close: flush text and preferences, then release the repository.
   /// Failure keeps the window open; the draft stays in memory for export.
-  Future<bool> closeBarrier() => _barrier(() async {
-    await repository.close();
-  });
+  Future<bool> closeBarrier() =>
+      _closeFlight ??= Future<bool>.microtask(_closeBarrier);
+
+  Future<bool> _closeBarrier() async {
+    try {
+      while (_busy) {
+        await _idle!.future;
+      }
+      if (_closed) return true;
+      return await _barrier(() async {
+        await repository.close();
+        _closed = true;
+      });
+    } finally {
+      _closeFlight = null;
+    }
+  }
+
+  /// Runs recovery with a stable memory snapshot, including its exit decision.
+  Future<bool> recoveryBarrier(Future<void> Function() action) =>
+      _barrier(action, flush: false);
 
   /// Releases repository resources once. Not a persistence barrier: callers
   /// closing the window must go through [closeBarrier] instead.
@@ -470,15 +391,4 @@ final class WorkspaceController extends ChangeNotifier {
     }
     super.dispose();
   }
-}
-
-final class _Prefs {
-  const _Prefs({this.chapterId, required this.wide, required this.scrollTop});
-  final String? chapterId;
-  final bool wide;
-  final double scrollTop;
-}
-
-extension _FirstOrNull<T> on Iterable<T> {
-  T? get firstOrNull => isEmpty ? null : first;
 }

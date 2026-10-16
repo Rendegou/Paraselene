@@ -307,4 +307,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get exitAnywayHint =>
       'Your draft was exported. Exit now without saving again?';
+
+  @override
+  String get recoveryFilenameSuffix => 'readable_chapter_recovery';
 }

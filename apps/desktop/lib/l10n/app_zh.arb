@@ -89,5 +89,9 @@
   "retryClose": "重试",
   "keepEditing": "继续编辑",
   "exitAnyway": "仍然退出",
-  "exitAnywayHint": "草稿已导出。现在不再保存并退出？"
+  "exitAnywayHint": "草稿已导出。现在不再保存并退出？",
+  "recoveryFilenameSuffix": "可读章节恢复稿",
+  "@recoveryFilenameSuffix": {
+    "description": "Localized suffix of the recovery export filename."
+  }
 }

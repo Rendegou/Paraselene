@@ -20,6 +20,9 @@ final class EditingSession extends ChangeNotifier {
   void Function()? _unsubscribe;
   bool _disposed = false;
 
+  /// Blocks new input while a navigation or recovery snapshot is committed.
+  bool inputLocked = false;
+
   /// The loaded document of the open chapter, including CAS revision/head.
   ChapterDocument? get document => _document;
 
@@ -43,6 +46,13 @@ final class EditingSession extends ChangeNotifier {
     _checkActive();
     final loaded = await _repository.loadDocument(workId, chapter.id);
     if (_disposed) return;
+    adopt(loaded);
+  }
+
+  /// Installs an already loaded document after the caller's identity checks.
+  /// The previous slot must be clean; no repository operation is performed.
+  void adopt(ChapterDocument loaded) {
+    _checkActive();
     _unsubscribe?.call();
     _unsubscribe = null;
     final previous = _document;
@@ -53,7 +63,7 @@ final class EditingSession extends ChangeNotifier {
     _body = loaded.body;
     _contentEpoch++;
     _saveState = _saves.hydrate(loaded);
-    _unsubscribe = _saves.subscribe(workId, chapter.id, (state) {
+    _unsubscribe = _saves.subscribe(loaded.workId, loaded.documentId, (state) {
       _saveState = state;
       if (!_disposed) notifyListeners();
     });
@@ -64,7 +74,7 @@ final class EditingSession extends ChangeNotifier {
   /// debounces persistence. The editor is never rewritten by this path.
   void edit(String body) {
     final document = _document;
-    if (_disposed || document == null || body == _body) return;
+    if (_disposed || inputLocked || document == null || body == _body) return;
     _body = body;
     _saves.edit(document.workId, document.documentId, body);
   }

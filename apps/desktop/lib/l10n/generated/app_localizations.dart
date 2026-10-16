@@ -638,6 +638,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your draft was exported. Exit now without saving again?'**
   String get exitAnywayHint;
+
+  /// Localized suffix of the recovery export filename.
+  ///
+  /// In en, this message translates to:
+  /// **'readable_chapter_recovery'**
+  String get recoveryFilenameSuffix;
 }
 
 class _AppLocalizationsDelegate

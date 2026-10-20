@@ -1,0 +1,28 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_click",
+      "args": {
+        "processId": 3648,
+        "x": 904,
+        "y": 542,
+        "button": "left",
+        "dispatch": "foreground"
+      }
+    },
+    { "wait": 2000 },
+    {
+      "tool": "windows_computer_use_snapshot",
+      "args": {
+        "processId": 3648,
+        "activate": false,
+        "includeScreenshot": true,
+        "captureWindow": true,
+        "detailLevel": "compact",
+        "maxDepth": 7,
+        "maxNodes": 500,
+        "maxWidth": 1400
+      }
+    }
+  ]
+}

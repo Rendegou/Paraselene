@@ -1,3 +1,6 @@
+// 覆盖 M4 工作区控制器：刷新、在途保存合并、空正文、加载失败保持与关闭流程。
+// 使用合成仓库，不代表真实 FFI 持久化或 Rust 采纳逻辑通过。
+
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';

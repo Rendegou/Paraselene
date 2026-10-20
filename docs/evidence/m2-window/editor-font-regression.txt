@@ -1,0 +1,92 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: global select-all/delete/undo/redo preserves raw UTF-16 exactly
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: bounded windows map raw UTF-16 without splitting graphemes
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: single-line 200k input has bounded middle and end contexts
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: repeated text composition keeps its known local window pinned
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: inactive composing outside context projects to empty without changing global
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: local replacement changes exact region and preserves reverse affinity
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: paragraph boundary context allows native Backspace over CRLF
+00:00 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: composition spans LF, pins context, and commits one undo transaction
+00:00 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: surrogate-half, malformed text and pinned overflow fail atomically
+00:00 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: emoji diff expands shared surrogate prefix without losing raw neighbors
+00:00 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: active composition overflow cannot switch context or change history
+00:00 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: global composition remains authoritative if bounded context unavailable
+00:00 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: seeded scalar-boundary edits undo/redo exact independent snapshots
+00:00 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_document_test.dart: replaceBody clears history and resets selection
+00:00 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: (setUpAll)
+00:00 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient initializes with document and layout
+00:00 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient select updates document and notifies
+00:00 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient replace modifies document
+00:00 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient undo and redo work correctly
+00:00 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient boundary respects grapheme clusters
+00:00 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient load replaces document and layout
+00:00 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:01 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:01 +22: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:01 +23: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:01 +24: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient composing state is tracked
+00:01 +25: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: cold heterogeneous document shapes only visible exact paragraphs
+00:01 +26: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient keyboard deletion honors grapheme boundaries
+00:01 +27: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:01 +28: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:01 +29: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:01 +30: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:01 +31: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:01 +32: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:01 +33: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +34: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +35: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +36: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +37: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +38: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +39: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +40: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +41: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +42: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +43: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:02 +44: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:03 +45: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:03 +46: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:03 +47: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:03 +48: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:03 +49: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:04 +50: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +51: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +52: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +53: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +54: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +55: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +56: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +57: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +58: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +59: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +60: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +61: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +62: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +63: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +64: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +65: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +66: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +67: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +68: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +69: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +70: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +71: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:06 +72: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:06 +73: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:06 +74: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:06 +75: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:06 +75: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+workspace_disposed_with_dirty_text
+00:06 +76: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:06 +77: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+00:06 +78: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+00:06 +79: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+workspace_disposed_with_dirty_text
+00:06 +80: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport arrow keys move caret vertically
+00:06 +81: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (false)
+workspace_disposed_with_dirty_text
+00:07 +82: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (true)
+workspace_disposed_with_dirty_text
+00:07 +83: All tests passed!

@@ -1,0 +1,27 @@
+PASS TEMP matches explicit synthetic root
+PASS script-created synthetic marker required
+PASS synthetic temporary path
+PASS select owned synthetic TEMP
+PASS unknown existing profile rejected
+PASS unknown directory preserved
+PASS select owned synthetic TEMP
+PASS wrong profile marker rejected
+PASS select owned synthetic TEMP
+PASS synthetic marker hardlink created
+PASS hardlinked marker rejected
+PASS select owned synthetic TEMP
+PASS new owned profile accepted
+PIN_PATH actual=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-5662f5a9cccb44a285829d65a7bbae32\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 expected=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-5662f5a9cccb44a285829d65a7bbae32\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 handles=9
+PIN_RENAME moved=0 error=32
+PASS pinned profile cannot be renamed
+PASS pinned ancestor cannot be renamed
+PASS owned profile pin released after close
+PASS junction synthetic root
+PASS actual junction fixture
+PASS select junction attack TEMP
+PASS junction path rejected by production profile guard
+PASS junction target sentinel unchanged
+PASS actual junction fixture
+PASS select junction attack TEMP
+PASS junction path rejected by production profile guard
+PASS junction target sentinel unchanged

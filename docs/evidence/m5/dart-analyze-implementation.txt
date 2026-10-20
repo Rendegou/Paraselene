@@ -1,0 +1,40 @@
+Analyzing lib, test...
+
+  error - lib\workspace\workspace_controller.dart:29:47 - The getter 'discussions' isn't defined for the type 'WorkspaceRepository'. Try importing the library that defines 'discussions', correcting the name to the name of an existing getter, or defining a getter or field named 'discussions'. - undefined_getter
+  error - lib\workspace\workspace_cowrite.dart:67:30 - The method 'prepare' can't be unconditionally invoked because the receiver can be 'null'. Try making the call conditional (using '?.') or adding a null check to the target ('!'). - unchecked_use_of_nullable_value
+warning - lib\cowrite\deepseek_settings.dart:20:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\cowrite\discussion_panel.dart:42:49 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\cowrite\discussion_panel.dart:184:45 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\legacy\character_dialog.dart:48:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\legacy\legacy_patch_card.dart:18:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\legacy\memory_dialog.dart:44:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\legacy\memory_dialog.dart:131:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\legacy\memory_dialog.dart:207:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\legacy\novel_history_dialog.dart:47:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\lore\lore_binding_flow.dart:23:41 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\lore\lore_library.dart:44:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\lore\lore_library.dart:190:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\lore\lore_library.dart:278:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\lore\lore_picker.dart:44:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\workspace\presentation\backup_dialog.dart:28:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\workspace\presentation\backup_dialog.dart:66:43 - The '!' will have no effect because the receiver can't be null. Try removing the '!' operator. - unnecessary_non_null_assertion
+warning - lib\workspace\workspace_cowrite.dart:5:63 - A value for optional parameter 'flush' isn't ever given. Try removing the unused parameter. - unused_element_parameter
+   info - lib\cowrite\discussion_registry.dart:66:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\cowrite\discussion_registry.dart:103:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\editor\editor_basic_controller.dart:2:8 - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart'. Try removing the import directive. - unnecessary_import
+   info - lib\editor\editor_input_client.dart:226:11 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\editor\editor_input_client.dart:241:13 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\character_dialog.dart:31:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\character_dialog.dart:39:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\novel_history_dialog.dart:36:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\novel_history_dialog.dart:92:41 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\lore\lore_binding_flow.dart:22:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\lore\lore_binding_flow.dart:60:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\data\real_workspace_repository.dart:21:34 - The member 'discussions' overrides an inherited member but isn't annotated with '@override'. Try adding the '@override' annotation. - annotate_overrides
+   info - lib\workspace\presentation\backup_dialog.dart:83:13 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\backup_dialog.dart:86:15 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\backup_dialog.dart:94:13 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\workspace_controller.dart:56:16 - The member '_barrier' overrides an inherited member but isn't annotated with '@override'. Try adding the '@override' annotation. - annotate_overrides
+   info - lib\workspace\workspace_cowrite.dart:20:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+36 issues found.

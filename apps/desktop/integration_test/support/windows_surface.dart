@@ -1,3 +1,6 @@
+// 集成测试的 Win32 表面辅助：通过 user32 直接调整本进程测试窗口的尺寸。
+// 测试专用且只操作本进程窗口，不代表生产窗口管理或 DPI 处理通过。
+
 import 'dart:ffi' hide Size;
 import 'dart:io';
 import 'dart:ui';

@@ -1,0 +1,19 @@
+Learning resources
+
+The five unmodified Pyodide runtime files in pyodide/ were copied from the
+read-only migration source public/learning/pyodide. Source and destination
+SHA-256 values are recorded in docs/evidence/m5/learning-source-manifest.json.
+The source package-lock.json identifies npm pyodide 314.0.7 (MPL-2.0).
+Project/source: https://github.com/pyodide/pyodide
+License text: MPL-2.0.txt
+The Python standard library is part of the Pyodide runtime distribution.
+Python license text: PSF-LICENSE.txt
+
+The exercise HTML/CSS/JavaScript originated in the Paraselene project.
+Migration changes: isolated HTTPS origin, English UI copies, separate native
+host with no web messaging or host objects. Learner code runs only in a Worker.
+
+Microsoft WebView2 SDK 1.0.2903.40 is downloaded separately by
+scripts/prepare-learning-sdk.ps1 and checked against a pinned SHA-256.
+Its license is included in the SDK NuGet package. The browser runtime is a
+separate Microsoft Edge WebView2 prerequisite; the application does not install it.

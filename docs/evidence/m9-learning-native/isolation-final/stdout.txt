@@ -1,0 +1,166 @@
+PASS synthetic temporary path
+PASS select owned synthetic TEMP
+PASS unknown existing profile rejected
+PASS unknown directory preserved
+PASS select owned synthetic TEMP
+PASS wrong profile marker rejected
+PASS select owned synthetic TEMP
+PASS synthetic marker hardlink created
+PASS hardlinked marker rejected
+PASS select owned synthetic TEMP
+PASS new owned profile accepted
+PIN_PATH actual=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-e1f9d3d6269a4be9a65e0e25a7747dbb\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 expected=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-e1f9d3d6269a4be9a65e0e25a7747dbb\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 handles=9
+PIN_RENAME moved=0 error=32
+PASS pinned profile cannot be renamed
+PASS pinned ancestor cannot be renamed
+PASS owned profile pin released after close
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+RUNTIME 155.0.4283.62
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning-en.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+PASS worker completes or timeout terminates
+STATUS "3 / 3 tests passed" DETAIL "double(2) → 4, expected 4: passed\ndouble(0) → 0, expected 0: passed\ndouble(-3) → -6, expected -6: passed"
+PASS Python expected values
+PASS host objects and web messaging disabled
+PASS native message observer
+RESOURCE https://learning-sandbox.invalid/not-allowlisted
+PASS resource attacks finish
+PASS page attack requests rejected
+PASS CSP reports actual blocked requests
+CSP ["http://127.0.0.1:9/synthetic-only","file","https://example.invalid/forbidden.js"]
+PASS CSP blocked loopback file and external module before transport
+PASS page cannot deliver native message
+PASS popup outcome observer
+PASS permission outcome observer
+PASS download outcome observer
+PASS popup reached native handler
+PASS notification permission denied to page
+PASS permission reached native handler
+PASS blob download reached native handler
+PASS native popup permission and download outcomes fail closed
+PASS interactive attacks keep native window hidden
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+RESOURCE https://learning-sandbox.invalid/worker-denied
+PASS worker completes or timeout terminates
+STATUS "3 / 3 tests passed" DETAIL "double(2) → 4, expected 4: passed\ndouble(0) → 0, expected 0: passed\ndouble(-3) → -6, expected -6: passed"
+PASS Python expected values
+PASS worker request reached native firewall and received 403
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+PASS worker completes or timeout terminates
+STATUS "Run timed out and was terminated" DETAIL "Check for infinite loops and try again."
+PASS non-success not forged
+PASS infinite worker terminated by page timer
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+PASS worker completes or timeout terminates
+STATUS "3 / 3 tests passed" DETAIL "double(2) → 4, expected 4: passed\ndouble(0) → 0, expected 0: passed\ndouble(-3) → -6, expected -6: passed"
+PASS Python expected values
+PASS running worker observer
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+RESOURCE https://learning-sandbox.invalid/worker-close
+RESOURCE https://learning-sandbox.invalid/worker-close
+RESOURCE https://learning-sandbox.invalid/worker-close
+PASS worker actively requests before close
+RESOURCE https://learning-sandbox.invalid/worker-close
+RESOURCE https://learning-sandbox.invalid/worker-close
+RESOURCE https://learning-sandbox.invalid/worker-close
+PASS stale worker requests observed
+PASS stale generation still returns local 403
+NAV success=1 error=0
+PASS profile cleanup and native close
+PASS expected native fault callback count
+PASS all observed live and closing worker requests locally denied
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+RUNTIME 155.0.4283.62
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+PASS storage cleared on reopen
+RESOURCE https://learning-sandbox.invalid/worker.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+PASS worker completes or timeout terminates
+STATUS "3 / 3 项测试通过" DETAIL "double(2) → 4，期望 4：通过\ndouble(0) → 0，期望 0：通过\ndouble(-3) → -6，期望 -6：通过"
+PASS Python expected values
+RESOURCE https://example.invalid/escape
+NAV success=0 error=14
+NAV success=1 error=0
+PASS forbidden navigation closes fail closed
+PASS profile cleanup and native close
+PASS expected native fault callback count
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+RUNTIME 155.0.4283.62
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning-en.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+PASS renderer crash observer
+PASS owned renderer crash injected
+PASS actual renderer crash closes native sandbox
+PASS profile cleanup and native close
+PASS expected native fault callback count
+PASS learning native suite

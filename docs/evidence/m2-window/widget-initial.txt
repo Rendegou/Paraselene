@@ -1,0 +1,12 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart
+test/window/desktop_title_bar_test.dart:140:51: Error: Undefined name 'SemanticsAction'.
+                node.getSemanticsData().hasAction(SemanticsAction.tap),
+                                                  ^^^^^^^^^^^^^^^
+00:00 +0 -1: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: test/window/desktop_title_bar_test.dart:140:51: Error: Undefined name 'SemanticsAction'.
+                  node.getSemanticsData().hasAction(SemanticsAction.tap),
+                                                    ^^^^^^^^^^^^^^^
+  .
+00:00 +0 -1: Some tests failed.

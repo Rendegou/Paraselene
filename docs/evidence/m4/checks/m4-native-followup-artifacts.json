@@ -1,0 +1,27 @@
+[
+  {
+    "Path": "apps/desktop/build/windows/x64/runner/Release/paraselene_flutter.exe",
+    "SHA256": "8EE1CD6E07189AC7A556930AE05A7D64659655D93D5C35FDA5F1C73232DA7A4C",
+    "Bytes": 135680
+  },
+  {
+    "Path": "apps/desktop/build/windows/x64/runner/Release/paraselene_bridge.dll",
+    "SHA256": "87F3427022FA8801A01133DA0FBB29274BBA2A581005EA9C94615C781EEEA95D",
+    "Bytes": 3078144
+  },
+  {
+    "Path": "build/rust-m4-test-msvc/debug/paraselene_bridge.dll",
+    "SHA256": "54CBD4672F4E14065C4C78F07FBD7E873CBFD82B9A49E66F2A54CF41EA852DC2",
+    "Bytes": 5075968
+  },
+  {
+    "Path": "apps/desktop/windows/runner/native_close_guard.cpp",
+    "SHA256": "55F1302482DAC5A3383CBFED4EBDFA2691697D303AE7923345288834329B353B",
+    "Bytes": 1852
+  },
+  {
+    "Path": "apps/desktop/lib/window/native_close_guard.dart",
+    "SHA256": "64EEFFE44F60EEC38243DFC2A5AD0A719D1020BDA94CF06CCDBD1478824E1A9F",
+    "Bytes": 873
+  }
+]

@@ -1,0 +1,9 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.57s
+     Running tests\m5_discussions.rs (../build/rust-m1-msvc\debug\deps\m5_discussions-991020829b40ea0f.exe)
+
+running 1 test
+test author_snapshot_cas_scope_reopen_and_server_projection_isolation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.88s
+

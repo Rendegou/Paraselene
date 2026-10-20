@@ -1,3 +1,6 @@
+// 保存协调器测试的共享夹具：可控的延迟保存结果与合成仓库。
+// 仅用于其他测试文件搭台，本身不含断言，也不代表真实持久化行为。
+
 import 'dart:async';
 import 'package:paraselene_flutter/domain/editing/save_coordinator.dart';
 import 'package:paraselene_flutter/workspace/data/workspace_repository.dart';

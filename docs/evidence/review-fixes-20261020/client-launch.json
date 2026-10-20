@@ -1,0 +1,9 @@
+{
+  "Status": "PASS",
+  "ProcessId": 37404,
+  "Executable": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\paraselene_flutter.exe",
+  "MainWindowTitle": "paraselene_flutter",
+  "MainWindowHandle": 526372,
+  "ExeSHA256": "C585FB941B6B9372D1147C63CA723B47C01EA457AAFAD2DEE2434936BC0BF505",
+  "BridgeSHA256": "5B0645E70CFAB7CAD5E5E9C6BA77AF14084210055B78A6B0A21B4F57B0B6019C"
+}

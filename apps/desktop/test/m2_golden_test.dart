@@ -1,9 +1,13 @@
+// 覆盖 M2 真实字体 golden：中文与 RTL 文本在固定字号下的渲染基线。
+// golden 对比受平台与字体版本影响，不代表 Windows 真机渲染或视觉验收通过。
+
 @Tags(['golden'])
 library;
 
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:paraselene_flutter/editor/editor_viewport.dart';
 import 'package:paraselene_flutter/workspace/data/demo_content.dart';
 
 import 'support/m2_harness.dart';
@@ -27,10 +31,15 @@ void main() {
         tester.useSurface(const Size(1280, 900));
         await tester.pumpWorkbench(rtl: rtl);
         expect(
-          tester.widget<TextField>(find.byKey(manuscriptKey)).controller!.text,
+          tester
+              .widget<EditorViewport>(find.byKey(manuscriptKey))
+              .controller
+              .document
+              .raw,
           demoBody,
         );
-        expect(find.textContaining('العربية'), findsOneWidget);
+        // Arabic text is rendered via custom painting in EditorViewport,
+        // so it's not findable by text. The golden image verifies visual correctness.
         final chapter = tester.getRect(
           find.byKey(const ValueKey('chapter-demo-chapter')),
         );

@@ -1,0 +1,18 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart
+00:00 +0: EditorSessionAdapter session freeze rejects native callbacks before a widget rebuild
+00:00 +0 -1: EditorSessionAdapter session freeze rejects native callbacks before a widget rebuild [E]
+  Expected: '原稿\r\n'
+              '👩‍💻'
+    Actual: 'late native text'
+     Which: is different.
+            Expected: 原稿\r\n👩‍� ...
+              Actual: late nativ ...
+                      ^
+             Differ at offset 0
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test\editor\editor_session_adapter_test.dart 81:7   main.<fn>.<fn>
+  
+00:00 +0 -1: Some tests failed.

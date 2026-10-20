@@ -1,3 +1,9 @@
+// runner 通用工具实现：控制台重定向、命令行参数解析与 UTF-8 转换。
+//
+// 线程模型：只在进程启动阶段由主线程调用。
+// 失败策略：控制台或转换失败时返回空结果而不抛出，保持启动流程继续。
+// 资源：CommandLineToArgvW 返回的数组在本文件内 LocalFree；标准流随控制台生命周期存在。
+
 #include "utils.h"
 
 #include <flutter_windows.h>
@@ -7,6 +13,7 @@
 
 #include <iostream>
 
+// AllocConsole 成功后把标准输出与错误流指向 CONOUT$，并让 Flutter 引擎重新同步流。
 void CreateAndAttachConsole() {
   if (::AllocConsole()) {
     FILE *unused;
@@ -21,6 +28,7 @@ void CreateAndAttachConsole() {
   }
 }
 
+// 解析 UTF-16 命令行并按 UTF-8 存储；跳过第 0 项可执行文件名。
 std::vector<std::string> GetCommandLineArguments() {
   // Convert the UTF-16 command line arguments to UTF-8 for the Engine to use.
   int argc;
@@ -41,6 +49,7 @@ std::vector<std::string> GetCommandLineArguments() {
   return command_line_arguments;
 }
 
+// 只接受合法 UTF-16；长度计算或转换失败都返回空串。
 std::string Utf8FromUtf16(const wchar_t* utf16_string) {
   if (utf16_string == nullptr) {
     return std::string();

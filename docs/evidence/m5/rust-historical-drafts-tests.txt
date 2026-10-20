@@ -1,0 +1,64 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.92s
+     Running unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+
+running 8 tests
+test migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages ... ok
+test migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible ... ok
+test migration_tests::memory_deletion_requires_scope_and_current_version ... ok
+test migration_tests::converted_idea_source_remains_available_for_novel_title_synchronization ... ok
+test migration_tests::historical_discard_is_scoped_preserves_text_and_cannot_repeat ... ok
+test migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision ... ok
+test migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates ... ok
+test migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 13 filtered out; finished in 16.24s
+
+     Running tests\m4_hardening.rs (../build/rust-m1-msvc\debug\deps\m4_hardening-d0e166f99917cad0.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+
+     Running tests\m4_migration.rs (../build/rust-m1-msvc\debug\deps\m4_migration-73a9f2cb1938e016.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests\m4_owned_provenance.rs (../build/rust-m1-msvc\debug\deps\m4_owned_provenance-5c6f931d408d19f2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\m4_selection.rs (../build/rust-m1-msvc\debug\deps\m4_selection-fea3f7f4aa44422c.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests\m4_workspace.rs (../build/rust-m1-msvc\debug\deps\m4_workspace-d2daa402414558e3.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+
+     Running tests\m5_discussions.rs (../build/rust-m1-msvc\debug\deps\m5_discussions-991020829b40ea0f.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests\provenance.rs (../build/rust-m1-msvc\debug\deps\provenance-1a56701567c59707.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+     Running tests\session.rs (../build/rust-m1-msvc\debug\deps\session-c03f55a5ad6ef185.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+

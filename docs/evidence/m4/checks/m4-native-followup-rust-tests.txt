@@ -1,0 +1,94 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.74s
+     Running unittests src\lib.rs (build/rust-m4-test-msvc\debug\deps\paraselene_application-ea9673df4b71a353.exe)
+
+running 7 tests
+test owned_fault_tests::empty_pending_is_preserved ... ok
+test owned_fault_tests::unknown_pending_is_preserved ... ok
+test storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry ... ok
+test owned_fault_tests::rolled_back_conflict_does_not_poison ... ok
+test owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not ... ok
+test owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation ... ok
+test owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.43s
+
+     Running unittests src\bin\m4_owned_helper.rs (build/rust-m4-test-msvc\debug\deps\m4_owned_helper-93f5d7caf612aede.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\m4_hardening.rs (build/rust-m4-test-msvc\debug\deps\m4_hardening-6339a5c3dc027573.exe)
+
+running 6 tests
+test ui_session_optional_fields_and_fractional_scroll ... ok
+test review_context_is_bound_before_decision ... ok
+test actual_sqlite_write_lock_keeps_revision_and_retry_succeeds ... ok
+test reorder_preserves_lore_absolute_position ... ok
+test chapter_directory_failure_rolls_back_insert_and_retry_is_single ... ok
+test prepared_review_rejects_revision_hash_identity_and_head_drift ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.48s
+
+     Running tests\m4_migration.rs (build/rust-m4-test-msvc\debug\deps\m4_migration-5fa0c05cf7b1f96f.exe)
+
+running 1 test
+test v10_to_v12_preserves_versions_sources_and_archive_thread_counts_after_reopen ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running tests\m4_owned_provenance.rs (build/rust-m4-test-msvc\debug\deps\m4_owned_provenance-eb2785c958537081.exe)
+
+running 3 tests
+test owned_directory_chain_rejects_reparse_points ... ok
+test owned_files_reject_reparse_points_without_modifying_target ... ok
+test owned_files_reject_hardlinks_without_modifying_target ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests\m4_owned_store.rs (build/rust-m4-test-msvc\debug\deps\m4_owned_store-daf3d938d7a8476a.exe)
+
+running 8 tests
+test empty_store_opens_with_initial_state ... ok
+test killed_process_recovers_last_published_snapshot ... ok
+test unknown_store_content_is_rejected ... ok
+
+thread 'main' (49992) panicked at application\src\bin\m4_owned_helper.rs:127:10:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_input" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test tampered_payload_and_unknown_content_are_rejected ... ok
+test two_processes_save_and_restore_exact_state ... ok
+test complete_fixture_survives_forced_termination ... ok
+
+thread 'main' (43248) panicked at application\src\bin\m4_owned_helper.rs:127:10:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_input" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test second_writer_is_rejected_then_recovers ... ok
+
+thread 'main' (42232) panicked at application\src\bin\m4_owned_helper.rs:127:10:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_input" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (36260) panicked at application\src\bin\m4_owned_helper.rs:127:10:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_input" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test publication_kill_boundaries_restore_complete_old_or_new_image ... FAILED
+
+failures:
+
+---- publication_kill_boundaries_restore_complete_old_or_new_image stdout ----
+
+thread 'publication_kill_boundaries_restore_complete_old_or_new_image' (42532) panicked at application\tests\m4_owned_store.rs:114:9:
+assertion `left == right` failed: after-replace
+  left: "selected=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4\nrecent=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4\nwarning=-\nwork=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4|作品乙\nui=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4|-\nchapter=f640a735-44d0-4efd-8fd7-d6f3d2bce8a5|序章|order=0|arch=false|head=-\ndoc=f640a735-44d0-4efd-8fd7-d6f3d2bce8a5|rev=1|base=-|hash=57fcdcd16835b76b63f62be6c7dff2f7a003ff277251cd19eb3d7e6f53b35bf6|len=11\nbodyHash=57fcdcd16835b76b63f62be6c7dff2f7a003ff277251cd19eb3d7e6f53b35bf6|body=\"序章正文 e\u{301} é\\r\\n\"\nwork=b666c3a3-77d8-4828-a95e-96fc6ffc09e5|作品甲\nui=b666c3a3-77d8-4828-a95e-96fc6ffc09e5|{\"schemaVersion\":1,\"chapterId\":\"cd0edac4-6bef-4346-b667-35b472bf9e65\",\"wide\":true,\"scrollTop\":42}\nchapter=72e5f1cc-5764-412e-a628-8cf527bdbeae|第一章|order=0|arch=false|head=4684df17-dca7-41b2-9510-fd15ab8b7ac9\ndoc=72e5f1cc-5764-412e-a628-8cf527bdbeae|rev=3|base=4684df17-dca7-41b2-9510-fd15ab8b7ac9|hash=0009aa2762c172e01a9af41d71c7fc9d9e256d7e43771c501cad1069163e16e8|len=8\nbodyHash=0009aa2762c172e01a9af41d71c7fc9d9e256d7e43771c501cad1069163e16e8|body=\"确认后草稿 e\u{301}\"\nversion=4684df17-dca7-41b2-9510-fd15ab8b7ac9|parent=-|head=true|len=14\nversionBodyHash=708147a284ccbd4f36ab249bcbf822d9f6ec13b076c1bf9b130243bd49ab870a|body=\"第一行\\r\\n第二行 👩\u{200d}💻 é\"\nchapter=cd0edac4-6bef-4346-b667-35b472bf9e65|第二章|order=1|arch=false|head=-\ndoc=cd0edac4-6bef-4346-b667-35b472bf9e65|rev=1|base=-|hash=af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262|len=0\nbodyHash=af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262|body=\"\"\n"
+ right: "selected=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4\nrecent=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4\nwarning=-\nwork=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4|作品乙\nui=0237e8f0-4353-4a75-8c5c-d887cd9ab0d4|{\"boundary\":\"new\"}\nchapter=f640a735-44d0-4efd-8fd7-d6f3d2bce8a5|序章|order=0|arch=false|head=-\ndoc=f640a735-44d0-4efd-8fd7-d6f3d2bce8a5|rev=1|base=-|hash=57fcdcd16835b76b63f62be6c7dff2f7a003ff277251cd19eb3d7e6f53b35bf6|len=11\nbodyHash=57fcdcd16835b76b63f62be6c7dff2f7a003ff277251cd19eb3d7e6f53b35bf6|body=\"序章正文 e\u{301} é\\r\\n\"\nwork=b666c3a3-77d8-4828-a95e-96fc6ffc09e5|作品甲\nui=b666c3a3-77d8-4828-a95e-96fc6ffc09e5|{\"schemaVersion\":1,\"chapterId\":\"cd0edac4-6bef-4346-b667-35b472bf9e65\",\"wide\":true,\"scrollTop\":42}\nchapter=72e5f1cc-5764-412e-a628-8cf527bdbeae|第一章|order=0|arch=false|head=4684df17-dca7-41b2-9510-fd15ab8b7ac9\ndoc=72e5f1cc-5764-412e-a628-8cf527bdbeae|rev=3|base=4684df17-dca7-41b2-9510-fd15ab8b7ac9|hash=0009aa2762c172e01a9af41d71c7fc9d9e256d7e43771c501cad1069163e16e8|len=8\nbodyHash=0009aa2762c172e01a9af41d71c7fc9d9e256d7e43771c501cad1069163e16e8|body=\"确认后草稿 e\u{301}\"\nversion=4684df17-dca7-41b2-9510-fd15ab8b7ac9|parent=-|head=true|len=14\nversionBodyHash=708147a284ccbd4f36ab249bcbf822d9f6ec13b076c1bf9b130243bd49ab870a|body=\"第一行\\r\\n第二行 👩\u{200d}💻 é\"\nchapter=cd0edac4-6bef-4346-b667-35b472bf9e65|第二章|order=1|arch=false|head=-\ndoc=cd0edac4-6bef-4346-b667-35b472bf9e65|rev=1|base=-|hash=af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262|len=0\nbodyHash=af1349b9f5f9a1a6a0404dea36dcc9499bcb25c9adc112b7cc9a93cae41f3262|body=\"\"\n"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    publication_kill_boundaries_restore_complete_old_or_new_image
+
+test result: FAILED. 7 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 38.11s
+
+error: test failed, to rerun pass `-p paraselene-application --test m4_owned_store`

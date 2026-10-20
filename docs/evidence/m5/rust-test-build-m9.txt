@@ -1,0 +1,30 @@
+   Compiling windows-sys v0.61.2
+   Compiling aho-corasick v1.1.5
+   Compiling regex-syntax v0.8.11
+   Compiling keyring-core v1.0.1
+   Compiling paraselene-character-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\character-core)
+   Compiling regex-automata v0.4.18
+   Compiling regex v1.13.1
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.3
+   Compiling winapi-util v0.1.11
+   Compiling windows-native-keyring-store v1.1.0
+   Compiling tempfile v3.27.0
+   Compiling same-file v1.0.6
+   Compiling keyring v4.2.0
+   Compiling walkdir v2.5.0
+   Compiling tokio v1.53.1
+   Compiling paraselene-memory-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\memory-core)
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling tokio-rustls v0.26.5
+   Compiling tokio-util v0.7.19
+   Compiling tower-http v0.6.11
+   Compiling hyper-util v0.1.21
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.12.28
+   Compiling paraselene-llm-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\llm-core)
+   Compiling paraselene-novel-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\novel-core)
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 25.41s
+  Executable unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)

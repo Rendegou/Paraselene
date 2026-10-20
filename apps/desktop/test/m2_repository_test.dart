@@ -1,3 +1,6 @@
+// 覆盖 M2 合成仓库与工作区控制器的加载、延迟与失败合同。
+// 使用内存合成仓库，不代表真实 FFI、磁盘或数据库行为通过。
+
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';

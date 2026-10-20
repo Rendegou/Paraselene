@@ -1,0 +1,16 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.36s
+     Running tests\m4_owned_store.rs (build/rust-m4-test-msvc\debug\deps\m4_owned_store-daf3d938d7a8476a.exe)
+
+running 8 tests
+test empty_store_opens_with_initial_state ... ok
+test killed_process_recovers_last_published_snapshot ... ok
+test tampered_payload_and_unknown_content_are_rejected ... ok
+test unknown_store_content_is_rejected ... ok
+test complete_fixture_survives_forced_termination ... ok
+test two_processes_save_and_restore_exact_state ... ok
+test second_writer_is_rejected_then_recovers ... ok
+test publication_kill_boundaries_restore_complete_old_or_new_image ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 26.51s
+

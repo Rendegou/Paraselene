@@ -1,10 +1,17 @@
+// 内存合成工作区仓库：为演示与组件测试实现 WorkspaceRepository，不访问文件、数据库或 FFI。
+// 读边界：目录、正文、版本与 UI 会话都保存在进程内映射中，进程退出即丢失。
+// 写边界：保存、确认、回滚等变更只改内存；哈希、持久化与真实事务语义必须由原生桥接保证，本实现不冒充。
+// 关键不变量：关闭后所有调用抛 session_closed；CAS 修订与版本头冲突使用与真实仓库相同的稳定错误码。
 import 'dart:convert';
 import 'demo_content.dart';
 import 'workspace_repository.dart';
 part 'synthetic_confirmation.dart';
 
 /// Explicit in-memory fixture. Hashes and persistence require the real bridge.
+///
+/// 显式内存夹具：哈希与持久化需要真实桥接，本实现只用于演示与测试。
 class SyntheticWorkspaceRepository implements WorkspaceRepository {
+  /// 创建空仓库；withDemo 为真时同时写入内置演示作品与章节。
   SyntheticWorkspaceRepository({bool withDemo = false}) {
     if (withDemo) _addDemo();
   }
@@ -18,6 +25,8 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
   String? _selected;
   int _id = 0;
   bool _closed = false;
+
+  /// 合成模式；界面据此显示演示提示。
   @override
   WorkspaceMode get mode => WorkspaceMode.synthetic;
   void _checkOpen() {
@@ -42,12 +51,14 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     return title.trim();
   }
 
+  /// 列出内存中的作品；返回不可变快照。
   @override
   Future<List<WorkspaceWork>> listWorks() async {
     _checkOpen();
     return List.unmodifiable(_works.values);
   }
 
+  /// 创建作品；标题去除首尾空白，空标题抛 invalid_input。
   @override
   Future<WorkspaceWork> createWork(String title) async {
     _checkOpen();
@@ -56,6 +67,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     return work;
   }
 
+  /// 记录最近使用作品，最多保留 10 条；未知作品抛 work_not_found。
   @override
   Future<WorkspaceWork> selectWork(String workId) async {
     final work = _work(workId);
@@ -66,6 +78,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     return work;
   }
 
+  /// 返回内存中的选中作品与最近作品列表，不产生警告码。
   @override
   Future<WorkspaceState> workspaceState() async {
     _checkOpen();
@@ -85,12 +98,17 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     return List.unmodifiable(result);
   }
 
+  /// 列出未归档章节，按 orderIndex 升序返回。
   @override
   Future<List<WorkspaceChapter>> listChapters(String workId) async =>
       _directory(workId, false);
+
+  /// 列出归档章节，按 orderIndex 升序返回。
   @override
   Future<List<WorkspaceChapter>> listArchivedChapters(String workId) async =>
       _directory(workId, true);
+
+  /// 在目录末尾创建章节；标题去除首尾空白，空标题抛 invalid_input。
   @override
   Future<WorkspaceChapter> createChapter(String workId, String title) async {
     _work(workId);
@@ -110,6 +128,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     return chapter;
   }
 
+  // 元数据以整体替换发布，避免版本头或顺序出现半更新状态。
   WorkspaceChapter _replace(
     WorkspaceChapter c, {
     String? title,
@@ -127,12 +146,15 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     );
   }
 
+  /// 只改标题元数据；版本树保持不变。
   @override
   Future<WorkspaceChapter> renameChapter(
     String workId,
     String chapterId,
     String title,
   ) async => _replace(_chapter(workId, chapterId), title: _title(title));
+
+  /// orderedIds 必须与未归档章节 id 集合完全一致，否则抛 invalid_input；归档章节位置不变。
   @override
   Future<void> reorderChapters(String workId, List<String> orderedIds) async {
     final active = _directory(workId, false);
@@ -146,18 +168,22 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     }
   }
 
+  /// 归档或恢复章节，不删除正文与已确认版本。
   @override
   Future<WorkspaceChapter> setChapterArchived(
     String workId,
     String chapterId,
     bool archived,
   ) async => _replace(_chapter(workId, chapterId), archived: archived);
+
+  /// 读取内存中的文档快照；未知章节或身份不匹配抛稳定码。
   @override
   Future<ChapterDocument> loadDocument(String workId, String chapterId) async {
     _chapter(workId, chapterId);
     return _documents[chapterId]!;
   }
 
+  /// 读取章节精确正文。
   @override
   Future<String> loadBody(String workId, String chapterId) async =>
       (await loadDocument(workId, chapterId)).body;
@@ -167,6 +193,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     }
   }
 
+  /// 以 expectedRevision 做 CAS 保存并递增修订号；冲突抛 revision_conflict。
   @override
   Future<ChapterDocument> saveDocument(
     String workId,
@@ -187,6 +214,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     );
   }
 
+  /// 以 CAS 丢弃工作副本并恢复到当前头版本；无头版本时正文为空。
   @override
   Future<void> discardDraft(
     String workId,
@@ -199,6 +227,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     _restore(workId, chapterId, d.headVersionId);
   }
 
+  /// 列出已确认版本，isHead 由当前章节头动态计算。
   @override
   Future<List<VersionEntry>> listVersions(
     String workId,
@@ -226,6 +255,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     }
   }
 
+  /// 生成内存复核令牌；不写版本，head 或修订不匹配时抛稳定冲突码。
   @override
   Future<PreparedConfirmation> prepareConfirmation(
     String workId,
@@ -233,6 +263,8 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     String? expectedHead,
     int expectedRevision,
   ) async => _prepareReview(workId, chapterId, expectedHead, expectedRevision);
+
+  /// 用令牌把正文确认为新版本；空正文抛 invalid_input，令牌漂移抛稳定冲突码。
   @override
   Future<WorkspaceChapter> confirmChapter(
     String workId,
@@ -278,6 +310,7 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     );
   }
 
+  /// 回滚到指定历史版本；head 或修订不匹配、版本不存在时抛稳定错误码。
   @override
   Future<WorkspaceChapter> rollbackChapter(
     String workId,
@@ -297,12 +330,14 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     return _chapters[chapterId]!;
   }
 
+  /// 读取作品的内存 UI 会话 JSON；未知作品抛 work_not_found。
   @override
   Future<String?> getUiSession(String workId) async {
     _work(workId);
     return _ui[workId];
   }
 
+  /// 写入 UI 会话 JSON；只接受 schemaVersion 1 与白名单键，超长或非法抛 invalid_input。
   @override
   Future<void> setUiSession(String workId, String value) async {
     _work(workId);
@@ -352,12 +387,14 @@ class SyntheticWorkspaceRepository implements WorkspaceRepository {
     _versions[chapter.id] = [];
   }
 
+  /// 幂等写入内置演示作品与章节；已存在时不做任何事。
   @override
   Future<void> seedDemo() async {
     _checkOpen();
     if (!_works.containsKey('demo-work')) _addDemo();
   }
 
+  /// 标记仓库关闭；之后所有读写调用抛 session_closed。
   @override
   Future<void> close() async => _closed = true;
 }

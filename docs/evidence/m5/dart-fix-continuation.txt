@@ -1,0 +1,22 @@
+Computing fixes in lib...
+Applying fixes...
+
+editor\editor_input_client.dart
+  unnecessary_this - 1 fix
+
+legacy\character_dialog.dart
+  curly_braces_in_flow_control_structures - 1 fix
+
+legacy\idea_dialog.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+
+legacy\imported_dialog.dart
+  curly_braces_in_flow_control_structures - 3 fixes
+
+native\companion_gateway.dart
+  curly_braces_in_flow_control_structures - 1 fix
+
+workspace\workspace_controller.dart
+  annotate_overrides - 1 fix
+
+9 fixes made in 6 files.

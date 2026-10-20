@@ -1,0 +1,171 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart
+00:00 +0: workbench captions are reachable by keyboard traversal
+STEP 0 FocusNode#8ecff([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 1 FocusNode#e0633([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 2 FocusNode#da2f0([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 3 FocusNode#91817([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 4 FocusNode#c5546([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 5 FocusNode#d0146(Editor input client [PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 6 FocusNode#8ecff([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 7 FocusNode#e0633([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 8 FocusNode#da2f0([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 9 FocusNode#91817([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 10 FocusNode#c5546([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 11 FocusNode#d0146(Editor input client [PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 12 FocusNode#8ecff([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 13 FocusNode#e0633([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 14 FocusNode#da2f0([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 15 FocusNode#91817([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 16 FocusNode#c5546([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 17 FocusNode#d0146(Editor input client [PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 18 FocusNode#8ecff([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 19 FocusNode#e0633([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 20 FocusNode#da2f0([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 21 FocusNode#91817([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 22 FocusNode#c5546([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 23 FocusNode#d0146(Editor input client [PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 24 FocusNode#8ecff([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 25 FocusNode#e0633([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 26 FocusNode#da2f0([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 27 FocusNode#91817([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 28 FocusNode#c5546([PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+STEP 29 FocusNode#d0146(Editor input client [PRIMARY FOCUS])(context: Focus, PRIMARY FOCUS)
+FocusManager#b38d0
+ │ primaryFocus: FocusNode#d0146(Editor input client [PRIMARY
+ │   FOCUS])
+ │ primaryFocusCreator: Focus ← EditorViewport-[<'manuscript-body'>]
+ │   ← LayoutBuilder ← ConstrainedBox ← Center ← Expanded ← Column ←
+ │   ManuscriptEditor ← ManuscriptPreview ← Expanded ← Column ←
+ │   ColoredBox ← WorkbenchContent ← Expanded ← Row ←
+ │   _WorkspacePlane ← Expanded ← Column ← MediaQuery ← Padding ← ⋯
+ │
+ └─rootScope: FocusScopeNode#047d8(Root Focus Scope [IN FOCUS PATH])
+   │ IN FOCUS PATH
+   │ focusedChildren: FocusScopeNode#fb13b(View Scope [IN FOCUS PATH])
+   │
+   └─Child 1: _FocusTraversalGroupNode#3c62b(FocusTraversalGroup [IN FOCUS PATH])
+     │ context: Focus
+     │ NOT FOCUSABLE
+     │ IN FOCUS PATH
+     │
+     └─Child 1: FocusScopeNode#fb13b(View Scope [IN FOCUS PATH])
+       │ context: _FocusScopeWithExternalFocusNode
+       │ IN FOCUS PATH
+       │ focusedChildren: FocusScopeNode#f7943(Navigator Scope [IN FOCUS
+       │   PATH])
+       │
+       └─Child 1: FocusNode#075d1([IN FOCUS PATH])
+         │ context: Focus
+         │ NOT FOCUSABLE
+         │ IN FOCUS PATH
+         │
+         └─Child 1: FocusNode#02e17(Shortcuts [IN FOCUS PATH])
+           │ context: Focus
+           │ NOT FOCUSABLE
+           │ IN FOCUS PATH
+           │
+           └─Child 1: FocusNode#67148(Shortcuts [IN FOCUS PATH])
+             │ context: Focus
+             │ NOT FOCUSABLE
+             │ IN FOCUS PATH
+             │
+             └─Child 1: _FocusTraversalGroupNode#ffe91(FocusTraversalGroup [IN FOCUS PATH])
+               │ context: Focus
+               │ NOT FOCUSABLE
+               │ IN FOCUS PATH
+               │
+               └─Child 1: FocusNode#089c7(Shortcuts [IN FOCUS PATH])
+                 │ context: Focus
+                 │ NOT FOCUSABLE
+                 │ IN FOCUS PATH
+                 │
+                 ├─Child 1: _FocusTraversalGroupNode#2522f(FocusTraversalGroup)
+                 │ │ context: Focus
+                 │ │ NOT FOCUSABLE
+                 │ │
+                 │ ├─Child 1: FocusNode#95d92
+                 │ │   context: Focus
+                 │ │
+                 │ ├─Child 2: FocusNode#af84c
+                 │ │   context: Focus
+                 │ │
+                 │ └─Child 3: FocusNode#6182d
+                 │     context: Focus
+                 │
+                 └─Child 2: FocusScopeNode#f7943(Navigator Scope [IN FOCUS PATH])
+                   │ context: FocusScope
+                   │ IN FOCUS PATH
+                   │ focusedChildren: FocusScopeNode#35e84(_ModalScopeState<dynamic>
+                   │   Focus Scope [IN FOCUS PATH])
+                   │
+                   └─Child 1: _FocusTraversalGroupNode#38cfa(FocusTraversalGroup [IN FOCUS PATH])
+                     │ context: Focus
+                     │ NOT FOCUSABLE
+                     │ IN FOCUS PATH
+                     │
+                     └─Child 1: FocusNode#43e2c(Navigator [IN FOCUS PATH])
+                       │ context: Focus
+                       │ IN FOCUS PATH
+                       │
+                       └─Child 1: FocusScopeNode#35e84(_ModalScopeState<dynamic> Focus Scope [IN FOCUS PATH])
+                         │ context: _FocusScopeWithExternalFocusNode
+                         │ IN FOCUS PATH
+                         │ focusedChildren: FocusNode#d0146(Editor input client [PRIMARY
+                         │   FOCUS]), FocusNode#c5546, FocusNode#91817, FocusNode#da2f0,
+                         │   FocusNode#e0633, FocusNode#8ecff
+                         │ traversalEdgeBehavior: TraversalEdgeBehavior.parentScope
+                         │
+                         ├─Child 1: FocusNode#8ecff
+                         │   context: Focus
+                         │
+                         ├─Child 2: FocusNode#e0633
+                         │   context: Focus
+                         │
+                         ├─Child 3: FocusNode#350a4
+                         │   context: Focus
+                         │   NOT FOCUSABLE
+                         │
+                         ├─Child 4: FocusNode#f3819
+                         │   context: Focus
+                         │   NOT FOCUSABLE
+                         │
+                         ├─Child 5: FocusNode#da2f0
+                         │   context: Focus
+                         │
+                         ├─Child 6: FocusNode#91817
+                         │   context: Focus
+                         │
+                         ├─Child 7: FocusNode#c5546
+                         │   context: Focus
+                         │
+                         └─Child 8: FocusNode#d0146(Editor input client [PRIMARY FOCUS])
+                             context: Focus
+                             PRIMARY FOCUS
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: Set:['Minimize', 'Maximize', 'Close window']
+  Actual: Set:[]
+   Which: does not contain 'Minimize'
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart:113:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart line 113
+The test description was:
+  workbench captions are reachable by keyboard traversal
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: workbench captions are reachable by keyboard traversal [E]
+  Test failed. See exception logs above.
+  The test description was: workbench captions are reachable by keyboard traversal
+  
+00:01 +0 -1: Some tests failed.

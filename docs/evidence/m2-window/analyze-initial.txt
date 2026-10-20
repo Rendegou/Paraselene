@@ -1,0 +1,7 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Analyzing desktop...                                            
+
+  error - The name 'OrdinalSortKey' isn't a class - lib\window\desktop_title_bar.dart:34:36 - creation_with_non_type
+  error - The method 'OrdinalSortKey' isn't defined for the type 'WindowCaptionButton' - lib\window\desktop_title_bar.dart:124:16 - undefined_method
+
+2 issues found. (ran in 7.2s)

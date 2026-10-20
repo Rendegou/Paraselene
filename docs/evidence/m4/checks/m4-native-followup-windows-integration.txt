@@ -1,0 +1,9 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/integration_test/m4_app_test.dart
+Building Windows application...                                    27.6s
+√ Built build\windows\x64\runner\Debug\paraselene_flutter.exe
+00:00 +0: (setUpAll)
+00:00 +0: two works, editing, directory actions, confirm and rollback
+00:15 +1: cold restore reopens the recent work, chapter and preferences
+00:24 +2: (tearDownAll)
+00:24 +2: All tests passed!

@@ -1,0 +1,26 @@
+PASS desktop name available
+PASS process starts on dedicated private desktop
+PASS input desktop identity available
+PASS desktop name available
+PASS desktop name available
+PASS probe desktop differs from user input desktop
+PASS channel TEMP matches explicit synthetic root
+PASS channel synthetic marker required
+PASS channel COM initialized
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid requests create no native window
+OPEN_ENV hr=0 present=1
+PASS open starts hidden and pending
+PASS learning_busy
+OPEN_CONTROLLER hr=80004004 present=0
+PASS learning_closed
+PASS late creation cannot resurrect cancelled channel open
+OPEN_ENV hr=0 present=1
+OPEN_CONTROLLER hr=0 present=1
+OPEN_COMPLETE hr=0
+CHANNEL_OPEN replied=1 count=1 success=1 error= cleaning=0 cleanup_failed=0 asset_exists=1
+PASS encoded channel open returns real native success

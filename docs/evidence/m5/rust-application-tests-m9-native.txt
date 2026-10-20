@@ -1,0 +1,56 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.35s
+     Running unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+
+running 18 tests
+test owned_fault_tests::empty_pending_is_preserved ... ok
+test owned_fault_tests::unknown_pending_is_preserved ... ok
+test storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry ... ok
+test migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible ... ok
+test migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages ... ok
+test migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision ... ok
+test migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup ... FAILED
+test migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates ... ok
+test owned_fault_tests::rolled_back_conflict_does_not_poison ... ok
+test generation_tests::timed_out_complete_response_cannot_arrive_as_candidate ... FAILED
+test generation_tests::local_sse_candidate_atomic_failure_undo_and_duplicate_ticket ... ok
+test owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not ... ok
+test backup::tests::full_backup_restore_is_independent_and_corruption_never_changes_source ... ok
+test owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation ... ok
+test generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated ... FAILED
+test owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes ... ok
+test generation_tests::cancellation_or_disconnect_never_publishes_partial_candidate ... ok
+test generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate ... ok
+
+failures:
+
+---- migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup stdout ----
+
+thread 'migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup' (40988) panicked at application\src\migration_tests.rs:75:120:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_character" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- generation_tests::timed_out_complete_response_cannot_arrive_as_candidate stdout ----
+
+thread '<unnamed>' (24788) panicked at application\src\generation_tests.rs:54:21:
+assertion failed: started.elapsed() < Duration::from_secs(5)
+
+thread 'generation_tests::timed_out_complete_response_cannot_arrive_as_candidate' (46040) panicked at application\src\generation_tests.rs:180:19:
+called `Result::unwrap()` on an `Err` value: Any { .. }
+
+---- generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated stdout ----
+
+thread '<unnamed>' (47612) panicked at application\src\generation_tests.rs:54:21:
+assertion failed: started.elapsed() < Duration::from_secs(5)
+
+thread 'generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated' (5536) panicked at application\src\generation_tests.rs:197:55:
+called `Result::unwrap()` on an `Err` value: AppError { code: "generation_failed" }
+
+
+failures:
+    generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated
+    generation_tests::timed_out_complete_response_cannot_arrive_as_candidate
+    migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup
+
+test result: FAILED. 15 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 36.86s
+
+error: test failed, to rerun pass `-p paraselene-application --lib`

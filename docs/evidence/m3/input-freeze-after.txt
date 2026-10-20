@@ -1,0 +1,13 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_freeze_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_freeze_test.dart: frozen native and local edits retain text and undo history
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_freeze_test.dart: in-flight clipboard paste cannot edit after freeze
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_freeze_test.dart: in-flight clipboard cut cannot edit after freeze
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter session freeze rejects native callbacks before a widget rebuild
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter initializes with session body
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter forwards edits to session
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter resets on contentEpoch change
+00:00 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter notifies listeners on session change
+00:00 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter notifies listeners on client change
+00:00 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter updateWidth changes layout width
+00:00 +10: All tests passed!

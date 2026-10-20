@@ -1,3 +1,6 @@
+// 覆盖 M2 已发布 locale 集合与脚本感知回退的边界。
+// 纯 Dart/Flutter 单元测试，不代表真实系统 locale 或 ARB 翻译质量通过。
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/workspace/workbench_app.dart';

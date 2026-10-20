@@ -1,0 +1,58 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.63s
+     Running unittests src\lib.rs (build\rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+
+running 3 tests
+test source_mark_tests::source_marks_hide_rejected_lore_and_reject_corrupt_hashes ... ok
+test source_mark_tests::source_marks_preserve_bom_crlf_and_utf16_without_cross_work_or_dirty_relocation ... ok
+test source_mark_tests::old_version_sources_remain_history_but_never_decorate_a_new_head ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 5.85s
+
+     Running tests\m4_hardening.rs (build\rust-m1-msvc\debug\deps\m4_hardening-d0e166f99917cad0.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+
+     Running tests\m4_migration.rs (build\rust-m1-msvc\debug\deps\m4_migration-73a9f2cb1938e016.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests\m4_owned_provenance.rs (build\rust-m1-msvc\debug\deps\m4_owned_provenance-5c6f931d408d19f2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\m4_selection.rs (build\rust-m1-msvc\debug\deps\m4_selection-fea3f7f4aa44422c.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests\m4_workspace.rs (build\rust-m1-msvc\debug\deps\m4_workspace-d2daa402414558e3.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+
+     Running tests\m5_discussions.rs (build\rust-m1-msvc\debug\deps\m5_discussions-991020829b40ea0f.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+     Running tests\provenance.rs (build\rust-m1-msvc\debug\deps\provenance-1a56701567c59707.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+     Running tests\session.rs (build\rust-m1-msvc\debug\deps\session-c03f55a5ad6ef185.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.00s
+

@@ -1,0 +1,468 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter initializes with session body
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter forwards edits to session
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter resets on contentEpoch change
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter notifies listeners on session change
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter notifies listeners on client change
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_session_adapter_test.dart: EditorSessionAdapter updateWidth changes layout width
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: (setUpAll)
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorScene transform round trips document and viewport
+00:00 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorScene hit test returns document offset from viewport point
+00:00 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorScene scene captures selection and caret geometry
+00:00 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorScene painter cache LRU evicts warm entries beyond limit
+00:00 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:01 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:01 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:02 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:02 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:02 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:02 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:02 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:03 +17 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:03 +17 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root [E]
+  WorkspaceFailure(bridge_dll_missing)
+  package:paraselene_flutter/workspace/data/real_workspace_repository.dart 75:7  RealWorkspaceRepository.open
+  
+00:03 +18 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:03 +19 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:03 +20 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +21 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +21 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +21 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions [E]
+  Bad state: bridge_dll_missing
+  package:paraselene_flutter/native/runtime.dart 54:7  NativeRuntime._initialize
+  
+00:04 +22 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +23 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +24 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +25 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +26 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +27 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +28 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +29 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +30 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +31 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +32 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +33 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +34 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +35 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +36 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +37 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +38 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +39 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +40 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:04 +41 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +42 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +43 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +44 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:05 +45 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:05 +46 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:05 +47 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:05 +48 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:05 +49 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: heterogeneous edit reuses untouched paragraphs and bounds caches
+00:05 +50 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +51 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +52 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +53 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +54 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +55 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +56 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:05 +57 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +58 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +59 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +60 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +61 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +62 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +63 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +64 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +65 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +66 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +67 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +68 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +69 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +70 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +71 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +72 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +73 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +74 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +75 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +76 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +77 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +78 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:05 +79 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:06 +80 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:06 +81 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:06 +82 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:06 +83 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long single paragraph page ranges are contiguous and bounded
+00:06 +84 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient clipboard failure is reported
+00:06 +85 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(360.0, 800.0) dpr=1.5 scale=1.0 rtl-pseudo bold=false
+00:06 +86 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(360.0, 800.0) dpr=1.5 scale=1.0 rtl-pseudo bold=false
+00:06 +87 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(360.0, 800.0) dpr=1.5 scale=1.0 rtl-pseudo bold=false
+00:06 +88 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(360.0, 800.0) dpr=1.5 scale=1.0 rtl-pseudo bold=false
+00:06 +89 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient viewport builds scene with client state
+00:06 +90 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(360.0, 800.0) dpr=1.5 scale=1.0 rtl-pseudo bold=true
+00:06 +91 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +92 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +93 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +94 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +95 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +96 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +97 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +98 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +99 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +100 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +101 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +102 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +103 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +104 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +105 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +106 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +107 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +108 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +109 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:06 +110 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +111 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +112 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +113 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +114 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +115 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +116 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +117 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +118 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +119 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +120 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +121 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +122 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +123 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +124 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +125 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:07 +126 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +127 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +128 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +129 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +130 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +131 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +132 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:07 +133 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +134 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +135 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +136 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +137 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +138 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +139 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +140 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: typing during an in-flight save persists the latest text
+00:08 +141 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_close_controller_test.dart: timer and navigation share one prefs drain including late scroll/text
+00:08 +142 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_close_controller_test.dart: timer and navigation share one prefs drain including late scroll/text
+00:08 +143 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +144 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +145 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +146 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +147 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +148 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +149 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +150 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +151 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+00:08 +152 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+workspace_disposed_with_dirty_text
+00:08 +153 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +154 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +155 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +156 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +156 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +156 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens [E]
+  WorkspaceFailure(bridge_dll_missing)
+  package:paraselene_flutter/workspace/data/real_workspace_repository.dart 75:7  RealWorkspaceRepository.open
+  
+00:08 +156 -4: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +156 -4: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body [E]
+  WorkspaceFailure(bridge_dll_missing)
+  package:paraselene_flutter/workspace/data/real_workspace_repository.dart 75:7  RealWorkspaceRepository.open
+  
+00:08 +156 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +156 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state [E]
+  WorkspaceFailure(bridge_dll_missing)
+  package:paraselene_flutter/workspace/data/real_workspace_repository.dart 75:7  RealWorkspaceRepository.open
+  
+00:08 +157 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +158 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +159 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +160 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +160 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+workspace_disposed_with_dirty_text
+00:08 +161 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +162 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +163 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +164 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:08 +165 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:09 +166 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:09 +167 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:09 +168 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:09 +168 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (false)
+workspace_disposed_with_dirty_text
+00:09 +169 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:09 +170 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: empty body after deletion saves and restores
+00:09 +171 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +172 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +173 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +174 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +175 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +176 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +177 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +177 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (true)
+workspace_disposed_with_dirty_text
+00:09 +178 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +179 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +180 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +181 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +182 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +183 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +184 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +185 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +186 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +187 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +188 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +189 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +190 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +191 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:09 +192 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +193 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +194 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +195 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +196 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +197 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +198 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +199 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +200 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +201 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +202 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +203 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +204 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +205 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +206 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +207 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +208 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +209 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:10 +210 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +211 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +212 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +213 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +214 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +215 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +216 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +217 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:10 +218 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(1440.0, 900.0) dpr=1.0 scale=1.0 rtl bold=true
+00:10 +219 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=false width=360.0
+00:10 +220 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +221 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +222 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +223 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +224 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +225 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +226 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +227 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +228 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +229 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +230 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +231 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +232 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +233 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +234 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +235 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +236 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +237 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +238 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +239 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +240 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +241 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +242 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:10 +243 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +244 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +245 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +246 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +247 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +248 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +249 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +250 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +251 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +252 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +253 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +254 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +255 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +256 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +257 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +258 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +259 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +260 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +261 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +262 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +263 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +264 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +265 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:11 +266 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +267 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +268 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +269 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +270 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +271 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +272 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +273 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +274 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +275 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +276 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:12 +277 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit zh_Hans Size(1440.0, 900.0) dpr=2.0 scale=2.0 rtl-pseudo bold=false
+00:12 +278 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +279 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +280 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +281 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +282 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +283 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +284 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +285 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +286 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +287 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +288 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:12 +289 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=1.0 scale=2.0 plain bold=true
+00:12 +290 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=1.0 scale=2.0 plain bold=true
+00:12 +291 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:12 +292 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +293 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +294 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +295 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +296 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +297 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +298 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +299 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +300 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +301 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:13 +302 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=1.5 scale=1.0 rtl bold=false
+00:13 +303 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +304 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +305 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +306 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +307 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +308 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +309 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +310 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +311 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +312 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +313 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +314 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:13 +315 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=2.0 scale=1.0 plain bold=false
+00:13 +316 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:13 +317 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:13 +318 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:13 +319 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +320 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +321 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +322 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +323 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +324 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +325 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +326 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:14 +327 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=2.0 scale=2.0 pseudo bold=true
+00:14 +328 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +329 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +330 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +331 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +332 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +333 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +334 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +335 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +336 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +337 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +338 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +339 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +340 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +341 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +342 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:14 +343 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:15 +344 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:15 +345 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:15 +346 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:15 +347 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:15 +348 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:15 +349 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 plain bold=false
+00:15 +350 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: dispose with dirty text completes without skipping release
+workspace_disposed_with_dirty_text
+00:15 +351 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 plain bold=true
+00:15 +352 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 pseudo bold=false
+00:15 +353 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 pseudo bold=true
+00:15 +354 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 rtl bold=false
+00:15 +355 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 rtl bold=true
+00:15 +356 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 rtl-pseudo bold=false
+00:15 +357 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=1.0 rtl-pseudo bold=true
+00:15 +358 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 plain bold=false
+00:15 +359 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 plain bold=true
+00:15 +360 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 pseudo bold=false
+00:15 +361 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 pseudo bold=true
+00:15 +362 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 rtl bold=false
+00:15 +363 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 rtl bold=true
+00:15 +364 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 rtl-pseudo bold=false
+00:15 +365 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=1.5 scale=2.0 rtl-pseudo bold=true
+00:15 +366 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 plain bold=false
+00:15 +367 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 plain bold=true
+00:15 +368 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 pseudo bold=false
+00:15 +369 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 pseudo bold=true
+00:15 +370 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 rtl bold=false
+00:16 +371 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 rtl bold=true
+00:16 +372 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 rtl-pseudo bold=false
+00:16 +373 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=1.0 rtl-pseudo bold=true
+00:16 +374 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 plain bold=false
+00:16 +375 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 plain bold=true
+00:16 +376 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 pseudo bold=false
+00:16 +377 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 pseudo bold=true
+00:16 +378 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 rtl bold=false
+00:16 +379 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 rtl bold=true
+00:16 +380 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 rtl-pseudo bold=false
+00:16 +381 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(900.0, 700.0) dpr=2.0 scale=2.0 rtl-pseudo bold=true
+00:16 +382 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 plain bold=false
+00:16 +383 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 plain bold=true
+00:16 +384 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 pseudo bold=false
+00:16 +385 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 pseudo bold=true
+00:16 +386 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 rtl bold=false
+00:16 +387 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 rtl bold=true
+00:16 +388 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 rtl-pseudo bold=false
+00:16 +389 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=1.0 rtl-pseudo bold=true
+00:16 +390 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 plain bold=false
+00:16 +391 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 plain bold=true
+00:16 +392 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 pseudo bold=false
+00:16 +393 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 pseudo bold=true
+00:16 +394 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 rtl bold=false
+00:17 +395 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 rtl bold=true
+00:17 +396 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 rtl-pseudo bold=false
+00:17 +397 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.0 scale=2.0 rtl-pseudo bold=true
+00:17 +398 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 plain bold=false
+00:17 +399 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 plain bold=true
+00:17 +400 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 pseudo bold=false
+00:17 +401 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 pseudo bold=true
+00:17 +402 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 rtl bold=false
+00:17 +403 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 rtl bold=true
+00:17 +404 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 rtl-pseudo bold=false
+00:17 +405 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=1.0 rtl-pseudo bold=true
+00:17 +406 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 plain bold=false
+00:17 +407 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 plain bold=true
+00:17 +408 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 pseudo bold=false
+00:17 +409 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 pseudo bold=true
+00:17 +410 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 rtl bold=false
+00:17 +411 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 rtl bold=true
+00:17 +412 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 rtl-pseudo bold=false
+00:17 +413 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=1.5 scale=2.0 rtl-pseudo bold=true
+00:17 +414 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 plain bold=false
+00:17 +415 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 plain bold=true
+00:17 +416 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 pseudo bold=false
+00:17 +417 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 pseudo bold=true
+00:17 +418 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 rtl bold=false
+00:17 +419 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 rtl bold=true
+00:17 +420 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 rtl-pseudo bold=false
+00:18 +421 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=1.0 rtl-pseudo bold=true
+00:18 +422 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 plain bold=false
+00:18 +423 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 plain bold=true
+00:18 +424 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 pseudo bold=false
+00:18 +425 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 pseudo bold=true
+00:18 +426 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 rtl bold=false
+00:18 +427 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 rtl bold=true
+00:18 +428 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 rtl-pseudo bold=false
+00:18 +429 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(1440.0, 900.0) dpr=2.0 scale=2.0 rtl-pseudo bold=true
+00:18 +430 -5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: (tearDownAll)
+00:18 +430 -5: Some tests failed.

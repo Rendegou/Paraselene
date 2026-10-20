@@ -1,0 +1,1 @@
+FAIL page has no host objects or web messaging

@@ -1,0 +1,18 @@
+Formatted lib\editor\editor_scene.dart
+Formatted lib\editor\editor_source_mark.dart
+Formatted lib\editor\editor_viewport.dart
+Formatted lib\lore\lore_library.dart
+Formatted lib\lore\lore_repository.dart
+Formatted lib\lore\source_mark_controller.dart
+Formatted lib\native\generated\api.dart
+Formatted lib\native\generated\api\models.dart
+Formatted lib\native\generated\frb_generated.dart
+Formatted lib\native\generated\frb_generated.io.dart
+Formatted lib\native\generated\frb_generated.web.dart
+Formatted lib\workspace\presentation\editor_source_menu.dart
+Formatted lib\workspace\presentation\editor_tools.dart
+Formatted lib\workspace\presentation\manuscript_editor.dart
+Formatted lib\workspace\presentation\source_navigation.dart
+Formatted test\source_marks_real_ffi_test.dart
+Formatted test\source_marks_test.dart
+Formatted 135 files (17 changed) in 2.38 seconds.

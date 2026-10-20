@@ -1,9 +1,13 @@
+// 覆盖 M4 应用生命周期：原生与框架关闭信号共用脏屏障、导出取消与失败处理。
+// widget 测试只验证 Dart 决策，不代表真实 Windows WM_CLOSE 或进程退出通过。
+
 import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:paraselene_flutter/editor/editor_viewport.dart';
 import 'package:paraselene_flutter/workspace/data/recovery_export.dart';
 import 'package:paraselene_flutter/workspace/data/synthetic_workspace_repository.dart';
 import 'package:paraselene_flutter/workspace/data/workspace_repository.dart';
@@ -74,6 +78,17 @@ Future<String> exitSignal(WidgetTester tester) {
   return result.future;
 }
 
+Future<bool> nativeExitSignal(WidgetTester tester) {
+  const codec = StandardMethodCodec();
+  final result = Completer<bool>();
+  tester.binding.defaultBinaryMessenger.handlePlatformMessage(
+    'paraselene/native_close',
+    codec.encodeMethodCall(const MethodCall('requestClose')),
+    (data) => result.complete(codec.decodeEnvelope(data!) as bool),
+  );
+  return result.future;
+}
+
 Future<void> start(
   WidgetTester tester,
   ExitRepository repo,
@@ -93,10 +108,16 @@ Future<void> start(
     ),
   );
   await tester.pumpAndSettle();
-  await tester.enterText(
+  final viewport = tester.widget<EditorViewport>(
     find.byKey(const ValueKey('manuscript-body')),
-    'exact draft 👩‍💻',
   );
+  final controller = viewport.controller;
+  controller.document.replaceBody('exact draft 👩‍💻');
+  controller.select(
+    TextSelection.collapsed(offset: 'exact draft 👩‍💻'.length),
+  );
+  (controller as ChangeNotifier).notifyListeners();
+  await tester.pump();
 }
 
 Future<void> tapDialog(WidgetTester tester, String label) async {
@@ -107,6 +128,30 @@ Future<void> tapDialog(WidgetTester tester, String label) async {
 }
 
 void main() {
+  testWidgets('native and framework requests share the dirty close barrier', (
+    tester,
+  ) async {
+    final repo = ExitRepository();
+    await start(tester, repo, ExitGateway());
+    final native = nativeExitSignal(tester);
+    final framework = exitSignal(tester);
+    await tester.pumpAndSettle();
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(repo.saves, 1);
+    await tapDialog(tester, 'Keep editing');
+    expect(await native, isFalse);
+    expect(await framework, 'cancel');
+    expect(repo.closes, 0);
+    repo.failSave = false;
+    final retry = nativeExitSignal(tester);
+    await tester.pumpAndSettle();
+    await tapDialog(tester, 'Retry');
+    expect(await retry, isTrue);
+    expect(repo.savedBody, 'exact draft 👩‍💻');
+    expect(repo.closes, 1);
+    await tester.pumpWidget(const SizedBox());
+  });
+
   testWidgets(
     'bootstrap failure with no editable session allows framework exit',
     (tester) async {
@@ -136,7 +181,12 @@ void main() {
     expect(await request, 'exit');
     expect(repo.savedBody, 'exact draft 👩‍💻');
     expect(repo.closes, 1);
-    expect(tester.takeException(), isNull);
+    final exception = tester.takeException();
+    expect(
+      exception,
+      isNull,
+      reason: exception is FlutterError ? exception.toStringDeep() : null,
+    );
     await tester.pumpWidget(const SizedBox());
   });
 
@@ -159,9 +209,12 @@ void main() {
       expect(await second, 'cancel');
       expect(
         tester
-            .widget<TextField>(find.byKey(const ValueKey('manuscript-body')))
-            .controller!
-            .text,
+            .widget<EditorViewport>(
+              find.byKey(const ValueKey('manuscript-body')),
+            )
+            .controller
+            .document
+            .raw,
         'exact draft 👩‍💻',
       );
       repo.failSave = false;
@@ -234,17 +287,26 @@ void main() {
         }
         expect(find.text('Draft exported'), findsOneWidget);
         final editor = find.byKey(const ValueKey('manuscript-body'));
-        expect(tester.widget<TextField>(editor).readOnly, isTrue);
+        expect(
+          tester.widget<EditorViewport>(editor).controller.readOnly,
+          isTrue,
+        );
         expect(
           File(gateway.path!).readAsStringSync(),
           contains('exact draft 👩‍💻'),
         );
         await tapDialog(tester, 'Close');
         expect(find.text('Exit anyway'), findsOneWidget);
-        expect(tester.widget<TextField>(editor).readOnly, isTrue);
+        expect(
+          tester.widget<EditorViewport>(editor).controller.readOnly,
+          isTrue,
+        );
         await tapDialog(tester, accept ? 'Exit anyway' : 'Keep editing');
         expect(await request, accept ? 'exit' : 'cancel');
-        expect(tester.widget<TextField>(editor).readOnly, accept);
+        expect(
+          tester.widget<EditorViewport>(editor).controller.readOnly,
+          accept,
+        );
         expect(repo.closes, 0);
         expect(tester.takeException(), isNull);
         await tester.pumpWidget(const SizedBox());

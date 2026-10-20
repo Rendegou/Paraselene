@@ -1,7 +1,11 @@
+// 覆盖 M2 工作台交互：工作选择、locale 切换、专注模式、宽度与可恢复失败。
+// widget 测试只验证 Dart 层行为，不代表真实 Windows 窗口、字体或原生输入通过。
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:paraselene_flutter/editor/editor_viewport.dart';
 import 'package:paraselene_flutter/workspace/data/demo_content.dart';
 import 'package:paraselene_flutter/workspace/data/synthetic_workspace_repository.dart';
 import 'package:paraselene_flutter/workspace/data/workspace_repository.dart';
@@ -16,11 +20,10 @@ void main() {
     tester.useSurface(const Size(1280, 900));
     final repository = DelayedBodyRepository();
     await tester.pumpWorkbench(repository: repository);
-    final button = find.ancestor(
-      of: find.text('选择作品'),
-      matching: find.byType(TextButton),
-    );
-    expect(tester.widget<TextButton>(button).onPressed, isNull);
+    final button = find
+        .ancestor(of: find.text('切换作品'), matching: find.byType(InkWell))
+        .first;
+    expect(tester.widget<InkWell>(button).onTap, isNull);
     repository.pending.complete(
       const ChapterDocument(
         workId: 'demo-work',
@@ -29,8 +32,8 @@ void main() {
       ),
     );
     await tester.flushWorkbench();
-    expect(tester.widget<TextButton>(button).onPressed, isNotNull);
-    await tester.activate('选择作品');
+    expect(tester.widget<InkWell>(button).onTap, isNotNull);
+    await tester.activate('切换作品');
     expect(find.byKey(const ValueKey('work-demo-work')), findsOneWidget);
   });
   testWidgets(
@@ -44,7 +47,7 @@ void main() {
       await tester.tap(find.byKey(const ValueKey('chapter-demo-chapter')));
       await tester.flushWorkbench();
       expect(rawBody(tester), demoBody);
-      await tester.activate('选择作品');
+      await tester.activate('切换作品');
       expect(find.byKey(const ValueKey('work-demo-work')), findsOneWidget);
       await tester.tap(find.byKey(const ValueKey('work-demo-work')));
       await tester.flushWorkbench();
@@ -57,14 +60,16 @@ void main() {
   ) async {
     tester.useSurface(const Size(1280, 900));
     await tester.pumpWorkbench();
-    await tester.activate('界面语言');
+    await tester.tap(find.byTooltip('界面语言'));
+    await tester.flushWorkbench();
     await tester.activate('English');
-    expect(find.text('Writing workspace'), findsOneWidget);
+    expect(find.text('Chapters'), findsOneWidget);
     expect(find.text('雨后的书店'), findsOneWidget);
     expect(rawBody(tester), demoBody);
-    await tester.activate('Interface language');
+    await tester.tap(find.byTooltip('Language'));
+    await tester.flushWorkbench();
     await tester.activate('简体中文');
-    expect(find.text('写作工作台'), findsOneWidget);
+    expect(find.text('章节'), findsOneWidget);
     expect(rawBody(tester), demoBody);
   });
 
@@ -74,12 +79,14 @@ void main() {
     tester.useSurface(const Size(1440, 900));
     await tester.pumpWorkbench();
     final normal = tester.getSize(find.byKey(manuscriptKey)).width;
-    await tester.activate('宽稿模式');
+    await tester.activate('版式');
+    await tester.activate('宽稿 · 920 px');
     expect(
       tester.getSize(find.byKey(manuscriptKey)).width,
       greaterThan(normal),
     );
-    await tester.activate('舒适宽度');
+    await tester.activate('版式');
+    await tester.activate('舒适 · 760 px');
     expect(tester.getSize(find.byKey(manuscriptKey)).width, normal);
     await tester.activate('专注模式');
     expect(find.byKey(const ValueKey('chapter-demo-chapter')), findsNothing);
@@ -110,9 +117,11 @@ class DelayedBodyRepository extends SyntheticWorkspaceRepository {
       pending.future;
 }
 
-/// Exact text of the temporary editor surface, found by its stable key.
-String? rawBody(WidgetTester tester) =>
-    tester.widget<TextField>(find.byKey(manuscriptKey)).controller!.text;
+/// Exact text of the production editor surface, found by its stable key.
+String? rawBody(WidgetTester tester) {
+  final viewport = tester.widget<EditorViewport>(find.byKey(manuscriptKey));
+  return viewport.controller.document.raw;
+}
 
 void layoutMatrix() {
   for (final locale in const [chinese, Locale('en')]) {
@@ -184,6 +193,6 @@ void assertDirectory(WidgetTester tester, Size size, double scale, bool rtl) {
     );
   } else {
     expect(chapter, findsNothing);
-    expect(find.byIcon(Icons.menu_book_outlined), findsOneWidget);
+    expect(find.byIcon(Icons.view_sidebar_outlined), findsOneWidget);
   }
 }

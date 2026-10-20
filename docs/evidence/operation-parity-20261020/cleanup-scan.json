@@ -1,0 +1,3795 @@
+{
+  "env": {
+    "timestamp": "2026-10-20T20:38:22.3539614+08:00",
+    "root": "D:\\MyAgent\\paraselene-flutter",
+    "head": "cb2271778163a0fb98d1ebf4737ade0a0790b619",
+    "statusCount": 302,
+    "flutter": "Flutter 3.32.1 • channel stable • https://github.com/flutter/flutter.git",
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "ps": "7.6.7"
+  },
+  "targets": {
+    "C01": {
+      "exists": true,
+      "files": 14087,
+      "bytes": 8615939783,
+      "top": "D:\\MyAgent\\paraselene-flutter\\build\\rust-m1-msvc",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C02": {
+      "exists": true,
+      "files": 3012,
+      "bytes": 1855087884,
+      "top": "D:\\MyAgent\\paraselene-flutter\\build\\rust-m4-test-msvc",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C03": {
+      "exists": true,
+      "files": 1538,
+      "bytes": 402249153,
+      "top": "D:\\MyAgent\\paraselene-flutter\\rust\\target",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C04": {
+      "exists": true,
+      "files": 414,
+      "bytes": 329520914,
+      "top": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C05": {
+      "exists": true,
+      "files": 6143,
+      "bytes": 259759832,
+      "top": "D:\\MyAgent\\paraselene-flutter\\build\\learning-native",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C06": {
+      "exists": true,
+      "files": 27,
+      "bytes": 43793891,
+      "top": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\.dart_tool",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C07": {
+      "exists": true,
+      "files": 4,
+      "bytes": 28649712,
+      "top": "D:\\MyAgent\\paraselene-flutter\\packages\\text_contract\\.dart_tool",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C08": {
+      "exists": true,
+      "files": 91,
+      "bytes": 53937273,
+      "top": "D:\\MyAgent\\paraselene-flutter\\build\\vendor",
+      "gcd": 0,
+      "ignored": true
+    },
+    "C09": {
+      "exists": true,
+      "files": 111,
+      "bytes": 289118864,
+      "top": "D:\\MyAgent\\paraselene-flutter\\spikes\\editor_comparison",
+      "gcd": 47,
+      "ignored": false
+    },
+    "C10": {
+      "exists": true,
+      "files": 236,
+      "bytes": 27161749,
+      "top": "D:\\MyAgent\\paraselene-flutter\\spikes\\codemirror_baseline",
+      "gcd": 8,
+      "ignored": false
+    },
+    "C11": {
+      "exists": true,
+      "files": 8,
+      "bytes": 499530,
+      "top": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\test\\failures",
+      "gcd": 8,
+      "ignored": false
+    },
+    "C12": {
+      "exists": true,
+      "files": 2,
+      "bytes": 116176,
+      "top": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\test\\goldens",
+      "gcd": 2,
+      "ignored": false
+    },
+    "C13": {
+      "exists": true,
+      "files": 898,
+      "bytes": 9184320,
+      "top": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence",
+      "gcd": 237,
+      "ignored": false
+    },
+    "C14": {
+      "exists": true,
+      "files": 2,
+      "bytes": 344294,
+      "top": "D:\\MyAgent\\paraselene-flutter\\build\\m4-owned-synthetic-v1",
+      "gcd": 0,
+      "ignored": true
+    }
+  },
+  "distributions": {
+    "m1-distribution-0601b9ecf9714e4bbace6fea49b253f0": {
+      "created": "2026-10-20T12:28:33.9514833+08:00",
+      "bytes": 112927254,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 266240,
+          "sha256": "DEF8DC12E7C6406D99A2D3D1B0239A3F59B774745DDF252584DB16A6D95FA7D0"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6849440,
+          "sha256": "E89C01E80AEACCBD2552D1518E38D319DF4105E16D56D7E91BADD481D9C25695"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-0f14da37d8d24792a954f620ebd14bb6": {
+      "created": "2026-10-20T01:08:54.2265702+08:00",
+      "bytes": 112845334,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 266240,
+          "sha256": "8D54807A15B1F17167196543817133BF5F3E34DE90FBDEB9BA18DBEDB36FF664"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6767520,
+          "sha256": "C0D23A91441A883CCDE8CB492FE8F73AF47E369E301D429967F802F035A3DC93"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-11cc63a18d03451cb0aa2b3642525810": {
+      "created": "2026-10-19T10:57:40.3924568+08:00",
+      "bytes": 112844822,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 265728,
+          "sha256": "78B2C5D58DB4FA7CF435723DAC6FFB70473C2397F3AD6B402A9CE9799DA59331"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6767520,
+          "sha256": "37EC71E95493F29F494E92BE9CE2E5DF8280E6E50F77579339D5219576CD1301"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-393029de294444c5b2c35c2c20979c2f": {
+      "created": "2026-10-20T14:45:35.9594546+08:00",
+      "bytes": 112861718,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "79CF732F0A440EE7AE03DDB38D7678616A4AA4AF35A5C61450BF82E1B59D0258"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 266240,
+          "sha256": "992A98077E4A7806C7632B7A76D77D3AB92482341F45A6097A220D8BFCEC2E8B"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6783904,
+          "sha256": "CDFD5980344731F3D01DBA257DA20DBB13FFC70F442FA1BEC96993CED3EBC078"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-4a552174e0c44c7d80b23e76416b7d6e": {
+      "created": "2026-10-20T14:41:20.8957225+08:00",
+      "bytes": 112845334,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "79CF732F0A440EE7AE03DDB38D7678616A4AA4AF35A5C61450BF82E1B59D0258"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 266240,
+          "sha256": "0424AF75BD4AE1F3026BC7B4B26DD0D6AEC30B17AD30C5FA45548197BDBE573D"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6767520,
+          "sha256": "8EDE8376EEA984BA1BBF833320C9E26F205D370244D8BDD1F9D086E546E6847B"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-539908b16847424699f0bfe82145b672": {
+      "created": "2026-10-20T00:32:50.8324987+08:00",
+      "bytes": 112844310,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 265216,
+          "sha256": "5024193DD6927A81605EB517B2517F03255058B9D320470C904A42D0C40814EA"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6767520,
+          "sha256": "C0D23A91441A883CCDE8CB492FE8F73AF47E369E301D429967F802F035A3DC93"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-703462be59544eb79a51538de1f79859": {
+      "created": "2026-10-20T12:35:30.7441138+08:00",
+      "bytes": 112927254,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 266240,
+          "sha256": "3F26ECE90E9A6F84C646D3AFD4F70065CD0D3AE51561F5F2DFCD6BF736F75D48"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6849440,
+          "sha256": "E12A066C1B3E4A431F23C959B9284287FD51B3A74763595F83520FEB7BCE5388"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-80451878655546a6bc66c2ef566aec04": {
+      "created": "2026-10-19T00:28:05.6699953+08:00",
+      "bytes": 112785430,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9702912,
+          "sha256": "E82C88091766215CE1AA5AD829EEC6E0B88EAFC97B76EEE116DFDD360063E95A"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 265728,
+          "sha256": "DE1B25B2FE7D34C32B752E5719B1C4AADE0CA1B73FE0B7B0EA69B1F07D28B671"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6734752,
+          "sha256": "48E913DBC3DFD725575D6389CCB3B10DD56BDE187EF3511B542D93387EA775A9"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-8c5c1da0f2eb4453b851d337b55258bd": {
+      "created": "2026-10-19T20:53:38.6284415+08:00",
+      "bytes": 112844822,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 265728,
+          "sha256": "EB48AD9B6F964A80E655FEF5E32429B3517FE8EC6B992D732C8B0236A6A4E03F"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6767520,
+          "sha256": "C0D23A91441A883CCDE8CB492FE8F73AF47E369E301D429967F802F035A3DC93"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-952d79ba895f471e84c1a95a6b956fef": {
+      "created": "2026-10-20T00:48:01.7599693+08:00",
+      "bytes": 112844310,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "AB4DFC0BBA76847281CF506AB00E0A9465C4D24CD372D573606CDB3E2CF759FA"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 265216,
+          "sha256": "BAE6505B9BC7529157FD636845A3AD86DFB8FB919539CBDB41F42D2C89825641"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6767520,
+          "sha256": "C0D23A91441A883CCDE8CB492FE8F73AF47E369E301D429967F802F035A3DC93"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    },
+    "m1-distribution-d1093976dc7f4e1fbfa2e630b64e733c": {
+      "created": "2026-10-20T13:51:52.3321543+08:00",
+      "bytes": 112927254,
+      "files": 65,
+      "manifest": [
+        {
+          "relative": "concrt140.dll",
+          "length": 324208,
+          "sha256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+        },
+        {
+          "relative": "file_selector_windows_plugin.dll",
+          "length": 111616,
+          "sha256": "ECEC9346334BEFEC368644768649D80B076EC9EBA3F68255E0D8B91E2BE5AFA1"
+        },
+        {
+          "relative": "flutter_windows.dll",
+          "length": 19068416,
+          "sha256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+        },
+        {
+          "relative": "msvcp140_1.dll",
+          "length": 35952,
+          "sha256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+        },
+        {
+          "relative": "msvcp140_2.dll",
+          "length": 280200,
+          "sha256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+        },
+        {
+          "relative": "msvcp140_atomic_wait.dll",
+          "length": 50304,
+          "sha256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+        },
+        {
+          "relative": "msvcp140_codecvt_ids.dll",
+          "length": 31872,
+          "sha256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+        },
+        {
+          "relative": "msvcp140.dll",
+          "length": 557728,
+          "sha256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+        },
+        {
+          "relative": "native_assets.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "paraselene_bridge.dll",
+          "length": 9729536,
+          "sha256": "79CF732F0A440EE7AE03DDB38D7678616A4AA4AF35A5C61450BF82E1B59D0258"
+        },
+        {
+          "relative": "paraselene_flutter.exe",
+          "length": 266240,
+          "sha256": "8E8434318AA745927384D6173E9C0260BF28FB97E532CD401062370504C69388"
+        },
+        {
+          "relative": "screen_retriever_windows_plugin.dll",
+          "length": 119296,
+          "sha256": "80C2DAE8C11369EDE13DA9868061E895501E222358DF6151EEECBDE46C6970AC"
+        },
+        {
+          "relative": "vcruntime140_1.dll",
+          "length": 49792,
+          "sha256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+        },
+        {
+          "relative": "vcruntime140.dll",
+          "length": 124544,
+          "sha256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+        },
+        {
+          "relative": "window_manager_plugin.dll",
+          "length": 130048,
+          "sha256": "AC6BC497D9C9369241573AB7F0642730628130595233AF2881BF532B685153E2"
+        },
+        {
+          "relative": "data\\app.so",
+          "length": 6849440,
+          "sha256": "3E3FF959DC9B9BAB370758DF40FA5DDD2601B68D4EB4F1CA24626216C212F78A"
+        },
+        {
+          "relative": "data\\icudtl.dat",
+          "length": 778864,
+          "sha256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.bin",
+          "length": 3297,
+          "sha256": "3D6599BA115583B66DCCB91E801E4EF654BC3C122667F0653F5241F7A542A20D"
+        },
+        {
+          "relative": "data\\flutter_assets\\AssetManifest.json",
+          "length": 3009,
+          "sha256": "29E81808DA025ED65BDC2E6A498F97120051501E10D65AF8522FA232CD4E341B"
+        },
+        {
+          "relative": "data\\flutter_assets\\FontManifest.json",
+          "length": 456,
+          "sha256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+        },
+        {
+          "relative": "data\\flutter_assets\\NativeAssetsManifest.json",
+          "length": 45,
+          "sha256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+        },
+        {
+          "relative": "data\\flutter_assets\\NOTICES.Z",
+          "length": 84748,
+          "sha256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-beast.png",
+          "length": 1078534,
+          "sha256": "17C52A60A4E193E57E4D4EE11B07F916A9AE9C156C81E95CF966B7F830F060EF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-blink.png",
+          "length": 827412,
+          "sha256": "88FBA0E8CC550651748F42D76A7BB24B2E0E772ADEA46EB4006D801BF201D43A"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-curious.png",
+          "length": 790102,
+          "sha256": "72C39632273A7C9BE689EADA0853C44A11A5C710D9E83A359E1A698486709445"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-idle.png",
+          "length": 878569,
+          "sha256": "C01F7DABF77C6A7520A7CC2A557AFE33FAFB842009E80C975D2CB2CAE0A13F39"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-poke.png",
+          "length": 802692,
+          "sha256": "D51D8B5BB01773D7F480931CC009B23FCF87283689ADBF69D73C829089599882"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\cloud-sleep.png",
+          "length": 947840,
+          "sha256": "5BDAD2E865115E6361D4A5FA6D8D47A253A31514C051396662EB0DAD7C4481E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-beast.png",
+          "length": 816762,
+          "sha256": "04CF65C556BD846FFEDB42A4FB0068DB9677FD4B1FDA0AAA31F4D2A033059E44"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-blink.png",
+          "length": 796902,
+          "sha256": "866649E92FEA2997463D9565CF0630D25018A9F9E5AF7EB7D1CA7BF45C7F3F34"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-curious.png",
+          "length": 788775,
+          "sha256": "384157C1226E48F6440EABAD9C91EF15697334C862A3320DB22A5695D315C2E9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-idle.png",
+          "length": 785205,
+          "sha256": "A9C596C52158112B4156353A4FB4217AC4D3A4B7ECFEA76897BF4973B7FD6E92"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-poke.png",
+          "length": 713326,
+          "sha256": "09245C65418E64A7303A5E8F1FBF618DFBC6A8C82A06D264C754D65073DBFFF4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\moon-sleep.png",
+          "length": 838186,
+          "sha256": "B6E9465AE80D187B238234F9CEB4EAFDECC09D3B5365195D32B9986B822843F4"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-beast.png",
+          "length": 920356,
+          "sha256": "79080EC8E7402709B3348AA89FA32C5D318215E3231FD05F2D1DE29BA38024DB"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-blink.png",
+          "length": 805828,
+          "sha256": "1212B6CF0E6B22651E86EA50212765978F541E7A31A81EBD820A2A66610800C6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-curious.png",
+          "length": 787109,
+          "sha256": "1B9D452272174A69C8DEEFA64E7FBB7F55DEEAF0CC2C6A1D5BACB3D1B873CDAC"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-idle.png",
+          "length": 783545,
+          "sha256": "0D74FF832E9672DC0FBBA68032E2D068B767BECAF920F969F2E7C155AFEEA561"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-poke.png",
+          "length": 718164,
+          "sha256": "3E93E440C444562DF532BF6D3BCEA448AC91CAA86A1357BBD8DD8A1490131973"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\companions\\star-sleep.png",
+          "length": 963975,
+          "sha256": "E568B3B9F9DE1B25AD580B9966C8777BA40A84B3422903F4841A8DD9A2770166"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+          "length": 4382,
+          "sha256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+          "length": 307592,
+          "sha256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+          "length": 9925688,
+          "sha256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+          "length": 4388,
+          "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+          "length": 9932268,
+          "sha256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+          "length": 9922328,
+          "sha256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+          "length": 4350,
+          "sha256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+          "length": 13938492,
+          "sha256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index-en.html",
+          "length": 1275,
+          "sha256": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\index.html",
+          "length": 1282,
+          "sha256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning-en.js",
+          "length": 3781,
+          "sha256": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.css",
+          "length": 1693,
+          "sha256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\learning.js",
+          "length": 3851,
+          "sha256": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+          "length": 16726,
+          "sha256": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+          "length": 13804,
+          "sha256": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+          "length": 1030,
+          "sha256": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker-en.js",
+          "length": 1834,
+          "sha256": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\worker.js",
+          "length": 1841,
+          "sha256": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+          "length": 119077,
+          "sha256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+          "length": 1250344,
+          "sha256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+          "length": 9598218,
+          "sha256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+          "length": 17931,
+          "sha256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+        },
+        {
+          "relative": "data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+          "length": 2545637,
+          "sha256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+        },
+        {
+          "relative": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+          "length": 1645184,
+          "sha256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+        },
+        {
+          "relative": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+          "length": 21320,
+          "sha256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+        }
+      ]
+    }
+  },
+  "pathSetGroups": {
+    "count": 11,
+    "dirs": [
+      "m1-distribution-0601b9ecf9714e4bbace6fea49b253f0",
+      "m1-distribution-0f14da37d8d24792a954f620ebd14bb6",
+      "m1-distribution-11cc63a18d03451cb0aa2b3642525810",
+      "m1-distribution-393029de294444c5b2c35c2c20979c2f",
+      "m1-distribution-4a552174e0c44c7d80b23e76416b7d6e",
+      "m1-distribution-539908b16847424699f0bfe82145b672",
+      "m1-distribution-703462be59544eb79a51538de1f79859",
+      "m1-distribution-80451878655546a6bc66c2ef566aec04",
+      "m1-distribution-8c5c1da0f2eb4453b851d337b55258bd",
+      "m1-distribution-952d79ba895f471e84c1a95a6b956fef",
+      "m1-distribution-d1093976dc7f4e1fbfa2e630b64e733c"
+    ]
+  }
+}

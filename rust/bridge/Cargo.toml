@@ -4,6 +4,10 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
+[features]
+default = []
+test-support = ["paraselene-application/test-support"]
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 

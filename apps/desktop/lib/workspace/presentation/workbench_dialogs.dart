@@ -1,18 +1,29 @@
+// 工作台对话框：标题输入、章节确认复核，以及已确认版本列表与回滚。
+// 读边界：复核正文与版本正文来自控制器快照；本文件不重新读取或改写作者正文。
+// 写边界：确认与回滚经控制器屏障提交，对话框只负责展示与收集用户意图。
+// 关键不变量：复核期间作者继续输入时对话框自动关闭，因为令牌已失效；取消不改变任何内容。
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../data/workspace_repository.dart';
 import '../workspace_controller.dart';
 import 'workbench_chrome.dart';
 
 /// Shared title prompt for creating works/chapters and renaming.
+///
+/// 通用标题输入对话框：标题去除首尾空白后不能为空；取消或非提交关闭返回 null。
+/// [submitAction] 为提交按钮文案；省略时按用途推断：有初值的重命名显示“保存”，
+/// 新建显示“创建”。带初值时打开即全选，直接输入就会替换原标题；Enter 提交，
+/// Escape 取消。
 Future<String?> showTitlePrompt({
   required BuildContext context,
   required WorkbenchLabels labels,
   required String title,
   required String fieldLabel,
   String initial = '',
+  String? submitAction,
 }) => showDialog<String>(
   context: context,
   builder: (context) => _TitlePromptDialog(
@@ -20,6 +31,11 @@ Future<String?> showTitlePrompt({
     title: title,
     fieldLabel: fieldLabel,
     initial: initial,
+    submitAction:
+        submitAction ??
+        (initial.isEmpty
+            ? labels.strings.createAction
+            : labels.strings.saveAction),
   ),
 );
 
@@ -29,11 +45,13 @@ class _TitlePromptDialog extends StatefulWidget {
     required this.title,
     required this.fieldLabel,
     required this.initial,
+    required this.submitAction,
   });
   final WorkbenchLabels labels;
   final String title;
   final String fieldLabel;
   final String initial;
+  final String submitAction;
   @override
   State<_TitlePromptDialog> createState() => _TitlePromptDialogState();
 }
@@ -43,6 +61,30 @@ class _TitlePromptDialogState extends State<_TitlePromptDialog> {
     text: widget.initial,
   );
   String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectAll();
+    // 自动聚焦可能在首帧把光标移到末尾；帧后再兜底一次，保证直接输入即替换。
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      if (_text.text.isNotEmpty && !_isAllSelected) _selectAll();
+    });
+  }
+
+  bool get _isAllSelected =>
+      _text.selection ==
+      TextSelection(baseOffset: 0, extentOffset: _text.text.length);
+
+  /// 打开即全选初值，直接输入替换原标题，不需要先手动删除。
+  void _selectAll() {
+    if (_text.text.isEmpty) return;
+    _text.selection = TextSelection(
+      baseOffset: 0,
+      extentOffset: _text.text.length,
+    );
+  }
 
   @override
   void dispose() {
@@ -62,37 +104,46 @@ class _TitlePromptDialogState extends State<_TitlePromptDialog> {
   @override
   Widget build(BuildContext context) {
     final s = widget.labels.strings;
-    return AlertDialog(
-      title: Text(widget.labels(widget.title)),
-      content: SizedBox(
-        width: 420,
-        child: TextField(
-          key: const ValueKey('title-prompt-field'),
-          controller: _text,
-          autofocus: true,
-          onSubmitted: (_) => _submit(),
-          decoration: InputDecoration(
-            labelText: widget.labels(widget.fieldLabel),
-            errorText: _error == null ? null : widget.labels(_error!),
+    return CallbackShortcuts(
+      bindings: {
+        // Escape 等价于取消：返回 null，不修改标题。
+        const SingleActivator(LogicalKeyboardKey.escape): () =>
+            Navigator.of(context).pop(),
+      },
+      child: AlertDialog(
+        title: Text(widget.labels(widget.title)),
+        content: SizedBox(
+          width: 420,
+          child: TextField(
+            key: const ValueKey('title-prompt-field'),
+            controller: _text,
+            autofocus: true,
+            onSubmitted: (_) => _submit(),
+            decoration: InputDecoration(
+              labelText: widget.labels(widget.fieldLabel),
+              errorText: _error == null ? null : widget.labels(_error!),
+            ),
           ),
         ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(widget.labels(s.cancelAction)),
+          ),
+          FilledButton(
+            onPressed: _submit,
+            child: Text(widget.labels(widget.submitAction)),
+          ),
+        ],
       ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(widget.labels(s.cancelAction)),
-        ),
-        FilledButton(
-          onPressed: _submit,
-          child: Text(widget.labels(s.createAction)),
-        ),
-      ],
     );
   }
 }
 
 /// Exact-body review before confirmation. The dialog closes itself with a
 /// notice when the author keeps typing, because the token is then stale.
+///
+/// 章节确认对话框：展示精确正文复核，确认令牌在作者继续输入后立即作废。
 class ConfirmChapterDialog extends StatefulWidget {
   const ConfirmChapterDialog({
     required this.controller,
@@ -116,14 +167,15 @@ class _ConfirmChapterDialogState extends State<ConfirmChapterDialog> {
   void initState() {
     super.initState();
     _sequence = widget.controller.editing.saveState?.editSequence ?? 0;
-    widget.controller.addListener(_watchEdits);
+    // 编辑序号只由 EditingSession 发布；订阅 controller 会在保存/忙碌通知上漏掉作者输入。
+    widget.controller.editing.addListener(_watchEdits);
   }
 
   late final int _sequence;
 
   @override
   void dispose() {
-    widget.controller.removeListener(_watchEdits);
+    widget.controller.editing.removeListener(_watchEdits);
     super.dispose();
   }
 
@@ -199,6 +251,8 @@ class _ConfirmChapterDialogState extends State<ConfirmChapterDialog> {
 }
 
 /// Confirmed version list with exact-body preview and explicit rollback.
+///
+/// 已确认版本对话框：展开查看历史正文，回滚前需要二次确认。
 class VersionsDialog extends StatefulWidget {
   const VersionsDialog({
     required this.controller,

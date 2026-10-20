@@ -1,0 +1,4 @@
+Formatted lib\cowrite\character_diff.dart
+Formatted lib\lore\lore_map_preview.dart
+Formatted test\reviewed_tasks_test.dart
+Formatted 129 files (3 changed) in 1.77 seconds.

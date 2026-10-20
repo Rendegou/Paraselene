@@ -37,6 +37,85 @@ fn two_processes_save_and_restore_exact_state() {
         "confirmed version must persist"
     );
     assert!(seeded.contains("scrollTop"), "UI session must persist");
+    for body in [
+        "第一行\r\n第二行 👩\u{200d}💻 é",
+        "确认后草稿 e\u{301}",
+        "序章正文 e\u{301} é\r\n",
+        "",
+    ] {
+        assert!(restored.contains(&format!("body={}", serde_json::to_string(body).unwrap())));
+        assert!(restored.contains(&format!("Hash={}", blake3::hash(body.as_bytes()))));
+    }
+}
+
+fn kill_at_marker(args: &[&str], marker: &str) -> String {
+    let mut child = Command::new(HELPER)
+        .args(args)
+        .stdout(Stdio::piped())
+        .spawn()
+        .unwrap();
+    let mut output = String::new();
+    let mut reached = false;
+    for line in BufReader::new(child.stdout.take().unwrap()).lines() {
+        let line = line.unwrap();
+        if line == marker {
+            reached = true;
+            break;
+        }
+        output.push_str(&line);
+        output.push('\n');
+    }
+    child.kill().unwrap();
+    child.wait().unwrap();
+    assert!(reached, "child exited before marker {marker}");
+    output
+}
+
+#[test]
+fn complete_fixture_survives_forced_termination() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path().to_str().unwrap();
+    let before = kill_at_marker(&["seed-hold", root], "SAVED");
+    let (code, restored, err) = run(&["dump", root]);
+    assert_eq!((code, err.as_str()), (0, ""));
+    assert_eq!(restored, before);
+}
+
+#[test]
+fn publication_kill_boundaries_restore_complete_old_or_new_image() {
+    for stage in [
+        "during-staging",
+        "after-flush",
+        "before-replace",
+        "after-replace",
+    ] {
+        let dir = tempfile::tempdir().unwrap();
+        let root = dir.path().to_str().unwrap();
+        assert_eq!(run(&["seed", root]).0, 0);
+        let before = kill_at_marker(&["boundary", root, stage], &format!("GATE:{stage}"));
+        let before = before.strip_suffix("BEFORE\n").unwrap();
+        let (code, restored, err) = run(&["dump", root]);
+        assert_eq!((code, err.as_str()), (0, ""), "{stage}");
+        let expected = if stage == "after-replace" {
+            let work_line = before
+                .lines()
+                .find(|line| line.ends_with("|作品乙"))
+                .unwrap();
+            let id = work_line
+                .strip_prefix("work=")
+                .unwrap()
+                .split('|')
+                .next()
+                .unwrap();
+            before.replace(
+                &format!("ui={id}|-"),
+                &format!("ui={id}|{{\"schemaVersion\":1,\"wide\":true}}"),
+            )
+        } else {
+            before.to_owned()
+        };
+        assert_eq!(restored, expected, "{stage}");
+    }
 }
 
 /// A fresh store with no snapshot opens cleanly with the initial migration

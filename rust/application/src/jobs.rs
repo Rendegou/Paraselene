@@ -1,4 +1,7 @@
 //! Cancellable caller-owned futures and bounded subscriptions.
+//!
+//! 合成任务以调用方持有的 future 运行，不产生后台线程；取消信号优先于终端状态提交，
+//! 终端结果保存在每会话最多 256 条的 outcomes 中。订阅队列有界并统计因溢出丢弃的最旧事件数。
 use crate::{err, AppError, EventBatch, JobResult, Queue, Session, State};
 use std::collections::VecDeque;
 use tokio::sync::watch;
@@ -6,6 +9,7 @@ struct Registration {
     session: Session,
     id: String,
 }
+// outcomes 保留终态以便队列溢出后仍可查询；队列满时丢弃最旧事件并累计 dropped。
 fn publish(state: &mut State, result: JobResult) {
     state.outcomes.insert(result.job_id.clone(), result.clone());
     for queue in state.events.values_mut() {
@@ -16,6 +20,7 @@ fn publish(state: &mut State, result: JobResult) {
         queue.items.push_back(result.clone());
     }
 }
+// future 被抛弃时没有显式取消机会；Drop 统一补写 cancelled（会话已关闭则 closed）终态。
 impl Drop for Registration {
     fn drop(&mut self) {
         if let Ok(mut state) = self.session.inner.lock() {
@@ -40,6 +45,8 @@ impl Drop for Registration {
 impl Session {
     /// Query authoritative outcomes even after close or notification overflow.
     /// At most 256 IDs are retained per session; excess jobs fail with job_limit.
+    ///
+    /// 即使会话关闭或通知队列溢出也返回权威终态；未知 id 返回 job_not_found。
     pub fn job_status(&self, job_id: String) -> Result<JobResult, AppError> {
         let state = self.lock()?;
         if let Some(result) = state.outcomes.get(&job_id) {
@@ -87,6 +94,9 @@ impl Session {
     }
     /// Await a deterministic delay in milliseconds (0..60000); cancellation wins terminal commit.
     /// Dropping this future cancels it without leaving a spawned background task.
+    ///
+    /// job_id 仅允许 ASCII 字母数字与 '-' 且不超过 128 字节，delay 为 0..=60000 毫秒；
+    /// 重复 id 返回 job_exists，超过 256 个终态返回 job_limit。
     pub async fn synthetic_job(
         &self,
         job_id: String,
@@ -97,6 +107,7 @@ impl Session {
             session: self.clone(),
             id: job_id.clone(),
         };
+        // biased 让取消信号优先于定时器，取消一定赢过同一轮的完成提交。
         tokio::select! {biased; _=receiver.changed()=>{}, _=tokio::time::sleep(std::time::Duration::from_millis(delay_ms))=>{},}
         let result = {
             let mut state = self.lock()?;
@@ -118,6 +129,8 @@ impl Session {
         Ok(result)
     }
     /// Cancel a registered pending future; repeated cancellation is harmless.
+    ///
+    /// 只取消 pending 任务；已完成返回 job_finished，未知返回 job_not_found。
     pub fn cancel_job(&self, job_id: String) -> Result<(), AppError> {
         let state = self.lock()?;
         if state.db.is_none() {
@@ -134,6 +147,8 @@ impl Session {
         Ok(())
     }
     /// Subscribe to at most 256 events (1..256), with oldest-drop overflow semantics.
+    ///
+    /// capacity 范围 1..=256；每个会话最多 64 个订阅，超限返回 subscription_limit。
     pub fn subscribe(&self, capacity: u32) -> Result<u64, AppError> {
         if !(1..=256).contains(&capacity) {
             return Err(err("invalid_input"));
@@ -161,6 +176,8 @@ impl Session {
         Ok(id)
     }
     /// Drain a subscription atomically, resetting its dropped count.
+    ///
+    /// 原子排空队列并重置 dropped 计数；未知订阅返回 subscription_not_found。
     pub fn poll_events(&self, subscription: u64) -> Result<EventBatch, AppError> {
         let mut state = self.lock()?;
         if state.db.is_none() {
@@ -176,6 +193,8 @@ impl Session {
         })
     }
     /// Remove a subscription idempotently; no callback can run after return.
+    ///
+    /// 幂等移除订阅；返回后不会再向该队列发布事件。
     pub fn unsubscribe(&self, subscription: u64) -> Result<(), AppError> {
         self.lock()?.events.remove(&subscription);
         Ok(())

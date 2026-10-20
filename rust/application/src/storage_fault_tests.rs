@@ -1,4 +1,7 @@
 //! SQLITE_FULL is exercised on the application-owned connection, not mocked.
+//!
+//! 测试范围：应用自有连接上真实触发 SQLITE_FULL，验证 revision 不前进且失败后可重试。
+//! 不代表所有磁盘、权限或断电故障路径已覆盖。
 use crate::{core_error, Session};
 #[test]
 fn sqlite_full_does_not_advance_revision_and_can_retry() {

@@ -1,3 +1,6 @@
+// M1 Windows 集成测试：启动真实 app 入口并验证合成验收合同。
+// 需在 Windows 设备上运行，不代表 M2 及以后功能、用户数据或 Release 安装包通过。
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';

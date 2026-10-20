@@ -1,0 +1,76 @@
+[2026-10-18T09:22:43.747Z WARN frb_codegen\src\library\commands\command_runner.rs:161] command="powershell" "-noprofile" "-command" "& \"dart\" \"format\" \"--line-length\" \"80\" \".\"" stdout= stderr=PathNotFoundException: Cannot open file, path = 'C:\Users\HP\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\flutter_lints-5.0.0\lib\flutter.yaml' (OS Error: 系统找不到指定的路径。
+, errno = 3)
+#0      _checkForErrorResponse (dart:io/common.dart:58:9)
+#1      _File.open.<anonymous closure> (dart:io/file_impl.dart:441:7)
+<asynchronous suspension>
+#2      _File.readAsBytes.<anonymous closure> (dart:io/file_impl.dart:648:24)
+<asynchronous suspension>
+#3      _File.readAsString (dart:io/file_impl.dart:715:18)
+<asynchronous suspension>
+#4      readAnalysisOptions (package:dart_style/src/analysis_options/analysis_options_file.dart:69:27)
+<asynchronous suspension>
+#5      readAnalysisOptions.optionsFromInclude (package:dart_style/src/analysis_options/analysis_options_file.dart:105:12)
+<asynchronous suspension>
+#6      readAnalysisOptions (package:dart_style/src/analysis_options/analysis_options_file.dart:120:28)
+<asynchronous suspension>
+#7      ConfigCache._findFormatterOptions (package:dart_style/src/config_cache.dart:122:25)
+<asynchronous suspension>
+#8      ConfigCache.findTrailingCommas (package:dart_style/src/config_cache.dart:103:13)
+<asynchronous suspension>
+#9      _processFile (package:dart_style/src/io.dart:195:33)
+<asynchronous suspension>
+#10     _processDirectory (package:dart_style/src/io.dart:159:10)
+<asynchronous suspension>
+#11     formatPaths (package:dart_style/src/io.dart:115:12)
+<asynchronous suspension>
+#12     FormatCommand.run (package:dart_style/src/cli/format_command.dart:344:7)
+<asynchronous suspension>
+#13     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#14     DartdevRunner.runCommand (package:dartdev/dartdev.dart:247:18)
+<asynchronous suspension>
+#15     runDartdev (package:dartdev/dartdev.dart:47:16)
+<asynchronous suspension>
+#16     main (file:///C:/b/s/w/ir/x/w/sdk/pkg/dartdev/bin/dartdev.dart:13:5)
+<asynchronous suspension>
+
+
+[2026-10-18T09:22:43.747Z WARN frb_codegen\src\library\codegen\polisher\mod.rs:117] Fail to execute_dart_format, but continue to run.
+Error details: Err(Command execution failed: PathNotFoundException: Cannot open file, path = 'C:\Users\HP\AppData\Local\Pub\Cache\hosted\pub.flutter-io.cn\flutter_lints-5.0.0\lib\flutter.yaml' (OS Error: 系统找不到指定的路径。
+, errno = 3)
+#0      _checkForErrorResponse (dart:io/common.dart:58:9)
+#1      _File.open.<anonymous closure> (dart:io/file_impl.dart:441:7)
+<asynchronous suspension>
+#2      _File.readAsBytes.<anonymous closure> (dart:io/file_impl.dart:648:24)
+<asynchronous suspension>
+#3      _File.readAsString (dart:io/file_impl.dart:715:18)
+<asynchronous suspension>
+#4      readAnalysisOptions (package:dart_style/src/analysis_options/analysis_options_file.dart:69:27)
+<asynchronous suspension>
+#5      readAnalysisOptions.optionsFromInclude (package:dart_style/src/analysis_options/analysis_options_file.dart:105:12)
+<asynchronous suspension>
+#6      readAnalysisOptions (package:dart_style/src/analysis_options/analysis_options_file.dart:120:28)
+<asynchronous suspension>
+#7      ConfigCache._findFormatterOptions (package:dart_style/src/config_cache.dart:122:25)
+<asynchronous suspension>
+#8      ConfigCache.findTrailingCommas (package:dart_style/src/config_cache.dart:103:13)
+<asynchronous suspension>
+#9      _processFile (package:dart_style/src/io.dart:195:33)
+<asynchronous suspension>
+#10     _processDirectory (package:dart_style/src/io.dart:159:10)
+<asynchronous suspension>
+#11     formatPaths (package:dart_style/src/io.dart:115:12)
+<asynchronous suspension>
+#12     FormatCommand.run (package:dart_style/src/cli/format_command.dart:344:7)
+<asynchronous suspension>
+#13     CommandRunner.runCommand (package:args/command_runner.dart:212:13)
+<asynchronous suspension>
+#14     DartdevRunner.runCommand (package:dartdev/dartdev.dart:247:18)
+<asynchronous suspension>
+#15     runDartdev (package:dartdev/dartdev.dart:47:16)
+<asynchronous suspension>
+#16     main (file:///C:/b/s/w/ir/x/w/sdk/pkg/dartdev/bin/dartdev.dart:13:5)
+<asynchronous suspension>
+
+)
+Done!

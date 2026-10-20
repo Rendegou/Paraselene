@@ -1,0 +1,25 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_invoke",
+      "args": {
+        "processId": 3648,
+        "elementId": "uia:rt:42-9113340-4-0-0-0-0-6-2-0"
+      }
+    },
+    { "wait": 1500 },
+    {
+      "tool": "windows_computer_use_snapshot",
+      "args": {
+        "processId": 3648,
+        "activate": false,
+        "includeScreenshot": true,
+        "captureWindow": true,
+        "detailLevel": "compact",
+        "maxDepth": 6,
+        "maxNodes": 400,
+        "maxWidth": 1400
+      }
+    }
+  ]
+}

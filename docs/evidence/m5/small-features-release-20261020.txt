@@ -1,0 +1,4 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Building Windows application...                                    41.3s
+√ Built build\windows\x64\runner\Release\paraselene_flutter.exe
+BUILD_EXIT=0

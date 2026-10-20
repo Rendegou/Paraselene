@@ -1,0 +1,10 @@
+{
+  "Status": "PASS",
+  "PreservedDirectories": [
+    "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-017abf36628642f2a1786ea7814fd724",
+    "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-retention-e9fc8cdc73e742f99be0df778a580dd3"
+  ],
+  "SyntheticSentinel": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-retention-e9fc8cdc73e742f99be0df778a580dd3\\synthetic-retention.txt",
+  "SentinelSHA256": "6C5F5F386DEB350002FA9D753840BB44CE8D06363CA4ADB0A3A3CFC7C9E850AF",
+  "AutomaticDeletion": false
+}

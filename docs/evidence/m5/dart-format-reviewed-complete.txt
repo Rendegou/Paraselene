@@ -1,0 +1,3 @@
+Formatted lib\lore\lore_map_preview.dart
+Formatted test\reviewed_tasks_test.dart
+Formatted 129 files (2 changed) in 1.90 seconds.

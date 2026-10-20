@@ -1,0 +1,2 @@
+    Checking paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.11s

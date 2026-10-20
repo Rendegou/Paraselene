@@ -1,3 +1,6 @@
+// 覆盖 M1 真实 FFI 冒烟：DLL 合同、合成会话创建与释放。
+// 需要真实 paraselene_bridge.dll 与合成目录，不代表 Windows UI、IME 或 Release 打包通过。
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/probe/probe.dart';
 

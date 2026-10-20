@@ -1,0 +1,18 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:01 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption actions, state, drag exclusion and keyboard close
+00:01 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=false width=360.0
+00:01 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=false width=900.0
+00:01 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=false width=360.0
+00:01 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=false width=900.0
+00:01 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=true width=360.0
+00:01 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=true width=900.0
+00:01 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=true width=360.0
+00:01 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=true width=900.0
+00:01 +15: All tests passed!

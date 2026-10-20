@@ -1,0 +1,128 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+
+running 18 tests
+test owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not ... FAILED
+test owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes ... FAILED
+test owned_fault_tests::rolled_back_conflict_does_not_poison ... FAILED
+test owned_fault_tests::empty_pending_is_preserved ... ok
+test migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages ... FAILED
+test migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup ... FAILED
+test owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation ... FAILED
+test migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates ... FAILED
+test backup::tests::full_backup_restore_is_independent_and_corruption_never_changes_source ... FAILED
+test migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision ... FAILED
+test migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible ... FAILED
+test generation_tests::timed_out_complete_response_cannot_arrive_as_candidate ... FAILED
+test generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated ... FAILED
+test generation_tests::cancellation_or_disconnect_never_publishes_partial_candidate ... FAILED
+test generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate ... FAILED
+test generation_tests::local_sse_candidate_atomic_failure_undo_and_duplicate_ticket ... FAILED
+test storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry ... FAILED
+test owned_fault_tests::unknown_pending_is_preserved ... ok
+
+failures:
+
+---- owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not stdout ----
+
+thread 'owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not' (30640) panicked at application\src\owned_fault_tests.rs:121:48:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes stdout ----
+
+thread 'owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes' (23460) panicked at application\src\owned_fault_tests.rs:67:48:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- owned_fault_tests::rolled_back_conflict_does_not_poison stdout ----
+
+thread 'owned_fault_tests::rolled_back_conflict_does_not_poison' (37756) panicked at application\src\owned_fault_tests.rs:103:48:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages stdout ----
+
+thread 'migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages' (47380) panicked at application\src\migration_tests.rs:9:87:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup stdout ----
+
+thread 'migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup' (22056) panicked at application\src\migration_tests.rs:9:87:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation stdout ----
+
+thread 'owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation' (42000) panicked at application\src\owned_fault_tests.rs:30:48:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates stdout ----
+
+thread 'migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates' (47924) panicked at application\src\migration_tests.rs:9:87:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- backup::tests::full_backup_restore_is_independent_and_corruption_never_changes_source stdout ----
+
+thread 'backup::tests::full_backup_restore_is_independent_and_corruption_never_changes_source' (42908) panicked at application\src\backup.rs:115:90:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision stdout ----
+
+thread 'migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision' (47340) panicked at application\src\migration_tests.rs:9:87:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible stdout ----
+
+thread 'migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible' (39332) panicked at application\src\migration_tests.rs:9:87:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- generation_tests::timed_out_complete_response_cannot_arrive_as_candidate stdout ----
+
+thread 'generation_tests::timed_out_complete_response_cannot_arrive_as_candidate' (30680) panicked at application\src\generation_tests.rs:18:91:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated stdout ----
+
+thread 'generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated' (36968) panicked at application\src\generation_tests.rs:18:91:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- generation_tests::cancellation_or_disconnect_never_publishes_partial_candidate stdout ----
+
+thread 'generation_tests::cancellation_or_disconnect_never_publishes_partial_candidate' (17564) panicked at application\src\generation_tests.rs:18:91:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate stdout ----
+
+thread 'generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate' (23404) panicked at application\src\generation_tests.rs:18:91:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- generation_tests::local_sse_candidate_atomic_failure_undo_and_duplicate_ticket stdout ----
+
+thread 'generation_tests::local_sse_candidate_atomic_failure_undo_and_duplicate_ticket' (33620) panicked at application\src\generation_tests.rs:18:91:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+---- storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry stdout ----
+
+thread 'storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry' (33300) panicked at application\src\storage_fault_tests.rs:14:74:
+called `Result::unwrap()` on an `Err` value: AppError { code: "invalid_synthetic_root" }
+
+
+failures:
+    backup::tests::full_backup_restore_is_independent_and_corruption_never_changes_source
+    generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate
+    generation_tests::cancellation_or_disconnect_never_publishes_partial_candidate
+    generation_tests::local_sse_candidate_atomic_failure_undo_and_duplicate_ticket
+    generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated
+    generation_tests::timed_out_complete_response_cannot_arrive_as_candidate
+    migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages
+    migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates
+    migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision
+    migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup
+    migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible
+    owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not
+    owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes
+    owned_fault_tests::rolled_back_conflict_does_not_poison
+    owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation
+    storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry
+
+test result: FAILED. 2 passed; 16 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `-p paraselene-application --lib`

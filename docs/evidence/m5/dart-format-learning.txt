@@ -1,0 +1,8 @@
+Formatted lib\legacy\character_dialog.dart
+Formatted lib\legacy\learning_service.dart
+Formatted lib/native/companion_gateway.dart
+Formatted lib/native/learning_gateway.dart
+Formatted lib\workspace\presentation\editor_tools.dart
+Formatted lib\workspace\presentation\workbench_chrome.dart
+Formatted test/window/companion_gateway_test.dart
+Formatted 36 files (7 changed) in 0.90 seconds.

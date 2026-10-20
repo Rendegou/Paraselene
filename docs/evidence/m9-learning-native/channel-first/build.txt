@@ -1,0 +1,17 @@
+适用于 .NET Framework MSBuild 版本 17.14.60+43b635718
+
+  Building Custom Rule D:/MyAgent/paraselene-flutter/tests/learning_native/CMakeLists.txt
+  channel_probe.cpp
+  learning_window.cpp
+  learning_profile.cpp
+  learning_security.cpp
+  standard_codec.cc
+  core_implementations.cc
+  正在生成代码...
+  learning_channel_probe.vcxproj -> D:\MyAgent\paraselene-flutter\build\learning-native\Release\learning_channel_probe.exe
+  learning_profile.cpp
+  learning_security.cpp
+  learning_window.cpp
+  probe.cpp
+  正在生成代码...
+  learning_native_probe.vcxproj -> D:\MyAgent\paraselene-flutter\build\learning-native\Release\learning_native_probe.exe

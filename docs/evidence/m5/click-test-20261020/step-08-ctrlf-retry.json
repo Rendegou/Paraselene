@@ -1,0 +1,37 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_click",
+      "args": { "processId": 3648, "x": 1324, "y": 402, "dispatch": "foreground" }
+    },
+    { "wait": 300 },
+    {
+      "tool": "windows_computer_use_click",
+      "args": { "processId": 3648, "x": 900, "y": 600, "dispatch": "foreground" }
+    },
+    { "wait": 300 },
+    {
+      "tool": "windows_computer_use_keypress",
+      "args": {
+        "processId": 3648,
+        "keys": ["ctrl", "f"],
+        "activate": true,
+        "dispatch": "foreground"
+      }
+    },
+    { "wait": 600 },
+    {
+      "tool": "windows_computer_use_snapshot",
+      "args": {
+        "processId": 3648,
+        "activate": false,
+        "includeScreenshot": true,
+        "captureWindow": true,
+        "detailLevel": "compact",
+        "maxDepth": 8,
+        "maxNodes": 500,
+        "maxWidth": 1400
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+selected=70d5de17-a93a-475e-a811-685e3a77e9ee
+recent=70d5de17-a93a-475e-a811-685e3a77e9ee
+warning=-
+work=70d5de17-a93a-475e-a811-685e3a77e9ee|M4 native synthetic
+ui=70d5de17-a93a-475e-a811-685e3a77e9ee|-
+chapter=64f5fcb2-15b6-4b91-8efe-4ef7e3eb5692|Recovery chapter|order=0|arch=false|head=822a2103-3029-48a6-849e-6a4a7198a5b7
+doc=64f5fcb2-15b6-4b91-8efe-4ef7e3eb5692|rev=-|base=822a2103-3029-48a6-849e-6a4a7198a5b7|hash=-|len=21
+bodyHash=e04bff7456d163fa9f1ef7b70a8eeb22c6dff3ac24d00994655e14660c47bb55|body="version-one\r\né é 👩‍💻"
+version=58ce3425-6a85-470c-9b31-e3b8d6fe62f3|parent=822a2103-3029-48a6-849e-6a4a7198a5b7|head=false|len=11
+versionBodyHash=e858f0c6b8be72ec18d173fb3c41e24a7f82b5df24ef8d0d95384fe7ea7c3816|body="version-two"
+version=822a2103-3029-48a6-849e-6a4a7198a5b7|parent=-|head=true|len=21
+versionBodyHash=e04bff7456d163fa9f1ef7b70a8eeb22c6dff3ac24d00994655e14660c47bb55|body="version-one\r\né é 👩‍💻"

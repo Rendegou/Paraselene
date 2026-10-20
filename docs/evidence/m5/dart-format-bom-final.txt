@@ -1,0 +1,8 @@
+Formatted lib\native\generated\api.dart
+Formatted lib\native\generated\api\models.dart
+Formatted lib\native\generated\frb_generated.dart
+Formatted lib\native\generated\frb_generated.io.dart
+Formatted lib\native\generated\frb_generated.web.dart
+Formatted lib/workspace/workspace_cowrite.dart
+Formatted test/m9_real_ffi_test.dart
+Formatted 9 files (7 changed) in 0.82 seconds.

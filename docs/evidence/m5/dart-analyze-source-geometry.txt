@@ -1,0 +1,7 @@
+Analyzing desktop...
+
+warning - test\source_marks_test.dart:8:8 - Unused import: 'package:paraselene_flutter/lore/lore_repository.dart'. Try removing the import directive. - unused_import
+   info - lib\workspace\presentation\source_navigation.dart:87:11 - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check. - use_build_context_synchronously
+   info - lib\workspace\presentation\source_navigation.dart:94:27 - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check. - use_build_context_synchronously
+
+3 issues found.

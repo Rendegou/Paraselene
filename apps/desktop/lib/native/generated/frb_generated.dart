@@ -67,7 +67,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
   String get codegenVersion => '2.11.1';
 
   @override
-  int get rustContentHash => 1430292987;
+  int get rustContentHash => 1274036246;
 
   static const kDefaultExternalLibraryLoaderConfig =
       ExternalLibraryLoaderConfig(
@@ -78,9 +78,66 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 }
 
 abstract class RustLibApi extends BaseApi {
+  Future<void> crateApiCoreSessionActivateGenerationScope({
+    required CoreSession that,
+    String? work,
+    String? chapter,
+  });
+
+  Future<String> crateApiCoreSessionApplyLegacyPatch({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+    required String patchId,
+    BigInt? block,
+    PlatformInt64? revision,
+  });
+
+  Future<void> crateApiCoreSessionApplyOperation({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String operationId,
+    PlatformInt64? expectedRevision,
+  });
+
+  Future<void> crateApiCoreSessionBindLoreSource({
+    required CoreSession that,
+    required String workId,
+    required String bindingJson,
+  });
+
+  Future<void> crateApiCoreSessionCancelGeneration({
+    required CoreSession that,
+    required String work,
+    required String operationId,
+  });
+
+  Future<void> crateApiCoreSessionCancelImport({
+    required CoreSession that,
+    required String token,
+  });
+
   Future<void> crateApiCoreSessionCancelJob({
     required CoreSession that,
     required String jobId,
+  });
+
+  Future<void> crateApiCoreSessionCancelReviewedTask({
+    required CoreSession that,
+    required String work,
+    required String id,
+  });
+
+  Future<String> crateApiCoreSessionChapterSourceMarks({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+    required String body,
+  });
+
+  Future<String> crateApiCoreSessionCharacterConfig({
+    required CoreSession that,
   });
 
   Future<void> crateApiCoreSessionClose({required CoreSession that});
@@ -90,6 +147,24 @@ abstract class RustLibApi extends BaseApi {
     required String workId,
     required String documentId,
     required String reviewToken,
+  });
+
+  Future<void> crateApiCoreSessionConfirmIdea({
+    required CoreSession that,
+    required String session,
+    required PlatformInt64 sequence,
+    required String title,
+  });
+
+  Future<int> crateApiCoreSessionConfirmImport({
+    required CoreSession that,
+    required String token,
+  });
+
+  Future<String> crateApiCoreSessionConvertIdea({
+    required CoreSession that,
+    required String id,
+    required String target,
   });
 
   Future<BridgeChapter> crateApiCoreSessionCreateChapter({
@@ -103,11 +178,30 @@ abstract class RustLibApi extends BaseApi {
     required String title,
   });
 
+  Future<void> crateApiCoreSessionDeleteDeepseekKey({
+    required CoreSession that,
+  });
+
   Future<void> crateApiCoreSessionDiscardDraft({
     required CoreSession that,
     required String workId,
     required String documentId,
     PlatformInt64? expectedRevision,
+  });
+
+  Future<void> crateApiCoreSessionDiscardLegacyDraft({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+    required String draft,
+  });
+
+  Future<String> crateApiCoreSessionExportCharacterPack({
+    required CoreSession that,
+  });
+
+  Future<Uint8List> crateApiCoreSessionExportSyntheticBackup({
+    required CoreSession that,
   });
 
   Future<String?> crateApiCoreSessionGetUiSession({
@@ -117,6 +211,36 @@ abstract class RustLibApi extends BaseApi {
 
   Future<BridgeHandshake> crateApiCoreSessionHandshake({
     required CoreSession that,
+  });
+
+  Future<bool> crateApiCoreSessionHasDeepseekKey({required CoreSession that});
+
+  Future<String> crateApiCoreSessionIdeaCandidate({
+    required CoreSession that,
+    required int skip,
+  });
+
+  Future<void> crateApiCoreSessionIdeaStatus({
+    required CoreSession that,
+    required String id,
+    required String expected,
+    required String next,
+  });
+
+  Future<String> crateApiCoreSessionImportCharacterPack({
+    required CoreSession that,
+    required String json,
+  });
+
+  Future<String> crateApiCoreSessionImportedOriginal({
+    required CoreSession that,
+    required String session,
+  });
+
+  Future<String> crateApiCoreSessionImportedSource({
+    required CoreSession that,
+    required String session,
+    required PlatformInt64 sequence,
   });
 
   Future<BridgeJob> crateApiCoreSessionJobStatus({
@@ -134,6 +258,23 @@ abstract class RustLibApi extends BaseApi {
     required String workId,
   });
 
+  Future<String> crateApiCoreSessionListLore({
+    required CoreSession that,
+    required String workId,
+  });
+
+  Future<String> crateApiCoreSessionListOperations({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+  });
+
+  Future<String> crateApiCoreSessionListThreads({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+  });
+
   Future<List<BridgeVersion>> crateApiCoreSessionListVersions({
     required CoreSession that,
     required String workId,
@@ -148,6 +289,63 @@ abstract class RustLibApi extends BaseApi {
     required CoreSession that,
     required String workId,
     required String documentId,
+  });
+
+  Future<String> crateApiCoreSessionLoreSources({
+    required CoreSession that,
+    required String workId,
+    required String entryId,
+  });
+
+  Future<String> crateApiCoreSessionLoreVersions({
+    required CoreSession that,
+    required String workId,
+    required String entryId,
+  });
+
+  Future<void> crateApiCoreSessionMemoryCorrect({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+    required String title,
+    required String summary,
+  });
+
+  Future<String> crateApiCoreSessionMemoryCreate({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String title,
+    required String summary,
+  });
+
+  Future<void> crateApiCoreSessionMemoryDelete({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+  });
+
+  Future<String> crateApiCoreSessionMemoryDetail({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String id,
+  });
+
+  Future<String> crateApiCoreSessionMemoryList({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+  });
+
+  Future<String> crateApiCoreSessionNovelHistory({
+    required CoreSession that,
+    required String work,
+    required String chapter,
   });
 
   Future<CoreSession> crateApiCoreSessionOpenOwnedSynthetic();
@@ -167,6 +365,36 @@ abstract class RustLibApi extends BaseApi {
     required PlatformInt64 expectedRevision,
   });
 
+  Future<String> crateApiCoreSessionPrepareGeneration({
+    required CoreSession that,
+    required String requestJson,
+  });
+
+  Future<String> crateApiCoreSessionPrepareReviewedTask({
+    required CoreSession that,
+    required String requestJson,
+  });
+
+  Future<String> crateApiCoreSessionPreviewImport({
+    required CoreSession that,
+    required String source,
+    required String text,
+  });
+
+  Future<void> crateApiCoreSessionRejectLore({
+    required CoreSession that,
+    required String workId,
+    required String entryId,
+    required PlatformInt64 expectedVersion,
+  });
+
+  Future<void> crateApiCoreSessionRejectOperation({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String operationId,
+  });
+
   Future<BridgeChapter> crateApiCoreSessionRenameChapter({
     required CoreSession that,
     required String workId,
@@ -178,6 +406,10 @@ abstract class RustLibApi extends BaseApi {
     required CoreSession that,
     required String workId,
     required List<String> orderedIds,
+  });
+
+  Future<CoreSession> crateApiCoreSessionRestoreSyntheticBackup({
+    required List<int> sealed,
   });
 
   Future<BridgeChapter> crateApiCoreSessionRollbackChapter({
@@ -197,6 +429,31 @@ abstract class RustLibApi extends BaseApi {
     required String body,
   });
 
+  Future<String> crateApiCoreSessionSaveCharacter({
+    required CoreSession that,
+    required String json,
+  });
+
+  Future<String> crateApiCoreSessionSaveLore({
+    required CoreSession that,
+    required String workId,
+    required String editJson,
+  });
+
+  Future<String> crateApiCoreSessionSaveThread({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String threadId,
+    PlatformInt64? expectedRevision,
+    required String snapshotJson,
+  });
+
+  Future<String> crateApiCoreSessionSearchImported({
+    required CoreSession that,
+    required String text,
+  });
+
   Future<BridgeWork> crateApiCoreSessionSelectWork({
     required CoreSession that,
     required String workId,
@@ -204,11 +461,35 @@ abstract class RustLibApi extends BaseApi {
 
   Future<void> crateApiCoreSessionSend({required CoreSession that});
 
+  Future<void> crateApiCoreSessionSendGeneration({
+    required CoreSession that,
+    required String work,
+    required String previewId,
+    required bool confirmed,
+  });
+
+  Future<String> crateApiCoreSessionSendReviewedTask({
+    required CoreSession that,
+    required String work,
+    required String id,
+    required bool confirmed,
+  });
+
   Future<BridgeChapter> crateApiCoreSessionSetChapterArchived({
     required CoreSession that,
     required String workId,
     required String documentId,
     required bool archived,
+  });
+
+  Future<void> crateApiCoreSessionSetCloudEnabled({
+    required CoreSession that,
+    required bool value,
+  });
+
+  Future<void> crateApiCoreSessionSetDeepseekKey({
+    required CoreSession that,
+    required String key,
   });
 
   Future<void> crateApiCoreSessionSetUiSession({
@@ -257,6 +538,260 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   });
 
   @override
+  Future<void> crateApiCoreSessionActivateGenerationScope({
+    required CoreSession that,
+    String? work,
+    String? chapter,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_opt_String(work, serializer);
+          sse_encode_opt_String(chapter, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 1,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionActivateGenerationScopeConstMeta,
+        argValues: [that, work, chapter],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionActivateGenerationScopeConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_activate_generation_scope",
+        argNames: ["that", "work", "chapter"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionApplyLegacyPatch({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+    required String patchId,
+    BigInt? block,
+    PlatformInt64? revision,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(chapter, serializer);
+          sse_encode_String(patchId, serializer);
+          sse_encode_opt_box_autoadd_usize(block, serializer);
+          sse_encode_opt_box_autoadd_i_64(revision, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 2,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionApplyLegacyPatchConstMeta,
+        argValues: [that, work, chapter, patchId, block, revision],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionApplyLegacyPatchConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_apply_legacy_patch",
+        argNames: ["that", "work", "chapter", "patchId", "block", "revision"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionApplyOperation({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String operationId,
+    PlatformInt64? expectedRevision,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_String(operationId, serializer);
+          sse_encode_opt_box_autoadd_i_64(expectedRevision, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 3,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionApplyOperationConstMeta,
+        argValues: [that, workId, documentId, operationId, expectedRevision],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionApplyOperationConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_apply_operation",
+        argNames: [
+          "that",
+          "workId",
+          "documentId",
+          "operationId",
+          "expectedRevision",
+        ],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionBindLoreSource({
+    required CoreSession that,
+    required String workId,
+    required String bindingJson,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(bindingJson, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 4,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionBindLoreSourceConstMeta,
+        argValues: [that, workId, bindingJson],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionBindLoreSourceConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_bind_lore_source",
+        argNames: ["that", "workId", "bindingJson"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionCancelGeneration({
+    required CoreSession that,
+    required String work,
+    required String operationId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(operationId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 5,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionCancelGenerationConstMeta,
+        argValues: [that, work, operationId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionCancelGenerationConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_cancel_generation",
+        argNames: ["that", "work", "operationId"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionCancelImport({
+    required CoreSession that,
+    required String token,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(token, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 6,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionCancelImportConstMeta,
+        argValues: [that, token],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionCancelImportConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_cancel_import",
+        argNames: ["that", "token"],
+      );
+
+  @override
   Future<void> crateApiCoreSessionCancelJob({
     required CoreSession that,
     required String jobId,
@@ -273,7 +808,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 1,
+            funcId: 7,
             port: port_,
           );
         },
@@ -295,6 +830,124 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<void> crateApiCoreSessionCancelReviewedTask({
+    required CoreSession that,
+    required String work,
+    required String id,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(id, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 8,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionCancelReviewedTaskConstMeta,
+        argValues: [that, work, id],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionCancelReviewedTaskConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_cancel_reviewed_task",
+        argNames: ["that", "work", "id"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionChapterSourceMarks({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+    required String body,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(chapter, serializer);
+          sse_encode_String(body, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 9,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionChapterSourceMarksConstMeta,
+        argValues: [that, work, chapter, body],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionChapterSourceMarksConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_chapter_source_marks",
+        argNames: ["that", "work", "chapter", "body"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionCharacterConfig({
+    required CoreSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 10,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionCharacterConfigConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionCharacterConfigConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_character_config",
+        argNames: ["that"],
+      );
+
+  @override
   Future<void> crateApiCoreSessionClose({required CoreSession that}) {
     return handler.executeNormal(
       NormalTask(
@@ -307,7 +960,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 2,
+            funcId: 11,
             port: port_,
           );
         },
@@ -346,7 +999,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 3,
+            funcId: 12,
             port: port_,
           );
         },
@@ -368,6 +1021,126 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<void> crateApiCoreSessionConfirmIdea({
+    required CoreSession that,
+    required String session,
+    required PlatformInt64 sequence,
+    required String title,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(session, serializer);
+          sse_encode_i_64(sequence, serializer);
+          sse_encode_String(title, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 13,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionConfirmIdeaConstMeta,
+        argValues: [that, session, sequence, title],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionConfirmIdeaConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_confirm_idea",
+        argNames: ["that", "session", "sequence", "title"],
+      );
+
+  @override
+  Future<int> crateApiCoreSessionConfirmImport({
+    required CoreSession that,
+    required String token,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(token, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 14,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_u_32,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionConfirmImportConstMeta,
+        argValues: [that, token],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionConfirmImportConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_confirm_import",
+        argNames: ["that", "token"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionConvertIdea({
+    required CoreSession that,
+    required String id,
+    required String target,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(id, serializer);
+          sse_encode_String(target, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 15,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionConvertIdeaConstMeta,
+        argValues: [that, id, target],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionConvertIdeaConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_convert_idea",
+        argNames: ["that", "id", "target"],
+      );
+
+  @override
   Future<BridgeChapter> crateApiCoreSessionCreateChapter({
     required CoreSession that,
     required String workId,
@@ -386,7 +1159,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 4,
+            funcId: 16,
             port: port_,
           );
         },
@@ -424,7 +1197,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 5,
+            funcId: 17,
             port: port_,
           );
         },
@@ -443,6 +1216,42 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       const TaskConstMeta(
         debugName: "CoreSession_create_work",
         argNames: ["that", "title"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionDeleteDeepseekKey({
+    required CoreSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 18,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionDeleteDeepseekKeyConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionDeleteDeepseekKeyConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_delete_deepseek_key",
+        argNames: ["that"],
       );
 
   @override
@@ -466,7 +1275,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 6,
+            funcId: 19,
             port: port_,
           );
         },
@@ -488,6 +1297,120 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<void> crateApiCoreSessionDiscardLegacyDraft({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+    required String draft,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(chapter, serializer);
+          sse_encode_String(draft, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 20,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionDiscardLegacyDraftConstMeta,
+        argValues: [that, work, chapter, draft],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionDiscardLegacyDraftConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_discard_legacy_draft",
+        argNames: ["that", "work", "chapter", "draft"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionExportCharacterPack({
+    required CoreSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 21,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionExportCharacterPackConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionExportCharacterPackConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_export_character_pack",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<Uint8List> crateApiCoreSessionExportSyntheticBackup({
+    required CoreSession that,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 22,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_list_prim_u_8_strict,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionExportSyntheticBackupConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionExportSyntheticBackupConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_export_synthetic_backup",
+        argNames: ["that"],
+      );
+
+  @override
   Future<String?> crateApiCoreSessionGetUiSession({
     required CoreSession that,
     required String workId,
@@ -504,7 +1427,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 7,
+            funcId: 23,
             port: port_,
           );
         },
@@ -540,7 +1463,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 8,
+            funcId: 24,
             port: port_,
           );
         },
@@ -562,6 +1485,236 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<bool> crateApiCoreSessionHasDeepseekKey({required CoreSession that}) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 25,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_bool,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionHasDeepseekKeyConstMeta,
+        argValues: [that],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionHasDeepseekKeyConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_has_deepseek_key",
+        argNames: ["that"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionIdeaCandidate({
+    required CoreSession that,
+    required int skip,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_u_32(skip, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 26,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionIdeaCandidateConstMeta,
+        argValues: [that, skip],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionIdeaCandidateConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_idea_candidate",
+        argNames: ["that", "skip"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionIdeaStatus({
+    required CoreSession that,
+    required String id,
+    required String expected,
+    required String next,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(id, serializer);
+          sse_encode_String(expected, serializer);
+          sse_encode_String(next, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 27,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionIdeaStatusConstMeta,
+        argValues: [that, id, expected, next],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionIdeaStatusConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_idea_status",
+        argNames: ["that", "id", "expected", "next"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionImportCharacterPack({
+    required CoreSession that,
+    required String json,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(json, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 28,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionImportCharacterPackConstMeta,
+        argValues: [that, json],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionImportCharacterPackConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_import_character_pack",
+        argNames: ["that", "json"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionImportedOriginal({
+    required CoreSession that,
+    required String session,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(session, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 29,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionImportedOriginalConstMeta,
+        argValues: [that, session],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionImportedOriginalConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_imported_original",
+        argNames: ["that", "session"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionImportedSource({
+    required CoreSession that,
+    required String session,
+    required PlatformInt64 sequence,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(session, serializer);
+          sse_encode_i_64(sequence, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 30,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionImportedSourceConstMeta,
+        argValues: [that, session, sequence],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionImportedSourceConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_imported_source",
+        argNames: ["that", "session", "sequence"],
+      );
+
+  @override
   Future<BridgeJob> crateApiCoreSessionJobStatus({
     required CoreSession that,
     required String jobId,
@@ -578,7 +1731,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 9,
+            funcId: 31,
             port: port_,
           );
         },
@@ -616,7 +1769,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 10,
+            funcId: 32,
             port: port_,
           );
         },
@@ -654,7 +1807,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 11,
+            funcId: 33,
             port: port_,
           );
         },
@@ -676,6 +1829,124 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<String> crateApiCoreSessionListLore({
+    required CoreSession that,
+    required String workId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 34,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionListLoreConstMeta,
+        argValues: [that, workId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionListLoreConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_list_lore",
+        argNames: ["that", "workId"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionListOperations({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 35,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionListOperationsConstMeta,
+        argValues: [that, workId, documentId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionListOperationsConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_list_operations",
+        argNames: ["that", "workId", "documentId"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionListThreads({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 36,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionListThreadsConstMeta,
+        argValues: [that, workId, documentId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionListThreadsConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_list_threads",
+        argNames: ["that", "workId", "documentId"],
+      );
+
+  @override
   Future<List<BridgeVersion>> crateApiCoreSessionListVersions({
     required CoreSession that,
     required String workId,
@@ -694,7 +1965,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 12,
+            funcId: 37,
             port: port_,
           );
         },
@@ -730,7 +2001,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 13,
+            funcId: 38,
             port: port_,
           );
         },
@@ -770,7 +2041,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 14,
+            funcId: 39,
             port: port_,
           );
         },
@@ -791,6 +2062,352 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   );
 
   @override
+  Future<String> crateApiCoreSessionLoreSources({
+    required CoreSession that,
+    required String workId,
+    required String entryId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(entryId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 40,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionLoreSourcesConstMeta,
+        argValues: [that, workId, entryId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionLoreSourcesConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_lore_sources",
+        argNames: ["that", "workId", "entryId"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionLoreVersions({
+    required CoreSession that,
+    required String workId,
+    required String entryId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(entryId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 41,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionLoreVersionsConstMeta,
+        argValues: [that, workId, entryId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionLoreVersionsConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_lore_versions",
+        argNames: ["that", "workId", "entryId"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionMemoryCorrect({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+    required String title,
+    required String summary,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(selectedSpace, serializer);
+          sse_encode_opt_String(work, serializer);
+          sse_encode_String(id, serializer);
+          sse_encode_String(updatedAt, serializer);
+          sse_encode_String(title, serializer);
+          sse_encode_String(summary, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 42,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionMemoryCorrectConstMeta,
+        argValues: [that, selectedSpace, work, id, updatedAt, title, summary],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionMemoryCorrectConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_memory_correct",
+        argNames: [
+          "that",
+          "selectedSpace",
+          "work",
+          "id",
+          "updatedAt",
+          "title",
+          "summary",
+        ],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionMemoryCreate({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String title,
+    required String summary,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(selectedSpace, serializer);
+          sse_encode_opt_String(work, serializer);
+          sse_encode_String(title, serializer);
+          sse_encode_String(summary, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 43,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionMemoryCreateConstMeta,
+        argValues: [that, selectedSpace, work, title, summary],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionMemoryCreateConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_memory_create",
+        argNames: ["that", "selectedSpace", "work", "title", "summary"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionMemoryDelete({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(selectedSpace, serializer);
+          sse_encode_opt_String(work, serializer);
+          sse_encode_String(id, serializer);
+          sse_encode_String(updatedAt, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 44,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionMemoryDeleteConstMeta,
+        argValues: [that, selectedSpace, work, id, updatedAt],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionMemoryDeleteConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_memory_delete",
+        argNames: ["that", "selectedSpace", "work", "id", "updatedAt"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionMemoryDetail({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+    required String id,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(selectedSpace, serializer);
+          sse_encode_opt_String(work, serializer);
+          sse_encode_String(id, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 45,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionMemoryDetailConstMeta,
+        argValues: [that, selectedSpace, work, id],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionMemoryDetailConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_memory_detail",
+        argNames: ["that", "selectedSpace", "work", "id"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionMemoryList({
+    required CoreSession that,
+    required String selectedSpace,
+    String? work,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(selectedSpace, serializer);
+          sse_encode_opt_String(work, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 46,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionMemoryListConstMeta,
+        argValues: [that, selectedSpace, work],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionMemoryListConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_memory_list",
+        argNames: ["that", "selectedSpace", "work"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionNovelHistory({
+    required CoreSession that,
+    required String work,
+    required String chapter,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(chapter, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 47,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionNovelHistoryConstMeta,
+        argValues: [that, work, chapter],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionNovelHistoryConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_novel_history",
+        argNames: ["that", "work", "chapter"],
+      );
+
+  @override
   Future<CoreSession> crateApiCoreSessionOpenOwnedSynthetic() {
     return handler.executeNormal(
       NormalTask(
@@ -799,7 +2416,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 15,
+            funcId: 48,
             port: port_,
           );
         },
@@ -831,7 +2448,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 16,
+            funcId: 49,
             port: port_,
           );
         },
@@ -870,7 +2487,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 17,
+            funcId: 50,
             port: port_,
           );
         },
@@ -914,7 +2531,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 18,
+            funcId: 51,
             port: port_,
           );
         },
@@ -942,6 +2559,206 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<String> crateApiCoreSessionPrepareGeneration({
+    required CoreSession that,
+    required String requestJson,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(requestJson, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 52,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionPrepareGenerationConstMeta,
+        argValues: [that, requestJson],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionPrepareGenerationConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_prepare_generation",
+        argNames: ["that", "requestJson"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionPrepareReviewedTask({
+    required CoreSession that,
+    required String requestJson,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(requestJson, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 53,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionPrepareReviewedTaskConstMeta,
+        argValues: [that, requestJson],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionPrepareReviewedTaskConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_prepare_reviewed_task",
+        argNames: ["that", "requestJson"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionPreviewImport({
+    required CoreSession that,
+    required String source,
+    required String text,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(source, serializer);
+          sse_encode_String(text, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 54,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionPreviewImportConstMeta,
+        argValues: [that, source, text],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionPreviewImportConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_preview_import",
+        argNames: ["that", "source", "text"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionRejectLore({
+    required CoreSession that,
+    required String workId,
+    required String entryId,
+    required PlatformInt64 expectedVersion,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(entryId, serializer);
+          sse_encode_i_64(expectedVersion, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 55,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionRejectLoreConstMeta,
+        argValues: [that, workId, entryId, expectedVersion],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionRejectLoreConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_reject_lore",
+        argNames: ["that", "workId", "entryId", "expectedVersion"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionRejectOperation({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String operationId,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_String(operationId, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 56,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionRejectOperationConstMeta,
+        argValues: [that, workId, documentId, operationId],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionRejectOperationConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_reject_operation",
+        argNames: ["that", "workId", "documentId", "operationId"],
+      );
+
+  @override
   Future<BridgeChapter> crateApiCoreSessionRenameChapter({
     required CoreSession that,
     required String workId,
@@ -962,7 +2779,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 19,
+            funcId: 57,
             port: port_,
           );
         },
@@ -1002,7 +2819,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 20,
+            funcId: 58,
             port: port_,
           );
         },
@@ -1021,6 +2838,40 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       const TaskConstMeta(
         debugName: "CoreSession_reorder_chapters",
         argNames: ["that", "workId", "orderedIds"],
+      );
+
+  @override
+  Future<CoreSession> crateApiCoreSessionRestoreSyntheticBackup({
+    required List<int> sealed,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_list_prim_u_8_loose(sealed, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 59,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData:
+              sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionRestoreSyntheticBackupConstMeta,
+        argValues: [sealed],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionRestoreSyntheticBackupConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_restore_synthetic_backup",
+        argNames: ["sealed"],
       );
 
   @override
@@ -1048,7 +2899,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 21,
+            funcId: 60,
             port: port_,
           );
         },
@@ -1106,7 +2957,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 22,
+            funcId: 61,
             port: port_,
           );
         },
@@ -1127,6 +2978,182 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   );
 
   @override
+  Future<String> crateApiCoreSessionSaveCharacter({
+    required CoreSession that,
+    required String json,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(json, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 62,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSaveCharacterConstMeta,
+        argValues: [that, json],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSaveCharacterConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_save_character",
+        argNames: ["that", "json"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionSaveLore({
+    required CoreSession that,
+    required String workId,
+    required String editJson,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(editJson, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 63,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSaveLoreConstMeta,
+        argValues: [that, workId, editJson],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSaveLoreConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_save_lore",
+        argNames: ["that", "workId", "editJson"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionSaveThread({
+    required CoreSession that,
+    required String workId,
+    required String documentId,
+    required String threadId,
+    PlatformInt64? expectedRevision,
+    required String snapshotJson,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(workId, serializer);
+          sse_encode_String(documentId, serializer);
+          sse_encode_String(threadId, serializer);
+          sse_encode_opt_box_autoadd_i_64(expectedRevision, serializer);
+          sse_encode_String(snapshotJson, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 64,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSaveThreadConstMeta,
+        argValues: [
+          that,
+          workId,
+          documentId,
+          threadId,
+          expectedRevision,
+          snapshotJson,
+        ],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSaveThreadConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_save_thread",
+        argNames: [
+          "that",
+          "workId",
+          "documentId",
+          "threadId",
+          "expectedRevision",
+          "snapshotJson",
+        ],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionSearchImported({
+    required CoreSession that,
+    required String text,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(text, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 65,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSearchImportedConstMeta,
+        argValues: [that, text],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSearchImportedConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_search_imported",
+        argNames: ["that", "text"],
+      );
+
+  @override
   Future<BridgeWork> crateApiCoreSessionSelectWork({
     required CoreSession that,
     required String workId,
@@ -1143,7 +3170,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 23,
+            funcId: 66,
             port: port_,
           );
         },
@@ -1177,7 +3204,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 24,
+            funcId: 67,
             port: port_,
           );
         },
@@ -1194,6 +3221,90 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
   TaskConstMeta get kCrateApiCoreSessionSendConstMeta =>
       const TaskConstMeta(debugName: "CoreSession_send", argNames: ["that"]);
+
+  @override
+  Future<void> crateApiCoreSessionSendGeneration({
+    required CoreSession that,
+    required String work,
+    required String previewId,
+    required bool confirmed,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(previewId, serializer);
+          sse_encode_bool(confirmed, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 68,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSendGenerationConstMeta,
+        argValues: [that, work, previewId, confirmed],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSendGenerationConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_send_generation",
+        argNames: ["that", "work", "previewId", "confirmed"],
+      );
+
+  @override
+  Future<String> crateApiCoreSessionSendReviewedTask({
+    required CoreSession that,
+    required String work,
+    required String id,
+    required bool confirmed,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(work, serializer);
+          sse_encode_String(id, serializer);
+          sse_encode_bool(confirmed, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 69,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_String,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSendReviewedTaskConstMeta,
+        argValues: [that, work, id, confirmed],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSendReviewedTaskConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_send_reviewed_task",
+        argNames: ["that", "work", "id", "confirmed"],
+      );
 
   @override
   Future<BridgeChapter> crateApiCoreSessionSetChapterArchived({
@@ -1216,7 +3327,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 25,
+            funcId: 70,
             port: port_,
           );
         },
@@ -1238,6 +3349,82 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
       );
 
   @override
+  Future<void> crateApiCoreSessionSetCloudEnabled({
+    required CoreSession that,
+    required bool value,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_bool(value, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 71,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSetCloudEnabledConstMeta,
+        argValues: [that, value],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSetCloudEnabledConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_set_cloud_enabled",
+        argNames: ["that", "value"],
+      );
+
+  @override
+  Future<void> crateApiCoreSessionSetDeepseekKey({
+    required CoreSession that,
+    required String key,
+  }) {
+    return handler.executeNormal(
+      NormalTask(
+        callFfi: (port_) {
+          final serializer = SseSerializer(generalizedFrbRustBinding);
+          sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerCoreSession(
+            that,
+            serializer,
+          );
+          sse_encode_String(key, serializer);
+          pdeCallFfi(
+            generalizedFrbRustBinding,
+            serializer,
+            funcId: 72,
+            port: port_,
+          );
+        },
+        codec: SseCodec(
+          decodeSuccessData: sse_decode_unit,
+          decodeErrorData: sse_decode_bridge_error,
+        ),
+        constMeta: kCrateApiCoreSessionSetDeepseekKeyConstMeta,
+        argValues: [that, key],
+        apiImpl: this,
+      ),
+    );
+  }
+
+  TaskConstMeta get kCrateApiCoreSessionSetDeepseekKeyConstMeta =>
+      const TaskConstMeta(
+        debugName: "CoreSession_set_deepseek_key",
+        argNames: ["that", "key"],
+      );
+
+  @override
   Future<void> crateApiCoreSessionSetUiSession({
     required CoreSession that,
     required String workId,
@@ -1256,7 +3443,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 26,
+            funcId: 73,
             port: port_,
           );
         },
@@ -1294,7 +3481,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 27,
+            funcId: 74,
             port: port_,
           );
         },
@@ -1334,7 +3521,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 28,
+            funcId: 75,
             port: port_,
           );
         },
@@ -1372,7 +3559,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 29,
+            funcId: 76,
             port: port_,
           );
         },
@@ -1408,7 +3595,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 30,
+            funcId: 77,
             port: port_,
           );
         },
@@ -1438,7 +3625,7 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
           pdeCallFfi(
             generalizedFrbRustBinding,
             serializer,
-            funcId: 31,
+            funcId: 78,
             port: port_,
           );
         },
@@ -1507,6 +3694,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   PlatformInt64 dco_decode_box_autoadd_i_64(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return dco_decode_i_64(raw);
+  }
+
+  @protected
+  BigInt dco_decode_box_autoadd_usize(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return dco_decode_usize(raw);
   }
 
   @protected
@@ -1683,6 +3876,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  List<int> dco_decode_list_prim_u_8_loose(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw as List<int>;
+  }
+
+  @protected
   Uint8List dco_decode_list_prim_u_8_strict(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw as Uint8List;
@@ -1698,6 +3897,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   PlatformInt64? dco_decode_opt_box_autoadd_i_64(dynamic raw) {
     // Codec=Dco (DartCObject based), see doc to use other codecs
     return raw == null ? null : dco_decode_box_autoadd_i_64(raw);
+  }
+
+  @protected
+  BigInt? dco_decode_opt_box_autoadd_usize(dynamic raw) {
+    // Codec=Dco (DartCObject based), see doc to use other codecs
+    return raw == null ? null : dco_decode_box_autoadd_usize(raw);
   }
 
   @protected
@@ -1770,7 +3975,13 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   String sse_decode_String(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var inner = sse_decode_list_prim_u_8_strict(deserializer);
-    return utf8.decoder.convert(inner);
+    // Preserve leading U+FEFF, which Dart's UTF-8 decoder otherwise consumes.
+    final bom =
+        inner.length >= 3 &&
+        inner[0] == 0xef &&
+        inner[1] == 0xbb &&
+        inner[2] == 0xbf;
+    return (bom ? '\uFEFF' : '') + utf8.decoder.convert(inner);
   }
 
   @protected
@@ -1783,6 +3994,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   PlatformInt64 sse_decode_box_autoadd_i_64(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     return (sse_decode_i_64(deserializer));
+  }
+
+  @protected
+  BigInt sse_decode_box_autoadd_usize(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    return (sse_decode_usize(deserializer));
   }
 
   @protected
@@ -1990,6 +4207,13 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  List<int> sse_decode_list_prim_u_8_loose(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    var len_ = sse_decode_i_32(deserializer);
+    return deserializer.buffer.getUint8List(len_);
+  }
+
+  @protected
   Uint8List sse_decode_list_prim_u_8_strict(SseDeserializer deserializer) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     var len_ = sse_decode_i_32(deserializer);
@@ -2013,6 +4237,17 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
 
     if (sse_decode_bool(deserializer)) {
       return (sse_decode_box_autoadd_i_64(deserializer));
+    } else {
+      return null;
+    }
+  }
+
+  @protected
+  BigInt? sse_decode_opt_box_autoadd_usize(SseDeserializer deserializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    if (sse_decode_bool(deserializer)) {
+      return (sse_decode_box_autoadd_usize(deserializer));
     } else {
       return null;
     }
@@ -2111,6 +4346,12 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   ) {
     // Codec=Sse (Serialization based), see doc to use other codecs
     sse_encode_i_64(self, serializer);
+  }
+
+  @protected
+  void sse_encode_box_autoadd_usize(BigInt self, SseSerializer serializer) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_usize(self, serializer);
   }
 
   @protected
@@ -2276,6 +4517,18 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
   }
 
   @protected
+  void sse_encode_list_prim_u_8_loose(
+    List<int> self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+    sse_encode_i_32(self.length, serializer);
+    serializer.buffer.putUint8List(
+      self is Uint8List ? self : Uint8List.fromList(self),
+    );
+  }
+
+  @protected
   void sse_encode_list_prim_u_8_strict(
     Uint8List self,
     SseSerializer serializer,
@@ -2305,6 +4558,19 @@ class RustLibApiImpl extends RustLibApiImplPlatform implements RustLibApi {
     sse_encode_bool(self != null, serializer);
     if (self != null) {
       sse_encode_box_autoadd_i_64(self, serializer);
+    }
+  }
+
+  @protected
+  void sse_encode_opt_box_autoadd_usize(
+    BigInt? self,
+    SseSerializer serializer,
+  ) {
+    // Codec=Sse (Serialization based), see doc to use other codecs
+
+    sse_encode_bool(self != null, serializer);
+    if (self != null) {
+      sse_encode_box_autoadd_usize(self, serializer);
     }
   }
 
@@ -2363,9 +4629,93 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
         RustLib.instance.api.rust_arc_decrement_strong_count_CoreSessionPtr,
   );
 
+  /// Invalidates old chapter previews/runs on navigation.
+  Future<void> activateGenerationScope({String? work, String? chapter}) =>
+      RustLib.instance.api.crateApiCoreSessionActivateGenerationScope(
+        that: this,
+        work: work,
+        chapter: chapter,
+      );
+
+  /// `block` is the persisted block index, None means apply all atomically.
+  Future<String> applyLegacyPatch({
+    required String work,
+    required String chapter,
+    required String patchId,
+    BigInt? block,
+    PlatformInt64? revision,
+  }) => RustLib.instance.api.crateApiCoreSessionApplyLegacyPatch(
+    that: this,
+    work: work,
+    chapter: chapter,
+    patchId: patchId,
+    block: block,
+    revision: revision,
+  );
+
+  /// Apply a pending candidate atomically in Rust.
+  Future<void> applyOperation({
+    required String workId,
+    required String documentId,
+    required String operationId,
+    PlatformInt64? expectedRevision,
+  }) => RustLib.instance.api.crateApiCoreSessionApplyOperation(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    operationId: operationId,
+    expectedRevision: expectedRevision,
+  );
+
+  /// Atomically binds an exact UTF-16 quote from a named immutable version.
+  Future<void> bindLoreSource({
+    required String workId,
+    required String bindingJson,
+  }) => RustLib.instance.api.crateApiCoreSessionBindLoreSource(
+    that: this,
+    workId: workId,
+    bindingJson: bindingJson,
+  );
+
+  /// Explicit cancellation, including unused preview tickets.
+  Future<void> cancelGeneration({
+    required String work,
+    required String operationId,
+  }) => RustLib.instance.api.crateApiCoreSessionCancelGeneration(
+    that: this,
+    work: work,
+    operationId: operationId,
+  );
+
+  Future<void> cancelImport({required String token}) => RustLib.instance.api
+      .crateApiCoreSessionCancelImport(that: this, token: token);
+
   /// Explicit backend cancellation is independent of a Dart subscription's disposal.
   Future<void> cancelJob({required String jobId}) => RustLib.instance.api
       .crateApiCoreSessionCancelJob(that: this, jobId: jobId);
+
+  /// Revoke an unused preview or in-flight task; no automatic retry.
+  Future<void> cancelReviewedTask({required String work, required String id}) =>
+      RustLib.instance.api.crateApiCoreSessionCancelReviewedTask(
+        that: this,
+        work: work,
+        id: id,
+      );
+
+  /// Current-head source marks, Rust-validated against the exact editor body.
+  Future<String> chapterSourceMarks({
+    required String work,
+    required String chapter,
+    required String body,
+  }) => RustLib.instance.api.crateApiCoreSessionChapterSourceMarks(
+    that: this,
+    work: work,
+    chapter: chapter,
+    body: body,
+  );
+
+  Future<String> characterConfig() =>
+      RustLib.instance.api.crateApiCoreSessionCharacterConfig(that: this);
 
   /// Idempotent close invalidates DB access and cancels pending synthetic tasks.
   Future<void> close() =>
@@ -2383,6 +4733,27 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     reviewToken: reviewToken,
   );
 
+  Future<void> confirmIdea({
+    required String session,
+    required PlatformInt64 sequence,
+    required String title,
+  }) => RustLib.instance.api.crateApiCoreSessionConfirmIdea(
+    that: this,
+    session: session,
+    sequence: sequence,
+    title: title,
+  );
+
+  Future<int> confirmImport({required String token}) => RustLib.instance.api
+      .crateApiCoreSessionConfirmImport(that: this, token: token);
+
+  Future<String> convertIdea({required String id, required String target}) =>
+      RustLib.instance.api.crateApiCoreSessionConvertIdea(
+        that: this,
+        id: id,
+        target: target,
+      );
+
   /// Creates a real chapter under an existing work.
   Future<BridgeChapter> createChapter({
     required String workId,
@@ -2397,6 +4768,10 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
   Future<BridgeWork> createWork({required String title}) => RustLib.instance.api
       .crateApiCoreSessionCreateWork(that: this, title: title);
 
+  /// Explicit isolated credential deletion.
+  Future<void> deleteDeepseekKey() =>
+      RustLib.instance.api.crateApiCoreSessionDeleteDeepseekKey(that: this);
+
   /// Explicitly discards the working copy; the CAS revision must match.
   Future<void> discardDraft({
     required String workId,
@@ -2409,6 +4784,24 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     expectedRevision: expectedRevision,
   );
 
+  Future<void> discardLegacyDraft({
+    required String work,
+    required String chapter,
+    required String draft,
+  }) => RustLib.instance.api.crateApiCoreSessionDiscardLegacyDraft(
+    that: this,
+    work: work,
+    chapter: chapter,
+    draft: draft,
+  );
+
+  Future<String> exportCharacterPack() =>
+      RustLib.instance.api.crateApiCoreSessionExportCharacterPack(that: this);
+
+  /// Exports a bounded authenticated current-user backup; includes all SQLite state.
+  Future<Uint8List> exportSyntheticBackup() =>
+      RustLib.instance.api.crateApiCoreSessionExportSyntheticBackup(that: this);
+
   /// Reads the raw per-work UI session JSON, if any.
   Future<String?> getUiSession({required String workId}) => RustLib.instance.api
       .crateApiCoreSessionGetUiSession(that: this, workId: workId);
@@ -2416,6 +4809,43 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
   /// Reports actual loaded schema; callers must reject incompatible protocol versions.
   Future<BridgeHandshake> handshake() =>
       RustLib.instance.api.crateApiCoreSessionHandshake(that: this);
+
+  /// Explicit presence query; never a startup action.
+  Future<bool> hasDeepseekKey() =>
+      RustLib.instance.api.crateApiCoreSessionHasDeepseekKey(that: this);
+
+  Future<String> ideaCandidate({required int skip}) => RustLib.instance.api
+      .crateApiCoreSessionIdeaCandidate(that: this, skip: skip);
+
+  Future<void> ideaStatus({
+    required String id,
+    required String expected,
+    required String next,
+  }) => RustLib.instance.api.crateApiCoreSessionIdeaStatus(
+    that: this,
+    id: id,
+    expected: expected,
+    next: next,
+  );
+
+  Future<String> importCharacterPack({required String json}) => RustLib
+      .instance
+      .api
+      .crateApiCoreSessionImportCharacterPack(that: this, json: json);
+
+  Future<String> importedOriginal({required String session}) => RustLib
+      .instance
+      .api
+      .crateApiCoreSessionImportedOriginal(that: this, session: session);
+
+  Future<String> importedSource({
+    required String session,
+    required PlatformInt64 sequence,
+  }) => RustLib.instance.api.crateApiCoreSessionImportedSource(
+    that: this,
+    session: session,
+    sequence: sequence,
+  );
 
   /// Recovers terminal state even when a bounded notification queue overflowed.
   Future<BridgeJob> jobStatus({required String jobId}) => RustLib.instance.api
@@ -2433,6 +4863,30 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
       .instance
       .api
       .crateApiCoreSessionListChapters(that: this, workId: workId);
+
+  /// Lists lore metadata with exact head snapshots.
+  Future<String> listLore({required String workId}) => RustLib.instance.api
+      .crateApiCoreSessionListLore(that: this, workId: workId);
+
+  /// Read server-owned operation projections independently of author drafts.
+  Future<String> listOperations({
+    required String workId,
+    required String documentId,
+  }) => RustLib.instance.api.crateApiCoreSessionListOperations(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+  );
+
+  /// Read author snapshots for one verified chapter.
+  Future<String> listThreads({
+    required String workId,
+    required String documentId,
+  }) => RustLib.instance.api.crateApiCoreSessionListThreads(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+  );
 
   /// Lists confirmed versions newest first, including exact bodies.
   Future<List<BridgeVersion>> listVersions({
@@ -2458,6 +4912,97 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     documentId: documentId,
   );
 
+  /// Reads immutable source body/quote and current/stale metadata.
+  Future<String> loreSources({
+    required String workId,
+    required String entryId,
+  }) => RustLib.instance.api.crateApiCoreSessionLoreSources(
+    that: this,
+    workId: workId,
+    entryId: entryId,
+  );
+
+  /// Reads immutable lore versions.
+  Future<String> loreVersions({
+    required String workId,
+    required String entryId,
+  }) => RustLib.instance.api.crateApiCoreSessionLoreVersions(
+    that: this,
+    workId: workId,
+    entryId: entryId,
+  );
+
+  Future<void> memoryCorrect({
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+    required String title,
+    required String summary,
+  }) => RustLib.instance.api.crateApiCoreSessionMemoryCorrect(
+    that: this,
+    selectedSpace: selectedSpace,
+    work: work,
+    id: id,
+    updatedAt: updatedAt,
+    title: title,
+    summary: summary,
+  );
+
+  Future<String> memoryCreate({
+    required String selectedSpace,
+    String? work,
+    required String title,
+    required String summary,
+  }) => RustLib.instance.api.crateApiCoreSessionMemoryCreate(
+    that: this,
+    selectedSpace: selectedSpace,
+    work: work,
+    title: title,
+    summary: summary,
+  );
+
+  Future<void> memoryDelete({
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+  }) => RustLib.instance.api.crateApiCoreSessionMemoryDelete(
+    that: this,
+    selectedSpace: selectedSpace,
+    work: work,
+    id: id,
+    updatedAt: updatedAt,
+  );
+
+  Future<String> memoryDetail({
+    required String selectedSpace,
+    String? work,
+    required String id,
+  }) => RustLib.instance.api.crateApiCoreSessionMemoryDetail(
+    that: this,
+    selectedSpace: selectedSpace,
+    work: work,
+    id: id,
+  );
+
+  Future<String> memoryList({required String selectedSpace, String? work}) =>
+      RustLib.instance.api.crateApiCoreSessionMemoryList(
+        that: this,
+        selectedSpace: selectedSpace,
+        work: work,
+      );
+
+  /// Reads work-scoped confirmed questions and chapter review history.
+  Future<String> novelHistory({
+    required String work,
+    required String chapter,
+  }) => RustLib.instance.api.crateApiCoreSessionNovelHistory(
+    that: this,
+    work: work,
+    chapter: chapter,
+  );
+
   /// Drains this subscription and returns the dropped-notification count.
   Future<BridgeEvents> pollEvents({required BigInt subscription}) => RustLib
       .instance
@@ -2476,6 +5021,53 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     documentId: documentId,
     expectedHead: expectedHead,
     expectedRevision: expectedRevision,
+  );
+
+  /// Full exact messages and one-use preview ticket; no network/key access.
+  Future<String> prepareGeneration({required String requestJson}) =>
+      RustLib.instance.api.crateApiCoreSessionPrepareGeneration(
+        that: this,
+        requestJson: requestJson,
+      );
+
+  /// Full exact materials and a single-use ticket; no key/network access.
+  Future<String> prepareReviewedTask({required String requestJson}) =>
+      RustLib.instance.api.crateApiCoreSessionPrepareReviewedTask(
+        that: this,
+        requestJson: requestJson,
+      );
+
+  Future<String> previewImport({
+    required String source,
+    required String text,
+  }) => RustLib.instance.api.crateApiCoreSessionPreviewImport(
+    that: this,
+    source: source,
+    text: text,
+  );
+
+  /// Reject an exact candidate head; stale review and cross-work IDs fail closed.
+  Future<void> rejectLore({
+    required String workId,
+    required String entryId,
+    required PlatformInt64 expectedVersion,
+  }) => RustLib.instance.api.crateApiCoreSessionRejectLore(
+    that: this,
+    workId: workId,
+    entryId: entryId,
+    expectedVersion: expectedVersion,
+  );
+
+  /// Resolve a chapter-scoped candidate without changing body.
+  Future<void> rejectOperation({
+    required String workId,
+    required String documentId,
+    required String operationId,
+  }) => RustLib.instance.api.crateApiCoreSessionRejectOperation(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    operationId: operationId,
   );
 
   /// Renames a chapter; titles live outside the version tree.
@@ -2532,6 +5124,36 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     body: body,
   );
 
+  Future<String> saveCharacter({required String json}) => RustLib.instance.api
+      .crateApiCoreSessionSaveCharacter(that: this, json: json);
+
+  /// Validates and CAS-saves an explicit author edit.
+  Future<String> saveLore({required String workId, required String editJson}) =>
+      RustLib.instance.api.crateApiCoreSessionSaveLore(
+        that: this,
+        workId: workId,
+        editJson: editJson,
+      );
+
+  /// Save author-only snapshot using revision CAS.
+  Future<String> saveThread({
+    required String workId,
+    required String documentId,
+    required String threadId,
+    PlatformInt64? expectedRevision,
+    required String snapshotJson,
+  }) => RustLib.instance.api.crateApiCoreSessionSaveThread(
+    that: this,
+    workId: workId,
+    documentId: documentId,
+    threadId: threadId,
+    expectedRevision: expectedRevision,
+    snapshotJson: snapshotJson,
+  );
+
+  Future<String> searchImported({required String text}) => RustLib.instance.api
+      .crateApiCoreSessionSearchImported(that: this, text: text);
+
   /// Selects an existing work and remembers it as the most recent one.
   Future<BridgeWork> selectWork({required String workId}) => RustLib
       .instance
@@ -2541,6 +5163,30 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
   /// No credential/network backend exists in this M1 bridge; always fails closed.
   Future<void> send() =>
       RustLib.instance.api.crateApiCoreSessionSend(that: this);
+
+  /// Explicit approved send to the official endpoint only; never retried.
+  Future<void> sendGeneration({
+    required String work,
+    required String previewId,
+    required bool confirmed,
+  }) => RustLib.instance.api.crateApiCoreSessionSendGeneration(
+    that: this,
+    work: work,
+    previewId: previewId,
+    confirmed: confirmed,
+  );
+
+  /// One approved fixed-endpoint request. Output never directly confirms prose.
+  Future<String> sendReviewedTask({
+    required String work,
+    required String id,
+    required bool confirmed,
+  }) => RustLib.instance.api.crateApiCoreSessionSendReviewedTask(
+    that: this,
+    work: work,
+    id: id,
+    confirmed: confirmed,
+  );
 
   /// Archives or restores a chapter; versions, drafts and threads survive.
   Future<BridgeChapter> setChapterArchived({
@@ -2553,6 +5199,14 @@ class CoreSessionImpl extends RustOpaque implements CoreSession {
     documentId: documentId,
     archived: archived,
   );
+
+  /// Opt-in cloud gate. Does not send a request.
+  Future<void> setCloudEnabled({required bool value}) => RustLib.instance.api
+      .crateApiCoreSessionSetCloudEnabled(that: this, value: value);
+
+  /// Explicit isolated credential write.
+  Future<void> setDeepseekKey({required String key}) => RustLib.instance.api
+      .crateApiCoreSessionSetDeepseekKey(that: this, key: key);
 
   /// Writes the per-work UI session JSON after key/size/range validation.
   Future<void> setUiSession({required String workId, required String value}) =>

@@ -1,3 +1,9 @@
+// Win32Window 实现：窗口类注册、DPI 感知创建、深色主题、子内容布局与销毁。
+//
+// 线程模型：窗口类注册表、活动窗口计数与所有窗口消息都在 UI 线程访问。
+// 所有权：window_handle_ 由本类 DestroyWindow；child_content_ 是借用句柄，不销毁。
+// 失败策略：CreateWindow 失败返回 false；主题与 DPI 查询失败时回落到默认行为。
+
 #include "win32_window.h"
 
 #include <dwmapi.h>
@@ -5,6 +11,7 @@
 
 #include "resource.h"
 
+// 文件内常量与辅助：窗口类名、系统主题偏好注册表位置与 DPI 缩放函数。
 namespace {
 
 /// Window attribute that enables dark mode window decorations.
@@ -56,6 +63,7 @@ void EnableFullDpiSupportIfAvailable(HWND hwnd) {
 }  // namespace
 
 // Manages the Win32Window's window class registration.
+// 窗口类的进程级单例注册器；最后一个窗口销毁后注销，允许后续重新注册。
 class WindowClassRegistrar {
  public:
   ~WindowClassRegistrar() = default;
@@ -86,6 +94,7 @@ class WindowClassRegistrar {
 
 WindowClassRegistrar* WindowClassRegistrar::instance_ = nullptr;
 
+// 首次调用时注册窗口类并缓存类名；返回的字符串在进程内一直有效。
 const wchar_t* WindowClassRegistrar::GetWindowClass() {
   if (!class_registered_) {
     WNDCLASS window_class{};
@@ -106,20 +115,25 @@ const wchar_t* WindowClassRegistrar::GetWindowClass() {
   return kWindowClassName;
 }
 
+// 注销窗口类；调用方保证当前已无窗口实例。
 void WindowClassRegistrar::UnregisterWindowClass() {
   UnregisterClass(kWindowClassName, nullptr);
   class_registered_ = false;
 }
 
+// 构造只增加活动窗口计数，HWND 由 Create 建立。
 Win32Window::Win32Window() {
   ++g_active_window_count;
 }
 
+// 析构兜底 Destroy，防止子类或调用方漏掉显式销毁。
 Win32Window::~Win32Window() {
   --g_active_window_count;
   Destroy();
 }
 
+// 销毁旧窗口后按目标显示器 DPI 缩放逻辑坐标并创建隐藏窗口；
+// 成功后立即应用系统主题并回调 OnCreate。
 bool Win32Window::Create(const std::wstring& title,
                          const Point& origin,
                          const Size& size) {
@@ -149,11 +163,13 @@ bool Win32Window::Create(const std::wstring& title,
   return OnCreate();
 }
 
+// 显示并激活窗口；返回值表示此前是否可见。
 bool Win32Window::Show() {
   return ShowWindow(window_handle_, SW_SHOWNORMAL);
 }
 
 // static
+// WM_NCCREATE 时把 Create 传入的 this 绑定到 GWLP_USERDATA 并启用非客户区 DPI 缩放。
 LRESULT CALLBACK Win32Window::WndProc(HWND const window,
                                       UINT const message,
                                       WPARAM const wparam,
@@ -174,12 +190,14 @@ LRESULT CALLBACK Win32Window::WndProc(HWND const window,
 }
 
 LRESULT
+// 处理窗口销毁、DPI 变化、尺寸、焦点与主题变更；未处理的消息交给 DefWindowProc。
 Win32Window::MessageHandler(HWND hwnd,
                             UINT const message,
                             WPARAM const wparam,
                             LPARAM const lparam) noexcept {
   switch (message) {
     case WM_DESTROY:
+      // 先清空句柄再统一销毁，避免 Destroy 重入时重复 DestroyWindow。
       window_handle_ = nullptr;
       Destroy();
       if (quit_on_close_) {
@@ -187,6 +205,7 @@ Win32Window::MessageHandler(HWND hwnd,
       }
       return 0;
 
+    // 按系统建议矩形重设窗口，保证 DPI 切换后非客户区与客户区一致。
     case WM_DPICHANGED: {
       auto newRectSize = reinterpret_cast<RECT*>(lparam);
       LONG newWidth = newRectSize->right - newRectSize->left;
@@ -221,6 +240,7 @@ Win32Window::MessageHandler(HWND hwnd,
   return DefWindowProc(window_handle_, message, wparam, lparam);
 }
 
+// 先让子类释放资源再销毁 HWND；最后一个窗口销毁时注销窗口类。
 void Win32Window::Destroy() {
   OnDestroy();
 
@@ -233,11 +253,13 @@ void Win32Window::Destroy() {
   }
 }
 
+// 从 GWLP_USERDATA 取回对象指针；窗口未创建完成时为空。
 Win32Window* Win32Window::GetThisFromHandle(HWND const window) noexcept {
   return reinterpret_cast<Win32Window*>(
       GetWindowLongPtr(window, GWLP_USERDATA));
 }
 
+// 把子内容设为窗口子级并铺满客户区；句柄所有权仍归调用方。
 void Win32Window::SetChildContent(HWND content) {
   child_content_ = content;
   SetParent(content, window_handle_);
@@ -249,29 +271,35 @@ void Win32Window::SetChildContent(HWND content) {
   SetFocus(child_content_);
 }
 
+// 返回客户区像素矩形；调用前必须保证窗口句柄有效。
 RECT Win32Window::GetClientArea() {
   RECT frame;
   GetClientRect(window_handle_, &frame);
   return frame;
 }
 
+// 返回借用的顶层 HWND；未创建或已销毁时为空。
 HWND Win32Window::GetHandle() {
   return window_handle_;
 }
 
+// 标记关闭窗口时退出消息循环。
 void Win32Window::SetQuitOnClose(bool quit_on_close) {
   quit_on_close_ = quit_on_close;
 }
 
+// 默认无操作；子类在此做窗口级初始化，失败应返回 false。
 bool Win32Window::OnCreate() {
   // No-op; provided for subclasses.
   return true;
 }
 
+// 默认无操作；子类在此释放自己的资源。
 void Win32Window::OnDestroy() {
   // No-op; provided for subclasses.
 }
 
+// 系统偏好为深色时启用沉浸式深色标题栏；注册表缺失或读取失败时保持系统默认。
 void Win32Window::UpdateTheme(HWND const window) {
   DWORD light_mode;
   DWORD light_mode_size = sizeof(light_mode);

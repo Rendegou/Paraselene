@@ -1,29 +1,21 @@
-import 'dart:io';
+// 覆盖 M4 owned 仓库：真实 DLL 在独占运行目录中的跨会话精确持久化。
+// 需要 test-support 构建的桥接 DLL，不代表生产数据库或用户数据迁移通过。
+
+import 'support/owned_store_fixture.dart';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:paraselene_flutter/workspace/data/real_workspace_repository.dart';
 import 'package:paraselene_flutter/workspace/data/workspace_repository.dart';
 
-/// ADR-004 owned store through the real DLL: lifecycle, exact cross-session
-/// restore and error mapping. The fixed test-owned store directory is removed
-/// before and after the test; it holds synthetic data only.
+/// Real DLL persistence in an exclusive test-support run directory.
 void main() {
-  const storePath =
-      r'D:\MyAgent\paraselene-flutter\build\m4-owned-synthetic-v1';
-
-  setUp(() {
-    final dir = Directory(storePath);
-    if (dir.existsSync()) dir.deleteSync(recursive: true);
-  });
-  tearDown(() {
-    final dir = Directory(storePath);
-    if (dir.existsSync()) dir.deleteSync(recursive: true);
-  });
+  final fixture = OwnedStoreFixture();
+  setUpAll(fixture.create);
+  tearDown(fixture.reset);
+  tearDownAll(fixture.dispose);
 
   test('owned repository persists exact state across real sessions', () async {
-    final first = await RealWorkspaceRepository.openOwned(
-      diagnosticOverride: true,
-    );
+    final first = await fixture.open();
+    addTearDown(first.close);
     expect(first.mode, WorkspaceMode.realBridge);
     final work = await first.createWork('持久作品');
     final chapter = await first.createChapter(work.id, '第一章');
@@ -41,9 +33,8 @@ void main() {
     );
     await first.close();
 
-    final second = await RealWorkspaceRepository.openOwned(
-      diagnosticOverride: true,
-    );
+    final second = await fixture.open();
+    addTearDown(second.close);
     final state = await second.workspaceState();
     expect(state.selectedWorkId, work.id);
     expect(state.recentWorks.map((w) => w.id), contains(work.id));
@@ -60,9 +51,8 @@ void main() {
   test(
     'owned repository maps unknown works and conflicts to stable codes',
     () async {
-      final repo = await RealWorkspaceRepository.openOwned(
-        diagnosticOverride: true,
-      );
+      final repo = await fixture.open();
+      addTearDown(repo.close);
       expect(
         () => repo.selectWork('missing-work'),
         throwsA(

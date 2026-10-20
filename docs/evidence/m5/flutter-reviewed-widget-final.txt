@@ -1,0 +1,37 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_test.dart
+00:00 +0: diff preserves exact Unicode, CRLF and both reconstruction directions
+00:00 +1: declining exact preview revokes ticket and sends nothing
+00:01 +2: RPG requires distinct approvals and sends opaque scene id with reply
+00:01 +3: cancel running summary releases transport and permits close
+00:01 +4: summary result is derived and never exposes manuscript adoption
+00:01 +5: late cancel cannot hide a committed successful result
+00:01 +6: nullable legacy target can render durable revision history
+00:01 +7: historical source highlights Unicode scalars against original body
+00:02 +8: map previews only locations, links and drags without native writes
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a numeric value within <0.01> of <15>
+  Actual: <7.5>
+   Which:  differs by <7.5>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_test.dart:337:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_test.dart line 337
+The test description was:
+  map previews only locations, links and drags without native writes
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +8 -1: map previews only locations, links and drags without native writes [E]
+  Test failed. See exception logs above.
+  The test description was: map previews only locations, links and drags without native writes
+  
+00:02 +8 -1: Some tests failed.

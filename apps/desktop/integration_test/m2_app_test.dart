@@ -1,3 +1,6 @@
+// M2 Windows 集成测试：真实工作台语言切换、原生缩放与目录交互。
+// 需在 Windows 设备上运行，不代表真实用户工作目录或所有 DPI 组合通过。
+
 import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
@@ -6,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:paraselene_flutter/editor/editor_viewport.dart';
 import 'package:paraselene_flutter/workspace/data/demo_content.dart';
 import 'package:paraselene_flutter/workspace/data/real_workspace_repository.dart';
 import 'package:paraselene_flutter/workspace/workbench_app.dart';
@@ -29,13 +33,15 @@ void main() {
         ),
       );
       await waitFor(tester, () => find.text('创建示例材料').evaluate().isNotEmpty);
-      expect(find.text('REAL · Rust 桥接'), findsOneWidget);
+      expect(find.textContaining('SQLite'), findsOneWidget);
       await tester.tap(find.text('创建示例材料'));
       await waitFor(tester, () => find.byKey(bodyKey).evaluate().isNotEmpty);
-      expect(
-        tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
-        demoBody,
-      );
+      String bodyRaw() => tester
+          .widget<EditorViewport>(find.byKey(bodyKey))
+          .controller
+          .document
+          .raw;
+      expect(bodyRaw(), demoBody);
       final window = WindowsSurface();
       final sizes = <String, Object>{};
       for (final width in [1400, 800, 1200]) {
@@ -46,21 +52,15 @@ void main() {
           'width': window.clientSize.width,
           'height': window.clientSize.height,
         };
-        expect(
-          tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
-          demoBody,
-        );
+        expect(bodyRaw(), demoBody);
       }
       await capture(tester, 'windows-real-zh.png');
       await chooseLanguage(tester, '界面语言', 'English');
-      expect(find.text('Writing workspace'), findsOneWidget);
-      expect(
-        tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
-        demoBody,
-      );
+      expect(find.text('Rename chapter'), findsWidgets);
+      expect(bodyRaw(), demoBody);
       await capture(tester, 'windows-real-en.png');
       await chooseLanguage(tester, 'Interface language', '简体中文');
-      expect(find.text('写作工作台'), findsOneWidget);
+      expect(find.text('重命名章节'), findsWidgets);
       await File('$evidence/windows-report.json').writeAsString(
         jsonEncode({
           'status': 'PASS',
@@ -96,8 +96,14 @@ Future<void> chooseLanguage(
   String menu,
   String label,
 ) async {
-  await tester.ensureVisible(find.text(menu));
-  await tester.tap(find.text(menu));
+  // Wide layouts expose a translate icon; compact layouts keep the language
+  // entries inside the "more" menu instead.
+  final direct = find.byIcon(Icons.translate);
+  final opener = direct.evaluate().isNotEmpty
+      ? direct.first
+      : find.byIcon(Icons.more_horiz).first;
+  await tester.ensureVisible(opener);
+  await tester.tap(opener);
   await tester.pump(const Duration(milliseconds: 300));
   await tester.tap(find.text(label).last);
   await tester.pump(const Duration(milliseconds: 300));

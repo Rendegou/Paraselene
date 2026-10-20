@@ -1,6 +1,9 @@
 //! Selected work, recent-works list and per-work UI session settings.
 //! Settings JSON lives in the core `settings` table; a damaged recent-works
 //! record is backed up to a sibling key and surfaced as a stable warning code.
+//!
+//! 最近作品最多 10 条；损坏的最近列表原文备份到 :damaged 键并返回 recent_works_damaged 警告。
+//! UI 会话写入前校验 64 KiB 上限、schemaVersion=1、白名单键与 scrollTop 有限范围。
 use crate::{core_error, err, AppError, Session, WorkInfo, WorkspaceStateInfo};
 use paraselene_memory_core::Database;
 
@@ -14,6 +17,8 @@ const UI_SESSION_KEYS: [&str; 4] = ["schemaVersion", "chapterId", "wide", "scrol
 impl Session {
     /// Select an existing work, remember it as most recent and keep it as the
     /// runtime selection for this process under one lock shared with close.
+    ///
+    /// 作品必须存在，否则 not_found；成功后写入最近列表并更新进程内选择。
     pub fn select_work(&self, work_id: String) -> Result<WorkInfo, AppError> {
         self.with_state(|state| {
             let db = state.db.as_ref().ok_or_else(|| err("session_closed"))?;
@@ -26,6 +31,8 @@ impl Session {
 
     /// Current selection plus the recent list; damaged records back up the
     /// original string and report the `recent_works_damaged` warning code.
+    ///
+    /// 返回当前选择、最多 10 条最近作品与稳定警告码；损坏记录原文备份到 :damaged。
     pub fn workspace_state(&self) -> Result<WorkspaceStateInfo, AppError> {
         self.with_state(|state| {
             let db = state.db.as_ref().ok_or_else(|| err("session_closed"))?;
@@ -48,6 +55,8 @@ impl Session {
     }
 
     /// Read the raw per-work UI session JSON, if any.
+    ///
+    /// 作品不存在返回 not_found；无记录返回 None。
     pub fn get_ui_session(&self, work_id: String) -> Result<Option<String>, AppError> {
         self.with_db(|db| {
             find_work(db, &work_id)?;
@@ -59,6 +68,8 @@ impl Session {
     /// Write at most 64 KiB UTF-8 JSON: schemaVersion=1 is required; chapterId
     /// (string), wide (boolean), scrollTop (finite number 0..=10,000,000) are
     /// optional. Present nulls and unknown keys are rejected; fractions survive.
+    ///
+    /// 上限 64 KiB，要求 schemaVersion=1、白名单键、合法类型与有限 scrollTop，否则 invalid_input。
     pub fn set_ui_session(&self, work_id: String, value: String) -> Result<(), AppError> {
         self.with_db(|db| {
             find_work(db, &work_id)?;
@@ -81,6 +92,7 @@ fn find_work(db: &Database, work_id: &str) -> Result<paraselene_memory_core::Wor
         .ok_or_else(|| err("not_found"))
 }
 
+// 损坏的最近记录不删除，原文备份到独立键，避免静默丢数据。
 fn recent_ids(db: &Database) -> Result<(Vec<String>, Option<String>), AppError> {
     match db.get_setting(RECENT_KEY).map_err(core_error)? {
         None => Ok((Vec::new(), None)),

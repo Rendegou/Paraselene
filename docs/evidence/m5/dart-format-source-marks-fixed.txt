@@ -1,0 +1,5 @@
+Formatted apps\desktop\lib\editor\editor_scene.dart
+Formatted apps\desktop\lib\editor\editor_viewport.dart
+Formatted apps\desktop\lib\workspace\presentation\manuscript_editor.dart
+Formatted apps\desktop\test\source_marks_test.dart
+Formatted 135 files (4 changed) in 2.42 seconds.

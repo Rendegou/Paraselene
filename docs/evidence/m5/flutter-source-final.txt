@@ -1,0 +1,13 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_test.dart: async source results require exact scope/head/body and clear invalidates flight
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_test.dart: head drift, invalid ranges and a late disposed read cannot publish
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_test.dart: painted source boxes and Ctrl-click share offset geometry without edits
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:00 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:00 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:00 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:00 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:03 +10: All tests passed!

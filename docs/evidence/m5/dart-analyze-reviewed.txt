@@ -1,0 +1,10 @@
+Analyzing desktop...
+
+   info - lib\workspace\presentation\editor_tools.dart:146:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\editor_tools.dart:214:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - test\reviewed_tasks_test.dart:34:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - test\reviewed_tasks_test.dart:57:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - test\reviewed_tasks_test.dart:107:23 - Use interpolation to compose strings and values. Try using string interpolation to build the composite string. - prefer_interpolation_to_compose_strings
+   info - test\reviewed_tasks_test.dart:107:54 - Use interpolation to compose strings and values. Try using string interpolation to build the composite string. - prefer_interpolation_to_compose_strings
+
+6 issues found.

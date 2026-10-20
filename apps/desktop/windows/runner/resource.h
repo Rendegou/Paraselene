@@ -1,3 +1,7 @@
+// runner 资源 ID 定义，供 Resource.rc 与代码引用应用图标等资源编号。
+//
+// 由 Visual Studio 资源编辑器维护，编号必须与资源脚本保持一致。
+
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by Runner.rc

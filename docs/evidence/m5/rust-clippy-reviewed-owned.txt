@@ -1,0 +1,15 @@
+    Checking paraselene-character-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\character-core)
+    Checking paraselene-memory-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\memory-core)
+    Checking hyper-rustls v0.27.10
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_character_core-15y4h7z09vwty\s-hnbx6u0f60-1rgz65w-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_memory_core-035ha8xpcmgls\s-hnbx6u0mrp-0a9vm1q-working`
+
+    Checking reqwest v0.12.28
+warning: `paraselene-character-core` (lib) generated 1 warning
+    Checking paraselene-llm-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\llm-core)
+warning: `paraselene-memory-core` (lib) generated 1 warning
+    Checking paraselene-novel-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\novel-core)
+    Checking paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Checking paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.88s

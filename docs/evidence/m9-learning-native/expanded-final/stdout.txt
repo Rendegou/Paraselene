@@ -1,0 +1,72 @@
+PASS TEMP matches explicit synthetic root
+PASS script-created synthetic marker required
+PASS synthetic temporary path
+PASS select owned synthetic TEMP
+PASS unknown existing profile rejected
+PASS unknown directory preserved
+PASS select owned synthetic TEMP
+PASS wrong profile marker rejected
+PASS select owned synthetic TEMP
+PASS synthetic marker hardlink created
+PASS hardlinked marker rejected
+PASS select owned synthetic TEMP
+PASS new owned profile accepted
+PIN_PATH actual=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-7082692d7165400b86757147f535aaff\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 expected=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-7082692d7165400b86757147f535aaff\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 handles=9
+PIN_RENAME moved=0 error=32
+PASS pinned profile cannot be renamed
+PASS pinned ancestor cannot be renamed
+PASS owned profile pin released after close
+PASS junction synthetic root
+PASS actual junction fixture
+PASS select junction attack TEMP
+PASS junction path rejected by production profile guard
+PASS junction target sentinel unchanged
+PASS actual junction fixture
+PASS select junction attack TEMP
+PASS junction path rejected by production profile guard
+PASS junction target sentinel unchanged
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+RUNTIME 155.0.4283.62
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning-en.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+PASS worker completes or timeout terminates
+STATUS "3 / 3 tests passed" DETAIL "double(2) → 4, expected 4: passed\ndouble(0) → 0, expected 0: passed\ndouble(-3) → -6, expected -6: passed"
+PASS Python expected values
+PASS host objects and web messaging disabled
+PASS native message observer
+RESOURCE https://learning-sandbox.invalid/not-allowlisted
+PASS resource attacks finish
+PASS page attack requests rejected
+PASS CSP reports actual blocked requests
+CSP ["http://127.0.0.1:9/synthetic-only","file","https://example.invalid/forbidden.js"]
+PASS CSP blocked loopback file and external module before transport
+PASS page cannot deliver native message
+PASS popup outcome observer
+PASS permission outcome observer
+PASS download outcome observer
+PASS popup reached native handler
+PASS external popup handled before navigation
+PASS blank popup handled by native guard
+PERMISSION kind=4
+PASS notification permission denied to page
+PASS permission reached native handler
+NAV success=1 error=0

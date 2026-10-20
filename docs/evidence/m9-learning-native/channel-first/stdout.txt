@@ -1,0 +1,18 @@
+PASS private non-input desktop created and selected
+PASS input desktop identity available
+PASS desktop name available
+PASS desktop name available
+PASS probe desktop differs from user input desktop
+PASS channel TEMP matches explicit synthetic root
+PASS channel synthetic marker required
+PASS channel COM initialized
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid requests create no native window
+PASS open starts hidden and pending
+PASS learning_busy
+PASS learning_closed
+PASS late creation cannot resurrect cancelled channel open

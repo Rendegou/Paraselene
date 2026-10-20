@@ -1,0 +1,7 @@
+    Checking paraselene-character-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\character-core)
+    Checking paraselene-memory-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\memory-core)
+    Checking paraselene-llm-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\llm-core)
+    Checking paraselene-novel-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\novel-core)
+    Checking paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Checking paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.27s

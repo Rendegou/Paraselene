@@ -1,0 +1,21 @@
+PASS TEMP matches explicit synthetic root
+PASS script-created synthetic marker required
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+RUNTIME 155.0.4283.62
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning-en.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+PASS geolocation native observer
+NAV success=1 error=0

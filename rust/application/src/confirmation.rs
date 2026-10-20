@@ -1,11 +1,16 @@
 //! Review-before-confirm contract: the UI displays the returned exact body and
 //! retains its opaque token until the explicit decision. Tokens are not credentials.
+//!
+//! 确认令牌绑定作品、章节、head、revision、BLAKE3 正文哈希与有序 canonical 上下文；
+//! 确认时正文哈希或任一身份漂移都返回 revision_conflict/head_conflict/base_conflict/
+//! context_conflict 之一，不覆盖并发更新。
 use crate::{
     chapters::{chapter_error, find_chapter},
     core_error, err, verify, AppError, ChapterInfo, PreparedConfirmation, Session,
 };
 use serde::{Deserialize, Serialize};
 
+// 令牌即序列化后的 Review：作品、章节、head、revision、正文哈希与有序 canonical 上下文。
 #[derive(Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Review {
@@ -19,6 +24,9 @@ struct Review {
 impl Session {
     /// Prepare a persisted body preview, binding its identities, head, revision,
     /// BLAKE3 UTF-8 hash and ordered canonical context before the user's decision.
+    ///
+    /// head/revision/base 任一不匹配分别返回 head_conflict/revision_conflict/base_conflict；
+    /// 正文 BLAKE3 哈希写入令牌，令牌必须原样回传。
     pub fn prepare_confirmation(
         &self,
         work_id: String,
@@ -67,6 +75,9 @@ impl Session {
 
     /// Confirm only a previously prepared review. Recheck body hash and identities;
     /// the core transaction checks head, revision, base and the reviewed context.
+    ///
+    /// 令牌与调用参数身份不一致返回 identity_mismatch；正文哈希或 revision 漂移返回 revision_conflict；
+    /// 上下文漂移由核心事务返回 context_conflict，不覆盖并发更新。
     pub fn confirm_chapter(
         &self,
         work_id: String,

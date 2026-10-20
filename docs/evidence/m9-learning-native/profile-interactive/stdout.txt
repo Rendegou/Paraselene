@@ -1,0 +1,11 @@
+PASS synthetic temporary path
+PASS select owned synthetic TEMP
+PASS unknown existing profile rejected
+PASS unknown directory preserved
+PASS select owned synthetic TEMP
+PASS wrong profile marker rejected
+PASS select owned synthetic TEMP
+PASS synthetic marker hardlink created
+PASS hardlinked marker rejected
+PASS select owned synthetic TEMP
+PASS new owned profile accepted

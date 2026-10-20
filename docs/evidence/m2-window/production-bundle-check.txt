@@ -1,0 +1,7 @@
+{
+  "Status": "PASS",
+  "CopiedBundle": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-949c9d17377b407898b8ddc4c64068d4",
+  "ProbeExitCode": 0,
+  "MissingDllExitCode": 1,
+  "SdkRemovedFromPath": true
+}

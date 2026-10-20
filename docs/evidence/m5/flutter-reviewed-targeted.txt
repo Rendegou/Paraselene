@@ -1,0 +1,9 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_test.dart: diff preserves exact Unicode, CRLF and both reconstruction directions
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_test.dart: declining exact preview revokes ticket and sends nothing
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_real_ffi_test.dart: real DLL reviewed preview is isolated, revocable, gated and exact
+00:01 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_real_ffi_test.dart: real DLL reviewed preview is isolated, revocable, gated and exact
+00:01 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_real_ffi_test.dart: real DLL reviewed preview is isolated, revocable, gated and exact
+00:01 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/reviewed_tasks_real_ffi_test.dart: real DLL reviewed preview is isolated, revocable, gated and exact
+00:03 +6: All tests passed!

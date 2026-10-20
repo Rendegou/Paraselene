@@ -1,0 +1,36 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_type_text",
+      "args": {
+        "processId": 3648,
+        "text": "书店",
+        "method": "sendinput",
+        "focusMode": "preserve"
+      }
+    },
+    { "wait": 400 },
+    {
+      "tool": "windows_computer_use_keypress",
+      "args": {
+        "processId": 3648,
+        "keys": ["enter"],
+        "dispatch": "foreground"
+      }
+    },
+    { "wait": 600 },
+    {
+      "tool": "windows_computer_use_snapshot",
+      "args": {
+        "processId": 3648,
+        "activate": false,
+        "includeScreenshot": true,
+        "captureWindow": true,
+        "detailLevel": "compact",
+        "maxDepth": 8,
+        "maxNodes": 600,
+        "maxWidth": 1400
+      }
+    }
+  ]
+}

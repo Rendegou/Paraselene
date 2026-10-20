@@ -1,0 +1,13 @@
+PASS synthetic temporary path
+PASS select owned synthetic TEMP
+PASS unknown existing profile rejected
+PASS unknown directory preserved
+PASS select owned synthetic TEMP
+PASS wrong profile marker rejected
+PASS select owned synthetic TEMP
+PASS synthetic marker hardlink created
+PASS hardlinked marker rejected
+PASS select owned synthetic TEMP
+PASS new owned profile accepted
+PIN_PATH actual=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-91337e12e42541958728e18ce5eb0878\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 expected=D:\MyAgent\paraselene-flutter\build\learning-native\synthetic-91337e12e42541958728e18ce5eb0878\profile-attacks\pinned\paraselene-flutter-learning-cache-v1 handles=9
+PIN_RENAME moved=1 error=0

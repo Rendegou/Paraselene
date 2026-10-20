@@ -1,0 +1,8 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+
+running 1 test
+test migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 17 filtered out; finished in 2.96s
+

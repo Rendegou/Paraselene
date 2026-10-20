@@ -1,0 +1,12 @@
+{
+  "calls": [
+    { "tool": "windows_computer_use_click", "args": { "processId": 3648, "x": 1852, "y": 536, "dispatch": "foreground" } },
+    { "wait": 900 },
+    { "tool": "windows_computer_use_snapshot", "args": { "processId": 3648, "activate": false, "includeScreenshot": true, "captureWindow": true, "detailLevel": "compact", "maxDepth": 10, "maxNodes": 700, "maxWidth": 1400 } },
+    { "tool": "windows_computer_use_type_text", "args": { "processId": 3648, "text": "第一章 · 归途（点击测试）", "method": "sendinput" } },
+    { "wait": 400 },
+    { "tool": "windows_computer_use_keypress", "args": { "processId": 3648, "keys": ["enter"], "dispatch": "foreground" } },
+    { "wait": 1000 },
+    { "tool": "windows_computer_use_snapshot", "args": { "processId": 3648, "activate": false, "includeScreenshot": true, "captureWindow": true, "detailLevel": "compact", "maxDepth": 8, "maxNodes": 500, "maxWidth": 1400 } }
+  ]
+}

@@ -1,3 +1,6 @@
+// 覆盖保存协调器的基本合同：确认、合并写入、精确空文本提交与重载拒绝。
+// 使用合成仓库与假结果，不代表真实 FFI 保存或 Rust 采纳事务通过。
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/domain/editing/save_coordinator.dart';
 import 'save_fixture.dart';

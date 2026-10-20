@@ -1,0 +1,1 @@
+FAIL expected native fault callback count

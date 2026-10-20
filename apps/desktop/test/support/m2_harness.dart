@@ -1,3 +1,6 @@
+// M2 工作台测试的共享装配：离线字体加载、合成仓库与工作台 pump 辅助。
+// 仅提供测试脚手架且不含断言，不代表真实 Windows 窗口或 FFI 行为通过。
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';

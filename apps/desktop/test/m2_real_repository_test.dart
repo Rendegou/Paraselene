@@ -1,3 +1,6 @@
+// 覆盖 M2 真实仓库：通过真实 DLL 读取合成工作目录的目录与精确正文。
+// 需要真实桥接 DLL 与合成数据，不代表生产数据库、作者库或并发访问通过。
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/workspace/data/demo_content.dart';
 import 'package:paraselene_flutter/workspace/data/real_workspace_repository.dart';

@@ -1,3 +1,6 @@
+// 覆盖 M4 关闭控制器：脏状态屏障、偏好保存竞态与可重试失败路径。
+// 使用合成仓库与可控 Completer，不代表真实 Rust 事务或 Windows 关闭时序通过。
+
 import 'dart:async';
 import 'dart:convert';
 

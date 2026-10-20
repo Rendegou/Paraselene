@@ -1,4 +1,8 @@
 //! Windows handle-based synthetic fixture provenance. No author-library entrypoint.
+//!
+//! 合成根只允许临时目录下 paraselene-m1-* 或工程 build 下 m1-*；通过目录与文件句柄锁定卷序列号
+//! 和文件索引，拒绝重解析点、硬链接与身份替换。进程内注册表保证同一路径身份稳定，GuardedRoot
+//! 释放时只删除自己创建的固定文件。
 use crate::{err, AppError};
 use std::{
     collections::HashMap,
@@ -36,9 +40,12 @@ pub(crate) struct GuardedRoot {
     cleanup: bool,
 }
 impl GuardedRoot {
+    /// 返回受目录引脚保护的数据库文件路径。
     pub fn database_path(&self) -> PathBuf {
         self.root.join(NAMES[0])
     }
+    /// 校验并锁定合成根：路径规范、允许清单、目录与标记文件身份以及 SQLite 文件一致性；
+    /// 任一不符返回 invalid_synthetic_root，夹具数量超限返回 fixture_limit。
     pub fn prepare(input: &str) -> Result<Self, AppError> {
         let root = Path::new(input)
             .canonicalize()

@@ -1,0 +1,162 @@
+[
+  {
+    "Path": "concrt140.dll",
+    "Bytes": 324208,
+    "SHA256": "2405355F0A58067B258F8DF33C327E3A3D716EAAC5A3A5AEBB757842D85BD376"
+  },
+  {
+    "Path": "file_selector_windows_plugin.dll",
+    "Bytes": 111616,
+    "SHA256": "60B3609BE2B078321AC787EF5C59F8CDA49E3837AC15A2A2C7D030E4C77E5D05"
+  },
+  {
+    "Path": "flutter_windows.dll",
+    "Bytes": 19068416,
+    "SHA256": "BA9B8434BF8DEACE3EACD41138C86587823439F3EBE495229F42B4BD6E1A209C"
+  },
+  {
+    "Path": "msvcp140_1.dll",
+    "Bytes": 35952,
+    "SHA256": "BFAD5AEF4C63A669E3C140655CDFDF395B6C979B400A447BD5DCB65ED8826C3D"
+  },
+  {
+    "Path": "msvcp140_2.dll",
+    "Bytes": 280200,
+    "SHA256": "3EA06F0EE098B4823CB79599DF3780E7F23CCE52C19AAC31D2A0D47EFE33A5E9"
+  },
+  {
+    "Path": "msvcp140_atomic_wait.dll",
+    "Bytes": 50304,
+    "SHA256": "640B2AEFCED484D0368EEA5BDD06ADDD0658A3A70A49256E560D6923B404A479"
+  },
+  {
+    "Path": "msvcp140_codecvt_ids.dll",
+    "Bytes": 31872,
+    "SHA256": "F2069A52880EC885EE7F0511186100EB7FADA0411A2B4948FAFEA7735B878A18"
+  },
+  {
+    "Path": "msvcp140.dll",
+    "Bytes": 557728,
+    "SHA256": "0F885B509A685D2BBFA652FED26B5FB31D88FBDAB0A978C641D1C7B8AA460AA9"
+  },
+  {
+    "Path": "native_assets.json",
+    "Bytes": 45,
+    "SHA256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+  },
+  {
+    "Path": "paraselene_bridge.dll",
+    "Bytes": 3078144,
+    "SHA256": "87F3427022FA8801A01133DA0FBB29274BBA2A581005EA9C94615C781EEEA95D"
+  },
+  {
+    "Path": "paraselene_flutter.exe",
+    "Bytes": 136192,
+    "SHA256": "CE1908A6CA1F9C0D3797BE9F212DD81EE2E9CB7FC7D2BE685AC19C8EB4BA0FCC"
+  },
+  {
+    "Path": "screen_retriever_windows_plugin.dll",
+    "Bytes": 119296,
+    "SHA256": "A544F13AE1E97A6D1041766DA6160D739AF40A6FD78BB15FEA7E494925900243"
+  },
+  {
+    "Path": "vcruntime140_1.dll",
+    "Bytes": 49792,
+    "SHA256": "1F2D41C4AA5DB0BC33EBF7B66D72943A817D7CE6CBE880502A9403823633093F"
+  },
+  {
+    "Path": "vcruntime140.dll",
+    "Bytes": 124544,
+    "SHA256": "D5E4D9A3E835FA679450145D6A7D94E36573A509317111904D9B3712C30D9066"
+  },
+  {
+    "Path": "window_manager_plugin.dll",
+    "Bytes": 130048,
+    "SHA256": "D127DC703ECBA1B3E540508A071D4109FEA75BBF47161F18EA48045AA445585C"
+  },
+  {
+    "Path": "data\\app.so",
+    "Bytes": 5866400,
+    "SHA256": "A36CF85839518A7F0AF786751AF638FD86087461C1209670201C9799B09E9859"
+  },
+  {
+    "Path": "data\\icudtl.dat",
+    "Bytes": 778864,
+    "SHA256": "C12537022EF818991A7BFED41A76D8D6AE962FFBC0E6511AC762A5D0845E7F7C"
+  },
+  {
+    "Path": "data\\flutter_assets\\AssetManifest.bin",
+    "Bytes": 666,
+    "SHA256": "28489C94327F53263A88CA01E88EC5DF2CEB6603EDD6499392FF1B024A083465"
+  },
+  {
+    "Path": "data\\flutter_assets\\AssetManifest.json",
+    "Bytes": 609,
+    "SHA256": "3FD06BE95F4F544794A8B57699A5CDC9B963B1EE1C6C8CA581BDCFF65941B407"
+  },
+  {
+    "Path": "data\\flutter_assets\\FontManifest.json",
+    "Bytes": 456,
+    "SHA256": "55E1D67FB03663C65B903C3A8B0B7C72296FF3751D3CB7D215CBCB5742E20D40"
+  },
+  {
+    "Path": "data\\flutter_assets\\NativeAssetsManifest.json",
+    "Bytes": 45,
+    "SHA256": "9548A31E4A048135C1D94F919328BFB62AE2C7BB3CAB96557C7941DAA97776CB"
+  },
+  {
+    "Path": "data\\flutter_assets\\NOTICES.Z",
+    "Bytes": 84748,
+    "SHA256": "66FE470C048C6C951F59978ED2905D6422F49F44BAB6BD0A751419B32914CF8D"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic-OFL.txt",
+    "Bytes": 4382,
+    "SHA256": "A7A5A25EB188BF1CD96982030D53E23C33485C69B1044A562254226857EE13AF"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoNaskhArabic.ttf",
+    "Bytes": 307592,
+    "SHA256": "67B5A525A661B607971FBD3F96A81B89D3A768E74534FCA84F18AC97E6FAB72F"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Medium.ttf",
+    "Bytes": 9925688,
+    "SHA256": "E604FD1BC15B5486BA160C6F6EC82E18CBFD3E4F35B5BDB19C61CBC49921B1F8"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-OFL.txt",
+    "Bytes": 4388,
+    "SHA256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Regular.ttf",
+    "Bytes": 9932268,
+    "SHA256": "AB0B39D7247643DEC2B24788242EE249C4B9FB875F2E89C05783A20916C7B1B2"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoSansSC-Semibold.ttf",
+    "Bytes": 9922328,
+    "SHA256": "7AD8D58D79D48C4ECA9488998A7CF09AB32B733431291DD309300F0FA40D02AF"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-OFL.txt",
+    "Bytes": 4350,
+    "SHA256": "5E0DA210FB04058A8C0087985D2D456B931C2579811A49655721D3CF0C36B6D6"
+  },
+  {
+    "Path": "data\\flutter_assets\\assets\\fonts\\NotoSerifSC-Regular.ttf",
+    "Bytes": 13938492,
+    "SHA256": "E15ABC6A6AF756362CB14DEFDBF1279CC31509551D21DC451338A3D10B20C97E"
+  },
+  {
+    "Path": "data\\flutter_assets\\fonts\\MaterialIcons-Regular.otf",
+    "Bytes": 1645184,
+    "SHA256": "D9865B671A09D683D13A863089D8825E0F61A37696CE5D7D448BC8023AA62453"
+  },
+  {
+    "Path": "data\\flutter_assets\\shaders\\ink_sparkle.frag",
+    "Bytes": 21320,
+    "SHA256": "E5E61D50C9549BC35382BBBD1C9548D46C4FB9DDF40C3A698415AC7E005516C8"
+  }
+]

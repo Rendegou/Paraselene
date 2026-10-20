@@ -1,0 +1,19 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_snapshot",
+      "args": {
+        "processId": 3648,
+        "activate": false,
+        "includeScreenshot": true,
+        "captureWindow": true,
+        "scope": "active_window",
+        "viewMode": "control",
+        "detailLevel": "compact",
+        "maxDepth": 5,
+        "maxNodes": 250,
+        "maxWidth": 1400
+      }
+    }
+  ]
+}

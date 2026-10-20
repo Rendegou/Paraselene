@@ -1,0 +1,133 @@
+[
+  {
+    "action": "archive-latest-pass",
+    "target": "D:\\MyAgent\\paraselene-flutter\\build\\release-archive\\m1-20261020-1445",
+    "status": "done"
+  },
+  {
+    "action": "delete",
+    "target": "build\\rust-m1-msvc",
+    "files": 14087,
+    "bytes": 8615939783,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "build\\rust-m4-test-msvc",
+    "files": 3012,
+    "bytes": 1855087884,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "rust\\target",
+    "files": 1538,
+    "bytes": 402249153,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "apps\\desktop\\build",
+    "files": 414,
+    "bytes": 329520914,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "apps\\desktop\\.dart_tool",
+    "files": 27,
+    "bytes": 43793891,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "packages\\text_contract\\.dart_tool",
+    "files": 4,
+    "bytes": 28649712,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "spikes\\codemirror_baseline\\dist",
+    "files": 7,
+    "bytes": 17752179,
+    "status": "deleted"
+  },
+  {
+    "action": "delete",
+    "target": "spikes\\codemirror_baseline\\browser-profile",
+    "files": 221,
+    "bytes": 9384436,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-80451878655546a6bc66c2ef566aec04",
+    "files": 65,
+    "bytes": 112785430,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-11cc63a18d03451cb0aa2b3642525810",
+    "files": 65,
+    "bytes": 112844822,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-8c5c1da0f2eb4453b851d337b55258bd",
+    "files": 65,
+    "bytes": 112844822,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-539908b16847424699f0bfe82145b672",
+    "files": 65,
+    "bytes": 112844310,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-952d79ba895f471e84c1a95a6b956fef",
+    "files": 65,
+    "bytes": 112844310,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-0f14da37d8d24792a954f620ebd14bb6",
+    "files": 65,
+    "bytes": 112845334,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-0601b9ecf9714e4bbace6fea49b253f0",
+    "files": 65,
+    "bytes": 112927254,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-703462be59544eb79a51538de1f79859",
+    "files": 65,
+    "bytes": 112927254,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-d1093976dc7f4e1fbfa2e630b64e733c",
+    "files": 65,
+    "bytes": 112927254,
+    "status": "deleted"
+  },
+  {
+    "action": "delete-old-distribution",
+    "target": "m1-distribution-4a552174e0c44c7d80b23e76416b7d6e",
+    "files": 65,
+    "bytes": 112845334,
+    "status": "deleted"
+  }
+]

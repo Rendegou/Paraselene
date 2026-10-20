@@ -1,0 +1,26 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_keypress",
+      "args": {
+        "processId": 3648,
+        "keys": ["CTRL", "F"],
+        "dispatch": "foreground"
+      }
+    },
+    { "wait": 600 },
+    {
+      "tool": "windows_computer_use_snapshot",
+      "args": {
+        "processId": 3648,
+        "activate": false,
+        "includeScreenshot": true,
+        "captureWindow": true,
+        "detailLevel": "compact",
+        "maxDepth": 7,
+        "maxNodes": 400,
+        "maxWidth": 1400
+      }
+    }
+  ]
+}

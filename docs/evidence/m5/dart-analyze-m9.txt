@@ -1,0 +1,7 @@
+Analyzing lib, test...
+
+  error - lib\legacy\character_dialog.dart:206:1 - Directives must appear before any declarations. Try moving the directive before any declarations. - directive_after_declaration
+  error - lib\native\companion_gateway.dart:57:1 - Directives must appear before any declarations. Try moving the directive before any declarations. - directive_after_declaration
+   info - lib\legacy\character_dialog.dart:34:20 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+3 issues found.

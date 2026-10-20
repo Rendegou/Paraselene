@@ -2,6 +2,9 @@
 //! Reorder accepts only the visible non-archived chapter ids; the complete
 //! work document set is reassembled here so lore documents and archived
 //! chapters keep their positions, mirroring the original client merge.
+//!
+//! 重排只接受可见章节 id 且必须与当前目录集合完全一致；版本、草稿与回滚操作依赖核心事务的
+//! revision/head/base CAS 拒绝过期写入。稳定错误码在本模块集中映射，核心的中文解析消息不直接外发。
 use crate::{core_error, err, verify, AppError, ChapterInfo, Session, VersionInfo};
 use paraselene_memory_core::{Database, NovelDocumentSummary};
 use std::collections::BTreeSet;
@@ -56,6 +59,7 @@ pub(crate) fn full_directory_ids(
 pub(crate) fn chapter_error(e: paraselene_memory_core::Error) -> AppError {
     match e {
         paraselene_memory_core::Error::Parse(message) => {
+            // 核心以固定中文消息表达冲突，本映射把消息转成稳定 ASCII 码；消息文本是跨 crate 契约，不能本地化。
             let code = if message.contains("revision 过期") || message.contains("revision 已变化")
             {
                 "revision_conflict"
@@ -76,6 +80,8 @@ pub(crate) fn chapter_error(e: paraselene_memory_core::Error) -> AppError {
 
 impl Session {
     /// Rename a chapter; titles live outside the version tree.
+    ///
+    /// 标题离开版本树；空标题或超长由核心返回 invalid_input。
     pub fn rename_chapter(
         &self,
         work_id: String,
@@ -92,6 +98,8 @@ impl Session {
 
     /// Reorder the non-archived chapters; archived chapters and non-chapter
     /// documents keep their absolute positions in the submitted full set.
+    ///
+    /// ordered_ids 必须恰好是未归档章节集合，否则返回 invalid_input；归档章节与非章文档位置不变。
     pub fn reorder_chapters(
         &self,
         work_id: String,
@@ -125,6 +133,8 @@ impl Session {
     }
 
     /// Archive or restore a chapter idempotently; versions and drafts survive.
+    ///
+    /// 幂等；版本、草稿与讨论线程均保留。
     pub fn set_chapter_archived(
         &self,
         work_id: String,
@@ -140,6 +150,8 @@ impl Session {
     }
 
     /// List archived chapters for the work.
+    ///
+    /// 仅返回 kind=chapter 的归档文档。
     pub fn list_archived_chapters(&self, work_id: String) -> Result<Vec<ChapterInfo>, AppError> {
         self.with_db(|db| {
             Ok(db
@@ -154,6 +166,9 @@ impl Session {
 
     /// Roll back the head to an existing version of the same document. The
     /// working copy is discarded exactly as checked by the core transaction.
+    ///
+    /// 只回滚到同一文档已有版本；head/revision 过期分别返回 head_conflict/revision_conflict，
+    /// 工作副本按核心事务语义处理。
     pub fn rollback_chapter(
         &self,
         work_id: String,
@@ -176,6 +191,8 @@ impl Session {
     }
 
     /// List confirmed versions newest first, including exact bodies.
+    ///
+    /// 新到旧排列并包含精确正文；作品/文档身份不匹配返回 identity_mismatch。
     pub fn list_versions(
         &self,
         work_id: String,
@@ -201,6 +218,8 @@ impl Session {
     }
 
     /// Explicitly discard the working copy; the CAS revision must match.
+    ///
+    /// 只丢弃工作副本，不触碰已确认版本；revision 不匹配返回 revision_conflict。
     pub fn discard_draft(
         &self,
         work_id: String,

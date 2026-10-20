@@ -1,4 +1,7 @@
-param([string]$BundleDirectory, [string]$EvidenceDirectory)
+# 在隔离副本中验证 M1 发布 bundle：真实 DLL 合同探针与缺失 DLL 的失败闭合。
+# 使用复制件与合成数据且不修改原始 bundle，不代表安装器或干净机器部署通过。
+
+param([string]$BundleDirectory, [string]$EvidenceDirectory, [switch]$KeepPreviousDistributions)
 $ErrorActionPreference = 'Stop'
 $m1Root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 if (!$BundleDirectory) { $BundleDirectory = Join-Path $m1Root 'apps\desktop\build\windows\x64\runner\Release' }
@@ -49,3 +52,6 @@ try {
     $m1Status | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $m1Evidence 'copied-bundle-status.json') -Encoding utf8
 }
 $m1Status | ConvertTo-Json
+# 验证只创建、检查本次隔离副本，不删除任何历史副本或失败现场。
+# KeepPreviousDistributions 保留为兼容参数；清理须使用逐包核验的独立台账，
+# 不得仅凭 m1-distribution-* 前缀、创建时间或路径字符串判断可删除性。

@@ -1,0 +1,8 @@
+PASS hidden HWND
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html

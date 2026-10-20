@@ -1,0 +1,4 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_test.dart
+00:00 +0: painted source boxes and Ctrl-click share offset geometry without edits
+00:00 +1: All tests passed!

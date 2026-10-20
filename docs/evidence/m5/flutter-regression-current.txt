@@ -1,0 +1,295 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:00 +0 -1: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_locale_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_locale_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_locale_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -2: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart [E]
+  Error: the Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 907:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone.dart 1538:47                     _rootRunUnary
+  dart:async/zone.dart 1429:19                     _CustomZone.runUnary
+  dart:async/future_impl.dart 951:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 980:13               Future._propagateToListeners
+  dart:async/future_impl.dart 865:9                Future._propagateToListeners
+  dart:async/future_impl.dart 723:5                Future._completeWithValue
+  dart:async/future_impl.dart 807:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone.dart 1525:13                     _rootRun
+  dart:async/zone.dart 1422:19                     _CustomZone.run
+  dart:async/zone.dart 1321:7                      _CustomZone.runGuarded
+  dart:async/zone.dart 1362:23                     _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:21         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:02 +0 -3: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_repository_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_repository_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_repository_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+00:02 +0 -3: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart [E]
+  Error: the Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 907:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone.dart 1538:47                     _rootRunUnary
+  dart:async/zone.dart 1429:19                     _CustomZone.runUnary
+  dart:async/future_impl.dart 951:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 980:13               Future._propagateToListeners
+  dart:async/future_impl.dart 865:9                Future._propagateToListeners
+  dart:async/future_impl.dart 723:5                Future._completeWithValue
+  dart:async/future_impl.dart 807:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone.dart 1525:13                     _rootRun
+  dart:async/zone.dart 1422:19                     _CustomZone.run
+  dart:async/zone.dart 1321:7                      _CustomZone.runGuarded
+  dart:async/zone.dart 1362:23                     _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:21         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:04 +0 -4: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+00:04 +0 -4: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart [E]
+  Error: the Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 907:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone.dart 1538:47                     _rootRunUnary
+  dart:async/zone.dart 1429:19                     _CustomZone.runUnary
+  dart:async/future_impl.dart 951:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 980:13               Future._propagateToListeners
+  dart:async/future_impl.dart 865:9                Future._propagateToListeners
+  dart:async/future_impl.dart 723:5                Future._completeWithValue
+  dart:async/future_impl.dart 807:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone.dart 1525:13                     _rootRun
+  dart:async/zone.dart 1422:19                     _CustomZone.run
+  dart:async/zone.dart 1321:7                      _CustomZone.runGuarded
+  dart:async/zone.dart 1362:23                     _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:21         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:05 +1 -4: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:06 +1 -5: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_close_controller_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_close_controller_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_close_controller_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:07 +2 -6: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:09 +2 -7: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_export_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_export_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_export_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+ - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+    await persistenceBarrier(() async {
+          ^^^^^^^^^^^^^^^^^^
+00:12 +2 -8: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart [E]
+  Failed to load "D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart":
+  Compilation failed for testPath=D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: lib/workspace/workspace_state.dart:60:11: Error: The method 'persistenceBarrier' isn't defined for the class '_WorkspaceState'.
+   - '_WorkspaceState' is from 'package:paraselene_flutter/workspace/workspace_controller.dart' ('lib/workspace/workspace_controller.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'persistenceBarrier'.
+      await persistenceBarrier(() async {
+            ^^^^^^^^^^^^^^^^^^
+  .
+00:14 +2 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +3 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +4 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +5 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +6 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +7 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +8 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +9 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +10 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +11 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +12 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +13 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +14 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +15 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:15 +16 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +17 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +18 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +19 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +20 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +21 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +22 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +23 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +24 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +25 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +26 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +27 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:16 +28 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +29 -8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +29 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +29 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion [E]
+  Expected: '﻿# fixture\r\n'
+              '#### You:\r\n'
+              '我想做一个 Unicode 👩‍💻 工具\r\n'
+              ''
+    Actual: '# fixture\r\n'
+              '#### You:\r\n'
+              '我想做一个 Unicode 👩‍💻 工具\r\n'
+              ''
+     Which: is different.
+            Expected: ﻿# fixture ...
+              Actual: # fixture\ ...
+                      ^
+             Differ at offset 0
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test\m9_real_ffi_test.dart 19:9                     main.<fn>
+  
+00:17 +30 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +31 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +32 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +33 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +34 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +35 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +36 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +37 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +38 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +39 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +40 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +41 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +42 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +43 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:17 +44 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +45 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +46 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +47 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +48 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +49 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +50 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +51 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +52 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +53 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +54 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:18 +55 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +56 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +57 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +58 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +59 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +60 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +61 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +62 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +63 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +64 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +65 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +66 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:19 +67 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +68 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +69 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +70 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +71 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +72 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +73 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +74 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +75 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +76 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +77 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +78 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +79 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +80 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:22 +81 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL prepared decision rejects changed context and body
+00:22 +82 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +83 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +84 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +85 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +86 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +87 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +88 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +89 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +90 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +91 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +92 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +93 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +94 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +95 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +96 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +97 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +98 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +99 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +100 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +101 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +102 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +103 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +104 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +105 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +106 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +107 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +108 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +109 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +110 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +111 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +112 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +113 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +114 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +115 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +116 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +117 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport tall viewport leases more than 32 painters safely
+00:25 +118 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport tap sets collapsed selection at hit offset
+00:25 +119 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport arrow keys move caret vertically
+00:25 +120 -9: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: (tearDownAll)
+00:25 +120 -9: Some tests failed.

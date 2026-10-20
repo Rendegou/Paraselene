@@ -4,8 +4,26 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 
+[features]
+default = []
+test-support = []
+
+[[bin]]
+name = "m4_owned_helper"
+path = "src/bin/m4_owned_helper.rs"
+required-features = ["test-support"]
+
+[[test]]
+name = "m4_owned_store"
+path = "tests/m4_owned_store.rs"
+required-features = ["test-support"]
+
 [dependencies]
 paraselene-memory-core = { path = "../core/memory-core" }
+paraselene-novel-core = { path = "../core/novel-core" }
+paraselene-llm-core = { path = "../core/llm-core" }
+paraselene-character-core = { path = "../core/character-core" }
+keyring = "4"
 tokio = { version = "1", features = ["rt-multi-thread", "time", "sync", "macros"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"

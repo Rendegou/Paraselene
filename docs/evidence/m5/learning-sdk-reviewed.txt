@@ -1,0 +1,1 @@
+Pinned WebView2 SDK is ready. No runtime was installed.

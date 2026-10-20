@@ -1,0 +1,37 @@
+    Checking paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Checking paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+error[E0061]: this function takes 7 arguments but 6 arguments were supplied
+   --> bridge\src\frb_generated.rs:652:18
+    |
+652 |  let output_ok = crate::api::CoreSession::memory_correct(&*api_that_guard, api_selected_space, api_id, api_updated_at, api_title, a...
+    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ------ argument #3 of type `Option<String>` is missing
+    |
+note: method defined here
+   --> bridge\src\api\memory.rs:10:12
+    |
+ 10 |     pub fn memory_correct(&self, selected_space: String, work: Option<String>, id: String, updated_at: String, title: String, summa...
+    |            ^^^^^^^^^^^^^^                                --------------------
+help: provide the argument
+    |
+652 -  let output_ok = crate::api::CoreSession::memory_correct(&*api_that_guard, api_selected_space, api_id, api_updated_at, api_title, api_summary)?;   Ok(output_ok)
+652 +  let output_ok = crate::api::CoreSession::memory_correct(&*api_that_guard, api_selected_space, /* Option<String> */, api_updated_at, api_title, api_summary, api_id)?;   Ok(output_ok)
+    |
+
+error[E0061]: this function takes 4 arguments but 3 arguments were supplied
+   --> bridge\src\frb_generated.rs:694:18
+    |
+694 |  let output_ok = crate::api::CoreSession::memory_detail(&*api_that_guard, api_selected_space, api_id)?;   Ok(output_ok)
+    |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ------ argument #3 of type `Option<String>` is missing
+    |
+note: method defined here
+   --> bridge\src\api\memory.rs:13:12
+    |
+ 13 |     pub fn memory_detail(&self, selected_space: String, work: Option<String>, id: String) -> Result<String, BridgeError> {
+    |            ^^^^^^^^^^^^^                                --------------------
+help: provide the argument
+    |
+694 |  let output_ok = crate::api::CoreSession::memory_detail(&*api_that_guard, api_selected_space, /* Option<String> */, api_id)?;   Ok(output_ok)
+    |                                                                                               +++++++++++++++++++++
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `paraselene-bridge` (lib) due to 2 previous errors

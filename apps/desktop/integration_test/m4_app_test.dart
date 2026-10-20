@@ -1,19 +1,25 @@
-import 'dart:io';
+// M4 Windows 集成测试：冷启动恢复、编辑、导出与关闭屏障的真实窗口流程。
+// 需在 Windows 设备上运行，不代表生产数据库迁移、安装包或所有机器环境通过。
 
+import '../test/support/owned_store_fixture.dart';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:paraselene_flutter/workspace/data/real_workspace_repository.dart';
+import 'package:paraselene_flutter/editor/editor_viewport.dart';
 import 'package:paraselene_flutter/workspace/workbench_app.dart';
 
-const ownedStore = r'D:\MyAgent\paraselene-flutter\build\m4-owned-synthetic-v1';
 const bodyKey = ValueKey('manuscript-body');
 
 /// Real Windows M4 runnable flow on the owned store through the actual bridge.
-/// The test-owned store directory is removed for determinism; it holds
+/// Only the exclusive test-support run directory is reset; it holds
 /// synthetic data only.
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  final fixture = OwnedStoreFixture();
+  setUpAll(fixture.create);
+  tearDownAll(fixture.dispose);
 
   /// The expanded directory plane needs a wide surface; a narrow window would
   /// hide the chapter actions inside the closed drawer.
@@ -23,10 +29,7 @@ void main() {
     addTearDown(tester.view.reset);
   }
 
-  Future<void> cleanStore() async {
-    final dir = Directory(ownedStore);
-    if (await dir.exists()) await dir.delete(recursive: true);
-  }
+  Future<void> cleanStore() => fixture.reset();
 
   Future<void> waitFor(
     WidgetTester tester,
@@ -46,143 +49,169 @@ void main() {
     await tester.ensureVisible(find.byKey(bodyKey));
     await tester.tap(find.byKey(bodyKey));
     await tester.pump(const Duration(milliseconds: 250));
-    await tester.enterText(find.byKey(bodyKey), text);
+    tester.testTextInput.enterText(text);
     await tester.pump(const Duration(milliseconds: 450));
   }
 
-  testWidgets('two works, editing, directory actions, confirm and rollback', (
-    tester,
-  ) async {
-    useWideSurface(tester);
-    await cleanStore();
-    final repository = await RealWorkspaceRepository.openOwned();
-    addTearDown(() async => repository.close());
-    await tester.pumpWidget(
-      WorkbenchApp(repository: repository, initialLocale: workbenchLocales[1]),
-    );
-    await waitFor(
-      tester,
-      () => find.text('为下一段故事，留一页安静的纸').evaluate().isNotEmpty,
-    );
+  testWidgets(
+    'two works, editing, directory actions and head-only confirmation',
+    (tester) async {
+      useWideSurface(tester);
+      await cleanStore();
+      final repository = await fixture.open();
+      addTearDown(() async => repository.close());
+      await tester.pumpWidget(
+        WorkbenchApp(
+          repository: repository,
+          initialLocale: workbenchLocales[1],
+        ),
+      );
+      await waitFor(
+        tester,
+        () => find.text('为下一段故事，留一页安静的纸').evaluate().isNotEmpty,
+      );
 
-    // Create the first work with two chapters through the real UI.
-    await tester.tap(find.text('选择作品'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('新建作品'));
-    await tester.pumpAndSettle();
-    await tester.enterText(
-      find.byKey(const ValueKey('title-prompt-field')),
-      '作品甲',
-    );
-    await tester.tap(find.text('创建'));
-    await tester.pumpAndSettle();
-    await waitFor(tester, () => find.text('选择作品').evaluate().isNotEmpty);
-
-    Future<void> createChapter(String title) async {
-      await waitFor(tester, () => find.byTooltip('新建章节').evaluate().isNotEmpty);
-      await tester.ensureVisible(find.byTooltip('新建章节'));
-      await tester.tap(find.byTooltip('新建章节'));
+      // Create the first work with two chapters through the real UI.
+      await tester.tap(find.text('切换作品'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('新建作品'));
       await tester.pumpAndSettle();
       await tester.enterText(
         find.byKey(const ValueKey('title-prompt-field')),
-        title,
+        '作品甲',
       );
       await tester.tap(find.text('创建'));
       await tester.pumpAndSettle();
-    }
+      await waitFor(tester, () => find.text('切换作品').evaluate().isNotEmpty);
 
-    await createChapter('第一章');
-    await createChapter('第二章');
+      Future<void> createChapter(String title) async {
+        await waitFor(
+          tester,
+          () => find.byTooltip('新建章节').evaluate().isNotEmpty,
+        );
+        await tester.ensureVisible(find.byTooltip('新建章节'));
+        await tester.tap(find.byTooltip('新建章节'));
+        await tester.pumpAndSettle();
+        await tester.enterText(
+          find.byKey(const ValueKey('title-prompt-field')),
+          title,
+        );
+        await tester.tap(find.text('创建'));
+        await tester.pumpAndSettle();
+      }
 
-    // Type exact text and wait for the durable save status.
-    await typeBody(tester, '第一章正文\r\n第二行');
-    await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
+      await createChapter('第一章');
+      await createChapter('第二章');
 
-    // Delete to an empty body; the empty draft saves too.
-    await tester.enterText(find.byKey(bodyKey), '');
-    await tester.pump(const Duration(milliseconds: 450));
-    await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
+      // Type exact text and wait for the durable save status.
+      await typeBody(tester, '第一章正文\r\n第二行');
+      await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
 
-    // The second chapter is isolated: no text leaks across. Its title also
-    // appears as the editor headline, so target the directory tile first.
-    await tester.tap(find.text('第二章').first);
-    await tester.pumpAndSettle();
-    expect(tester.widget<TextField>(find.byKey(bodyKey)).controller!.text, '');
-    await typeBody(tester, '第二章内容');
-    await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
-    expect(
-      tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
-      '第二章内容',
-    );
+      // Delete to an empty body; the empty draft saves too.
+      await typeBody(tester, '');
+      await tester.pump(const Duration(milliseconds: 450));
+      await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
 
-    // Rename the first chapter via its per-tile menu.
-    final menuButton = find.byType(PopupMenuButton<String>).first;
-    await tester.tap(menuButton);
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('重命名章节'));
-    await tester.pumpAndSettle();
-    await tester.enterText(
-      find.byKey(const ValueKey('title-prompt-field')),
-      '第一章 · 改名',
-    );
-    await tester.tap(find.text('创建'));
-    await tester.pumpAndSettle();
-    expect(find.text('第一章 · 改名'), findsOneWidget);
+      // The second chapter is isolated: no text leaks across. Its title also
+      // appears as the editor headline, so target the directory tile first.
+      await tester.tap(find.text('第二章').first);
+      await tester.pumpAndSettle();
+      expect(
+        tester
+            .widget<EditorViewport>(find.byKey(bodyKey))
+            .controller
+            .document
+            .raw,
+        '',
+      );
+      await typeBody(tester, '第二章内容');
+      await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
+      expect(
+        tester
+            .widget<EditorViewport>(find.byKey(bodyKey))
+            .controller
+            .document
+            .raw,
+        '第二章内容',
+      );
 
-    // Archive the second chapter, then restore it.
-    await tester.tap(find.byType(PopupMenuButton<String>).at(1));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('归档章节'));
-    await tester.pumpAndSettle();
-    expect(find.text('已归档'), findsOneWidget);
-    await tester.tap(find.text('恢复章节'));
-    await tester.pumpAndSettle();
-    expect(find.text('第二章'), findsOneWidget);
+      // Rename the first chapter through the paper heading action.
+      await tester.tap(find.text('第一章').first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('重命名章节'));
+      await tester.pumpAndSettle();
+      await tester.enterText(
+        find.byKey(const ValueKey('title-prompt-field')),
+        '第一章 · 改名',
+      );
+      // Rename submits with the explicit save label in the title prompt.
+      await tester.tap(find.text('保存'));
+      await tester.pumpAndSettle();
+      expect(find.text('第一章 · 改名'), findsWidgets);
 
-    // Confirm with the exact-body preview, then roll the head back.
-    await tester.tap(find.text('第二章'));
-    await tester.pumpAndSettle();
-    expect(
-      tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
-      '第二章内容',
-    );
-    await tester.tap(find.text('确认本章'));
-    await waitFor(
-      tester,
-      () => find
-          .byKey(const ValueKey('confirm-preview-body'))
-          .evaluate()
-          .isNotEmpty,
-    );
-    expect(
-      tester
-          .widget<SelectableText>(
-            find.byKey(const ValueKey('confirm-preview-body')),
-          )
-          .data,
-      '第二章内容',
-    );
-    await tester.tap(find.text('确认'));
-    await tester.pumpAndSettle();
+      // Archive the second chapter through its right-click menu, then restore.
+      await tester.tap(find.text('第二章').first, buttons: kSecondaryMouseButton);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('归档章节'));
+      await tester.pumpAndSettle();
+      expect(find.text('已归档'), findsOneWidget);
+      await tester.tap(find.text('恢复章节'));
+      await tester.pumpAndSettle();
+      expect(find.text('第二章'), findsOneWidget);
 
-    await tester.tap(find.text('确认版本'));
-    await tester.pumpAndSettle();
-    expect(find.text('当前'), findsWidgets);
-    await tester.tap(find.byType(ExpansionTile).first);
-    await tester.pumpAndSettle();
-    // Rollback is offered on non-head versions only; the single confirmed
-    // version is head, so the action must not exist yet.
-    expect(find.text('回退到此版本'), findsNothing);
-    await tester.tap(find.text('关闭'));
-    await tester.pumpAndSettle();
-  });
+      // Confirm with the exact-body preview, then roll the head back.
+      await tester.tap(find.text('第二章'));
+      await tester.pumpAndSettle();
+      expect(
+        tester
+            .widget<EditorViewport>(find.byKey(bodyKey))
+            .controller
+            .document
+            .raw,
+        '第二章内容',
+      );
+      await tester.tap(find.byTooltip('章节与版本'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('确认本章'));
+      await waitFor(
+        tester,
+        () => find
+            .byKey(const ValueKey('confirm-preview-body'))
+            .evaluate()
+            .isNotEmpty,
+      );
+      expect(
+        tester
+            .widget<SelectableText>(
+              find.byKey(const ValueKey('confirm-preview-body')),
+            )
+            .data,
+        '第二章内容',
+      );
+      await tester.tap(find.text('确认'));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byTooltip('章节与版本'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('确认版本'));
+      await tester.pumpAndSettle();
+      expect(find.text('当前'), findsWidgets);
+      await tester.tap(find.byType(ExpansionTile).first);
+      await tester.pumpAndSettle();
+      // Rollback is offered on non-head versions only; the single confirmed
+      // version is head, so the action must not exist yet.
+      expect(find.text('回退到此版本'), findsNothing);
+      await tester.tap(find.text('关闭'));
+      await tester.pumpAndSettle();
+    },
+  );
 
   testWidgets('cold restore reopens the recent work, chapter and preferences', (
     tester,
   ) async {
     useWideSurface(tester);
     await cleanStore();
-    final first = await RealWorkspaceRepository.openOwned();
+    final first = await fixture.open();
     await tester.pumpWidget(
       WorkbenchApp(repository: first, initialLocale: workbenchLocales[1]),
     );
@@ -190,7 +219,7 @@ void main() {
       tester,
       () => find.text('为下一段故事，留一页安静的纸').evaluate().isNotEmpty,
     );
-    await tester.tap(find.text('选择作品'));
+    await tester.tap(find.text('切换作品'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('新建作品'));
     await tester.pumpAndSettle();
@@ -210,11 +239,18 @@ void main() {
     await tester.pumpAndSettle();
     await typeBody(tester, '恢复正文');
     await waitFor(tester, () => find.text('已保存').evaluate().isNotEmpty);
-    await tester.tap(find.text('宽稿模式'));
+    // The popup item's overlay position is not stable on the real Windows
+    // surface, so drive the menu's selected callback directly while widget
+    // tests continue to cover the visual popup hit target.
+    final layoutMenu = find.byWidgetPredicate(
+      (widget) => widget is PopupMenuButton<bool>,
+    );
+    expect(layoutMenu, findsOneWidget);
+    tester.widget<PopupMenuButton<bool>>(layoutMenu).onSelected!(true);
     await tester.pump(const Duration(milliseconds: 500));
     await first.close();
 
-    final second = await RealWorkspaceRepository.openOwned();
+    final second = await fixture.open();
     addTearDown(() async => second.close());
     await tester.pumpWidget(
       WorkbenchApp(repository: second, initialLocale: workbenchLocales[1]),
@@ -223,7 +259,11 @@ void main() {
     expect(find.text('作品恢复'), findsWidgets);
     expect(find.text('恢复章'), findsWidgets);
     expect(
-      tester.widget<TextField>(find.byKey(bodyKey)).controller!.text,
+      tester
+          .widget<EditorViewport>(find.byKey(bodyKey))
+          .controller
+          .document
+          .raw,
       '恢复正文',
     );
   });

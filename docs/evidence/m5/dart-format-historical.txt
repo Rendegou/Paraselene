@@ -1,0 +1,8 @@
+Formatted lib\legacy\legacy_draft_card.dart
+Formatted lib\legacy\novel_history_dialog.dart
+Formatted lib\native\generated\api.dart
+Formatted lib\native\generated\api\models.dart
+Formatted lib\native\generated\frb_generated.dart
+Formatted lib\native\generated\frb_generated.io.dart
+Formatted lib\native\generated\frb_generated.web.dart
+Formatted 17 files (7 changed) in 0.78 seconds.

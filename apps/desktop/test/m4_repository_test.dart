@@ -1,3 +1,6 @@
+// 覆盖 M4 真实与合成仓库共用的合同：上下文校验、CAS 冲突与稳定错误码。
+// 合成部分只验证合同表面，真实 DLL 部分也不代表生产数据库或并发写入通过。
+
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/workspace/data/real_workspace_repository.dart';

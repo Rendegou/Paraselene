@@ -1,0 +1,9 @@
+Formatted apps\desktop\lib\legacy\legacy_repository.dart
+Formatted apps\desktop\lib\legacy\memory_actions.dart
+Formatted apps\desktop\lib\legacy\memory_dialog.dart
+Formatted apps\desktop\lib\native\generated\api.dart
+Formatted apps\desktop\lib\native\generated\api\models.dart
+Formatted apps\desktop\lib\native\generated\frb_generated.dart
+Formatted apps\desktop\lib\native\generated\frb_generated.io.dart
+Formatted apps\desktop\lib\native\generated\frb_generated.web.dart
+Formatted 16 files (8 changed) in 0.77 seconds.

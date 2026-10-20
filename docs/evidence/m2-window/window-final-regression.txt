@@ -1,0 +1,30 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:01 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:01 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:02 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: bootstrap failure with no editable session allows framework exit
+00:02 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: registered listener flushes on framework exit signal
+00:02 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: repeated requests share one dialog; repeated retry failure stays visible
+00:03 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+workspace_disposed_with_dirty_text
+00:03 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+workspace_disposed_with_dirty_text
+00:03 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (false)
+workspace_disposed_with_dirty_text
+00:04 +22: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (true)
+workspace_disposed_with_dirty_text
+00:04 +23: All tests passed!

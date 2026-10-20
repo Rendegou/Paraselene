@@ -1,0 +1,11 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 24.46s
+  Executable unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+  Executable tests\m4_hardening.rs (../build/rust-m1-msvc\debug\deps\m4_hardening-d0e166f99917cad0.exe)
+  Executable tests\m4_migration.rs (../build/rust-m1-msvc\debug\deps\m4_migration-73a9f2cb1938e016.exe)
+  Executable tests\m4_owned_provenance.rs (../build/rust-m1-msvc\debug\deps\m4_owned_provenance-5c6f931d408d19f2.exe)
+  Executable tests\m4_selection.rs (../build/rust-m1-msvc\debug\deps\m4_selection-fea3f7f4aa44422c.exe)
+  Executable tests\m4_workspace.rs (../build/rust-m1-msvc\debug\deps\m4_workspace-d2daa402414558e3.exe)
+  Executable tests\m5_discussions.rs (../build/rust-m1-msvc\debug\deps\m5_discussions-991020829b40ea0f.exe)
+  Executable tests\provenance.rs (../build/rust-m1-msvc\debug\deps\provenance-1a56701567c59707.exe)
+  Executable tests\session.rs (../build/rust-m1-msvc\debug\deps\session-c03f55a5ad6ef185.exe)

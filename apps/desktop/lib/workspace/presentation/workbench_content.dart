@@ -1,136 +1,80 @@
+// 工作台内容区：纸面、空态与错误态；正式内容交给手稿编辑面。
+//
+// 只读取 controller 的加载阶段与错误码；不写库、不加载未打开章节正文。
+// 技术错误码原样展示，不泄露异常字符串或私有路径。
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import '../data/workspace_repository.dart';
+
+import '../../theme/workbench_theme.dart';
 import '../workspace_controller.dart';
+import 'editor_action_registry.dart';
 import 'manuscript_editor.dart';
 import 'workbench_chrome.dart';
 
-/// Resolves the four workspace phases at one boundary.
+/// 内容区按加载阶段分发；正式写作、空库与错误态共用同一纸面底色。
 class WorkbenchContent extends StatelessWidget {
   const WorkbenchContent({
     required this.controller,
     required this.labels,
     required this.wide,
+    required this.actions,
+    this.onExitFocus,
     super.key,
   });
   final WorkspaceController controller;
   final WorkbenchLabels labels;
   final bool wide;
+  final EditorActionRegistry actions;
+
+  /// 专注模式的退出动作；由工作台按当前是否专注传入，编辑器据此做最外层 Escape。
+  final VoidCallback? onExitFocus;
+
   @override
   Widget build(BuildContext context) => ColoredBox(
-    color: Theme.of(context).colorScheme.surface,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxHeight: 170),
-          child: SingleChildScrollView(
-            child: WorkspaceStatus(controller: controller, labels: labels),
-          ),
+    color: WorkbenchTokens.paper,
+    child: switch (controller.phase) {
+      WorkspacePhase.loading => const Center(
+        child: SizedBox(
+          width: 160,
+          child: LinearProgressIndicator(minHeight: 2),
         ),
-        Expanded(
-          child: switch (controller.phase) {
-            WorkspacePhase.loading => WorkspaceMessage(
-              labels: labels,
-              title: labels.strings.loading,
-              loading: true,
-            ),
-            WorkspacePhase.empty => WorkspaceMessage(
-              labels: labels,
-              title: labels.strings.noWorksTitle,
-              body: labels.strings.noWorksBody,
-              action: labels.strings.createDemo,
-              onAction: () => unawaited(controller.seedDemo()),
-            ),
-            WorkspacePhase.error => WorkspaceMessage(
-              labels: labels,
-              title: labels.strings.errorTitle,
-              body: labels.strings.errorBody,
-              technicalCode: controller.errorCode,
-              action: labels.strings.retry,
-              onAction: () => unawaited(controller.refresh()),
-            ),
-            WorkspacePhase.content => ManuscriptPreview(
-              controller: controller,
-              labels: labels,
-              wide: wide,
-            ),
-          },
-        ),
-      ],
-    ),
+      ),
+      WorkspacePhase.empty => _EmptyState(
+        labels: labels,
+        title: labels.strings.noWorksTitle,
+        body: labels.strings.noWorksBody,
+        action: labels.strings.createDemo,
+        onAction: () => unawaited(controller.seedDemo()),
+      ),
+      WorkspacePhase.error => _EmptyState(
+        labels: labels,
+        title: labels.strings.errorTitle,
+        body: labels.strings.errorBody,
+        technicalCode: controller.errorCode,
+        action: labels.strings.retry,
+        onAction: () => unawaited(controller.refresh()),
+      ),
+      WorkspacePhase.content => ManuscriptEditor(
+        controller: controller,
+        labels: labels,
+        wide: wide,
+        actions: actions,
+        onExitFocus: onExitFocus,
+      ),
+    },
   );
 }
 
-/// Persistent provenance and language independence disclosure.
-class WorkspaceStatus extends StatelessWidget {
-  const WorkspaceStatus({
-    required this.controller,
-    required this.labels,
-    super.key,
-  });
-  final WorkspaceController controller;
-  final WorkbenchLabels labels;
-  @override
-  Widget build(BuildContext context) {
-    final s = labels.strings;
-    final real = controller.repository.mode == WorkspaceMode.realBridge;
-    return Semantics(
-      liveRegion: true,
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(24, 14, 24, 14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              labels(real ? s.realMode : s.syntheticMode),
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            const SizedBox(height: 6),
-            Text(
-              labels(s.syntheticNotice),
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              labels(s.languageIndependence),
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-/// Author text surface: the temporary M4 editor carries the header, metadata,
-/// save status and exact text in one scrollable plane.
-class ManuscriptPreview extends StatelessWidget {
-  const ManuscriptPreview({
-    required this.controller,
-    required this.labels,
-    required this.wide,
-    super.key,
-  });
-  final WorkspaceController controller;
-  final WorkbenchLabels labels;
-  final bool wide;
-  @override
-  Widget build(BuildContext context) =>
-      ManuscriptEditor(controller: controller, labels: labels, wide: wide);
-}
-
-/// Actionable state messages disclose a technical code without raw exceptions.
-class WorkspaceMessage extends StatelessWidget {
-  const WorkspaceMessage({
+/// 居中空态/错误态：标题、说明、可选技术码与一个主操作。
+class _EmptyState extends StatelessWidget {
+  const _EmptyState({
     required this.labels,
     required this.title,
     this.body,
     this.technicalCode,
     this.action,
     this.onAction,
-    this.loading = false,
-    super.key,
   });
   final WorkbenchLabels labels;
   final String title;
@@ -138,41 +82,58 @@ class WorkspaceMessage extends StatelessWidget {
   final String? technicalCode;
   final String? action;
   final VoidCallback? onAction;
-  final bool loading;
+
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-    padding: const EdgeInsetsDirectional.all(28),
-    child: Center(
+  Widget build(BuildContext context) => Center(
+    child: SingleChildScrollView(
+      padding: const EdgeInsetsDirectional.all(48),
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 560),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if (loading) const LinearProgressIndicator(),
-            const SizedBox(height: 24),
-            Semantics(
-              header: true,
-              child: Text(
-                labels(title),
-                style: Theme.of(context).textTheme.headlineSmall,
+            Text(
+              labels(title),
+              textAlign: TextAlign.center,
+              style: WorkbenchTokens.ui(
+                size: 22,
+                weight: FontWeight.w500,
+                height: 1.7,
               ),
             ),
             if (body != null) ...[
-              const SizedBox(height: 16),
-              Text(labels(body!)),
+              const SizedBox(height: 12),
+              Text(
+                labels(body!),
+                textAlign: TextAlign.center,
+                style: WorkbenchTokens.ui(
+                  size: 14,
+                  color: WorkbenchTokens.muted,
+                  height: 1.9,
+                ),
+              ),
             ],
             if (technicalCode != null) ...[
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
               Text(
                 labels(labels.strings.errorCode('\u2068$technicalCode\u2069')),
+                textAlign: TextAlign.center,
+                style: WorkbenchTokens.ui(
+                  size: 12,
+                  color: WorkbenchTokens.muted,
+                ),
               ),
             ],
             if (action != null) ...[
-              const SizedBox(height: 24),
-              ChromeAction(
-                label: labels(action!),
-                icon: Icons.refresh,
+              const SizedBox(height: 20),
+              TextButton(
                 onPressed: onAction,
+                style: TextButton.styleFrom(
+                  foregroundColor: WorkbenchTokens.accent,
+                  minimumSize: const Size(48, 48),
+                ),
+                child: Text(labels(action!)),
               ),
             ],
           ],

@@ -1,0 +1,52 @@
+[
+  {
+    "Source": "D:/MyAgent/paraselene-work/src-tauri/learning/learning.html",
+    "SHA256": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8",
+    "Role": "read-only migration source"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/src-tauri/learning/learning.js",
+    "SHA256": "19C54799177B278E92064AF07E5FD6A4B49EC1EA05A06A0BA414C287850EC90F",
+    "Role": "read-only migration source"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/src-tauri/learning/learning.css",
+    "SHA256": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9",
+    "Role": "read-only migration source"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/src-tauri/learning/worker.js",
+    "SHA256": "EA17A29A208C751659CD587B8B2C5BA708B18919EF450F18B4C2E19547D76F22",
+    "Role": "read-only migration source"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/public/learning/pyodide/pyodide.mjs",
+    "Target": "apps/desktop/assets/learning/pyodide/pyodide.mjs",
+    "SHA256": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109",
+    "Role": "unmodified bundled runtime"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/public/learning/pyodide/pyodide.asm.mjs",
+    "Target": "apps/desktop/assets/learning/pyodide/pyodide.asm.mjs",
+    "SHA256": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635",
+    "Role": "unmodified bundled runtime"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/public/learning/pyodide/pyodide.asm.wasm",
+    "Target": "apps/desktop/assets/learning/pyodide/pyodide.asm.wasm",
+    "SHA256": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6",
+    "Role": "unmodified bundled runtime"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/public/learning/pyodide/pyodide-lock.json",
+    "Target": "apps/desktop/assets/learning/pyodide/pyodide-lock.json",
+    "SHA256": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010",
+    "Role": "unmodified bundled runtime"
+  },
+  {
+    "Source": "D:/MyAgent/paraselene-work/public/learning/pyodide/python_stdlib.zip",
+    "Target": "apps/desktop/assets/learning/pyodide/python_stdlib.zip",
+    "SHA256": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A",
+    "Role": "unmodified bundled runtime"
+  }
+]

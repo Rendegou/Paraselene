@@ -1,0 +1,13 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_application-3f2sgelggwr82\s-hnbytydctk-0mt2ycz-working`
+
+warning: `paraselene-application` (lib) generated 1 warning
+   Compiling paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_bridge-0tshaixbwslne\s-hnbyu1i7h0-0srnx66-working`
+
+warning: linker stdout: 正在创建库 D:\MyAgent\paraselene-flutter\rust\../build/rust-m1-msvc\debug\deps\paraselene_bridge.dll.lib 和对象 D:\MyAgent\paraselene-flutter\rust\../build/rust-m1-msvc\debug\deps\paraselene_bridge.dll.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `paraselene-bridge` (lib) generated 2 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 16.68s

@@ -1,3 +1,6 @@
+// 覆盖保存协调器的竞态：重入发布、在途保存与监听器重入 flush 不产生过期状态。
+// 只用合成仓库驱动 Dart 状态机，不代表真实 Rust 事务或 Windows 磁盘时序通过。
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/domain/editing/save_coordinator.dart';
 import 'save_fixture.dart';

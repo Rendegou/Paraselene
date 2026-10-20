@@ -1,0 +1,5 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Building Windows application...                                 
+LINK : fatal error LNK1168: 无法打开 D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Debug\paraselene_flutter.exe 进行写入 [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\paraselene_flutter.vcxproj]
+Building Windows application...                                    14.3s
+Build process failed.

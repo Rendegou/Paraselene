@@ -1,3 +1,6 @@
+# 校验 M2 工作台：ARB 对齐、gen-l10n、format/analyze、行为测试与真实字体 golden。
+# 默认跳过 Windows 构建与集成；golden 受字体和平台影响，不代表真机验收通过。
+
 param(
     [string]$FlutterExecutable='D:\flutter_sdk\flutter\bin\flutter.bat',
     [string]$DartExecutable='D:\flutter_sdk\flutter\bin\cache\dart-sdk\bin\dart.exe',

@@ -1,0 +1,15 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart
+00:00 +0: native and framework requests share the dirty close barrier
+00:01 +1: bootstrap failure with no editable session allows framework exit
+00:01 +2: registered listener flushes on framework exit signal
+00:01 +3: repeated requests share one dialog; repeated retry failure stays visible
+00:01 +4: cancelled export never shows success or exit action
+workspace_disposed_with_dirty_text
+00:02 +5: failed export reports error and never enables exit
+workspace_disposed_with_dirty_text
+00:02 +6: verified export keeps editor frozen through exit decision (false)
+workspace_disposed_with_dirty_text
+00:02 +7: verified export keeps editor frozen through exit decision (true)
+workspace_disposed_with_dirty_text
+00:02 +8: All tests passed!

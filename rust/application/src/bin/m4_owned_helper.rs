@@ -1,6 +1,9 @@
 //! Cross-process helper for owned-store verification. Each invocation is a
 //! fresh native process; the parent integration test supplies an isolated
 //! store root and compares canonical dumps byte-for-byte.
+//!
+//! 该二进制只用于进程级验证而非生产 API：子命令 seed/dump/hold/crashy/seed-hold/boundary
+//! 由父进程集成测试驱动，输出为规范文本镜像。
 use paraselene_application::Session;
 use std::{io::Write, path::Path};
 
@@ -11,6 +14,8 @@ fn main() {
         Some("dump") => dump(&args[2]),
         Some("hold") => hold(&args[2], &args[3]),
         Some("crashy") => crashy(&args[2]),
+        Some("seed-hold") => seed_hold(&args[2]),
+        Some("boundary") => boundary(&args[2], &args[3]),
         other => {
             eprintln!("unknown command {other:?}");
             2
@@ -47,7 +52,12 @@ fn seed_inner(root: &str) -> Result<(), paraselene_application::AppError> {
         "第一行\r\n第二行 👩\u{200d}💻 é".into(),
     )?;
     s.save(wa.id.clone(), a2.id.clone(), None, String::new())?;
-    s.save(wb.id.clone(), b1.id.clone(), None, "序章正文".into())?;
+    s.save(
+        wb.id.clone(),
+        b1.id.clone(),
+        None,
+        "序章正文 e\u{301} é\r\n".into(),
+    )?;
     let snapshot = s.load(wa.id.clone(), a1.id.clone())?;
     let prepared = s.prepare_confirmation(
         wa.id.clone(),
@@ -56,6 +66,12 @@ fn seed_inner(root: &str) -> Result<(), paraselene_application::AppError> {
         snapshot.revision.unwrap(),
     )?;
     s.confirm_chapter(wa.id.clone(), a1.id.clone(), prepared.token)?;
+    s.save(
+        wa.id.clone(),
+        a1.id.clone(),
+        s.load(wa.id.clone(), a1.id.clone())?.revision,
+        "确认后草稿 e\u{301}".into(),
+    )?;
     s.set_ui_session(
         wa.id.clone(),
         format!(
@@ -79,6 +95,40 @@ fn dump(root: &str) -> i32 {
             1
         }
     }
+}
+
+fn wait_for_kill(marker: &str) -> ! {
+    println!("{marker}");
+    std::io::stdout().flush().unwrap();
+    loop {
+        std::thread::park();
+    }
+}
+
+fn seed_hold(root: &str) -> i32 {
+    if seed(root) != 0 {
+        return 1;
+    }
+    let _s = open(root).unwrap();
+    // Keep a live session and the complete fixture at forced termination.
+    wait_for_kill("SAVED")
+}
+
+fn boundary(root: &str, stage: &str) -> i32 {
+    let s = open(root).unwrap();
+    dump_state(&s).unwrap();
+    println!("BEFORE");
+    std::io::stdout().flush().unwrap();
+    let work = s
+        .list_works()
+        .unwrap()
+        .into_iter()
+        .find(|w| w.title == "作品乙")
+        .unwrap();
+    std::env::set_var("PARASELENE_M4_PUBLISH_GATE", stage);
+    s.set_ui_session(work.id, "{\"schemaVersion\":1,\"wide\":true}".into())
+        .unwrap();
+    panic!("gate did not stop publication")
 }
 
 fn hold(root: &str, millis: &str) -> i32 {
@@ -121,7 +171,7 @@ fn crashy(root: &str) -> i32 {
 }
 
 /// Canonical textual image: ids, revisions, hashes, directory and settings.
-/// Bodies are proven by BLAKE3 content hash, not printed.
+/// Synthetic bodies are printed as escaped JSON and independently hashed.
 fn dump_state(s: &Session) -> Result<(), paraselene_application::AppError> {
     let state = s.workspace_state()?;
     println!(
@@ -167,6 +217,11 @@ fn dump_state(s: &Session) -> Result<(), paraselene_application::AppError> {
                 doc.content_hash.as_deref().unwrap_or("-"),
                 doc.body.chars().count(),
             );
+            println!(
+                "bodyHash={}|body={}",
+                blake3::hash(doc.body.as_bytes()),
+                serde_json::to_string(&doc.body).unwrap()
+            );
             for v in s.list_versions(work.id.clone(), chapter.id.clone())? {
                 println!(
                     "version={}|parent={}|head={}|len={}",
@@ -174,6 +229,11 @@ fn dump_state(s: &Session) -> Result<(), paraselene_application::AppError> {
                     v.parent_version_id.as_deref().unwrap_or("-"),
                     v.is_head,
                     v.body.chars().count(),
+                );
+                println!(
+                    "versionBodyHash={}|body={}",
+                    blake3::hash(v.body.as_bytes()),
+                    serde_json::to_string(&v.body).unwrap()
                 );
             }
         }

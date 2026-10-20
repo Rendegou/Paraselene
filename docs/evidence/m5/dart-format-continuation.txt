@@ -1,0 +1,19 @@
+Formatted lib\editor\editor_clipboard.dart
+Formatted lib\editor\editor_history.dart
+Formatted lib\editor\editor_values.dart
+Formatted lib\cowrite\discussion_panel.dart
+Formatted lib\legacy\character_dialog.dart
+Formatted lib\legacy\companion_service.dart
+Formatted lib\legacy\idea_dialog.dart
+Formatted lib\legacy\import_preview_view.dart
+Formatted lib\legacy\imported_dialog.dart
+Formatted lib\legacy\legacy_repository.dart
+Formatted lib/native/companion_gateway.dart
+Formatted lib\workspace\presentation\editor_status.dart
+Formatted lib\workspace\presentation\editor_tools.dart
+Formatted lib\workspace\presentation\manuscript_editor.dart
+Formatted lib\workspace\workbench_app.dart
+Formatted lib\workspace\workspace_close.dart
+Formatted lib\workspace\workspace_controller.dart
+Formatted lib\workspace\workspace_cowrite.dart
+Formatted 58 files (18 changed) in 1.09 seconds.

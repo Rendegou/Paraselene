@@ -1,0 +1,8 @@
+Analyzing desktop...
+
+   info - lib\legacy\memory_actions.dart:110:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\memory_actions.dart:140:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\workspace_cowrite.dart:5:16 - The member 'persistenceBarrier' overrides an inherited member but isn't annotated with '@override'. Try adding the '@override' annotation. - annotate_overrides
+   info - test\editor\editor_history_test.dart:1:8 - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter_test/flutter_test.dart'. Try removing the import directive. - unnecessary_import
+
+4 issues found.

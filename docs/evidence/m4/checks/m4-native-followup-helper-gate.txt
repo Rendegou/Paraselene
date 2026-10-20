@@ -1,0 +1,2 @@
+error: target `m4_owned_helper` in package `paraselene-application` requires the features: `test-support`
+Consider enabling them by passing, e.g., `--features="test-support"`

@@ -1,0 +1,13 @@
+{
+  "calls": [
+    {
+      "tool": "windows_computer_use_find",
+      "args": {
+        "processId": 3648,
+        "query": "创建示例材料",
+        "ocrFallback": true,
+        "maxResults": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\build\\learning-native\\Release\\learning_native_probe.exe",
+    "Hash": "2EFA3B8050DF0C3B281B6D9E1379C8F12615C965B51F7116315CF3D958329E3E"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\build\\learning-native\\Release\\learning_channel_probe.exe",
+    "Hash": "4A63512B0187E6B7485CF52764370FC3C216CFB2BD2FAB43F8825350E0A73819"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\windows\\runner\\learning_window.cpp",
+    "Hash": "09E6BAAF26BBE39B849EA9CD069F3BB5DE9F001E3959907D833405D791BEA965"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\windows\\runner\\learning_window.h",
+    "Hash": "46E05DF2ED9EF393DB393F5A1788BF371374CC5F296588C2F7F0B5428CB2D502"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\windows\\runner\\learning_security.cpp",
+    "Hash": "B108B5C8C7AB79FF3E9BB528A93799C49D0CB0868F0B56DE7B1EB117826FC9B7"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\windows\\runner\\learning_profile.cpp",
+    "Hash": "BAC35C1807E4DE6671731ACFFA81468CD73000C8E7BE763776A228078608E287"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\tests\\learning_native\\probe.cpp",
+    "Hash": "3C7587AA3B398488E508CC6E910446D440343AAACA4DCCAD074C58357335C6D7"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\tests\\learning_native\\channel_probe.cpp",
+    "Hash": "F96BCFA3BDFABEFFD3D84E8660C061363F0BFA1113EC5B24C9D153BF62DFFCBB"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\tests\\learning_native\\CMakeLists.txt",
+    "Hash": "76B054C75009E4122643F237944362EA73B3287625FA2F52521582C686140266"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\index-en.html",
+    "Hash": "9B5E7AD3C46FD703F5223F18D667A9B2404C1AEEEA97650DD9F426E414BC651B"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\index.html",
+    "Hash": "948CDF456191FD38118B14CF3B598AEF7D78726C212C7BFF607A44C99FF6D7E8"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\learning-en.js",
+    "Hash": "529ED27FC1FA3F10CC7F20B5E869930FABE91FE195262EF0A6DC1AB9E3FAFAC2"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\learning.css",
+    "Hash": "0CBF0B4E71BC923BACBE2DF5B890E8948125DADDF66DD0FEAB2AF41F1D9F83D9"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\learning.js",
+    "Hash": "7099DDD062ADACF01BBEF22202243983CFDE7AD98432FEDB1EE777B996022DC5"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\MPL-2.0.txt",
+    "Hash": "3F3D9E0024B1921B067D6F7F88DEB4A60CBE7A78E76C64E3F1D7FC3B779B9D04"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\PSF-LICENSE.txt",
+    "Hash": "B0E25A78CFFB43F4D92DE8B61CCFA1F1F98ECBC22330B54B5251E7B6BA010231"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\THIRD_PARTY_NOTICES.txt",
+    "Hash": "C9FFE1328C1DAC334F48EEA42E2A8C87C47CDCCC15B3E4E2766CB43B392A9BF6"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\worker-en.js",
+    "Hash": "3E2B020AAEEC3F21A5768920162ED7A1324A8E163910F95696C94FCFFB5145E6"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\worker.js",
+    "Hash": "C09C038F0ECFA6A0C9C63D8041061646FE8B56289C91E963F573222C41A226D8"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\pyodide\\pyodide-lock.json",
+    "Hash": "5DC2FC119108BC148C7457DC86E7675B5C87E1CAFD420B9C34C1EAEF7B36C010"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.mjs",
+    "Hash": "F7CDC8ECE80678CEB712F8E65EBE6D3A83203A180C399865F49612A051693635"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.asm.wasm",
+    "Hash": "CC36E3CAB04FDFC9A63FF13EB52EAE2B911BF46C025CC7B281F394BD3DE1D5E6"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\pyodide\\pyodide.mjs",
+    "Hash": "6F1D60F7BF529BEB300F0F47983C921D3982363640BA20AF0E38EFDDDBC66109"
+  },
+  {
+    "Path": "D:\\MyAgent\\paraselene-flutter\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\flutter_assets\\assets\\learning\\pyodide\\python_stdlib.zip",
+    "Hash": "FA1957E5777068FC4F7437F96D860AE2FBE9C19732BA06C84E004EC16DD7DD7A"
+  }
+]

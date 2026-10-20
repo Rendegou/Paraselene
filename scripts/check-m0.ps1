@@ -1,3 +1,6 @@
+# 校验 M0 纯 Dart/Rust 合同：format、analyze、test、synthetic probe 与 Rust 指纹黄金值。
+# 只汇总命令退出码与证据 JSON，不代表 Windows/FFI/IME 或 Release 构建通过。
+
 param(
     [string]$DartExecutable = 'D:\flutter_sdk\flutter\bin\cache\dart-sdk\bin\dart.exe',
     [ValidateSet('All','Vectors')][string]$Check = 'All',

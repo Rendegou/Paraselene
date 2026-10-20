@@ -1,0 +1,11 @@
+Analyzing desktop...
+
+   info - lib\lore\source_mark_controller.dart:43:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\lore\source_mark_controller.dart:49:11 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\manuscript_editor.dart:143:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\source_navigation.dart:24:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\source_navigation.dart:50:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\source_navigation.dart:72:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\presentation\source_navigation.dart:82:5 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+
+7 issues found.

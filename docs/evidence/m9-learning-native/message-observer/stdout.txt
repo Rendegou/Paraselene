@@ -1,0 +1,33 @@
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning-en.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+RESOURCE https://learning-sandbox.invalid/worker-en.js
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.mjs
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide-lock.json
+RESOURCE https://learning-sandbox.invalid/pyodide/python_stdlib.zip
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.wasm
+RESOURCE https://learning-sandbox.invalid/pyodide/pyodide.asm.mjs
+PASS worker completes or timeout terminates
+STATUS "3 / 3 tests passed" DETAIL "double(2) → 4, expected 4: passed\ndouble(0) → 0, expected 0: passed\ndouble(-3) → -6, expected -6: passed"
+PASS Python expected values
+PASS host objects and web messaging disabled
+PASS native message observer
+RESOURCE https://learning-sandbox.invalid/not-allowlisted
+PASS resource attacks finish
+PASS unknown assets network file and module blocked
+PASS page cannot deliver native message
+RESOURCE https://example.invalid/escape
+NAV success=0 error=14

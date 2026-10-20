@@ -60,11 +60,11 @@
   "@readOnlyHint": {
     "description": "Workbench: readOnlyHint"
   },
-  "focusOn": "Focus mode",
+  "focusOn": "Focus",
   "@focusOn": {
     "description": "Workbench: focusOn"
   },
-  "focusOff": "Leave focus mode",
+  "focusOff": "Exit focus",
   "@focusOff": {
     "description": "Workbench: focusOff"
   },
@@ -76,7 +76,7 @@
   "@wideOff": {
     "description": "Workbench: wideOff"
   },
-  "languageLabel": "Interface language",
+  "languageLabel": "Language",
   "@languageLabel": {
     "description": "Workbench: languageLabel"
   },
@@ -275,7 +275,7 @@
   "@confirmTitle": {
     "description": "Workbench: M4 actions confirmTitle"
   },
-  "confirmNotice": "A new confirmed version is created. The working draft is kept and rebased onto it.",
+  "confirmNotice": "Ctrl+S and autosave write the working draft only; confirming creates a new official version and keeps the draft rebased onto it.",
   "@confirmNotice": {
     "description": "Workbench: M4 actions confirmNotice"
   },
@@ -314,6 +314,10 @@
   "createAction": "Create",
   "@createAction": {
     "description": "Workbench: M4 actions createAction"
+  },
+  "saveAction": "Save",
+  "@saveAction": {
+    "description": "Workbench: title prompt submit action when renaming an existing title"
   },
   "cancelAction": "Cancel",
   "@cancelAction": {
@@ -388,5 +392,362 @@
   "recoveryFilenameSuffix": "readable_chapter_recovery",
   "@recoveryFilenameSuffix": {
     "description": "Localized suffix of the recovery export filename."
-  }
+  },
+  "windowMinimize": "Minimize",
+  "@windowMinimize": {
+    "description": "Desktop title bar: windowMinimize"
+  },
+  "windowMaximize": "Maximize",
+  "@windowMaximize": {
+    "description": "Desktop title bar: windowMaximize"
+  },
+  "windowRestore": "Restore",
+  "@windowRestore": {
+    "description": "Desktop title bar: windowRestore"
+  },
+  "windowClose": "Close window",
+  "@windowClose": {
+    "description": "Desktop title bar: windowClose"
+  },
+  "windowActionFailed": "The window action failed. Try again or use the system window menu.",
+  "@windowActionFailed": {
+    "description": "Desktop title bar: windowActionFailed"
+  },
+  "discussSelection": "Discuss selection",
+  "discussions": "Discussions",
+  "discussionDraft": "Unsent draft",
+  "discussionInvalid": "This quote has changed. Its original text is preserved.",
+  "discussionSaveFailed": "Discussion could not be saved. Your draft is kept; retry before leaving.",
+  "discussionEmpty": "No discussions yet",
+  "candidateCompare": "Compare",
+  "candidateApply": "Apply candidate",
+  "candidateReject": "Reject candidate",
+  "candidateOriginal": "Original selection",
+  "candidateReplacement": "Candidate",
+  "candidateApplyNotice": "Applying writes the candidate into the working draft only. You can undo it once; no official version is created.",
+  "candidateApplyFailed": "The candidate was not written: the text or original target has changed. Review again before applying.",
+  "discussionHistory": "History",
+  "editorOperationFailed": "The edit or clipboard action could not be completed. Your text is kept.",
+  "editorRenderingUnsupported": "This text cannot be displayed by the current layout. Text is kept; undo or export the draft.",
+  "editorAccessibleLabel": "Manuscript editor",
+  "discussionSaved": "Discussion saved",
+  "referenceMaterials": "Reference materials",
+  "referenceEmpty": "No source references",
+  "historicalSource": "Historical source",
+  "loreTitle": "Reference library",
+  "mapPreview": "Map preview (positions are session-only)",
+  "close": "Close",
+  "cancel": "Cancel",
+  "deepseekSettings": "DeepSeek settings",
+  "deepseekKey": "New API key (stored only in Windows Credential Manager)",
+  "deepseekEnable": "Enable official DeepSeek for this synthetic workspace",
+  "deepseekDeleteKey": "Delete key and disable cloud",
+  "deepseekSaveSettings": "Save settings",
+  "deepseekFeeNotice": "Sending these complete messages to official DeepSeek may incur charges. Review all content before approving. Cancellation may not prevent provider charges; requests are never retried automatically.",
+  "generationPreview": "Review outgoing messages",
+  "generationCancel": "Cancel generation",
+  "generationApprove": "Approve these messages and send once",
+  "generationFailed": "The request could not be completed. Your text and draft are kept; review again before a new request.",
+  "backupRehearsed": "Restore verified: {count} works. The temporary library has been closed.",
+  "bindSource": "Bind selection as source",
+  "referenceUse": "Use selected materials",
+  "backupRehearse": "Verify restore in isolation",
+  "fullBackup": "Full synthetic backup",
+  "sourceBindingFailed": "Source binding failed. Save and confirm this exact chapter text before binding.",
+  "backupFailed": "Backup or restore verification failed. The current library is still open.",
+  "backupDisclosure": "Includes manuscripts, versions, discussions and settings. Encrypted for this Windows user; no API key. Restore rehearsal uses a separate temporary library and leaves the current library in place.",
+  "backupSaved": "Backup written and restore verified",
+  "@backupRehearsed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "characterPlayful": "Playful",
+  "characterStar": "Star",
+  "characterConcise": "Concise",
+  "legacyPatches": "Historical candidate changes",
+  "legacyDrafts": "Historical drafts",
+  "characterCloud": "Cloud",
+  "novelMemory": "Novel memories",
+  "saveMemory": "Save",
+  "addMemory": "Add memory",
+  "characterName": "Private display name",
+  "novelHistory": "Novel review history",
+  "characterGentle": "Gentle",
+  "correctMemory": "Edit memory",
+  "characterPack": "Declarative character pack",
+  "openQuestions": "Open questions in confirmed text",
+  "learningMemory": "Learning memories",
+  "memoryTitle": "Title",
+  "memoryLibrary": "Memory library",
+  "historyInvalid": "This historical record cannot be read.",
+  "chapterSummary": "Chapter summary",
+  "importCharacter": "Import character pack",
+  "exportCharacter": "Export character pack",
+  "memoryBody": "Content",
+  "characterPackDisclosure": "The pack includes appearance and voice only. Your private name is retained locally. Scripts, paths and extra fields are rejected.",
+  "personalMemory": "Personal memories",
+  "applyBlock": "Apply this block",
+  "characterSettings": "Character settings",
+  "characterMoon": "Moon",
+  "memoryEmpty": "No confirmed memories in this space.",
+  "oldIdeas": "Old ideas",
+  "preserveTextLanguage": "Keep manuscript language",
+  "workspaceTools": "Workspace tools",
+  "companionOpen": "Open workspace",
+  "nextIdea": "Next idea",
+  "importConfirm": "Confirm this import",
+  "companionDisclosure": "Enabled for this session. Full screen and Focus sessions hide the companion; unknown quiet status keeps it hidden.",
+  "noIdea": "No further idea candidates in imported user messages.",
+  "searchImported": "Search imported messages",
+  "importPartial": "Partial preview or parse warnings: review the selected source before confirming.",
+  "importedLibrary": "Imported conversations",
+  "companionHide": "Show / hide companion",
+  "importDisclosure": "Choose a UTF-8 JSON, JSONL or Markdown file up to 16 MiB. Only this file is read. Preview shows up to 10 messages per conversation and 1,500 characters per message; the full parsed package is saved on confirmation. No network requests.",
+  "sourceOriginal": "Complete selected source file",
+  "importDone": "Import committed. Search the imported messages below.",
+  "importSelectedFile": "Choose a conversation file",
+  "desktopCompanion": "Desktop companion",
+  "companionQuit": "Save and quit",
+  "confirmIdea": "Save this idea",
+  "companionFailed": "The desktop companion stopped. Open character settings to enable it again.",
+  "learningExercise": "Five-minute exercise",
+  "learningUnavailable": "The isolated exercise could not open. It requires a recent Microsoft Edge WebView2 runtime and all bundled learning resources.",
+  "parsedImportedMessage": "Imported message (parsed)",
+  "convertNovel": "Create novel project",
+  "ideaWrong": "No longer valid",
+  "ideaDone": "Done",
+  "memoryActions": "Memory actions",
+  "memoryMutationNotice": "Confirm this change? Status updates check the current state. Conversion creates a target with recorded sources and cannot be repeated.",
+  "deleteMemory": "Delete this memory",
+  "ideaLiked": "Still interested",
+  "ideaStarted": "Started",
+  "deleteMemoryNotice": "This hides the memory. Imported conversations and source files are retained.",
+  "convertPersonal": "Create personal memory",
+  "convertLearning": "Create learning goal",
+  "ideaShelved": "Shelved",
+  "exportMemory": "Export this memory",
+  "historicalAi": "AI draft",
+  "loadHistoricalDraft": "Load into working draft",
+  "discardHistoricalDraft": "Discard this draft",
+  "historicalDiscarded": "Discarded",
+  "historicalAuthor": "Author text",
+  "loadHistoricalNotice": "Replace the current working draft with this historical text, keeping editor undo history. It remains unconfirmed: review it before confirming the chapter. The historical draft stays pending.",
+  "historicalUnknown": "Unknown status",
+  "historicalPending": "Pending",
+  "historicalAccepted": "Accepted",
+  "discardHistoricalNotice": "Mark only this pending draft as discarded. Its text remains readable. The current working draft and confirmed versions are retained.",
+  "rpgNewScene": "New scene",
+  "summaryTaskNotice": "Uses only the confirmed chapter, ignoring the working copy. Summaries are discardable derived material; source changes prevent publication. Review and approve every rebuild.",
+  "rpgReply": "Protagonist reply (1–300 characters)",
+  "rebuildSummary": "Rebuild chapter summary",
+  "rpgTitle": "RPG drafting",
+  "rpgTaskNotice": "Scenes stay temporary. Choose or write the protagonist reply, review the materials again and approve. The result is saved only as a pending draft.",
+  "rpgDirection": "Scene direction (1–500 characters)",
+  "summaryTaskDone": "Summary rebuilt. Manuscript text is unchanged.",
+  "rpgDraftDone": "Saved as a pending draft. Review, load or discard it in chapter history.",
+  "loreAliases": "Aliases (one per line)",
+  "loreScope": "Scope: whole / retrospective / from:chapter ID",
+  "openSourceChapter": "Locate source chapter",
+  "mapRelation": "Relation",
+  "mapRelationsHelp": "Layout and relations are previews for this window and are not saved. Drag location cards and scroll to zoom. Select Relation on two locations to add or remove a link.",
+  "loreScopeRetrospective": "Retrospective change",
+  "loreScopeFromChapter": "From chapter:",
+  "loreScopeWhole": "Throughout the story",
+  "summaryReady": "Summary is current",
+  "rebuildRunning": "Rebuilding",
+  "rebuildDone": "Rebuild completed",
+  "rebuildQueued": "Waiting for a new review and approval",
+  "rebuildFailed": "Rebuild did not complete. Review again to retry.",
+  "summaryStale": "Summary is stale. Review and rebuild it before relying on it as current confirmed content.",
+  "refreshSources": "Refresh sources",
+  "manuscriptSources": "Manuscript sources",
+  "sourceMarksHint": "Ctrl-click an underline to open its linked material.",
+  "sourceMarksFailed": "Sources could not load. Refresh to retry.",
+  "sourceMarksLoading": "Loading sources…",
+  "sourceMarksEmpty": "No sources in this chapter",
+  "sourceOpenFailed": "Could not open the linked entry. Try again.",
+  "sourceOpenRetry": "Try again",
+  "findInChapter": "Find",
+  "findPrompt": "Find in this chapter",
+  "findNext": "Next match",
+  "findNoMatch": "No matching text in this chapter.",
+  "findPosition": "Found at character {position}",
+  "@findPosition": {
+    "description": "Chapter find: 1-based Unicode code-point position of the match",
+    "placeholders": {
+      "position": {
+        "type": "String"
+      }
+    }
+  },
+  "chapterCharacters": "Chapter · {count} characters",
+  "@chapterCharacters": {
+    "description": "Chapter heading: character count by Unicode code point",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chapterEnd": "End of chapter",
+  "undo": "Undo",
+  "redo": "Redo",
+  "chapterDiscussion": "Discuss",
+  "discussionIndex": "Discussions · {count}",
+  "@discussionIndex": {
+    "description": "Toolbar discussion index count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "discussionWholeChapter": "Whole-chapter discussion",
+  "discussionSelection": "Selection",
+  "discussionValid": "Open for discussion",
+  "discussionHasDraft": "Unsaved draft",
+  "discussionGenerationUnavailable": "Whole-chapter discussions and threads whose original target changed keep drafts and history only; generation needs a valid selection.",
+  "searchChapters": "Search chapters",
+  "noMatchingChapters": "No matching chapters.",
+  "searchResources": "Search materials",
+  "@searchResources": {
+    "description": "Sidebar search placeholder when the materials tab is active"
+  },
+  "noMatchingResources": "No matching materials.",
+  "@noMatchingResources": {
+    "description": "Sidebar materials tab empty state when the search has no match"
+  },
+  "exportWork": "Export manuscript and lore",
+  "exportWorkDone": "Manuscript and lore exported",
+  "exportLoreCount": "{count} lore entries exported",
+  "@exportLoreCount": {
+    "description": "Markdown export: number of lore entries appended",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exportManuscriptSuffix": "manuscript-and-lore",
+  "ideaTarget": "Converted target",
+  "ideaTargetOpen": "Open target",
+  "ideaTargetTitleLabel": "Target title",
+  "ideaTargetSummaryLabel": "Target note",
+  "ideaTargetSave": "Save target",
+  "ideaTargetSaved": "Target saved.",
+  "ideaTargetFailed": "The target could not be saved; refresh and retry.",
+  "ideaTargetMissing": "This old idea has no convertible target.",
+  "ideaTargetSource": "Recorded sources",
+  "ideaTargetNovelSync": "Editing a novel target also renames its project.",
+  "sideChapters": "Chapters",
+  "sideResources": "Materials",
+  "searchWorks": "Search work",
+  "@searchWorks": {
+    "description": "Work picker search placeholder"
+  },
+  "noMatchingWorks": "No matching works.",
+  "@noMatchingWorks": {
+    "description": "Work picker empty state when the search has no match"
+  },
+  "switchWork": "Switch work",
+  "sidebarReal": "Local work · SQLite",
+  "sidebarSynthetic": "Sample work · local preview",
+  "resourcesEmpty": "No story materials yet.",
+  "loreReadFailed": "Story materials could not load. Try again.",
+  "@loreReadFailed": {
+    "description": "Sidebar materials tab load failure message with retry entry"
+  },
+  "newEntity": "New material",
+  "chapterAndVersions": "Versions",
+  "layoutMenu": "Layout",
+  "layoutComfort": "Comfortable · 760 px",
+  "layoutWide": "Wide · 920 px",
+  "modelSettings": "Model settings",
+  "moreTools": "More",
+  "exportMenu": "Export",
+  "chapterMeta": "{work} · {count} characters",
+  "@chapterMeta": {
+    "description": "Chapter heading meta: work title and code-point character count",
+    "placeholders": {
+      "work": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectionCount": "{count} characters selected",
+  "@selectionCount": {
+    "description": "Selection toolbar: selected code-point character count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "loreGroupCharacters": "Characters",
+  "loreGroupWorld": "World rules",
+  "loreGroupLocations": "Locations",
+  "loreGroupTimeline": "Timeline",
+  "@loreGroupTimeline": {
+    "description": "Sidebar material group: timeline materials"
+  },
+  "loreGroupTaboo": "Taboos",
+  "@loreGroupTaboo": {
+    "description": "Sidebar material group: taboo materials"
+  },
+  "loreGroupStyle": "Style",
+  "@loreGroupStyle": {
+    "description": "Sidebar material group: style materials"
+  },
+  "attachToDiscussion": "Bring into discussion",
+  "@attachToDiscussion": {
+    "description": "Material preview card action: attach this material to the chapter discussion"
+  },
+  "removeReference": "Remove reference",
+  "@removeReference": {
+    "description": "Material preview card action: remove this material from the discussion references"
+  },
+  "expandLoreEdit": "Edit in full",
+  "@expandLoreEdit": {
+    "description": "Material preview card action: open the full material editor"
+  },
+  "lorePreviewHint": "Preview only. Nothing is attached or sent to the model.",
+  "@lorePreviewHint": {
+    "description": "Material preview card footer: preview never attaches or sends content"
+  },
+  "loreAttachedBoundary": "Added to the current discussion. Review the full outgoing preview before generating.",
+  "@loreAttachedBoundary": {
+    "description": "Snackbar after attaching a material: chapter discussion capability boundary"
+  },
+  "loreAttachUnavailable": "No chapter discussion is available yet. Open a work and a chapter first.",
+  "@loreAttachUnavailable": {
+    "description": "Snackbar when attaching a material without an open work chapter"
+  },
+  "loreAttachLimit": "Up to 32 materials can be referenced.",
+  "@loreAttachLimit": {
+    "description": "Snackbar when the discussion reference limit is reached"
+  },
+  "loreEntryMissing": "This material no longer exists. Refresh and try again.",
+  "@loreEntryMissing": {
+    "description": "Snackbar when a clicked material row cannot be found"
+  },
+  "historyReferences": "References in past requests (snapshot at submission)",
+  "@historyReferences": {
+    "description": "Material preview section title: reference snapshots frozen when a request was submitted"
+  },
+  "viewCurrentLore": "View current material",
+  "@viewCurrentLore": {
+    "description": "Material preview action: jump from a historical snapshot to the current material content"
+  },
+  "currentLoreContent": "Current content",
+  "@currentLoreContent": {
+    "description": "Material preview label for the current material body"
+  },
+  "chapterDirectory": "Chapter directory",
+  "resourceDirectory": "Story materials"
 }

@@ -9,8 +9,54 @@ import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 
 // Rust type: RustOpaqueMoi<flutter_rust_bridge::for_generated::RustAutoOpaqueInner<CoreSession>>
 abstract class CoreSession implements RustOpaqueInterface {
+  /// Invalidates old chapter previews/runs on navigation.
+  Future<void> activateGenerationScope({String? work, String? chapter});
+
+  /// `block` is the persisted block index, None means apply all atomically.
+  Future<String> applyLegacyPatch({
+    required String work,
+    required String chapter,
+    required String patchId,
+    BigInt? block,
+    PlatformInt64? revision,
+  });
+
+  /// Apply a pending candidate atomically in Rust.
+  Future<void> applyOperation({
+    required String workId,
+    required String documentId,
+    required String operationId,
+    PlatformInt64? expectedRevision,
+  });
+
+  /// Atomically binds an exact UTF-16 quote from a named immutable version.
+  Future<void> bindLoreSource({
+    required String workId,
+    required String bindingJson,
+  });
+
+  /// Explicit cancellation, including unused preview tickets.
+  Future<void> cancelGeneration({
+    required String work,
+    required String operationId,
+  });
+
+  Future<void> cancelImport({required String token});
+
   /// Explicit backend cancellation is independent of a Dart subscription's disposal.
   Future<void> cancelJob({required String jobId});
+
+  /// Revoke an unused preview or in-flight task; no automatic retry.
+  Future<void> cancelReviewedTask({required String work, required String id});
+
+  /// Current-head source marks, Rust-validated against the exact editor body.
+  Future<String> chapterSourceMarks({
+    required String work,
+    required String chapter,
+    required String body,
+  });
+
+  Future<String> characterConfig();
 
   /// Idempotent close invalidates DB access and cancels pending synthetic tasks.
   Future<void> close();
@@ -22,6 +68,16 @@ abstract class CoreSession implements RustOpaqueInterface {
     required String reviewToken,
   });
 
+  Future<void> confirmIdea({
+    required String session,
+    required PlatformInt64 sequence,
+    required String title,
+  });
+
+  Future<int> confirmImport({required String token});
+
+  Future<String> convertIdea({required String id, required String target});
+
   /// Creates a real chapter under an existing work.
   Future<BridgeChapter> createChapter({
     required String workId,
@@ -31,6 +87,9 @@ abstract class CoreSession implements RustOpaqueInterface {
   /// Creates a real novel work in the synthetic SQLite database.
   Future<BridgeWork> createWork({required String title});
 
+  /// Explicit isolated credential deletion.
+  Future<void> deleteDeepseekKey();
+
   /// Explicitly discards the working copy; the CAS revision must match.
   Future<void> discardDraft({
     required String workId,
@@ -38,11 +97,42 @@ abstract class CoreSession implements RustOpaqueInterface {
     PlatformInt64? expectedRevision,
   });
 
+  Future<void> discardLegacyDraft({
+    required String work,
+    required String chapter,
+    required String draft,
+  });
+
+  Future<String> exportCharacterPack();
+
+  /// Exports a bounded authenticated current-user backup; includes all SQLite state.
+  Future<Uint8List> exportSyntheticBackup();
+
   /// Reads the raw per-work UI session JSON, if any.
   Future<String?> getUiSession({required String workId});
 
   /// Reports actual loaded schema; callers must reject incompatible protocol versions.
   Future<BridgeHandshake> handshake();
+
+  /// Explicit presence query; never a startup action.
+  Future<bool> hasDeepseekKey();
+
+  Future<String> ideaCandidate({required int skip});
+
+  Future<void> ideaStatus({
+    required String id,
+    required String expected,
+    required String next,
+  });
+
+  Future<String> importCharacterPack({required String json});
+
+  Future<String> importedOriginal({required String session});
+
+  Future<String> importedSource({
+    required String session,
+    required PlatformInt64 sequence,
+  });
 
   /// Recovers terminal state even when a bounded notification queue overflowed.
   Future<BridgeJob> jobStatus({required String jobId});
@@ -52,6 +142,21 @@ abstract class CoreSession implements RustOpaqueInterface {
 
   /// Lists only metadata for chapters belonging to the supplied work.
   Future<List<BridgeChapter>> listChapters({required String workId});
+
+  /// Lists lore metadata with exact head snapshots.
+  Future<String> listLore({required String workId});
+
+  /// Read server-owned operation projections independently of author drafts.
+  Future<String> listOperations({
+    required String workId,
+    required String documentId,
+  });
+
+  /// Read author snapshots for one verified chapter.
+  Future<String> listThreads({
+    required String workId,
+    required String documentId,
+  });
 
   /// Lists confirmed versions newest first, including exact bodies.
   Future<List<BridgeVersion>> listVersions({
@@ -67,6 +172,49 @@ abstract class CoreSession implements RustOpaqueInterface {
     required String workId,
     required String documentId,
   });
+
+  /// Reads immutable source body/quote and current/stale metadata.
+  Future<String> loreSources({required String workId, required String entryId});
+
+  /// Reads immutable lore versions.
+  Future<String> loreVersions({
+    required String workId,
+    required String entryId,
+  });
+
+  Future<void> memoryCorrect({
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+    required String title,
+    required String summary,
+  });
+
+  Future<String> memoryCreate({
+    required String selectedSpace,
+    String? work,
+    required String title,
+    required String summary,
+  });
+
+  Future<void> memoryDelete({
+    required String selectedSpace,
+    String? work,
+    required String id,
+    required String updatedAt,
+  });
+
+  Future<String> memoryDetail({
+    required String selectedSpace,
+    String? work,
+    required String id,
+  });
+
+  Future<String> memoryList({required String selectedSpace, String? work});
+
+  /// Reads work-scoped confirmed questions and chapter review history.
+  Future<String> novelHistory({required String work, required String chapter});
 
   /// Opens the fixed current-user sealed synthetic store; no caller-selected import path.
   static Future<CoreSession> openOwnedSynthetic() =>
@@ -87,6 +235,28 @@ abstract class CoreSession implements RustOpaqueInterface {
     required PlatformInt64 expectedRevision,
   });
 
+  /// Full exact messages and one-use preview ticket; no network/key access.
+  Future<String> prepareGeneration({required String requestJson});
+
+  /// Full exact materials and a single-use ticket; no key/network access.
+  Future<String> prepareReviewedTask({required String requestJson});
+
+  Future<String> previewImport({required String source, required String text});
+
+  /// Reject an exact candidate head; stale review and cross-work IDs fail closed.
+  Future<void> rejectLore({
+    required String workId,
+    required String entryId,
+    required PlatformInt64 expectedVersion,
+  });
+
+  /// Resolve a chapter-scoped candidate without changing body.
+  Future<void> rejectOperation({
+    required String workId,
+    required String documentId,
+    required String operationId,
+  });
+
   /// Renames a chapter; titles live outside the version tree.
   Future<BridgeChapter> renameChapter({
     required String workId,
@@ -100,6 +270,13 @@ abstract class CoreSession implements RustOpaqueInterface {
     required String workId,
     required List<String> orderedIds,
   });
+
+  /// Restores only into a new internally allocated synthetic root; never overwrite/import paths.
+  static Future<CoreSession> restoreSyntheticBackup({
+    required List<int> sealed,
+  }) => RustLib.instance.api.crateApiCoreSessionRestoreSyntheticBackup(
+    sealed: sealed,
+  );
 
   /// Rolls the head back to an existing version without copying version rows;
   /// the working copy is discarded exactly as the CAS revision dictates.
@@ -119,11 +296,41 @@ abstract class CoreSession implements RustOpaqueInterface {
     required String body,
   });
 
+  Future<String> saveCharacter({required String json});
+
+  /// Validates and CAS-saves an explicit author edit.
+  Future<String> saveLore({required String workId, required String editJson});
+
+  /// Save author-only snapshot using revision CAS.
+  Future<String> saveThread({
+    required String workId,
+    required String documentId,
+    required String threadId,
+    PlatformInt64? expectedRevision,
+    required String snapshotJson,
+  });
+
+  Future<String> searchImported({required String text});
+
   /// Selects an existing work and remembers it as the most recent one.
   Future<BridgeWork> selectWork({required String workId});
 
   /// No credential/network backend exists in this M1 bridge; always fails closed.
   Future<void> send();
+
+  /// Explicit approved send to the official endpoint only; never retried.
+  Future<void> sendGeneration({
+    required String work,
+    required String previewId,
+    required bool confirmed,
+  });
+
+  /// One approved fixed-endpoint request. Output never directly confirms prose.
+  Future<String> sendReviewedTask({
+    required String work,
+    required String id,
+    required bool confirmed,
+  });
 
   /// Archives or restores a chapter; versions, drafts and threads survive.
   Future<BridgeChapter> setChapterArchived({
@@ -131,6 +338,12 @@ abstract class CoreSession implements RustOpaqueInterface {
     required String documentId,
     required bool archived,
   });
+
+  /// Opt-in cloud gate. Does not send a request.
+  Future<void> setCloudEnabled({required bool value});
+
+  /// Explicit isolated credential write.
+  Future<void> setDeepseekKey({required String key});
 
   /// Writes the per-work UI session JSON after key/size/range validation.
   Future<void> setUiSession({required String workId, required String value});

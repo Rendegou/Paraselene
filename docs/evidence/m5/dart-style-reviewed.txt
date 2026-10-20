@@ -1,0 +1,11 @@
+Computing fixes in desktop...
+Applying fixes...
+
+lib\workspace\presentation\editor_tools.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+
+test\reviewed_tasks_test.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+  prefer_interpolation_to_compose_strings - 2 fixes
+
+6 fixes made in 2 files.

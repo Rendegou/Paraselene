@@ -1,0 +1,45 @@
+PASS desktop name available
+PASS process starts on dedicated private desktop
+PASS input desktop identity available
+PASS desktop name available
+PASS desktop name available
+PASS probe desktop differs from user input desktop
+PASS channel TEMP matches explicit synthetic root
+PASS channel synthetic marker required
+PASS channel COM initialized
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid_learning_request
+PASS invalid requests create no native window
+PASS open starts hidden and pending
+PASS learning_busy
+PASS learning_closed
+PASS late creation cannot resurrect cancelled channel open
+CHANNEL_OPEN replied=1 count=1 success=1 error= cleaning=0 cleanup_failed=0 asset_exists=1
+PASS encoded channel open returns real native success
+PASS production open creates shown HWND on private desktop
+PASS opened channel can inspect input desktop identity
+PASS desktop name available
+PASS desktop name available
+PASS shown channel window remains outside input desktop
+PASS channel locale selects expected fixed page
+PASS second completed open reuses production window
+PASS channel-opened real Pyodide returns expected numbers
+PASS channel open emitted no native fault
+PASS channel native close and cleanup
+CHANNEL_OPEN replied=1 count=1 success=1 error= cleaning=0 cleanup_failed=0 asset_exists=1
+PASS encoded channel open returns real native success
+PASS production open creates shown HWND on private desktop
+PASS opened channel can inspect input desktop identity
+PASS desktop name available
+PASS desktop name available
+PASS shown channel window remains outside input desktop
+PASS channel locale selects expected fixed page
+PASS second completed open reuses production window
+PASS channel-opened real Pyodide returns expected numbers
+PASS channel open emitted no native fault
+PASS channel native close and cleanup
+PASS native channel suite (no Flutter engine)

@@ -1,0 +1,5 @@
+Analyzing desktop...
+
+   info - test\editor\editor_history_test.dart:1:8 - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter_test/flutter_test.dart'. Try removing the import directive. - unnecessary_import
+
+1 issue found.

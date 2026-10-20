@@ -1,0 +1,7 @@
+The Dart VM service is listening on http://127.0.0.1:10138/PxMjbjSzcJ8=/
+M4_NATIVE: preflight
+M4_NATIVE: open
+M4_NATIVE: opened
+M4_NATIVE: work
+M4_NATIVE: chapter
+M4_NATIVE: runApp

@@ -1,0 +1,51 @@
+Window: "paraselene_flutter", App: paraselene_flutter.exe.
+	0 窗口 paraselene_flutter Secondary Actions: Raise
+		1 窗格
+			9408 组
+				9409 组 M4 native synthetic. M4 native synthetic
+					9410 按钮 Minimize
+					9411 按钮 Maximize
+					9412 按钮 Close window
+					9413 组
+						9414 组
+							9415 组
+								9416 组
+									9417 文本 Writing workspace
+									9418 组 Choose a work
+										9419 按钮 Choose a work
+									9420 组 Confirm chapter
+										9421 按钮 Confirm chapter
+									9422 组 Confirmed versions
+										9423 按钮 Confirmed versions
+									9424 组 Focus mode
+										9425 按钮 Focus mode
+									9426 组 Wide manuscript
+										9427 按钮 Wide manuscript
+									9428 文本 Interface language. Interface language
+								9429 文本 Chapters
+								9430 按钮 New chapter
+								9431 组
+									9432 组
+										9433 组
+											9434 按钮 Recovery chapter
+												9435 按钮 Show menu
+								9436 组
+									9437 文本 SYNTHETIC · memory fixture Temporary sample library · no author data · cloud disabled Changing the interface language does not translate or alter your manuscript.
+								9438 组
+									9439 文本 M4 native synthetic
+									9440 组 Recovery chapter
+									9441 文本 Work language: Not specified
+									9442 文本 Chapter language: Not specified
+									9443 文本 Model output language: Not specified
+									9444 文本 All changes saved
+								9445 组
+									9446 组
+										9447 编辑 (settable, string) Paraselene editor
+		42 标题栏 (settable, string) Value: paraselene_flutter
+			43 菜单栏 系统 ID: MenuBar
+				44 菜单项 系统
+			45 按钮 最小化
+			46 按钮 最大化
+			47 按钮 关闭
+
+The focused UI element is 9445 组.

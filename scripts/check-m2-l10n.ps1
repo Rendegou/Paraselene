@@ -1,3 +1,6 @@
+# 校验 ARB 的键集合、占位符类型与元数据在模板和各 locale 之间一致。
+# 静态 ARB 检查，不代表生成代码、翻译质量或运行期本地化 UI 通过。
+
 param([string]$ArbDirectory = (Join-Path $PSScriptRoot '..\apps\desktop\lib\l10n'))
 $ErrorActionPreference = 'Stop'
 $m2Template = Get-Content -LiteralPath (Join-Path $ArbDirectory 'app_en.arb') -Raw | ConvertFrom-Json -AsHashtable

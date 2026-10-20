@@ -1,0 +1,42 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:01 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/m9_real_ffi_test.dart: real DLL preserves imported source through idea conversion and scoped deletion
+00:02 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:03 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: native and framework requests share the dirty close barrier
+00:03 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:03 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: confirm keeps the rebased draft; edits after prepare invalidate
+00:03 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: registered listener flushes on framework exit signal
+00:03 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:03 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:04 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+workspace_disposed_with_dirty_text
+00:04 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:04 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+workspace_disposed_with_dirty_text
+00:04 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:04 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (false)
+workspace_disposed_with_dirty_text
+00:04 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:04 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (true)
+workspace_disposed_with_dirty_text
+00:04 +22: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: rollback discards the draft and restores the exact target body
+00:05 +23: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: archive keeps text and versions; restore brings the chapter back
+00:05 +24: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: reorder updates the directory and rejects incomplete sets
+00:05 +25: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: cold restore reopens the selected work, chapter, wide and scroll
+00:06 +26: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a failing preference write blocks navigation with the stable code
+00:06 +27: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: busy barriers reject reentrant navigation
+00:07 +28: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+00:08 +29: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: dispose with dirty text completes without skipping release
+workspace_disposed_with_dirty_text
+00:08 +30: All tests passed!

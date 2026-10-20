@@ -1,0 +1,47 @@
+   Compiling typenum v1.20.1
+   Compiling once_cell v1.21.4
+   Compiling futures-sink v0.3.34
+   Compiling futures-core v0.3.34
+   Compiling futures-io v0.3.34
+   Compiling futures-task v0.3.34
+   Compiling generic-array v0.14.7
+   Compiling anyhow v1.0.104
+   Compiling slab v0.4.12
+   Compiling rustc-demangle v0.1.28
+   Compiling portable-atomic v1.15.0
+   Compiling dart-sys v4.1.5
+   Compiling build-target v0.4.0
+   Compiling hex v0.4.3
+   Compiling atomic v0.5.3
+   Compiling num_cpus v1.17.0
+   Compiling syn v2.0.119
+   Compiling lazy_static v1.5.1
+   Compiling byteorder v1.5.0
+   Compiling futures-macro v0.3.34
+   Compiling delegate-attr v0.3.1
+   Compiling threadpool v1.8.1
+   Compiling futures-channel v0.3.34
+   Compiling ahash v0.8.12
+   Compiling backtrace v0.3.76
+   Compiling hashbrown v0.14.5
+   Compiling flutter_rust_bridge v2.11.1
+   Compiling futures-util v0.3.34
+   Compiling hashlink v0.9.1
+   Compiling allo-isolate v0.1.27
+   Compiling rusqlite v0.32.1
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling digest v0.10.7
+   Compiling md-5 v0.10.6
+   Compiling paraselene-memory-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\memory-core)
+   Compiling flutter_rust_bridge_macros v2.11.1
+   Compiling futures-executor v0.3.34
+   Compiling futures v0.3.34
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+   Compiling paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+warning: linker stdout: 正在创建库 D:\MyAgent\paraselene-flutter\build/rust-m4-test-msvc\debug\deps\paraselene_bridge.dll.lib 和对象 D:\MyAgent\paraselene-flutter\build/rust-m4-test-msvc\debug\deps\paraselene_bridge.dll.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `paraselene-bridge` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 17.38s

@@ -1,0 +1,9 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_character_core-15y4h7z09vwty\s-hnbx6u0f60-1rgz65w-working`
+
+warning: `paraselene-character-core` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_memory_core-035ha8xpcmgls\s-hnbx6u0mrp-0a9vm1q-working`
+
+warning: `paraselene-memory-core` (lib) generated 1 warning
+    Checking paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Checking paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.75s

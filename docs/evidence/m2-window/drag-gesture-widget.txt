@@ -1,0 +1,14 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart
+00:00 +0: only title gestures drag and double click toggles maximize
+00:00 +1: workbench shell provides an overlay outside its Navigator
+00:01 +2: caption actions, state, drag exclusion and keyboard close
+00:01 +3: caption semantics and scaled layout en RTL=false width=360.0
+00:01 +4: caption semantics and scaled layout en RTL=false width=900.0
+00:01 +5: caption semantics and scaled layout zh_Hans RTL=false width=360.0
+00:01 +6: caption semantics and scaled layout zh_Hans RTL=false width=900.0
+00:01 +7: caption semantics and scaled layout en RTL=true width=360.0
+00:01 +8: caption semantics and scaled layout en RTL=true width=900.0
+00:01 +9: caption semantics and scaled layout zh_Hans RTL=true width=360.0
+00:01 +10: caption semantics and scaled layout zh_Hans RTL=true width=900.0
+00:01 +11: All tests passed!

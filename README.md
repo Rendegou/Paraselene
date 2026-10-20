@@ -2,6 +2,26 @@
 
 实施依据：[迁移计划](../paraselene-flutter-migration/MIGRATION_PLAN.md)。独立目标，原Tauri工程只读。
 
+## 当前状态（2026-10-20）
+
+生产编辑器（自定义 raw UTF-16 排版/绘制/输入、段下讨论线程、出处装饰）已经接入工作台；视觉层按原 TS 版对齐；操作一致性整改 R01–R16 按 [整改文档](docs/engineering/FLUTTER-OPERATION-REMEDIATION-20261020.md) 执行，批次 A–E 完成，批次 F（文档入口整理与文件清理重建）进行中。当前工作树未提交，真实 Windows IME/桌面矩阵、生产/测试 FFI DLL、外网模型与净机安装仍为 NOT_RUN，不能据此宣称全产品替代完成。
+
+- 进度与当前里程碑：[docs/progress.md](docs/progress.md)
+- 整改证据索引：[docs/evidence/operation-parity-20261020/README.md](docs/evidence/operation-parity-20261020/README.md)
+- 视觉对齐证据：[docs/evidence/UI-PARITY-20261020.md](docs/evidence/UI-PARITY-20261020.md)
+- 中文注释规范与记录：[docs/engineering/comment-style-20261020.md](docs/engineering/comment-style-20261020.md)、[docs/evidence/COMMENT-PASS-20261020.md](docs/evidence/COMMENT-PASS-20261020.md)
+
+目标测试入口（`apps/desktop` 下）：
+
+```powershell
+dart format --output=none --set-exit-if-changed lib test integration_test bin
+flutter analyze --fatal-infos
+flutter test test/operation_parity
+flutter test test/editor test/cowrite test/writing_features_test.dart test/m2_workbench_test.dart test/source_marks_test.dart test/m2_locale_test.dart
+```
+
+以下 M0–M2 段落描述的是当时里程碑状态，保留为历史记录。
+
 M0提供纯Dart Text/Locale合同；M1增加实际FRB/Rust桥接与SQLite合成验收；M2增加中英工作台、作品选择、目录、专注/宽稿及只读正文预览。默认使用真实桥接的临时合成库，作者数据库接管与正文编辑属于后续里程碑。
 
 Windows PowerShell 7：

@@ -1,0 +1,29 @@
+PASS TEMP matches explicit synthetic root
+PASS script-created synthetic marker required
+PASS hidden HWND
+ASSETS D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\runner\Release\data\flutter_assets\assets\learning\
+PASS entry asset exists
+PASS dedicated pinned profile
+PASS exclusive profile option
+PASS environment start
+PASS environment complete
+RUNTIME 155.0.4283.62
+PASS controller created
+PASS controller hidden
+RESOURCE https://learning-sandbox.invalid/index-en.html
+RESOURCE https://learning-sandbox.invalid/learning.css
+RESOURCE https://learning-sandbox.invalid/learning-en.js
+NAV success=1 error=0
+PASS real local page loaded
+PASS no visible native window
+PASS InPrivate confirmed
+PASS geolocation controller active inside hidden native parent
+PASS geolocation document visible to browser
+PASS geolocation native observer
+GEOLOCATION native_requests=1 result={"code":1,"message":"User denied Geolocation"}
+PASS geolocation completed
+PASS geolocation actual native permission denial (unavailable platform is not PASS)
+NAV success=1 error=0
+PASS profile cleanup and native close
+PASS expected native fault callback count
+PASS geolocation native suite

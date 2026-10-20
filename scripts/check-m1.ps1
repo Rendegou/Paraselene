@@ -1,3 +1,6 @@
+# 校验 M1 Rust-owned 合同与 Dart FFI：Rust fmt/test/clippy/build、Dart format/analyze 与真实 DLL 测试。
+# 只有传入 -WindowsBuild 才跑 Windows 构建与集成测试，默认不证明打包或安装行为通过。
+
 param(
     [string]$FlutterExecutable = 'D:\flutter_sdk\flutter\bin\flutter.bat',
     [string]$DartExecutable = 'D:\flutter_sdk\flutter\bin\cache\dart-sdk\bin\dart.exe',

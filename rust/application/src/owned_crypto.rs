@@ -1,7 +1,11 @@
 //! Current-user DPAPI envelope, bound to purpose, version and canonical store location.
+//!
+//! 绑定串由用途、版本与规范存储路径组成，DPAPI 封装保证只有当前 Windows 用户可解；
+//! 本模块只做字节变换，不导出密钥材料。
 use crate::{err, AppError};
 use windows_sys::Win32::{Foundation::LocalFree, Security::Cryptography::*};
-pub(super) fn transform(bytes: &[u8], binding: &[u8], seal: bool) -> Result<Vec<u8>, AppError> {
+/// 用当前 Windows 用户的 DPAPI 封装或解封字节；失败统一返回 owned_store_invalid。
+pub(crate) fn transform(bytes: &[u8], binding: &[u8], seal: bool) -> Result<Vec<u8>, AppError> {
     let input = CRYPT_INTEGER_BLOB {
         cbData: bytes
             .len()

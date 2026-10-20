@@ -1,0 +1,9 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+Building Windows application...                                 
+CMake Error at runner/CMakeLists.txt:47 (message):
+  Run scripts/prepare-learning-sdk.ps1 before building the isolated learning
+  window
+
+
+Building Windows application...                                    12.6s
+Unable to generate build files

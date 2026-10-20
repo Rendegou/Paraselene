@@ -1,0 +1,19 @@
+Formatted lib\cowrite\candidate_diff.dart
+Formatted lib\cowrite\character_diff.dart
+Formatted lib\cowrite\discussion_panel.dart
+Formatted lib\legacy\legacy_repository.dart
+Formatted lib\legacy\reviewed_task_dialog.dart
+Formatted lib\legacy\reviewed_task_repository.dart
+Formatted lib\legacy\task_material_preview.dart
+Formatted lib\lore\lore_edit_dialog.dart
+Formatted lib\lore\lore_library.dart
+Formatted lib\lore\lore_source_view.dart
+Formatted lib\native\generated\api.dart
+Formatted lib\native\generated\api\models.dart
+Formatted lib\native\generated\frb_generated.dart
+Formatted lib\native\generated\frb_generated.io.dart
+Formatted lib\native\generated\frb_generated.web.dart
+Formatted lib\workspace\presentation\editor_tools.dart
+Formatted test\reviewed_tasks_real_ffi_test.dart
+Formatted test\reviewed_tasks_test.dart
+Formatted 125 files (18 changed) in 2.52 seconds.

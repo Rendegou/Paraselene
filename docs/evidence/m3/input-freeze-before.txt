@@ -1,0 +1,33 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_freeze_test.dart
+00:00 +0: frozen native and local edits retain text and undo history
+00:00 +0 -1: frozen native and local edits retain text and undo history [E]
+  Expected: TextEditingValue:<TextEditingValue(text: ┤原稿
+            é👩‍💻A├, selection: TextSelection.collapsed(offset: 12, affinity: TextAffinity.downstream, isDirectional: false), composing: TextRange(start: -1, end: -1))>
+    Actual: TextEditingValue:<TextEditingValue(text: ┤late native text├, selection: TextSelection.collapsed(offset: 16, affinity: TextAffinity.downstream, isDirectional: false), composing: TextRange(start: -1, end: -1))>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test\editor\editor_input_freeze_test.dart 25:5      main.<fn>
+  
+00:00 +0 -1: in-flight clipboard paste cannot edit after freeze
+00:00 +0 -2: in-flight clipboard paste cannot edit after freeze [E]
+  Expected: TextEditingValue:<TextEditingValue(text: ┤原稿
+            ├, selection: TextSelection(baseOffset: 0, extentOffset: 4, isDirectional: false), composing: TextRange(start: -1, end: -1))>
+    Actual: TextEditingValue:<TextEditingValue(text: ┤late paste├, selection: TextSelection.collapsed(offset: 10, affinity: TextAffinity.downstream, isDirectional: false), composing: TextRange(start: -1, end: -1))>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test\editor\editor_input_freeze_test.dart 64:7      main.<fn>
+  
+00:00 +0 -2: in-flight clipboard cut cannot edit after freeze
+00:00 +0 -3: in-flight clipboard cut cannot edit after freeze [E]
+  Expected: TextEditingValue:<TextEditingValue(text: ┤原稿
+            ├, selection: TextSelection(baseOffset: 0, extentOffset: 4, isDirectional: false), composing: TextRange(start: -1, end: -1))>
+    Actual: TextEditingValue:<TextEditingValue(text: ┤├, selection: TextSelection.collapsed(offset: 0, affinity: TextAffinity.downstream, isDirectional: false), composing: TextRange(start: -1, end: -1))>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 474:18  expect
+  test\editor\editor_input_freeze_test.dart 64:7      main.<fn>
+  
+00:00 +0 -3: Some tests failed.

@@ -1,0 +1,1 @@
+PASS: rejected test_scope_invalid before session open

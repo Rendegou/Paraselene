@@ -1,0 +1,50 @@
+[
+  {
+    "Path": "apps/desktop/lib/window/desktop_window_controller.dart",
+    "SHA256": "DB942221877E35D6A7CF6EF81EB0E0B80282614FB0AB65EF9CA07E75C5CA770C"
+  },
+  {
+    "Path": "apps/desktop/lib/window/desktop_title_bar.dart",
+    "SHA256": "8ADCA5F85DDD7172FC765F25CC4A76D50A9C5248693B3A8268F4000CB44D787F"
+  },
+  {
+    "Path": "apps/desktop/lib/window/native_close_guard.dart",
+    "SHA256": "64EEFFE44F60EEC38243DFC2A5AD0A719D1020BDA94CF06CCDBD1478824E1A9F"
+  },
+  {
+    "Path": "apps/desktop/lib/workspace/workbench_app.dart",
+    "SHA256": "F15D2EABD06D8D8D065D5CF6623A933F1A856B6F05E5FFD1911A6351A850EF2D"
+  },
+  {
+    "Path": "apps/desktop/lib/main.dart",
+    "SHA256": "53CE2E9469B523F494C39872B3A1DC224980974B7294E8711ACE94B4B61B64BB"
+  },
+  {
+    "Path": "apps/desktop/integration_test/m4_native_probe.dart",
+    "SHA256": "21768EEDA616A478C555780A763FD4229F4E0FDDBE4F5F40A564CD22524D3C6D"
+  },
+  {
+    "Path": "apps/desktop/test/window/desktop_title_bar_test.dart",
+    "SHA256": "8910BC9F4638B31269C94F0CBC7A99D02B89E55AE977A19E6F1EC22958BDE452"
+  },
+  {
+    "Path": "apps/desktop/test/window/desktop_window_controller_test.dart",
+    "SHA256": "0C8D424135534110796373F63CF05EC82890F13EE91881AEDA46D583F9874147"
+  },
+  {
+    "Path": "apps/desktop/windows/runner/native_close_guard.cpp",
+    "SHA256": "55F1302482DAC5A3383CBFED4EBDFA2691697D303AE7923345288834329B353B"
+  },
+  {
+    "Path": "apps/desktop/windows/runner/native_close_guard.h",
+    "SHA256": "5AAB7F250D89D1DA5F88AA21FD96FE88298C3237DA3E6D43E8F5E86660771B4F"
+  },
+  {
+    "Path": "apps/desktop/pubspec.yaml",
+    "SHA256": "0C17889462FC2964EE5105D4F687FD487EF2E5FD0746436B98DF896E34F5B17F"
+  },
+  {
+    "Path": "apps/desktop/pubspec.lock",
+    "SHA256": "06D966501215ABDB5211ADA0C5CB3718B870E1B2904F47AD74D8E6B3630783F0"
+  }
+]

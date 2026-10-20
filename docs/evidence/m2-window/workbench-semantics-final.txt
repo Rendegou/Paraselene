@@ -1,0 +1,36 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart
+00:00 +0: workbench shell provides an overlay outside its Navigator
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: Finder returned no matching elements.
+
+When the exception was thrown, this was the stack:
+#0      SemanticsController.find (package:flutter_test/src/controller.dart:108:7)
+#1      WidgetController.getSemantics (package:flutter_test/src/controller.dart:2276:79)
+#2      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart:100:30)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  workbench shell provides an overlay outside its Navigator
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: workbench shell provides an overlay outside its Navigator [E]
+  Test failed. See exception logs above.
+  The test description was: workbench shell provides an overlay outside its Navigator
+  
+00:01 +0 -1: caption actions, state, drag exclusion and keyboard close
+00:01 +1 -1: caption semantics and scaled layout en RTL=false width=360.0
+00:01 +2 -1: caption semantics and scaled layout en RTL=false width=900.0
+00:01 +3 -1: caption semantics and scaled layout zh_Hans RTL=false width=360.0
+00:01 +4 -1: caption semantics and scaled layout zh_Hans RTL=false width=900.0
+00:01 +5 -1: caption semantics and scaled layout en RTL=true width=360.0
+00:01 +6 -1: caption semantics and scaled layout en RTL=true width=900.0
+00:01 +7 -1: caption semantics and scaled layout zh_Hans RTL=true width=360.0
+00:01 +8 -1: caption semantics and scaled layout zh_Hans RTL=true width=900.0
+00:01 +9 -1: Some tests failed.

@@ -1,7 +1,11 @@
+// synthetic_workspace_repository 的 part：为内存合成仓库生成与校验确认复核令牌。
+// 读边界：只读取合成仓库内存中的章节、文档与版本映射，不访问文件或数据库。
+// 关键不变量：令牌绑定作品、文档、head、修订、正文与目录上下文，任何漂移都以稳定冲突码失败。
 part of 'synthetic_workspace_repository.dart';
 
 /// In-memory review checks for the explicit fixture, never a native hash claim.
 extension _SyntheticConfirmation on SyntheticWorkspaceRepository {
+  // 目录上下文参与令牌，使确认期间其他章节的版本变化也会令令牌失效。
   String _context(String work) => jsonEncode([
     for (final c in _chapters.values)
       if (_owners[c.id] == work && c.headVersionId != null)

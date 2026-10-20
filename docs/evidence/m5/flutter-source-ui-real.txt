@@ -1,0 +1,5 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart
+00:00 +0: real DLL source marks use exact head and UTF16 and never relocate dirty text
+00:02 +1: real workspace loads source marks and opens linked lore detail
+00:06 +2: All tests passed!

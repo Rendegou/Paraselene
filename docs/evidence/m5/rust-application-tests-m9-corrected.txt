@@ -1,0 +1,42 @@
+   Compiling paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.14s
+     Running unittests src\lib.rs (../build/rust-m1-msvc\debug\deps\paraselene_application-2cc9996d073eb846.exe)
+
+running 18 tests
+test owned_fault_tests::empty_pending_is_preserved ... ok
+test owned_fault_tests::unknown_pending_is_preserved ... ok
+test storage_fault_tests::sqlite_full_does_not_advance_revision_and_can_retry ... ok
+test migration_tests::legacy_patch_partial_adoption_uses_atomic_core_and_rejects_stale_revision ... ok
+test migration_tests::cancelled_import_previews_release_capacity_without_persisting_messages ... ok
+test migration_tests::unicode_sources_remain_exact_stale_and_nonchapter_compatible ... ok
+test owned_fault_tests::rolled_back_conflict_does_not_poison ... ok
+test generation_tests::timed_out_complete_response_cannot_arrive_as_candidate ... ok
+test generation_tests::local_sse_candidate_atomic_failure_undo_and_duplicate_ticket ... ok
+test migration_tests::memory_scopes_and_character_pack_private_fields_survive_full_backup ... ok
+test migration_tests::import_confirmation_preserves_selected_source_and_rolls_back_duplicates ... ok
+test owned_fault_tests::sealed_size_limit_retains_old_payload_and_poisons_mutation ... ok
+test owned_fault_tests::partial_error_poisons_but_transaction_rollback_does_not ... ok
+test backup::tests::full_backup_restore_is_independent_and_corruption_never_changes_source ... ok
+test owned_fault_tests::publish_failure_poisons_session_and_close_never_republishes ... ok
+test generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate ... FAILED
+test generation_tests::cancellation_or_disconnect_never_publishes_partial_candidate ... ok
+test generation_tests::long_chapter_four_operations_reopen_keeps_next_author_draft_isolated ... ok
+
+failures:
+
+---- generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate stdout ----
+
+thread '<unnamed>' (42860) panicked at application\src\generation_tests.rs:64:49:
+called `Result::unwrap()` on an `Err` value: Os { code: 10035, kind: WouldBlock, message: "无法立即完成一个非阻止性套接字操作。" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate' (37236) panicked at application\src\generation_tests.rs:153:21:
+called `Result::unwrap()` on an `Err` value: RecvError(())
+
+
+failures:
+    generation_tests::abandoned_future_and_cloud_disable_release_thread_without_candidate
+
+test result: FAILED. 17 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 41.78s
+
+error: test failed, to rerun pass `-p paraselene-application --lib`

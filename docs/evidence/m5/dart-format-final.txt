@@ -1,0 +1,2 @@
+Formatted apps\desktop\test\editor\editor_history_test.dart
+Formatted 11 files (1 changed) in 0.52 seconds.

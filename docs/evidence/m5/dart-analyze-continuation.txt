@@ -1,0 +1,17 @@
+Analyzing lib, test...
+
+  error - lib\workspace\presentation\work_picker.dart:7:9 - Undefined class 'WorkspaceController'. Try changing the name to the name of an existing class, or creating a class with the name 'WorkspaceController'. - undefined_class
+  error - lib\workspace\presentation\work_picker.dart:12:25 - The method 'showTitlePrompt' isn't defined for the type 'WorkPicker'. Try correcting the name to the name of an existing method, or defining a method named 'showTitlePrompt'. - undefined_method
+  error - lib\workspace\presentation\work_picker.dart:44:27 - The method 'unawaited' isn't defined for the type 'WorkPicker'. Try correcting the name to the name of an existing method, or defining a method named 'unawaited'. - undefined_method
+  error - lib\workspace\presentation\workbench_chrome.dart:120:29 - The method 'WorkPicker' isn't defined for the type 'WorkbenchToolbar'. Try correcting the name to the name of an existing method, or defining a method named 'WorkPicker'. - undefined_method
+   info - lib\editor\editor_input_client.dart:216:47 - Unnecessary 'this.' qualifier. Try removing 'this.'. - unnecessary_this
+   info - lib\legacy\character_dialog.dart:119:29 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\idea_dialog.dart:33:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\idea_dialog.dart:58:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\imported_dialog.dart:139:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\imported_dialog.dart:144:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\legacy\imported_dialog.dart:173:7 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\native\companion_gateway.dart:32:9 - Statements in an if should be enclosed in a block. Try wrapping the statement in a block. - curly_braces_in_flow_control_structures
+   info - lib\workspace\workspace_controller.dart:64:16 - The member '_barrier' overrides an inherited member but isn't annotated with '@override'. Try adding the '@override' annotation. - annotate_overrides
+
+13 issues found.

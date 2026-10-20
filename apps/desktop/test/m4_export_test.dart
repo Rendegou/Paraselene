@@ -1,3 +1,6 @@
+// 覆盖 M4 恢复与正文导出：内存草稿优先、UTF-8 精确读回、写失败/取消与资料追加。
+// 在临时目录验证 Dart 导出流程，不代表真实用户目录、权限或恢复向导通过。
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -12,9 +15,11 @@ final class _FixedGateway implements SavePathGateway {
   _FixedGateway(this.path);
   final String path;
   var calls = 0;
+  String suggested = '';
   @override
   Future<String?> pickSavePath({required String suggestedName}) async {
     calls++;
+    suggested = suggestedName;
     return path;
   }
 }
@@ -144,6 +149,61 @@ void main() {
     expect(outcome, isNull);
     expect(File(target).existsSync(), isFalse);
   });
+
+  test('manuscript export appends confirmed lore as Markdown', () async {
+    final repo = SyntheticWorkspaceRepository();
+    final (work, chapters) = await seed(repo);
+    final target = '${temp.path}\\正文与资料.md';
+    final gateway = _FixedGateway(target);
+    final exporter = RecoveryExporter(
+      repo,
+      gateway,
+      loadLore: (workId) async => [('人物甲', '人物设定正文'), ('地点乙', '地点设定正文')],
+    );
+
+    final outcome = await exporter.export(
+      work: work,
+      chapters: chapters,
+      loadedStates: [_state(work.id, chapters[0].id, '当前草稿')],
+      filenameSuffix: '正文与资料',
+      includeLore: true,
+      extension: 'md',
+    );
+    expect(outcome, isNotNull);
+    expect(outcome!.loreEntries, 2);
+    expect(gateway.suggested, endsWith('.md'));
+    final content = await File(target).readAsString(encoding: utf8);
+    expect(content, contains('## 人物甲\n\n人物设定正文'));
+    expect(content, contains('## 地点乙\n\n地点设定正文'));
+    expect(content, contains('当前草稿'));
+    expect(content, isNot(contains('requests')));
+  });
+
+  test(
+    'manuscript export fails before writing when lore is unavailable',
+    () async {
+      final repo = SyntheticWorkspaceRepository();
+      final (work, chapters) = await seed(repo);
+      final target = '${temp.path}\\不完整.md';
+      final exporter = RecoveryExporter(
+        repo,
+        _FixedGateway(target),
+        loadLore: (_) async => throw const WorkspaceFailure('lore_read_failed'),
+      );
+
+      await expectLater(
+        exporter.export(
+          work: work,
+          chapters: chapters,
+          loadedStates: const [],
+          includeLore: true,
+          extension: 'md',
+        ),
+        throwsA(isA<WorkspaceFailure>()),
+      );
+      expect(File(target).existsSync(), isFalse);
+    },
+  );
 
   test(
     'closeBarrier flushes then closes; failure keeps the repository open',

@@ -1,0 +1,53 @@
+Computing fixes in lib...
+Applying fixes...
+
+cowrite\deepseek_settings.dart
+  unnecessary_non_null_assertion - 1 fix
+
+cowrite\discussion_panel.dart
+  unnecessary_non_null_assertion - 2 fixes
+
+cowrite\discussion_registry.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+
+editor\editor_basic_controller.dart
+  unnecessary_import - 1 fix
+
+editor\editor_input_client.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+
+legacy\character_dialog.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+  unnecessary_non_null_assertion - 1 fix
+
+legacy\legacy_patch_card.dart
+  unnecessary_non_null_assertion - 1 fix
+
+legacy\memory_dialog.dart
+  unnecessary_non_null_assertion - 3 fixes
+
+legacy\novel_history_dialog.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+  unnecessary_non_null_assertion - 1 fix
+
+lore\lore_binding_flow.dart
+  curly_braces_in_flow_control_structures - 2 fixes
+  unnecessary_non_null_assertion - 1 fix
+
+lore\lore_library.dart
+  unnecessary_non_null_assertion - 3 fixes
+
+lore\lore_picker.dart
+  unnecessary_non_null_assertion - 1 fix
+
+workspace\presentation\backup_dialog.dart
+  curly_braces_in_flow_control_structures - 3 fixes
+  unnecessary_non_null_assertion - 2 fixes
+
+workspace\workspace_controller.dart
+  annotate_overrides - 1 fix
+
+workspace\workspace_cowrite.dart
+  curly_braces_in_flow_control_structures - 1 fix
+
+32 fixes made in 15 files.

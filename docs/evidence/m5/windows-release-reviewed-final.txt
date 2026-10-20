@@ -1,0 +1,14 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: 命令“setlocal [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+Building Windows application...                                 
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: D:\MyAgent\build-tools\vs2022\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -DBUILD_TYPE=Release -P cmake_install.cmake [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: if %errorlevel% neq 0 goto :cmEnd [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmEnd [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmErrorLevel [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: exit /b %1 [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :cmDone [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: if %errorlevel% neq 0 goto :VCEnd [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+D:\MyAgent\build-tools\vs2022\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :VCEnd”已退出，代码为 1。 [D:\MyAgent\paraselene-flutter\apps\desktop\build\windows\x64\INSTALL.vcxproj]
+Building Windows application...                                   152.3s
+Build process failed.

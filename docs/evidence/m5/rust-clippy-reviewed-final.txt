@@ -1,0 +1,45 @@
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_character_core-15y4h7z09vwty\s-hnbx6u0f60-1rgz65w-working`
+
+warning: `paraselene-character-core` (lib) generated 1 warning
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_memory_core-035ha8xpcmgls\s-hnbx6u0mrp-0a9vm1q-working`
+
+warning: `paraselene-memory-core` (lib) generated 1 warning
+    Checking paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_application-1w4p4u7y4lyn0\s-hnbxjiymxe-0judu08-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_application-0hi19ihmzon1g\s-hnbxjiynl5-1l9etcn-working`
+
+warning: `paraselene-application` (lib) generated 1 warning
+    Checking paraselene-bridge v0.1.0 (D:\MyAgent\paraselene-flutter\rust\bridge)
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\m4_hardening-256002mwpf8bp\s-hnbxjjnl09-1j89gua-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_bridge-0u14xnis4c7zj\s-hnbxjjnnl8-0oukw5p-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\m5_discussions-3pvvndqw7gxyo\s-hnbxjjnway-18i4glz-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\provenance-3qa4yy6wlm1p8\s-hnbxjjo3y5-1fz3764-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\m4_workspace-3unqkgboisbee\s-hnbxjjodd8-1mmcjk3-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\paraselene_bridge-2tjzxfmro1e9k\s-hnbxjjog0c-1al8gmb-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\m4_selection-144veqkue56dt\s-hnbxjjon4z-071ttaj-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\m4_owned_provenance-007gl1gm60pj0\s-hnbxjjow4y-06ib50q-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\m4_migration-1uhk3q08z3ak4\s-hnbxjjp6at-1lp93q7-working`
+
+warning: hard linking files in the incremental compilation cache failed. copying files instead. consider moving the cache directory to a file system which supports hard linking in session dir `\\?\D:\MyAgent\paraselene-flutter\build\rust-m1-msvc\debug\incremental\session-0wo5y28cl19sn\s-hnbxjjp6ek-1v1n1jz-working`
+
+warning: `paraselene-application` (lib test) generated 1 warning
+warning: `paraselene-application` (test "m4_owned_provenance") generated 1 warning
+warning: `paraselene-application` (test "m4_migration") generated 1 warning
+warning: `paraselene-application` (test "m5_discussions") generated 1 warning
+warning: `paraselene-application` (test "provenance") generated 1 warning
+warning: `paraselene-application` (test "m4_hardening") generated 1 warning
+warning: `paraselene-application` (test "m4_selection") generated 1 warning
+warning: `paraselene-application` (test "m4_workspace") generated 1 warning
+warning: `paraselene-application` (test "session") generated 1 warning
+warning: `paraselene-bridge` (lib test) generated 1 warning
+warning: `paraselene-bridge` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.20s

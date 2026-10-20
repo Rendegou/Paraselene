@@ -1,0 +1,31 @@
+    Checking tempfile v3.27.0
+    Checking paraselene-character-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\character-core)
+    Checking paraselene-memory-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\memory-core)
+    Checking paraselene-llm-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\llm-core)
+    Checking paraselene-novel-core v0.1.0 (D:\MyAgent\paraselene-flutter\rust\core\novel-core)
+    Checking paraselene-application v0.1.0 (D:\MyAgent\paraselene-flutter\rust\application)
+error: file is loaded as a module multiple times: `application\src\owned_crypto.rs`
+  |
+  = help: replace all but one `mod` item with `use` items
+  = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#duplicate_mod
+  = note: `-D clippy::duplicate-mod` implied by `-D warnings`
+  = help: to override `-D warnings` add `#[allow(clippy::duplicate_mod)]`
+
+error: could not compile `paraselene-application` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: used `assert_eq!` with a literal bool
+  --> application\src\migration_tests.rs:92:5
+   |
+92 |     assert_eq!(session.search_imported("Unicode".into()).unwrap().contains("\"hits\":[]"), true);
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#bool_assert_comparison
+   = note: `-D clippy::bool-assert-comparison` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::bool_assert_comparison)]`
+help: replace it with `assert!(..)`
+   |
+92 -     assert_eq!(session.search_imported("Unicode".into()).unwrap().contains("\"hits\":[]"), true);
+92 +     assert!(session.search_imported("Unicode".into()).unwrap().contains("\"hits\":[]"));
+   |
+
+error: could not compile `paraselene-application` (lib test) due to 2 previous errors

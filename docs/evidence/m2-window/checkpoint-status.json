@@ -1,0 +1,34 @@
+{
+  "Status": "IN_PROGRESS",
+  "DefaultWindowFrame": "system",
+  "OptInFlag": "--window-shell",
+  "OrdinaryDartPass": 435,
+  "WindowAndLifecyclePass": 26,
+  "AnalyzeExitCode": 0,
+  "ProductionReleaseExitCode": 0,
+  "ProductionBundle": {
+    "Status": "PASS",
+    "CopiedBundle": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-ca7b88da67224c0aa4cb0d9538ddb584",
+    "ProbeExitCode": 0,
+    "MissingDllExitCode": 1,
+    "SdkRemovedFromPath": true
+  },
+  "ManualTitleDragAndRightResize": "PASS: user confirmed both; trace contains native move/resize events at DPR 1.5",
+  "KeyboardTraversalFix": "PASS: widget forward/reverse Tab, Enter close, modal containment; user confirmed native forward/reverse caption traversal",
+  "Unresolved": [],
+  "NotRun": [
+    "remaining resize edges",
+    "physical DPI matrix",
+    "multiple monitors",
+    "Snap hover",
+    "full IME matrix",
+    "golden"
+  ],
+  "CurrentReleaseOutputTarget": "lib/main.dart; latest font fix build exit0 and standalone bundle PASS",
+  "LastObservedProbePid": 24116,
+  "ComputerUse": "STOPPED_BY_USER_ESCAPE; probe not closed by agent",
+  "ActiveProbePids": [
+    24116
+  ],
+  "EditorWindowLifecyclePass": 83
+}

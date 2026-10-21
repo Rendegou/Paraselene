@@ -40,6 +40,32 @@ class _Repository implements DiscussionRepository {
 }
 
 void main() {
+  testWidgets(
+    'background save failure stays visible and retains draft for retry',
+    (tester) async {
+      final repository = _Repository()..fail = true;
+      final registry = DiscussionRegistry(repository);
+      addTearDown(registry.dispose);
+      await registry.open('work', 'chapter');
+      final thread = registry.create(
+        EditorAnchor.capture('draft source', 0, 5),
+      );
+      registry.editDraft(thread.id, 'retained unsent instruction');
+
+      await tester.pump(const Duration(milliseconds: 350));
+      expect(registry.error, 'discussion_save_failed');
+      expect(registry.dirty, isTrue);
+      expect(thread.draft, 'retained unsent instruction');
+      expect(repository.saved, isEmpty);
+
+      repository.fail = false;
+      await registry.flush();
+      expect(registry.error, isNull);
+      expect(registry.dirty, isFalse);
+      expect(repository.saved.single['draft'], 'retained unsent instruction');
+    },
+  );
+
   test(
     'draft edited during CAS write is saved again with next revision',
     () async {

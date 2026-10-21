@@ -2,6 +2,8 @@
 // 只读展示与本地文本编辑；输出语言只影响下一次请求，与作品语言相互独立。
 
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
+import '../theme/workbench_select.dart';
 import '../l10n/generated/app_localizations.dart';
 
 /// Renders a task state without owning the native request lifecycle.
@@ -45,6 +47,7 @@ class ReviewedTaskContent extends StatelessWidget {
               ),
             if (!summaryOnly)
               TextField(
+                style: WorkbenchTokens.input,
                 controller: text,
                 enabled: !busy,
                 minLines: 2,
@@ -80,7 +83,7 @@ class TaskOutputLanguage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = AppLocalizations.of(context);
-    return DropdownButton<String>(
+    return WorkbenchSelect<String>(
       value: value,
       onChanged: onChanged,
       items: [

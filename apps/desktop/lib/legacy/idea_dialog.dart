@@ -1,7 +1,9 @@
 // 旧想法候选对话框：逐个浏览历史导入会话中的想法，确认后保存为显式来源。
 // 候选在确认前只读；保存后由原生层排除已保存来源；翻页只在本地跳过，不写库。
 
+import 'dart:async';
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'legacy_repository.dart';
 
@@ -24,7 +26,7 @@ class _IdeaDialogState extends State<IdeaDialog> {
   @override
   void initState() {
     super.initState();
-    _load();
+    unawaited(_load());
   }
 
   Future<void> _load() async {
@@ -56,6 +58,7 @@ class _IdeaDialogState extends State<IdeaDialog> {
     });
     try {
       await widget.repository.confirmIdea(candidate, _title.text);
+      if (!mounted) return;
       // A saved source is excluded by Rust; do not skip the following candidate.
       _skip = 0;
       await _load();
@@ -91,6 +94,7 @@ class _IdeaDialogState extends State<IdeaDialog> {
                 if (!_busy && !_failed && _candidate == null) Text(s.noIdea),
                 if (_candidate case final candidate?) ...[
                   TextField(
+                    style: WorkbenchTokens.input,
                     controller: _title,
                     enabled: !_busy,
                     decoration: InputDecoration(labelText: s.memoryTitle),

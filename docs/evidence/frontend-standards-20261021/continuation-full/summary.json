@@ -1,0 +1,134 @@
+{
+  "RunId": "7a1d0a0e20e94529b49421937e0a8198",
+  "SelectedChecksStatus": "FAIL",
+  "OverallStatus": "FAIL",
+  "Coverage": "Selected automated checks only; optional and physical checks remain separately listed.",
+  "Results": [
+    {
+      "Check": "ast-structure-theme",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\ast-structure-theme.txt"
+    },
+    {
+      "Check": "gate-negative-tests",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\gate-negative-tests.txt"
+    },
+    {
+      "Check": "gate-analyze",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\gate-analyze.txt"
+    },
+    {
+      "Check": "arb-contract",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\arb-contract.txt"
+    },
+    {
+      "Check": "app-format",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\app-format.txt"
+    },
+    {
+      "Check": "text-format",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\text-format.txt"
+    },
+    {
+      "Check": "gate-format",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\gate-format.txt"
+    },
+    {
+      "Check": "app-analyze",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\app-analyze.txt"
+    },
+    {
+      "Check": "text-analyze",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\text-analyze.txt"
+    },
+    {
+      "Check": "text-tests",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\text-tests.txt"
+    },
+    {
+      "Check": "regression-production",
+      "Status": "FAIL",
+      "Selected": true,
+      "ExitCode": 1,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\regression-production.txt"
+    },
+    {
+      "Check": "regression-owned",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\regression-owned.txt"
+    },
+    {
+      "Check": "golden-comparison",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Golden; never updates baselines"
+    },
+    {
+      "Check": "windows-release-build",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-full\\windows-release-build.txt"
+    },
+    {
+      "Check": "physical-ime",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "physical-dpi-multimonitor",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "screen-reader",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "clean-machine-installation",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    }
+  ]
+}

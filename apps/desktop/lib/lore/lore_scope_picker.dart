@@ -2,6 +2,7 @@
 // 只读展示：不写库；未知历史取值原样保留并标记为“历史来源”，避免静默改写数据。
 
 import 'package:flutter/material.dart';
+import '../theme/workbench_select.dart';
 import '../l10n/generated/app_localizations.dart';
 
 /// Friendly chapter choices retain the exact stored scope identities.
@@ -28,8 +29,9 @@ class LoreScopePicker extends StatelessWidget {
     };
     // 旧数据可能含当前界面不认识的 scope，保留原值以免切换时丢失信息。
     if (!values.containsKey(value)) values[value] = s.historicalSource;
-    return DropdownButton<String>(
+    return WorkbenchSelect<String>(
       isExpanded: true,
+      label: s.loreScope,
       value: value,
       onChanged: onChanged,
       items: [

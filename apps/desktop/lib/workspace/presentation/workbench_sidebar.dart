@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import '../../cowrite/discussion_registry.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../lore/lore_library.dart';
-import '../../theme/workbench_theme.dart';
+
 import '../data/real_workspace_repository.dart';
 import '../data/workspace_repository.dart';
 import '../workspace_controller.dart';
@@ -20,6 +20,7 @@ import 'lore_preview.dart';
 import 'work_picker.dart';
 import 'workbench_chrome.dart';
 import 'workbench_dialogs.dart';
+import 'sidebar_frame.dart';
 
 enum _SidebarTab { chapters, resources }
 
@@ -318,549 +319,48 @@ class _WorkbenchSidebarState extends State<WorkbenchSidebar> {
     await _controller.selectChapter(chapter);
   }
 
-  /// 侧栏文字操作：用 InkWell 保持 28px 视觉高度，不引入 Material 按钮块。
-  Widget _textAction(
-    String label,
-    VoidCallback? onPressed, {
-    Color color = WorkbenchTokens.muted,
-    double size = 12,
-  }) {
-    final enabled = onPressed != null;
-    return Material(
-      color: Colors.transparent,
-      borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-        hoverColor: WorkbenchTokens.hover,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: 6,
-            vertical: 4,
-          ),
-          child: Text(
-            label,
-            style: WorkbenchTokens.ui(
-              size: size,
-              color: enabled ? color : color.withValues(alpha: 0.5),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  String _count(int value) => value > 99 ? '99+' : '$value';
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: const BoxDecoration(
-        color: WorkbenchTokens.frame,
-        border: Border(right: BorderSide(color: WorkbenchTokens.stroke)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _brand(),
-          _search(),
-          _tabs(),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsetsDirectional.fromSTEB(12, 19, 12, 16),
-              child: _tab == _SidebarTab.chapters
-                  ? _chapterDirectory()
-                  : _resourceDirectory(),
-            ),
-          ),
-          _footer(),
-        ],
-      ),
-    );
-  }
-
-  Widget _brand() => SizedBox(
-    height: 56,
-    child: Padding(
-      padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          const Icon(
-            Icons.menu_book_outlined,
-            size: 21,
-            color: WorkbenchTokens.accent,
-          ),
-          const SizedBox(width: 11),
-          Text(
-            '幻月',
-            style: WorkbenchTokens.ui(
-              size: 18,
-              weight: FontWeight.w500,
-              letterSpacing: 0.7,
-            ),
-          ),
-          const Spacer(),
-          if (widget.onCollapse != null)
-            IconButton(
-              tooltip: _s.closeDialog,
-              onPressed: widget.onCollapse,
-              icon: const Icon(Icons.view_sidebar_outlined, size: 16),
-              visualDensity: VisualDensity.compact,
-            ),
-        ],
-      ),
-    ),
-  );
-
-  /// 搜索占位跟随当前页签，明确筛选对象是章节还是资料。
-  Widget _search() {
-    final hint = _tab == _SidebarTab.chapters
-        ? _s.searchChapters
-        : _s.searchResources;
-    return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16, 17, 16, 18),
-      child: Container(
-        height: 36,
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          color: const Color(0xffeaecf0),
-          borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-        ),
-        child: Row(
-          children: [
-            const Icon(Icons.search, size: 15, color: WorkbenchTokens.muted),
-            const SizedBox(width: 9),
-            Expanded(
-              child: TextField(
-                key: const ValueKey('sidebar-search-field'),
-                controller: _query,
-                style: WorkbenchTokens.ui(size: 13),
-                cursorColor: WorkbenchTokens.accent,
-                decoration: InputDecoration(
-                  hintText: hint,
-                  border: InputBorder.none,
-                  isDense: true,
-                  contentPadding: EdgeInsets.zero,
-                ),
-                onChanged: (_) => setState(() {}),
-              ),
-            ),
-            if (_query.text.trim().isNotEmpty)
-              InkWell(
-                key: const ValueKey('sidebar-search-clear'),
-                onTap: _clearQuery,
-                borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-                hoverColor: WorkbenchTokens.hover,
-                child: const Padding(
-                  padding: EdgeInsetsDirectional.only(start: 8),
-                  child: Icon(
-                    Icons.close,
-                    size: 14,
-                    color: WorkbenchTokens.muted,
-                  ),
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  /// 一键清空当前页签的筛选词；只恢复列表，不改变目录数据。
   void _clearQuery() {
     if (_query.text.isEmpty) return;
     setState(_query.clear);
   }
 
-  Widget _tabs() => Container(
-    padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
-    decoration: const BoxDecoration(
-      border: Border(bottom: BorderSide(color: WorkbenchTokens.stroke)),
-    ),
-    child: Row(
-      children: [
-        Expanded(
-          child: Align(
-            alignment: AlignmentDirectional.centerStart,
-            child: _tabButton(
-              _s.sideChapters,
-              _controller.chapters.length,
-              _SidebarTab.chapters,
-            ),
-          ),
-        ),
-        const SizedBox(width: 14),
-        Expanded(
-          child: Align(
-            alignment: AlignmentDirectional.centerStart,
-            child: _tabButton(
-              _s.sideResources,
-              _lore.rows.length,
-              _SidebarTab.resources,
-            ),
-          ),
-        ),
-      ],
-    ),
+  void _changeTab(bool resources) {
+    final next = resources ? _SidebarTab.resources : _SidebarTab.chapters;
+    if (_tab == next) return;
+    setState(() {
+      _tab = next;
+      _query.clear();
+    });
+  }
+
+  SidebarCommands get _commands => SidebarCommands(
+    onTab: _changeTab,
+    onQuery: (_) => setState(() {}),
+    onClear: _clearQuery,
+    onCreate: _controller.isBusy || _controller.currentWork == null
+        ? null
+        : () => unawaited(_createChapter()),
+    onSelect: _selectChapter,
+    onMenu: _chapterMenu,
+    onRestore: (chapter) => _controller.setChapterArchived(chapter, false),
+    onAddResource: _controller.currentWork == null
+        ? null
+        : () => unawaited(_openLore()),
+    onOpenResource: _openLoreEntry,
+    onMissing: _showLoreMissing,
+    onSwitch: _controller.isBusy ? null : () => unawaited(_openWorkPicker()),
+    onCollapse: widget.onCollapse,
   );
 
-  Widget _tabButton(String label, int count, _SidebarTab tab) {
-    final active = _tab == tab;
-    return InkWell(
-      onTap: () {
-        if (_tab == tab) return;
-        setState(() {
-          _tab = tab;
-          // 搜索只作用于当前页签对象：切换时清空旧词，避免跨对象过滤。
-          _query.clear();
-        });
-      },
-      borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(2, 7, 2, 10),
-        child: Container(
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: active ? WorkbenchTokens.accent : Colors.transparent,
-                width: 2,
-              ),
-            ),
-          ),
-          padding: const EdgeInsetsDirectional.only(bottom: 2),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Flexible(
-                child: Text(
-                  label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: WorkbenchTokens.ui(
-                    size: 13,
-                    color: active ? WorkbenchTokens.ink : WorkbenchTokens.muted,
-                    weight: active ? FontWeight.w500 : FontWeight.w400,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5),
-              Text(
-                _count(count),
-                style: WorkbenchTokens.ui(
-                  size: 12,
-                  color: WorkbenchTokens.muted,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _heading(
-    String label, {
-    VoidCallback? onAdd,
-    String? addTooltip,
-  }) => Padding(
-    padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 12),
-    child: Row(
-      children: [
-        Expanded(
-          child: Text(
-            label,
-            style: WorkbenchTokens.ui(size: 12, color: WorkbenchTokens.muted),
-          ),
-        ),
-        if (onAdd != null)
-          IconButton(
-            tooltip: addTooltip,
-            onPressed: onAdd,
-            icon: const Icon(Icons.add, size: 16),
-            visualDensity: VisualDensity.compact,
-            padding: const EdgeInsets.all(4),
-            constraints: const BoxConstraints.tightFor(width: 28, height: 28),
-          ),
-      ],
-    ),
-  );
-
-  Widget _chapterDirectory() {
-    final chapters = _visibleChapters;
-    final emptyText = _query.text.trim().isEmpty
-        ? _s.emptyChapters
-        : _s.noMatchingChapters;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        _heading(
-          _s.chapterDirectory,
-          onAdd: _controller.isBusy || _controller.currentWork == null
-              ? null
-              : _createChapter,
-          addTooltip: _s.newChapter,
-        ),
-        for (final chapter in chapters)
-          _chapterRow(chapter, chapters.indexOf(chapter)),
-        if (chapters.isEmpty)
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 16),
-            child: Text(
-              emptyText,
-              style: WorkbenchTokens.ui(
-                size: 12,
-                color: WorkbenchTokens.muted,
-                height: 1.9,
-              ),
-            ),
-          ),
-        if (_controller.archivedChapters.isNotEmpty) ...[
-          const SizedBox(height: 18),
-          _heading(_s.archivedChapters),
-          for (final chapter in _controller.archivedChapters)
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 4, 4),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      chapter.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: WorkbenchTokens.ui(size: 13),
-                    ),
-                  ),
-                  _textAction(
-                    _s.restoreChapter,
-                    _controller.isBusy
-                        ? null
-                        : () => _controller.setChapterArchived(chapter, false),
-                    color: WorkbenchTokens.accent,
-                  ),
-                ],
-              ),
-            ),
-        ],
-      ],
-    );
-  }
-
-  Widget _chapterRow(WorkspaceChapter chapter, int index) {
-    final selected = _controller.currentChapter?.id == chapter.id;
-    final number = (index + 1).toString().padLeft(2, '0');
-    return Padding(
-      key: ValueKey('chapter-${chapter.id}'),
-      padding: const EdgeInsetsDirectional.only(bottom: 3),
-      child: GestureDetector(
-        onSecondaryTapDown: (details) =>
-            unawaited(_chapterMenu(chapter, details.globalPosition)),
-        onLongPressStart: (details) =>
-            unawaited(_chapterMenu(chapter, details.globalPosition)),
-        child: Material(
-          color: selected ? WorkbenchTokens.selected : Colors.transparent,
-          borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-            hoverColor: WorkbenchTokens.hover,
-            onTap: _controller.isBusy
-                ? null
-                : () => unawaited(_selectChapter(chapter)),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(11, 10, 11, 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 18,
-                    child: Text(
-                      number,
-                      style: WorkbenchTokens.ui(
-                        size: 12,
-                        color: selected
-                            ? WorkbenchTokens.accent
-                            : WorkbenchTokens.muted,
-                        height: 1.65,
-                        fontFeatures: const [FontFeature.tabularFigures()],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 11),
-                  Expanded(
-                    child: Text(
-                      chapter.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: WorkbenchTokens.ui(
-                        size: 14,
-                        height: 1.65,
-                        weight: selected ? FontWeight.w500 : FontWeight.w400,
-                        color: selected
-                            ? WorkbenchTokens.accent
-                            : WorkbenchTokens.ink,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _resourceDirectory() {
-    if (_lore.loading) {
-      return const Padding(
-        padding: EdgeInsetsDirectional.all(12),
-        child: LinearProgressIndicator(minHeight: 2),
-      );
-    }
-    if (_lore.errorCode != null) {
-      // 读取失败显式给出原因与重试入口；正文与其它页签不受影响。
-      return Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              _s.loreReadFailed,
-              style: WorkbenchTokens.ui(
-                size: 12,
-                color: WorkbenchTokens.muted,
-                height: 1.9,
-              ),
-            ),
-            _textAction(_s.retry, _lore.retry, color: WorkbenchTokens.accent),
-          ],
-        ),
-      );
-    }
-    final rows = _visibleLore;
-    final groups = <String, List<Map<String, dynamic>>>{
-      'character': [],
-      'world': [],
-      'location': [],
-    };
-    for (final row in rows) {
-      final entry = row['entry'];
-      if (entry is! Map) continue;
-      final kind = entry['kind'] as String?;
-      groups[kind]?.add(row);
-    }
-    final groupLabels = {
-      'character': _s.loreGroupCharacters,
-      'world': _s.loreGroupWorld,
-      'location': _s.loreGroupLocations,
-    };
-    final hasVisible = groups.values.any((items) => items.isNotEmpty);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        _heading(
-          _s.resourceDirectory,
-          onAdd: _controller.currentWork == null ? null : _openLore,
-          addTooltip: _s.newEntity,
-        ),
-        if (!hasVisible)
-          Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 16),
-            child: Text(
-              _query.text.trim().isEmpty
-                  ? _s.resourcesEmpty
-                  : _s.noMatchingResources,
-              style: WorkbenchTokens.ui(
-                size: 12,
-                color: WorkbenchTokens.muted,
-                height: 1.9,
-              ),
-            ),
-          )
-        else
-          for (final kind in groups.keys)
-            if (groups[kind]!.isNotEmpty) ...[
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(8, 10, 8, 7),
-                child: Text(
-                  groupLabels[kind]!,
-                  style: WorkbenchTokens.ui(
-                    size: 12,
-                    color: WorkbenchTokens.muted,
-                  ),
-                ),
-              ),
-              for (final row in groups[kind]!) _resourceRow(row, kind),
-            ],
-      ],
-    );
-  }
-
-  Widget _resourceRow(Map<String, dynamic> row, String kind) {
-    final entry = row['entry'] as Map;
-    final entryId = entry['id'] as String? ?? '';
-    final name = entry['name'] as String? ?? '';
-    final icon = switch (kind) {
-      'location' => Icons.place_outlined,
-      'world' => Icons.public_outlined,
-      _ => Icons.people_outline,
-    };
-    return InkWell(
-      key: ValueKey('lore-row-$entryId'),
-      // 行点击要带上具体条目 ID：默认只读预览，不再直接打开整个资料库。
-      onTap: _controller.isBusy
-          ? null
-          : () {
-              if (entryId.isEmpty) {
-                _showLoreMissing();
-                return;
-              }
-              unawaited(_openLoreEntry(entryId));
-            },
-      borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(8, 9, 8, 9),
-        child: Row(
-          children: [
-            Icon(icon, size: 16, color: WorkbenchTokens.muted),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                name,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: WorkbenchTokens.ui(size: 13),
-              ),
-            ),
-            const Icon(
-              Icons.chevron_right,
-              size: 14,
-              color: WorkbenchTokens.muted,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _footer() => Container(
-    padding: const EdgeInsetsDirectional.fromSTEB(16, 10, 16, 10),
-    decoration: const BoxDecoration(
-      border: Border(top: BorderSide(color: WorkbenchTokens.stroke)),
-    ),
-    child: Row(
-      children: [
-        Expanded(
-          child: Text(
-            _controller.repository.mode == WorkspaceMode.realBridge
-                ? _s.sidebarReal
-                : _s.sidebarSynthetic,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: WorkbenchTokens.ui(size: 12, color: WorkbenchTokens.muted),
-          ),
-        ),
-        _textAction(_s.switchWork, _controller.isBusy ? null : _openWorkPicker),
-      ],
-    ),
+  @override
+  Widget build(BuildContext context) => SidebarFrame(
+    controller: _controller,
+    labels: widget.labels,
+    query: _query,
+    resourcesSelected: _tab == _SidebarTab.resources,
+    lore: _lore,
+    chapters: _visibleChapters,
+    rows: _visibleLore,
+    commands: _commands,
   );
 }

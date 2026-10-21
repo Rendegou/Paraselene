@@ -110,6 +110,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get openDirectory => 'Open chapter directory';
 
   @override
+  String get discussionCollapse => 'Collapse discussion';
+
+  @override
   String get closeDialog => 'Close';
 
   @override
@@ -748,9 +751,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loreAliases => 'Aliases (one per line)';
 
   @override
-  String get loreScope => 'Scope: whole / retrospective / from:chapter ID';
-
-  @override
   String get openSourceChapter => 'Locate source chapter';
 
   @override
@@ -1049,4 +1049,57 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get resourceDirectory => 'Story materials';
+
+  @override
+  String get clearSearch => 'Clear search';
+
+  @override
+  String get loreUnconfirmed =>
+      'Confirm this material in the library before selecting it.';
+
+  @override
+  String get referenceLimit => 'Up to 32 materials can be selected.';
+
+  @override
+  String get loreAdd => 'Add material';
+
+  @override
+  String get loreEdit => 'Edit material';
+
+  @override
+  String get characterAppearance => 'Appearance';
+
+  @override
+  String get characterVoice => 'Voice';
+
+  @override
+  String get loreKind => 'Type';
+
+  @override
+  String get loreName => 'Name';
+
+  @override
+  String get loreBody => 'Content';
+
+  @override
+  String get loreTimeline => 'Timeline';
+
+  @override
+  String get loreTaboo => 'Constraints';
+
+  @override
+  String get loreStyle => 'Writing style';
+
+  @override
+  String get loreEmpty => 'No materials yet. Use Add material to create one.';
+
+  @override
+  String get historyEmpty => 'No review history for this chapter yet.';
+
+  @override
+  String get importEmpty =>
+      'Choose a conversation file to preview, or search messages already imported.';
+
+  @override
+  String get loreScope => 'Applies to';
 }

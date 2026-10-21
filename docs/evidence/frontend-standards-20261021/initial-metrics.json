@@ -1,0 +1,359 @@
+{
+  "status": "FAIL",
+  "files": 106,
+  "violations": 44,
+  "findings": [
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/cowrite/discussion_panel.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 412,
+      "limit": 400
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/cowrite/discussion_panel.dart",
+      "line": 130,
+      "symbol": "build",
+      "actual": 279,
+      "limit": 60
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/editor/editor_scene.dart",
+      "line": 308,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/editor/editor_scene.dart",
+      "line": 309,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/editor/editor_scene.dart",
+      "line": 311,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 565,
+      "limit": 400
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 516,
+      "symbol": "build",
+      "actual": 189,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 520,
+      "symbol": "<callback>",
+      "actual": 183,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 543,
+      "symbol": "<callback>",
+      "actual": 158,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/legacy/character_dialog.dart",
+      "line": 76,
+      "symbol": "build",
+      "actual": 125,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/legacy/idea_target_dialog.dart",
+      "line": 130,
+      "symbol": "build",
+      "actual": 77,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/legacy/imported_dialog.dart",
+      "line": 33,
+      "symbol": "build",
+      "actual": 117,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/legacy/memory_dialog.dart",
+      "line": 52,
+      "symbol": "build",
+      "actual": 84,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/legacy/novel_history_dialog.dart",
+      "line": 64,
+      "symbol": "build",
+      "actual": 101,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/lore/lore_edit_dialog.dart",
+      "line": 50,
+      "symbol": "build",
+      "actual": 98,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/lore/lore_library.dart",
+      "line": 80,
+      "symbol": "build",
+      "actual": 73,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/lore/lore_map_preview.dart",
+      "line": 75,
+      "symbol": "build",
+      "actual": 84,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/lore/lore_picker.dart",
+      "line": 48,
+      "symbol": "build",
+      "actual": 77,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/theme/workbench_theme.dart",
+      "line": 118,
+      "symbol": "workbenchTheme",
+      "actual": 217,
+      "limit": 60
+    },
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_status.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 461,
+      "limit": 400
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_status.dart",
+      "line": 151,
+      "symbol": "build",
+      "actual": 91,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_status.dart",
+      "line": 305,
+      "symbol": "build",
+      "actual": 85,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_status.dart",
+      "line": 405,
+      "symbol": "build",
+      "actual": 88,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_status.dart",
+      "line": 408,
+      "symbol": "<callback>",
+      "actual": 83,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_tools.dart",
+      "line": 52,
+      "symbol": "workspaceToolItems",
+      "actual": 80,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_tools.dart",
+      "line": 142,
+      "symbol": "openWorkspaceTool",
+      "actual": 68,
+      "limit": 60
+    },
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/workspace/presentation/manuscript_editor.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 935,
+      "limit": 400
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/workspace/presentation/manuscript_editor.dart",
+      "line": 105,
+      "symbol": "TextStyle",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/workspace/presentation/manuscript_editor.dart",
+      "line": 801,
+      "symbol": "TextStyle",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/manuscript_editor.dart",
+      "line": 822,
+      "symbol": "build",
+      "actual": 116,
+      "limit": 60
+    },
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_chrome.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 617,
+      "limit": 400
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_chrome.dart",
+      "line": 105,
+      "symbol": "build",
+      "actual": 66,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_chrome.dart",
+      "line": 178,
+      "symbol": "_editorActions",
+      "actual": 71,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_chrome.dart",
+      "line": 183,
+      "symbol": "<callback>",
+      "actual": 64,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_chrome.dart",
+      "line": 398,
+      "symbol": "_moreMenu",
+      "actual": 125,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_chrome.dart",
+      "line": 444,
+      "symbol": "<callback>",
+      "actual": 72,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_screen.dart",
+      "line": 52,
+      "symbol": "build",
+      "actual": 71,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_screen.dart",
+      "line": 59,
+      "symbol": "<callback>",
+      "actual": 61,
+      "limit": 60
+    },
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_sidebar.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 795,
+      "limit": 400
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_sidebar.dart",
+      "line": 411,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_sidebar.dart",
+      "line": 633,
+      "symbol": "_chapterRow",
+      "actual": 67,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/workbench_sidebar.dart",
+      "line": 701,
+      "symbol": "_resourceDirectory",
+      "actual": 84,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/work_picker.dart",
+      "line": 67,
+      "symbol": "build",
+      "actual": 100,
+      "limit": 60
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/workspace/presentation/work_picker.dart",
+      "line": 82,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    }
+  ]
+}

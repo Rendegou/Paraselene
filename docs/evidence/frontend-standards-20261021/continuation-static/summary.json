@@ -1,0 +1,134 @@
+{
+  "RunId": "d1edc986323a4287a6a12237d425250f",
+  "SelectedChecksStatus": "FAIL",
+  "OverallStatus": "FAIL",
+  "Coverage": "Selected automated checks only; optional and physical checks remain separately listed.",
+  "Results": [
+    {
+      "Check": "ast-structure-theme",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\ast-structure-theme.txt"
+    },
+    {
+      "Check": "gate-negative-tests",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\gate-negative-tests.txt"
+    },
+    {
+      "Check": "gate-analyze",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\gate-analyze.txt"
+    },
+    {
+      "Check": "arb-contract",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\arb-contract.txt"
+    },
+    {
+      "Check": "app-format",
+      "Status": "FAIL",
+      "Selected": true,
+      "ExitCode": 1,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\app-format.txt"
+    },
+    {
+      "Check": "text-format",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\text-format.txt"
+    },
+    {
+      "Check": "gate-format",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\gate-format.txt"
+    },
+    {
+      "Check": "app-analyze",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\app-analyze.txt"
+    },
+    {
+      "Check": "text-analyze",
+      "Status": "PASS",
+      "Selected": true,
+      "ExitCode": 0,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\continuation-static\\text-analyze.txt"
+    },
+    {
+      "Check": "regression-production",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Test"
+    },
+    {
+      "Check": "regression-owned",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Test"
+    },
+    {
+      "Check": "text-tests",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Test"
+    },
+    {
+      "Check": "golden-comparison",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Golden; never updates baselines"
+    },
+    {
+      "Check": "windows-release-build",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -WindowsBuild"
+    },
+    {
+      "Check": "physical-ime",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "physical-dpi-multimonitor",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "screen-reader",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "clean-machine-installation",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    }
+  ]
+}

@@ -15,6 +15,7 @@ Future<WorkspaceController> pumpPaperWorkbench(
   WidgetTester tester, {
   SyntheticWorkspaceRepository? repository,
   Size size = const Size(1440, 900),
+  double textScale = 1,
 }) async {
   tester.useSurface(size);
   final controller = WorkspaceController(
@@ -22,18 +23,25 @@ Future<WorkspaceController> pumpPaperWorkbench(
   );
   await controller.restoreSession();
   await tester.pumpWidget(
-    Builder(
-      builder: (context) => MediaQuery(
-        data: MediaQuery.of(context).copyWith(disableAnimations: true),
-        child: MaterialApp(
-          locale: chinese,
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          theme: workbenchTheme(),
-          home: WorkbenchScreen(
-            controller: controller,
+    RepaintBoundary(
+      key: const ValueKey('paper-capture-root'),
+      child: Builder(
+        builder: (context) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(
+            disableAnimations: true,
+            textScaler: TextScaler.linear(textScale),
+          ),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
             locale: chinese,
-            onLocaleChanged: (_) {},
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            theme: workbenchTheme(),
+            home: WorkbenchScreen(
+              controller: controller,
+              locale: chinese,
+              onLocaleChanged: (_) {},
+            ),
           ),
         ),
       ),

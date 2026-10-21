@@ -150,12 +150,19 @@ void main() {
       (widget) => widget is Semantics && widget.properties.label == label,
     );
     expect(semanticsNamed(s.findInChapter), findsOneWidget);
+    expect(
+      tester
+          .widget<Semantics>(semanticsNamed(s.findInChapter))
+          .properties
+          .onTap,
+      isNotNull,
+    );
     // “更多”是 PopupMenuButton，其可访问名由按钮自身 tooltip 提供。
     expect(find.byTooltip(s.moreTools), findsOneWidget);
 
-    // 视觉高度 40，满足鼠标/触控目标，且不撑破 56px 顶栏。
+    // 透明命中高度48，可视底板32，且不撑破56px顶栏。
     final findSize = tester.getSize(find.byTooltip(s.findInChapter));
-    expect(findSize.height, greaterThanOrEqualTo(40));
+    expect(findSize.height, greaterThanOrEqualTo(48));
     expect(findSize.height, lessThanOrEqualTo(56));
     expect(
       tester.getSize(find.byTooltip(s.moreTools)).height,

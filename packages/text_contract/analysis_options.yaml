@@ -4,3 +4,12 @@ analyzer:
     strict-casts: true
     strict-inference: true
     strict-raw-types: true
+  errors:
+    unawaited_futures: error
+    discarded_futures: error
+    empty_catches: error
+linter:
+  rules:
+    unawaited_futures: true
+    discarded_futures: true
+    empty_catches: true

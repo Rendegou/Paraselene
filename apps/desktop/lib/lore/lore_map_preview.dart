@@ -1,6 +1,7 @@
 // 资料地图预览：把 location 类资料以卡片布局呈现，关系连线由作者在当前会话中建立。
 // 只读数据源、会话内状态：位置/连线/缩放不写库，也不新增或修改资料条目。
 
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -18,7 +19,7 @@ class LoreMapPreview extends StatefulWidget {
   final List<Map<String, dynamic>> rows;
   final Map<String, Offset> positions;
   final Set<(String, String)> links;
-  final void Function(Map<String, dynamic>) onOpen;
+  final Future<void> Function(Map<String, dynamic>) onOpen;
   @override
   State<LoreMapPreview> createState() => _LoreMapPreviewState();
 }
@@ -39,18 +40,23 @@ class _LoreMapPreviewState extends State<LoreMapPreview> {
   // 未拖动过的地点按五列网格给出初始位置，拖动后以会话内坐标为准。
   Offset _point(int index) =>
       widget.positions[_id(_locations[index])] ??
-      Offset((index % 5) * 220.0, (index ~/ 5) * 120.0);
+      Offset((index % 5) * 220.0, (index ~/ 5) * (_nodeHeight + 32));
+
+  // 两行操作保留至少48px命中，大字号增加节点而不压缩按钮。
+  double get _nodeHeight =>
+      math.max(88.0, MediaQuery.textScalerOf(context).scale(13) * 3.2 + 24);
 
   // 画布不低于 1600，保证 InteractiveViewer 有足够的平移空间。
-  double get _height => (((_locations.length + 4) ~/ 5) * 120.0 + 88)
-      .clamp(1600, double.infinity)
-      .toDouble();
+  double get _height =>
+      (((_locations.length + 4) ~/ 5) * (_nodeHeight + 32) + _nodeHeight)
+          .clamp(1600, double.infinity)
+          .toDouble();
   void _move(int index, Offset delta) {
     // 拖拽限制在画布内，避免卡片被拖出可视范围后无法再选中。
     final next = _point(index) + delta;
     widget.positions[_id(_locations[index])] = Offset(
       next.dx.clamp(0, 2020),
-      next.dy.clamp(0, _height - 88),
+      next.dy.clamp(0, _height - _nodeHeight),
     );
   }
 
@@ -77,7 +83,7 @@ class _LoreMapPreviewState extends State<LoreMapPreview> {
     if (_locations.isEmpty) return Center(child: Text(s.referenceEmpty));
     final centers = {
       for (var i = 0; i < _locations.length; i++)
-        _id(_locations[i]): _point(i) + const Offset(90, 42),
+        _id(_locations[i]): _point(i) + Offset(90, _nodeHeight / 2),
     };
     return Column(
       children: [
@@ -110,39 +116,13 @@ class _LoreMapPreviewState extends State<LoreMapPreview> {
                             onScaleUpdate: (details) => setState(
                               () => _move(i, details.focalPointDelta),
                             ),
-                            child: SizedBox(
-                              width: 180,
-                              height: 88,
-                              child: Card(
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      child: TextButton(
-                                        onPressed: () =>
-                                            widget.onOpen(_locations[i]),
-                                        child: Text(
-                                          (_locations[i]['entry']
-                                                  as Map)['name']
-                                              as String,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 32,
-                                      child: TextButton.icon(
-                                        onPressed: () =>
-                                            _relate(_id(_locations[i])),
-                                        icon: Icon(
-                                          _selected == _id(_locations[i])
-                                              ? Icons.check_circle
-                                              : Icons.link,
-                                        ),
-                                        label: Text(s.mapRelation),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            child: _LocationCard(
+                              row: _locations[i],
+                              height: _nodeHeight,
+                              selected: _selected == _id(_locations[i]),
+                              onOpen: () async =>
+                                  await widget.onOpen(_locations[i]),
+                              onRelate: () => _relate(_id(_locations[i])),
                             ),
                           ),
                         ),
@@ -180,4 +160,45 @@ class _RelationsPainter extends CustomPainter {
         lines.length,
         (i) => i,
       ).any((i) => old.lines[i] != lines[i]);
+}
+
+class _LocationCard extends StatelessWidget {
+  const _LocationCard({
+    required this.row,
+    required this.height,
+    required this.selected,
+    required this.onOpen,
+    required this.onRelate,
+  });
+  final Map<String, dynamic> row;
+  final double height;
+  final bool selected;
+  final Future<void> Function() onOpen;
+  final VoidCallback onRelate;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    width: 180,
+    height: height,
+    child: Card(
+      child: Column(
+        children: [
+          Expanded(
+            child: TextButton(
+              onPressed: onOpen,
+              child: Text((row['entry'] as Map)['name'] as String),
+            ),
+          ),
+          Semantics(
+            selected: selected,
+            child: TextButton.icon(
+              onPressed: onRelate,
+              icon: Icon(selected ? Icons.check_circle : Icons.link),
+              label: Text(AppLocalizations.of(context).mapRelation),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }

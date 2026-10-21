@@ -1,10 +1,12 @@
 // 记忆浏览与编辑对话框：一次只展示一个记忆空间，切换空间清空旧结果。
 // 读取按 space/work 隔离；写入失败保留输入，修正携带原 updatedAt 作为 CAS。
 
+import 'dart:async';
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'legacy_repository.dart';
-import 'memory_actions.dart';
+import 'memory_browser_views.dart';
 
 /// One visible memory space at a time. Changing space clears previous results.
 ///
@@ -25,7 +27,7 @@ class _MemoryDialogState extends State<MemoryDialog> {
   @override
   void initState() {
     super.initState();
-    _load();
+    unawaited(_load());
   }
 
   Future<void> _load() async {
@@ -47,89 +49,45 @@ class _MemoryDialogState extends State<MemoryDialog> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final s = AppLocalizations.of(context);
-    final names = {
-      'personal': s.personalMemory,
-      'idea': s.oldIdeas,
-      'novel': s.novelMemory,
-      'learning': s.learningMemory,
-    };
-    return Dialog(
-      child: SizedBox(
-        width: 760,
-        height: 600,
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: DropdownButton<String>(
-                      value: _space,
-                      items: [
-                        for (final name in names.entries)
-                          if (name.key != 'novel' || widget.work != null)
-                            DropdownMenuItem(
-                              value: name.key,
-                              child: Text(name.value),
-                            ),
-                      ],
-                      onChanged: (value) {
-                        setState(() => _space = value!);
-                        _load();
-                      },
-                    ),
-                  ),
-                  IconButton(
-                    tooltip: s.addMemory,
-                    onPressed: () => _edit(null),
-                    icon: const Icon(Icons.add),
-                  ),
-                  const CloseButton(),
-                ],
+  Widget build(BuildContext context) => Dialog(
+    child: SizedBox(
+      width: 760,
+      height: _rows == null || _rows!.isEmpty ? 280 : 600,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          children: [
+            MemoryBrowserHeader(
+              space: _space,
+              hasWork: widget.work != null,
+              onSpace: _changeSpace,
+              onAdd: () async => await _edit(null),
+            ),
+            if (_failed)
+              TextButton(
+                onPressed: _load,
+                child: Text(AppLocalizations.of(context).retry),
               ),
-              if (_failed) TextButton(onPressed: _load, child: Text(s.retry)),
-              Expanded(
-                child: _rows == null
-                    ? (_failed
-                          ? Text(s.saveError)
-                          : const Center(child: CircularProgressIndicator()))
-                    : _rows!.isEmpty
-                    ? Text(s.memoryEmpty)
-                    : ListView(
-                        children: [
-                          for (final row in _rows!)
-                            ListTile(
-                              title: Text(row['title'] as String),
-                              subtitle: Text(row['summary'] as String? ?? ''),
-                              onTap: () => _detail(row),
-                              trailing: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  IconButton(
-                                    tooltip: s.correctMemory,
-                                    onPressed: () => _edit(row),
-                                    icon: const Icon(Icons.edit_outlined),
-                                  ),
-                                  MemoryActions(
-                                    repository: widget.repository,
-                                    space: _space,
-                                    row: row,
-                                    onChanged: _load,
-                                  ),
-                                ],
-                              ),
-                            ),
-                        ],
-                      ),
+            Expanded(
+              child: MemoryBrowserResults(
+                rows: _rows,
+                failed: _failed,
+                repository: widget.repository,
+                space: _space,
+                onDetail: _detail,
+                onEdit: _edit,
+                onChanged: _load,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    );
+    ),
+  );
+
+  void _changeSpace(String value) {
+    setState(() => _space = value);
+    unawaited(_load());
   }
 
   Future<void> _edit(Map<String, dynamic>? row) async {
@@ -230,17 +188,21 @@ class _MemoryEditDialogState extends State<MemoryEditDialog> {
     final s = AppLocalizations.of(context);
     return AlertDialog(
       title: Text(s.correctMemory),
+      scrollable: true,
       content: SizedBox(
         width: 560,
         child: Column(
+          spacing: 12,
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
+              style: WorkbenchTokens.input,
               controller: _title,
               enabled: !_busy,
               decoration: InputDecoration(labelText: s.memoryTitle),
             ),
             TextField(
+              style: WorkbenchTokens.input,
               controller: _summary,
               enabled: !_busy,
               minLines: 3,
@@ -256,7 +218,10 @@ class _MemoryEditDialogState extends State<MemoryEditDialog> {
           onPressed: _busy ? null : () => Navigator.pop(context),
           child: Text(s.cancel),
         ),
-        TextButton(onPressed: _busy ? null : _save, child: Text(s.saveMemory)),
+        FilledButton(
+          onPressed: _busy ? null : _save,
+          child: Text(s.saveMemory),
+        ),
       ],
     );
   }

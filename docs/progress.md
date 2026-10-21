@@ -1,3 +1,5 @@
+> 2026-10-21 前端规范落地与结构整改收尾：按 `docs/engineering/frontend-standards.md` 把工作台/编辑器/讨论/资料/legacy 巨型文件按职责拆成可测试组件，统一令牌/控件/选择器/组件主题入口（`theme/workbench_*`、`workspace/presentation/toolbar_*` 等），新增 AST 结构与 ARB 检查工具及统一入口 `scripts/check-frontend.ps1`，并同步 DESIGN/AGENTS/README。收尾修复上一会话遗留的版式菜单真实点击命中与测试格式问题。同一工作树统一门禁所选项全 PASS：AST 139 文件 0 违规、负向 21、ARB 336×3、format/analyze 无问题、普通回归 640、owned 2、Windows Release、独立复制包（probe 0/缺 DLL 1/path 移除 SDK）；golden 比较 SKIPPED（8 张历史差异未重批），真实 IME/DPI/屏幕阅读器/净机安装 NOT_RUN。证据见 `docs/evidence/frontend-standards-20261021/README.md`，历史 UI 交互与页面覆盖见 `docs/evidence/ui-interaction-20261021/`、`docs/evidence/ui-completion-20261021/`。
+
 > 2026-10-20 整改复核 F1–F4 修复：补正文 composing 快捷键守卫，将生成运行态移至 Registry 以保留收起/重开后的取消能力，资料引用冻结当前作品/章节/讨论，移除 bundle 验证的历史目录自动删除。新增 12 项永久回归；定向 79、普通全量 583、owned 2 项通过，format/analyze、Release、独立复制包与历史目录保留检查通过。新客户端已打开（PID 37404）。真实物理 IME/DPI 等既有 NOT_RUN 边界保留，golden 未重批，未提交工作树。证据见 `docs/evidence/review-fixes-20261020/README.md`。
 
 > 2026-10-20 中文注释补充（按用户要求保留，不回滚）：对生产代码补 Google 风格中文文件头/文档注释——Flutter lib 96 文件、Rust application/bridge 50 文件、Windows runner 19、text_contract 3（测试/集成测试/scripts 仅文件头）；独立新会话核对覆盖 220/220 在范围内文件（.py 工具脚本不在范围），受保护路径 93/93 哈希一致。修正 lore 文档尖括号、Rust 3 处注释缩进，并因中文注释引出 MSVC C4819 给 runner 加 `/utf-8` 后重新构建通过。最终门禁：Dart format/analyze、Rust fmt/check、Flutter 全量502+专项1+隔离2、Rust 292 + 严格 Clippy、Release 与独立复制包全部通过。详见 docs/evidence/COMMENT-PASS-20261020.md。
@@ -23,7 +25,7 @@
 
 # Flutter 迁移进度
 
-## 当前状态（2026-10-20）
+## 当前状态（2026-10-21）
 
 | 范围 | 状态 | 证据 |
 | --- | --- | --- |
@@ -39,6 +41,8 @@
 | 操作一致性整改 R01–R16（批次 A–F） | PASS（R16 清理后重建：571+2 tests、format/analyze 0、Release/bundle/m1/m2/m4 集成通过；真实 IME/DPI/净机 NOT_RUN） | `docs/evidence/operation-parity-20261020/README.md` |
 | R15 文档入口整理 / R16 清理重建（批次 F） | 完成（清理 19,960 文件/11.58 GiB；V28 重建 PASS） | `docs/evidence/operation-parity-20261020/batch-F.md`、`cleanup-manifest.md` |
 | 最终统一门禁（真实 FFI/Release/bundle/Windows integration/golden 报告） | PASS（golden 单独报告 2 失败：既有视觉基线未重批，未 update） | `docs/evidence/operation-parity-20261020/` 的 `final-*.log`、`bundle-probe/` |
+| 原生交互外观合同与控件/页面覆盖（2026-10-21） | IMPLEMENTED（共享 32px 控件底板/48px 命中、DiscussionSurface、控件状态合同；627+owned2 回归、Release/bundle PASS；物理状态矩阵 NOT_RUN） | `docs/evidence/ui-interaction-20261021/README.md`、`ui-completion-20261021/README.md` |
+| 前端规范与结构整改（F01–F14，2026-10-21） | PASS（AST 139/0、负向21、ARB 336×3、普通回归640、owned2、format/analyze、Release/bundle；golden SKIPPED、物理项 NOT_RUN） | `docs/evidence/frontend-standards-20261021/README.md` |
 
 说明：下表与后续段落为历史记录，保留当时的 NOT_RUN 与结论，不因后续批次改写。
 
@@ -77,3 +81,7 @@ M0放在 `packages/text_contract` 而非根Flutter依赖中，保证纯Dart/无U
 
 > 2026-10-20 视觉方案对齐接续：按原 TS 版 CSS 重写工作台视觉层（主题令牌、60/48/32 纸面排版、240px 目录、56px 扁平顶栏、章节/资料页签、保存状态点、版式/语言/更多菜单），并把 M2-W 自绘导航栏并入默认界面（--system-title-bar 保留回退）。新增 workbench_sidebar.dart、editor_action_registry.dart，工具入口上移到顶栏“更多”，未删除查找/讨论/导出/模型/备份等功能。format、analyze、502 项 Flutter 回归、2 项 owned 真实 FFI、Release 构建与独立 bundle 探针通过；golden 未重批，Rust 源码未改。真实窗口截图复看待用户确认（已停止 Computer Use）。详见 docs/evidence/UI-PARITY-20261020.md。
 
+
+> 2026-10-21 原生交互外观合同完成：复现48px按钮底板、默认冷灰Card及编辑器灰绿槽底，统一ThemeData/WorkbenchControls的32px可视底板与48px透明命中、局部焦点和禁用态；段下DiscussionSurface独占暖纸面，Dialog不叠Card，草稿用工具字体；顶栏、章末、菜单与弹窗同类状态已迁移。588普通回归、84定向、4顶栏语义、2 owned、analyze/format、Release与独立bundle通过，680px/200%字号组件截图通过；新版独立客户端已打开并观察展开讨论。历史golden未重批，已有差异和文档保留；真实IME/DPI/原生完整状态矩阵仍NOT_RUN。未提交或推送。详见 docs/evidence/ui-interaction-20261021/README.md。
+
+- 2026-10-21 控件/辅助页收尾：统一7处选择器、状态感知工具输入、Checkbox/Switch、侧栏导航焦点/禁用、浏览/任务弹窗标题角色；整章讨论自适应并去重复状态，补空态和操作层级。普通627+owned2通过，33页尺寸截图，Windows Release及独立bundle通过；未提交/推送，原生完整状态与严格ARB基线元数据缺口见docs/evidence/ui-completion-20261021/README.md。

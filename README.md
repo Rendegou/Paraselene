@@ -2,16 +2,29 @@
 
 实施依据：[迁移计划](../paraselene-flutter-migration/MIGRATION_PLAN.md)。独立目标，原Tauri工程只读。
 
-## 当前状态（2026-10-20）
+## 当前状态（2026-10-21）
 
-生产编辑器（自定义 raw UTF-16 排版/绘制/输入、段下讨论线程、出处装饰）已经接入工作台；视觉层按原 TS 版对齐；操作一致性整改 R01–R16 按 [整改文档](docs/engineering/FLUTTER-OPERATION-REMEDIATION-20261020.md) 执行，批次 A–E 完成，批次 F（文档入口整理与文件清理重建）进行中。当前工作树未提交，真实 Windows IME/桌面矩阵、生产/测试 FFI DLL、外网模型与净机安装仍为 NOT_RUN，不能据此宣称全产品替代完成。
+生产编辑器（raw UTF-16 排版/绘制/输入、段下讨论、出处装饰）已接入工作台。操作整改 R01–R16 与原生控件外观收尾有分项历史证据；本轮统一前端规范并对全部自有生产 Dart 代码整改，当前验证状态以最新 evidence 为准。工作树保留既有修改；真实物理 IME、DPI/多屏、屏幕阅读器、外网模型和净机安装仍需各自验收，不能宣称全产品替代完成。
 
 - 进度与当前里程碑：[docs/progress.md](docs/progress.md)
+- 当前前端工程规则：[frontend-standards.md](docs/engineering/frontend-standards.md)
+- 当前视觉/控件/排版角色：[DESIGN.md](DESIGN.md)
+- 最新交互与页面覆盖：[交互状态合同](docs/evidence/ui-interaction-20261021/README.md)、[辅助页面矩阵](docs/evidence/ui-completion-20261021/README.md)
 - 整改证据索引：[docs/evidence/operation-parity-20261020/README.md](docs/evidence/operation-parity-20261020/README.md)
 - 视觉对齐证据：[docs/evidence/UI-PARITY-20261020.md](docs/evidence/UI-PARITY-20261020.md)
 - 中文注释规范与记录：[docs/engineering/comment-style-20261020.md](docs/engineering/comment-style-20261020.md)、[docs/evidence/COMMENT-PASS-20261020.md](docs/evidence/COMMENT-PASS-20261020.md)
 
-目标测试入口（`apps/desktop` 下）：
+统一前端检查入口（仓库根目录，首次先恢复工具包的离线依赖）：
+
+```powershell
+dart pub get --offline --directory tools/frontend_checks
+pwsh -NoProfile -File scripts/check-frontend.ps1
+pwsh -NoProfile -File scripts/check-frontend.ps1 -Test
+```
+
+默认检查 AST 结构/主题边界、严格 ARB、格式及分析；`-Test` 增加普通回归。golden 与真实 Windows 矩阵独立报告，门禁自身也有正反向测试。应用和纯 Dart 包须预先恢复各自锁定依赖；SDK 路径参数与其他验证选项见脚本帮助。
+
+模块定向测试入口（`apps/desktop` 下）：
 
 ```powershell
 dart format --output=none --set-exit-if-changed lib test integration_test bin

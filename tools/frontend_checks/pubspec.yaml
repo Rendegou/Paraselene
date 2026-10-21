@@ -1,0 +1,10 @@
+name: frontend_checks
+description: Offline AST quality checks for the owned Paraselene frontend.
+publish_to: none
+environment:
+  sdk: ^3.8.1
+dependencies:
+  analyzer: 8.1.1
+  path: ^1.9.1
+dev_dependencies:
+  test: ^1.25.15

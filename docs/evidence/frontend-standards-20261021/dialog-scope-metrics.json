@@ -1,0 +1,37 @@
+{
+  "Status": "PASS",
+  "Files": 50.0,
+  "Violations": 0.0,
+  "Scopes": [
+    {
+      "Report": "cowrite-metrics.json",
+      "Status": "PASS",
+      "Files": 17,
+      "Violations": 0
+    },
+    {
+      "Report": "lore-metrics.json",
+      "Status": "PASS",
+      "Files": 9,
+      "Violations": 0
+    },
+    {
+      "Report": "legacy-metrics.json",
+      "Status": "PASS",
+      "Files": 20,
+      "Violations": 0
+    },
+    {
+      "Report": "lore-preview-metrics.json",
+      "Status": "PASS",
+      "Files": 3,
+      "Violations": 0
+    },
+    {
+      "Report": "workbench-screen-metrics.json",
+      "Status": "PASS",
+      "Files": 1,
+      "Violations": 0
+    }
+  ]
+}

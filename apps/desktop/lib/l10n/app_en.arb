@@ -128,6 +128,7 @@
   "@openDirectory": {
     "description": "Workbench: openDirectory"
   },
+  "discussionCollapse": "Collapse discussion",
   "closeDialog": "Close",
   "@closeDialog": {
     "description": "Workbench: closeDialog"
@@ -462,7 +463,8 @@
       "count": {
         "type": "int"
       }
-    }
+    },
+    "description": "Successful isolated restore notice; count is the number of restored works."
   },
   "characterPlayful": "Playful",
   "characterStar": "Star",
@@ -549,7 +551,6 @@
   "summaryTaskDone": "Summary rebuilt. Manuscript text is unchanged.",
   "rpgDraftDone": "Saved as a pending draft. Review, load or discard it in chapter history.",
   "loreAliases": "Aliases (one per line)",
-  "loreScope": "Scope: whole / retrospective / from:chapter ID",
   "openSourceChapter": "Locate source chapter",
   "mapRelation": "Relation",
   "mapRelationsHelp": "Layout and relations are previews for this window and are not saved. Drag location cards and scroll to zoom. Select Relation on two locations to add or remove a link.",
@@ -749,5 +750,661 @@
     "description": "Material preview label for the current material body"
   },
   "chapterDirectory": "Chapter directory",
-  "resourceDirectory": "Story materials"
+  "resourceDirectory": "Story materials",
+  "clearSearch": "Clear search",
+  "loreUnconfirmed": "Confirm this material in the library before selecting it.",
+  "referenceLimit": "Up to 32 materials can be selected.",
+  "loreAdd": "Add material",
+  "loreEdit": "Edit material",
+  "characterAppearance": "Appearance",
+  "characterVoice": "Voice",
+  "loreKind": "Type",
+  "loreName": "Name",
+  "loreBody": "Content",
+  "loreTimeline": "Timeline",
+  "loreTaboo": "Constraints",
+  "loreStyle": "Writing style",
+  "loreEmpty": "No materials yet. Use Add material to create one.",
+  "historyEmpty": "No review history for this chapter yet.",
+  "importEmpty": "Choose a conversation file to preview, or search messages already imported.",
+  "loreScope": "Applies to",
+  "@clearSearch": {
+    "description": "Tool interface label or guidance: Clear search"
+  },
+  "@loreUnconfirmed": {
+    "description": "Tool interface label or guidance: Confirm this material in the library before selecting it."
+  },
+  "@referenceLimit": {
+    "description": "Tool interface label or guidance: Up to 32 materials can be selected."
+  },
+  "@loreAdd": {
+    "description": "Tool interface label or guidance: Add material"
+  },
+  "@loreEdit": {
+    "description": "Tool interface label or guidance: Edit material"
+  },
+  "@characterAppearance": {
+    "description": "Tool interface label or guidance: Appearance"
+  },
+  "@characterVoice": {
+    "description": "Tool interface label or guidance: Voice"
+  },
+  "@loreKind": {
+    "description": "Tool interface label or guidance: Type"
+  },
+  "@loreName": {
+    "description": "Tool interface label or guidance: Name"
+  },
+  "@loreBody": {
+    "description": "Tool interface label or guidance: Content"
+  },
+  "@loreTimeline": {
+    "description": "Tool interface label or guidance: Timeline"
+  },
+  "@loreTaboo": {
+    "description": "Tool interface label or guidance: Constraints"
+  },
+  "@loreStyle": {
+    "description": "Tool interface label or guidance: Writing style"
+  },
+  "@loreEmpty": {
+    "description": "Tool interface label or guidance: No materials yet. Use Add material to create one."
+  },
+  "@historyEmpty": {
+    "description": "Tool interface label or guidance: No review history for this chapter yet."
+  },
+  "@importEmpty": {
+    "description": "Tool interface label or guidance: Choose a conversation file to preview, or search messages already imported."
+  },
+  "@loreScope": {
+    "description": "Tool interface label or guidance: Applies to"
+  },
+  "@chapterDirectory": {
+    "description": "Accessible title of the chapter-navigation pane."
+  },
+  "@chapterSummary": {
+    "description": "Label identifying the derived summary of a confirmed chapter."
+  },
+  "@importDone": {
+    "description": "Success notice after committing an import, directing the user to message search."
+  },
+  "@chapterEnd": {
+    "description": "Manuscript footer marker shown after the chapter content."
+  },
+  "@mapRelationsHelp": {
+    "description": "Interaction and persistence disclosure for dragging, zooming and linking map-preview locations."
+  },
+  "@rebuildQueued": {
+    "description": "Queued rebuild state awaiting fresh review and explicit approval."
+  },
+  "@historyInvalid": {
+    "description": "Error shown when the selected historical record cannot be decoded or read."
+  },
+  "@candidateReject": {
+    "description": "Action rejecting a generated candidate without changing manuscript text."
+  },
+  "@discardHistoricalDraft": {
+    "description": "Action marking only the selected historical pending draft as discarded."
+  },
+  "@openQuestions": {
+    "description": "Label for unresolved issues derived from confirmed manuscript content."
+  },
+  "@characterPackDisclosure": {
+    "description": "Disclosure explaining which character fields are shareable and which imports are rejected."
+  },
+  "@close": {
+    "description": "Action closing the current temporary view and returning focus to its origin."
+  },
+  "@findPrompt": {
+    "description": "Search field label specifying the active chapter as its scope."
+  },
+  "@editorOperationFailed": {
+    "description": "Recoverable edit or clipboard error explaining that manuscript text is retained."
+  },
+  "@characterPack": {
+    "description": "Label identifying a declarative character configuration package."
+  },
+  "@discussionSaved": {
+    "description": "Status label confirming successful discussion persistence."
+  },
+  "@ideaTargetSave": {
+    "description": "Primary action persisting corrected converted-target details."
+  },
+  "@generationPreview": {
+    "description": "Action opening the complete outgoing-message preview before any model send."
+  },
+  "@deepseekSaveSettings": {
+    "description": "Primary action saving explicit provider settings."
+  },
+  "@referenceEmpty": {
+    "description": "Empty-state message when a story material has no source references."
+  },
+  "@bindSource": {
+    "description": "Action binding the current manuscript selection to a source entry."
+  },
+  "@characterStar": {
+    "description": "Star appearance option for the desktop character."
+  },
+  "@editorAccessibleLabel": {
+    "description": "Screen-reader name of the custom manuscript editor."
+  },
+  "@rpgDirection": {
+    "description": "Field label for a scene-generation direction with its allowed character range."
+  },
+  "@memoryMutationNotice": {
+    "description": "Confirmation disclosure for checked status changes and one-time idea conversion."
+  },
+  "@importSelectedFile": {
+    "description": "Action invoking the system picker for one conversation source file."
+  },
+  "@exportMemory": {
+    "description": "Action exporting the selected memory entry."
+  },
+  "@candidateApplyFailed": {
+    "description": "Candidate rejection notice when the target text or version no longer matches."
+  },
+  "@sourceMarksHint": {
+    "description": "Instruction for opening linked materials with Ctrl-click on a source underline."
+  },
+  "@ideaTargetMissing": {
+    "description": "Empty state for a historical idea with no convertible target."
+  },
+  "@convertPersonal": {
+    "description": "Action converting an idea into a personal-memory target."
+  },
+  "@refreshSources": {
+    "description": "Action retrying source-mark retrieval for the active chapter."
+  },
+  "@sourceMarksFailed": {
+    "description": "Source-loading error state with a refresh recovery path."
+  },
+  "@loreScopeWhole": {
+    "description": "Scope option applying a story material throughout the work."
+  },
+  "@discussionGenerationUnavailable": {
+    "description": "Capability explanation for whole-chapter or invalid-target discussions that preserve history only."
+  },
+  "@deepseekKey": {
+    "description": "Password-field label describing Windows Credential Manager storage for a new key."
+  },
+  "@discussionCollapse": {
+    "description": "Action collapsing the active discussion while keeping its draft and history."
+  },
+  "@sideResources": {
+    "description": "Sidebar tab label switching to the story-material index."
+  },
+  "@loreAliases": {
+    "description": "Multiline field label for alternate names of a story-material entry."
+  },
+  "@exportWork": {
+    "description": "Action exporting the current manuscript together with story materials."
+  },
+  "@addMemory": {
+    "description": "Action to create a confirmed memory in the current memory space."
+  },
+  "@learningExercise": {
+    "description": "Action opening the isolated short Python learning exercise."
+  },
+  "@candidateApply": {
+    "description": "Action accepting a reviewed candidate into the working manuscript."
+  },
+  "@parsedImportedMessage": {
+    "description": "Label distinguishing parsed imported message content from its original source file."
+  },
+  "@characterSettings": {
+    "description": "Title and navigation label for desktop character configuration."
+  },
+  "@ideaWrong": {
+    "description": "Idea status action rejecting a candidate as no longer valid."
+  },
+  "@characterPlayful": {
+    "description": "Playful voice option in character settings."
+  },
+  "@memoryBody": {
+    "description": "Editor field label for the selected memory's content."
+  },
+  "@exportManuscriptSuffix": {
+    "description": "Localized suffix used when naming the manuscript-and-materials export file."
+  },
+  "@generationApprove": {
+    "description": "Explicit one-time approval action for the complete outgoing model messages."
+  },
+  "@nextIdea": {
+    "description": "Action retrieving the next candidate idea from imported user messages."
+  },
+  "@rpgDraftDone": {
+    "description": "Success notice that generated RPG text remains a pending historical draft."
+  },
+  "@loreGroupLocations": {
+    "description": "Story-material category heading for fictional locations."
+  },
+  "@discussionWholeChapter": {
+    "description": "Label distinguishing a chapter-wide thread from a selection-bound discussion."
+  },
+  "@deepseekSettings": {
+    "description": "Title of the official DeepSeek provider settings dialog."
+  },
+  "@characterMoon": {
+    "description": "Moon appearance option for the desktop character."
+  },
+  "@ideaTargetOpen": {
+    "description": "Action opening the entity created by an idea conversion."
+  },
+  "@backupSaved": {
+    "description": "Success notice after writing and verifying the synthetic backup."
+  },
+  "@manuscriptSources": {
+    "description": "Section heading for material sources linked to manuscript ranges."
+  },
+  "@newEntity": {
+    "description": "Action creating a new story-material entry."
+  },
+  "@sourceMarksLoading": {
+    "description": "Progress message while manuscript source marks are being read."
+  },
+  "@confirmIdea": {
+    "description": "Action confirming an extracted idea before later conversion."
+  },
+  "@saveMemory": {
+    "description": "Primary action committing a memory correction or creation."
+  },
+  "@summaryStale": {
+    "description": "Warning that a derived summary no longer matches its confirmed source version."
+  },
+  "@sidebarReal": {
+    "description": "Sidebar capability label identifying a local SQLite-backed work."
+  },
+  "@importedLibrary": {
+    "description": "Title of the locally imported conversation library."
+  },
+  "@switchWork": {
+    "description": "Action opening the work picker without discarding the active manuscript."
+  },
+  "@deleteMemory": {
+    "description": "Action hiding the selected memory through the repository deletion contract."
+  },
+  "@findNext": {
+    "description": "Action moving the manuscript selection to the next search result."
+  },
+  "@layoutComfort": {
+    "description": "Layout menu option selecting the 760-logical-pixel manuscript measure."
+  },
+  "@summaryTaskDone": {
+    "description": "Success notice after rebuilding a summary without altering manuscript text."
+  },
+  "@rpgReply": {
+    "description": "Field label for a protagonist reply with its allowed character range."
+  },
+  "@redo": {
+    "description": "Editor action reapplying the most recently undone manuscript edit."
+  },
+  "@companionQuit": {
+    "description": "Tray action saving the workspace before quitting."
+  },
+  "@ideaTargetSource": {
+    "description": "Heading for immutable source references recorded with an idea target."
+  },
+  "@legacyDrafts": {
+    "description": "Section heading for migrated historical pending manuscript drafts."
+  },
+  "@backupFailed": {
+    "description": "Failure notice explaining that backup verification leaves the active library open."
+  },
+  "@exportWorkDone": {
+    "description": "Success notice after exporting manuscript and story materials."
+  },
+  "@novelHistory": {
+    "description": "Title of the migrated novel review-history browser."
+  },
+  "@rpgNewScene": {
+    "description": "Action starting the review flow for a new temporary RPG scene."
+  },
+  "@layoutMenu": {
+    "description": "Toolbar label opening manuscript width preferences."
+  },
+  "@learningUnavailable": {
+    "description": "Learning-window failure notice identifying required runtime and bundled resources."
+  },
+  "@ideaTargetFailed": {
+    "description": "Target-save conflict or failure notice directing the user to refresh before retrying."
+  },
+  "@ideaTargetTitleLabel": {
+    "description": "Field label for the title of a converted idea target."
+  },
+  "@loreScopeFromChapter": {
+    "description": "Scope option applying a story material from one selected chapter onward."
+  },
+  "@memoryLibrary": {
+    "description": "Title of the confirmed-memory browser."
+  },
+  "@characterCloud": {
+    "description": "Cloud appearance option for the desktop character."
+  },
+  "@learningMemory": {
+    "description": "Memory-space option containing confirmed learning-related memories."
+  },
+  "@deepseekEnable": {
+    "description": "Toggle label enabling official DeepSeek for the explicitly synthetic workspace."
+  },
+  "@findInChapter": {
+    "description": "Compact toolbar action opening search within the active chapter."
+  },
+  "@candidateReplacement": {
+    "description": "Heading for replacement text in a candidate comparison."
+  },
+  "@personalMemory": {
+    "description": "Memory-space option containing confirmed personal memories."
+  },
+  "@mapRelation": {
+    "description": "Action selecting a location endpoint when adding or removing a preview relation."
+  },
+  "@noMatchingChapters": {
+    "description": "Chapter-directory empty state for a filter with no matching chapters."
+  },
+  "@discussionHasDraft": {
+    "description": "Status label indicating discussion changes are not yet persisted."
+  },
+  "@resourcesEmpty": {
+    "description": "Empty-state message when the current work has no story materials."
+  },
+  "@discussionHistory": {
+    "description": "Section label for a discussion thread's previous messages and operations."
+  },
+  "@searchImported": {
+    "description": "Search field label scoped to locally imported messages."
+  },
+  "@summaryReady": {
+    "description": "Status label for a derived summary matching the current confirmed chapter."
+  },
+  "@desktopCompanion": {
+    "description": "Navigation label for the optional desktop companion."
+  },
+  "@importPartial": {
+    "description": "Warning that import previews are incomplete or include parsing warnings."
+  },
+  "@exportMenu": {
+    "description": "Toolbar label opening available manuscript export actions."
+  },
+  "@loreGroupCharacters": {
+    "description": "Story-material category heading for fictional characters."
+  },
+  "@novelMemory": {
+    "description": "Memory-space option containing confirmed novel-related memories."
+  },
+  "@rebuildFailed": {
+    "description": "Rebuild failure state requiring another material review before retry."
+  },
+  "@loreTitle": {
+    "description": "Title of the story-material reference library."
+  },
+  "@discussionSaveFailed": {
+    "description": "Persistence failure notice that retains the discussion draft and offers retry."
+  },
+  "@exportCharacter": {
+    "description": "Action exporting appearance and voice as a declarative character pack."
+  },
+  "@legacyPatches": {
+    "description": "Section heading for migrated historical candidate text changes."
+  },
+  "@sourceOpenFailed": {
+    "description": "Recoverable failure notice when a linked source entry cannot open."
+  },
+  "@editorRenderingUnsupported": {
+    "description": "Unsupported-layout notice offering undo or recovery export without discarding text."
+  },
+  "@companionOpen": {
+    "description": "Companion or tray action returning to the writing workspace."
+  },
+  "@characterGentle": {
+    "description": "Gentle voice option in character settings."
+  },
+  "@historicalUnknown": {
+    "description": "Fallback label for an unsupported historical status without misrepresenting acceptance."
+  },
+  "@loreGroupWorld": {
+    "description": "Story-material category heading for world-building rules."
+  },
+  "@characterConcise": {
+    "description": "Concise voice option in character settings."
+  },
+  "@discussionDraft": {
+    "description": "Field label for discussion text that has not been sent to a model."
+  },
+  "@sourceMarksEmpty": {
+    "description": "Source-loading empty state after a successful read with no source marks."
+  },
+  "@rebuildSummary": {
+    "description": "Action reviewing and rebuilding a confirmed chapter's derived summary."
+  },
+  "@ideaTargetNovelSync": {
+    "description": "Disclosure that renaming a novel target also renames the linked project."
+  },
+  "@memoryTitle": {
+    "description": "Editor field label for the selected memory's title."
+  },
+  "@oldIdeas": {
+    "description": "Navigation label for ideas extracted from imported historical conversations."
+  },
+  "@discussionValid": {
+    "description": "Status label for a discussion whose original manuscript target remains valid."
+  },
+  "@modelSettings": {
+    "description": "Navigation label opening model-provider configuration."
+  },
+  "@ideaTargetSaved": {
+    "description": "Success notice after converted-target details are saved."
+  },
+  "@resourceDirectory": {
+    "description": "Accessible title of the story-material navigation pane."
+  },
+  "@importCharacter": {
+    "description": "Action importing a declarative appearance-and-voice character pack."
+  },
+  "@sourceOriginal": {
+    "description": "Label identifying the full selected source file rather than a truncated preview."
+  },
+  "@generationCancel": {
+    "description": "Action cancelling the current model-generation operation."
+  },
+  "@findNoMatch": {
+    "description": "Search empty state when the active chapter contains no matching text."
+  },
+  "@deepseekFeeNotice": {
+    "description": "Outgoing-request disclosure covering provider charges, cancellation and absence of automatic retries."
+  },
+  "@historicalPending": {
+    "description": "Status label for a historical draft awaiting an author decision."
+  },
+  "@rpgTaskNotice": {
+    "description": "Disclosure that scene proposals remain temporary and each resulting draft requires review."
+  },
+  "@convertNovel": {
+    "description": "Action converting an idea into a novel-project target."
+  },
+  "@historicalAccepted": {
+    "description": "Status label for a historical candidate already accepted by the author."
+  },
+  "@discussionEmpty": {
+    "description": "Empty-state message when the active chapter has no discussion threads."
+  },
+  "@rebuildRunning": {
+    "description": "State label while a derived-content rebuild is executing."
+  },
+  "@ideaDone": {
+    "description": "Idea status action marking the associated goal as completed."
+  },
+  "@characterName": {
+    "description": "Field label for the locally retained private character display name."
+  },
+  "@ideaStarted": {
+    "description": "Idea status action recording that work has begun."
+  },
+  "@backupRehearse": {
+    "description": "Action to verify a backup by restoring into a separate temporary library."
+  },
+  "@historicalAi": {
+    "description": "Source-kind label for model-generated historical draft text."
+  },
+  "@referenceMaterials": {
+    "description": "Section or dialog title for story materials selectable as model context."
+  },
+  "@cancel": {
+    "description": "Secondary action that cancels the current dialog or pending operation."
+  },
+  "@companionFailed": {
+    "description": "Companion failure notice with a recovery action through character settings."
+  },
+  "@memoryActions": {
+    "description": "Title of available actions for the selected memory entry."
+  },
+  "@importDisclosure": {
+    "description": "Import scope, UTF-8 format, size limits, preview truncation and offline-processing disclosure."
+  },
+  "@sideChapters": {
+    "description": "Sidebar tab label switching to the chapter index."
+  },
+  "@ideaLiked": {
+    "description": "Idea status action preserving interest without converting it yet."
+  },
+  "@loreScopeRetrospective": {
+    "description": "Scope option marking a story material as a retrospective change."
+  },
+  "@deepseekDeleteKey": {
+    "description": "Action removing the stored provider key and turning off cloud access."
+  },
+  "@generationFailed": {
+    "description": "Recoverable generation failure notice requiring a fresh review before another request."
+  },
+  "@candidateApplyNotice": {
+    "description": "Disclosure of working-copy-only candidate application and its undo behavior."
+  },
+  "@sidebarSynthetic": {
+    "description": "Sidebar capability label identifying synthetic preview material."
+  },
+  "@discussionSelection": {
+    "description": "Short label identifying a selection-bound discussion target."
+  },
+  "@sourceBindingFailed": {
+    "description": "Binding failure notice requiring the exact manuscript text to be saved and confirmed."
+  },
+  "@summaryTaskNotice": {
+    "description": "Disclosure of confirmed-text-only input, discardable summaries and explicit rebuild approval."
+  },
+  "@deleteMemoryNotice": {
+    "description": "Deletion disclosure distinguishing a memory from retained imported source conversations."
+  },
+  "@searchChapters": {
+    "description": "Directory search field label scoped to chapter titles."
+  },
+  "@candidateOriginal": {
+    "description": "Heading for the original frozen manuscript selection in a candidate comparison."
+  },
+  "@historicalSource": {
+    "description": "Heading identifying the original provenance of historical text."
+  },
+  "@loadHistoricalNotice": {
+    "description": "Disclosure of working-copy replacement, preserved undo and lack of confirmation."
+  },
+  "@ideaTargetSummaryLabel": {
+    "description": "Field label for notes associated with a converted idea target."
+  },
+  "@openSourceChapter": {
+    "description": "Action navigating to the chapter containing the selected material's source."
+  },
+  "@correctMemory": {
+    "description": "Action opening the selected memory for correction."
+  },
+  "@workspaceTools": {
+    "description": "Accessible menu title for supplementary workspace tools."
+  },
+  "@ideaTarget": {
+    "description": "Heading for the target created by a previous idea conversion."
+  },
+  "@undo": {
+    "description": "Editor action reversing the most recent working-manuscript edit."
+  },
+  "@applyBlock": {
+    "description": "Action to accept only the displayed candidate change block."
+  },
+  "@mapPreview": {
+    "description": "Map title explicitly noting that location positions are session-only."
+  },
+  "@noIdea": {
+    "description": "Empty state when imported user messages contain no further candidate ideas."
+  },
+  "@chapterAndVersions": {
+    "description": "Chapter menu entry opening confirmed versions and historical drafts."
+  },
+  "@moreTools": {
+    "description": "Compact toolbar label for overflow actions."
+  },
+  "@companionHide": {
+    "description": "Tray action toggling desktop companion visibility."
+  },
+  "@importConfirm": {
+    "description": "Explicit action committing the currently previewed conversation import."
+  },
+  "@preserveTextLanguage": {
+    "description": "Output-language option preserving the manuscript's language."
+  },
+  "@backupDisclosure": {
+    "description": "Backup contents, Windows-user encryption and isolated restore-rehearsal boundary."
+  },
+  "@discussionInvalid": {
+    "description": "Warning explaining that a discussion target changed while its original quotation is retained."
+  },
+  "@candidateCompare": {
+    "description": "Action opening the original-versus-candidate comparison."
+  },
+  "@chapterDiscussion": {
+    "description": "Short action label opening discussion for the active chapter."
+  },
+  "@fullBackup": {
+    "description": "Action opening the explicitly synthetic full-library backup workflow."
+  },
+  "@layoutWide": {
+    "description": "Layout menu option selecting the 920-logical-pixel manuscript measure."
+  },
+  "@convertLearning": {
+    "description": "Action converting an idea into a learning-goal target."
+  },
+  "@memoryEmpty": {
+    "description": "Empty-state message for the selected confirmed-memory space."
+  },
+  "@historicalAuthor": {
+    "description": "Source-kind label for historical author-written manuscript text."
+  },
+  "@ideaShelved": {
+    "description": "Idea status action deferring the candidate for later consideration."
+  },
+  "@discussions": {
+    "description": "Navigation label opening the active chapter's discussion index."
+  },
+  "@historicalDiscarded": {
+    "description": "Status label for a historical draft explicitly discarded by the author."
+  },
+  "@sourceOpenRetry": {
+    "description": "Action retrying the failed linked-entry lookup."
+  },
+  "@loadHistoricalDraft": {
+    "description": "Action loading selected historical text into the editable working manuscript."
+  },
+  "@rpgTitle": {
+    "description": "Title of the reviewed RPG drafting workflow."
+  },
+  "@referenceUse": {
+    "description": "Action applying the selected story materials to the current discussion references."
+  },
+  "@discardHistoricalNotice": {
+    "description": "Disclosure explaining that discarding history keeps its readable text and current manuscript."
+  },
+  "@rebuildDone": {
+    "description": "State label for a completed derived-content rebuild job."
+  },
+  "@discussSelection": {
+    "description": "Action creating or reopening discussion for the current manuscript selection."
+  },
+  "@companionDisclosure": {
+    "description": "Session-only companion availability and quiet-mode visibility behavior."
+  }
 }

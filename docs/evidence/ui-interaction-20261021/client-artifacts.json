@@ -1,0 +1,12 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C585FB941B6B9372D1147C63CA723B47C01EA457AAFAD2DEE2434936BC0BF505",
+    "Path": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-bf5500bb4ede42049a0421d1d5e9c520\\paraselene_flutter.exe"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "C1B46F5F809A8596580FA3585E897A48B5F64AAF787B45486041440E1FA77684",
+    "Path": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-bf5500bb4ede42049a0421d1d5e9c520\\data\\app.so"
+  }
+]

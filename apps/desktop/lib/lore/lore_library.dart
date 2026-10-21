@@ -1,6 +1,7 @@
 // 资料库入口：浏览全部资料条目（含遗留类型），查看版本与出处，并进入编辑或地图预览。
 // 读取为主；写入只经编辑对话框；地图布局、连线与缩放仅存在于当前会话，不落库。
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'lore_repository.dart';
@@ -43,7 +44,7 @@ class _LoreLibraryState extends State<LoreLibrary> {
   @override
   void initState() {
     super.initState();
-    _load();
+    unawaited(_load());
   }
 
   Future<void> _load() async {
@@ -82,7 +83,7 @@ class _LoreLibraryState extends State<LoreLibrary> {
     return Dialog(
       child: SizedBox(
         width: 840,
-        height: 640,
+        height: _rows.isEmpty ? 280 : 640,
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -92,26 +93,30 @@ class _LoreLibraryState extends State<LoreLibrary> {
                   Expanded(
                     child: Text(
                       s.loreTitle,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                   IconButton(
                     tooltip: s.mapPreview,
+                    isSelected: _map,
+                    selectedIcon: const Icon(Icons.map),
                     onPressed: () => setState(() => _map = !_map),
                     icon: const Icon(Icons.map_outlined),
                   ),
                   IconButton(
-                    tooltip: s.loreTitle,
-                    onPressed: _loading ? null : () => _edit(null),
+                    tooltip: s.loreAdd,
+                    onPressed: _loading ? null : () async => await _edit(null),
                     icon: const Icon(Icons.add),
                   ),
                   CloseButton(),
                 ],
               ),
               if (_loading) const LinearProgressIndicator(),
-              if (_failed) TextButton(onPressed: _load, child: Text(s.retry)),
-              if (!_loading && !_failed && _rows.isEmpty)
-                Text(s.referenceEmpty),
+              if (_failed) ...[
+                Text(s.loreReadFailed),
+                TextButton(onPressed: _load, child: Text(s.retry)),
+              ],
+              if (!_loading && !_failed && _rows.isEmpty) Text(s.loreEmpty),
               Expanded(
                 child: _map
                     ? LoreMapPreview(
@@ -120,24 +125,10 @@ class _LoreLibraryState extends State<LoreLibrary> {
                         links: _links,
                         onOpen: _detail,
                       )
-                    : ListView(
-                        children: [
-                          for (final row in _rows)
-                            ListTile(
-                              title: Text(
-                                (row['entry'] as Map)['name'] as String,
-                              ),
-                              subtitle: Text(
-                                '${(row['entry'] as Map)['kind']} · ${(row['entry'] as Map)['status']}',
-                              ),
-                              onTap: () => _detail(row),
-                              trailing: IconButton(
-                                tooltip: s.loreTitle,
-                                icon: const Icon(Icons.edit_outlined),
-                                onPressed: () => _edit(row),
-                              ),
-                            ),
-                        ],
+                    : _LoreEntryList(
+                        rows: _rows,
+                        onDetail: _detail,
+                        onEdit: _edit,
                       ),
               ),
             ],
@@ -152,9 +143,12 @@ class _LoreLibraryState extends State<LoreLibrary> {
   Future<void> _detail(Map<String, dynamic> row) async {
     final s = AppLocalizations.of(context);
     try {
-      final sources = await widget.repository.sources(widget.work, _id(row));
-      final versions = await widget.repository.versions(widget.work, _id(row));
-      if (!mounted) return;
+      final repository = widget.repository;
+      final work = widget.work;
+      final id = _id(row);
+      final sources = await repository.sources(work, id);
+      final versions = await repository.versions(work, id);
+      if (!mounted || widget.work != work) return;
       await showDialog<void>(
         context: context,
         builder: (context) => AlertDialog(
@@ -221,4 +215,35 @@ class _LoreLibraryState extends State<LoreLibrary> {
     );
     if (result == true && mounted) await _load();
   }
+}
+
+class _LoreEntryList extends StatelessWidget {
+  const _LoreEntryList({
+    required this.rows,
+    required this.onDetail,
+    required this.onEdit,
+  });
+  final List<Map<String, dynamic>> rows;
+  final Future<void> Function(Map<String, dynamic>) onDetail;
+  final Future<void> Function(Map<String, dynamic>?) onEdit;
+
+  @override
+  Widget build(BuildContext context) => ListView.builder(
+    itemCount: rows.length,
+    itemBuilder: (context, index) {
+      final row = rows[index];
+      return ListTile(
+        title: Text((row['entry'] as Map)['name'] as String),
+        subtitle: Text(
+          '${(row['entry'] as Map)['kind']} · ${(row['entry'] as Map)['status']}',
+        ),
+        onTap: () async => await onDetail(row),
+        trailing: IconButton(
+          tooltip: AppLocalizations.of(context).loreEdit,
+          icon: const Icon(Icons.edit_outlined),
+          onPressed: () async => await onEdit(row),
+        ),
+      );
+    },
+  );
 }

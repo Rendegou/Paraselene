@@ -206,7 +206,7 @@ void main() {
       await tester.tap(marker);
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 30));
-      final preview = find.widgetWithText(TextButton, '预览完整外发消息');
+      final preview = find.widgetWithText(FilledButton, '预览完整外发消息');
       await tester.ensureVisible(preview);
       await tester.tap(preview);
       await tester.pump();

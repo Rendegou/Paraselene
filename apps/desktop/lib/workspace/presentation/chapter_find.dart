@@ -2,6 +2,7 @@
 // 读边界：只读取编辑器当前文档的原始文本，不写仓库；位置按 Unicode 码点报告，与章节历史一致。
 // 关键不变量：空查询不查找；到结尾后从开头循环一次；切换章节时清空上一次的匹配游标。
 import 'package:flutter/material.dart';
+import '../../theme/workbench_theme.dart';
 import 'package:flutter/services.dart';
 
 import '../../editor/editor_input_client.dart';
@@ -117,6 +118,7 @@ class ChapterFindBarState extends State<ChapterFindBar> {
           children: [
             Expanded(
               child: TextField(
+                style: WorkbenchTokens.input,
                 controller: _query,
                 focusNode: _focus,
                 autofocus: true,

@@ -1,6 +1,7 @@
 // 资料引用选择器：按作品列出资料条目，供讨论引用与出处绑定使用。
 // 只读选择：不写库；confirmedOnly 为 true 时未确认 head 不可选，最多选择 32 项。
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'lore_repository.dart';
@@ -31,7 +32,7 @@ class _LorePickerState extends State<LorePicker> {
   @override
   void initState() {
     super.initState();
-    _load();
+    unawaited(_load());
   }
 
   Future<void> _load() async {
@@ -44,62 +45,105 @@ class _LorePickerState extends State<LorePicker> {
     }
   }
 
+  void _select(Map<String, dynamic> row, bool value) {
+    setState(() {
+      final id = (row['entry'] as Map)['id'] as String;
+      // 最多32项；满额仍允许取消已选项。
+      if (value && _selected.length < 32) {
+        _selected.add(id);
+      } else {
+        _selected.remove(id);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final s = AppLocalizations.of(context);
     return AlertDialog(
       title: Text(s.referenceMaterials),
-      content: SizedBox(
-        width: 560,
-        height: 360,
-        child: _failed
-            ? Center(
-                child: TextButton(onPressed: _load, child: Text(s.retry)),
-              )
-            : _rows == null
-            ? const Center(child: CircularProgressIndicator())
-            : _rows!.isEmpty
-            ? Text(s.referenceEmpty)
-            : ListView(
-                children: [
-                  for (final row in _rows!)
-                    CheckboxListTile(
-                      value: _selected.contains((row['entry'] as Map)['id']),
-                      title: Text((row['entry'] as Map)['name'] as String),
-                      subtitle: Text(
-                        (row['head'] as Map?)?['body'] as String? ?? '',
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      onChanged:
-                          widget.confirmedOnly &&
-                              (row['head'] as Map?)?['confirmed'] != true
-                          ? null
-                          : (value) => setState(() {
-                              final id = (row['entry'] as Map)['id'] as String;
-                              // 最多 32 项与原生引用上限一致；取消勾选不受上限限制。
-                              if (value == true && _selected.length < 32) {
-                                _selected.add(id);
-                              } else {
-                                _selected.remove(id);
-                              }
-                            }),
-                    ),
-                ],
-              ),
+      semanticLabel: s.referenceMaterials,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(s.referenceLimit),
+          const SizedBox(height: 12),
+          SizedBox(
+            width: 560,
+            height: _rows == null || _rows!.isEmpty ? 120 : 360,
+            child: _failed
+                ? Center(
+                    child: TextButton(onPressed: _load, child: Text(s.retry)),
+                  )
+                : _rows == null
+                ? const Center(child: CircularProgressIndicator())
+                : _rows!.isEmpty
+                ? Center(child: Text(s.referenceEmpty))
+                : ListView(
+                    children: [
+                      for (final row in _rows!)
+                        _LorePickerEntry(
+                          row: row,
+                          selected: _selected.contains(
+                            (row['entry'] as Map)['id'],
+                          ),
+                          confirmedOnly: widget.confirmedOnly,
+                          atLimit: _selected.length >= 32,
+                          onChanged: (value) => _select(row, value),
+                        ),
+                    ],
+                  ),
+          ),
+        ],
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
           child: Text(s.cancel),
         ),
-        TextButton(
+        FilledButton(
           onPressed: _rows == null || _failed
               ? null
               : () => Navigator.pop(context, _selected.toList()),
           child: Text(s.referenceUse),
         ),
       ],
+    );
+  }
+}
+
+class _LorePickerEntry extends StatelessWidget {
+  const _LorePickerEntry({
+    required this.row,
+    required this.selected,
+    required this.confirmedOnly,
+    required this.atLimit,
+    required this.onChanged,
+  });
+  final Map<String, dynamic> row;
+  final bool selected;
+  final bool confirmedOnly;
+  final bool atLimit;
+  final ValueChanged<bool> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final unconfirmed =
+        confirmedOnly && (row['head'] as Map?)?['confirmed'] != true;
+    return CheckboxListTile(
+      value: selected,
+      title: Text((row['entry'] as Map)['name'] as String),
+      subtitle: Text(
+        unconfirmed
+            ? AppLocalizations.of(context).loreUnconfirmed
+            : (row['head'] as Map?)?['body'] as String? ?? '',
+        maxLines: 3,
+        overflow: TextOverflow.ellipsis,
+      ),
+      onChanged: unconfirmed || (atLimit && !selected)
+          ? null
+          : (value) => onChanged(value!),
     );
   }
 }

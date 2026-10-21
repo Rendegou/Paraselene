@@ -291,6 +291,12 @@ abstract class AppLocalizations {
   /// **'Open chapter directory'**
   String get openDirectory;
 
+  /// Action collapsing the active discussion while keeping its draft and history.
+  ///
+  /// In en, this message translates to:
+  /// **'Collapse discussion'**
+  String get discussionCollapse;
+
   /// Workbench: closeDialog
   ///
   /// In en, this message translates to:
@@ -681,925 +687,919 @@ abstract class AppLocalizations {
   /// **'The window action failed. Try again or use the system window menu.'**
   String get windowActionFailed;
 
-  /// No description provided for @discussSelection.
+  /// Action creating or reopening discussion for the current manuscript selection.
   ///
   /// In en, this message translates to:
   /// **'Discuss selection'**
   String get discussSelection;
 
-  /// No description provided for @discussions.
+  /// Navigation label opening the active chapter's discussion index.
   ///
   /// In en, this message translates to:
   /// **'Discussions'**
   String get discussions;
 
-  /// No description provided for @discussionDraft.
+  /// Field label for discussion text that has not been sent to a model.
   ///
   /// In en, this message translates to:
   /// **'Unsent draft'**
   String get discussionDraft;
 
-  /// No description provided for @discussionInvalid.
+  /// Warning explaining that a discussion target changed while its original quotation is retained.
   ///
   /// In en, this message translates to:
   /// **'This quote has changed. Its original text is preserved.'**
   String get discussionInvalid;
 
-  /// No description provided for @discussionSaveFailed.
+  /// Persistence failure notice that retains the discussion draft and offers retry.
   ///
   /// In en, this message translates to:
   /// **'Discussion could not be saved. Your draft is kept; retry before leaving.'**
   String get discussionSaveFailed;
 
-  /// No description provided for @discussionEmpty.
+  /// Empty-state message when the active chapter has no discussion threads.
   ///
   /// In en, this message translates to:
   /// **'No discussions yet'**
   String get discussionEmpty;
 
-  /// No description provided for @candidateCompare.
+  /// Action opening the original-versus-candidate comparison.
   ///
   /// In en, this message translates to:
   /// **'Compare'**
   String get candidateCompare;
 
-  /// No description provided for @candidateApply.
+  /// Action accepting a reviewed candidate into the working manuscript.
   ///
   /// In en, this message translates to:
   /// **'Apply candidate'**
   String get candidateApply;
 
-  /// No description provided for @candidateReject.
+  /// Action rejecting a generated candidate without changing manuscript text.
   ///
   /// In en, this message translates to:
   /// **'Reject candidate'**
   String get candidateReject;
 
-  /// No description provided for @candidateOriginal.
+  /// Heading for the original frozen manuscript selection in a candidate comparison.
   ///
   /// In en, this message translates to:
   /// **'Original selection'**
   String get candidateOriginal;
 
-  /// No description provided for @candidateReplacement.
+  /// Heading for replacement text in a candidate comparison.
   ///
   /// In en, this message translates to:
   /// **'Candidate'**
   String get candidateReplacement;
 
-  /// No description provided for @candidateApplyNotice.
+  /// Disclosure of working-copy-only candidate application and its undo behavior.
   ///
   /// In en, this message translates to:
   /// **'Applying writes the candidate into the working draft only. You can undo it once; no official version is created.'**
   String get candidateApplyNotice;
 
-  /// No description provided for @candidateApplyFailed.
+  /// Candidate rejection notice when the target text or version no longer matches.
   ///
   /// In en, this message translates to:
   /// **'The candidate was not written: the text or original target has changed. Review again before applying.'**
   String get candidateApplyFailed;
 
-  /// No description provided for @discussionHistory.
+  /// Section label for a discussion thread's previous messages and operations.
   ///
   /// In en, this message translates to:
   /// **'History'**
   String get discussionHistory;
 
-  /// No description provided for @editorOperationFailed.
+  /// Recoverable edit or clipboard error explaining that manuscript text is retained.
   ///
   /// In en, this message translates to:
   /// **'The edit or clipboard action could not be completed. Your text is kept.'**
   String get editorOperationFailed;
 
-  /// No description provided for @editorRenderingUnsupported.
+  /// Unsupported-layout notice offering undo or recovery export without discarding text.
   ///
   /// In en, this message translates to:
   /// **'This text cannot be displayed by the current layout. Text is kept; undo or export the draft.'**
   String get editorRenderingUnsupported;
 
-  /// No description provided for @editorAccessibleLabel.
+  /// Screen-reader name of the custom manuscript editor.
   ///
   /// In en, this message translates to:
   /// **'Manuscript editor'**
   String get editorAccessibleLabel;
 
-  /// No description provided for @discussionSaved.
+  /// Status label confirming successful discussion persistence.
   ///
   /// In en, this message translates to:
   /// **'Discussion saved'**
   String get discussionSaved;
 
-  /// No description provided for @referenceMaterials.
+  /// Section or dialog title for story materials selectable as model context.
   ///
   /// In en, this message translates to:
   /// **'Reference materials'**
   String get referenceMaterials;
 
-  /// No description provided for @referenceEmpty.
+  /// Empty-state message when a story material has no source references.
   ///
   /// In en, this message translates to:
   /// **'No source references'**
   String get referenceEmpty;
 
-  /// No description provided for @historicalSource.
+  /// Heading identifying the original provenance of historical text.
   ///
   /// In en, this message translates to:
   /// **'Historical source'**
   String get historicalSource;
 
-  /// No description provided for @loreTitle.
+  /// Title of the story-material reference library.
   ///
   /// In en, this message translates to:
   /// **'Reference library'**
   String get loreTitle;
 
-  /// No description provided for @mapPreview.
+  /// Map title explicitly noting that location positions are session-only.
   ///
   /// In en, this message translates to:
   /// **'Map preview (positions are session-only)'**
   String get mapPreview;
 
-  /// No description provided for @close.
+  /// Action closing the current temporary view and returning focus to its origin.
   ///
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
 
-  /// No description provided for @cancel.
+  /// Secondary action that cancels the current dialog or pending operation.
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
 
-  /// No description provided for @deepseekSettings.
+  /// Title of the official DeepSeek provider settings dialog.
   ///
   /// In en, this message translates to:
   /// **'DeepSeek settings'**
   String get deepseekSettings;
 
-  /// No description provided for @deepseekKey.
+  /// Password-field label describing Windows Credential Manager storage for a new key.
   ///
   /// In en, this message translates to:
   /// **'New API key (stored only in Windows Credential Manager)'**
   String get deepseekKey;
 
-  /// No description provided for @deepseekEnable.
+  /// Toggle label enabling official DeepSeek for the explicitly synthetic workspace.
   ///
   /// In en, this message translates to:
   /// **'Enable official DeepSeek for this synthetic workspace'**
   String get deepseekEnable;
 
-  /// No description provided for @deepseekDeleteKey.
+  /// Action removing the stored provider key and turning off cloud access.
   ///
   /// In en, this message translates to:
   /// **'Delete key and disable cloud'**
   String get deepseekDeleteKey;
 
-  /// No description provided for @deepseekSaveSettings.
+  /// Primary action saving explicit provider settings.
   ///
   /// In en, this message translates to:
   /// **'Save settings'**
   String get deepseekSaveSettings;
 
-  /// No description provided for @deepseekFeeNotice.
+  /// Outgoing-request disclosure covering provider charges, cancellation and absence of automatic retries.
   ///
   /// In en, this message translates to:
   /// **'Sending these complete messages to official DeepSeek may incur charges. Review all content before approving. Cancellation may not prevent provider charges; requests are never retried automatically.'**
   String get deepseekFeeNotice;
 
-  /// No description provided for @generationPreview.
+  /// Action opening the complete outgoing-message preview before any model send.
   ///
   /// In en, this message translates to:
   /// **'Review outgoing messages'**
   String get generationPreview;
 
-  /// No description provided for @generationCancel.
+  /// Action cancelling the current model-generation operation.
   ///
   /// In en, this message translates to:
   /// **'Cancel generation'**
   String get generationCancel;
 
-  /// No description provided for @generationApprove.
+  /// Explicit one-time approval action for the complete outgoing model messages.
   ///
   /// In en, this message translates to:
   /// **'Approve these messages and send once'**
   String get generationApprove;
 
-  /// No description provided for @generationFailed.
+  /// Recoverable generation failure notice requiring a fresh review before another request.
   ///
   /// In en, this message translates to:
   /// **'The request could not be completed. Your text and draft are kept; review again before a new request.'**
   String get generationFailed;
 
-  /// No description provided for @backupRehearsed.
+  /// Successful isolated restore notice; count is the number of restored works.
   ///
   /// In en, this message translates to:
   /// **'Restore verified: {count} works. The temporary library has been closed.'**
   String backupRehearsed(int count);
 
-  /// No description provided for @bindSource.
+  /// Action binding the current manuscript selection to a source entry.
   ///
   /// In en, this message translates to:
   /// **'Bind selection as source'**
   String get bindSource;
 
-  /// No description provided for @referenceUse.
+  /// Action applying the selected story materials to the current discussion references.
   ///
   /// In en, this message translates to:
   /// **'Use selected materials'**
   String get referenceUse;
 
-  /// No description provided for @backupRehearse.
+  /// Action to verify a backup by restoring into a separate temporary library.
   ///
   /// In en, this message translates to:
   /// **'Verify restore in isolation'**
   String get backupRehearse;
 
-  /// No description provided for @fullBackup.
+  /// Action opening the explicitly synthetic full-library backup workflow.
   ///
   /// In en, this message translates to:
   /// **'Full synthetic backup'**
   String get fullBackup;
 
-  /// No description provided for @sourceBindingFailed.
+  /// Binding failure notice requiring the exact manuscript text to be saved and confirmed.
   ///
   /// In en, this message translates to:
   /// **'Source binding failed. Save and confirm this exact chapter text before binding.'**
   String get sourceBindingFailed;
 
-  /// No description provided for @backupFailed.
+  /// Failure notice explaining that backup verification leaves the active library open.
   ///
   /// In en, this message translates to:
   /// **'Backup or restore verification failed. The current library is still open.'**
   String get backupFailed;
 
-  /// No description provided for @backupDisclosure.
+  /// Backup contents, Windows-user encryption and isolated restore-rehearsal boundary.
   ///
   /// In en, this message translates to:
   /// **'Includes manuscripts, versions, discussions and settings. Encrypted for this Windows user; no API key. Restore rehearsal uses a separate temporary library and leaves the current library in place.'**
   String get backupDisclosure;
 
-  /// No description provided for @backupSaved.
+  /// Success notice after writing and verifying the synthetic backup.
   ///
   /// In en, this message translates to:
   /// **'Backup written and restore verified'**
   String get backupSaved;
 
-  /// No description provided for @characterPlayful.
+  /// Playful voice option in character settings.
   ///
   /// In en, this message translates to:
   /// **'Playful'**
   String get characterPlayful;
 
-  /// No description provided for @characterStar.
+  /// Star appearance option for the desktop character.
   ///
   /// In en, this message translates to:
   /// **'Star'**
   String get characterStar;
 
-  /// No description provided for @characterConcise.
+  /// Concise voice option in character settings.
   ///
   /// In en, this message translates to:
   /// **'Concise'**
   String get characterConcise;
 
-  /// No description provided for @legacyPatches.
+  /// Section heading for migrated historical candidate text changes.
   ///
   /// In en, this message translates to:
   /// **'Historical candidate changes'**
   String get legacyPatches;
 
-  /// No description provided for @legacyDrafts.
+  /// Section heading for migrated historical pending manuscript drafts.
   ///
   /// In en, this message translates to:
   /// **'Historical drafts'**
   String get legacyDrafts;
 
-  /// No description provided for @characterCloud.
+  /// Cloud appearance option for the desktop character.
   ///
   /// In en, this message translates to:
   /// **'Cloud'**
   String get characterCloud;
 
-  /// No description provided for @novelMemory.
+  /// Memory-space option containing confirmed novel-related memories.
   ///
   /// In en, this message translates to:
   /// **'Novel memories'**
   String get novelMemory;
 
-  /// No description provided for @saveMemory.
+  /// Primary action committing a memory correction or creation.
   ///
   /// In en, this message translates to:
   /// **'Save'**
   String get saveMemory;
 
-  /// No description provided for @addMemory.
+  /// Action to create a confirmed memory in the current memory space.
   ///
   /// In en, this message translates to:
   /// **'Add memory'**
   String get addMemory;
 
-  /// No description provided for @characterName.
+  /// Field label for the locally retained private character display name.
   ///
   /// In en, this message translates to:
   /// **'Private display name'**
   String get characterName;
 
-  /// No description provided for @novelHistory.
+  /// Title of the migrated novel review-history browser.
   ///
   /// In en, this message translates to:
   /// **'Novel review history'**
   String get novelHistory;
 
-  /// No description provided for @characterGentle.
+  /// Gentle voice option in character settings.
   ///
   /// In en, this message translates to:
   /// **'Gentle'**
   String get characterGentle;
 
-  /// No description provided for @correctMemory.
+  /// Action opening the selected memory for correction.
   ///
   /// In en, this message translates to:
   /// **'Edit memory'**
   String get correctMemory;
 
-  /// No description provided for @characterPack.
+  /// Label identifying a declarative character configuration package.
   ///
   /// In en, this message translates to:
   /// **'Declarative character pack'**
   String get characterPack;
 
-  /// No description provided for @openQuestions.
+  /// Label for unresolved issues derived from confirmed manuscript content.
   ///
   /// In en, this message translates to:
   /// **'Open questions in confirmed text'**
   String get openQuestions;
 
-  /// No description provided for @learningMemory.
+  /// Memory-space option containing confirmed learning-related memories.
   ///
   /// In en, this message translates to:
   /// **'Learning memories'**
   String get learningMemory;
 
-  /// No description provided for @memoryTitle.
+  /// Editor field label for the selected memory's title.
   ///
   /// In en, this message translates to:
   /// **'Title'**
   String get memoryTitle;
 
-  /// No description provided for @memoryLibrary.
+  /// Title of the confirmed-memory browser.
   ///
   /// In en, this message translates to:
   /// **'Memory library'**
   String get memoryLibrary;
 
-  /// No description provided for @historyInvalid.
+  /// Error shown when the selected historical record cannot be decoded or read.
   ///
   /// In en, this message translates to:
   /// **'This historical record cannot be read.'**
   String get historyInvalid;
 
-  /// No description provided for @chapterSummary.
+  /// Label identifying the derived summary of a confirmed chapter.
   ///
   /// In en, this message translates to:
   /// **'Chapter summary'**
   String get chapterSummary;
 
-  /// No description provided for @importCharacter.
+  /// Action importing a declarative appearance-and-voice character pack.
   ///
   /// In en, this message translates to:
   /// **'Import character pack'**
   String get importCharacter;
 
-  /// No description provided for @exportCharacter.
+  /// Action exporting appearance and voice as a declarative character pack.
   ///
   /// In en, this message translates to:
   /// **'Export character pack'**
   String get exportCharacter;
 
-  /// No description provided for @memoryBody.
+  /// Editor field label for the selected memory's content.
   ///
   /// In en, this message translates to:
   /// **'Content'**
   String get memoryBody;
 
-  /// No description provided for @characterPackDisclosure.
+  /// Disclosure explaining which character fields are shareable and which imports are rejected.
   ///
   /// In en, this message translates to:
   /// **'The pack includes appearance and voice only. Your private name is retained locally. Scripts, paths and extra fields are rejected.'**
   String get characterPackDisclosure;
 
-  /// No description provided for @personalMemory.
+  /// Memory-space option containing confirmed personal memories.
   ///
   /// In en, this message translates to:
   /// **'Personal memories'**
   String get personalMemory;
 
-  /// No description provided for @applyBlock.
+  /// Action to accept only the displayed candidate change block.
   ///
   /// In en, this message translates to:
   /// **'Apply this block'**
   String get applyBlock;
 
-  /// No description provided for @characterSettings.
+  /// Title and navigation label for desktop character configuration.
   ///
   /// In en, this message translates to:
   /// **'Character settings'**
   String get characterSettings;
 
-  /// No description provided for @characterMoon.
+  /// Moon appearance option for the desktop character.
   ///
   /// In en, this message translates to:
   /// **'Moon'**
   String get characterMoon;
 
-  /// No description provided for @memoryEmpty.
+  /// Empty-state message for the selected confirmed-memory space.
   ///
   /// In en, this message translates to:
   /// **'No confirmed memories in this space.'**
   String get memoryEmpty;
 
-  /// No description provided for @oldIdeas.
+  /// Navigation label for ideas extracted from imported historical conversations.
   ///
   /// In en, this message translates to:
   /// **'Old ideas'**
   String get oldIdeas;
 
-  /// No description provided for @preserveTextLanguage.
+  /// Output-language option preserving the manuscript's language.
   ///
   /// In en, this message translates to:
   /// **'Keep manuscript language'**
   String get preserveTextLanguage;
 
-  /// No description provided for @workspaceTools.
+  /// Accessible menu title for supplementary workspace tools.
   ///
   /// In en, this message translates to:
   /// **'Workspace tools'**
   String get workspaceTools;
 
-  /// No description provided for @companionOpen.
+  /// Companion or tray action returning to the writing workspace.
   ///
   /// In en, this message translates to:
   /// **'Open workspace'**
   String get companionOpen;
 
-  /// No description provided for @nextIdea.
+  /// Action retrieving the next candidate idea from imported user messages.
   ///
   /// In en, this message translates to:
   /// **'Next idea'**
   String get nextIdea;
 
-  /// No description provided for @importConfirm.
+  /// Explicit action committing the currently previewed conversation import.
   ///
   /// In en, this message translates to:
   /// **'Confirm this import'**
   String get importConfirm;
 
-  /// No description provided for @companionDisclosure.
+  /// Session-only companion availability and quiet-mode visibility behavior.
   ///
   /// In en, this message translates to:
   /// **'Enabled for this session. Full screen and Focus sessions hide the companion; unknown quiet status keeps it hidden.'**
   String get companionDisclosure;
 
-  /// No description provided for @noIdea.
+  /// Empty state when imported user messages contain no further candidate ideas.
   ///
   /// In en, this message translates to:
   /// **'No further idea candidates in imported user messages.'**
   String get noIdea;
 
-  /// No description provided for @searchImported.
+  /// Search field label scoped to locally imported messages.
   ///
   /// In en, this message translates to:
   /// **'Search imported messages'**
   String get searchImported;
 
-  /// No description provided for @importPartial.
+  /// Warning that import previews are incomplete or include parsing warnings.
   ///
   /// In en, this message translates to:
   /// **'Partial preview or parse warnings: review the selected source before confirming.'**
   String get importPartial;
 
-  /// No description provided for @importedLibrary.
+  /// Title of the locally imported conversation library.
   ///
   /// In en, this message translates to:
   /// **'Imported conversations'**
   String get importedLibrary;
 
-  /// No description provided for @companionHide.
+  /// Tray action toggling desktop companion visibility.
   ///
   /// In en, this message translates to:
   /// **'Show / hide companion'**
   String get companionHide;
 
-  /// No description provided for @importDisclosure.
+  /// Import scope, UTF-8 format, size limits, preview truncation and offline-processing disclosure.
   ///
   /// In en, this message translates to:
   /// **'Choose a UTF-8 JSON, JSONL or Markdown file up to 16 MiB. Only this file is read. Preview shows up to 10 messages per conversation and 1,500 characters per message; the full parsed package is saved on confirmation. No network requests.'**
   String get importDisclosure;
 
-  /// No description provided for @sourceOriginal.
+  /// Label identifying the full selected source file rather than a truncated preview.
   ///
   /// In en, this message translates to:
   /// **'Complete selected source file'**
   String get sourceOriginal;
 
-  /// No description provided for @importDone.
+  /// Success notice after committing an import, directing the user to message search.
   ///
   /// In en, this message translates to:
   /// **'Import committed. Search the imported messages below.'**
   String get importDone;
 
-  /// No description provided for @importSelectedFile.
+  /// Action invoking the system picker for one conversation source file.
   ///
   /// In en, this message translates to:
   /// **'Choose a conversation file'**
   String get importSelectedFile;
 
-  /// No description provided for @desktopCompanion.
+  /// Navigation label for the optional desktop companion.
   ///
   /// In en, this message translates to:
   /// **'Desktop companion'**
   String get desktopCompanion;
 
-  /// No description provided for @companionQuit.
+  /// Tray action saving the workspace before quitting.
   ///
   /// In en, this message translates to:
   /// **'Save and quit'**
   String get companionQuit;
 
-  /// No description provided for @confirmIdea.
+  /// Action confirming an extracted idea before later conversion.
   ///
   /// In en, this message translates to:
   /// **'Save this idea'**
   String get confirmIdea;
 
-  /// No description provided for @companionFailed.
+  /// Companion failure notice with a recovery action through character settings.
   ///
   /// In en, this message translates to:
   /// **'The desktop companion stopped. Open character settings to enable it again.'**
   String get companionFailed;
 
-  /// No description provided for @learningExercise.
+  /// Action opening the isolated short Python learning exercise.
   ///
   /// In en, this message translates to:
   /// **'Five-minute exercise'**
   String get learningExercise;
 
-  /// No description provided for @learningUnavailable.
+  /// Learning-window failure notice identifying required runtime and bundled resources.
   ///
   /// In en, this message translates to:
   /// **'The isolated exercise could not open. It requires a recent Microsoft Edge WebView2 runtime and all bundled learning resources.'**
   String get learningUnavailable;
 
-  /// No description provided for @parsedImportedMessage.
+  /// Label distinguishing parsed imported message content from its original source file.
   ///
   /// In en, this message translates to:
   /// **'Imported message (parsed)'**
   String get parsedImportedMessage;
 
-  /// No description provided for @convertNovel.
+  /// Action converting an idea into a novel-project target.
   ///
   /// In en, this message translates to:
   /// **'Create novel project'**
   String get convertNovel;
 
-  /// No description provided for @ideaWrong.
+  /// Idea status action rejecting a candidate as no longer valid.
   ///
   /// In en, this message translates to:
   /// **'No longer valid'**
   String get ideaWrong;
 
-  /// No description provided for @ideaDone.
+  /// Idea status action marking the associated goal as completed.
   ///
   /// In en, this message translates to:
   /// **'Done'**
   String get ideaDone;
 
-  /// No description provided for @memoryActions.
+  /// Title of available actions for the selected memory entry.
   ///
   /// In en, this message translates to:
   /// **'Memory actions'**
   String get memoryActions;
 
-  /// No description provided for @memoryMutationNotice.
+  /// Confirmation disclosure for checked status changes and one-time idea conversion.
   ///
   /// In en, this message translates to:
   /// **'Confirm this change? Status updates check the current state. Conversion creates a target with recorded sources and cannot be repeated.'**
   String get memoryMutationNotice;
 
-  /// No description provided for @deleteMemory.
+  /// Action hiding the selected memory through the repository deletion contract.
   ///
   /// In en, this message translates to:
   /// **'Delete this memory'**
   String get deleteMemory;
 
-  /// No description provided for @ideaLiked.
+  /// Idea status action preserving interest without converting it yet.
   ///
   /// In en, this message translates to:
   /// **'Still interested'**
   String get ideaLiked;
 
-  /// No description provided for @ideaStarted.
+  /// Idea status action recording that work has begun.
   ///
   /// In en, this message translates to:
   /// **'Started'**
   String get ideaStarted;
 
-  /// No description provided for @deleteMemoryNotice.
+  /// Deletion disclosure distinguishing a memory from retained imported source conversations.
   ///
   /// In en, this message translates to:
   /// **'This hides the memory. Imported conversations and source files are retained.'**
   String get deleteMemoryNotice;
 
-  /// No description provided for @convertPersonal.
+  /// Action converting an idea into a personal-memory target.
   ///
   /// In en, this message translates to:
   /// **'Create personal memory'**
   String get convertPersonal;
 
-  /// No description provided for @convertLearning.
+  /// Action converting an idea into a learning-goal target.
   ///
   /// In en, this message translates to:
   /// **'Create learning goal'**
   String get convertLearning;
 
-  /// No description provided for @ideaShelved.
+  /// Idea status action deferring the candidate for later consideration.
   ///
   /// In en, this message translates to:
   /// **'Shelved'**
   String get ideaShelved;
 
-  /// No description provided for @exportMemory.
+  /// Action exporting the selected memory entry.
   ///
   /// In en, this message translates to:
   /// **'Export this memory'**
   String get exportMemory;
 
-  /// No description provided for @historicalAi.
+  /// Source-kind label for model-generated historical draft text.
   ///
   /// In en, this message translates to:
   /// **'AI draft'**
   String get historicalAi;
 
-  /// No description provided for @loadHistoricalDraft.
+  /// Action loading selected historical text into the editable working manuscript.
   ///
   /// In en, this message translates to:
   /// **'Load into working draft'**
   String get loadHistoricalDraft;
 
-  /// No description provided for @discardHistoricalDraft.
+  /// Action marking only the selected historical pending draft as discarded.
   ///
   /// In en, this message translates to:
   /// **'Discard this draft'**
   String get discardHistoricalDraft;
 
-  /// No description provided for @historicalDiscarded.
+  /// Status label for a historical draft explicitly discarded by the author.
   ///
   /// In en, this message translates to:
   /// **'Discarded'**
   String get historicalDiscarded;
 
-  /// No description provided for @historicalAuthor.
+  /// Source-kind label for historical author-written manuscript text.
   ///
   /// In en, this message translates to:
   /// **'Author text'**
   String get historicalAuthor;
 
-  /// No description provided for @loadHistoricalNotice.
+  /// Disclosure of working-copy replacement, preserved undo and lack of confirmation.
   ///
   /// In en, this message translates to:
   /// **'Replace the current working draft with this historical text, keeping editor undo history. It remains unconfirmed: review it before confirming the chapter. The historical draft stays pending.'**
   String get loadHistoricalNotice;
 
-  /// No description provided for @historicalUnknown.
+  /// Fallback label for an unsupported historical status without misrepresenting acceptance.
   ///
   /// In en, this message translates to:
   /// **'Unknown status'**
   String get historicalUnknown;
 
-  /// No description provided for @historicalPending.
+  /// Status label for a historical draft awaiting an author decision.
   ///
   /// In en, this message translates to:
   /// **'Pending'**
   String get historicalPending;
 
-  /// No description provided for @historicalAccepted.
+  /// Status label for a historical candidate already accepted by the author.
   ///
   /// In en, this message translates to:
   /// **'Accepted'**
   String get historicalAccepted;
 
-  /// No description provided for @discardHistoricalNotice.
+  /// Disclosure explaining that discarding history keeps its readable text and current manuscript.
   ///
   /// In en, this message translates to:
   /// **'Mark only this pending draft as discarded. Its text remains readable. The current working draft and confirmed versions are retained.'**
   String get discardHistoricalNotice;
 
-  /// No description provided for @rpgNewScene.
+  /// Action starting the review flow for a new temporary RPG scene.
   ///
   /// In en, this message translates to:
   /// **'New scene'**
   String get rpgNewScene;
 
-  /// No description provided for @summaryTaskNotice.
+  /// Disclosure of confirmed-text-only input, discardable summaries and explicit rebuild approval.
   ///
   /// In en, this message translates to:
   /// **'Uses only the confirmed chapter, ignoring the working copy. Summaries are discardable derived material; source changes prevent publication. Review and approve every rebuild.'**
   String get summaryTaskNotice;
 
-  /// No description provided for @rpgReply.
+  /// Field label for a protagonist reply with its allowed character range.
   ///
   /// In en, this message translates to:
   /// **'Protagonist reply (1–300 characters)'**
   String get rpgReply;
 
-  /// No description provided for @rebuildSummary.
+  /// Action reviewing and rebuilding a confirmed chapter's derived summary.
   ///
   /// In en, this message translates to:
   /// **'Rebuild chapter summary'**
   String get rebuildSummary;
 
-  /// No description provided for @rpgTitle.
+  /// Title of the reviewed RPG drafting workflow.
   ///
   /// In en, this message translates to:
   /// **'RPG drafting'**
   String get rpgTitle;
 
-  /// No description provided for @rpgTaskNotice.
+  /// Disclosure that scene proposals remain temporary and each resulting draft requires review.
   ///
   /// In en, this message translates to:
   /// **'Scenes stay temporary. Choose or write the protagonist reply, review the materials again and approve. The result is saved only as a pending draft.'**
   String get rpgTaskNotice;
 
-  /// No description provided for @rpgDirection.
+  /// Field label for a scene-generation direction with its allowed character range.
   ///
   /// In en, this message translates to:
   /// **'Scene direction (1–500 characters)'**
   String get rpgDirection;
 
-  /// No description provided for @summaryTaskDone.
+  /// Success notice after rebuilding a summary without altering manuscript text.
   ///
   /// In en, this message translates to:
   /// **'Summary rebuilt. Manuscript text is unchanged.'**
   String get summaryTaskDone;
 
-  /// No description provided for @rpgDraftDone.
+  /// Success notice that generated RPG text remains a pending historical draft.
   ///
   /// In en, this message translates to:
   /// **'Saved as a pending draft. Review, load or discard it in chapter history.'**
   String get rpgDraftDone;
 
-  /// No description provided for @loreAliases.
+  /// Multiline field label for alternate names of a story-material entry.
   ///
   /// In en, this message translates to:
   /// **'Aliases (one per line)'**
   String get loreAliases;
 
-  /// No description provided for @loreScope.
-  ///
-  /// In en, this message translates to:
-  /// **'Scope: whole / retrospective / from:chapter ID'**
-  String get loreScope;
-
-  /// No description provided for @openSourceChapter.
+  /// Action navigating to the chapter containing the selected material's source.
   ///
   /// In en, this message translates to:
   /// **'Locate source chapter'**
   String get openSourceChapter;
 
-  /// No description provided for @mapRelation.
+  /// Action selecting a location endpoint when adding or removing a preview relation.
   ///
   /// In en, this message translates to:
   /// **'Relation'**
   String get mapRelation;
 
-  /// No description provided for @mapRelationsHelp.
+  /// Interaction and persistence disclosure for dragging, zooming and linking map-preview locations.
   ///
   /// In en, this message translates to:
   /// **'Layout and relations are previews for this window and are not saved. Drag location cards and scroll to zoom. Select Relation on two locations to add or remove a link.'**
   String get mapRelationsHelp;
 
-  /// No description provided for @loreScopeRetrospective.
+  /// Scope option marking a story material as a retrospective change.
   ///
   /// In en, this message translates to:
   /// **'Retrospective change'**
   String get loreScopeRetrospective;
 
-  /// No description provided for @loreScopeFromChapter.
+  /// Scope option applying a story material from one selected chapter onward.
   ///
   /// In en, this message translates to:
   /// **'From chapter:'**
   String get loreScopeFromChapter;
 
-  /// No description provided for @loreScopeWhole.
+  /// Scope option applying a story material throughout the work.
   ///
   /// In en, this message translates to:
   /// **'Throughout the story'**
   String get loreScopeWhole;
 
-  /// No description provided for @summaryReady.
+  /// Status label for a derived summary matching the current confirmed chapter.
   ///
   /// In en, this message translates to:
   /// **'Summary is current'**
   String get summaryReady;
 
-  /// No description provided for @rebuildRunning.
+  /// State label while a derived-content rebuild is executing.
   ///
   /// In en, this message translates to:
   /// **'Rebuilding'**
   String get rebuildRunning;
 
-  /// No description provided for @rebuildDone.
+  /// State label for a completed derived-content rebuild job.
   ///
   /// In en, this message translates to:
   /// **'Rebuild completed'**
   String get rebuildDone;
 
-  /// No description provided for @rebuildQueued.
+  /// Queued rebuild state awaiting fresh review and explicit approval.
   ///
   /// In en, this message translates to:
   /// **'Waiting for a new review and approval'**
   String get rebuildQueued;
 
-  /// No description provided for @rebuildFailed.
+  /// Rebuild failure state requiring another material review before retry.
   ///
   /// In en, this message translates to:
   /// **'Rebuild did not complete. Review again to retry.'**
   String get rebuildFailed;
 
-  /// No description provided for @summaryStale.
+  /// Warning that a derived summary no longer matches its confirmed source version.
   ///
   /// In en, this message translates to:
   /// **'Summary is stale. Review and rebuild it before relying on it as current confirmed content.'**
   String get summaryStale;
 
-  /// No description provided for @refreshSources.
+  /// Action retrying source-mark retrieval for the active chapter.
   ///
   /// In en, this message translates to:
   /// **'Refresh sources'**
   String get refreshSources;
 
-  /// No description provided for @manuscriptSources.
+  /// Section heading for material sources linked to manuscript ranges.
   ///
   /// In en, this message translates to:
   /// **'Manuscript sources'**
   String get manuscriptSources;
 
-  /// No description provided for @sourceMarksHint.
+  /// Instruction for opening linked materials with Ctrl-click on a source underline.
   ///
   /// In en, this message translates to:
   /// **'Ctrl-click an underline to open its linked material.'**
   String get sourceMarksHint;
 
-  /// No description provided for @sourceMarksFailed.
+  /// Source-loading error state with a refresh recovery path.
   ///
   /// In en, this message translates to:
   /// **'Sources could not load. Refresh to retry.'**
   String get sourceMarksFailed;
 
-  /// No description provided for @sourceMarksLoading.
+  /// Progress message while manuscript source marks are being read.
   ///
   /// In en, this message translates to:
   /// **'Loading sources…'**
   String get sourceMarksLoading;
 
-  /// No description provided for @sourceMarksEmpty.
+  /// Source-loading empty state after a successful read with no source marks.
   ///
   /// In en, this message translates to:
   /// **'No sources in this chapter'**
   String get sourceMarksEmpty;
 
-  /// No description provided for @sourceOpenFailed.
+  /// Recoverable failure notice when a linked source entry cannot open.
   ///
   /// In en, this message translates to:
   /// **'Could not open the linked entry. Try again.'**
   String get sourceOpenFailed;
 
-  /// No description provided for @sourceOpenRetry.
+  /// Action retrying the failed linked-entry lookup.
   ///
   /// In en, this message translates to:
   /// **'Try again'**
   String get sourceOpenRetry;
 
-  /// No description provided for @findInChapter.
+  /// Compact toolbar action opening search within the active chapter.
   ///
   /// In en, this message translates to:
   /// **'Find'**
   String get findInChapter;
 
-  /// No description provided for @findPrompt.
+  /// Search field label specifying the active chapter as its scope.
   ///
   /// In en, this message translates to:
   /// **'Find in this chapter'**
   String get findPrompt;
 
-  /// No description provided for @findNext.
+  /// Action moving the manuscript selection to the next search result.
   ///
   /// In en, this message translates to:
   /// **'Next match'**
   String get findNext;
 
-  /// No description provided for @findNoMatch.
+  /// Search empty state when the active chapter contains no matching text.
   ///
   /// In en, this message translates to:
   /// **'No matching text in this chapter.'**
@@ -1617,25 +1617,25 @@ abstract class AppLocalizations {
   /// **'Chapter · {count} characters'**
   String chapterCharacters(int count);
 
-  /// No description provided for @chapterEnd.
+  /// Manuscript footer marker shown after the chapter content.
   ///
   /// In en, this message translates to:
   /// **'End of chapter'**
   String get chapterEnd;
 
-  /// No description provided for @undo.
+  /// Editor action reversing the most recent working-manuscript edit.
   ///
   /// In en, this message translates to:
   /// **'Undo'**
   String get undo;
 
-  /// No description provided for @redo.
+  /// Editor action reapplying the most recently undone manuscript edit.
   ///
   /// In en, this message translates to:
   /// **'Redo'**
   String get redo;
 
-  /// No description provided for @chapterDiscussion.
+  /// Short action label opening discussion for the active chapter.
   ///
   /// In en, this message translates to:
   /// **'Discuss'**
@@ -1647,43 +1647,43 @@ abstract class AppLocalizations {
   /// **'Discussions · {count}'**
   String discussionIndex(int count);
 
-  /// No description provided for @discussionWholeChapter.
+  /// Label distinguishing a chapter-wide thread from a selection-bound discussion.
   ///
   /// In en, this message translates to:
   /// **'Whole-chapter discussion'**
   String get discussionWholeChapter;
 
-  /// No description provided for @discussionSelection.
+  /// Short label identifying a selection-bound discussion target.
   ///
   /// In en, this message translates to:
   /// **'Selection'**
   String get discussionSelection;
 
-  /// No description provided for @discussionValid.
+  /// Status label for a discussion whose original manuscript target remains valid.
   ///
   /// In en, this message translates to:
   /// **'Open for discussion'**
   String get discussionValid;
 
-  /// No description provided for @discussionHasDraft.
+  /// Status label indicating discussion changes are not yet persisted.
   ///
   /// In en, this message translates to:
   /// **'Unsaved draft'**
   String get discussionHasDraft;
 
-  /// No description provided for @discussionGenerationUnavailable.
+  /// Capability explanation for whole-chapter or invalid-target discussions that preserve history only.
   ///
   /// In en, this message translates to:
   /// **'Whole-chapter discussions and threads whose original target changed keep drafts and history only; generation needs a valid selection.'**
   String get discussionGenerationUnavailable;
 
-  /// No description provided for @searchChapters.
+  /// Directory search field label scoped to chapter titles.
   ///
   /// In en, this message translates to:
   /// **'Search chapters'**
   String get searchChapters;
 
-  /// No description provided for @noMatchingChapters.
+  /// Chapter-directory empty state for a filter with no matching chapters.
   ///
   /// In en, this message translates to:
   /// **'No matching chapters.'**
@@ -1701,13 +1701,13 @@ abstract class AppLocalizations {
   /// **'No matching materials.'**
   String get noMatchingResources;
 
-  /// No description provided for @exportWork.
+  /// Action exporting the current manuscript together with story materials.
   ///
   /// In en, this message translates to:
   /// **'Export manuscript and lore'**
   String get exportWork;
 
-  /// No description provided for @exportWorkDone.
+  /// Success notice after exporting manuscript and story materials.
   ///
   /// In en, this message translates to:
   /// **'Manuscript and lore exported'**
@@ -1719,79 +1719,79 @@ abstract class AppLocalizations {
   /// **'{count} lore entries exported'**
   String exportLoreCount(int count);
 
-  /// No description provided for @exportManuscriptSuffix.
+  /// Localized suffix used when naming the manuscript-and-materials export file.
   ///
   /// In en, this message translates to:
   /// **'manuscript-and-lore'**
   String get exportManuscriptSuffix;
 
-  /// No description provided for @ideaTarget.
+  /// Heading for the target created by a previous idea conversion.
   ///
   /// In en, this message translates to:
   /// **'Converted target'**
   String get ideaTarget;
 
-  /// No description provided for @ideaTargetOpen.
+  /// Action opening the entity created by an idea conversion.
   ///
   /// In en, this message translates to:
   /// **'Open target'**
   String get ideaTargetOpen;
 
-  /// No description provided for @ideaTargetTitleLabel.
+  /// Field label for the title of a converted idea target.
   ///
   /// In en, this message translates to:
   /// **'Target title'**
   String get ideaTargetTitleLabel;
 
-  /// No description provided for @ideaTargetSummaryLabel.
+  /// Field label for notes associated with a converted idea target.
   ///
   /// In en, this message translates to:
   /// **'Target note'**
   String get ideaTargetSummaryLabel;
 
-  /// No description provided for @ideaTargetSave.
+  /// Primary action persisting corrected converted-target details.
   ///
   /// In en, this message translates to:
   /// **'Save target'**
   String get ideaTargetSave;
 
-  /// No description provided for @ideaTargetSaved.
+  /// Success notice after converted-target details are saved.
   ///
   /// In en, this message translates to:
   /// **'Target saved.'**
   String get ideaTargetSaved;
 
-  /// No description provided for @ideaTargetFailed.
+  /// Target-save conflict or failure notice directing the user to refresh before retrying.
   ///
   /// In en, this message translates to:
   /// **'The target could not be saved; refresh and retry.'**
   String get ideaTargetFailed;
 
-  /// No description provided for @ideaTargetMissing.
+  /// Empty state for a historical idea with no convertible target.
   ///
   /// In en, this message translates to:
   /// **'This old idea has no convertible target.'**
   String get ideaTargetMissing;
 
-  /// No description provided for @ideaTargetSource.
+  /// Heading for immutable source references recorded with an idea target.
   ///
   /// In en, this message translates to:
   /// **'Recorded sources'**
   String get ideaTargetSource;
 
-  /// No description provided for @ideaTargetNovelSync.
+  /// Disclosure that renaming a novel target also renames the linked project.
   ///
   /// In en, this message translates to:
   /// **'Editing a novel target also renames its project.'**
   String get ideaTargetNovelSync;
 
-  /// No description provided for @sideChapters.
+  /// Sidebar tab label switching to the chapter index.
   ///
   /// In en, this message translates to:
   /// **'Chapters'**
   String get sideChapters;
 
-  /// No description provided for @sideResources.
+  /// Sidebar tab label switching to the story-material index.
   ///
   /// In en, this message translates to:
   /// **'Materials'**
@@ -1809,25 +1809,25 @@ abstract class AppLocalizations {
   /// **'No matching works.'**
   String get noMatchingWorks;
 
-  /// No description provided for @switchWork.
+  /// Action opening the work picker without discarding the active manuscript.
   ///
   /// In en, this message translates to:
   /// **'Switch work'**
   String get switchWork;
 
-  /// No description provided for @sidebarReal.
+  /// Sidebar capability label identifying a local SQLite-backed work.
   ///
   /// In en, this message translates to:
   /// **'Local work · SQLite'**
   String get sidebarReal;
 
-  /// No description provided for @sidebarSynthetic.
+  /// Sidebar capability label identifying synthetic preview material.
   ///
   /// In en, this message translates to:
   /// **'Sample work · local preview'**
   String get sidebarSynthetic;
 
-  /// No description provided for @resourcesEmpty.
+  /// Empty-state message when the current work has no story materials.
   ///
   /// In en, this message translates to:
   /// **'No story materials yet.'**
@@ -1839,49 +1839,49 @@ abstract class AppLocalizations {
   /// **'Story materials could not load. Try again.'**
   String get loreReadFailed;
 
-  /// No description provided for @newEntity.
+  /// Action creating a new story-material entry.
   ///
   /// In en, this message translates to:
   /// **'New material'**
   String get newEntity;
 
-  /// No description provided for @chapterAndVersions.
+  /// Chapter menu entry opening confirmed versions and historical drafts.
   ///
   /// In en, this message translates to:
   /// **'Versions'**
   String get chapterAndVersions;
 
-  /// No description provided for @layoutMenu.
+  /// Toolbar label opening manuscript width preferences.
   ///
   /// In en, this message translates to:
   /// **'Layout'**
   String get layoutMenu;
 
-  /// No description provided for @layoutComfort.
+  /// Layout menu option selecting the 760-logical-pixel manuscript measure.
   ///
   /// In en, this message translates to:
   /// **'Comfortable · 760 px'**
   String get layoutComfort;
 
-  /// No description provided for @layoutWide.
+  /// Layout menu option selecting the 920-logical-pixel manuscript measure.
   ///
   /// In en, this message translates to:
   /// **'Wide · 920 px'**
   String get layoutWide;
 
-  /// No description provided for @modelSettings.
+  /// Navigation label opening model-provider configuration.
   ///
   /// In en, this message translates to:
   /// **'Model settings'**
   String get modelSettings;
 
-  /// No description provided for @moreTools.
+  /// Compact toolbar label for overflow actions.
   ///
   /// In en, this message translates to:
   /// **'More'**
   String get moreTools;
 
-  /// No description provided for @exportMenu.
+  /// Toolbar label opening available manuscript export actions.
   ///
   /// In en, this message translates to:
   /// **'Export'**
@@ -1899,19 +1899,19 @@ abstract class AppLocalizations {
   /// **'{count} characters selected'**
   String selectionCount(int count);
 
-  /// No description provided for @loreGroupCharacters.
+  /// Story-material category heading for fictional characters.
   ///
   /// In en, this message translates to:
   /// **'Characters'**
   String get loreGroupCharacters;
 
-  /// No description provided for @loreGroupWorld.
+  /// Story-material category heading for world-building rules.
   ///
   /// In en, this message translates to:
   /// **'World rules'**
   String get loreGroupWorld;
 
-  /// No description provided for @loreGroupLocations.
+  /// Story-material category heading for fictional locations.
   ///
   /// In en, this message translates to:
   /// **'Locations'**
@@ -2001,17 +2001,119 @@ abstract class AppLocalizations {
   /// **'Current content'**
   String get currentLoreContent;
 
-  /// No description provided for @chapterDirectory.
+  /// Accessible title of the chapter-navigation pane.
   ///
   /// In en, this message translates to:
   /// **'Chapter directory'**
   String get chapterDirectory;
 
-  /// No description provided for @resourceDirectory.
+  /// Accessible title of the story-material navigation pane.
   ///
   /// In en, this message translates to:
   /// **'Story materials'**
   String get resourceDirectory;
+
+  /// Tool interface label or guidance: Clear search
+  ///
+  /// In en, this message translates to:
+  /// **'Clear search'**
+  String get clearSearch;
+
+  /// Tool interface label or guidance: Confirm this material in the library before selecting it.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm this material in the library before selecting it.'**
+  String get loreUnconfirmed;
+
+  /// Tool interface label or guidance: Up to 32 materials can be selected.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 32 materials can be selected.'**
+  String get referenceLimit;
+
+  /// Tool interface label or guidance: Add material
+  ///
+  /// In en, this message translates to:
+  /// **'Add material'**
+  String get loreAdd;
+
+  /// Tool interface label or guidance: Edit material
+  ///
+  /// In en, this message translates to:
+  /// **'Edit material'**
+  String get loreEdit;
+
+  /// Tool interface label or guidance: Appearance
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get characterAppearance;
+
+  /// Tool interface label or guidance: Voice
+  ///
+  /// In en, this message translates to:
+  /// **'Voice'**
+  String get characterVoice;
+
+  /// Tool interface label or guidance: Type
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get loreKind;
+
+  /// Tool interface label or guidance: Name
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get loreName;
+
+  /// Tool interface label or guidance: Content
+  ///
+  /// In en, this message translates to:
+  /// **'Content'**
+  String get loreBody;
+
+  /// Tool interface label or guidance: Timeline
+  ///
+  /// In en, this message translates to:
+  /// **'Timeline'**
+  String get loreTimeline;
+
+  /// Tool interface label or guidance: Constraints
+  ///
+  /// In en, this message translates to:
+  /// **'Constraints'**
+  String get loreTaboo;
+
+  /// Tool interface label or guidance: Writing style
+  ///
+  /// In en, this message translates to:
+  /// **'Writing style'**
+  String get loreStyle;
+
+  /// Tool interface label or guidance: No materials yet. Use Add material to create one.
+  ///
+  /// In en, this message translates to:
+  /// **'No materials yet. Use Add material to create one.'**
+  String get loreEmpty;
+
+  /// Tool interface label or guidance: No review history for this chapter yet.
+  ///
+  /// In en, this message translates to:
+  /// **'No review history for this chapter yet.'**
+  String get historyEmpty;
+
+  /// Tool interface label or guidance: Choose a conversation file to preview, or search messages already imported.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a conversation file to preview, or search messages already imported.'**
+  String get importEmpty;
+
+  /// Tool interface label or guidance: Applies to
+  ///
+  /// In en, this message translates to:
+  /// **'Applies to'**
+  String get loreScope;
 }
 
 class _AppLocalizationsDelegate

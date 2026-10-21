@@ -1,0 +1,751 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/chapter_find_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/chapter_find_test.dart: find selects the next exact match, wraps and reports code points
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/chapter_find_test.dart: find selects the next exact match, wraps and reports code points
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/chapter_find_test.dart: find selects the next exact match, wraps and reports code points
+00:00 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/chapter_find_test.dart: find selects the next exact match, wraps and reports code points
+00:00 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/chapter_find_test.dart: find selects the next exact match, wraps and reports code points
+00:00 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/idea_target_test.dart: target dialog loads, saves with CAS and reports failure
+00:01 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/idea_target_test.dart: target dialog loads, saves with CAS and reports failure
+00:01 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/idea_target_test.dart: target dialog loads, saves with CAS and reports failure
+idea_target_failed: StateError
+00:01 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:01 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:01 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:02 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +22: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +23: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +24: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:03 +25: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +26: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +27: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +28: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +29: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +30: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +31: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +32: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +33: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +34: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:04 +35: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +36: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +37: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +38: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +39: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +39: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: focus exits and wide mode changes readable manuscript width
+
+Warning: A call to tap() with finder "Found 1 widget with text "宽稿 · 920 px" (ignoring all but first): [
+  Text("宽稿 · 920 px", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(854.4, 123.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#05665 relayoutBoundary=up40
+The hit test result at that offset is: HitTestResult(RenderPointerListener#ec3f9@Offset(100.0, 24.0), RenderSemanticsAnnotations#088d8@Offset(100.0, 24.0), RenderMouseRegion#26872@Offset(100.0, 24.0), RenderSemanticsAnnotations#92c88@Offset(100.0, 24.0), RenderSemanticsAnnotations#ffd38@Offset(100.0, 24.0), RenderMergeSemantics#1c19f@Offset(100.0, 24.0), RenderAnimatedOpacity#185aa@Offset(100.0, 24.0), _RenderMenuItem#cb415@Offset(100.0, 24.0), RenderListBody#6c27b@Offset(100.0, 72.0), RenderPadding#e1f23@Offset(104.0, 76.0), _RenderSingleChildViewport#1518a@Offset(104.0, 76.0), RenderIgnorePointer#368ad@Offset(104.0, 76.0), RenderSemanticsAnnotations#24a9a@Offset(104.0, 76.0), RenderPointerListener#ec05d@Offset(104.0, 76.0), RenderSemanticsGestureHandler#b558b@Offset(104.0, 76.0), RenderPointerListener#77d8f@Offset(104.0, 76.0), _RenderScrollSemantics#e8ad3@Offset(104.0, 76.0), RenderClipRect#eaca9@Offset(104.0, 76.0), RenderSemanticsAnnotations#ccca5@Offset(104.0, 76.0), RenderIntrinsicWidth#7a1be@Offset(104.0, 76.0), RenderConstrainedBox#edb54@Offset(104.0, 76.0), RenderPositionedBox#a28d1@Offset(104.0, 76.0), _RenderInkFeatures#931af@Offset(104.0, 76.0), RenderCustomPaint#5f4d4@Offset(104.0, 76.0), RenderPhysicalShape#35d8e@Offset(104.0, 76.0), RenderAnimatedOpacity#e9c6d@Offset(104.0, 76.0), RenderCustomSingleChildLayoutBox#935be@Offset(854.4, 123.5), _RenderLayoutBuilder#6688c@Offset(854.4, 123.5), RenderRepaintBoundary#1e926@Offset(854.4, 123.5), RenderIgnorePointer#3f97b@Offset(854.4, 123.5), RenderRepaintBoundary#b106f@Offset(854.4, 123.5), RenderSemanticsAnnotations#4966d@Offset(854.4, 123.5), RenderOffstage#3dcc7@Offset(854.4, 123.5), RenderSemanticsAnnotations#59035@Offset(854.4, 123.5), _RenderTheater#82c6a@Offset(854.4, 123.5), RenderAbsorbPointer#06280@Offset(854.4, 123.5), RenderPointerListener#e72e8@Offset(854.4, 123.5), RenderSemanticsAnnotations#b6e7e@Offset(854.4, 123.5), RenderRepaintBoundary#c9c12@Offset(854.4, 123.5), RenderSemanticsAnnotations#7d3d3@Offset(854.4, 123.5), RenderSemanticsAnnotations#26fce@Offset(854.4, 123.5), RenderTapRegionSurface#b8d1b@Offset(854.4, 123.5), RenderSemanticsAnnotations#0d583@Offset(854.4, 123.5), RenderSemanticsAnnotations#af535@Offset(854.4, 123.5), RenderSemanticsAnnotations#1cd26@Offset(854.4, 123.5), HitTestEntry<HitTestTarget>#7a12b(_ReusableRenderView#34655), HitTestEntry<HitTestTarget>#d23c9(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2077:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1861:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1041:7)
+#3      M2Harness.activate (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/support/m2_harness.dart:81:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart:83:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+
+Warning: A call to tap() with finder "Found 1 widget with text "舒适 · 760 px" (ignoring all but first): [
+  Text("舒适 · 760 px", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery, _ScrollableScope]),
+]" derived an Offset (Offset(854.4, 75.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#53b62 relayoutBoundary=up40
+The hit test result at that offset is: HitTestResult(RenderPointerListener#5f25c@Offset(100.0, 24.0), RenderSemanticsAnnotations#c271a@Offset(100.0, 24.0), RenderMouseRegion#2dc35@Offset(100.0, 24.0), RenderSemanticsAnnotations#1b174@Offset(100.0, 24.0), RenderSemanticsAnnotations#fdf5b@Offset(100.0, 24.0), RenderMergeSemantics#dae11@Offset(100.0, 24.0), RenderAnimatedOpacity#2150b@Offset(100.0, 24.0), _RenderMenuItem#8467a@Offset(100.0, 24.0), RenderListBody#a22bf@Offset(100.0, 24.0), RenderPadding#6f3bb@Offset(104.0, 28.0), _RenderSingleChildViewport#ea294@Offset(104.0, 28.0), RenderIgnorePointer#079ba@Offset(104.0, 28.0), RenderSemanticsAnnotations#b0e1a@Offset(104.0, 28.0), RenderPointerListener#8daea@Offset(104.0, 28.0), RenderSemanticsGestureHandler#72ad2@Offset(104.0, 28.0), RenderPointerListener#4c454@Offset(104.0, 28.0), _RenderScrollSemantics#1001b@Offset(104.0, 28.0), RenderClipRect#1af7f@Offset(104.0, 28.0), RenderSemanticsAnnotations#798e9@Offset(104.0, 28.0), RenderIntrinsicWidth#ff6af@Offset(104.0, 28.0), RenderConstrainedBox#5fd4e@Offset(104.0, 28.0), RenderPositionedBox#b5120@Offset(104.0, 28.0), _RenderInkFeatures#4eef2@Offset(104.0, 28.0), RenderCustomPaint#1e3c4@Offset(104.0, 28.0), RenderPhysicalShape#d23fa@Offset(104.0, 28.0), RenderAnimatedOpacity#864be@Offset(104.0, 28.0), RenderCustomSingleChildLayoutBox#54bec@Offset(854.4, 75.5), _RenderLayoutBuilder#9c100@Offset(854.4, 75.5), RenderRepaintBoundary#16b18@Offset(854.4, 75.5), RenderIgnorePointer#dbfad@Offset(854.4, 75.5), RenderRepaintBoundary#343bb@Offset(854.4, 75.5), RenderSemanticsAnnotations#c86f0@Offset(854.4, 75.5), RenderOffstage#abd7f@Offset(854.4, 75.5), RenderSemanticsAnnotations#d79cb@Offset(854.4, 75.5), _RenderTheater#82c6a@Offset(854.4, 75.5), RenderAbsorbPointer#06280@Offset(854.4, 75.5), RenderPointerListener#e72e8@Offset(854.4, 75.5), RenderSemanticsAnnotations#b6e7e@Offset(854.4, 75.5), RenderRepaintBoundary#c9c12@Offset(854.4, 75.5), RenderSemanticsAnnotations#7d3d3@Offset(854.4, 75.5), RenderSemanticsAnnotations#26fce@Offset(854.4, 75.5), RenderTapRegionSurface#b8d1b@Offset(854.4, 75.5), RenderSemanticsAnnotations#0d583@Offset(854.4, 75.5), RenderSemanticsAnnotations#af535@Offset(854.4, 75.5), RenderSemanticsAnnotations#1cd26@Offset(854.4, 75.5), HitTestEntry<HitTestTarget>#1ae1e(_ReusableRenderView#34655), HitTestEntry<HitTestTarget>#7e653(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2077:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1861:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1041:7)
+#3      M2Harness.activate (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/support/m2_harness.dart:81:11)
+<asynchronous suspension>
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart:89:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+#7      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:05 +40: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:05 +41: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +42: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +43: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +44: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +45: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +46: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +47: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +48: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +49: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +50: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +51: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +52: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +53: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +54: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +55: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:06 +56: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +57: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +58: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +59: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +60: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +61: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +62: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +63: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +64: D:/MyAgent/paraselene-flutter/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+00:07 +65: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +66: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +67: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +68: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +69: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +70: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +70: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: cancelled export never shows success or exit action
+workspace_disposed_with_dirty_text
+00:07 +71: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +72: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +73: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_real_repository_test.dart: actual DLL reads directory and exact body from fresh synthetic root
+00:07 +74: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:07 +75: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:07 +76: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +76: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: failed export reports error and never enables exit
+workspace_disposed_with_dirty_text
+00:08 +77: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +78: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +79: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +80: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +81: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +82: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +83: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +84: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +85: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +86: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +87: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +88: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +88: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (false)
+workspace_disposed_with_dirty_text
+00:08 +89: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +90: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +91: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +92: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +93: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +94: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +95: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:08 +96: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +97: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +97: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_lifecycle_test.dart: verified export keeps editor frozen through exit decision (true)
+workspace_disposed_with_dirty_text
+00:09 +98: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +99: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +100: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +101: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +102: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +103: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +104: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +105: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +106: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +107: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +108: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +109: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +110: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +111: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +112: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +113: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +114: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +115: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +116: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +117: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +118: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +119: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +120: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +121: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +122: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +123: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +124: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +125: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +126: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +127: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +128: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +129: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +130: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +131: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:09 +132: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +133: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +134: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +135: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +136: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +137: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +138: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +139: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +140: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +141: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +142: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +143: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +144: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +145: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +146: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +147: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +148: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +149: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +150: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +151: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +152: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +153: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +154: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +155: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +156: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +157: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:10 +158: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +159: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +160: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +161: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +162: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +163: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +164: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +165: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +166: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +167: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +168: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +169: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +170: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +171: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +172: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +173: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:11 +173: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_controller_test.dart: dispose with dirty text completes without skipping release
+workspace_disposed_with_dirty_text
+00:11 +174: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:12 +175: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:12 +176: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:12 +177: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL caller-owned synthetic root survives close and reopens
+00:12 +178: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 1.0
+00:12 +179: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 1.0
+00:12 +180: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +181: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +182: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +183: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +184: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +185: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +186: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +187: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +188: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +189: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +190: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +191: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +192: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +193: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +194: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +195: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +196: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:12 +197: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +198: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +199: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +200: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +201: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +202: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +203: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +204: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +205: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +206: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +207: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +208: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +209: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +210: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +211: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +212: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:13 +213: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +214: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +215: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +216: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +217: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +218: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +219: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +220: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +221: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +222: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +223: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +224: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +225: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +226: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +226: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_interaction_capture_test.dart: capture real discussion surface and control geometry
+UI_GEOMETRY after button=Rect.fromLTRB(726.0, 410.0, 792.0, 458.0) card=Color(alpha: 1.0000, red: 0.9804, green: 0.9765, blue: 0.9608, colorSpace: ColorSpace.sRGB) tint=Color(alpha: 0.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) textMinimum=Size(32.0, 32.0)
+00:14 +227: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +228: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +229: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +230: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +231: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +232: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:14 +233: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +234: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +235: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +236: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +237: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +238: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +239: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +240: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +241: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +242: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +243: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +243: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/discussion_registry_test.dart: background save failure stays visible and retains draft for retry
+discussion_background_save_failed: StateError
+00:15 +244: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +245: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +246: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +247: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +248: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +249: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +250: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +251: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +252: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +253: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +254: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +255: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +256: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +257: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +258: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +259: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +260: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +261: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +262: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +263: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +264: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +265: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +266: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:15 +267: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +268: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +269: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +270: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +271: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +272: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +273: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +274: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +275: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +276: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +277: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +278: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +279: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +280: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +281: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +282: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +283: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +284: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +285: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +286: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +287: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +288: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +289: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +290: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +291: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +292: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +293: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +294: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +295: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +296: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +297: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:16 +298: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:17 +299: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:17 +300: D:/MyAgent/paraselene-flutter/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+00:17 +301: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +302: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +303: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +304: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +305: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +306: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +307: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +308: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +309: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +310: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +311: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +312: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +313: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +314: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +315: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +316: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +317: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +318: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +319: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +320: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +321: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +322: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +323: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +324: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +325: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +326: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +327: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +328: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +329: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +330: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:17 +331: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +332: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +333: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +334: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +335: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +336: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +337: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +338: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +339: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +340: D:/MyAgent/paraselene-flutter/apps/desktop/test/m4_repository_test.dart: actual DLL two works, CAS, exact text, versions and workspace state
+00:18 +341: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +342: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +343: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +344: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +345: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +346: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +347: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: backup 680.0 scale 1.0
+00:18 +348: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=1.0 scale=1.0 rtl-pseudo bold=true
+00:18 +349: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +350: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +351: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +352: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +353: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +354: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +355: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +356: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +357: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +358: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +359: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: chapter-discussion 680.0 scale 1.0
+00:18 +360: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +361: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +362: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +363: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +364: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +365: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +366: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +367: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +368: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:18 +369: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:19 +370: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient attaches to IME on focus
+00:19 +371: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=1.5 scale=1.0 pseudo bold=false
+00:19 +372: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +373: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +374: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +375: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +376: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +377: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +378: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +379: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +380: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +381: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +382: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-library 680.0 scale 2.0
+00:19 +383: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_input_client_test.dart: EditorInputClient Ctrl+A selects all
+00:19 +384: D:/MyAgent/paraselene-flutter/apps/desktop/test/m2_workbench_test.dart: fit en Size(360.0, 800.0) dpr=1.5 scale=2.0 plain bold=false
+00:19 +385: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +386: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +387: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +388: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +389: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +390: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +391: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +392: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +393: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: lore-picker 680.0 scale 2.0
+00:19 +394: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:19 +395: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:19 +396: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: incremental reflow geometry matches full painter after middle edits
+00:19 +397: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: character 680.0 scale 2.0
+00:19 +398: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: character 680.0 scale 2.0
+00:19 +399: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: character 680.0 scale 2.0
+00:19 +400: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: character 680.0 scale 2.0
+00:19 +401: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: character 680.0 scale 2.0
+00:19 +402: D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_completion_capture_test.dart: character 680.0 scale 2.0
+00:19 +403: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:19 +404: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:19 +405: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +406: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +407: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +408: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +409: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +410: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +411: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +412: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +413: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +414: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +415: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +416: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +417: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +418: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +419: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +420: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +421: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +422: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +423: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +424: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +425: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +426: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +427: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:20 +428: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +429: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +430: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +431: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +432: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +433: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +434: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +435: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +436: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +437: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +438: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +439: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +440: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +441: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +442: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +443: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +444: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +445: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +446: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +447: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +448: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +449: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +450: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +451: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +452: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +453: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +454: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +455: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:21 +456: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +457: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +458: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +459: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +460: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +461: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +462: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +463: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +464: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +465: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +466: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +467: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +468: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +469: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_layout_test.dart: long paragraph edit retains prefix and invalidates unmeasured tail
+00:22 +470: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +471: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:22 +472: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +473: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +474: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +475: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +476: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +477: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +478: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +479: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +480: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +481: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +482: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +483: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +484: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +485: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +486: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:23 +487: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +488: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +489: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +490: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +491: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +492: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +493: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +494: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +495: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +496: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +497: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +498: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +499: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +500: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +501: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +502: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +503: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +504: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +505: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +506: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +507: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +508: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +509: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:24 +510: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +511: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +512: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +513: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +514: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +515: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +516: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +517: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +518: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +519: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +520: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +521: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +522: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +523: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +524: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +525: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +526: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +527: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:25 +528: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +528: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/discussion_index_test.dart: 线程保存失败保留脏草稿并可重试，冷启动读回原草稿
+discussion_background_save_failed: StateError
+00:26 +529: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +530: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +531: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +532: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +533: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +534: D:/MyAgent/paraselene-flutter/apps/desktop/test/editor/editor_scene_viewport_test.dart: EditorViewport lazy scrolling paints every visible pixel from raw
+00:26 +535: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +536: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +537: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +538: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +539: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +540: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +541: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +542: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +543: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +544: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +545: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +546: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +547: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +548: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +549: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +550: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +551: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +552: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:26 +553: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +554: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +555: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +556: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +557: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +558: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +559: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/paper_flow_test.dart: 短章：章末紧接正文，不贴窗口底部且只有一个滚动区
+00:27 +560: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:27 +561: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:27 +562: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:27 +563: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:27 +564: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:27 +565: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:27 +566: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:28 +567: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:28 +568: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:28 +569: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:28 +570: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 只读预览卡 展示当前资料与提交时快照，预览本身不附加
+00:28 +571: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +572: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +573: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +574: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +575: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +576: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +577: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +578: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:28 +579: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +580: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +581: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +582: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +583: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +584: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +585: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/review_fixes_test.dart: review: body IME composition must not open Ctrl+F
+00:29 +586: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/reference_flow_test.dart: 长章中部查阅返回 位置、选区与一次 undo 都延续
+00:30 +587: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/save_status_test.dart: 保存状态随 EditingSession 刷新：dirty→saving→saved，不重建编辑器
+00:30 +588: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/save_status_test.dart: 保存状态随 EditingSession 刷新：dirty→saving→saved，不重建编辑器
+00:30 +589: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/scroll_restore_test.dart: 长章滚动位置关闭重开后恢复，并安全钳制到新范围
+00:31 +590: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/scroll_restore_test.dart: 长章滚动位置关闭重开后恢复，并安全钳制到新范围
+00:31 +591: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/scroll_restore_test.dart: 长章滚动位置关闭重开后恢复，并安全钳制到新范围
+00:31 +592: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/scroll_restore_test.dart: 长章滚动位置关闭重开后恢复，并安全钳制到新范围
+00:32 +593: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +594: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +595: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +596: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +597: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +598: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +599: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/selection_focus_test.dart: 工具栏抢焦点折叠选区后，仍按冻结区间创建线程并聚焦草稿
+00:32 +600: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: loading → empty 四态可见且正文仍可写
+00:33 +601: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: loading → empty 四态可见且正文仍可写
+00:33 +602: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:33 +603: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:33 +604: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:34 +605: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:34 +606: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:34 +607: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:34 +608: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/thread_host_test.dart: 三条线程只展开一条，其余标记可分别点击，收起恢复纸面高度
+00:34 +609: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:34 +610: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:35 +611: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:35 +612: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:35 +613: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:36 +614: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:36 +614: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+
+Warning: A call to tap() with finder "Found 1 widget with text "宽稿 · 920 px": [
+  Text("宽稿 · 920 px", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(854.4, 123.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#539cf relayoutBoundary=up40
+The hit test result at that offset is: HitTestResult(RenderPointerListener#ae50b@Offset(100.0, 24.0), RenderSemanticsAnnotations#bcc74@Offset(100.0, 24.0), RenderMouseRegion#a0cf9@Offset(100.0, 24.0), RenderSemanticsAnnotations#dac63@Offset(100.0, 24.0), RenderSemanticsAnnotations#1a221@Offset(100.0, 24.0), RenderMergeSemantics#b3001@Offset(100.0, 24.0), RenderAnimatedOpacity#1bfec@Offset(100.0, 24.0), _RenderMenuItem#e9193@Offset(100.0, 24.0), RenderListBody#467b1@Offset(100.0, 72.0), RenderPadding#594da@Offset(104.0, 76.0), _RenderSingleChildViewport#95364@Offset(104.0, 76.0), RenderIgnorePointer#d417a@Offset(104.0, 76.0), RenderSemanticsAnnotations#6e144@Offset(104.0, 76.0), RenderPointerListener#8699e@Offset(104.0, 76.0), RenderSemanticsGestureHandler#94f5d@Offset(104.0, 76.0), RenderPointerListener#789de@Offset(104.0, 76.0), _RenderScrollSemantics#b0814@Offset(104.0, 76.0), RenderClipRect#d901c@Offset(104.0, 76.0), RenderSemanticsAnnotations#6e841@Offset(104.0, 76.0), RenderIntrinsicWidth#1ca45@Offset(104.0, 76.0), RenderConstrainedBox#e2956@Offset(104.0, 76.0), RenderPositionedBox#ca563@Offset(104.0, 76.0), _RenderInkFeatures#c199a@Offset(104.0, 76.0), RenderCustomPaint#57a4e@Offset(104.0, 76.0), RenderPhysicalShape#e369d@Offset(104.0, 76.0), RenderAnimatedOpacity#449d5@Offset(104.0, 76.0), RenderCustomSingleChildLayoutBox#7c61a@Offset(854.4, 123.5), _RenderLayoutBuilder#f8efb@Offset(854.4, 123.5), RenderRepaintBoundary#3a0e9@Offset(854.4, 123.5), RenderIgnorePointer#ce06e@Offset(854.4, 123.5), RenderRepaintBoundary#44298@Offset(854.4, 123.5), RenderSemanticsAnnotations#7887b@Offset(854.4, 123.5), RenderOffstage#ca8d7@Offset(854.4, 123.5), RenderSemanticsAnnotations#38a7e@Offset(854.4, 123.5), _RenderTheater#47475@Offset(854.4, 123.5), RenderAbsorbPointer#786f2@Offset(854.4, 123.5), RenderPointerListener#691e9@Offset(854.4, 123.5), RenderSemanticsAnnotations#c276b@Offset(854.4, 123.5), RenderCustomPaint#60625@Offset(854.4, 123.5), RenderSemanticsAnnotations#79e04@Offset(854.4, 123.5), RenderSemanticsAnnotations#a5382@Offset(854.4, 123.5), RenderTapRegionSurface#be0f4@Offset(854.4, 123.5), RenderSemanticsAnnotations#65074@Offset(854.4, 123.5), RenderSemanticsAnnotations#f2412@Offset(854.4, 123.5), RenderSemanticsAnnotations#82fd9@Offset(854.4, 123.5), HitTestEntry<HitTestTarget>#54b0c(_ReusableRenderView#34d5b), HitTestEntry<HitTestTarget>#11b8e(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2077:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1861:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1041:7)
+#3      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart:27:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:36 +615: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:36 +616: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 布局矩阵不溢出且核心入口始终存在
+00:36 +617: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:36 +618: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:36 +619: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:36 +620: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:36 +621: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +621: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 作品 A 宽稿、作品 B 舒适：切换作品各自恢复
+
+Warning: A call to tap() with finder "Found 1 widget with text "宽稿 · 920 px": [
+  Text("宽稿 · 920 px", dependencies: [DefaultSelectionStyle, DefaultTextStyle, MediaQuery]),
+]" derived an Offset (Offset(854.4, 123.5)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+The finder corresponds to this RenderBox: RenderParagraph#0141e relayoutBoundary=up40
+The hit test result at that offset is: HitTestResult(RenderPointerListener#795d9@Offset(100.0, 24.0), RenderSemanticsAnnotations#c3c43@Offset(100.0, 24.0), RenderMouseRegion#85683@Offset(100.0, 24.0), RenderSemanticsAnnotations#d739f@Offset(100.0, 24.0), RenderSemanticsAnnotations#78501@Offset(100.0, 24.0), RenderMergeSemantics#8a56f@Offset(100.0, 24.0), RenderAnimatedOpacity#c24a4@Offset(100.0, 24.0), _RenderMenuItem#fa15a@Offset(100.0, 24.0), RenderListBody#164ab@Offset(100.0, 72.0), RenderPadding#54b66@Offset(104.0, 76.0), _RenderSingleChildViewport#1b3c7@Offset(104.0, 76.0), RenderIgnorePointer#ad3c9@Offset(104.0, 76.0), RenderSemanticsAnnotations#c09c7@Offset(104.0, 76.0), RenderPointerListener#6f5f1@Offset(104.0, 76.0), RenderSemanticsGestureHandler#d568a@Offset(104.0, 76.0), RenderPointerListener#c3a7e@Offset(104.0, 76.0), _RenderScrollSemantics#2356f@Offset(104.0, 76.0), RenderClipRect#0be8b@Offset(104.0, 76.0), RenderSemanticsAnnotations#bc83b@Offset(104.0, 76.0), RenderIntrinsicWidth#ebaf6@Offset(104.0, 76.0), RenderConstrainedBox#00b19@Offset(104.0, 76.0), RenderPositionedBox#d34d7@Offset(104.0, 76.0), _RenderInkFeatures#9025f@Offset(104.0, 76.0), RenderCustomPaint#cde2d@Offset(104.0, 76.0), RenderPhysicalShape#c91fa@Offset(104.0, 76.0), RenderAnimatedOpacity#22cc0@Offset(104.0, 76.0), RenderCustomSingleChildLayoutBox#e70ba@Offset(854.4, 123.5), _RenderLayoutBuilder#9dfa7@Offset(854.4, 123.5), RenderRepaintBoundary#94bd9@Offset(854.4, 123.5), RenderIgnorePointer#d4f12@Offset(854.4, 123.5), RenderRepaintBoundary#771dc@Offset(854.4, 123.5), RenderSemanticsAnnotations#8ac4c@Offset(854.4, 123.5), RenderOffstage#d646f@Offset(854.4, 123.5), RenderSemanticsAnnotations#31ec5@Offset(854.4, 123.5), _RenderTheater#6afa7@Offset(854.4, 123.5), RenderAbsorbPointer#444a4@Offset(854.4, 123.5), RenderPointerListener#443e9@Offset(854.4, 123.5), RenderSemanticsAnnotations#d4811@Offset(854.4, 123.5), RenderCustomPaint#ec588@Offset(854.4, 123.5), RenderSemanticsAnnotations#9e6ec@Offset(854.4, 123.5), RenderSemanticsAnnotations#6a701@Offset(854.4, 123.5), RenderTapRegionSurface#4eaf8@Offset(854.4, 123.5), RenderSemanticsAnnotations#2ce91@Offset(854.4, 123.5), RenderSemanticsAnnotations#b9cd6@Offset(854.4, 123.5), RenderSemanticsAnnotations#15a07@Offset(854.4, 123.5), HitTestEntry<HitTestTarget>#ab55d(_ReusableRenderView#34d5b), HitTestEntry<HitTestTarget>#5f305(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2077:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1861:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1041:7)
+#3      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart:53:18)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:37 +622: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +623: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +624: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +625: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +626: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +627: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench captions are reachable by keyboard traversal
+00:37 +628: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: modal dialog retains its forward and reverse focus loop
+00:38 +629: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: only title gestures drag and double click toggles maximize
+00:38 +630: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: workbench shell provides an overlay outside its Navigator
+00:38 +631: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption actions, state, drag exclusion and keyboard close
+00:38 +632: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=false width=360.0
+00:39 +633: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=false width=900.0
+00:39 +634: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=false width=360.0
+00:39 +635: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=false width=900.0
+00:39 +636: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=true width=360.0
+00:39 +637: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout en RTL=true width=900.0
+00:39 +638: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=true width=360.0
+00:39 +639: D:/MyAgent/paraselene-flutter/apps/desktop/test/window/desktop_title_bar_test.dart: caption semantics and scaled layout zh_Hans RTL=true width=900.0
+00:39 +640: All tests passed!

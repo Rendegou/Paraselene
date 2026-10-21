@@ -109,18 +109,9 @@ class DiscussionIndexEntry extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          _title.isEmpty ? strings.discussionSelection : _title,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+        Text(_title.isEmpty ? strings.discussionSelection : _title),
         const SizedBox(height: 2),
-        Text(
-          _status,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: theme.textTheme.bodySmall,
-        ),
+        Text(_status, style: theme.textTheme.bodySmall),
       ],
     );
   }

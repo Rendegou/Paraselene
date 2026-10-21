@@ -204,7 +204,7 @@ void main() {
     expect(find.textContaining('选段已变化'), findsOneWidget);
     expect(find.textContaining('历史记录'), findsWidgets);
     // 可见关闭入口存在，不依赖只能点遮罩关闭。
-    expect(find.byIcon(Icons.unfold_less), findsOneWidget);
+    expect(find.byIcon(Icons.close), findsOneWidget);
     expect(find.text('失效线程草稿'), findsWidgets);
 
     await tester.sendKeyEvent(LogicalKeyboardKey.escape);

@@ -76,17 +76,21 @@ void main() {
   testWidgets('focus exits and wide mode changes readable manuscript width', (
     tester,
   ) async {
+    final previousFatalHitWarnings =
+        WidgetController.hitTestWarningShouldBeFatal;
+    WidgetController.hitTestWarningShouldBeFatal = true;
+    addTearDown(() {
+      WidgetController.hitTestWarningShouldBeFatal = previousFatalHitWarnings;
+    });
     tester.useSurface(const Size(1440, 900));
     await tester.pumpWorkbench();
     final normal = tester.getSize(find.byKey(manuscriptKey)).width;
-    await tester.activate('版式');
-    await tester.activate('宽稿 · 920 px');
+    await _chooseLayout(tester, wide: true);
     expect(
       tester.getSize(find.byKey(manuscriptKey)).width,
       greaterThan(normal),
     );
-    await tester.activate('版式');
-    await tester.activate('舒适 · 760 px');
+    await _chooseLayout(tester, wide: false);
     expect(tester.getSize(find.byKey(manuscriptKey)).width, normal);
     await tester.activate('专注模式');
     expect(find.byKey(const ValueKey('chapter-demo-chapter')), findsNothing);
@@ -121,6 +125,15 @@ class DelayedBodyRepository extends SyntheticWorkspaceRepository {
 String? rawBody(WidgetTester tester) {
   final viewport = tester.widget<EditorViewport>(find.byKey(manuscriptKey));
   return viewport.controller.document.raw;
+}
+
+/// 通过真实菜单项选择版式：点击完整行而不是行内文字，避免命中区域警告。
+Future<void> _chooseLayout(WidgetTester tester, {required bool wide}) async {
+  await tester.activate('版式');
+  final items = find.byType(CheckedPopupMenuItem<bool>);
+  expect(items, findsNWidgets(2));
+  await tester.tap(wide ? items.last : items.first);
+  await tester.flushWorkbench();
 }
 
 void layoutMatrix() {

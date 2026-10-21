@@ -161,6 +161,36 @@ void main() {
     expect(find.byKey(const ValueKey('save-status-dot')), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('恢复面板重试再次失败时保留上下文，成功才关闭', (tester) async {
+    final repository = _GatedRepository();
+    final controller = await _pumpScreen(
+      tester,
+      repository,
+      size: const Size(360, 720),
+      scale: 2,
+    );
+    repository.failNext = const WorkspaceFailure('disk_full');
+    controller.editing.edit('${controller.body}保存失败回归');
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump();
+    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('save-status-error-icon')));
+    await tester.pumpAndSettle();
+    final panel = find.byKey(const ValueKey('save-recovery-panel'));
+    expect(panel, findsOneWidget);
+    repository.failNext = const WorkspaceFailure('disk_full');
+    await tester.tap(find.descendant(of: panel, matching: find.text('重试保存')));
+    await tester.pumpAndSettle();
+    expect(panel, findsOneWidget);
+    expect(find.byKey(const ValueKey('save-recovery-code')), findsOneWidget);
+    expect(controller.editing.saveState?.status, SaveStatus.error);
+    await tester.tap(find.descendant(of: panel, matching: find.text('重试保存')));
+    await tester.pumpAndSettle();
+    expect(panel, findsNothing);
+    expect(controller.editing.saveState?.status, SaveStatus.saved);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 /// 门闩仓库：保存先停在可控 Future 上，便于观察 dirty/saving/saved 与失败注入。

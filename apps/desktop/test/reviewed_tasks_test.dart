@@ -6,6 +6,8 @@ import 'package:paraselene_flutter/cowrite/candidate_diff.dart';
 import 'package:paraselene_flutter/cowrite/discussion_thread.dart';
 import 'package:paraselene_flutter/lore/lore_source_view.dart';
 import 'package:paraselene_flutter/lore/lore_map_preview.dart';
+import 'package:paraselene_flutter/theme/workbench_theme.dart';
+import 'support/m2_harness.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/legacy/reviewed_task_repository.dart';
@@ -315,7 +317,7 @@ void main() {
               ],
               positions: positions,
               links: links,
-              onOpen: (_) {},
+              onOpen: (_) async {},
             ),
           ),
         ),
@@ -388,7 +390,7 @@ void main() {
             ),
             positions: {},
             links: {},
-            onOpen: (_) {},
+            onOpen: (_) async {},
           ),
         ),
       ),
@@ -407,6 +409,46 @@ void main() {
         )
         .top!;
     expect(top + 88, lessThanOrEqualTo(canvas.height!));
+    expect(tester.takeException(), isNull);
+  });
+  testWidgets('map relation keeps 48px hit target at doubled text size', (
+    tester,
+  ) async {
+    await loadM2Fonts();
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: workbenchTheme(),
+        locale: const Locale('en'),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(
+            context,
+          ).copyWith(textScaler: TextScaler.linear(2)),
+          child: child!,
+        ),
+        home: Scaffold(
+          body: LoreMapPreview(
+            rows: [
+              {
+                'entry': {'id': 'a', 'name': 'Gate', 'kind': 'location'},
+              },
+            ],
+            positions: {},
+            links: {},
+            onOpen: (_) async {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final relation = find
+        .ancestor(
+          of: find.text('Relation'),
+          matching: find.byWidgetPredicate((widget) => widget is TextButton),
+        )
+        .first;
+    expect(tester.getSize(relation).height, greaterThanOrEqualTo(48));
     expect(tester.takeException(), isNull);
   });
 }

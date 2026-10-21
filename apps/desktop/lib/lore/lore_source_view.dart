@@ -2,6 +2,7 @@
 // 只读：不修改正文；仅当 anchor.isCurrent 为 true 时允许跳转到来源章节。
 
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
 import '../l10n/generated/app_localizations.dart';
 
 /// Highlight offsets refer to the exact recorded version, in Unicode scalars.
@@ -32,11 +33,8 @@ class LoreSourceView extends StatelessWidget {
                 text: String.fromCharCodes(
                   points.skip(start).take(end - start),
                 ),
-                style: TextStyle(
-                  backgroundColor: Theme.of(
-                    context,
-                  ).colorScheme.secondaryContainer,
-                  decoration: TextDecoration.underline,
+                style: WorkbenchTokens.sourceHighlight(
+                  Theme.of(context).colorScheme,
                 ),
               ),
               TextSpan(text: String.fromCharCodes(points.skip(end))),

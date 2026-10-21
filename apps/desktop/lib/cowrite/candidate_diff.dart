@@ -2,6 +2,7 @@
 // 只读视图：不写库、不修改作者正文；作者快照版本与已应用的持久化操作记录分开展示。
 
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'character_diff.dart';
 import 'discussion_thread.dart';
@@ -26,13 +27,9 @@ class CandidateDiff extends StatelessWidget {
               text: part.text,
               style: part.change == 0
                   ? null
-                  : TextStyle(
-                      backgroundColor: part.change < 0
-                          ? colors.errorContainer
-                          : colors.tertiaryContainer,
-                      decoration: part.change < 0
-                          ? TextDecoration.lineThrough
-                          : TextDecoration.underline,
+                  : WorkbenchTokens.diff(
+                      removed: part.change < 0,
+                      colors: colors,
                     ),
             ),
         ],

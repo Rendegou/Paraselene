@@ -2,7 +2,9 @@
 // 保存由原生层按记录版本做 CAS；目标属于小说空间时同时同步对应作品标题。
 // 指针缺失显示为缺失，绝不猜测或创建目标。
 
+import 'dart:async';
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import 'legacy_repository.dart';
@@ -52,7 +54,7 @@ class _IdeaTargetDialogState extends State<IdeaTargetDialog> {
   @override
   void initState() {
     super.initState();
-    _load();
+    unawaited(_load());
   }
 
   @override
@@ -93,7 +95,7 @@ class _IdeaTargetDialogState extends State<IdeaTargetDialog> {
   String _errorText(Object error) {
     // Stable message without exposing internal exception text or paths.
     // 界面只显示稳定文案，内部异常仅写入调试日志。
-    debugPrint('idea_target_failed: $error');
+    debugPrint('idea_target_failed: ${error.runtimeType}');
     return AppLocalizations.of(context).ideaTargetFailed;
   }
 
@@ -134,60 +136,14 @@ class _IdeaTargetDialogState extends State<IdeaTargetDialog> {
       canPop: !_saving,
       child: AlertDialog(
         title: Text(s.ideaTarget),
-        content: SizedBox(
-          width: 520,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                if (_loading) const LinearProgressIndicator(),
-                if (_missing) Text(s.ideaTargetMissing),
-                if (_error != null)
-                  Text(_error!, style: Theme.of(context).textTheme.bodySmall),
-                if (target != null) ...[
-                  TextField(
-                    controller: _title,
-                    enabled: !busy,
-                    maxLength: 80,
-                    decoration: InputDecoration(
-                      labelText: s.ideaTargetTitleLabel,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  TextField(
-                    controller: _summary,
-                    enabled: !busy,
-                    minLines: 2,
-                    maxLines: 5,
-                    maxLength: 2000,
-                    decoration: InputDecoration(
-                      labelText: s.ideaTargetSummaryLabel,
-                    ),
-                  ),
-                  if (target.space == 'novel')
-                    // 目标属于小说空间时，原生层会同步作品标题，这里提前告知作者。
-                    Text(
-                      s.ideaTargetNovelSync,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  if (target.sources.isNotEmpty)
-                    ExpansionTile(
-                      title: Text(s.ideaTargetSource),
-                      children: [
-                        for (final source in target.sources)
-                          if (source is Map && source['text'] is String)
-                            Padding(
-                              padding: const EdgeInsetsDirectional.only(
-                                bottom: 8,
-                              ),
-                              child: SelectableText(source['text'] as String),
-                            ),
-                      ],
-                    ),
-                ],
-              ],
-            ),
-          ),
+        content: _IdeaTargetFields(
+          target: target,
+          loading: _loading,
+          missing: _missing,
+          error: _error,
+          title: _title,
+          summary: _summary,
+          busy: busy,
         ),
         actions: [
           TextButton(
@@ -199,6 +155,84 @@ class _IdeaTargetDialogState extends State<IdeaTargetDialog> {
             child: Text(s.ideaTargetSave),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _IdeaTargetFields extends StatelessWidget {
+  const _IdeaTargetFields({
+    required this.target,
+    required this.loading,
+    required this.missing,
+    required this.error,
+    required this.title,
+    required this.summary,
+    required this.busy,
+  });
+  final IdeaTargetView? target;
+  final bool loading;
+  final bool missing;
+  final String? error;
+  final TextEditingController title;
+  final TextEditingController summary;
+  final bool busy;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = AppLocalizations.of(context);
+    final target = this.target;
+    return SizedBox(
+      width: 520,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (loading) const LinearProgressIndicator(),
+            if (missing) Text(s.ideaTargetMissing),
+            if (error != null)
+              Text(error!, style: Theme.of(context).textTheme.bodySmall),
+            if (target != null) ...[
+              TextField(
+                style: WorkbenchTokens.input,
+                controller: title,
+                enabled: !busy,
+                maxLength: 80,
+                decoration: InputDecoration(labelText: s.ideaTargetTitleLabel),
+              ),
+              const SizedBox(height: 8),
+              TextField(
+                style: WorkbenchTokens.input,
+                controller: summary,
+                enabled: !busy,
+                minLines: 2,
+                maxLines: 5,
+                maxLength: 2000,
+                decoration: InputDecoration(
+                  labelText: s.ideaTargetSummaryLabel,
+                ),
+              ),
+              if (target.space == 'novel')
+                // 目标属于小说空间时，原生层会同步作品标题，这里提前告知作者。
+                Text(
+                  s.ideaTargetNovelSync,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              if (target.sources.isNotEmpty)
+                ExpansionTile(
+                  title: Text(s.ideaTargetSource),
+                  children: [
+                    for (final source in target.sources)
+                      if (source is Map && source['text'] is String)
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(bottom: 8),
+                          child: SelectableText(source['text'] as String),
+                        ),
+                  ],
+                ),
+            ],
+          ],
+        ),
       ),
     );
   }

@@ -80,6 +80,10 @@ class _MemoryActionsState extends State<MemoryActions> {
 
   Future<void> _run(String action) async {
     final s = AppLocalizations.of(context);
+    final repository = widget.repository;
+    final space = widget.space;
+    final row = widget.row;
+    final onChanged = widget.onChanged;
     setState(() => _busy = true);
     try {
       if (action == 'export') {
@@ -90,9 +94,9 @@ class _MemoryActionsState extends State<MemoryActions> {
         await showDialog<void>(
           context: context,
           builder: (_) =>
-              IdeaTargetDialog(repository: widget.repository, idea: widget.row),
+              IdeaTargetDialog(repository: widget.repository, idea: row),
         );
-        await widget.onChanged();
+        await onChanged();
         return;
       }
       final confirmed = await showDialog<bool>(
@@ -100,7 +104,7 @@ class _MemoryActionsState extends State<MemoryActions> {
         builder: (context) => AlertDialog(
           title: Text(_labels(s)[action]!),
           content: Text(
-            '${widget.row['title']}\n\n${action == 'delete' ? s.deleteMemoryNotice : s.memoryMutationNotice}',
+            '${row['title']}\n\n${action == 'delete' ? s.deleteMemoryNotice : s.memoryMutationNotice}',
           ),
           actions: [
             TextButton(
@@ -116,13 +120,13 @@ class _MemoryActionsState extends State<MemoryActions> {
       );
       if (confirmed != true || !mounted) return;
       if (action == 'delete') {
-        await widget.repository.deleteMemory(widget.space, widget.row);
+        await repository.deleteMemory(space, row);
       } else if (['personal', 'novel', 'learning'].contains(action)) {
-        await widget.repository.convertIdea(widget.row['id'] as String, action);
+        await repository.convertIdea(row['id'] as String, action);
       } else {
-        await widget.repository.ideaStatus(widget.row, action);
+        await repository.ideaStatus(row, action);
       }
-      await widget.onChanged();
+      await onChanged();
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(
@@ -137,14 +141,17 @@ class _MemoryActionsState extends State<MemoryActions> {
   Future<void> _export() async {
     // 导出只写作者选择的路径，写完回读比对；该文件是可读视图，不是可恢复备份。
     final s = AppLocalizations.of(context);
+    final repository = widget.repository;
+    final space = widget.space;
+    final row = widget.row;
     final path = await const FileSelectorGateway().pickSavePath(
       suggestedName: 'paraselene-memory.json',
     );
     if (path == null) return;
-    final detail = await widget.repository.memoryDetail(
-      widget.space,
-      widget.row['workId'] as String?,
-      widget.row['id'] as String,
+    final detail = await repository.memoryDetail(
+      space,
+      row['workId'] as String?,
+      row['id'] as String,
     );
     final content = const JsonEncoder.withIndent('  ').convert({
       'format': 'paraselene-memory-view-v1',

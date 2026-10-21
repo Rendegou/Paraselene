@@ -2,6 +2,7 @@
 // 写操作都在持久化屏障内重新校验章节身份，使用当前正文 revision 做 CAS；
 // 载入草稿或采纳补丁后重载正文并保留编辑器撤销历史。
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../workspace/workspace_controller.dart';
@@ -32,7 +33,7 @@ class _NovelHistoryDialogState extends State<NovelHistoryDialog> {
   @override
   void initState() {
     super.initState();
-    _load();
+    unawaited(_load());
   }
 
   Future<void> _load() async {
@@ -51,6 +52,15 @@ class _NovelHistoryDialogState extends State<NovelHistoryDialog> {
     }
   }
 
+  bool get _empty =>
+      _data != null &&
+      [
+        'questions',
+        'drafts',
+        'patches',
+      ].every((key) => (_data![key] as List).isEmpty) &&
+      _data!['summary'] == null;
+
   @override
   Widget build(BuildContext context) {
     final s = AppLocalizations.of(context);
@@ -59,14 +69,19 @@ class _NovelHistoryDialogState extends State<NovelHistoryDialog> {
       child: Dialog(
         child: SizedBox(
           width: 780,
-          height: 620,
+          height: _data == null || _empty ? 280 : 620,
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Row(
                   children: [
-                    Expanded(child: Text(s.novelHistory)),
+                    Expanded(
+                      child: Text(
+                        s.novelHistory,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
                     IconButton(
                       tooltip: s.close,
                       onPressed: _busy ? null : () => Navigator.pop(context),
@@ -78,63 +93,17 @@ class _NovelHistoryDialogState extends State<NovelHistoryDialog> {
                 if (_failed) TextButton(onPressed: _load, child: Text(s.retry)),
                 Expanded(
                   child: _data == null
-                      ? const Center(child: CircularProgressIndicator())
-                      : ListView(
-                          children: [
-                            Text(
-                              s.openQuestions,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            for (final question in _data!['questions'] as List)
-                              ListTile(
-                                title: Text(
-                                  (question as Map)['text'] as String,
-                                ),
-                                subtitle: Text(
-                                  question['sourceTitle'] as String,
-                                ),
-                                onTap: _busy
-                                    ? null
-                                    : () async {
-                                        final chapter = widget
-                                            .workspace
-                                            .chapters
-                                            .where(
-                                              (chapter) =>
-                                                  chapter.id ==
-                                                  question['sourceDocumentId'],
-                                            )
-                                            .firstOrNull;
-                                        if (chapter != null &&
-                                            await widget.workspace
-                                                .selectChapter(chapter) &&
-                                            context.mounted) {
-                                          Navigator.pop(context);
-                                        }
-                                      },
-                              ),
-                            Text(
-                              s.legacyDrafts,
-                              style: Theme.of(context).textTheme.titleMedium,
-                            ),
-                            for (final draft in _data!['drafts'] as List)
-                              LegacyDraftCard(
-                                row: Map<String, dynamic>.from(draft as Map),
-                                busy: _busy,
-                                review: _reviewDraft,
-                              ),
-                            for (final patch in _data!['patches'] as List)
-                              LegacyPatchCard(
-                                row: Map<String, dynamic>.from(patch as Map),
-                                busy: _busy,
-                                apply: _apply,
-                              ),
-                            if (_data!['summary'] case final Map summary)
-                              DerivedSummaryCard(
-                                summary: summary,
-                                jobs: _data!['rebuildJobs'] as List? ?? [],
-                              ),
-                          ],
+                      ? (_failed
+                            ? Center(child: Text(s.saveError))
+                            : const Center(child: CircularProgressIndicator()))
+                      : _empty
+                      ? Center(child: Text(s.historyEmpty))
+                      : _HistoryRecords(
+                          data: _data!,
+                          busy: _busy,
+                          onQuestion: _openQuestion,
+                          onReview: _reviewDraft,
+                          onApply: _apply,
                         ),
                 ),
               ],
@@ -143,6 +112,15 @@ class _NovelHistoryDialogState extends State<NovelHistoryDialog> {
         ),
       ),
     );
+  }
+
+  Future<void> _openQuestion(Map question) async {
+    final chapter = widget.workspace.chapters
+        .where((chapter) => chapter.id == question['sourceDocumentId'])
+        .firstOrNull;
+    if (chapter == null) return;
+    final opened = await widget.workspace.selectChapter(chapter);
+    if (opened && mounted) Navigator.pop(context);
   }
 
   Future<void> _reviewDraft(Map<String, dynamic> row, bool copy) async {
@@ -242,5 +220,54 @@ class _NovelHistoryDialogState extends State<NovelHistoryDialog> {
     } finally {
       if (mounted) setState(() => _busy = false);
     }
+  }
+}
+
+class _HistoryRecords extends StatelessWidget {
+  const _HistoryRecords({
+    required this.data,
+    required this.busy,
+    required this.onQuestion,
+    required this.onReview,
+    required this.onApply,
+  });
+  final Map<String, dynamic> data;
+  final bool busy;
+  final Future<void> Function(Map) onQuestion;
+  final Future<void> Function(Map<String, dynamic>, bool) onReview;
+  final Future<void> Function(String, int?) onApply;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = AppLocalizations.of(context);
+    return ListView(
+      children: [
+        Text(s.openQuestions, style: Theme.of(context).textTheme.titleMedium),
+        for (final question in data['questions'] as List)
+          ListTile(
+            title: Text((question as Map)['text'] as String),
+            subtitle: Text(question['sourceTitle'] as String),
+            onTap: busy ? null : () async => await onQuestion(question),
+          ),
+        Text(s.legacyDrafts, style: Theme.of(context).textTheme.titleMedium),
+        for (final draft in data['drafts'] as List)
+          LegacyDraftCard(
+            row: Map<String, dynamic>.from(draft as Map),
+            busy: busy,
+            review: onReview,
+          ),
+        for (final patch in data['patches'] as List)
+          LegacyPatchCard(
+            row: Map<String, dynamic>.from(patch as Map),
+            busy: busy,
+            apply: onApply,
+          ),
+        if (data['summary'] case final Map summary)
+          DerivedSummaryCard(
+            summary: summary,
+            jobs: data['rebuildJobs'] as List? ?? [],
+          ),
+      ],
+    );
   }
 }

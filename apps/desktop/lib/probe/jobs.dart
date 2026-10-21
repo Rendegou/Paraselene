@@ -32,12 +32,20 @@ Future<void> observePending(CoreSession session, String id) async {
 /// 其它作业完成。
 final class ProbeJobs {
   final List<Future<BridgeJob>> _pending = [];
+  final List<Object> _observedFailures = [];
 
   /// 启动一个合成作业并登记其 Future；立即挂接错误监听，避免未处理异常。
   Future<BridgeJob> start(CoreSession session, String id, int delay) {
     final future = session.syntheticJob(jobId: id, delayMs: BigInt.from(delay));
-    // Attach an error listener immediately; cleanup still observes the original.
-    unawaited(future.then<void>((_) {}, onError: (Object _, StackTrace __) {}));
+    // 提前登记失败而不产生未处理异步错误；settle 仍等待原 Future 并抛出失败。
+    unawaited(
+      future.then<void>(
+        (_) {},
+        onError: (Object error, StackTrace _) {
+          _observedFailures.add(error);
+        },
+      ),
+    );
     _pending.add(future);
     return future;
   }
@@ -45,6 +53,9 @@ final class ProbeJobs {
   /// 等待所有已登记作业结束；任一失败也会等其余完成后再抛出。
   Future<void> settle() async {
     await Future.wait(_pending, eagerError: false);
+    if (_observedFailures.isNotEmpty) {
+      throw StateError('probe_job_failed');
+    }
   }
 
   /// 跑完整套作业语义：取消、通知容量溢出后的权威状态、退订错误与关闭后的作业状态。

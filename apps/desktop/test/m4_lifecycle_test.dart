@@ -63,9 +63,9 @@ class ExitGateway implements SavePathGateway {
 
 // The framework platform-channel path invokes registered lifecycle observers.
 // This is not a native WM_CLOSE or Alt+F4 acceptance test.
-Future<String> exitSignal(WidgetTester tester) {
+Future<String> exitSignal(WidgetTester tester) async {
   final result = Completer<String>();
-  tester.binding.defaultBinaryMessenger.handlePlatformMessage(
+  await tester.binding.defaultBinaryMessenger.handlePlatformMessage(
     'flutter/platform',
     SystemChannels.platform.codec.encodeMethodCall(
       const MethodCall('System.requestAppExit'),
@@ -78,10 +78,10 @@ Future<String> exitSignal(WidgetTester tester) {
   return result.future;
 }
 
-Future<bool> nativeExitSignal(WidgetTester tester) {
+Future<bool> nativeExitSignal(WidgetTester tester) async {
   const codec = StandardMethodCodec();
   final result = Completer<bool>();
-  tester.binding.defaultBinaryMessenger.handlePlatformMessage(
+  await tester.binding.defaultBinaryMessenger.handlePlatformMessage(
     'paraselene/native_close',
     codec.encodeMethodCall(const MethodCall('requestClose')),
     (data) => result.complete(codec.decodeEnvelope(data!) as bool),

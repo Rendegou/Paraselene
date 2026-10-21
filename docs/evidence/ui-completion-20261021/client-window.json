@@ -1,0 +1,10 @@
+{
+  "observedWindow": 68716,
+  "observedBundle": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-633f0afdec194727a08b5c082b852de8",
+  "observedWorkbench": "PASS",
+  "observedCompactChapterDiscussion": "PASS",
+  "finalBundle": "D:\\MyAgent\\paraselene-flutter\\build\\m1-distribution-29c5b263d36244b68b20457504e12572",
+  "finalBundleVerification": "PASS",
+  "finalWindowSwitch": "NOT_RUN",
+  "reason": "Computer Use repeatedly returned user input was detected; window minimized. Stopped after documented refresh and retry rather than interfere with user input. Final bundle includes only the last search duplicate-border refinement beyond observed build."
+}

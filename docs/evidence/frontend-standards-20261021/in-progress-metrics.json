@@ -1,0 +1,95 @@
+{
+  "status": "FAIL",
+  "files": 135,
+  "violations": 11,
+  "findings": [
+    {
+      "rule": "empty-error-handler",
+      "path": "apps/desktop/lib/cowrite/discussion_registry.dart",
+      "line": 201,
+      "symbol": "catchError",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/editor/editor_scene.dart",
+      "line": 308,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/editor/editor_scene.dart",
+      "line": 309,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "theme-constructor",
+      "path": "apps/desktop/lib/editor/editor_scene.dart",
+      "line": 311,
+      "symbol": "Color",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "file-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 1,
+      "symbol": "<module>",
+      "actual": 565,
+      "limit": 400
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 516,
+      "symbol": "build",
+      "actual": 189,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 520,
+      "symbol": "<callback>",
+      "actual": 183,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/editor/editor_viewport.dart",
+      "line": 543,
+      "symbol": "<callback>",
+      "actual": 158,
+      "limit": 60
+    },
+    {
+      "rule": "empty-error-handler",
+      "path": "apps/desktop/lib/probe/jobs.dart",
+      "line": 40,
+      "symbol": "onError",
+      "actual": 1,
+      "limit": 0
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/editor_status.dart",
+      "line": 53,
+      "symbol": "build",
+      "actual": 61,
+      "limit": 60
+    },
+    {
+      "rule": "function-lines",
+      "path": "apps/desktop/lib/workspace/presentation/sidebar_resources.dart",
+      "line": 36,
+      "symbol": "build",
+      "actual": 64,
+      "limit": 60
+    }
+  ]
+}

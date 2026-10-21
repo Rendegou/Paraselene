@@ -1,1 +1,12 @@
 include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    unawaited_futures: error
+    discarded_futures: error
+    empty_catches: error
+    use_build_context_synchronously: error
+linter:
+  rules:
+    unawaited_futures: true
+    discarded_futures: true
+    empty_catches: true

@@ -44,114 +44,165 @@ class _WorkbenchScreenState extends State<WorkbenchScreen> {
     super.dispose();
   }
 
-  bool _expanded(BoxConstraints constraints, BuildContext context) =>
-      constraints.maxWidth >= 900 &&
-      MediaQuery.textScalerOf(context).scale(16) < 24;
+  @override
+  Widget build(BuildContext context) => Directionality(
+    textDirection: widget.rtlHarness
+        ? TextDirection.rtl
+        : Directionality.of(context),
+    child: AnimatedBuilder(
+      animation: widget.controller,
+      builder: (context, _) => _WorkbenchLayout(
+        controller: widget.controller,
+        locale: widget.locale,
+        onLocaleChanged: widget.onLocaleChanged,
+        labels: WorkbenchLabels(
+          AppLocalizations.of(context),
+          widget.pseudoLocalize,
+        ),
+        focus: _focus,
+        sidebar: _sidebar,
+        actions: _actions,
+        onCollapse: () => setState(() => _sidebar = false),
+        onExpand: () => setState(() => _sidebar = true),
+        onFocus: () => setState(() => _focus = !_focus),
+        onExitFocus: () => setState(() => _focus = false),
+      ),
+    ),
+  );
+}
+
+class _WorkbenchLayout extends StatelessWidget {
+  const _WorkbenchLayout({
+    required this.controller,
+    required this.locale,
+    required this.onLocaleChanged,
+    required this.labels,
+    required this.focus,
+    required this.sidebar,
+    required this.actions,
+    required this.onCollapse,
+    required this.onExpand,
+    required this.onFocus,
+    required this.onExitFocus,
+  });
+  final WorkspaceController controller;
+  final Locale locale;
+  final ValueChanged<Locale> onLocaleChanged;
+  final WorkbenchLabels labels;
+  final bool focus;
+  final bool sidebar;
+  final EditorActionRegistry actions;
+  final VoidCallback onCollapse;
+  final VoidCallback onExpand;
+  final VoidCallback onFocus;
+  final VoidCallback onExitFocus;
 
   @override
-  Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: widget.rtlHarness
-          ? TextDirection.rtl
-          : Directionality.of(context),
-      child: AnimatedBuilder(
-        animation: widget.controller,
-        builder: (context, _) => LayoutBuilder(
-          builder: (context, constraints) {
-            final labels = WorkbenchLabels(
-              AppLocalizations.of(context),
-              widget.pseudoLocalize,
-            );
-            final expanded = _expanded(constraints, context);
-            if (!expanded) {
-              return Scaffold(
-                drawer: Drawer(
-                  child: SafeArea(
-                    child: WorkbenchSidebar(
-                      controller: widget.controller,
-                      labels: labels,
-                      closeOnSelect: true,
-                      onCollapse: () => Navigator.of(context).pop(),
-                    ),
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) {
+      final expanded =
+          constraints.maxWidth >= 900 &&
+          MediaQuery.textScalerOf(context).scale(16) < 24;
+      return Scaffold(
+        drawer: expanded
+            ? null
+            : Drawer(
+                child: SafeArea(
+                  child: WorkbenchSidebar(
+                    controller: controller,
+                    labels: labels,
+                    closeOnSelect: true,
+                    onCollapse: () => Navigator.of(context).pop(),
                   ),
-                ),
-                body: SafeArea(
-                  child: Builder(
-                    builder: (context) => _main(
-                      context,
-                      labels,
-                      expanded: false,
-                      onShowSidebar: () => Scaffold.of(context).openDrawer(),
-                    ),
-                  ),
-                ),
-              );
-            }
-            return Scaffold(
-              body: SafeArea(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (_sidebar && !_focus)
-                      SizedBox(
-                        width: WorkbenchTokens.directoryWidth,
-                        child: WorkbenchSidebar(
-                          controller: widget.controller,
-                          labels: labels,
-                          onCollapse: () => setState(() => _sidebar = false),
-                        ),
-                      ),
-                    Expanded(
-                      child: _main(
-                        context,
-                        labels,
-                        expanded: true,
-                        onShowSidebar: !_sidebar && !_focus
-                            ? () => setState(() => _sidebar = true)
-                            : null,
-                      ),
-                    ),
-                  ],
                 ),
               ),
-            );
-          },
+        body: SafeArea(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (expanded && sidebar && !focus)
+                SizedBox(
+                  width: WorkbenchTokens.directoryWidth,
+                  child: WorkbenchSidebar(
+                    controller: controller,
+                    labels: labels,
+                    onCollapse: onCollapse,
+                  ),
+                ),
+              Expanded(
+                child: Builder(
+                  builder: (context) => _WorkbenchMain(
+                    controller: controller,
+                    labels: labels,
+                    locale: locale,
+                    onLocaleChanged: onLocaleChanged,
+                    focus: focus,
+                    actions: actions,
+                    onFocus: onFocus,
+                    onExitFocus: focus ? onExitFocus : null,
+                    onShowSidebar: !expanded
+                        ? () => Scaffold.of(context).openDrawer()
+                        : !sidebar && !focus
+                        ? onExpand
+                        : null,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
+    },
+  );
+}
 
-  Widget _main(
-    BuildContext context,
-    WorkbenchLabels labels, {
-    required bool expanded,
-    required VoidCallback? onShowSidebar,
-  }) => Column(
+class _WorkbenchMain extends StatelessWidget {
+  const _WorkbenchMain({
+    required this.controller,
+    required this.labels,
+    required this.locale,
+    required this.onLocaleChanged,
+    required this.focus,
+    required this.actions,
+    required this.onFocus,
+    required this.onExitFocus,
+    required this.onShowSidebar,
+  });
+  final WorkspaceController controller;
+  final WorkbenchLabels labels;
+  final Locale locale;
+  final ValueChanged<Locale> onLocaleChanged;
+  final bool focus;
+  final EditorActionRegistry actions;
+  final VoidCallback onFocus;
+  final VoidCallback? onExitFocus;
+  final VoidCallback? onShowSidebar;
+
+  @override
+  Widget build(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     children: [
       WorkbenchToolbar(
-        controller: widget.controller,
+        controller: controller,
         labels: labels,
-        locale: widget.locale,
-        onLocaleChanged: widget.onLocaleChanged,
-        focus: _focus,
-        // 宽稿是 controller 持有的每作品持久偏好，界面不再保留第二份局部状态。
-        wide: widget.controller.wide,
-        onFocus: () => setState(() => _focus = !_focus),
-        onWide: () => widget.controller.setWide(!widget.controller.wide),
-        actions: _actions,
+        locale: locale,
+        onLocaleChanged: onLocaleChanged,
+        focus: focus,
+        wide: controller.wide,
+        onFocus: onFocus,
+        onWide: () => controller.setWide(!controller.wide),
+        actions: actions,
         onShowSidebar: onShowSidebar,
       ),
-      // 保存失败不占用纸面空间：错误条在工具栏与正文之间，滚动正文时仍可见。
-      SaveErrorBanner(controller: widget.controller, labels: labels),
+      // 保存错误保持在纸面之外，滚动正文时仍然可达。
+      SaveErrorBanner(controller: controller, labels: labels),
       Expanded(
         child: WorkbenchContent(
-          controller: widget.controller,
+          controller: controller,
           labels: labels,
-          wide: widget.controller.wide,
-          actions: _actions,
-          // Escape 的最外层：退出专注（查找/讨论层已先被正文编辑器消费）。
-          onExitFocus: _focus ? () => setState(() => _focus = false) : null,
+          wide: controller.wide,
+          actions: actions,
+          onExitFocus: onExitFocus,
         ),
       ),
     ],

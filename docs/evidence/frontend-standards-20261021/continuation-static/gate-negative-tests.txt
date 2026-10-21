@@ -1,0 +1,23 @@
+00:00 +0: loading test\arb_checks_test.dart
+00:00 +0: test\arb_checks_test.dart: nested ICU branches preserve only actual placeholders
+00:00 +1: test\arb_checks_test.dart: ICU escaping ignores literal braces and doubled apostrophes
+00:00 +2: test\arb_checks_test.dart: malformed ICU and missing other branches fail
+00:00 +3: test\arb_checks_test.dart: directory parity valid descriptions, keys and typed placeholders pass
+00:00 +4: test\arb_checks_test.dart: directory parity multiple independent metadata and locale failures are all reported
+00:00 +5: test\metrics_test.dart: comments and blank lines do not inflate a short function
+00:00 +6: test\metrics_test.dart: comments and blank lines do not inflate a short function
+00:00 +7: test\metrics_test.dart: comments and blank lines do not inflate a short function
+00:00 +8: test\metrics_test.dart: comments and blank lines do not inflate a short function
+00:00 +9: test\metrics_test.dart: long ordinary, method and constructor bodies are rejected
+00:00 +10: test\metrics_test.dart: anonymous callbacks count independently and inside the owner
+00:00 +11: test\metrics_test.dart: multiline literal content cannot hide production file length
+00:00 +12: test\metrics_test.dart: module size includes constructor initializers and declaration tables
+00:00 +13: test\metrics_test.dart: all named Widget helpers are rejected, build override is allowed
+00:00 +14: test\metrics_test.dart: raw theme constructors include implicit and named creation
+00:00 +15: test\metrics_test.dart: raw Colors and font families are rejected outside the theme
+00:00 +16: test\metrics_test.dart: theme declarations and business role references are allowed
+00:00 +17: test\metrics_test.dart: empty error handlers and ignore calls cannot conceal a failed Future
+00:00 +18: test\metrics_test.dart: an observed error result is allowed
+00:00 +19: test\metrics_test.dart: minimum text size covers direct styles, copyWith and ui roles
+00:00 +20: test\metrics_test.dart: invalid Dart is a gate failure rather than an empty successful scan
+00:00 +21: All tests passed!

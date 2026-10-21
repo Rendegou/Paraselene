@@ -1,0 +1,54 @@
+ M DESIGN.md
+ M apps/desktop/lib/cowrite/deepseek_settings.dart
+ M apps/desktop/lib/cowrite/discussion_panel.dart
+ M apps/desktop/lib/editor/editor_scene.dart
+ M apps/desktop/lib/l10n/app_en.arb
+ M apps/desktop/lib/l10n/app_zh.arb
+ M apps/desktop/lib/l10n/app_zh_Hans.arb
+ M apps/desktop/lib/l10n/generated/app_localizations.dart
+ M apps/desktop/lib/l10n/generated/app_localizations_en.dart
+ M apps/desktop/lib/l10n/generated/app_localizations_zh.dart
+ M apps/desktop/lib/legacy/character_dialog.dart
+ M apps/desktop/lib/legacy/idea_dialog.dart
+ M apps/desktop/lib/legacy/idea_target_dialog.dart
+ M apps/desktop/lib/legacy/imported_dialog.dart
+ M apps/desktop/lib/legacy/memory_dialog.dart
+ M apps/desktop/lib/legacy/novel_history_dialog.dart
+ M apps/desktop/lib/legacy/reviewed_task_content.dart
+ M apps/desktop/lib/lore/lore_edit_dialog.dart
+ M apps/desktop/lib/lore/lore_library.dart
+ M apps/desktop/lib/lore/lore_picker.dart
+ M apps/desktop/lib/lore/lore_scope_picker.dart
+ M apps/desktop/lib/theme/workbench_theme.dart
+ M apps/desktop/lib/workspace/presentation/backup_dialog.dart
+ M apps/desktop/lib/workspace/presentation/chapter_find.dart
+ M apps/desktop/lib/workspace/presentation/manuscript_editor.dart
+ M apps/desktop/lib/workspace/presentation/workbench_chrome.dart
+ M apps/desktop/lib/workspace/presentation/workbench_dialogs.dart
+ M apps/desktop/lib/workspace/presentation/workbench_sidebar.dart
+ M apps/desktop/test/failures/m2_windows_chinese_isolatedDiff.png
+ M apps/desktop/test/failures/m2_windows_chinese_maskedDiff.png
+ M apps/desktop/test/failures/m2_windows_chinese_masterImage.png
+ M apps/desktop/test/failures/m2_windows_chinese_testImage.png
+ M apps/desktop/test/failures/m2_windows_rtl_arabic_isolatedDiff.png
+ M apps/desktop/test/failures/m2_windows_rtl_arabic_maskedDiff.png
+ M apps/desktop/test/failures/m2_windows_rtl_arabic_masterImage.png
+ M apps/desktop/test/failures/m2_windows_rtl_arabic_testImage.png
+ M apps/desktop/test/operation_parity/capability_notice_test.dart
+ M apps/desktop/test/operation_parity/discussion_index_test.dart
+ M apps/desktop/test/operation_parity/paper_harness.dart
+ M apps/desktop/test/operation_parity/review_fixes_test.dart
+ M apps/desktop/test/operation_parity/toolbar_fold_test.dart
+ M docs/progress.md
+?? apps/desktop/lib/cowrite/discussion_surface.dart
+?? apps/desktop/lib/theme/workbench_controls.dart
+?? apps/desktop/lib/theme/workbench_select.dart
+?? apps/desktop/test/ui_completion_capture_test.dart
+?? apps/desktop/test/ui_completion_contract_test.dart
+?? apps/desktop/test/ui_control_contract_test.dart
+?? apps/desktop/test/ui_interaction_capture_test.dart
+?? docs/engineering/UI-INTERACTION-SYSTEM-20261021.md
+?? docs/evidence/UI-DETAIL-20261021.md
+?? docs/evidence/frontend-standards-20261021/
+?? docs/evidence/ui-completion-20261021/
+?? docs/evidence/ui-interaction-20261021/

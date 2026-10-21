@@ -6,6 +6,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'editor_layout.dart';
+import '../theme/workbench_theme.dart';
 
 /// Bounded LRU painter cache. Never disposes a pinned painter, even when the
 /// cache exceeds [limit]; pinned entries are released by the next [beginScene].
@@ -304,12 +305,11 @@ final class ScenePainter extends CustomPainter {
 
   /// 编辑器是否持有焦点；为 true 时才绘制光标。
   final bool focused;
-  // 原版写作主题：选区 #dce5f4，光标使用强调色 #49659c，段下讨论宿主保持浅灰绿。
-  final _selection = Paint()..color = const Color(0xffdce5f4);
-  final _ink = Paint()..color = const Color(0xff49659c);
-  final _slot = Paint()..color = const Color(0xffe4e8df);
+  // 原版写作主题：选区 #dce5f4，光标使用强调色 #49659c，段下讨论表面由宿主组件负责。
+  final _selection = Paint()..color = WorkbenchTokens.selection;
+  final _ink = Paint()..color = WorkbenchTokens.accent;
   final _underline = Paint()
-    ..color = const Color(0xff2c5c83)
+    ..color = WorkbenchTokens.source
     ..strokeWidth = 1.5;
   @override
   void paint(Canvas canvas, Size size) {
@@ -319,9 +319,7 @@ final class ScenePainter extends CustomPainter {
     for (final page in scene.pages) {
       page.painter.paint(canvas, page.origin);
     }
-    for (final slot in scene.slots) {
-      canvas.drawRect(slot, _slot);
-    }
+    // DiscussionSurface owns the fill; slot geometry only reserves space.
     for (final box in scene.sourceMarks) {
       canvas.drawLine(box.bottomLeft, box.bottomRight, _underline);
     }

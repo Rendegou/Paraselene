@@ -2,6 +2,7 @@
 // 不读取、不回显已有 Key；不发起生成请求，网络与凭据语义由原生层和 Rust 承担。
 
 import 'package:flutter/material.dart';
+import '../theme/workbench_theme.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'generation_repository.dart';
 
@@ -25,14 +26,18 @@ class _DeepSeekSettingsState extends State<DeepSeekSettings> {
   Widget build(BuildContext context) {
     final s = AppLocalizations.of(context);
     return AlertDialog(
+      scrollable: true,
       title: Text(s.deepseekSettings),
       content: SizedBox(
         width: 520,
         child: Column(
+          spacing: 12,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(s.deepseekFeeNotice),
             TextField(
+              style: WorkbenchTokens.input,
               controller: _key,
               obscureText: true,
               autocorrect: false,
@@ -61,7 +66,7 @@ class _DeepSeekSettingsState extends State<DeepSeekSettings> {
           onPressed: _busy ? null : _delete,
           child: Text(s.deepseekDeleteKey),
         ),
-        TextButton(
+        FilledButton(
           onPressed: _busy ? null : _save,
           child: Text(s.deepseekSaveSettings),
         ),

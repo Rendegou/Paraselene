@@ -6,7 +6,7 @@ import 'dart:convert';
 import 'package:file_selector_platform_interface/file_selector_platform_interface.dart';
 import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
-import 'import_preview_view.dart';
+import 'import_browser_views.dart';
 import 'legacy_repository.dart';
 
 /// Explicit bounded file import and local FTS search, with exact source readback.
@@ -29,111 +29,25 @@ class _ImportedDialogState extends State<ImportedDialog> {
   bool _imported = false;
 
   @override
-  Widget build(BuildContext context) {
-    final s = AppLocalizations.of(context);
-    return PopScope(
-      canPop: !_busy && _preview == null,
-      onPopInvokedWithResult: (didPop, result) async {
-        if (!didPop && !_busy) await _close();
-      },
-      child: Dialog(
-        child: SizedBox(
-          width: 780,
-          height: 640,
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Expanded(child: Text(s.importedLibrary)),
-                    IconButton(
-                      tooltip: s.close,
-                      onPressed: _busy ? null : _close,
-                      icon: const Icon(Icons.close),
-                    ),
-                  ],
-                ),
-                Text(s.importDisclosure),
-                if (_busy) const LinearProgressIndicator(),
-                if (_failed)
-                  Semantics(liveRegion: true, child: Text(s.saveError)),
-                if (_imported)
-                  Semantics(liveRegion: true, child: Text(s.importDone)),
-                Wrap(
-                  spacing: 12,
-                  children: [
-                    TextButton(
-                      onPressed: _busy
-                          ? null
-                          : () async {
-                              await _run(_choose);
-                            },
-                      child: Text(s.importSelectedFile),
-                    ),
-                    if (_preview != null)
-                      FilledButton(
-                        onPressed: _busy
-                            ? null
-                            : () async {
-                                await _run(_confirm);
-                              },
-                        child: Text(s.importConfirm),
-                      ),
-                  ],
-                ),
-                TextField(
-                  controller: _query,
-                  enabled: !_busy,
-                  decoration: InputDecoration(
-                    labelText: s.searchImported,
-                    suffixIcon: IconButton(
-                      tooltip: s.searchImported,
-                      onPressed: _busy
-                          ? null
-                          : () async {
-                              await _run(_search);
-                            },
-                      icon: const Icon(Icons.search),
-                    ),
-                  ),
-                  onSubmitted: _busy
-                      ? null
-                      : (_) async {
-                          await _run(_search);
-                        },
-                ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      if (_preview case final preview?)
-                        ImportPreviewView(preview: preview),
-                      for (final hit in _hits)
-                        ListTile(
-                          title: Text(
-                            (hit['title'] ?? hit['source']) as String,
-                          ),
-                          subtitle: Text(
-                            (hit['snippet'] as String)
-                                .replaceAll('<mark>', '')
-                                .replaceAll('</mark>', ''),
-                          ),
-                          onTap: _busy
-                              ? null
-                              : () async {
-                                  await _run(() => _source(hit));
-                                },
-                        ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  Widget build(BuildContext context) => PopScope(
+    canPop: !_busy && _preview == null,
+    onPopInvokedWithResult: (didPop, result) async {
+      if (!didPop && !_busy) await _close();
+    },
+    child: ImportedLibraryContent(
+      busy: _busy,
+      failed: _failed,
+      imported: _imported,
+      preview: _preview,
+      hits: _hits,
+      query: _query,
+      onClose: _close,
+      onChoose: () async => await _run(_choose),
+      onConfirm: () async => await _run(_confirm),
+      onSearch: () async => await _run(_search),
+      onSource: (hit) async => await _run(() => _source(hit)),
+    ),
+  );
 
   Future<void> _choose() async {
     final file = await FileSelectorPlatform.instance.openFile(

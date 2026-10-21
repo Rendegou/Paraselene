@@ -36,6 +36,7 @@ class _BackupDialogState extends State<BackupDialog> {
       canPop: !_busy,
       child: AlertDialog(
         title: Text(s.fullBackup),
+        scrollable: true,
         content: SizedBox(
           width: 560,
           child: Column(
@@ -51,7 +52,7 @@ class _BackupDialogState extends State<BackupDialog> {
           ),
         ),
         actions: [
-          TextButton(
+          FilledButton(
             onPressed: _busy ? null : () => _run(export: true),
             child: Text(s.fullBackup),
           ),

@@ -1,0 +1,16 @@
+{
+  "keyParity": true,
+  "keys": 336,
+  "newKeysHaveDescriptions": true,
+  "baselineMissingDescriptions": 197,
+  "baselineExample": [
+    "addMemory",
+    "applyBlock",
+    "backupDisclosure",
+    "backupFailed",
+    "backupRehearse",
+    "backupRehearsed",
+    "backupSaved",
+    "bindSource"
+  ]
+}

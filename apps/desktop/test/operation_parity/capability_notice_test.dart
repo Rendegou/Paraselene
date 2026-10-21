@@ -174,8 +174,8 @@ void main() {
       reason: '整章线程必须解释为什么不能生成，而不是只禁用按钮',
     );
     expect(find.textContaining('生成预览需要有效选段'), findsOneWidget);
-    final preview = tester.widget<TextButton>(
-      find.widgetWithText(TextButton, '预览完整外发消息'),
+    final preview = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, '预览完整外发消息'),
     );
     expect(preview.onPressed, isNull);
 
@@ -287,8 +287,8 @@ void main() {
           body: Builder(
             builder: (context) => Center(
               child: TextButton(
-                onPressed: () {
-                  showDialog<void>(
+                onPressed: () async {
+                  await showDialog<void>(
                     context: context,
                     builder: (_) => ConfirmChapterDialog(
                       controller: controller,

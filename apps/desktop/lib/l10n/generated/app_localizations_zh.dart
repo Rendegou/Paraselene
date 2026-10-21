@@ -105,6 +105,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get openDirectory => '打开章节目录';
 
   @override
+  String get discussionCollapse => '收起讨论';
+
+  @override
   String get closeDialog => '关闭';
 
   @override
@@ -713,9 +716,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get loreAliases => '别名（每行一个）';
 
   @override
-  String get loreScope => '范围：whole / retrospective / from:章节 ID';
-
-  @override
   String get openSourceChapter => '定位到来源章节';
 
   @override
@@ -1004,6 +1004,57 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get resourceDirectory => '故事资料';
+
+  @override
+  String get clearSearch => '清空搜索';
+
+  @override
+  String get loreUnconfirmed => '请先在资料库确认此条目，再选择引用。';
+
+  @override
+  String get referenceLimit => '最多可选择 32 项资料。';
+
+  @override
+  String get loreAdd => '新增资料';
+
+  @override
+  String get loreEdit => '编辑资料';
+
+  @override
+  String get characterAppearance => '外观';
+
+  @override
+  String get characterVoice => '语音';
+
+  @override
+  String get loreKind => '类型';
+
+  @override
+  String get loreName => '名称';
+
+  @override
+  String get loreBody => '内容';
+
+  @override
+  String get loreTimeline => '时间线';
+
+  @override
+  String get loreTaboo => '禁忌与约束';
+
+  @override
+  String get loreStyle => '文风';
+
+  @override
+  String get loreEmpty => '还没有资料，可从“新增资料”开始建立。';
+
+  @override
+  String get historyEmpty => '本章暂无审阅历史。';
+
+  @override
+  String get importEmpty => '选择对话文件以预览导入，或搜索已有导入消息。';
+
+  @override
+  String get loreScope => '生效范围';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -1107,6 +1158,9 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
   String get openDirectory => '打开章节目录';
 
   @override
+  String get discussionCollapse => '收起讨论';
+
+  @override
   String get closeDialog => '关闭';
 
   @override
@@ -1715,9 +1769,6 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
   String get loreAliases => '别名（每行一个）';
 
   @override
-  String get loreScope => '范围：whole / retrospective / from:章节 ID';
-
-  @override
   String get openSourceChapter => '定位到来源章节';
 
   @override
@@ -2006,4 +2057,55 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
 
   @override
   String get resourceDirectory => '故事资料';
+
+  @override
+  String get clearSearch => '清空搜索';
+
+  @override
+  String get loreUnconfirmed => '请先在资料库确认此条目，再选择引用。';
+
+  @override
+  String get referenceLimit => '最多可选择 32 项资料。';
+
+  @override
+  String get loreAdd => '新增资料';
+
+  @override
+  String get loreEdit => '编辑资料';
+
+  @override
+  String get characterAppearance => '外观';
+
+  @override
+  String get characterVoice => '语音';
+
+  @override
+  String get loreKind => '类型';
+
+  @override
+  String get loreName => '名称';
+
+  @override
+  String get loreBody => '内容';
+
+  @override
+  String get loreTimeline => '时间线';
+
+  @override
+  String get loreTaboo => '禁忌与约束';
+
+  @override
+  String get loreStyle => '文风';
+
+  @override
+  String get loreEmpty => '还没有资料，可从“新增资料”开始建立。';
+
+  @override
+  String get historyEmpty => '本章暂无审阅历史。';
+
+  @override
+  String get importEmpty => '选择对话文件以预览导入，或搜索已有导入消息。';
+
+  @override
+  String get loreScope => '生效范围';
 }

@@ -1,0 +1,466 @@
+[
+  {
+    "Path": "apps\\desktop\\lib\\main.dart",
+    "SHA256": "94A9AB63B5635FCA44925606387F1CD6C8F7E355CAE2C8464D40F23293AD1216"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\candidate_diff.dart",
+    "SHA256": "F1AC36C5D6809E0CD7664AA5E0FB8447E1D561AEC02A21A06EECFF34B0981994"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\character_diff.dart",
+    "SHA256": "A7E565454190C473DD0EC4E5AF60666947CECF8B63CFA972859F5EF8827C28C9"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\deepseek_settings.dart",
+    "SHA256": "2FA7F09FF7C817BBFAEA98A99DF4B5567ED826DD74B3B49D4B61FE5D3B3A6896"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_generation_flow.dart",
+    "SHA256": "3F6F4F74C6C16B7A0CD3315AC415C112741BF48F4840CB8AA101BE3916987F28"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_generations.dart",
+    "SHA256": "8343BA7210E7E6773063F279B792602B20A23AD4F19B2AE4C1CD6DADB698FF66"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_index.dart",
+    "SHA256": "351C34458D009FD9D7B6EAF7A8BA4C71F391301F8B56618BC7E78CF0E2893A2F"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_panel.dart",
+    "SHA256": "1CAD58494837168B81C12A6201ADA47AA84DC3665817C43CB2784A831A0E7085"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_registry.dart",
+    "SHA256": "CCD22D054B28640D82E8B34339F5BE133F5F36573E8FC1493B5A73EEE180FC18"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_repository.dart",
+    "SHA256": "3FAFC9CA9244616D7C83EF689A607C5F64820D273F24057B3905F5F231E83F39"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_surface.dart",
+    "SHA256": "3133FB45A4EE1110257871F48A51A246E1A5B3694E74364F463DCF2785F563DE"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\discussion_thread.dart",
+    "SHA256": "3D00FF883ADB6B5370538E921EA093CAAB4E1D6A3D9E603FBC22C743A6EE3807"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\generation_repository.dart",
+    "SHA256": "2DDDA4D87A1D8A492C142DA1D56F2C8A93242022A9287FC5212C378D82D540B9"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\cowrite\\native_discussion_repository.dart",
+    "SHA256": "39C91C1340AB918ED32971A0F1406A5C7F2C5EB940A1366BE22D6EFFE535AAFE"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\domain\\editing\\save_coordinator.dart",
+    "SHA256": "F488B57D3EF3872DBB56580DB73DFC3C5C6593C54A727E24F487308CD1D6D0DA"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\domain\\editing\\save_state.dart",
+    "SHA256": "E32978A11776B8175CAB90F73114E54614683A601014CE75A1E01B772487D5FC"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_anchor.dart",
+    "SHA256": "1C6DD20A00413CA18ABD628A33877B0FAB2F1BF7A9EB0B62B9B13E5E0666742A"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_basic_controller.dart",
+    "SHA256": "409DC33703AF6C8D15E6293E1EB642BF2596EDDCB531794B21E5D4D75A115F26"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_clipboard.dart",
+    "SHA256": "A7B4E6CDDC4BD7314BBACB39198D6F065E46E43B3F67C95860AA501E05631CE9"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_discussion_overlay.dart",
+    "SHA256": "FAD1D56C0309041C6A72FDA69EB4F8FEF0CBA627130CBCDC47D06A7D98169D42"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_document.dart",
+    "SHA256": "FBFDEAE08DEE92A4F1D30C09E68714DD13FF5CCB9AF876FD8B74BB2759E92708"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_history.dart",
+    "SHA256": "EA68513438F2119B49617A687FEA91F8428F4D0EA2656E30A44C1720594D72A2"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_input_client.dart",
+    "SHA256": "94BF37E64A2B94C1DEB7171AC05AD7AE5CB83C8058A3399A204AA93A2C4383AF"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_layout_frontier.dart",
+    "SHA256": "AF1D8C12D77E15132EE2B6E1EA47085B49FFCFDA16A37BFE618C645AE1B621DA"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_layout.dart",
+    "SHA256": "67A00C16E1E1C3C61C189473D8E9424174A9E5A67473B26F18893F821A33567E"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_scene.dart",
+    "SHA256": "B47B2EA128C62607DF078B1F2C1059F2F49525FAA39D41E691F8AE08B8770A33"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_session_adapter.dart",
+    "SHA256": "28D2313FDCA1BE05C8320271AAC1E81BA07755ED21883C030704FAC889605D60"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_source_mark.dart",
+    "SHA256": "0996C1B50839F74CE268D84AE0FD769CF80D814FD574D75B90858C903CECE3EC"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_thread_slot.dart",
+    "SHA256": "986EAE2347E0211792916EE5353690F2232735687FC375F73E7C54B379A03C3B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_values.dart",
+    "SHA256": "2C3473A2D46F22B4587DE88E51BE2D196CFAEA7846FF2233357D8074CB8B703F"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\editor\\editor_viewport.dart",
+    "SHA256": "1E3E785308278167AAF7F5D6967678708F902759F3C90D909D22B80282AB3B90"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\l10n\\app_en.arb",
+    "SHA256": "776B77C9D78254114914E28448D4E49BF9B0BCDD4D2B869CBBA5A4488C78F9C4"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\l10n\\app_zh_Hans.arb",
+    "SHA256": "342BDBE6A7BF9D4E18D97CCEA696A094DF17B549B2144D3D9F64E30437EC1618"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\l10n\\app_zh.arb",
+    "SHA256": "378F13CE357122F09E185085130655F0F4D56B602DA34375EE5C2FEA4439BB52"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\l10n\\generated\\app_localizations_en.dart",
+    "SHA256": "4CFCA7056C9B65A097866A4B190336A38417D3262E32FA72D2DFD822160C8B37"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\l10n\\generated\\app_localizations_zh.dart",
+    "SHA256": "08C799395BA198BE4FF9EB8C2242D635D2E7F1DF30532B922ABAE8E668D4A3DA"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\l10n\\generated\\app_localizations.dart",
+    "SHA256": "36366ACF21D0459CE9D58D07E08C2252FA0BF0372418C0D5812B4A07B64C77E4"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\character_dialog.dart",
+    "SHA256": "1C19E81178EB5BBE56F3C2D42668366493348DB17A2980046968290E77D80203"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\companion_service.dart",
+    "SHA256": "F02F6E4AF558513E5206C4D1CDAEE4F898393EF5D535C9374DB519E63B0E3E08"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\derived_summary_card.dart",
+    "SHA256": "249957299D47A9A7FC76FD814EF69E73F9297B12297D4ECC4F0A4927D9DE8F39"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\idea_dialog.dart",
+    "SHA256": "09ECEDC40494A2B7A6238093A70F429D143C16D9EFE9DBF79875CCBB5ABAAC0F"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\idea_target_dialog.dart",
+    "SHA256": "608CCE52E6E614D15125A88A98C72A6F84A0E169283554ADD9E4602F3311C09D"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\import_preview_view.dart",
+    "SHA256": "D0238D791B4B09474AE0CB238B48E7A3DC7677781C149F752138CEC9E4559C14"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\imported_dialog.dart",
+    "SHA256": "677DA83C2D5C5DB360EB49F0EC38BEB7C8645658F2A51B7C34ECBFEFD22DF4C7"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\learning_service.dart",
+    "SHA256": "A72AC9660E5B1952CA12CCC1E6978EC5E941B37C7EF50EE35EAD4C5CC551313D"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\legacy_draft_card.dart",
+    "SHA256": "AF03C291A43F97D3934C9927E5F8D04699E2DB78949647EB5A5D643925835696"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\legacy_patch_card.dart",
+    "SHA256": "AAB74542D815593966B3EDEBC804C0DF85754708C1CE8C43759C4CA98EE87285"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\legacy_repository.dart",
+    "SHA256": "6F74439916C9D24445D65ABB975786CB7F9C396F8F1F534AB89BEF8AAC6F1880"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\memory_actions.dart",
+    "SHA256": "AC603F8BDC2C8AFCDA3D468DD5C12AC88D06D8D124F02063F7826AC754EB55EB"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\memory_dialog.dart",
+    "SHA256": "D4E197599DF5715D8D675F3B98EE6D220E954476E7190B026BB2967B6FC10F5B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\novel_history_dialog.dart",
+    "SHA256": "262A5D4C5B57C3DF88DF9C4DAB0027D8B32215560ADC8066A288B8F9203631F0"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\reviewed_task_content.dart",
+    "SHA256": "F79CBD477CED3DBCC2BD09B576246E1D570081A57E463FB6DED887BEACD335A6"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\reviewed_task_dialog.dart",
+    "SHA256": "F7958FF1CA053BC23549B8BA181BF15A1EAED29B7CDFDD1CCC87E36EA6378915"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\reviewed_task_repository.dart",
+    "SHA256": "B6D599742C4AA27C1C6B6C614C2C253150D3B222FA1468C1F4DA48E25B756BBF"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\legacy\\task_material_preview.dart",
+    "SHA256": "890D67C1E2CD7451E08E4E1D5123349A7D17CA7219C5E37E046E6FCC42C70D9B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_binding_flow.dart",
+    "SHA256": "7D3F05E4BE5DAC678ED286750C494FEBA51F1011B657EB4A7AAE3E4B71D972E5"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_edit_dialog.dart",
+    "SHA256": "8A4F203E7330F0C11ACF1D3837AFE47B255CD134BBF3C4267FE892B5F0CAFF6F"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_library.dart",
+    "SHA256": "1565A41DA022ED86CC605EF2EDF733B36553E23D6CC9CBF70C2F256EC534E5B9"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_map_preview.dart",
+    "SHA256": "3BC666001930E1895C136D723793982EA8BEB96BD3870000B78F9553A6961E98"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_picker.dart",
+    "SHA256": "CE511B4D2DD07D5F4ECFABD66C694F45EB6CB055851CC2593ADFA49C7B8B5BBD"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_repository.dart",
+    "SHA256": "7DDC2ECDDB5652CFB91A0B3142DC164E69B64C7D52F1CFFC1BEF4D504979F08B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_scope_picker.dart",
+    "SHA256": "22CFAB1B5F91F0FB32BEB98584C32A6AB85841B1D70287CEFD1AC4C4A18EC081"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\lore_source_view.dart",
+    "SHA256": "AB46DEA2B3F385501D2DE3FDFBF522886CA804CD83D8C968BD0340F9984D23C8"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\lore\\source_mark_controller.dart",
+    "SHA256": "BBED53F576ADA71ED26B18A5294ADA0F6FF21E78333CFDABC39B02FCB92CA9F2"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\companion_gateway.dart",
+    "SHA256": "02AD0CF38A4CCF272C9A6A2443E764AE3E11C27CE6B1BC70BD3582D09629346B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\learning_gateway.dart",
+    "SHA256": "DCC12105407B60CF7510CDAFEB5B942704DAE85D64F54E01D34BA29D45A9DB77"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\runtime.dart",
+    "SHA256": "4A93D65FCDB4E9322F44D7E95ACB111575F16A8DA98431325C3328F2C5A3537B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\generated\\api.dart",
+    "SHA256": "0E16BBE0BED896584270D01119FA99C1C8498AF70937AEE0FD6351C1A39AA83F"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\generated\\frb_generated.dart",
+    "SHA256": "E9253AB0B1E976778AC03634C7C52CFF8598703DFA8C0940D379428AD4A303B6"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\generated\\frb_generated.io.dart",
+    "SHA256": "4E4A704BBAA55A80A863CF2655F42FEEE44DDEC9F943BC87C43C7F6FB5E3005B"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\generated\\frb_generated.web.dart",
+    "SHA256": "5E5641F1FFA49081797C28320AEC8F0853B40E026607C03537ECBC656DA70939"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\native\\generated\\api\\models.dart",
+    "SHA256": "6320E3A854612CE50DD5A0F8760869D96D6CA5C5CB952748267277C4668E7DAE"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\probe\\assertions.dart",
+    "SHA256": "07F1BE28C736A8711CD314DBDBF23CA32357F3D23556B9483CD9BD7086852215"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\probe\\documents.dart",
+    "SHA256": "65EF0EB8698C09C2EF3CBC472702604CDBD3E280B1617E7AAFCA18E46F48FEB0"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\probe\\jobs.dart",
+    "SHA256": "A49DA764BBBDDECD60179D929BDECBC3BF98D26F6CDB99E067839C4325BB0DEC"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\probe\\probe.dart",
+    "SHA256": "0C7A46C187E037EEFB84DC61D4365DB43C72143A13650F7E5645AB9B0BFDFA26"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\theme\\font_licenses.dart",
+    "SHA256": "2E74ACE98A2FBFD57B1A9BCB7E1BA7FAA558319B52ACC03911269A9B1E30B9B3"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\theme\\workbench_controls.dart",
+    "SHA256": "976C6FA6DF5155B7CD9D8FD77318A7069AE7127BBB48465E1C6327A0BC4F1055"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\theme\\workbench_select.dart",
+    "SHA256": "C5B73726F8E062113737B4050C81FA45A6C04DCC7B5C40C5F21F0C51879ABBE0"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\theme\\workbench_theme.dart",
+    "SHA256": "73CF6806DFBFF83C0B1488022BEA2AE52CBB8DCEA84FAF260C87EDE94F8B6C06"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\window\\desktop_title_bar.dart",
+    "SHA256": "9C64382A3B40CF688D97060EDD24AC88B40DBB495C169916B8C361C152AE373D"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\window\\desktop_window_controller.dart",
+    "SHA256": "5133BCE3E086DCCFF502D2F21AD992B7F87EEC33AF4B2612751E5B1785B3428C"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\window\\native_close_guard.dart",
+    "SHA256": "3F46F31AA58B4DFF434BD5F78D5C0E0F78316ECDEB08CB79DB3CD75A8EBE7EE8"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\editing_session.dart",
+    "SHA256": "EFF42305A2A1A65921394FBA88F4D32416A1A803C9B06CDB77262B82E39B471E"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\workbench_app.dart",
+    "SHA256": "76813F6A4815ABD3B2971313AD84A33A7FE49D132865061639D05C752C143BF3"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\workspace_close.dart",
+    "SHA256": "7EB058BCB49D120AB0949F2F4852ECC7025C7E43B367CFB3A0D41163E362FD40"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\workspace_controller.dart",
+    "SHA256": "8D5EB7499E6223932510919AC94FB375E7CBFBF7ADEB4D46CD9A69FE5C3EE6FA"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\workspace_cowrite.dart",
+    "SHA256": "C94069F667B6EBE099289B75086AB9B7E66EDE3298CE3870D9659B84E7124597"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\workspace_state.dart",
+    "SHA256": "7192DCCA3356AF51417733180115B1693C0AE4615018239D8A9397D45F48E7D5"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\data\\demo_content.dart",
+    "SHA256": "31239245B9EDD5F0821DFBA225B1AA364AC0A605DA45A4193475EFB92C6E2309"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\data\\real_workspace_repository.dart",
+    "SHA256": "3526E6B0C7F3A63024E9FB8A0A50A5D9910DB92E4997ED23F00C1E3E61D189BD"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\data\\recovery_export.dart",
+    "SHA256": "CFCA6507FE49EE0FD7B9760AA31B7912E3B736DE77DA4050042FD4CD0F5923C2"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\data\\synthetic_confirmation.dart",
+    "SHA256": "8C3564D5354285FB726BA4E998834C51ED2198FB78AB57C763CDB23719BECF1E"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\data\\synthetic_workspace_repository.dart",
+    "SHA256": "1D3D7D323E6DEC893E04E8BC836C8A43BD5E704958A843F73A6DD82283F9F8D0"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\data\\workspace_repository.dart",
+    "SHA256": "1A8F4311C6BA95447F2BD04357EB87711A110BE174139057E95ED130C5FD1959"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\backup_dialog.dart",
+    "SHA256": "7B26C592FAC6D42E8E8E8D18EC44351E44EBC5A11454A0AB02BEE9F0FDD87ABC"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\chapter_find.dart",
+    "SHA256": "C83EBFE49E19D0429AD50640A0A41924A7621AF2366049BF61ED8F25A76F0BFA"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\editor_action_registry.dart",
+    "SHA256": "8BDB5FEE8586F13B4953BBF9B83F5D2B9EEA6FC8EBE99CDEF328BB125A3E616D"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\editor_source_menu.dart",
+    "SHA256": "BB68D5760E2F80EE0AED437CE7B807CD3E24A29CFF21058740C175C009B019CB"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\editor_status.dart",
+    "SHA256": "66F0F7ADAB6285B2B3FDF7B8B9DF009E41E1A20CFFBF027BB3964EFC87ED1CF1"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\editor_tools.dart",
+    "SHA256": "57CE06BE4A69E4C1325A59B9FBBAB57F71D8390EC6C542E8356E887D8EFD6142"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\export_flow.dart",
+    "SHA256": "C4D4526456EE3E49C14F4E36397E3D0F8856F8D1B41E2E3CA1730C5057644546"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\lore_directory.dart",
+    "SHA256": "39523596F2395053F775EEEC7D9D9C8BB6C31305FE5B50466C05E0BAADDBECC5"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\lore_discussion_target.dart",
+    "SHA256": "2FA4DBB5996219B04856BE3EE1AC917C05A55D31B8D1612B45B68A26C875BDCC"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\lore_preview.dart",
+    "SHA256": "4EAA50836F3BC17A14D0B0B0C276541E2980DCBC8F751D8A651D1AE3EDEBA5BB"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\manuscript_editor.dart",
+    "SHA256": "0448981CC1811D999409DC50F3D183ACDB1438F963E9F39C1185F5DEA89A8B11"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\source_navigation.dart",
+    "SHA256": "CAC27B9FF132A35678D2F1589926FA3E32D6A6B8F9E5B9FFA2724AC2322F9890"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\work_picker.dart",
+    "SHA256": "6A6ECB64A63D3EF9F17CACC99E7F532D3E9D4110A94174D264AF4680F6079CB1"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\workbench_chrome.dart",
+    "SHA256": "25AB191C16D0B673B076201A7825D25082AD26DFED1BFCB2636A0E64E1C99792"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\workbench_content.dart",
+    "SHA256": "F0CC37C6B92A47E3F0270A76851D7606EF51353AA01EB10018A54170101EEFB6"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\workbench_dialogs.dart",
+    "SHA256": "7987F31B28D08EAA59305C0A89AB39B3032CE25C530AC904D1D65C81F9898CD3"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\workbench_screen.dart",
+    "SHA256": "54196AD20835039DC075E14616D272FDA94E82EEFB465507CFCE52D2EA59E4BC"
+  },
+  {
+    "Path": "apps\\desktop\\lib\\workspace\\presentation\\workbench_sidebar.dart",
+    "SHA256": "0B0B3B0791B4FCD201183579A488FE98BF4AA08E376D4EE32968D06639124CD1"
+  },
+  {
+    "Path": "packages\\text_contract\\lib\\text_contract.dart",
+    "SHA256": "46E07F5E054A93EA3B3DA74AC521CAFB2EF384858274DAE91ACBDB670636B1D6"
+  },
+  {
+    "Path": "packages\\text_contract\\lib\\domain\\editing\\text_coordinates.dart",
+    "SHA256": "7CE41AA527181BEAB136EAAF9385CEDD24F1844E39AFE632661EF73FA1B16A32"
+  },
+  {
+    "Path": "packages\\text_contract\\lib\\domain\\models\\language_preferences.dart",
+    "SHA256": "F7B0201D1530F93101D0B2EBC2FF47E8EDC7EEED12E0697B6D62705C668C8583"
+  }
+]

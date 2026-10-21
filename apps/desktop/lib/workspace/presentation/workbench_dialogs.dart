@@ -5,6 +5,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import '../../theme/workbench_theme.dart';
 import 'package:flutter/services.dart';
 
 import '../data/workspace_repository.dart';
@@ -115,6 +116,7 @@ class _TitlePromptDialogState extends State<_TitlePromptDialog> {
         content: SizedBox(
           width: 420,
           child: TextField(
+            style: WorkbenchTokens.input,
             key: const ValueKey('title-prompt-field'),
             controller: _text,
             autofocus: true,
@@ -161,6 +163,7 @@ class ConfirmChapterDialog extends StatefulWidget {
 
 class _ConfirmChapterDialogState extends State<ConfirmChapterDialog> {
   bool _busy = false;
+  bool _closePending = false;
   String? _errorCode;
 
   @override
@@ -181,16 +184,32 @@ class _ConfirmChapterDialogState extends State<ConfirmChapterDialog> {
 
   void _watchEdits() {
     final sequence = widget.controller.editing.saveState?.editSequence;
-    if (sequence != null && sequence != _sequence && mounted) {
-      Navigator.of(context).maybePop();
+    if (sequence != null &&
+        sequence != _sequence &&
+        mounted &&
+        !_closePending &&
+        ModalRoute.of(context)?.isCurrent == true) {
+      _closePending = true;
+      unawaited(_dismissStalePreview());
+    }
+  }
+
+  Future<void> _dismissStalePreview() async {
+    try {
+      await Navigator.of(context).maybePop();
+    } catch (_) {
+      if (mounted) setState(() => _errorCode = 'confirmation_close_failed');
+    } finally {
+      _closePending = false;
     }
   }
 
   Future<void> _confirm() async {
     if (_busy) return;
+    final route = ModalRoute.of(context);
     setState(() => _busy = true);
     final ok = await widget.controller.confirmChapter(widget.prepared.token);
-    if (!mounted) return;
+    if (!mounted || route?.isCurrent != true) return;
     if (ok) {
       Navigator.of(context).pop();
     } else {
@@ -290,8 +309,11 @@ class _VersionsDialogState extends State<VersionsDialog> {
       ),
     );
     if (accepted == true && mounted) {
-      await widget.controller.rollbackChapter(version.id);
-      if (mounted) Navigator.of(context).maybePop();
+      final route = ModalRoute.of(context);
+      final rolledBack = await widget.controller.rollbackChapter(version.id);
+      if (rolledBack && mounted && route?.isCurrent == true) {
+        await Navigator.of(context).maybePop();
+      }
     }
   }
 

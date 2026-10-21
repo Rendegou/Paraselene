@@ -197,13 +197,21 @@ final class DiscussionRegistry extends ChangeNotifier {
     // 去抖 350 毫秒合并连续输入，减少原生写入次数。
     _timer?.cancel();
     _timer = Timer(const Duration(milliseconds: 350), () {
-      unawaited(
-        flush().catchError((Object _) {
-          /* error exposed by flush */
-        }),
-      );
+      unawaited(_flushInBackground());
     });
     _emit();
+  }
+
+  Future<void> _flushInBackground() async {
+    try {
+      await flush();
+    } catch (failure) {
+      // 去抖计时器是后台 Future 的最终所有者：保留脏稿与可重试错误，
+      // 并记录脱敏诊断；显式 flush 的调用方仍收到原异常。
+      error = 'discussion_save_failed';
+      debugPrint('discussion_background_save_failed: ${failure.runtimeType}');
+      _emit();
+    }
   }
 
   /// Coalesces mutations during writes; failure keeps every unsaved snapshot.

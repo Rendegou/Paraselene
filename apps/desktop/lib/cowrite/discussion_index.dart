@@ -24,23 +24,16 @@ Future<void> showDiscussionIndex(
   context: context,
   builder: (dialogContext) => AlertDialog(
     key: const ValueKey('discussion-index-panel'),
-    title: Row(
-      children: [
-        Expanded(child: Text(strings.discussionIndex(threads.length))),
-        IconButton(
-          key: const ValueKey('discussion-index-close'),
-          tooltip: strings.closeDialog,
-          icon: const Icon(Icons.close, size: 18),
-          onPressed: () => Navigator.of(dialogContext).pop(),
-        ),
-      ],
-    ),
+    // 标题只承载名称；关闭动作与版本历史等浏览弹窗一致，放在底部动作区。
+    title: Text(strings.discussionIndex(threads.length)),
     content: ConstrainedBox(
       // 窄窗下对话框内容随可用宽度收缩；条目较少，用 Column 支持固有宽度。
       constraints: const BoxConstraints(maxWidth: 360, maxHeight: 320),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          // 条目占满整行宽度，引文与状态左对齐，悬停/焦点反馈覆盖整行。
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             for (final thread in threads)
               InkWell(

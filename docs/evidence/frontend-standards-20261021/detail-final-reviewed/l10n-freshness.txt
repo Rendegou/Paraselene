@@ -1,0 +1,1 @@
+PASS: l10n-freshness; 3 generated files match byte-for-byte.

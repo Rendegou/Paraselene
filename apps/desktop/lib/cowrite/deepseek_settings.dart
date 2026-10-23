@@ -75,39 +75,51 @@ class _DeepSeekSettingsState extends State<DeepSeekSettings> {
   }
 
   Future<void> _save() async {
-    // 先写 Key（仅非空时覆盖）再写开关；成功后立即清空内存中的明文输入。
-    setState(() {
-      _busy = true;
-      _failed = false;
-    });
-    try {
-      if (_key.text.isNotEmpty) await widget.repository.setKey(_key.text);
-      _key.clear();
-      await widget.repository.setCloudEnabled(_enabled);
-      if (mounted) Navigator.pop(context);
-    } catch (_) {
-      if (mounted) setState(() => _failed = true);
-    } finally {
-      _key.clear();
-      if (mounted) setState(() => _busy = false);
-    }
+    // await 前冻结提交参数；弹窗关闭后仍完成这次明确授权的设置写入。
+    final repository = widget.repository;
+    final key = _key.text;
+    final enabled = _enabled;
+    await _apply(() async {
+      if (key.isNotEmpty) await repository.setKey(key);
+      await repository.setCloudEnabled(enabled);
+    }, closeAfterSuccess: true);
   }
 
   Future<void> _delete() async {
     // 先关闭云能力再删除 Key，避免删除完成后仍处于可发送状态。
+    final repository = widget.repository;
+    await _apply(() async {
+      await repository.setCloudEnabled(false);
+      await repository.deleteKey();
+    }, closeAfterSuccess: false);
+  }
+
+  Future<void> _apply(
+    Future<void> Function() write, {
+    required bool closeAfterSuccess,
+  }) async {
+    if (_busy) return;
+    final route = ModalRoute.of(context);
     setState(() {
       _busy = true;
       _failed = false;
     });
     try {
-      await widget.repository.setCloudEnabled(false);
-      await widget.repository.deleteKey();
-      _key.clear();
-      if (mounted) setState(() => _enabled = false);
+      await write();
+      if (!mounted) return;
+      if (closeAfterSuccess) {
+        if (route?.isCurrent == true) Navigator.of(context).pop();
+      } else {
+        setState(() => _enabled = false);
+      }
     } catch (_) {
       if (mounted) setState(() => _failed = true);
     } finally {
-      if (mounted) setState(() => _busy = false);
+      // Escape 与外点可在等待中释放控制器；迟到结果不再触碰它。
+      if (mounted) {
+        _key.clear();
+        setState(() => _busy = false);
+      }
     }
   }
 

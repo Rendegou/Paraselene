@@ -4,12 +4,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/editor/editor_source_mark.dart';
 import 'package:paraselene_flutter/editor/editor_viewport.dart';
 import 'package:paraselene_flutter/l10n/generated/app_localizations.dart';
 import 'package:paraselene_flutter/lore/lore_source_view.dart';
 import 'package:paraselene_flutter/lore/source_mark_controller.dart';
+import 'package:paraselene_flutter/theme/workbench_theme.dart';
 import 'package:paraselene_flutter/workspace/data/synthetic_workspace_repository.dart';
 import 'package:paraselene_flutter/workspace/presentation/editor_source_menu.dart';
 
@@ -53,6 +55,74 @@ EditorViewportState _viewport(WidgetTester tester) =>
     tester.state<EditorViewportState>(find.byKey(manuscriptKey));
 
 void main() {
+  setUpAll(loadM2Fonts);
+
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('出处重试和菜单有完整命中与焦点边界，字号 $scale', (tester) async {
+      final source = _FakeSourceMarks();
+      final controller = await pumpPaperWorkbench(
+        tester,
+        repository: _SourceRepository(source: source, withDemo: true),
+        textScale: scale,
+      );
+      addTearDown(() => disposePaperController(controller));
+      source.requests[0].completeError(StateError('synthetic source failure'));
+      await tester.pump();
+      await tester.pump();
+      final retry = find.byKey(const ValueKey('source-marks-retry'));
+      expect(tester.getSize(retry).height, greaterThanOrEqualTo(48));
+      final retryText = find.descendant(of: retry, matching: find.byType(Text));
+      Focus.of(tester.element(retryText)).requestFocus();
+      await tester.pump();
+      expect(Focus.of(tester.element(retryText)).hasFocus, isTrue);
+      expect(Focus.of(tester.element(retryText)).hasPrimaryFocus, isTrue);
+      final material = tester.widget<Material>(
+        find.descendant(of: retry, matching: find.byType(Material)).first,
+      );
+      expect((material.shape! as OutlinedBorder).side.width, 2);
+      expect(
+        (material.shape! as OutlinedBorder).side.color,
+        WorkbenchTokens.accent,
+      );
+      final bodyBeforeActivation = controller.body;
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      expect(
+        controller.body,
+        bodyBeforeActivation,
+        reason: '聚焦出处控件时 Enter 不能被外层编辑器当作正文换行',
+      );
+      expect(source.requests, hasLength(2));
+      source.requests[1].complete(
+        _snapshot(null, [
+          {'entryId': 'source', 'name': '出处甲', 'from': 0, 'to': 2},
+        ]),
+      );
+      await tester.pump();
+      await tester.pump();
+      final menu = find.byKey(const ValueKey('source-marks-menu'));
+      final bounds = tester.getRect(menu);
+      expect(bounds.height, greaterThanOrEqualTo(48));
+      final menuText = find.descendant(of: menu, matching: find.byType(Text));
+      Focus.of(tester.element(menuText)).requestFocus();
+      await tester.pump();
+      expect(Focus.of(tester.element(menuText)).hasFocus, isTrue);
+      final menuMaterial = tester.widget<Material>(
+        find.descendant(of: menu, matching: find.byType(Material)).first,
+      );
+      expect((menuMaterial.shape! as OutlinedBorder).side.width, 2);
+      expect(
+        (menuMaterial.shape! as OutlinedBorder).side.color,
+        WorkbenchTokens.accent,
+      );
+      // 点透明命中区的下缘，而不是只点文字中心。
+      await tester.tapAt(Offset(bounds.center.dx, bounds.bottom - 2));
+      await tester.pumpAndSettle();
+      expect(find.text('出处甲'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   testWidgets('loading → empty 四态可见且正文仍可写', (tester) async {
     final source = _FakeSourceMarks();
     final repository = _SourceRepository(source: source, withDemo: true);

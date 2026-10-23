@@ -1,0 +1,5 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/ui_interaction_capture_test.dart
+00:00 +0: capture real discussion surface and control geometry
+UI_GEOMETRY standards-narrow-final-20261022 button=Rect.fromLTRB(472.0, 539.0, 564.0, 589.0) card=Color(alpha: 1.0000, red: 0.9804, green: 0.9765, blue: 0.9608, colorSpace: ColorSpace.sRGB) tint=Color(alpha: 0.0000, red: 0.0000, green: 0.0000, blue: 0.0000, colorSpace: ColorSpace.sRGB) textMinimum=Size(32.0, 32.0)
+00:01 +1: All tests passed!

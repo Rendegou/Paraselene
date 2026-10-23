@@ -116,7 +116,15 @@ class _FunctionCheck extends RecursiveAstVisitor<void> {
 
   @override
   void visitInstanceCreationExpression(InstanceCreationExpression node) {
-    final type = node.constructorName.type.toSource().split('.').last;
+    final type = node.constructorName.type
+        .toSource()
+        .split('<')
+        .first
+        .split('.')
+        .last;
+    if (type == 'PopupMenuButton') {
+      _popupMenu(node, node.argumentList);
+    }
     if (!theme && {'Color', 'MaterialColor', 'TextStyle'}.contains(type)) {
       _record('theme-constructor', node, type);
     }
@@ -193,6 +201,7 @@ class _FunctionCheck extends RecursiveAstVisitor<void> {
   @override
   void visitMethodInvocation(MethodInvocation node) {
     final name = node.methodName.name;
+    if (name == 'PopupMenuButton') _popupMenu(node, node.argumentList);
     final target = node.target?.toSource().split('.').last;
     if (!theme &&
         ({'Color', 'MaterialColor', 'TextStyle'}.contains(name) ||
@@ -211,6 +220,17 @@ class _FunctionCheck extends RecursiveAstVisitor<void> {
       _record('ignored-future', node, name);
     }
     super.visitMethodInvocation(node);
+  }
+
+  void _popupMenu(AstNode node, ArgumentList arguments) {
+    final hasCustomChild = arguments.arguments.any(
+      (argument) =>
+          argument is NamedExpression &&
+          argument.name.label.name == 'child' &&
+          argument.expression is! NullLiteral,
+    );
+    if (hasCustomChild)
+      _record('menu-state-style', node, 'PopupMenuButton.child');
   }
 
   bool _emptyHandler(Expression expression) {

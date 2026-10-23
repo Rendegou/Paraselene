@@ -1,0 +1,14 @@
+{
+  "Status": "PASS",
+  "ExitCode": 0,
+  "RunId": "799a86d8628e48f4b80a8bf53157705c",
+  "SourceUnchanged": true,
+  "GeneratorExitCode": 0,
+  "TemporaryProject": "D:\\MyAgent\\paraselene-flutter\\build\\l10n-freshness\\799a86d8628e48f4b80a8bf53157705c\\project",
+  "GeneratorLog": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\detail-final-reviewed\\l10n-freshness\\gen-l10n.txt",
+  "ExpectedFileCount": 3,
+  "ActualFileCount": 3,
+  "Missing": [],
+  "Extra": [],
+  "Changed": []
+}

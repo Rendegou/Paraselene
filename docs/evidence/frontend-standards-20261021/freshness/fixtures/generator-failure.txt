@@ -1,0 +1,1 @@
+FAIL: l10n-freshness; Official gen-l10n failed with exit code 1. Log: D:\MyAgent\paraselene-flutter\docs\evidence\frontend-standards-20261021\freshness\fixtures\generator-failure\gen-l10n.txt

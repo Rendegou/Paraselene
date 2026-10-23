@@ -1,0 +1,10 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:01 +1: 英文长保存状态 disk_full，窗口 1040.0 保留讨论与恢复
+00:01 +2: 英文长保存状态 revision_conflict，窗口 1060.0 保留讨论与恢复
+00:01 +3: 英文长保存状态 disk_full，窗口 1060.0 保留讨论与恢复
+00:01 +4: 更多菜单有局部焦点且 Enter/Escape 不改变正文或命中边界
+00:01 +5: (tearDownAll)
+00:01 +5: All tests passed!

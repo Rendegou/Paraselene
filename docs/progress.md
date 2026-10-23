@@ -1,3 +1,5 @@
+> 2026-10-22 前端规范细节接续：补F15几何/命中/焦点验收、菜单状态AST规则和默认本地化生成物freshness，修复工具栏标题挤压、出处Enter误改正文、设置释放竞态及版本读取/回滚失败反馈。最终所选门禁PASS：AST141/0、工具22、ARB336×3、普通676、owned2、文本9、format/analyze、Release与独立复制包；680px/200%截图复看通过。golden未重批，原生物理项NOT_RUN。详细结果见 `docs/evidence/frontend-standards-20261021/detail-followup-20261022.md`；未提交或推送。
+
 > 2026-10-21 前端规范落地与结构整改收尾：按 `docs/engineering/frontend-standards.md` 把工作台/编辑器/讨论/资料/legacy 巨型文件按职责拆成可测试组件，统一令牌/控件/选择器/组件主题入口（`theme/workbench_*`、`workspace/presentation/toolbar_*` 等），新增 AST 结构与 ARB 检查工具及统一入口 `scripts/check-frontend.ps1`，并同步 DESIGN/AGENTS/README。收尾修复上一会话遗留的版式菜单真实点击命中与测试格式问题。同一工作树统一门禁所选项全 PASS：AST 139 文件 0 违规、负向 21、ARB 336×3、format/analyze 无问题、普通回归 640、owned 2、Windows Release、独立复制包（probe 0/缺 DLL 1/path 移除 SDK）；golden 比较 SKIPPED（8 张历史差异未重批），真实 IME/DPI/屏幕阅读器/净机安装 NOT_RUN。证据见 `docs/evidence/frontend-standards-20261021/README.md`，历史 UI 交互与页面覆盖见 `docs/evidence/ui-interaction-20261021/`、`docs/evidence/ui-completion-20261021/`。
 
 > 2026-10-20 整改复核 F1–F4 修复：补正文 composing 快捷键守卫，将生成运行态移至 Registry 以保留收起/重开后的取消能力，资料引用冻结当前作品/章节/讨论，移除 bundle 验证的历史目录自动删除。新增 12 项永久回归；定向 79、普通全量 583、owned 2 项通过，format/analyze、Release、独立复制包与历史目录保留检查通过。新客户端已打开（PID 37404）。真实物理 IME/DPI 等既有 NOT_RUN 边界保留，golden 未重批，未提交工作树。证据见 `docs/evidence/review-fixes-20261020/README.md`。
@@ -25,7 +27,7 @@
 
 # Flutter 迁移进度
 
-## 当前状态（2026-10-21）
+## 当前状态（2026-10-22）
 
 | 范围 | 状态 | 证据 |
 | --- | --- | --- |
@@ -43,6 +45,7 @@
 | 最终统一门禁（真实 FFI/Release/bundle/Windows integration/golden 报告） | PASS（golden 单独报告 2 失败：既有视觉基线未重批，未 update） | `docs/evidence/operation-parity-20261020/` 的 `final-*.log`、`bundle-probe/` |
 | 原生交互外观合同与控件/页面覆盖（2026-10-21） | IMPLEMENTED（共享 32px 控件底板/48px 命中、DiscussionSurface、控件状态合同；627+owned2 回归、Release/bundle PASS；物理状态矩阵 NOT_RUN） | `docs/evidence/ui-interaction-20261021/README.md`、`ui-completion-20261021/README.md` |
 | 前端规范与结构整改（F01–F14，2026-10-21） | PASS（AST 139/0、负向21、ARB 336×3、普通回归640、owned2、format/analyze、Release/bundle；golden SKIPPED、物理项 NOT_RUN） | `docs/evidence/frontend-standards-20261021/README.md` |
+| 前端规范细节接续（F01–F15，2026-10-22） | 所选自动检查 PASS（AST141/0、工具22、freshness及9样本、ARB336×3、普通676、owned2、文本9、format/analyze、Release/bundle；golden SKIPPED、物理项 NOT_RUN） | `docs/evidence/frontend-standards-20261021/detail-followup-20261022.md` |
 
 说明：下表与后续段落为历史记录，保留当时的 NOT_RUN 与结论，不因后续批次改写。
 

@@ -1,0 +1,141 @@
+{
+  "RunId": "973146bbea7b427a8f88630d792708a4",
+  "SelectedChecksStatus": "NOT_RUN",
+  "OverallStatus": "PARTIAL",
+  "Coverage": "Selected automated checks only; optional and physical checks remain separately listed.",
+  "Results": [
+    {
+      "Check": "ast-structure-theme",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "gate-negative-tests",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "gate-analyze",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "arb-contract",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Dart executable unavailable"
+    },
+    {
+      "Check": "l10n-freshness",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": 3,
+      "Detail": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\missing-tools-default-gate\\l10n-freshness.txt"
+    },
+    {
+      "Check": "app-format",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "text-format",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "gate-format",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "app-analyze",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "text-analyze",
+      "Status": "NOT_RUN",
+      "Selected": true,
+      "ExitCode": null,
+      "Detail": "Executable unavailable"
+    },
+    {
+      "Check": "regression-production",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Test"
+    },
+    {
+      "Check": "regression-owned",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Test"
+    },
+    {
+      "Check": "text-tests",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Test"
+    },
+    {
+      "Check": "golden-comparison",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -Golden; never updates baselines"
+    },
+    {
+      "Check": "windows-release-build",
+      "Status": "SKIPPED",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Select -WindowsBuild"
+    },
+    {
+      "Check": "physical-ime",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "physical-dpi-multimonitor",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "screen-reader",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    },
+    {
+      "Check": "clean-machine-installation",
+      "Status": "NOT_RUN",
+      "Selected": false,
+      "ExitCode": null,
+      "Detail": "Requires separate real-system evidence"
+    }
+  ]
+}

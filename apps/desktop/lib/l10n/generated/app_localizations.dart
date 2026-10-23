@@ -705,6 +705,18 @@ abstract class AppLocalizations {
   /// **'Unsent draft'**
   String get discussionDraft;
 
+  /// Placeholder prompt inside the discussion draft field before the author types.
+  ///
+  /// In en, this message translates to:
+  /// **'Write what you want adjusted in this passage…'**
+  String get discussionDraftHint;
+
+  /// Placeholder prompt shown where the first line will appear in an empty chapter editor.
+  ///
+  /// In en, this message translates to:
+  /// **'Write the first sentence of this chapter…'**
+  String get editorEmptyHint;
+
   /// Warning explaining that a discussion target changed while its original quotation is retained.
   ///
   /// In en, this message translates to:

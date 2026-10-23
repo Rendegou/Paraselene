@@ -1,0 +1,53 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: (setUpAll)
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: (setUpAll)
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:00 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:00 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:01 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:02 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:02 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:02 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:02 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:02 +18: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:02 +19: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +20: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +21: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +22: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +23: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +24: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +25: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +26: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:02 +27: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:03 +28: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:03 +29: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 revision_conflict，窗口 1040.0 保留讨论与恢复
+00:03 +30: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+00:03 +31: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+00:03 +32: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+00:03 +33: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:03 +34: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:03 +35: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:03 +36: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:03 +37: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:03 +38: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:03 +39: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:04 +40: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:04 +41: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 disk_full，窗口 1060.0 保留讨论与恢复
+00:04 +42: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 disk_full，窗口 1060.0 保留讨论与恢复
+00:04 +43: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 英文长保存状态 disk_full，窗口 1060.0 保留讨论与恢复
+00:04 +44: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 作品 A 宽稿、作品 B 舒适：切换作品各自恢复
+00:04 +45: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 作品 A 宽稿、作品 B 舒适：切换作品各自恢复
+00:04 +46: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: 更多菜单有局部焦点且 Enter/Escape 不改变正文或命中边界
+00:04 +47: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_state_geometry_test.dart: (tearDownAll)
+00:04 +47: All tests passed!

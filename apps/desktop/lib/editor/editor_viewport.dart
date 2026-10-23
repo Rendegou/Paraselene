@@ -32,6 +32,7 @@ class EditorViewport extends StatefulWidget {
     this.restoreScrollOffset,
     this.restoreScrollToken,
     this.onScrollRestored,
+    this.emptyPlaceholder,
     super.key,
   });
 
@@ -97,6 +98,9 @@ class EditorViewport extends StatefulWidget {
 
   /// 恢复成功应用后回调；用于消费 controller 的 pendingScrollTop 状态。
   final VoidCallback? onScrollRestored;
+
+  /// 正文为空时在第一行位置展示的只读提示；不拦截输入，不进入语义树。
+  final Widget? emptyPlaceholder;
   @override
   State<EditorViewport> createState() => EditorViewportState();
 }

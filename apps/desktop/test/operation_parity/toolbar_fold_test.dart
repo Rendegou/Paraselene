@@ -1,12 +1,16 @@
 // R13：工具栏按实际可用宽度与文字缩放折叠，核心写作入口不丢失。
 // 覆盖窄窗折叠菜单、宽窗常驻入口、语义名与可点击目标尺寸；不连真实 FFI。
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:paraselene_flutter/l10n/generated/app_localizations.dart';
 import 'package:paraselene_flutter/theme/workbench_theme.dart';
 import 'package:paraselene_flutter/workspace/data/synthetic_workspace_repository.dart';
 import 'package:paraselene_flutter/workspace/presentation/workbench_screen.dart';
 import 'package:paraselene_flutter/workspace/workspace_controller.dart';
+import 'package:paraselene_flutter/workspace/presentation/toolbar_row.dart';
+import 'package:paraselene_flutter/editor/editor_anchor.dart';
+import 'review_fixes_test.dart' show ReviewRepository;
 
 import '../support/m2_harness.dart';
 
@@ -18,10 +22,11 @@ void main() {
     required Size size,
     required Locale locale,
     double scale = 1,
+    SyntheticWorkspaceRepository? repository,
   }) async {
     tester.useSurface(size);
     final controller = WorkspaceController(
-      SyntheticWorkspaceRepository(withDemo: true),
+      repository ?? SyntheticWorkspaceRepository(withDemo: true),
     );
     await controller.restoreSession();
     addTearDown(() async {
@@ -53,6 +58,43 @@ void main() {
     await tester.pump();
     return controller;
   }
+
+  testWidgets('常规宽窗选段讨论时，作品名与保存状态保持可读单行', (tester) async {
+    final controller = await pump(
+      tester,
+      size: const Size(1440, 900),
+      locale: chinese,
+      repository: ReviewRepository(),
+    );
+    final registry = controller.discussions!;
+    final thread = registry.create(EditorAnchor.capture(controller.body, 0, 4));
+    await tester.pump();
+    await tester.tap(find.byKey(ValueKey('thread-marker-open-${thread.id}')));
+    await tester.pumpAndSettle();
+    final title = find.descendant(
+      of: find.byType(ToolbarDocumentTitle),
+      matching: find.text(controller.currentWork!.title),
+    );
+    final titleParagraph = tester.renderObject<RenderParagraph>(title);
+    final savedParagraph = tester.renderObject<RenderParagraph>(
+      find.byKey(const ValueKey('save-status')),
+    );
+    expect(
+      titleParagraph.size.width,
+      greaterThanOrEqualTo(
+        titleParagraph.getMaxIntrinsicWidth(double.infinity),
+      ),
+    );
+    expect(
+      titleParagraph.size.height,
+      lessThanOrEqualTo(titleParagraph.preferredLineHeight * 1.1),
+    );
+    expect(
+      savedParagraph.size.height,
+      lessThanOrEqualTo(savedParagraph.preferredLineHeight * 1.1),
+    );
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('布局矩阵不溢出且核心入口始终存在', (tester) async {
     const sizes = [

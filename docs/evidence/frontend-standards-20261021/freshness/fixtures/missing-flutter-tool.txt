@@ -1,0 +1,1 @@
+NOT_RUN: l10n-freshness; Dart or Flutter executable unavailable.

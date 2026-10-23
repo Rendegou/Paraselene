@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'workbench_controls.dart';
 
 /// A tool selector uses the shared button plate and native menu route.
 /// Values remain unchanged; long labels wrap and Escape restores trigger focus.
@@ -46,7 +47,7 @@ class _WorkbenchSelectState<T> extends State<WorkbenchSelect<T>> {
       ),
       items: [
         for (final item in widget.items)
-          CheckedPopupMenuItem<T>(
+          WorkbenchCheckedMenuItem<T>(
             value: item.value,
             enabled: item.enabled,
             checked: item.value == widget.value,

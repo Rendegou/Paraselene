@@ -1,0 +1,17 @@
+{
+  "Status": "FAIL",
+  "ExitCode": 1,
+  "RunId": "08e86ef2ad8f4ae1a21116c873c50db3",
+  "SourceUnchanged": true,
+  "GeneratorExitCode": 0,
+  "TemporaryProject": "D:\\MyAgent\\paraselene-flutter\\build\\l10n-freshness\\08e86ef2ad8f4ae1a21116c873c50db3\\project",
+  "GeneratorLog": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\generated-file-missing\\gen-l10n.txt",
+  "ExpectedFileCount": 3,
+  "ActualFileCount": 2,
+  "Missing": [
+    "app_localizations_en.dart"
+  ],
+  "Extra": [],
+  "Changed": [],
+  "Detail": "Localization output differs: missing=1, extra=0, changed=0."
+}

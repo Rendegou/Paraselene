@@ -166,6 +166,34 @@ void work() {
     );
   });
 
+  test('popup menus must use the native state-styled button branch', () {
+    for (final expression in [
+      'PopupMenuButton<int>(child: label)',
+      'm.PopupMenuButton<String>(child: label, style: shared)',
+      'new PopupMenuButton<int>(child: label)',
+      'new m.PopupMenuButton<String>(child: label)',
+      'new PopupMenuButton<m.Locale>(child: label)',
+      'new m.PopupMenuButton<ui.Locale>(child: label)',
+    ]) {
+      expect(
+        inspectSource(
+          'lib/menu.dart',
+          'final menu = $expression;',
+        ).where((finding) => finding.rule == 'menu-state-style').length,
+        1,
+        reason: expression,
+      );
+    }
+    expect(
+      inspectSource('lib/menu.dart', '''
+final menu = PopupMenuButton<int>(icon: label, style: shared);
+final defaultMenu = PopupMenuButton<String>();
+final noChild = PopupMenuButton<int>(child: null);
+'''),
+      isEmpty,
+    );
+  });
+
   test('minimum text size covers direct styles, copyWith and ui roles', () {
     final report = inspectSource('lib/theme/text.dart', '''
 final first = TextStyle(fontSize: 11.5);

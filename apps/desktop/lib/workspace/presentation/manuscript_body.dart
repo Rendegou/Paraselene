@@ -163,6 +163,11 @@ class ManuscriptViewport extends StatelessWidget {
       onOpenSources: p.sources.open,
       editorLabel: strings.editorAccessibleLabel,
       renderingFailureLabel: strings.editorRenderingUnsupported,
+      // 空稿在首行位置给出衬线提示；正文出现即消失，不属于正文内容。
+      emptyPlaceholder: Text(
+        strings.editorEmptyHint,
+        style: WorkbenchTokens.body.copyWith(color: WorkbenchTokens.muted),
+      ),
       discussionBuilder: controller.discussions == null
           ? null
           : (context, id) => ManuscriptDiscussionHost(id: id, presentation: p),
@@ -175,10 +180,22 @@ class ManuscriptViewport extends StatelessWidget {
         },
       ),
       onThreadHostMeasured: p.hosts.measured,
-      selectionActionBuilder: (context, caret) => ManuscriptSelectionAction(
-        label: strings.discussSelection,
-        onPressed: p.onDiscussSelection,
-      ),
+      selectionActionBuilder: (context, caret) {
+        // 选区恰好是活动线程锚点时不再浮出“讨论这段”：该段的卡片已展开在段下，
+        // 重复入口只会制造同一选段的重复线程。
+        final anchor = p.hosts.active?.anchor;
+        final selection = p.adapter.client.value.selection;
+        if (anchor != null &&
+            !selection.isCollapsed &&
+            selection.start == anchor.from &&
+            selection.end == anchor.to) {
+          return const SizedBox.shrink();
+        }
+        return ManuscriptSelectionAction(
+          label: strings.discussSelection,
+          onPressed: p.onDiscussSelection,
+        );
+      },
       onStateReady: p.onStateReady,
     );
   }

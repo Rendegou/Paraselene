@@ -343,6 +343,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get discussionDraft => 'Unsent draft';
 
   @override
+  String get discussionDraftHint =>
+      'Write what you want adjusted in this passage…';
+
+  @override
+  String get editorEmptyHint => 'Write the first sentence of this chapter…';
+
+  @override
   String get discussionInvalid =>
       'This quote has changed. Its original text is preserved.';
 

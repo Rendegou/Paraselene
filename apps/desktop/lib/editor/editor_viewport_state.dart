@@ -300,6 +300,8 @@ class EditorViewportState extends State<EditorViewport> {
   }
 
   KeyEventResult _key(FocusNode node, KeyEvent event) {
+    // 头尾控件与嵌入讨论共享视口子树；它们的按键继续交给自身 Actions。
+    if (!node.hasPrimaryFocus) return KeyEventResult.ignored;
     if ((event is KeyDownEvent || event is KeyRepeatEvent) &&
         !controller.composing &&
         !HardwareKeyboard.instance.isControlPressed) {

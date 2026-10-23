@@ -1,0 +1,6 @@
+{
+  "Status": "FAIL",
+  "ExitCode": 1,
+  "RunId": "566055dc71c74e929a311ee4632264b3",
+  "Detail": "Invalid isolated localization configuration. Log: D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\escaping-output-rejected\\config-errors.txt"
+}

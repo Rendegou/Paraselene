@@ -106,17 +106,14 @@ class ToolbarMenuTrigger extends StatelessWidget {
         ? WorkbenchTokens.ink
         : WorkbenchTokens.muted.withValues(alpha: 0.5);
     return Container(
-      height: 40,
+      constraints: const BoxConstraints(minHeight: 40),
       padding: EdgeInsetsDirectional.symmetric(horizontal: compact ? 8 : 10),
       alignment: Alignment.center,
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(icon, size: 17, color: color),
-          if (!compact) ...[
-            const SizedBox(width: 7),
-            Text(label, style: WorkbenchTokens.ui(size: 13, color: color)),
-          ],
+          if (!compact) ...[const SizedBox(width: 7), Text(label)],
           const SizedBox(width: 3),
           Icon(Icons.arrow_drop_down, size: 16, color: color),
         ],

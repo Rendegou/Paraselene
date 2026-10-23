@@ -417,6 +417,8 @@
   "discussSelection": "Discuss selection",
   "discussions": "Discussions",
   "discussionDraft": "Unsent draft",
+  "discussionDraftHint": "Write what you want adjusted in this passage…",
+  "editorEmptyHint": "Write the first sentence of this chapter…",
   "discussionInvalid": "This quote has changed. Its original text is preserved.",
   "discussionSaveFailed": "Discussion could not be saved. Your draft is kept; retry before leaving.",
   "discussionEmpty": "No discussions yet",
@@ -1169,6 +1171,12 @@
   },
   "@discussionDraft": {
     "description": "Field label for discussion text that has not been sent to a model."
+  },
+  "@discussionDraftHint": {
+    "description": "Placeholder prompt inside the discussion draft field before the author types."
+  },
+  "@editorEmptyHint": {
+    "description": "Placeholder prompt shown where the first line will appear in an empty chapter editor."
   },
   "@sourceMarksEmpty": {
     "description": "Source-loading empty state after a successful read with no source marks."

@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import '../../editor/editor_source_mark.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../../theme/workbench_controls.dart';
 
 /// Keyboard and screen-reader alternative to Ctrl-click on source underlines.
 ///
@@ -44,6 +45,7 @@ class EditorSourceMenu extends StatelessWidget {
           Semantics(liveRegion: true, child: Text(s.sourceMarksLoading)),
         if (!loading && marks.isNotEmpty)
           PopupMenuButton<int>(
+            style: WorkbenchControls.button(),
             enabled: enabled,
             tooltip: s.manuscriptSources,
             onSelected: (index) => onOpen([marks[index]]),
@@ -51,10 +53,7 @@ class EditorSourceMenu extends StatelessWidget {
               for (var i = 0; i < marks.length; i++)
                 PopupMenuItem(value: i, child: Text(marks[i].name)),
             ],
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(s.manuscriptSources),
-            ),
+            icon: Text(s.manuscriptSources),
           ),
         if (!loading && marks.isNotEmpty) Text(s.sourceMarksHint),
         if (!loading && failed)

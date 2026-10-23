@@ -1,0 +1,43 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: '雨后的书店\r\n'
+            '街灯映在水面上。The bookshop was still open.\r\n'
+            'العربية · 👩‍💻 · é\r\n'
+            '她推开门，听见熟悉的铃声。'
+  Actual: '\n'
+            '雨后的书店\r\n'
+            '街灯映在水面上。The bookshop was still open.\r\n'
+            'العربية · 👩‍💻 · é\r\n'
+            '她推开门，听见熟悉的铃声。'
+   Which: is different.
+          Expected: 雨后的书店\r\n街 ...
+            Actual: \n雨后的书店\r\ ...
+                    ^
+           Differ at offset 0
+聚焦出处控件时 Enter 不能被外层编辑器当作正文换行
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart:90:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart line 90
+The test description was:
+  出处重试和菜单有完整命中与焦点边界，字号 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: 出处重试和菜单有完整命中与焦点边界，字号 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+  
+00:01 +0 -1: (tearDownAll)
+00:01 +0 -1: Some tests failed.

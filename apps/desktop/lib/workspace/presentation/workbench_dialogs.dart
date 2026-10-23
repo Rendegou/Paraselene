@@ -12,6 +12,8 @@ import '../data/workspace_repository.dart';
 import '../workspace_controller.dart';
 import 'workbench_chrome.dart';
 
+export 'version_history_dialog.dart' show VersionsDialog;
+
 /// Shared title prompt for creating works/chapters and renaming.
 ///
 /// 通用标题输入对话框：标题去除首尾空白后不能为空；取消或非提交关闭返回 null。
@@ -263,116 +265,6 @@ class _ConfirmChapterDialogState extends State<ConfirmChapterDialog> {
         FilledButton(
           onPressed: _busy ? null : _confirm,
           child: Text(widget.labels(s.confirmAction)),
-        ),
-      ],
-    );
-  }
-}
-
-/// Confirmed version list with exact-body preview and explicit rollback.
-///
-/// 已确认版本对话框：展开查看历史正文，回滚前需要二次确认。
-class VersionsDialog extends StatefulWidget {
-  const VersionsDialog({
-    required this.controller,
-    required this.labels,
-    super.key,
-  });
-  final WorkspaceController controller;
-  final WorkbenchLabels labels;
-
-  @override
-  State<VersionsDialog> createState() => _VersionsDialogState();
-}
-
-class _VersionsDialogState extends State<VersionsDialog> {
-  late final Future<List<VersionEntry>> _versions = widget.controller
-      .listVersions();
-
-  Future<void> _rollback(VersionEntry version) async {
-    final s = widget.labels.strings;
-    final accepted = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(widget.labels(s.rollbackTitle)),
-        content: Text(widget.labels(s.rollbackNotice)),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: Text(widget.labels(s.cancelAction)),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: Text(widget.labels(s.rollbackAction)),
-          ),
-        ],
-      ),
-    );
-    if (accepted == true && mounted) {
-      final route = ModalRoute.of(context);
-      final rolledBack = await widget.controller.rollbackChapter(version.id);
-      if (rolledBack && mounted && route?.isCurrent == true) {
-        await Navigator.of(context).maybePop();
-      }
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final s = widget.labels.strings;
-    return AlertDialog(
-      title: Text(widget.labels(s.versionsTitle)),
-      content: SizedBox(
-        width: 560,
-        height: 420,
-        child: FutureBuilder<List<VersionEntry>>(
-          future: _versions,
-          builder: (context, snapshot) {
-            final versions = snapshot.data;
-            if (versions == null) return const LinearProgressIndicator();
-            if (versions.isEmpty) return Text(widget.labels(s.emptyVersions));
-            return ListView.builder(
-              itemCount: versions.length,
-              itemBuilder: (context, index) {
-                final version = versions[index];
-                return ExpansionTile(
-                  key: ValueKey('version-${version.id}'),
-                  title: Text(version.createdAt),
-                  subtitle: version.isHead
-                      ? Text(widget.labels(s.versionCurrent))
-                      : null,
-                  children: [
-                    Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.all(16),
-                        child: SelectableText(
-                          version.body,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ),
-                    ),
-                    if (!version.isHead)
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(bottom: 12),
-                        child: TextButton(
-                          onPressed: widget.controller.isBusy
-                              ? null
-                              : () => _rollback(version),
-                          child: Text(widget.labels(s.rollbackAction)),
-                        ),
-                      ),
-                  ],
-                );
-              },
-            );
-          },
-        ),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(widget.labels(s.closeDialog)),
         ),
       ],
     );

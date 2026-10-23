@@ -122,20 +122,14 @@ abstract final class WorkbenchTokens {
     color: ink,
   );
 
-  /// 常规章节标题：32px/1.55、600 字重。
-  static final title = ui(
-    size: 32,
-    weight: FontWeight.w600,
-    height: 1.55,
-    letterSpacing: -0.8,
-  );
+  /// 常规章节标题：32px/1.55、600 字重；中文标题不用负字距，避免相邻笔画相撞。
+  static final title = ui(size: 32, weight: FontWeight.w600, height: 1.55);
 
   /// 紧凑章节标题：27px/1.55，保留大字号自然增高。
   static final titleCompact = ui(
     size: 27,
     weight: FontWeight.w600,
     height: 1.55,
-    letterSpacing: -0.5,
   );
 
   /// 工具输入字体；禁用态独立减弱，不能继承作者正文样式。

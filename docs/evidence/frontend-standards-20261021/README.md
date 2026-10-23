@@ -1,5 +1,9 @@
 # 前端规范整改收尾 · 2026-10-21
 
+2026-10-22 接续：F15细节验收、菜单状态门禁、本地化生成物 freshness，以及工具栏/出处键盘/设置/版本失败恢复的后续整改见 [detail-followup-20261022.md](detail-followup-20261022.md)。以下保留前一提交的实际结果，不覆盖接续工作树。
+
+同日按用户要求使用 `gpt-6-luna` 独立验收，所验自动化范围通过；Luna重跑AST141/0，主代理补跑47项关键回归通过，未改产品代码。见 [Luna验收报告](luna-acceptance-20261022.md) 与 [本轮复验汇总](luna-acceptance-20261022/summary.json)。golden比较与物理未测项继续单列。
+
 ## 上下文
 
 前序 Codex 会话按 `docs/engineering/frontend-standards.md` 完成 F01–F14：拆分工作台、编辑器、讨论、资料与 legacy 巨型文件，集中主题令牌/控件/选择器/组件主题，新增 AST 结构与 ARB 检查工具及统一入口 `scripts/check-frontend.ps1`，证据在同目录 `final/`。该会话在最后一次修复后达到用量上限，尚未给出最终统一门禁结论；工作树留下未格式化的 `apps/desktop/test/m2_workbench_test.dart`。

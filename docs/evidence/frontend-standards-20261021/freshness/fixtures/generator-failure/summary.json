@@ -1,0 +1,10 @@
+{
+  "Status": "FAIL",
+  "ExitCode": 1,
+  "RunId": "f30ceea477b4463dbba5604b2428c7dd",
+  "SourceUnchanged": true,
+  "GeneratorExitCode": 1,
+  "TemporaryProject": "D:\\MyAgent\\paraselene-flutter\\build\\l10n-freshness\\f30ceea477b4463dbba5604b2428c7dd\\project",
+  "GeneratorLog": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\generator-failure\\gen-l10n.txt",
+  "Detail": "Official gen-l10n failed with exit code 1. Log: D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\generator-failure\\gen-l10n.txt"
+}

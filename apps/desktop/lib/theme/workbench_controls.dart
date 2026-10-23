@@ -84,9 +84,14 @@ abstract final class WorkbenchControls {
     animationDuration: Duration.zero,
   );
 
+  /// 菜单标签自带布局内距；原生 IconButton 分支仍消费共享状态与48px命中。
+  static ButtonStyle menuTrigger() =>
+      button().copyWith(padding: const WidgetStatePropertyAll(EdgeInsets.zero));
+
   /// Draft input owns its focus line; its parent owns the paper surface.
-  static InputDecoration draft(String label) => InputDecoration(
+  static InputDecoration draft(String label, {String? hint}) => InputDecoration(
     labelText: label,
+    hintText: hint,
     filled: false,
     contentPadding: const EdgeInsets.all(panelInset),
     border: const OutlineInputBorder(
@@ -130,6 +135,72 @@ class WorkbenchDisclosure extends StatelessWidget {
           const SizedBox(width: WorkbenchControls.gap),
           Flexible(child: Text(label)),
         ],
+      ),
+    ),
+  );
+}
+
+/// 带选中态的菜单项：浅蓝底、勾选与强调文字同时出现，未选中保持透明。
+///
+/// 原生 CheckedPopupMenuItem 只画勾选不画底色；本组件把 DESIGN 的
+/// selected 合同（浅蓝底 + 勾选 + 语义）固化为单一实现，命中与高度仍走
+/// 原生 PopupMenuItem 分支。
+class WorkbenchCheckedMenuItem<T> extends PopupMenuItem<T> {
+  WorkbenchCheckedMenuItem({
+    required super.value,
+    required bool checked,
+    required Widget child,
+    super.enabled,
+    super.key,
+  }) : super(
+         padding: EdgeInsets.zero,
+         child: _CheckedMenuRow(checked: checked, child: child),
+       );
+}
+
+/// 选中行的可视内容：勾选槽位宽度恒定，选中时整行铺浅蓝底并改强调文字。
+class _CheckedMenuRow extends StatelessWidget {
+  const _CheckedMenuRow({required this.checked, required this.child});
+
+  /// 是否为当前值；同时驱动底色、勾选与 selected 语义。
+  final bool checked;
+
+  /// 菜单项文字内容，由调用方本地化。
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    selected: checked,
+    child: Material(
+      color: checked ? WorkbenchTokens.selected : WorkbenchTokens.transparent,
+      borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
+      child: IconTheme.merge(
+        data: IconThemeData(
+          color: checked ? WorkbenchTokens.accent : WorkbenchTokens.transparent,
+          size: 17,
+        ),
+        child: DefaultTextStyle.merge(
+          style: WorkbenchTokens.ui(
+            size: 13,
+            weight: checked ? FontWeight.w500 : FontWeight.w400,
+            color: checked ? WorkbenchTokens.accent : WorkbenchTokens.ink,
+          ),
+          child: Padding(
+            // 垂直内距使 100% 缩放下行内容恰好填满 48px 命中高度，
+            // 选中底色不会留出上下白边；文字放大时行高自然增高。
+            padding: const EdgeInsetsDirectional.symmetric(
+              horizontal: 12,
+              vertical: 13.5,
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.check, size: 17),
+                const SizedBox(width: 10),
+                Flexible(child: child),
+              ],
+            ),
+          ),
+        ),
       ),
     ),
   );

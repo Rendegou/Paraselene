@@ -1,0 +1,17 @@
+{
+  "Status": "PASS",
+  "Files": [
+    {
+      "Path": "scripts/check-l10n-freshness.ps1",
+      "Errors": 0
+    },
+    {
+      "Path": "scripts/check-frontend.ps1",
+      "Errors": 0
+    },
+    {
+      "Path": "tools/frontend_checks/test/l10n_freshness_test.ps1",
+      "Errors": 0
+    }
+  ]
+}

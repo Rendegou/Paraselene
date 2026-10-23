@@ -1,0 +1,1 @@
+FAIL: l10n-freshness; Localization output differs: missing=0, extra=0, changed=2.

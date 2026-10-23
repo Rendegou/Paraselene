@@ -1,0 +1,1 @@
+FAIL: l10n-freshness; Invalid isolated localization configuration. Log: D:\MyAgent\paraselene-flutter\docs\evidence\frontend-standards-20261021\freshness\fixtures\escaping-output-rejected\config-errors.txt

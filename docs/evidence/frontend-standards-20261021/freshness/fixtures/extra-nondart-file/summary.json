@@ -1,0 +1,17 @@
+{
+  "Status": "FAIL",
+  "ExitCode": 1,
+  "RunId": "59accd21c89c4b16bf8bf47fbd42666c",
+  "SourceUnchanged": true,
+  "GeneratorExitCode": 0,
+  "TemporaryProject": "D:\\MyAgent\\paraselene-flutter\\build\\l10n-freshness\\59accd21c89c4b16bf8bf47fbd42666c\\project",
+  "GeneratorLog": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\extra-nondart-file\\gen-l10n.txt",
+  "ExpectedFileCount": 3,
+  "ActualFileCount": 4,
+  "Missing": [],
+  "Extra": [
+    "nested/unexpected.bin"
+  ],
+  "Changed": [],
+  "Detail": "Localization output differs: missing=0, extra=1, changed=0."
+}

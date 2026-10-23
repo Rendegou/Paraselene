@@ -1,0 +1,45 @@
+{
+  "Date": "2026-10-22",
+  "BaseCommit": "b1f9c43",
+  "Reviewer": {
+    "Model": "gpt-6-luna",
+    "ReasoningEffort": "medium",
+    "Task": "/root/luna_acceptance"
+  },
+  "Verdict": "PASS_FOR_INSPECTED_AUTOMATED_SCOPE",
+  "ParentReview": "ACCEPTED_FOR_SAME_SCOPE",
+  "IndependentAst": {
+    "ExecutedBy": "Luna subagent",
+    "ExitCode": 0,
+    "ProductionFiles": 141,
+    "Violations": 0
+  },
+  "TargetedRegression": {
+    "ExecutedBy": "Parent agent",
+    "ExitCode": 0,
+    "Passed": 47,
+    "TestFiles": 6,
+    "Log": "targeted-tests.txt"
+  },
+  "HistoricalEvidence": {
+    "Action": "Inspected; not rerun in this acceptance",
+    "ProductionTests": 676,
+    "OwnedFfiTests": 2,
+    "TextTests": 9,
+    "ToolTests": 22,
+    "ReleaseAndBundle": "PASS"
+  },
+  "HistoricalGoldenHashes": {
+    "VerifiedBy": "Parent agent, current file SHA256",
+    "Count": 8,
+    "Unchanged": true
+  },
+  "GoldenComparison": "SKIPPED; baselines not updated",
+  "PhysicalChecks": {
+    "Ime": "NOT_RUN",
+    "DpiMultimonitor": "NOT_RUN",
+    "ScreenReader": "NOT_RUN",
+    "CleanInstallation": "NOT_RUN"
+  },
+  "ProductCodeChanges": "None in this acceptance"
+}

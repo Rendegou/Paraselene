@@ -196,6 +196,16 @@ class EditorViewportBody extends StatelessWidget {
         Positioned.fill(
           child: EditorSceneCanvas(bindings: bindings, frame: frame),
         ),
+        // 空稿提示跟随首行排版原点；只读展示，不占命中、不进语义树。
+        if (configuration.emptyPlaceholder != null &&
+            controller.document.raw.isEmpty)
+          Positioned(
+            left: frame.scene.transform.origin.dx,
+            top: frame.scene.transform.origin.dy,
+            child: IgnorePointer(
+              child: ExcludeSemantics(child: configuration.emptyPlaceholder!),
+            ),
+          ),
         if (configuration.discussionBuilder != null)
           Positioned.fill(
             child: ClipRect(

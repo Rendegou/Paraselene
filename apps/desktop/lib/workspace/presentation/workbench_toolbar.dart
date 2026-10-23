@@ -1,4 +1,5 @@
 // 顶栏配置与业务动作：保持所有写入经过控制器，UI按约束组合。
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../../cowrite/discussion_index.dart';
 import '../../cowrite/discussion_thread.dart';
@@ -112,7 +113,10 @@ class WorkbenchToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    height: WorkbenchTokens.toolbarHeight,
+    height: math.max(
+      WorkbenchTokens.toolbarHeight,
+      MediaQuery.textScalerOf(context).scale(24) + 16,
+    ),
     padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
     decoration: const BoxDecoration(
       color: WorkbenchTokens.toolbar,

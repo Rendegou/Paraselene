@@ -1,0 +1,182 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: (setUpAll)
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: an object with length of <2>
+  Actual: [Instance of '_AsyncCompleter<Map<String, dynamic>>']
+   Which: has length of <1>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart:88:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart line 88
+The test description was:
+  出处重试和菜单有完整命中与焦点边界，字号 1.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +1 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:01 +1 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 1.0 [E]
+  Test failed. See exception logs above.
+  The test description was: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+  
+00:02 +1 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +1 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 2.0
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: an object with length of <2>
+  Actual: [Instance of '_AsyncCompleter<Map<String, dynamic>>']
+   Which: has length of <1>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart:88:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart line 88
+The test description was:
+  出处重试和菜单有完整命中与焦点边界，字号 2.0
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +1 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +1 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 2.0 [E]
+  Test failed. See exception logs above.
+  The test description was: 出处重试和菜单有完整命中与焦点边界，字号 2.0
+  
+00:02 +2 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +3 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +4 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +5 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +6 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +7 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +8 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:02 +9 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:02 +10 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:02 +11 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:02 +12 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:03 +13 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:03 +14 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:03 +15 -2: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+══╡ EXCEPTION CAUGHT BY GESTURE ╞═══════════════════════════════════════════════════════════════════
+The following assertion was thrown while handling a gesture:
+setState() callback argument returned a Future.
+The setState() method on _VersionsDialogState#33025 was called with a closure or method that
+returned a Future. Maybe it is marked as "async".
+Instead of performing asynchronous work inside a call to setState(), first execute the work (without
+updating the widget state), and then synchronously update the state inside a call to setState().
+
+When the exception was thrown, this was the stack:
+#0      State.setState.<anonymous closure> (package:flutter/src/widgets/framework.dart:1202:9)
+#1      State.setState (package:flutter/src/widgets/framework.dart:1218:6)
+#2      _VersionsDialogState._retry (package:paraselene_flutter/workspace/presentation/version_history_dialog.dart:51:5)
+#3      _InkResponseState.handleTap (package:flutter/src/material/ink_well.dart:1203:21)
+#4      GestureRecognizer.invokeCallback (package:flutter/src/gestures/recognizer.dart:345:24)
+#5      TapGestureRecognizer.handleTapUp (package:flutter/src/gestures/tap.dart:737:11)
+#6      BaseTapGestureRecognizer._checkUp (package:flutter/src/gestures/tap.dart:362:5)
+#7      BaseTapGestureRecognizer.handlePrimaryPointer (package:flutter/src/gestures/tap.dart:293:7)
+#8      PrimaryPointerGestureRecognizer.handleEvent (package:flutter/src/gestures/recognizer.dart:706:9)
+#9      PointerRouter._dispatch (package:flutter/src/gestures/pointer_router.dart:97:12)
+#10     PointerRouter._dispatchEventToRoutes.<anonymous closure> (package:flutter/src/gestures/pointer_router.dart:143:9)
+#11     _LinkedHashMapMixin.forEach (dart:_compact_hash:764:13)
+#12     PointerRouter._dispatchEventToRoutes (package:flutter/src/gestures/pointer_router.dart:141:18)
+#13     PointerRouter.route (package:flutter/src/gestures/pointer_router.dart:131:7)
+#14     GestureBinding.handleEvent (package:flutter/src/gestures/binding.dart:530:19)
+#15     GestureBinding.dispatchEvent (package:flutter/src/gestures/binding.dart:499:22)
+#16     RendererBinding.dispatchEvent (package:flutter/src/rendering/binding.dart:473:11)
+#17     GestureBinding._handlePointerEventImmediately (package:flutter/src/gestures/binding.dart:437:7)
+#18     GestureBinding.handlePointerEvent (package:flutter/src/gestures/binding.dart:394:5)
+#19     TestWidgetsFlutterBinding.handlePointerEventForSource.<anonymous closure> (package:flutter_test/src/binding.dart:678:42)
+#20     TestWidgetsFlutterBinding.withPointerEventSource (package:flutter_test/src/binding.dart:688:11)
+#21     TestWidgetsFlutterBinding.handlePointerEventForSource (package:flutter_test/src/binding.dart:678:5)
+#22     WidgetTester.sendEventToBinding.<anonymous closure> (package:flutter_test/src/widget_tester.dart:870:15)
+#25     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#26     WidgetTester.sendEventToBinding (package:flutter_test/src/widget_tester.dart:869:27)
+#27     TestGesture.up.<anonymous closure> (package:flutter_test/src/test_pointer.dart:538:26)
+#30     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#31     TestGesture.up (package:flutter_test/src/test_pointer.dart:531:27)
+#32     WidgetController.tapAt.<anonymous closure> (package:flutter_test/src/controller.dart:1113:21)
+<asynchronous suspension>
+#33     TestAsyncUtils.guard.<anonymous closure> (package:flutter_test/src/test_async_utils.dart:130:27)
+<asynchronous suspension>
+#34     main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart:186:5)
+<asynchronous suspension>
+#35     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#36     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 5 frames from dart:async and package:stack_trace)
+
+Handler: "onTap"
+Recognizer:
+  TapGestureRecognizer#88020
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "LinearProgressIndicator": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart:188:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart line 188
+The test description was:
+  failed loading exposes a stable error and retry reaches empty
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (2) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +15 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes with failure after Escape disposes the dialog
+00:03 +16 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty [E]
+  Test failed. See exception logs above.
+  The test description was: failed loading exposes a stable error and retry reaches empty
+  
+00:03 +16 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveCloud completes successfully after outside click disposes the dialog
+00:03 +17 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveCloud completes successfully after outside click disposes the dialog
+00:03 +18 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: content previews exact synthetic text and marks the head
+00:03 +19 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: content previews exact synthetic text and marks the head
+00:03 +20 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: content previews exact synthetic text and marks the head
+00:03 +21 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveCloud completes with failure after Escape disposes the dialog
+00:03 +22 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: a changed work cannot retry the old dialog against the new work
+00:03 +23 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteCloud completes successfully after outside click disposes the dialog
+00:03 +24 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: switching work during confirmation prevents cross-work rollback
+00:03 +25 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteCloud completes successfully after Escape disposes the dialog
+00:03 +26 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: rollback success closes
+00:03 +27 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: rollback success closes
+00:03 +28 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteCloud completes with failure after Escape disposes the dialog
+00:04 +29 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: rollback failure stays open
+00:04 +30 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteKey completes successfully after outside click disposes the dialog
+00:04 +31 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: late rollback success cannot pop a newer route
+00:04 +32 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: late rollback success cannot pop a newer route
+00:04 +33 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteKey completes with failure after outside click disposes the dialog
+00:04 +34 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteKey completes with failure after outside click disposes the dialog
+00:04 +35 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteKey completes with failure after Escape disposes the dialog
+00:04 +36 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: failed save clears input and leaves a recoverable dialog
+00:04 +37 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: delete clears synthetic input and disables cloud on success
+00:04 +38 -3: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: (tearDownAll)
+00:04 +38 -3: Some tests failed.

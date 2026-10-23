@@ -76,7 +76,15 @@ extension M2Harness on WidgetTester {
   }
 
   Future<void> activate(String label) async {
-    final target = find.text(label).first;
+    final text = find.text(label).first;
+    // CheckedPopupMenuItem 的文字被 IgnorePointer 包裹；真实命中由整行接收。
+    final menu = find.ancestor(
+      of: text,
+      matching: find.byWidgetPredicate(
+        (widget) => widget is PopupMenuEntry<dynamic>,
+      ),
+    );
+    final target = menu.evaluate().isEmpty ? text : menu.first;
     await ensureVisible(target);
     await tap(target);
     await flushWorkbench();

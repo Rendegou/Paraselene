@@ -72,7 +72,11 @@ class DiscussionPanelContent extends StatelessWidget {
                 enabled: !view.busy,
                 minLines: 1,
                 maxLines: 3,
-                decoration: WorkbenchControls.draft(s.discussionDraft),
+                // 标签说明字段身份，提示语说明写什么；空框不再只显示状态短语。
+                decoration: WorkbenchControls.draft(
+                  s.discussionDraft,
+                  hint: s.discussionDraftHint,
+                ),
                 onChanged: actions.onDraft,
               ),
               const SizedBox(height: WorkbenchControls.gap),

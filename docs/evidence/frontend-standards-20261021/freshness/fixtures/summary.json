@@ -1,0 +1,80 @@
+{
+  "Status": "PASS",
+  "ExitCode": 0,
+  "OriginalApplicationUnchanged": true,
+  "FixtureProject": "D:\\MyAgent\\paraselene-flutter\\build\\l10n-freshness-fixtures\\bc6ad4c19d014231b7ee59aa4eebeb97\\app",
+  "Cases": [
+    {
+      "Case": "fresh-output",
+      "ExpectedExitCode": 0,
+      "ActualExitCode": 0,
+      "Status": "PASS",
+      "RequiredDifference": "",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\fresh-output\\summary.json"
+    },
+    {
+      "Case": "existing-message-changed",
+      "ExpectedExitCode": 1,
+      "ActualExitCode": 1,
+      "Status": "PASS",
+      "RequiredDifference": "Changed",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\existing-message-changed\\summary.json"
+    },
+    {
+      "Case": "generated-file-missing",
+      "ExpectedExitCode": 1,
+      "ActualExitCode": 1,
+      "Status": "PASS",
+      "RequiredDifference": "Missing",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\generated-file-missing\\summary.json"
+    },
+    {
+      "Case": "extra-nondart-file",
+      "ExpectedExitCode": 1,
+      "ActualExitCode": 1,
+      "Status": "PASS",
+      "RequiredDifference": "Extra",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\extra-nondart-file\\summary.json"
+    },
+    {
+      "Case": "raw-byte-only-change",
+      "ExpectedExitCode": 1,
+      "ActualExitCode": 1,
+      "Status": "PASS",
+      "RequiredDifference": "Changed",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\raw-byte-only-change\\summary.json"
+    },
+    {
+      "Case": "generator-failure",
+      "ExpectedExitCode": 1,
+      "ActualExitCode": 1,
+      "Status": "PASS",
+      "RequiredDifference": "",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\generator-failure\\summary.json"
+    },
+    {
+      "Case": "escaping-output-rejected",
+      "ExpectedExitCode": 1,
+      "ActualExitCode": 1,
+      "Status": "PASS",
+      "RequiredDifference": "",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\escaping-output-rejected\\summary.json"
+    },
+    {
+      "Case": "missing-flutter-tool",
+      "ExpectedExitCode": 3,
+      "ActualExitCode": 3,
+      "Status": "PASS",
+      "RequiredDifference": "",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\missing-flutter-tool\\summary.json"
+    },
+    {
+      "Case": "missing-dart-tool",
+      "ExpectedExitCode": 3,
+      "ActualExitCode": 3,
+      "Status": "PASS",
+      "RequiredDifference": "",
+      "Report": "D:\\MyAgent\\paraselene-flutter\\docs\\evidence\\frontend-standards-20261021\\freshness\\fixtures\\missing-dart-tool\\summary.json"
+    }
+  ]
+}

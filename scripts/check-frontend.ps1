@@ -49,7 +49,7 @@ function Add-FrontResult([string]$Name, [string]$Status, [bool]$Selected,
 }
 
 function Invoke-FrontCheck([string]$Name, [string]$Executable,
-    [string[]]$Arguments, [string]$Directory) {
+    [string[]]$Arguments, [string]$Directory, [Nullable[int]]$UnavailableExitCode = $null) {
     $frontLog = Join-Path $ReportDirectory "$Name.txt"
     if (!(Get-Command $Executable -ErrorAction SilentlyContinue)) {
         Add-FrontResult $Name 'NOT_RUN' $true $null 'Executable unavailable'
@@ -59,7 +59,9 @@ function Invoke-FrontCheck([string]$Name, [string]$Executable,
     try {
         & $Executable @Arguments 2>&1 | Tee-Object -FilePath $frontLog
         $frontCode = $LASTEXITCODE
-        $frontStatus = if ($frontCode -eq 0) { 'PASS' } else { 'FAIL' }
+        $frontStatus = if ($frontCode -eq 0) { 'PASS' }
+            elseif ($null -ne $UnavailableExitCode -and $frontCode -eq $UnavailableExitCode) { 'NOT_RUN' }
+            else { 'FAIL' }
         Add-FrontResult $Name $frontStatus $true $frontCode $frontLog
     } catch {
         $_.Exception.Message | Set-Content -LiteralPath $frontLog -Encoding utf8
@@ -118,6 +120,10 @@ function Invoke-FrontStatic {
     } else {
         Add-FrontResult 'arb-contract' 'NOT_RUN' $true $null 'Dart executable unavailable'
     }
+    Invoke-FrontCheck 'l10n-freshness' 'pwsh' `
+        @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'check-l10n-freshness.ps1'),
+            '-DartExecutable', $DartExecutable, '-FlutterExecutable', $FlutterExecutable,
+            '-ReportDirectory', (Join-Path $ReportDirectory 'l10n-freshness')) $frontRoot -UnavailableExitCode 3
     Invoke-FrontCheck 'app-format' $DartExecutable `
         @('format', '--output=none', '--set-exit-if-changed', 'lib', 'test', 'integration_test', 'bin') $frontApp
     Invoke-FrontCheck 'text-format' $DartExecutable `

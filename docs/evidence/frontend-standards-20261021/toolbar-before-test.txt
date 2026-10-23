@@ -1,0 +1,31 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: a value greater than or equal to <76.25>
+  Actual: <20.302749633789062>
+   Which: is not a value greater than or equal to <76.25>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart:82:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart line 82
+The test description was:
+  常规宽窗选段讨论时，作品名与保存状态保持可读单行
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +0 -1: 常规宽窗选段讨论时，作品名与保存状态保持可读单行 [E]
+  Test failed. See exception logs above.
+  The test description was: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+  
+00:01 +0 -1: (tearDownAll)
+00:01 +0 -1: Some tests failed.

@@ -191,28 +191,33 @@ class ManuscriptSelectionAction extends StatelessWidget {
   /// 为空表示禁用；具体业务由宿主处理。
   final VoidCallback onPressed;
   @override
-  Widget build(BuildContext context) => Material(
-    color: WorkbenchTokens.toolbar,
-    elevation: 2,
-    shadowColor: WorkbenchTokens.shadow,
-    borderRadius: BorderRadius.circular(WorkbenchTokens.overlayRadius),
-    child: InkWell(
-      key: const ValueKey('discuss-selection-inline'),
-      onTap: onPressed,
+  Widget build(BuildContext context) => Semantics(
+    // InkWell 的 tap 语义不携带 button 角色；浮动操作需要明确的按钮身份。
+    button: true,
+    label: label,
+    child: Material(
+      color: WorkbenchTokens.floating,
+      elevation: 2,
+      shadowColor: WorkbenchTokens.shadow,
       borderRadius: BorderRadius.circular(WorkbenchTokens.overlayRadius),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(
-              Icons.forum_outlined,
-              size: 14,
-              color: WorkbenchTokens.accent,
-            ),
-            const SizedBox(width: 5),
-            Text(label, style: WorkbenchTokens.ui(size: 12)),
-          ],
+      child: InkWell(
+        key: const ValueKey('discuss-selection-inline'),
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(WorkbenchTokens.overlayRadius),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.forum_outlined,
+                size: 14,
+                color: WorkbenchTokens.accent,
+              ),
+              const SizedBox(width: 5),
+              Text(label, style: WorkbenchTokens.ui(size: 12)),
+            ],
+          ),
         ),
       ),
     ),
@@ -240,7 +245,8 @@ class ManuscriptThreadMarker extends StatelessWidget {
   Widget build(BuildContext context) => Tooltip(
     message: label,
     child: Material(
-      color: WorkbenchTokens.hover,
+      // 选中浅蓝底 + 强调色图标：页边标记在纸面上需要可发现，不被当成装饰点。
+      color: WorkbenchTokens.selected,
       shape: const CircleBorder(),
       child: InkWell(
         key: ValueKey('thread-marker-open-$id'),
@@ -249,7 +255,11 @@ class ManuscriptThreadMarker extends StatelessWidget {
         child: const SizedBox(
           width: 24,
           height: 24,
-          child: Icon(Icons.forum_outlined, size: 14),
+          child: Icon(
+            Icons.forum_outlined,
+            size: 14,
+            color: WorkbenchTokens.accent,
+          ),
         ),
       ),
     ),

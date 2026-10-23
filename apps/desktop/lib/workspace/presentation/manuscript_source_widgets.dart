@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../lore/source_mark_controller.dart';
+import '../../theme/workbench_controls.dart';
 import '../../theme/workbench_theme.dart';
 import 'manuscript_sources.dart';
 
@@ -45,16 +46,14 @@ class ManuscriptSourceStatus extends StatelessWidget {
       SourceMarkState.content => PopupMenuButton<int>(
         key: const ValueKey('source-marks-menu'),
         tooltip: strings.manuscriptSources,
+        style: WorkbenchControls.button(foreground: WorkbenchTokens.accent),
         enabled: !busy,
         onSelected: (index) => unawaited(sources.open([marks[index]])),
         itemBuilder: (_) => [
           for (var i = 0; i < marks.length; i++)
             PopupMenuItem(value: i, child: Text(marks[i].name)),
         ],
-        child: Text(
-          strings.manuscriptSources,
-          style: WorkbenchTokens.ui(size: 12, color: WorkbenchTokens.accent),
-        ),
+        icon: Text(strings.manuscriptSources),
       ),
     };
   }
@@ -88,20 +87,11 @@ class ManuscriptSourceNote extends StatelessWidget {
     return Semantics(
       liveRegion: true,
       button: true,
-      child: Material(
-        color: WorkbenchTokens.transparent,
-        child: InkWell(
-          key: controlKey,
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(WorkbenchTokens.overlayRadius),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              horizontal: 4,
-              vertical: 2,
-            ),
-            child: label,
-          ),
-        ),
+      child: TextButton(
+        key: controlKey,
+        onPressed: onTap,
+        style: WorkbenchControls.button(foreground: color),
+        child: label,
       ),
     );
   }

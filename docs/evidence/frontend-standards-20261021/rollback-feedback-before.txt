@@ -1,0 +1,32 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: rollback failure stays open
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _DescendantWidgetFinder:<Found 0 widgets with text containing synthetic_rollback_failed
+descending from widgets with type "VersionsDialog": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart:306:9)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart line 306
+The test description was:
+  rollback failure stays open
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:00 +0 -1: rollback failure stays open [E]
+  Test failed. See exception logs above.
+  The test description was: rollback failure stays open
+  
+00:00 +0 -1: (tearDownAll)
+00:00 +0 -1: Some tests failed.

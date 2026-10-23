@@ -1,0 +1,82 @@
+Flutter assets will be downloaded from https://storage.flutter-io.cn. Make sure you trust this source!
+00:00 +0: loading D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: (setUpAll)
+00:00 +0: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/toolbar_fold_test.dart: 常规宽窗选段讨论时，作品名与保存状态保持可读单行
+00:01 +1: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/source_state_test.dart: 出处重试和菜单有完整命中与焦点边界，字号 1.0
+00:01 +2: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +3: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +4: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +5: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +6: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +7: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +8: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +9: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +10: D:/MyAgent/paraselene-flutter/apps/desktop/test/operation_parity/wide_layout_test.dart: 版式菜单写入 controller.wide，纸面宽度与重启恢复同源
+00:02 +11: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +12: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +13: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes successfully after outside click disposes the dialog
+00:02 +14: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:02 +15: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:03 +16: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+00:03 +17: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty
+Pending timers:
+Timer (duration: 0:00:00.350000, periodic: false), created:
+#0      new FakeTimer._ (package:fake_async/fake_async.dart:342:62)
+#1      FakeAsync._createTimer (package:fake_async/fake_async.dart:260:29)
+#2      FakeAsync.run.<anonymous closure> (package:fake_async/fake_async.dart:185:15)
+#5      _WorkspaceState._markPrefsDirty (package:paraselene_flutter/workspace/workspace_state.dart:173:19)
+#6      _WorkspaceState.setWide (package:paraselene_flutter/workspace/workspace_state.dart:142:5)
+#7      main.<anonymous closure> (file:///D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart:190:16)
+<asynchronous suspension>
+#8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+<asynchronous suspension>
+#9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from dart:async and package:stack_trace)
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+A Timer is still pending even after the widget tree was disposed.
+'package:flutter_test/src/binding.dart':
+Failed assertion: line 1626 pos 12: '!timersPending'
+
+When the exception was thrown, this was the stack:
+#2      AutomatedTestWidgetsFlutterBinding._verifyInvariants (package:flutter_test/src/binding.dart:1626:12)
+#3      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1083:7)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from class _AssertionError and package:stack_trace)
+
+The test description was:
+  failed loading exposes a stable error and retry reaches empty
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +17 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveKey completes with failure after Escape disposes the dialog
+00:03 +17 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: failed loading exposes a stable error and retry reaches empty [E]
+  Test failed. See exception logs above.
+  The test description was: failed loading exposes a stable error and retry reaches empty
+  
+00:03 +18 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: synchronous repository failure has the same retry state
+00:03 +19 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveCloud completes successfully after outside click disposes the dialog
+00:03 +20 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: content previews exact synthetic text and marks the head
+00:03 +21 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: content previews exact synthetic text and marks the head
+00:03 +22 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: content previews exact synthetic text and marks the head
+00:03 +23 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: saveCloud completes with failure after Escape disposes the dialog
+00:03 +24 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: a changed work cannot retry the old dialog against the new work
+00:03 +25 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteCloud completes successfully after outside click disposes the dialog
+00:03 +26 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: switching work during confirmation prevents cross-work rollback
+00:03 +27 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: switching work during confirmation prevents cross-work rollback
+00:03 +28 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteCloud completes with failure after outside click disposes the dialog
+00:03 +29 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: rollback success closes
+00:03 +30 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteCloud completes with failure after Escape disposes the dialog
+00:03 +31 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: rollback failure stays open
+00:03 +32 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: rollback failure stays open
+00:03 +33 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteKey completes successfully after Escape disposes the dialog
+00:04 +34 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: late rollback success cannot pop a newer route
+00:04 +35 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: late rollback success cannot pop a newer route
+00:04 +36 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: deleteKey completes with failure after Escape disposes the dialog
+00:04 +37 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/workspace/versions_dialog_test.dart: late rollback success after disposal leaves the parent route
+00:04 +38 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: failed save clears input and leaves a recoverable dialog
+00:04 +39 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: delete clears synthetic input and disables cloud on success
+00:04 +40 -1: D:/MyAgent/paraselene-flutter/apps/desktop/test/cowrite/deepseek_settings_test.dart: (tearDownAll)
+00:04 +40 -1: Some tests failed.

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../theme/workbench_theme.dart';
 import 'editor_status.dart';
 import 'toolbar_controls.dart';
+import 'toolbar_layout.dart';
 import 'toolbar_menus.dart';
 import 'toolbar_more_menu.dart';
 import 'workbench_toolbar.dart';
@@ -22,10 +23,29 @@ class ToolbarRow extends StatelessWidget {
   /// 父约束提供的可用宽度，单位为逻辑像素。
   final double availableWidth;
   @override
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: Listenable.merge([
+      toolbar.controller,
+      toolbar.controller.editing,
+      ?toolbar.actions,
+    ]),
+    builder: (context, _) =>
+        _ToolbarContent(toolbar: toolbar, availableWidth: availableWidth),
+  );
+}
+
+class _ToolbarContent extends StatelessWidget {
+  const _ToolbarContent({required this.toolbar, required this.availableWidth});
+  final WorkbenchToolbar toolbar;
+  final double availableWidth;
+
+  @override
   Widget build(BuildContext context) {
-    final scale = MediaQuery.textScalerOf(context).scale(1);
-    final compact = availableWidth < 1120 * scale;
-    final narrow = availableWidth < 760 * scale;
+    final (:compact, :narrow) = toolbarDensity(
+      context,
+      toolbar,
+      availableWidth,
+    );
     return Row(
       children: [
         if (toolbar.onShowSidebar != null)
@@ -34,10 +54,9 @@ class ToolbarRow extends StatelessWidget {
             tooltip: toolbar.strings.chapters,
             onPressed: toolbar.onShowSidebar,
           ),
-        Flexible(
+        Expanded(
           child: ToolbarDocumentTitle(toolbar: toolbar, narrow: narrow),
         ),
-        const Spacer(),
         ToolbarEditorActions(
           toolbar: toolbar,
           compact: compact,
@@ -77,19 +96,25 @@ class ToolbarDocumentTitle extends StatelessWidget {
     mainAxisSize: MainAxisSize.min,
     children: [
       Flexible(
-        child: Text(
-          toolbar.controller.currentWork?.title ??
+        child: Tooltip(
+          message:
+              toolbar.controller.currentWork?.title ??
               toolbar.strings.workspaceTitle,
-          style: WorkbenchTokens.ui(size: 15, weight: FontWeight.w500),
+          excludeFromSemantics: true,
+          child: Text(
+            toolbar.controller.currentWork?.title ??
+                toolbar.strings.workspaceTitle,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: WorkbenchTokens.ui(size: 15, weight: FontWeight.w500),
+          ),
         ),
       ),
       const SizedBox(width: 12),
-      Flexible(
-        child: SaveStatusIndicator(
-          controller: toolbar.controller,
-          labels: toolbar.labels,
-          compact: narrow,
-        ),
+      SaveStatusIndicator(
+        controller: toolbar.controller,
+        labels: toolbar.labels,
+        compact: narrow,
       ),
     ],
   );
@@ -156,6 +181,7 @@ class ToolbarEditorActionRow extends StatelessWidget {
           ToolbarButton(
             icon: Icons.chat_bubble_outline,
             label: s.discussSelection,
+            compact: compact,
             accent: true,
             tooltip:
                 '${s.selectionCount(registry.selectedCodePoints)} · ${s.discussSelection}',

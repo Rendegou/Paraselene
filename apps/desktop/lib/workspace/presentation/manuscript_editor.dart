@@ -380,6 +380,19 @@ class _ManuscriptEditorState extends State<ManuscriptEditor> {
       _schedulePendingCollapse();
       return;
     }
+    // 同一选段不重复建线程：锚点区间一致的有效讨论直接重开，
+    // 避免同一句话在目录里堆积多条互相孤立的记录。
+    final existing = registry.threads.where(
+      (thread) =>
+          !thread.isChapter &&
+          thread.valid &&
+          thread.anchor?.from == start &&
+          thread.anchor?.to == end,
+    );
+    if (existing.isNotEmpty) {
+      _hosts.activate(existing.first);
+      return;
+    }
     final thread = registry.create(
       EditorAnchor.capture(client.document.raw, start, end),
     );

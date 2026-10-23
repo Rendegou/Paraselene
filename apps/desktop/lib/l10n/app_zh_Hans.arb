@@ -104,6 +104,8 @@
   "discussSelection": "讨论这段",
   "discussions": "讨论",
   "discussionDraft": "未发草稿",
+  "discussionDraftHint": "写下这段想调整的地方…",
+  "editorEmptyHint": "写下这一章的第一句话…",
   "discussionInvalid": "选段已变化，原始引用仍保留。",
   "discussionSaveFailed": "讨论保存失败，草稿已保留；离开前请重试。",
   "discussionEmpty": "尚无讨论",

@@ -1,0 +1,34 @@
+[
+  {
+    "Path": "m2_windows_chinese_isolatedDiff.png",
+    "SHA256": "B116901CB8FD94502E2E3309B1D59A66C83985F7DB421D5873A221A8F4BD8619"
+  },
+  {
+    "Path": "m2_windows_chinese_maskedDiff.png",
+    "SHA256": "CE66DFB3F3C08617FD156D16EAB43265C9039C16B8339F09A52CC6D23A707A65"
+  },
+  {
+    "Path": "m2_windows_chinese_masterImage.png",
+    "SHA256": "5425057A6AD7F15D9A3448F5673207A84F0B4DC99404BA6FEB5EF6F3BC47C8B8"
+  },
+  {
+    "Path": "m2_windows_chinese_testImage.png",
+    "SHA256": "7EECB5041FCF20B4B8DF56B7291590EBCBFF724FC754B6B8AC9A5CAB152DEAA8"
+  },
+  {
+    "Path": "m2_windows_rtl_arabic_isolatedDiff.png",
+    "SHA256": "63E07A54295797D5FA4C7D199B93C8EFE5BF9EA9DFCC4350C8CF6931A1C91BAF"
+  },
+  {
+    "Path": "m2_windows_rtl_arabic_maskedDiff.png",
+    "SHA256": "63818ABBD3F9F99DC96EF3F1C01ADCEF9C650244DECD3A081EDB3A33CC41FC8C"
+  },
+  {
+    "Path": "m2_windows_rtl_arabic_masterImage.png",
+    "SHA256": "AEF7C94833C883D6B42876A257FC27D9FBB259E55FAD5C174466DA64A2F996C1"
+  },
+  {
+    "Path": "m2_windows_rtl_arabic_testImage.png",
+    "SHA256": "AFBD5547B6A9BC630EDBACEB3D1AEFA3A53417613D3A251A9D8C5C8E0C748865"
+  }
+]

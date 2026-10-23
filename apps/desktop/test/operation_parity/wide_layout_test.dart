@@ -14,6 +14,11 @@ import '../support/m2_harness.dart';
 
 void main() {
   setUpAll(loadM2Fonts);
+  setUp(() {
+    final previous = WidgetController.hitTestWarningShouldBeFatal;
+    WidgetController.hitTestWarningShouldBeFatal = true;
+    addTearDown(() => WidgetController.hitTestWarningShouldBeFatal = previous);
+  });
 
   testWidgets('版式菜单写入 controller.wide，纸面宽度与重启恢复同源', (tester) async {
     final repository = SyntheticWorkspaceRepository(withDemo: true);
@@ -24,7 +29,7 @@ void main() {
 
     await tester.tap(find.byTooltip('版式'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('宽稿 · 920 px'));
+    await tester.activate('宽稿 · 920 px');
     await tester.pumpAndSettle();
 
     expect(first.controller.wide, isTrue);
@@ -50,7 +55,7 @@ void main() {
 
     await tester.tap(find.byTooltip('版式'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('宽稿 · 920 px'));
+    await tester.activate('宽稿 · 920 px');
     await tester.pumpAndSettle();
     expect(controller.wide, isTrue);
     await tester.pump(const Duration(milliseconds: 400));

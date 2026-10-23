@@ -1,6 +1,7 @@
 // 折叠菜单按打开时的能力生成，所有动作保持原业务身份。
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../theme/workbench_controls.dart';
 import '../../theme/workbench_theme.dart';
 import 'toolbar_controls.dart';
 import 'workbench_toolbar.dart';
@@ -26,11 +27,12 @@ class ToolbarMoreMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<Object>(
+      style: WorkbenchControls.menuTrigger(),
       borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
       tooltip: toolbar.strings.moreTools,
       onSelected: (value) => _select(context, value),
-      itemBuilder: (_) => _items(),
-      child: ToolbarMenuTrigger(
+      itemBuilder: _items,
+      icon: ToolbarMenuTrigger(
         icon: Icons.more_horiz,
         label: toolbar.strings.moreTools,
         compact: compact,
@@ -77,7 +79,7 @@ class ToolbarMoreMenu extends StatelessWidget {
     }
   }
 
-  List<PopupMenuEntry<Object>> _items() {
+  List<PopupMenuEntry<Object>> _items(BuildContext context) {
     final enabled = !toolbar.controller.isBusy && toolbar.hasChapter;
     // 菜单打开时按最新的 toolbar.actions/选区能力计算，不沿用上一帧缓存。
     final tools = workspaceToolItems(
@@ -86,7 +88,7 @@ class ToolbarMoreMenu extends StatelessWidget {
       hasSelection: toolbar.actions?.canDiscuss ?? false,
     );
     return [
-      if (narrow) ..._narrowItems(enabled),
+      if (narrow) ..._narrowItems(context, enabled),
       for (final item in tools)
         PopupMenuItem(
           value: item.tool,
@@ -112,51 +114,66 @@ class ToolbarMoreMenu extends StatelessWidget {
     ];
   }
 
-  List<PopupMenuEntry<Object>> _narrowItems(bool enabled) => [
-    PopupMenuItem(
-      value: 'discuss',
-      enabled:
-          (toolbar.actions?.canDiscuss ?? false) && !toolbar.controller.isBusy,
-      child: Text(toolbar.strings.discussSelection),
-    ),
-    PopupMenuItem(
-      value: 'chapterDiscussion',
-      enabled: toolbar.actions?.onChapterDiscussion != null,
-      child: Text(toolbar.strings.chapterDiscussion),
-    ),
-    PopupMenuItem(
-      value: 'confirm',
-      enabled: enabled,
-      child: Text(toolbar.strings.confirmChapter),
-    ),
-    PopupMenuItem(
-      value: 'versions',
-      enabled: enabled,
-      child: Text(toolbar.strings.versionsTitle),
-    ),
-    CheckedPopupMenuItem(
-      checked: !toolbar.wide,
-      value: 'comfort',
-      child: Text(toolbar.strings.layoutComfort),
-    ),
-    CheckedPopupMenuItem(
-      checked: toolbar.wide,
-      value: 'wide',
-      child: Text(toolbar.strings.layoutWide),
-    ),
-    PopupMenuItem(
-      value: 'focus',
-      child: Text(
-        toolbar.focus ? toolbar.strings.focusOff : toolbar.strings.focusOn,
+  List<PopupMenuEntry<Object>> _narrowItems(
+    BuildContext context,
+    bool enabled,
+  ) {
+    final current = Localizations.localeOf(context).languageCode;
+    return [
+      PopupMenuItem(
+        value: 'discuss',
+        enabled:
+            (toolbar.actions?.canDiscuss ?? false) &&
+            !toolbar.controller.isBusy,
+        child: Text(toolbar.strings.discussSelection),
       ),
-    ),
-    PopupMenuItem(
-      value: 'export',
-      enabled: enabled,
-      child: Text(toolbar.strings.exportWork),
-    ),
-    PopupMenuItem(value: 'zh', child: Text(toolbar.strings.chineseLabel)),
-    PopupMenuItem(value: 'en', child: Text(toolbar.strings.englishLabel)),
-    const PopupMenuDivider(),
-  ];
+      PopupMenuItem(
+        value: 'chapterDiscussion',
+        enabled: toolbar.actions?.onChapterDiscussion != null,
+        child: Text(toolbar.strings.chapterDiscussion),
+      ),
+      PopupMenuItem(
+        value: 'confirm',
+        enabled: enabled,
+        child: Text(toolbar.strings.confirmChapter),
+      ),
+      PopupMenuItem(
+        value: 'versions',
+        enabled: enabled,
+        child: Text(toolbar.strings.versionsTitle),
+      ),
+      WorkbenchCheckedMenuItem<Object>(
+        checked: !toolbar.wide,
+        value: 'comfort',
+        child: Text(toolbar.strings.layoutComfort),
+      ),
+      WorkbenchCheckedMenuItem<Object>(
+        checked: toolbar.wide,
+        value: 'wide',
+        child: Text(toolbar.strings.layoutWide),
+      ),
+      PopupMenuItem(
+        value: 'focus',
+        child: Text(
+          toolbar.focus ? toolbar.strings.focusOff : toolbar.strings.focusOn,
+        ),
+      ),
+      PopupMenuItem(
+        value: 'export',
+        enabled: enabled,
+        child: Text(toolbar.strings.exportWork),
+      ),
+      WorkbenchCheckedMenuItem<Object>(
+        value: 'zh',
+        checked: current == 'zh',
+        child: Text(toolbar.strings.chineseLabel),
+      ),
+      WorkbenchCheckedMenuItem<Object>(
+        value: 'en',
+        checked: current == 'en',
+        child: Text(toolbar.strings.englishLabel),
+      ),
+      const PopupMenuDivider(),
+    ];
+  }
 }

@@ -329,6 +329,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get discussionDraft => '未发草稿';
 
   @override
+  String get discussionDraftHint => '写下这段想调整的地方…';
+
+  @override
+  String get editorEmptyHint => '写下这一章的第一句话…';
+
+  @override
   String get discussionInvalid => '选段已变化，原始引用仍保留。';
 
   @override
@@ -1380,6 +1386,12 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
 
   @override
   String get discussionDraft => '未发草稿';
+
+  @override
+  String get discussionDraftHint => '写下这段想调整的地方…';
+
+  @override
+  String get editorEmptyHint => '写下这一章的第一句话…';
 
   @override
   String get discussionInvalid => '选段已变化，原始引用仍保留。';

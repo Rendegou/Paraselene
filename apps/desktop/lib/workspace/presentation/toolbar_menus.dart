@@ -1,6 +1,7 @@
 // 顶栏菜单：从工具栏只读配置构建，操作继续使用原有业务命令。
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../theme/workbench_controls.dart';
 import '../../theme/workbench_theme.dart';
 import 'toolbar_controls.dart';
 import 'workbench_toolbar.dart';
@@ -23,6 +24,7 @@ class ToolbarChapterMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final enabled = !toolbar.controller.isBusy && toolbar.hasChapter;
     return PopupMenuButton<String>(
+      style: WorkbenchControls.menuTrigger(),
       borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
       enabled: enabled,
       tooltip: toolbar.strings.chapterAndVersions,
@@ -42,7 +44,7 @@ class ToolbarChapterMenu extends StatelessWidget {
           child: Text(toolbar.strings.versionsTitle),
         ),
       ],
-      child: ToolbarMenuTrigger(
+      icon: ToolbarMenuTrigger(
         icon: Icons.menu_book_outlined,
         label: toolbar.strings.chapterAndVersions,
         compact: compact,
@@ -100,18 +102,19 @@ class ToolbarLayoutMenu extends StatelessWidget {
   final bool compact;
   @override
   Widget build(BuildContext context) => PopupMenuButton<bool>(
+    style: WorkbenchControls.menuTrigger(),
     borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
     tooltip: toolbar.strings.layoutMenu,
     onSelected: (value) {
       if (value != toolbar.wide) toolbar.onWide();
     },
     itemBuilder: (_) => [
-      CheckedPopupMenuItem(
+      WorkbenchCheckedMenuItem<bool>(
         checked: !toolbar.wide,
         value: false,
         child: Text(toolbar.strings.layoutComfort),
       ),
-      CheckedPopupMenuItem(
+      WorkbenchCheckedMenuItem<bool>(
         checked: toolbar.wide,
         value: true,
         child: Text(toolbar.strings.layoutWide),
@@ -125,7 +128,7 @@ class ToolbarLayoutMenu extends StatelessWidget {
         ),
       ),
     ],
-    child: ToolbarMenuTrigger(
+    icon: ToolbarMenuTrigger(
       icon: Icons.format_line_spacing,
       label: toolbar.strings.layoutMenu,
       compact: compact,
@@ -198,6 +201,7 @@ class ToolbarExportMenu extends StatelessWidget {
   final bool compact;
   @override
   Widget build(BuildContext context) => PopupMenuButton<String>(
+    style: WorkbenchControls.menuTrigger(),
     borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
     enabled: !toolbar.controller.isBusy && toolbar.hasChapter,
     tooltip: toolbar.strings.exportMenu,
@@ -211,7 +215,7 @@ class ToolbarExportMenu extends StatelessWidget {
         child: Text(toolbar.strings.exportWork),
       ),
     ],
-    child: ToolbarMenuTrigger(
+    icon: ToolbarMenuTrigger(
       icon: Icons.file_download_outlined,
       label: toolbar.strings.exportMenu,
       compact: compact,
@@ -234,24 +238,34 @@ class ToolbarLanguageMenu extends StatelessWidget {
   /// 是否只展示图标；可访问名称仍保留。
   final bool compact;
   @override
-  Widget build(BuildContext context) => PopupMenuButton<Locale>(
-    borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
-    tooltip: toolbar.strings.languageLabel,
-    onSelected: toolbar.onLocaleChanged,
-    itemBuilder: (_) => [
-      PopupMenuItem(
-        value: const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
-        child: Text(toolbar.strings.chineseLabel),
+  Widget build(BuildContext context) {
+    // 语言菜单与版式菜单同一选中合同：当前界面语言显示浅蓝底与勾选。
+    final current = Localizations.localeOf(context).languageCode;
+    return PopupMenuButton<Locale>(
+      style: WorkbenchControls.menuTrigger(),
+      borderRadius: BorderRadius.circular(WorkbenchTokens.radius),
+      tooltip: toolbar.strings.languageLabel,
+      onSelected: toolbar.onLocaleChanged,
+      itemBuilder: (_) => [
+        WorkbenchCheckedMenuItem<Locale>(
+          value: const Locale.fromSubtags(
+            languageCode: 'zh',
+            scriptCode: 'Hans',
+          ),
+          checked: current == 'zh',
+          child: Text(toolbar.strings.chineseLabel),
+        ),
+        WorkbenchCheckedMenuItem<Locale>(
+          value: const Locale('en'),
+          checked: current == 'en',
+          child: Text(toolbar.strings.englishLabel),
+        ),
+      ],
+      icon: ToolbarMenuTrigger(
+        icon: Icons.translate,
+        label: toolbar.strings.languageLabel,
+        compact: compact,
       ),
-      PopupMenuItem(
-        value: const Locale('en'),
-        child: Text(toolbar.strings.englishLabel),
-      ),
-    ],
-    child: ToolbarMenuTrigger(
-      icon: Icons.translate,
-      label: toolbar.strings.languageLabel,
-      compact: compact,
-    ),
-  );
+    );
+  }
 }

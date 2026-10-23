@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import {
   currentSurface, defaultCharacter, deleteApiKey, exportCharacterPack, getCharacter,
-  getCloudEnabled, getRuntimeActivity, hasApiKey, hideCard, importCharacterPack, onCharacterChanged,
-  llmChatPreview, llmChatSend, llmFetchModels, setApiKey, setCloudEnabled,
-  setCharacter, startWindowDrag, toggleCard, type CharacterConfig, type IssuedPreview, type RuntimeActivity, type Space,
+  getAgentRuntime, getCloudEnabled, getRuntimeActivity, hasApiKey, hideCard, importCharacterPack, onCharacterChanged,
+  setApiKey, setCloudEnabled,
+  setCharacter, startWindowDrag, toggleCard, type CharacterConfig, type RuntimeActivity, type Space,
 } from "./lib/ipc";
+import type { RuntimePreview } from "./lib/runtime/contracts";
 import "./App.css";
 import IdeaPage from "./IdeaPage";
 import ImportSection from "./ImportSection";
@@ -20,6 +21,10 @@ import cloudIdle from "./assets/companions/cloud-idle.png";
 import cloudCurious from "./assets/companions/cloud-curious.png";
 import cloudPoke from "./assets/companions/cloud-poke.png";
 import cloudSleep from "./assets/companions/cloud-sleep.png";
+
+// The composition layer selects the approved backend; components keep the same
+// preview/send workflow when the dsh adapter is ready for production.
+const chatRuntime = getAgentRuntime();
 
 const spaces: { id: Space; name: string }[] = [
   { id: "personal", name: "个人" },
@@ -158,7 +163,7 @@ function Card() {
   const [tab, setTab] = useState<"chat" | "ideas" | "character" | "settings">("chat");
   const [space, setSpace] = useState<Space>("personal");
   const [prompt, setPrompt] = useState("");
-  const [preview, setPreview] = useState<IssuedPreview | null>(null);
+  const [preview, setPreview] = useState<RuntimePreview | null>(null);
   const [reply, setReply] = useState("");
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState("");
@@ -214,7 +219,7 @@ function Card() {
     const revision = previewRevision.current;
     setBusy(true); setNotice("");
     try {
-      const result = await llmChatPreview({
+      const result = await chatRuntime.preview({
         space, messages: [{ role: "user", content: prompt.trim() }],
         ...(model ? { model } : {}),
       });
@@ -227,7 +232,7 @@ function Card() {
     if (!preview || hasKey !== true || cloud?.[preview.prepared.space] !== true) return;
     setBusy(true); setNotice(""); setReply("");
     try {
-      await llmChatSend(preview.id, (event) => {
+      await chatRuntime.send(preview, (event) => {
         if (event.type === "delta") setReply((text) => text + event.content);
         if (event.type === "error") setNotice(`模型请求失败：${event.message}`);
       });
@@ -267,7 +272,7 @@ function Card() {
   async function fetchModels() {
     setBusy(true);
     try {
-      const names = await llmFetchModels();
+      const names = await chatRuntime.listModels();
       setModels(names); setNotice(`已获取 ${names.length} 个可用模型。`);
     } catch (error) { setNotice(`获取模型失败：${String(error)}`); }
     finally { setBusy(false); }

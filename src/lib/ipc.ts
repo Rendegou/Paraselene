@@ -4,6 +4,14 @@
 import { Channel, invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { createLegacyRustRuntime } from "./runtime/legacy-rust";
+import { requireAgentRuntime } from "./runtime/agent-runtime";
+import type {
+  AgentRuntime, ChatRequest, IssuedPreview, LlmStreamEvent, RuntimeId, Space,
+} from "./runtime/contracts";
+
+// 组件继续从唯一 IPC 边界获取类型；运行时契约本身不依赖 Tauri。
+export type * from "./runtime/contracts";
 
 let readyPromise: Promise<void> | undefined;
 
@@ -258,9 +266,6 @@ export async function deleteApiKey(): Promise<void> {
 // LLM 对话（G16 外发前预览 + Goal §4.5 模型调用约束）
 // ---------------------------------------------------------------------------
 
-/** 记忆空间（与 Rust 侧 llm-core / memory-core 的 Space 对齐）。 */
-export type Space = "personal" | "idea" | "novel" | "learning";
-
 /** 查询/设置单个空间的云调用开关；数据库错误会透传，不静默开启。 */
 export async function getCloudEnabled(space: Space): Promise<boolean> {
   await waitForBackend();
@@ -270,65 +275,6 @@ export async function getCloudEnabled(space: Space): Promise<boolean> {
 export async function setCloudEnabled(space: Space, enabled: boolean): Promise<void> {
   return invoke<void>("set_cloud_enabled", { space, enabled });
 }
-
-export interface ToolCallRequest {
-  id: string;
-  name: string;
-  arguments: string;
-}
-
-/** 对话消息（与 Rust 侧 llm-core 的 Message 对齐）。 */
-export interface ChatMessage {
-  role: "system" | "user" | "assistant" | "tool";
-  content: string | null;
-  tool_calls?: ToolCallRequest[];
-  tool_call_id?: string;
-  name?: string;
-}
-
-export interface ProviderTool {
-  name: string;
-  description: string;
-  parameters: unknown;
-}
-
-/** 对话请求（space 决定 kill switch 检查哪一路开关）。 */
-export interface ChatRequest {
-  space: Space;
-  messages: ChatMessage[];
-  model?: string;
-  max_tokens?: number;
-  temperature?: number;
-  tools?: ProviderTool[];
-}
-
-/** 外发前预览（G16）：与随后 send 的内容是同一份结构，可直接展示。 */
-export interface PreparedChat {
-  space: Space;
-  messages: ChatMessage[];
-  model: string;
-  estimated_tokens: number;
-  max_tokens?: number;
-  temperature?: number;
-  tools?: ProviderTool[];
-}
-
-export interface IssuedPreview {
-  id: string;
-  prepared: PreparedChat;
-}
-
-export interface Usage {
-  input_tokens: number;
-  output_tokens: number;
-}
-
-/** 流式事件（type 区分；error 带 kind，前端按 kind 分类提示，如 auth → 「Key 无效」）。 */
-export type LlmStreamEvent =
-  | { type: "delta"; content: string }
-  | { type: "tool_calls"; calls: ToolCallRequest[] }
-  | { type: "done"; finish_reason: string; usage?: Usage }
-  | { type: "error"; kind: string; message: string };
 
 /** 外发前预览（G16）：组装但不发送；对应空间关闭云调用时抛错（kill switch）。 */
 export async function llmChatPreview(request: ChatRequest): Promise<IssuedPreview> {
@@ -348,4 +294,18 @@ export async function llmChatSend(
 /** 拉取模型名单（运行时拉取不写死，Goal §3；供设置界面）。 */
 export async function llmFetchModels(): Promise<string[]> {
   return invoke<string[]>("llm_fetch_models");
+}
+
+const legacyRuntime = createLegacyRustRuntime({
+  preview: llmChatPreview,
+  send: llmChatSend,
+  listModels: llmFetchModels,
+});
+
+/**
+ * 组件的运行时入口；构造不联网。dsh 完成受控出口和原生验收前不注册，
+ * 显式选择它会报错，避免实验功能静默使用旧引擎。
+ */
+export function getAgentRuntime(id: RuntimeId = "legacy-rust"): AgentRuntime {
+  return requireAgentRuntime(id, [legacyRuntime]);
 }

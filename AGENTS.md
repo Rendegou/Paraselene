@@ -19,7 +19,9 @@
 
 ## 3. 技术基线
 
-- **Tauri 2 + Rust**：Cargo workspace；核心逻辑为纯 Rust crate（不依赖 Tauri，可独立 `cargo test`），`src-tauri` 只做窗口/托盘/IPC 转发；lib crate-type 仅 `rlib`（ADR-0001）。
+- **Tauri 2 原生外壳 + 可替换 Agent 运行时**：2026-10-23 用户授权启动 dsh 迁移，执行 [ADR-0003](docs/adr/0003-dsh-runtime-adapter.md) 与 [迁移计划](docs/dsh-migration-plan.md)。通用 Agent 执行能力通过 TypeScript 适配层接入 dsh 自有插件组合；幻月保持独立产品和数据所有权，不维护 dsh 长期 fork。
+- **现有 Rust 资产保留**：Cargo workspace 中记忆、角色、模型预览与原生凭据能力继续使用；纯逻辑 crate 不依赖 Tauri、可独立 `cargo test`。`src-tauri` 负责原生窗口/托盘/IPC 与凭据边界；lib crate-type 仍仅 `rlib`（ADR-0001）。迁移阶段不因语言统一重写数据库或搬迁用户资料。
+- **阶段切换**：M03 的完整外发授权与 M05 的 Windows 验收通过前，产品默认后端仍是现有 Rust 模型实现；dsh 实验必须明确标注，未实现能力显式拒绝，不静默回退。该条件是迁移验收门槛，不新增逐步向用户申请许可的流程。
 - 前端 React + TypeScript + Vite；所有 IPC 调用收敛到**单一封装层**（参考 local-ai-chat-manager 的 `lib/ipc.ts` 模式），禁止组件内直接调 Tauri API。
 - 本地存储 **SQLite（FTS5）**；记忆原文与索引只留本机。
 - 模型：**DeepSeek 官方 API，用户自带 Key（BYOK）**；不使用网页版 ChatGPT 反代、Cookie 或登录态。

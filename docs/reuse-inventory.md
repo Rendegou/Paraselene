@@ -90,3 +90,7 @@
 
 - 用户 GitHub 公开仓库实际只有 3 个（local-ai-chat-manager、pulse、bytespace）；**agent 底座在 Gitee**（`rendegou/Mycli`）。用户记忆中的"~8 个仓库"其余为私有或纯本地项目。
 - 若还有其他私有仓库需要纳入复用（如用户提到的其他 agent 项目），请补充，本表随之更新。
+
+## 2026-10-03 小说长篇参考补充
+
+本轮四项目均为“仅设计参考，未移植”：LunaRime/novelforge（GPL-3.0）、qnbs/WorldScript-Studio（MIT）、YILING0013/AI_NovelGenerator（AGPL-3.0）、Xiaoyangy/novel-studio（Apache-2.0）。快照、源码入口、机制与限制见 [小说开源研究](novel/open-source-research.md)。SPDX元数据仅用于筛选，实际复用需核对文件/许可证。ATLAS仅参考项目地图与统一门禁方法，没有复制其AGPL代码。

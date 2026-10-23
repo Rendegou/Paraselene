@@ -1,6 +1,8 @@
 # 依赖与构建产物
 node_modules/
+.vite-cache/
 dist/
+public/learning/pyodide/
 target/
 src-tauri/target/
 *.log
@@ -17,6 +19,8 @@ data/
 *.zip
 ChatGPT-*
 corpus/
+.client-mvp-tests/
+docs/evidence/native-a-20261012/synthetic-export.md
 
 # 系统与编辑器
 Thumbs.db

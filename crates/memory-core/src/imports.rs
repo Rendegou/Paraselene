@@ -31,41 +31,62 @@ use crate::storage::db::{Database, FingerprintRow};
 use crate::storage::sessions::DatabaseSink;
 use crate::storage::types::SessionStub;
 
+/// 单次导入允许的最大原始字节数（16 MiB）。超限直接拒绝而不是截断——
+/// 截断后的 JSON 会解析出「半截会话」，比拒绝更糟。
 pub const MAX_IMPORT_BYTES: usize = 16 * 1024 * 1024;
 
 // 与源项目位置一致（adapters/mod.rs），re-export 保持 `imports::` 路径兼容。
 pub use crate::adapters::{cap_text, MAX_TEXT_BYTES};
 
+/// 归一化后的单个导入会话：角色 / 正文 / 时间戳已统一为内部契约形态，
+/// 与来源格式（JSONL、Markdown、ChatGPT 导出…）无关。
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
 pub struct ImportSession {
     pub source: SourceKind,
-    #[serde(default)] pub external_id: Option<String>,
-    #[serde(default)] pub title: Option<String>,
-    #[serde(default)] pub created_at: Option<String>,
-    #[serde(default)] pub updated_at: Option<String>,
+    #[serde(default)]
+    pub external_id: Option<String>,
+    #[serde(default)]
+    pub title: Option<String>,
+    #[serde(default)]
+    pub created_at: Option<String>,
+    #[serde(default)]
+    pub updated_at: Option<String>,
     /// 日期是兜底推断而来（如 ChatGPT 导出走文件 mtime），界面应标注「日期为推断值」。
     #[serde(default)]
     pub date_inferred: bool,
     pub messages: Vec<ImportMessage>,
 }
 
+/// 归一化后的单条导入消息。
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
 pub struct ImportMessage {
     pub role: String,
     pub text: String,
-    #[serde(default = "default_kind")] pub kind: String,
-    #[serde(default)] pub timestamp: Option<String>,
-    #[serde(default)] pub tool_name: Option<String>,
-    #[serde(default)] pub attachments: Vec<String>,
+    #[serde(default = "default_kind")]
+    pub kind: String,
+    #[serde(default)]
+    pub timestamp: Option<String>,
+    #[serde(default)]
+    pub tool_name: Option<String>,
+    #[serde(default)]
+    pub attachments: Vec<String>,
 }
-fn default_kind() -> String { "message".into() }
+fn default_kind() -> String {
+    "message".into()
+}
 
+/// 一次导入的完整载荷（标准会话包的内存形态）。
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
-pub struct ImportPackage { pub schema_version: u32, pub sessions: Vec<ImportSession> }
+pub struct ImportPackage {
+    pub schema_version: u32,
+    pub sessions: Vec<ImportSession>,
+}
 
+/// 确认前的预览视图（不落库）。`token` 把这份预览钉在原生进程内存里，
+/// 确认时凭 token 找回同一份解析结果，避免前端回传正文（也避免预览与确认之间被篡改）。
 #[derive(Debug, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ImportPreview {
@@ -78,42 +99,95 @@ pub struct ImportPreview {
     pub detected_format: String,
 }
 
+/// 预览里的单会话摘要。消息正文截断展示（每条 1500 字、每会话前 10 条）——
+/// 预览只是给用户确认用，完整正文留在原生侧 token 指向的解析结果里。
 #[derive(Debug, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ImportSessionPreview {
-    pub source: SourceKind, pub external_id: String, pub title: Option<String>,
-    pub message_count: usize, pub messages: Vec<ImportMessage>, pub partial: bool,
+    pub source: SourceKind,
+    pub external_id: String,
+    pub title: Option<String>,
+    pub message_count: usize,
+    pub messages: Vec<ImportMessage>,
+    pub partial: bool,
     pub date_inferred: bool,
 }
 
+/// 写托管副本阶段的计数报告；告警只含结构原因，不含消息正文（隐私红线）。
 #[derive(Debug, Default, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ImportReport { pub success: usize, pub duplicates: usize, pub failed: usize, pub partial: usize, pub warnings: Vec<String> }
+pub struct ImportReport {
+    pub success: usize,
+    pub duplicates: usize,
+    pub failed: usize,
+    pub partial: usize,
+    pub warnings: Vec<String>,
+}
 
-fn valid_time(s: &Option<String>) -> bool { s.as_ref().map(|s| chrono::DateTime::parse_from_rfc3339(s).is_ok()).unwrap_or(true) }
+fn valid_time(s: &Option<String>) -> bool {
+    s.as_ref()
+        .map(|s| chrono::DateTime::parse_from_rfc3339(s).is_ok())
+        .unwrap_or(true)
+}
 
+/// 校验并修正单个导入会话：数量 / 时间格式 / 角色 / 类型 / 非空正文。
+///
+/// 缺 external_id 时用会话内容的 BLAKE3 派生（`import-<hex>`）——
+/// 这是重复导入去重的根基：同一份内容无论导入多少次都落在同一个 id 上。
 pub fn validate(s: &mut ImportSession) -> Result<()> {
-    if s.messages.is_empty() || s.messages.len() > 50000 { return Err(Error::parse("消息数量须为 1–50000")); }
-    if !valid_time(&s.created_at) || !valid_time(&s.updated_at) { return Err(Error::parse("会话时间须为 RFC3339 格式")); }
+    if s.messages.is_empty() || s.messages.len() > 50000 {
+        return Err(Error::parse("消息数量须为 1–50000"));
+    }
+    if !valid_time(&s.created_at) || !valid_time(&s.updated_at) {
+        return Err(Error::parse("会话时间须为 RFC3339 格式"));
+    }
     for m in &s.messages {
-        if !matches!(m.role.as_str(), "user" | "assistant" | "system" | "developer" | "tool" | "unknown") { return Err(Error::parse("无法识别角色，请使用模板中的角色名称")); }
-        if !matches!(m.kind.as_str(), "message" | "tool_call" | "tool_result" | "reasoning_summary" | "event") { return Err(Error::parse("无法识别消息类型")); }
-        if m.text.trim().is_empty() && m.attachments.is_empty() { return Err(Error::parse("消息内容不能为空")); }
-        if !valid_time(&m.timestamp) { return Err(Error::parse("消息时间须为 RFC3339 格式")); }
+        if !matches!(
+            m.role.as_str(),
+            "user" | "assistant" | "system" | "developer" | "tool" | "unknown"
+        ) {
+            return Err(Error::parse("无法识别角色，请使用模板中的角色名称"));
+        }
+        if !matches!(
+            m.kind.as_str(),
+            "message" | "tool_call" | "tool_result" | "reasoning_summary" | "event"
+        ) {
+            return Err(Error::parse("无法识别消息类型"));
+        }
+        if m.text.trim().is_empty() && m.attachments.is_empty() {
+            return Err(Error::parse("消息内容不能为空"));
+        }
+        if !valid_time(&m.timestamp) {
+            return Err(Error::parse("消息时间须为 RFC3339 格式"));
+        }
     }
     if let Some(id) = &s.external_id {
-        if id.is_empty() || id.len() > 160 || !id.bytes().all(|b| b.is_ascii_alphanumeric() || matches!(b,b'-' | b'_')) {
-            return Err(Error::parse("外部会话 ID 仅支持 1–160 位字母、数字、短横线与下划线"));
+        if id.is_empty()
+            || id.len() > 160
+            || !id
+                .bytes()
+                .all(|b| b.is_ascii_alphanumeric() || matches!(b, b'-' | b'_'))
+        {
+            return Err(Error::parse(
+                "外部会话 ID 仅支持 1–160 位字母、数字、短横线与下划线",
+            ));
         }
     } else {
         // Hash canonical content, excluding an absent external ID.
-        s.external_id = Some(format!("import-{}",blake3::hash(&serde_json::to_vec(s)?).to_hex()));
+        s.external_id = Some(format!(
+            "import-{}",
+            blake3::hash(&serde_json::to_vec(s)?).to_hex()
+        ));
     }
     Ok(())
 }
 
+/// 会话是否「部分导入」：含无法识别角色的消息，或有正文超过单条上限被截断。
+/// 界面据此标注「不完整」，用户确认时知情。
 pub fn partial(s: &ImportSession) -> bool {
-    s.messages.iter().any(|m| m.role == "unknown" || m.text.len() > MAX_TEXT_BYTES)
+    s.messages
+        .iter()
+        .any(|m| m.role == "unknown" || m.text.len() > MAX_TEXT_BYTES)
 }
 
 /// 识别出来的输入格式。
@@ -161,8 +235,14 @@ const JSONL_MIN_HIT_RATIO: f64 = 0.6;
 ///
 /// `fallback_date`：RFC3339 日期字符串（通常是来源文件的 mtime），供**没有日期**的
 /// 格式（ChatGPT Markdown 导出）兜底，并在会话上标注 `date_inferred`。
-pub fn parse_input(source: &str, text: &str, fallback_date: Option<&str>) -> Result<(ImportPackage, Vec<String>, ImportFormat)> {
-    if text.len() > MAX_IMPORT_BYTES { return Err(Error::parse("导入内容超过 16 MiB，请拆分后重试")); }
+pub fn parse_input(
+    source: &str,
+    text: &str,
+    fallback_date: Option<&str>,
+) -> Result<(ImportPackage, Vec<String>, ImportFormat)> {
+    if text.len() > MAX_IMPORT_BYTES {
+        return Err(Error::parse("导入内容超过 16 MiB，请拆分后重试"));
+    }
     let source = SourceKind::parse(source).ok_or_else(|| Error::parse("数据源标识无效"))?;
     let text = text.trim_start_matches('\u{feff}').trim();
     let mut warnings = Vec::new();
@@ -170,7 +250,7 @@ pub fn parse_input(source: &str, text: &str, fallback_date: Option<&str>) -> Res
     let (sessions, format) = detect(source.clone(), text, &mut warnings)?;
 
     let mut valid = Vec::new();
-    for (i,mut s) in sessions.into_iter().enumerate() {
+    for (i, mut s) in sessions.into_iter().enumerate() {
         // 日期兜底：格式本身没有日期（date_inferred）且调用方提供了文件时间时才启用
         if s.date_inferred && s.created_at.is_none() {
             if let Some(fb) = fallback_date.and_then(crate::parser::normalize_timestamp) {
@@ -178,10 +258,25 @@ pub fn parse_input(source: &str, text: &str, fallback_date: Option<&str>) -> Res
                 s.updated_at = Some(fb);
             }
         }
-        match validate(&mut s) { Ok(()) => valid.push(s), Err(e) => warnings.push(format!("第 {} 个会话：{}",i+1,e.user_message())) }
+        match validate(&mut s) {
+            Ok(()) => valid.push(s),
+            Err(e) => warnings.push(format!("第 {} 个会话：{}", i + 1, e.user_message())),
+        }
     }
-    if valid.is_empty() { return Err(Error::parse(format!("没有可导入的会话。{}",warnings.join("；")))); }
-    Ok((ImportPackage { schema_version: 1, sessions: valid }, warnings, format))
+    if valid.is_empty() {
+        return Err(Error::parse(format!(
+            "没有可导入的会话。{}",
+            warnings.join("；")
+        )));
+    }
+    Ok((
+        ImportPackage {
+            schema_version: 1,
+            sessions: valid,
+        },
+        warnings,
+        format,
+    ))
 }
 
 /// 按「严格 → 宽松」的顺序逐个探测器尝试，返回第一份能解析出会话的结果。
@@ -189,7 +284,11 @@ pub fn parse_input(source: &str, text: &str, fallback_date: Option<&str>) -> Res
 /// 顺序不能随意调：`{messages:[…]}` 对象和标准包都是 `{` 开头，
 /// 而 Claude 转录本身就是 JSONL——先试形状明确的，最后才落到 JSONL 与 Markdown，
 /// 才不会把结构化输入误判成「一行一条」。
-fn detect(source: SourceKind, text: &str, warnings: &mut Vec<String>) -> Result<(Vec<ImportSession>, ImportFormat)> {
+fn detect(
+    source: SourceKind,
+    text: &str,
+    warnings: &mut Vec<String>,
+) -> Result<(Vec<ImportSession>, ImportFormat)> {
     let json = if text.starts_with('{') || text.starts_with('[') {
         serde_json::from_str::<Value>(text).ok()
     } else {
@@ -210,22 +309,34 @@ fn detect(source: SourceKind, text: &str, warnings: &mut Vec<String>) -> Result<
         if let Some(rows) = v.as_array() {
             if rows.iter().all(|r| r.get("messages").is_some()) {
                 let mut out = Vec::new();
-                for row in rows { out.push(session_from_object(source.clone(), row, text)?); }
+                for row in rows {
+                    out.push(session_from_object(source.clone(), row, text)?);
+                }
                 return Ok((out, ImportFormat::MessageArray));
             }
-            return Ok((vec![session_from_messages(source, rows, None, text)?], ImportFormat::MessageArray));
+            return Ok((
+                vec![session_from_messages(source, rows, None, text)?],
+                ImportFormat::MessageArray,
+            ));
         }
     }
 
     // 4. JSONL：逐行解析，命中率够高才算转录
     if let Some((session, is_claude)) = try_jsonl(source.clone(), text) {
-        let format = if is_claude { ImportFormat::ClaudeTranscript } else { ImportFormat::Jsonl };
+        let format = if is_claude {
+            ImportFormat::ClaudeTranscript
+        } else {
+            ImportFormat::Jsonl
+        };
         return Ok((vec![session], format));
     }
 
     // 5. ChatGPT Markdown 导出（签名：首行 `# 标题` + 至少一个 `#### You:` / `#### ChatGPT:` 分段标记）
     if looks_like_chatgpt_markdown(text) {
-        return Ok((vec![parse_chatgpt_markdown(source, text)?], ImportFormat::ChatGPTMarkdown));
+        return Ok((
+            vec![parse_chatgpt_markdown(source, text)?],
+            ImportFormat::ChatGPTMarkdown,
+        ));
     }
 
     // 6. Markdown 兜底
@@ -238,8 +349,12 @@ fn detect(source: SourceKind, text: &str, warnings: &mut Vec<String>) -> Result<
 /// 正文里也会出现 `#### Plugin (…)`、`#### 方案 A：…` 等四级标题（属于消息内容，不能切段），
 /// 所以匹配必须是**精确等于**这两个标记，而不是「四级标题就算分段」。
 fn looks_like_chatgpt_markdown(text: &str) -> bool {
-    let Some(first) = text.lines().next() else { return false };
-    if !first.trim_start().starts_with("# ") { return false; }
+    let Some(first) = text.lines().next() else {
+        return false;
+    };
+    if !first.trim_start().starts_with("# ") {
+        return false;
+    }
     text.lines().any(|l| is_chatgpt_marker(l).is_some())
 }
 
@@ -324,11 +439,16 @@ fn parse_chatgpt_markdown(source: SourceKind, text: &str) -> Result<ImportSessio
     flush(&mut s, &mut current);
 
     if s.messages.is_empty() {
-        return Err(Error::parse("没有识别出任何消息：ChatGPT 导出应以 `#### You:` / `#### ChatGPT:` 分段"));
+        return Err(Error::parse(
+            "没有识别出任何消息：ChatGPT 导出应以 `#### You:` / `#### ChatGPT:` 分段",
+        ));
     }
     // 没有标题时用第一条用户消息派生（与原生适配器的标题线索策略一致）
     if s.title.is_none() {
-        s.title = s.messages.iter().find(|m| m.role == "user")
+        s.title = s
+            .messages
+            .iter()
+            .find(|m| m.role == "user")
             .map(|m| NormalizedMessage::truncate_text(&m.text, 80))
             .filter(|t| !t.is_empty());
     }
@@ -336,15 +456,40 @@ fn parse_chatgpt_markdown(source: SourceKind, text: &str) -> Result<ImportSessio
 }
 
 /// 标准会话包（`{schemaVersion:1, sessions:[…]}`）。
-fn parse_package(source: SourceKind, v: &Value, warnings: &mut Vec<String>) -> Result<Vec<ImportSession>> {
-    if v["schemaVersion"].as_u64() != Some(1) { return Err(Error::parse("仅支持 schemaVersion: 1 的标准会话包")); }
-    let rows = v["sessions"].as_array().ok_or_else(|| Error::parse("缺少 sessions 数组"))?;
-    if rows.len() > 100 { return Err(Error::parse("每次最多导入 100 个会话")); }
-    Ok(rows.iter().enumerate().filter_map(|(i,v)| match serde_json::from_value::<ImportSession>(v.clone()) {
-        Ok(s) if s.source == source => Some(s),
-        Ok(_) => { warnings.push(format!("第 {} 个会话来源与所选来源不一致",i+1)); None }
-        Err(_) => { warnings.push(format!("第 {} 个会话结构不符合标准模板",i+1)); None }
-    }).collect())
+///
+/// 逐会话宽容：单个会话结构不符 / 来源不符只记 warning 跳过，不炸整包；
+/// 但 schemaVersion 不符是包级错误，直接拒绝。
+fn parse_package(
+    source: SourceKind,
+    v: &Value,
+    warnings: &mut Vec<String>,
+) -> Result<Vec<ImportSession>> {
+    if v["schemaVersion"].as_u64() != Some(1) {
+        return Err(Error::parse("仅支持 schemaVersion: 1 的标准会话包"));
+    }
+    let rows = v["sessions"]
+        .as_array()
+        .ok_or_else(|| Error::parse("缺少 sessions 数组"))?;
+    if rows.len() > 100 {
+        return Err(Error::parse("每次最多导入 100 个会话"));
+    }
+    Ok(rows
+        .iter()
+        .enumerate()
+        .filter_map(
+            |(i, v)| match serde_json::from_value::<ImportSession>(v.clone()) {
+                Ok(s) if s.source == source => Some(s),
+                Ok(_) => {
+                    warnings.push(format!("第 {} 个会话来源与所选来源不一致", i + 1));
+                    None
+                }
+                Err(_) => {
+                    warnings.push(format!("第 {} 个会话结构不符合标准模板", i + 1));
+                    None
+                }
+            },
+        )
+        .collect())
 }
 
 /// 从任意 JSON 值里取正文文本。
@@ -359,7 +504,9 @@ fn text_of(v: &Value) -> Option<String> {
                 .iter()
                 .filter_map(|item| match item {
                     Value::String(s) => Some(s.clone()),
-                    Value::Object(_) => item.get("text").and_then(Value::as_str).map(str::to_string),
+                    Value::Object(_) => {
+                        item.get("text").and_then(Value::as_str).map(str::to_string)
+                    }
                     _ => None,
                 })
                 .collect();
@@ -376,12 +523,18 @@ fn text_of(v: &Value) -> Option<String> {
 
 /// 从一条记录里取出 (角色, 正文, 时间, 工具名)。取不到角色或正文就返回 None。
 fn message_from(v: &Value) -> Option<ImportMessage> {
-    if !v.is_object() { return None; }
+    if !v.is_object() {
+        return None;
+    }
     // 角色的常见字段名；Claude 转录用顶层 type
     let raw_role = ["role", "author", "sender", "type"]
         .iter()
         .find_map(|k| v.get(*k).and_then(Value::as_str))
-        .or_else(|| v.get("author").and_then(|a| a.get("role")).and_then(Value::as_str))?;
+        .or_else(|| {
+            v.get("author")
+                .and_then(|a| a.get("role"))
+                .and_then(Value::as_str)
+        })?;
     // Claude 转录把内容包在 message 里
     let body = v.get("message").filter(|m| m.is_object()).unwrap_or(v);
     let text = ["content", "text", "message", "body"]
@@ -407,16 +560,39 @@ fn message_from(v: &Value) -> Option<ImportMessage> {
         Role::Unknown => "event",
         _ => "message",
     };
-    Some(ImportMessage { role: role.as_str().to_string(), text, kind: kind.to_string(), timestamp, tool_name, attachments: vec![] })
+    Some(ImportMessage {
+        role: role.as_str().to_string(),
+        text,
+        kind: kind.to_string(),
+        timestamp,
+        tool_name,
+        attachments: vec![],
+    })
 }
 
 /// 一组消息记录 → 一个会话。
-fn session_from_messages(source: SourceKind, rows: &[Value], meta: Option<&Value>, raw: &str) -> Result<ImportSession> {
+///
+/// `raw` 参与 external_id 派生：没有显式 id 时用原始文本哈希，
+/// 保证同一份内容重复导入落在同一 id（见 `validate` 的 import- 前缀派生）。
+fn session_from_messages(
+    source: SourceKind,
+    rows: &[Value],
+    meta: Option<&Value>,
+    raw: &str,
+) -> Result<ImportSession> {
     let messages: Vec<ImportMessage> = rows.iter().filter_map(message_from).collect();
     if messages.is_empty() {
-        return Err(Error::parse("没有识别出任何消息：每行/每项需要包含角色与正文（例如 role + content）"));
+        return Err(Error::parse(
+            "没有识别出任何消息：每行/每项需要包含角色与正文（例如 role + content）",
+        ));
     }
-    let pick = |keys: &[&str]| meta.and_then(|m| keys.iter().find_map(|k| m.get(*k).and_then(Value::as_str)).map(str::to_string));
+    let pick = |keys: &[&str]| {
+        meta.and_then(|m| {
+            keys.iter()
+                .find_map(|k| m.get(*k).and_then(Value::as_str))
+                .map(str::to_string)
+        })
+    };
     let mut session = ImportSession {
         source,
         external_id: pick(&["id", "sessionId", "externalId"]),
@@ -435,7 +611,9 @@ fn session_from_messages(source: SourceKind, rows: &[Value], meta: Option<&Value
 
 /// 一个 JSON 对象（可含 messages 数组与会话级元信息）→ 一个会话。
 fn session_from_object(source: SourceKind, v: &Value, raw: &str) -> Result<ImportSession> {
-    let rows = v["messages"].as_array().ok_or_else(|| Error::parse("缺少 messages 数组"))?;
+    let rows = v["messages"]
+        .as_array()
+        .ok_or_else(|| Error::parse("缺少 messages 数组"))?;
     session_from_messages(source, rows, Some(v), raw)
 }
 
@@ -447,24 +625,45 @@ fn try_jsonl(source: SourceKind, text: &str) -> Option<(ImportSession, bool)> {
     let mut rows = Vec::new();
     for line in text.lines() {
         let line = line.trim();
-        if line.is_empty() { continue; }
-        let Ok(v) = serde_json::from_str::<Value>(line) else { continue };
+        if line.is_empty() {
+            continue;
+        }
+        let Ok(v) = serde_json::from_str::<Value>(line) else {
+            continue;
+        };
         rows.push(v);
     }
-    if rows.is_empty() { return None; }
+    if rows.is_empty() {
+        return None;
+    }
     let hits = rows.iter().filter(|v| message_from(v).is_some()).count();
-    if (hits as f64) < rows.len() as f64 * JSONL_MIN_HIT_RATIO { return None; }
+    if (hits as f64) < rows.len() as f64 * JSONL_MIN_HIT_RATIO {
+        return None;
+    }
     // Claude 转录的结构签名：顶层 type + message.content（不是扁平的 role/content）。
     // 用结构而不是「有没有 uuid」之类的弱特征，免得把别的转录也误报成 Claude。
     let is_claude = rows.iter().any(|v| {
-        v.get("type").is_some() && v.get("message").map(|m| m.get("content").is_some()).unwrap_or(false)
+        v.get("type").is_some()
+            && v.get("message")
+                .map(|m| m.get("content").is_some())
+                .unwrap_or(false)
     });
-    session_from_messages(source, &rows, None, text).ok().map(|s| (s, is_claude))
+    session_from_messages(source, &rows, None, text)
+        .ok()
+        .map(|s| (s, is_claude))
 }
 
 /// 通用 Markdown 模板（`# 标题` + `## user` / `## assistant` 分段），兜底探测器。
 fn parse_markdown(source: SourceKind, text: &str) -> Result<ImportSession> {
-    let mut s = ImportSession { source, external_id: None, title: None, created_at: None, updated_at: None, date_inferred: false, messages: vec![] };
+    let mut s = ImportSession {
+        source,
+        external_id: None,
+        title: None,
+        created_at: None,
+        updated_at: None,
+        date_inferred: false,
+        messages: vec![],
+    };
     let mut fence: Option<(char, usize)> = None;
     for line in text.lines() {
         let trimmed = line.trim_start();
@@ -472,33 +671,87 @@ fn parse_markdown(source: SourceKind, text: &str) -> Result<ImportSession> {
         if let Some(marker) = marker {
             let n = trimmed.chars().take_while(|c| *c == marker).count();
             if n >= 3 {
-                if let Some((c,len)) = fence { if c == marker && n >= len && trimmed[n..].trim().is_empty() { fence = None; } }
-                else { fence = Some((marker,n)); }
+                if let Some((c, len)) = fence {
+                    if c == marker && n >= len && trimmed[n..].trim().is_empty() {
+                        fence = None;
+                    }
+                } else {
+                    fence = Some((marker, n));
+                }
             }
         }
         if fence.is_none() {
             if let Some(role) = line.strip_prefix("## ") {
                 if matches!(role, "user" | "assistant" | "system" | "developer" | "tool") {
-                    s.messages.push(ImportMessage { role: role.into(), text: String::new(), kind: default_kind(), timestamp: None, tool_name: None, attachments: vec![] }); continue;
+                    s.messages.push(ImportMessage {
+                        role: role.into(),
+                        text: String::new(),
+                        kind: default_kind(),
+                        timestamp: None,
+                        tool_name: None,
+                        attachments: vec![],
+                    });
+                    continue;
                 }
             }
             if s.messages.is_empty() && s.title.is_none() {
-                if let Some(title) = line.strip_prefix("# ") { s.title = Some(title.into()); continue; }
+                if let Some(title) = line.strip_prefix("# ") {
+                    s.title = Some(title.into());
+                    continue;
+                }
             }
         }
-        if let Some(message) = s.messages.last_mut() { message.text.push_str(line); message.text.push('\n'); }
-        else if !line.trim().is_empty() { return Err(Error::parse("无法识别角色：请使用 ## user 和 ## assistant 分隔消息")); }
+        if let Some(message) = s.messages.last_mut() {
+            message.text.push_str(line);
+            message.text.push('\n');
+        } else if !line.trim().is_empty() {
+            return Err(Error::parse(
+                "无法识别角色：请使用 ## user 和 ## assistant 分隔消息",
+            ));
+        }
     }
-    for m in &mut s.messages { m.text = m.text.trim().into(); }
+    for m in &mut s.messages {
+        m.text = m.text.trim().into();
+    }
     Ok(s)
 }
 
-pub fn preview(package: &ImportPackage, warnings: Vec<String>, token: String, format: ImportFormat) -> ImportPreview {
-    ImportPreview { token, failed: warnings.len(), warnings, detected_format: format.label().to_string(), sessions: package.sessions.iter().map(|s| ImportSessionPreview {
-        source: s.source.clone(), external_id: s.external_id.clone().unwrap_or_default(), title: s.title.clone(), message_count: s.messages.len(), partial: partial(s),
-        messages: s.messages.iter().take(10).map(|m| { let mut m = m.clone(); m.text = m.text.chars().take(1500).collect(); m }).collect(),
-        date_inferred: s.date_inferred,
-    }).collect() }
+/// 由解析结果组装预览对象（纯映射，无 IO）。
+/// 截断策略见 [`ImportSessionPreview`]：每条 1500 字、每会话前 10 条。
+pub fn preview(
+    package: &ImportPackage,
+    warnings: Vec<String>,
+    token: String,
+    format: ImportFormat,
+) -> ImportPreview {
+    ImportPreview {
+        token,
+        failed: warnings.len(),
+        warnings,
+        detected_format: format.label().to_string(),
+        sessions: package
+            .sessions
+            .iter()
+            .map(|s| ImportSessionPreview {
+                source: s.source.clone(),
+                external_id: s.external_id.clone().unwrap_or_default(),
+                title: s.title.clone(),
+                message_count: s.messages.len(),
+                partial: partial(s),
+                messages: s
+                    .messages
+                    .iter()
+                    .take(10)
+                    .map(|m| {
+                        let mut m = m.clone();
+                        m.text = m.text.chars().take(1500).collect();
+                        m
+                    })
+                    .collect(),
+                date_inferred: s.date_inferred,
+            })
+            .collect(),
+    }
 }
 
 /// 托管副本路径：`<root>/<source>/<blake3(external_id)>.json`。
@@ -506,16 +759,30 @@ pub fn preview(package: &ImportPackage, warnings: Vec<String>, token: String, fo
 /// 用内容寻址的哈希文件名而不是 external_id 原文：避免路径非法字符，
 /// 同时同一来源下的重复导入自然落到同一路径（配合字节级比对去重）。
 pub fn managed_path(root: &Path, session: &ImportSession) -> PathBuf {
-    root.join(session.source.as_str()).join(format!("{}.json",blake3::hash(session.external_id.as_deref().unwrap_or_default().as_bytes()).to_hex()))
+    root.join(session.source.as_str()).join(format!(
+        "{}.json",
+        blake3::hash(
+            session
+                .external_id
+                .as_deref()
+                .unwrap_or_default()
+                .as_bytes()
+        )
+        .to_hex()
+    ))
 }
 
 /// 确认阶段第一步：把预览过的会话写成托管副本（原子写 + 字节级去重），**不写数据库**。
 ///
+/// 原子写：先写 `<uuid>.tmp` 再 rename——崩溃中途不会留下半个 JSON 被下次扫描误读。
 /// 重复导入的判定：同一路径已存在且字节一致 → `duplicates`（幂等，用户重复确认无副作用）。
+/// 字节不一致时不覆盖（内容寻址路径理论上不会发生，保守起见不静默替换）。
 pub fn write_managed_copies(root: &Path, package: &ImportPackage) -> Result<ImportReport> {
     let mut report = ImportReport::default();
     for s in &package.sessions {
-        if partial(s) { report.partial += 1; }
+        if partial(s) {
+            report.partial += 1;
+        }
         let path = managed_path(root, s);
         let bytes = serde_json::to_vec_pretty(s)?;
         if std::fs::read(&path).ok().as_deref() == Some(bytes.as_slice()) {
@@ -524,15 +791,21 @@ pub fn write_managed_copies(root: &Path, package: &ImportPackage) -> Result<Impo
         }
         let result = (|| -> Result<()> {
             let parent = path.parent().ok_or_else(|| Error::config("导入路径无效"))?;
-            std::fs::create_dir_all(parent).map_err(|e| Error::io(parent,e))?;
-            let temp = path.with_extension(format!("{}.tmp",uuid::Uuid::new_v4()));
-            std::fs::write(&temp,&bytes).map_err(|e| Error::io(&temp,e))?;
-            if let Err(e) = std::fs::rename(&temp,&path) { let _ = std::fs::remove_file(&temp); return Err(Error::io(&path,e)); }
+            std::fs::create_dir_all(parent).map_err(|e| Error::io(parent, e))?;
+            let temp = path.with_extension(format!("{}.tmp", uuid::Uuid::new_v4()));
+            std::fs::write(&temp, &bytes).map_err(|e| Error::io(&temp, e))?;
+            if let Err(e) = std::fs::rename(&temp, &path) {
+                let _ = std::fs::remove_file(&temp);
+                return Err(Error::io(&path, e));
+            }
             Ok(())
         })();
         match result {
             Ok(()) => report.success += 1,
-            Err(e) => { report.failed += 1; report.warnings.push(e.user_message()); }
+            Err(e) => {
+                report.failed += 1;
+                report.warnings.push(e.user_message());
+            }
         }
     }
     Ok(report)
@@ -557,27 +830,45 @@ pub struct ScanImportsReport {
 }
 
 /// 托管目录下的全部 `.json` 副本（walkdir，深度 ≤ 4；目录由应用管理，信任边界内）。
+///
+/// 不跟随符号链接（`follow_links(false)` + `filter_entry` 双保险）：
+/// 托管目录虽在应用管理之下，仍防有人在里面塞软链把扫描引到隐私目录。
 fn managed_files(root: &Path) -> Vec<PathBuf> {
-    walkdir::WalkDir::new(root).follow_links(false).max_depth(4).into_iter()
+    walkdir::WalkDir::new(root)
+        .follow_links(false)
+        .max_depth(4)
+        .into_iter()
         .filter_entry(|e| !e.file_type().is_symlink())
-        .filter_map(|e| e.ok()).filter(|e| e.file_type().is_file() && e.path().extension().and_then(|s| s.to_str()) == Some("json"))
-        .map(|e| e.into_path()).collect()
+        .filter_map(|e| e.ok())
+        .filter(|e| {
+            e.file_type().is_file() && e.path().extension().and_then(|s| s.to_str()) == Some("json")
+        })
+        .map(|e| e.into_path())
+        .collect()
 }
 
 /// 确认阶段第二步：把托管副本当普通数据源扫描入库（指纹门控，内容变了才重解析）。
 ///
 /// 与源项目的差异：没有适配器注册表 / 设置开关，导入目录就是全部范围；
-/// 单个会话失败只计入报告，不影响其他会话。
+/// 单个会话失败只计入报告，不影响其他会话。结束时 checkpoint，
+/// 把 WAL 里的写入摊回主库，避免导入后留下膨胀的 -wal 文件。
 pub fn scan_imports(db: &Database, root: &Path) -> Result<ScanImportsReport> {
+    crate::scanner::record_scan_invocation();
     let mut report = ScanImportsReport::default();
-    if !root.is_dir() { return Ok(report); }
+    if !root.is_dir() {
+        return Ok(report);
+    }
 
     for path in managed_files(root) {
         match scan_one(db, root, &path, &mut report) {
             Ok(()) => {}
             Err(e) => {
                 report.failed += 1;
-                report.warnings.push(format!("{}: {}", crate::error::display_path(&path), e.user_message()));
+                report.warnings.push(format!(
+                    "{}: {}",
+                    crate::error::display_path(&path),
+                    e.user_message()
+                ));
             }
         }
     }
@@ -591,15 +882,21 @@ fn scan_one(db: &Database, root: &Path, path: &Path, report: &mut ScanImportsRep
     let bytes = std::fs::read(path).map_err(|e| Error::io(path, e))?;
     let mut s: ImportSession = serde_json::from_slice(&bytes)?;
     validate(&mut s)?;
-    let external_id = s.external_id.clone().ok_or_else(|| Error::parse("导入副本缺少 ID"))?;
+    let external_id = s
+        .external_id
+        .clone()
+        .ok_or_else(|| Error::parse("导入副本缺少 ID"))?;
     let session_id = format!("{}:{}", s.source.as_str(), external_id);
     let primary_path = crate::error::display_path(path);
 
     // 指纹门控：未变化完全不读内容（前面的 serde 解析是轻量的，可接受）
-    let fingerprints = db.fingerprints_by_paths(&[primary_path.clone()])?;
+    let fingerprints = db.fingerprints_by_paths(std::slice::from_ref(&primary_path))?;
     let (decision, hash) = fingerprint::decide(path, fingerprints.get(&primary_path))?;
     match decision {
-        fingerprint::Decision::Unchanged => { report.skipped_unchanged += 1; return Ok(()); }
+        fingerprint::Decision::Unchanged => {
+            report.skipped_unchanged += 1;
+            return Ok(());
+        }
         fingerprint::Decision::SameContent => {
             if let Some((size, mtime)) = fingerprint::quick_stat(path) {
                 db.touch_fingerprint(&primary_path, size, mtime, hash.as_deref())?;
@@ -614,7 +911,9 @@ fn scan_one(db: &Database, root: &Path, path: &Path, report: &mut ScanImportsRep
     if let Some(existing) = db.get_session(&session_id)? {
         if existing.primary_file.as_deref() != Some(primary_path.as_str()) {
             report.conflicts += 1;
-            report.warnings.push(format!("会话 {session_id} 已存在且主文件不同，保留已有记录"));
+            report.warnings.push(format!(
+                "会话 {session_id} 已存在且主文件不同，保留已有记录"
+            ));
             return Ok(());
         }
     }
@@ -656,14 +955,18 @@ fn scan_one(db: &Database, root: &Path, path: &Path, report: &mut ScanImportsRep
     db.finalize_session(&session_id, &info, hash)?;
 
     let (size, mtime) = fingerprint::quick_stat(path).unwrap_or((bytes.len() as u64, 0));
-    db.replace_fingerprints(&session_id, s.source.as_str(), &[FingerprintRow {
-        path: primary_path,
-        session_id: session_id.clone(),
-        role: "conversation".into(),
-        size,
-        mtime,
-        hash: hash.map(str::to_string),
-    }])?;
+    db.replace_fingerprints(
+        &session_id,
+        s.source.as_str(),
+        &[FingerprintRow {
+            path: primary_path,
+            session_id: session_id.clone(),
+            role: "conversation".into(),
+            size,
+            mtime,
+            hash: hash.map(str::to_string),
+        }],
+    )?;
 
     report.indexed += 1;
     report.messages += info.message_count;
@@ -671,7 +974,14 @@ fn scan_one(db: &Database, root: &Path, path: &Path, report: &mut ScanImportsRep
 }
 
 /// 确认阶段便捷入口：写托管副本 + 扫描入库。
-pub fn import_package(db: &Database, root: &Path, package: &ImportPackage) -> Result<(ImportReport, ScanImportsReport)> {
+///
+/// 两步合成一次调用供「确认导入」按钮使用；需要分开预览进度时
+/// 可分别调用 [`write_managed_copies`] / [`scan_imports`]。
+pub fn import_package(
+    db: &Database,
+    root: &Path,
+    package: &ImportPackage,
+) -> Result<(ImportReport, ScanImportsReport)> {
     let written = write_managed_copies(root, package)?;
     let scanned = scan_imports(db, root)?;
     Ok((written, scanned))
@@ -703,7 +1013,8 @@ mod tests {
     #[test]
     fn chatgpt_缺日期用文件时间兜底并标注() {
         // 提供 fallback（调用方传来源文件 mtime）：会话日期兜底，且标注 date_inferred
-        let (package, _, _) = parse_input("chatgpt", SAMPLE, Some("2026-09-25T15:51:00+00:00")).unwrap();
+        let (package, _, _) =
+            parse_input("chatgpt", SAMPLE, Some("2026-09-25T15:51:00+00:00")).unwrap();
         let s = &package.sessions[0];
         assert!(s.date_inferred, "ChatGPT 导出必须标注日期为推断值");
         assert_eq!(s.created_at.as_deref(), Some("2026-09-25T15:51:00+00:00"));
@@ -721,7 +1032,9 @@ mod tests {
         assert_eq!(format, ImportFormat::ChatGPTMarkdown);
         let s = &package.sessions[0];
         // 图片引用原样保留为占位文本：不下载、不报错、不解析目标
-        assert!(s.messages[1].text.contains("![截图](sandbox:/mnt/data/fake.png)"));
+        assert!(s.messages[1]
+            .text
+            .contains("![截图](sandbox:/mnt/data/fake.png)"));
         assert!(s.messages[1].attachments.is_empty());
     }
 
@@ -783,9 +1096,14 @@ mod tests {
         let page = db.messages_page(&sid, 0, 10).unwrap();
         assert_eq!(page.len(), 4);
 
-        let resp = db.search(&crate::storage::search::SearchQuery {
-            text: "zxqjw".into(), limit: 10, offset: 0, ..Default::default()
-        }).unwrap();
+        let resp = db
+            .search(&crate::storage::search::SearchQuery {
+                text: "zxqjw".into(),
+                limit: 10,
+                offset: 0,
+                ..Default::default()
+            })
+            .unwrap();
         assert_eq!(resp.hits.len(), 1, "合成关键词应可检索");
         assert!(resp.hits[0].snippet.contains("<mark>"));
 
@@ -802,7 +1120,11 @@ mod tests {
     fn 格式探测_通用_markdown_模板不误判为_chatgpt() {
         let text = "# 模板\n\n## user\n\n你好\n\n## assistant\n\n你好\n";
         let (_, _, format) = parse_input("chatgpt", text, None).unwrap();
-        assert_eq!(format, ImportFormat::Markdown, "`## user` 模板应走通用 Markdown 兜底");
+        assert_eq!(
+            format,
+            ImportFormat::Markdown,
+            "`## user` 模板应走通用 Markdown 兜底"
+        );
     }
 
     #[test]
@@ -810,6 +1132,8 @@ mod tests {
         // 签名要求首行 `# 标题`：不满足时落通用 Markdown 兜底并给出可诊断的错误
         let text = "#### You:\n\n没有标题行\n";
         let err = parse_input("chatgpt", text, None).unwrap_err();
-        assert!(err.user_message().contains("无法识别") || err.user_message().contains("没有可导入"));
+        assert!(
+            err.user_message().contains("无法识别") || err.user_message().contains("没有可导入")
+        );
     }
 }

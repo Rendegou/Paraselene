@@ -1,0 +1,8 @@
+[package]
+name = "paraselene-learning-core"
+version = "0.1.0"
+edition = "2021"
+description = "幻月 Python 短练习的教学口令与阶段协议；不执行用户代码"
+license = "MIT"
+
+[dependencies]

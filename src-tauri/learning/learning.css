@@ -1,0 +1,21 @@
+:root { font-family: "Segoe UI Variable", "Microsoft YaHei UI", sans-serif; color: #f2eafb; background: #171525; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 800px; margin: 0 auto; padding: 34px 40px; }
+.eyebrow { color: #b7a9dd; font-size: 12px; letter-spacing: .12em; margin: 0 0 8px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 14px; }
+.intro { color: #c7bed6; line-height: 1.7; margin: 0 0 26px; }
+code { color: #efcae7; }
+label { display: block; font-weight: 600; margin-bottom: 9px; }
+textarea { display: block; width: 100%; min-height: 240px; padding: 16px; resize: vertical; border: 1px solid #514568; border-radius: 12px; color: #f7f1ff; background: #242035; font: 15px/1.55 Consolas, "Cascadia Code", monospace; }
+textarea:focus-visible, button:focus-visible { outline: 2px solid #d4b6f2; outline-offset: 2px; }
+.actions { display: flex; gap: 10px; margin-top: 16px; }
+button { border: 0; border-radius: 10px; padding: 10px 18px; font: inherit; font-weight: 600; color: #23152d; background: #dabef4; cursor: pointer; }
+button.secondary { color: #e8dff5; background: #3d3652; }
+button:disabled { opacity: .55; cursor: wait; }
+#status { min-height: 24px; color: #c2b1db; }
+.hint { min-height: 24px; color: #e4cee9; line-height: 1.5; }
+#result { min-height: 50px; white-space: pre-wrap; font: 14px/1.5 Consolas, "Cascadia Code", monospace; color: #ebdff9; }
+.footnote { color: #988daa; font-size: 12px; margin-top: 28px; }
+@media (max-width: 600px) { main { padding: 24px 18px; } }
+@media (prefers-reduced-motion: no-preference) { button { transition: background-color .15s, transform .15s; } button:not(:disabled):active { transform: scale(.98); } }

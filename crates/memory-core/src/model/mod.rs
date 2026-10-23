@@ -22,4 +22,9 @@ pub use session::{
 /// v3：新增四空间用户确认层（works / memories / memory_sources / memory_links，Goal §4.2）。
 /// v4：trigram 索引瘦身——tool 角色不进 trigram、文本截 4096 字符、独立表形态
 /// （真实库实测 trigram postings 从约 885MB 降到约 183MB，整库 1.51GB → 805MB）。
-pub const INDEX_SCHEMA_VERSION: u32 = 4;
+/// v5：小说确认版本树与试写隔离。v6：学习练习的本地轨迹。
+/// v7：长篇工作台底座——显式章序（order_index）与本机编辑稿（working_copies）。
+/// v8：安全 patch（novel_patches），候选修改块绑定输入快照条件。
+/// v9：设定集 lore_entries/lore_versions 与出处锚点 source_anchors。
+/// v10：派生摘要 chapter_summaries 与重建队列 rebuild_jobs。
+pub const INDEX_SCHEMA_VERSION: u32 = 12;

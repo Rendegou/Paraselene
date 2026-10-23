@@ -1,8 +1,8 @@
 //! 中文检索题集召回对比评测（T01 第三片，G05 索引方案选型）。
 //!
-//! 变体 A（基线）：现有 unicode61 FTS + `build_match_query` 查询构造（整串/前缀命中）。
-//! 变体 B（trigram）：同一 messages 表上新建 `message_fts_trigram`
-//! （external content 同款，`tokenize='trigram'`），查询侧把问题切成 3–6 字滑窗
+//! 变体 A：正式 `Database::search()`，中文三字以上已接入 trigram，短词与纯 ASCII
+//! 仍走 unicode61。变体 B：历史评测的独立 trigram 查询，用于检查正式入口是否漂移。
+//! B 在 `message_fts_trigram` 上把问题切成 3–6 字滑窗
 //! n-gram 组 OR 查询，bm25 排序。常见 grams 的高文档频率由 bm25 的 IDF 自动降权
 //! （等效「去停用感太强片段」，无需维护停用词表）。
 //!
@@ -10,7 +10,7 @@
 //! snippet 仅用于内部布尔判断（是否包含 anchor），绝不打印内容。
 //!
 //! 用法：
-//!   cargo run --example retrieval_eval -- <testset.json> <库目录>
+//!   cargo run --example retrieval_eval -- <testset.json> <库目录> [--summary-only]
 //! 库目录即 import-smoke 工作目录（内含 index.db）。
 
 use std::collections::HashMap;
@@ -104,6 +104,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut args = std::env::args().skip(1);
     let testset_path = PathBuf::from(args.next().ok_or("用法: retrieval_eval <testset.json> <库目录>")?);
     let lib_dir = PathBuf::from(args.next().ok_or("用法: retrieval_eval <testset.json> <库目录>")?);
+    let summary_only = matches!(args.next().as_deref(), Some("--summary-only"));
 
     let testset: Testset = serde_json::from_str(&std::fs::read_to_string(&testset_path)?)?;
     let db = Database::open(&lib_dir.join("index.db"))?;
@@ -151,7 +152,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             })
             .collect();
 
-        // 变体 A：现有 search API（unicode61 + build_match_query）
+        // 变体 A：正式 search API（按文本选择 trigram / unicode61）
         let hits_a: Vec<(String, String, String)> = {
             let resp_a = db.search(&SearchQuery {
                 text: q.question.clone(),
@@ -173,34 +174,38 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     // ---- 汇总表 ----
-    print_summary("A（unicode61 FTS 基线）", &results, |r| &r.1);
-    print_summary("B（trigram + n-gram OR）", &results, |r| &r.2);
+    print_summary("A（正式 search API）", &results, |r| &r.1);
+    print_summary("B（独立 trigram 查询）", &results, |r| &r.2);
 
-    // ---- 逐题明细（题号 + 布尔 + 命中文件名；无正文）----
-    println!("\n逐题明细:");
-    for (q, ra, rb) in &results {
-        let mark = |b: bool| if b { "✓" } else { "✗" };
-        let hit = ra.hit_file.as_deref().or(rb.hit_file.as_deref()).unwrap_or("-");
-        println!(
-            "  {} {:6}  A[召{} 首{} 锚{}]  B[召{} 首{} 锚{} 锚2{} 锚3{}]  命中: {}",
-            q.id,
-            q.tier,
-            mark(ra.recall5),
-            mark(ra.top1),
-            mark(ra.anchor),
-            mark(rb.recall5),
-            mark(rb.top1),
-            mark(rb.anchor),
-            mark(rb.anchor_msg),
-            mark(rb.anchor_sess),
-            hit
-        );
-    }
+    if summary_only {
+        println!("映射缺失文件数: {}", map_misses.len());
+    } else {
+        // ---- 逐题明细（题号 + 布尔 + 命中文件名；无正文）----
+        println!("\n逐题明细:");
+        for (q, ra, rb) in &results {
+            let mark = |b: bool| if b { "✓" } else { "✗" };
+            let hit = ra.hit_file.as_deref().or(rb.hit_file.as_deref()).unwrap_or("-");
+            println!(
+                "  {} {:6}  A[召{} 首{} 锚{}]  B[召{} 首{} 锚{} 锚2{} 锚3{}]  命中: {}",
+                q.id,
+                q.tier,
+                mark(ra.recall5),
+                mark(ra.top1),
+                mark(ra.anchor),
+                mark(rb.recall5),
+                mark(rb.top1),
+                mark(rb.anchor),
+                mark(rb.anchor_msg),
+                mark(rb.anchor_sess),
+                hit
+            );
+        }
 
-    if !map_misses.is_empty() {
-        println!("\n警告: 以下 expected_files 在语料 zip 中没有对应会话（题集标注或语料问题）:");
-        for f in &map_misses {
-            println!("  - {f}");
+        if !map_misses.is_empty() {
+            println!("\n警告: 以下 expected_files 在语料 zip 中没有对应会话（题集标注或语料问题）:");
+            for f in &map_misses {
+                println!("  - {f}");
+            }
         }
     }
     Ok(())

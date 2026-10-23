@@ -30,8 +30,9 @@ use std::collections::BTreeMap;
 use serde_json::Value;
 
 /// 解析器状态（源 sse-parser.ts:19 状态表）。
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum ParserState {
+    #[default]
     WaitingLine,
     BufferingJson,
     Dispatching,
@@ -60,7 +61,10 @@ pub enum SseEvent {
     /// （顺序对齐 openai-compat.ts:210-219：tool_calls 必须在 done 之前）
     ToolCalls { calls: Vec<ToolCallAcc> },
     /// usage 专用 chunk（choices 为空；openai-compat.ts:175-180）
-    Usage { input_tokens: u64, output_tokens: u64 },
+    Usage {
+        input_tokens: u64,
+        output_tokens: u64,
+    },
     /// 流结束（finish_reason 或 [DONE]；幂等只发一次）
     Done {
         finish_reason: String,
@@ -87,13 +91,8 @@ pub struct SseParser {
     completed: bool,
 }
 
-impl Default for ParserState {
-    fn default() -> Self {
-        ParserState::WaitingLine
-    }
-}
-
 impl SseParser {
+    /// 新建解析器：全部累积态为空，等价于 `default()`。
     pub fn new() -> Self {
         Self::default()
     }
@@ -203,7 +202,10 @@ impl SseParser {
         // usage 专用 chunk（choices 为空）：先读，别被 delta 判空跳过
         // （openai-compat.ts:175-180 注释同款坑）
         if let Some(usage) = chunk.get("usage") {
-            let input = usage.get("prompt_tokens").and_then(|v| v.as_u64()).unwrap_or(0);
+            let input = usage
+                .get("prompt_tokens")
+                .and_then(|v| v.as_u64())
+                .unwrap_or(0);
             let output = usage
                 .get("completion_tokens")
                 .and_then(|v| v.as_u64())
@@ -314,7 +316,11 @@ mod tests {
     }
 
     /// 构造一个 chunk JSON（源测试 chunk() 构造器）。
-    fn chunk(content: Option<&str>, tool_calls: Option<Vec<(u32, Option<&str>, Option<&str>, Option<&str>)>>, finish: Option<&str>) -> String {
+    fn chunk(
+        content: Option<&str>,
+        tool_calls: Option<Vec<(u32, Option<&str>, Option<&str>, Option<&str>)>>,
+        finish: Option<&str>,
+    ) -> String {
         let mut delta = serde_json::Map::new();
         if let Some(c) = content {
             delta.insert("content".into(), Value::String(c.into()));
@@ -350,6 +356,7 @@ mod tests {
         .to_string()
     }
 
+    /// 测试便捷入口：包成标准 SSE 行（`data:` + 空行）后走字节喂入。
     fn feed(parser: &mut SseParser, payload: &str) -> Vec<SseEvent> {
         parser.feed_bytes(sse_line(payload).as_bytes())
     }
@@ -375,13 +382,40 @@ mod tests {
     fn 工具调用跨chunk_arguments拼接() {
         // 源测试用例 2：arguments 增量拼接，id/name 只来自首块
         let mut p = SseParser::new();
-        feed(&mut p, &chunk(None, Some(vec![(0, Some("call_abc"), Some("bash_tool"), None)]), None));
-        feed(&mut p, &chunk(None, Some(vec![(0, None, None, Some("{\"cmd\":\"ls"))]), None));
-        let ev = feed(&mut p, &chunk(None, Some(vec![(0, None, None, Some(" -la\"}"))]), Some("tool_calls")));
-        let done: Vec<&SseEvent> = ev.iter().filter(|e| matches!(e, SseEvent::Done { .. })).collect();
+        feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![(0, Some("call_abc"), Some("bash_tool"), None)]),
+                None,
+            ),
+        );
+        feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![(0, None, None, Some("{\"cmd\":\"ls"))]),
+                None,
+            ),
+        );
+        let ev = feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![(0, None, None, Some(" -la\"}"))]),
+                Some("tool_calls"),
+            ),
+        );
+        let done: Vec<&SseEvent> = ev
+            .iter()
+            .filter(|e| matches!(e, SseEvent::Done { .. }))
+            .collect();
         assert_eq!(done.len(), 1);
         match done[0] {
-            SseEvent::Done { finish_reason, tool_calls } => {
+            SseEvent::Done {
+                finish_reason,
+                tool_calls,
+            } => {
                 assert_eq!(finish_reason, "tool_calls");
                 assert_eq!(tool_calls.len(), 1);
                 assert_eq!(tool_calls[0].id, "call_abc");
@@ -391,11 +425,14 @@ mod tests {
             _ => unreachable!(),
         }
         // tool_calls 事件必须先于 Done（openai-compat.ts:210-219 顺序）
-        let kinds: Vec<&str> = ev.iter().map(|e| match e {
-            SseEvent::ToolCalls { .. } => "tool_calls",
-            SseEvent::Done { .. } => "done",
-            _ => "other",
-        }).collect();
+        let kinds: Vec<&str> = ev
+            .iter()
+            .map(|e| match e {
+                SseEvent::ToolCalls { .. } => "tool_calls",
+                SseEvent::Done { .. } => "done",
+                _ => "other",
+            })
+            .collect();
         assert_eq!(kinds, vec!["tool_calls", "done"]);
     }
 
@@ -403,20 +440,51 @@ mod tests {
     fn 多工具并行累积_index互不干扰() {
         // 源测试用例 3
         let mut p = SseParser::new();
-        feed(&mut p, &chunk(None, Some(vec![
-            (0, Some("call_a"), Some("read"), None),
-            (1, Some("call_b"), Some("grep"), None),
-        ]), None));
-        feed(&mut p, &chunk(None, Some(vec![(1, None, None, Some("{\"pattern\":\"x"))]), None));
-        feed(&mut p, &chunk(None, Some(vec![
-            (0, None, None, Some("{\"path\":\"a.ts")),
-            (1, None, None, Some("\"}")),
-        ]), None));
-        let ev = feed(&mut p, &chunk(None, Some(vec![(0, None, None, Some("\"}"))]), Some("tool_calls")));
-        let done = ev.iter().find_map(|e| match e {
-            SseEvent::Done { tool_calls, .. } => Some(tool_calls.clone()),
-            _ => None,
-        }).unwrap();
+        feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![
+                    (0, Some("call_a"), Some("read"), None),
+                    (1, Some("call_b"), Some("grep"), None),
+                ]),
+                None,
+            ),
+        );
+        feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![(1, None, None, Some("{\"pattern\":\"x"))]),
+                None,
+            ),
+        );
+        feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![
+                    (0, None, None, Some("{\"path\":\"a.ts")),
+                    (1, None, None, Some("\"}")),
+                ]),
+                None,
+            ),
+        );
+        let ev = feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![(0, None, None, Some("\"}"))]),
+                Some("tool_calls"),
+            ),
+        );
+        let done = ev
+            .iter()
+            .find_map(|e| match e {
+                SseEvent::Done { tool_calls, .. } => Some(tool_calls.clone()),
+                _ => None,
+            })
+            .unwrap();
         assert_eq!(done[0].index, 0);
         assert_eq!(done[0].arguments, "{\"path\":\"a.ts\"}");
         assert_eq!(done[1].index, 1);
@@ -429,8 +497,10 @@ mod tests {
         let mut p = SseParser::new();
         feed(&mut p, &chunk(Some("好的"), None, None));
         let ev = feed(&mut p, &chunk(None, None, Some("stop")));
-        assert!(matches!(&ev[0], SseEvent::Done { finish_reason, tool_calls }
-            if finish_reason == "stop" && tool_calls.is_empty()));
+        assert!(
+            matches!(&ev[0], SseEvent::Done { finish_reason, tool_calls }
+            if finish_reason == "stop" && tool_calls.is_empty())
+        );
     }
 
     #[test]
@@ -474,10 +544,13 @@ mod tests {
         p.feed_bytes(b"event: message\n");
         p.feed_bytes(b"\n");
         let ev = feed(&mut p, &chunk(Some("只有我"), None, None));
-        let contents: Vec<String> = ev.into_iter().filter_map(|e| match e {
-            SseEvent::Delta { content, .. } => Some(content),
-            _ => None,
-        }).collect();
+        let contents: Vec<String> = ev
+            .into_iter()
+            .filter_map(|e| match e {
+                SseEvent::Delta { content, .. } => Some(content),
+                _ => None,
+            })
+            .collect();
         assert_eq!(contents, vec!["只有我"]);
     }
 
@@ -494,7 +567,14 @@ mod tests {
     fn reset_清空累积态可复用() {
         // 源测试用例 9
         let mut p = SseParser::new();
-        feed(&mut p, &chunk(None, Some(vec![(0, Some("call_a"), Some("read"), None)]), Some("tool_calls")));
+        feed(
+            &mut p,
+            &chunk(
+                None,
+                Some(vec![(0, Some("call_a"), Some("read"), None)]),
+                Some("tool_calls"),
+            ),
+        );
         p.reset();
         let ev = feed(&mut p, &chunk(Some("新会话"), None, None));
         assert!(matches!(&ev[0], SseEvent::Delta { content, .. } if content == "新会话"));
@@ -520,10 +600,13 @@ mod tests {
         let mut buf = sse_line(&chunk(Some("粘包甲"), None, None));
         buf.push_str(&sse_line(&chunk(Some("粘包乙"), None, None)));
         let ev = p.feed_bytes(buf.as_bytes());
-        let contents: Vec<String> = ev.into_iter().filter_map(|e| match e {
-            SseEvent::Delta { content, .. } => Some(content),
-            _ => None,
-        }).collect();
+        let contents: Vec<String> = ev
+            .into_iter()
+            .filter_map(|e| match e {
+                SseEvent::Delta { content, .. } => Some(content),
+                _ => None,
+            })
+            .collect();
         assert_eq!(contents, vec!["粘包甲", "粘包乙"]);
     }
 
@@ -547,10 +630,13 @@ mod tests {
             ev.extend(p.feed_end());
             ev
         };
-        let contents: Vec<String> = ev.into_iter().filter_map(|e| match e {
-            SseEvent::Delta { content, .. } => Some(content),
-            _ => None,
-        }).collect();
+        let contents: Vec<String> = ev
+            .into_iter()
+            .filter_map(|e| match e {
+                SseEvent::Delta { content, .. } => Some(content),
+                _ => None,
+            })
+            .collect();
         assert_eq!(contents, vec!["断尾"]);
     }
 
@@ -562,8 +648,15 @@ mod tests {
             "id": "chatcmpl-test", "object": "chat.completion.chunk",
             "choices": [],
             "usage": { "prompt_tokens": 12, "completion_tokens": 34 }
-        }).to_string();
+        })
+        .to_string();
         let ev = feed(&mut p, &usage_chunk);
-        assert!(matches!(&ev[0], SseEvent::Usage { input_tokens: 12, output_tokens: 34 }));
+        assert!(matches!(
+            &ev[0],
+            SseEvent::Usage {
+                input_tokens: 12,
+                output_tokens: 34
+            }
+        ));
     }
 }

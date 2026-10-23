@@ -21,9 +21,9 @@ chrono = { version = "0.4", features = ["serde"] }
 # 目录遍历 / id 生成：为扫描编排与 T02 四空间隔离预留（本片未直接使用）
 walkdir = "2"
 uuid = { version = "1", features = ["v4"] }
+# 用户明确选择 ChatGPT Markdown 导出包后只读压缩流，不解压写入来源目录。
+zip = { version = "8", default-features = false, features = ["deflate"] }
 
 [dev-dependencies]
 # 单测需要临时目录（parser / fingerprint 测试沿用源项目写法）
 tempfile = "3"
-# 真实导出包导入实测（examples/import_chatgpt_export.rs）需要读 zip；不进 lib 依赖
-zip = { version = "8", default-features = false, features = ["deflate"] }

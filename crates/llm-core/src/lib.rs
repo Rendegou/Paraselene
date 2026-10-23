@@ -29,12 +29,15 @@ pub mod context;
 pub mod error;
 pub mod openai;
 pub mod provider;
+pub mod preview;
 pub mod sse;
 
+// crate 门面：再导出 IPC 层（src-tauri）常用的公开类型；各类型契约见其所属模块的文档。
 pub use client::OpenAiCompatClient;
 pub use context::{assemble_chat, estimate_tokens, AllowAll, ChatRequest, CloudGate, PreparedChat, Space, SpaceSwitch};
 pub use error::{LlmError, Result};
 pub use provider::{
     FinishReason, Message, MessageRole, ProviderTool, StreamEvent, ToolCallRequest, Usage,
 };
+pub use preview::{IssuedPreview, PreviewLedger};
 pub use sse::{ParserState, SseEvent, SseParser, ToolCallAcc};

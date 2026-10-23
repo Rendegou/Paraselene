@@ -1,7 +1,7 @@
 {
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
-  "description": "桌宠窗口默认权限：仅核心默认集 + 拖动区域所需 start-dragging",
-  "windows": ["pet"],
+  "description": "小说工作台与保留窗口：仅核心默认集 + 原有拖动权限",
+  "windows": ["studio", "pet", "card", "novel", "editor-spike"],
   "permissions": ["core:default", "core:window:allow-start-dragging"]
 }

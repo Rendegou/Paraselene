@@ -1,0 +1,28 @@
+@font-face {
+  font-family: "Notebook Sans";
+  src: url("../../../assets/fonts/NotoSansSC-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Notebook Sans";
+  src: url("../../../assets/fonts/NotoSansSC-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Notebook Sans";
+  src: url("../../../assets/fonts/NotoSansSC-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Notebook Serif";
+  src: url("../../../assets/fonts/NotoSerifSC-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

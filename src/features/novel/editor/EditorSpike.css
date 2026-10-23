@@ -1,0 +1,16 @@
+/* 编辑器 spike 页面样式（T05B 技术验证用，夜空手帐视觉）。 */
+.spike-shell { display: flex; flex-direction: column; gap: 14px; min-height: 100vh; padding: 22px 26px; color: #ece5d8; background: #10151f; }
+.spike-shell h1 { font-size: 18px; }
+.spike-shell header p { margin-top: 5px; color: #a9abae; font-size: 12px; }
+.spike-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+.spike-toolbar button { min-height: 34px; padding: 6px 12px; border: 1px solid #d8b36c; border-radius: 7px; color: #302717; background: #e9c591; font-size: 12px; font-weight: 700; }
+.spike-toolbar span { color: #b5b3ac; font-size: 11px; font-variant-numeric: tabular-nums; }
+.spike-editor { flex: 1; min-height: 320px; border: 1px solid #46505d; border-radius: 8px; overflow: hidden; background: #151c2a; }
+.spike-editor .cm-editor { height: 100%; max-height: 56vh; font-size: 14px; line-height: 1.8; }
+.spike-editor .cm-editor .cm-scroller { font-family: inherit; }
+.spike-editor .cm-editor .cm-content { caret-color: #e9c591; }
+.spike-results { display: grid; gap: 6px; }
+.spike-results p { padding: 8px 11px; border-radius: 7px; font-size: 12px; }
+.spike-pass { color: #d9f3d0; background: #275240; }
+.spike-fail { color: #ffc9bd; background: #6a3131; }
+.spike-muted { color: #a9abae; background: transparent; }

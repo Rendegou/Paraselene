@@ -20,6 +20,7 @@ use crate::provider::{Message, ProviderTool};
 /// llm-core 保持独立不反向依赖 memory-core（crate 可独立测试/演进）；
 /// 值的对应关系由本枚举的 as_str/parse 保证（personal/idea/novel/learning）。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum Space {
     Personal,
     Idea,
@@ -28,6 +29,7 @@ pub enum Space {
 }
 
 impl Space {
+    /// 序列化/存储用字符串（四空间的稳定标识；改值会破坏已有设置数据，勿随意改）。
     pub const fn as_str(self) -> &'static str {
         match self {
             Space::Personal => "personal",
@@ -37,6 +39,7 @@ impl Space {
         }
     }
 
+    /// 从存储字符串还原空间；未知值返回 None（不猜默认空间，由调用方决定兜底策略）。
     pub fn parse(s: &str) -> Option<Self> {
         match s {
             "personal" => Some(Space::Personal),
@@ -97,29 +100,39 @@ impl CloudGate for SpaceSwitch {
 }
 
 /// 对话请求（组装前的用户意图）。
-/// IPC 边界可反序列化（src-tauri 的 llm_chat_preview / llm_chat_send 直接收此结构）。
+/// IPC 预览命令可反序列化此结构；发送命令只接收一次性预览票据。
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct ChatRequest {
     /// 记忆空间（决定 kill switch 检查哪一路开关）
     pub space: Space,
+    /// 对话消息列表（OpenAI 协议格式；空列表在组装期即拒绝，见 assemble_chat）。
     pub messages: Vec<Message>,
-    /// 模型名；None 用调用方给的默认模型（运行时从 /models 拉取的名字，不写死）
+    /// 模型名；None 用调用方给的默认模型。设置页可主动从 /models 刷新名单。
     pub model: Option<String>,
+    /// 生成 token 上限（None = 用服务端默认）。
     pub max_tokens: Option<u32>,
+    /// 采样温度（None = 用服务端默认）。
     pub temperature: Option<f32>,
+    /// 本轮可调用的工具定义（None = 不声明工具）。
     pub tools: Option<Vec<ProviderTool>>,
 }
 
 /// 已组装、待用户预览确认的聊天（G16：预览内容 = 发送内容，同一份结构）。
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct PreparedChat {
+    /// 记忆空间（回显：与请求时一致，供预览展示与审计）。
     pub space: Space,
+    /// 对话消息列表——与预览展示完全同一份，发送时不二次加工（防漂移）。
     pub messages: Vec<Message>,
+    /// 实际发送的模型名（assemble 时已并入默认值，保证非空）。
     pub model: String,
     /// 客户端估算 token 数（4 字符 ≈ 1 token；API 返回 usage 前的兜底展示）
     pub estimated_tokens: u64,
+    /// 生成 token 上限（None = 用服务端默认）。
     pub max_tokens: Option<u32>,
+    /// 采样温度（None = 用服务端默认）。
     pub temperature: Option<f32>,
+    /// 本轮可调用的工具定义（None = 不声明工具）。
     pub tools: Option<Vec<ProviderTool>>,
 }
 
@@ -129,6 +142,7 @@ pub fn estimate_tokens(messages: &[Message]) -> u64 {
     const CHARS_PER_TOKEN: u64 = 4;
     let mut chars = 0u64;
     for m in messages {
+        // content 为 None（如只带 tool_calls 的 assistant 消息）按 0 计，字符数走下面的 tool_calls JSON 分支
         chars += m.content.as_deref().map(|c| c.chars().count() as u64).unwrap_or(0);
         if let Some(calls) = &m.tool_calls {
             if !calls.is_empty() {
@@ -152,6 +166,7 @@ pub fn assemble_chat(
     if !gate.cloud_enabled(request.space) {
         return Err(LlmError::GateClosed(request.space.as_str().to_string()));
     }
+    // 空 messages 直接拒绝：协议上非法，也省一次必然失败的请求
     if request.messages.is_empty() {
         return Err(LlmError::BadRequest("messages 不能为空".into()));
     }
@@ -266,7 +281,7 @@ mod tests {
         )
         .unwrap();
         let snapshot = serde_json::to_value(&prepared).unwrap();
-        assert_eq!(snapshot["space"], "Novel");
+        assert_eq!(snapshot["space"], "novel");
         assert_eq!(snapshot["model"], "deepseek-v4-pro");
         assert_eq!(snapshot["messages"][0]["role"], "user");
         assert_eq!(snapshot["messages"][0]["content"], "写一段");

@@ -6,6 +6,8 @@
 /// LLM 层统一错误。
 #[derive(Debug, thiserror::Error)]
 pub enum LlmError {
+    #[error("模型请求超时，请检查网络后重新预览并发送")]
+    Timeout,
     /// 网络层错误（连接失败、TLS、流中途断开等）
     #[error("网络错误: {0}")]
     Network(String),
@@ -48,6 +50,7 @@ impl LlmError {
     /// 如 auth → 提示「Key 无效」）。
     pub fn kind(&self) -> &'static str {
         match self {
+            LlmError::Timeout => "timeout",
             LlmError::Network(_) => "network",
             LlmError::Auth => "auth",
             LlmError::RateLimited => "rate_limited",
@@ -71,9 +74,11 @@ impl LlmError {
     }
 }
 
+/// reqwest 超时单独分类，其余连接/TLS/断流错误归入 Network；
+/// HTTP 状态码错误在 client 层按 `from_status` 细分，不经过这里。
 impl From<reqwest::Error> for LlmError {
     fn from(e: reqwest::Error) -> Self {
-        LlmError::Network(e.to_string())
+        if e.is_timeout() { LlmError::Timeout } else { LlmError::Network(e.to_string()) }
     }
 }
 

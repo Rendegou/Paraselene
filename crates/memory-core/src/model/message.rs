@@ -15,11 +15,17 @@ use serde::{Deserialize, Serialize};
 #[serde(rename_all = "lowercase")]
 #[derive(Default)]
 pub enum Role {
+    /// 用户
     User,
+    /// 助手 / 模型
     Assistant,
+    /// 系统提示
     System,
+    /// 工具调用 / 结果
     Tool,
+    /// 开发者消息（部分 API 的角色）
     Developer,
+    /// 无法识别（保留 original 于 raw，不静默丢弃）
     #[default]
     Unknown,
 }
@@ -59,10 +65,15 @@ impl Role {
 #[serde(rename_all = "snake_case")]
 #[derive(Default)]
 pub enum MessageKind {
+    /// 用户可见正文
     Message,
+    /// 工具调用
     ToolCall,
+    /// 工具结果
     ToolResult,
+    /// 推理摘要
     ReasoningSummary,
+    /// 其他事件（无法归类的默认桶）
     #[default]
     Event,
 }

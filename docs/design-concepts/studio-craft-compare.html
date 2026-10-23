@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>幻月 · 去 AI 味对照（现状 / 精修）</title>
+<!--
+  设计对照件，不是产品代码。单文件、离线可开、不引用任何资源。
+  左列 = 现状还原（按 src/features/studio/*.css 的真实取值）。
+  右列 = 精修方向（同一份 DOM/网格，只换设计变量与状态层）。
+  两者只应体现"工艺差异"，所以刻意保留同一个四栏骨架。
+-->
+<style>
+/* ============================================================
+   0. 两套设计变量。同一份标记，切换 data-look 即换皮。
+   现状的数值全部取自真实源码；精修列给出建议值。
+   ============================================================ */
+:root{
+  --font-ui: "Segoe UI","Microsoft YaHei UI",sans-serif;
+  --font-latin: "Inter","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+  --font-cjk-sans: "MiSans","HarmonyOS Sans SC","Noto Sans SC","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+  --font-cjk-serif: "Source Han Serif SC","Noto Serif CJK SC","Songti SC","SimSun",Georgia,serif;
+}
+
+/* ---------- 现状 ---------- */
+[data-look="before"]{
+  --font: var(--font-ui);
+  --font-prose: "Noto Serif CJK SC","Source Han Serif SC","SimSun",Georgia,serif;
+
+  --bg:#202327; --rail:#1c1f22; --panel:#26292d;
+  --agent:#24272a; --raised:#303438; --stroke:#3b3e42;
+  --ink:#eceee9; --muted:#b0b4b2;
+
+  --paper:#f8f6f0; --paper-ink:#373d39; --paper-muted:#6a716b; --paper-stroke:#dedfd5;
+
+  --accent:#acd4c2;         /* 唯一强调色：偏冷的淡青绿 */
+  --accent-ink:#26341e;
+  --sel-chap:#3c4940;       /* 章节选中 */
+  --sel-rail:#303b35;       /* 侧栏轨选中 */
+  --sel-lore:#3c4940;
+
+  /* 只有一档圆角，全部 5px */
+  --r-control:5px; --r-card:5px; --r-surface:5px; --r-pill:5px;
+
+  --shadow-menu:0 8px 24px #0004;   /* 纯黑投影 */
+  --shadow-panel:-7px 0 20px #0002;
+  --sheen:none; --grain:none;
+
+  --dur:0s; --ease:linear; --press:none; --hover-lift:none;
+
+  --fs-body:13px; --fs-ui:11px; --fs-micro:9px; --fs-chapter:11px;
+  --fs-title:28px; --fs-prose:17px; --lh-prose:2.05;
+  --ls-brand:.08em; --ls-title:-.02em;
+
+  --gap-line:1px solid #101315;
+}
+
+/* ---------- 精修 ---------- */
+[data-look="after"]{
+  --font: var(--font-latin);
+  --font-prose: var(--font-cjk-serif);
+
+  /* 冷灰一个色族，逐层抬高加青；层级靠明度而不是靠边框 */
+  --bg:#1a1d20; --rail:#15181a; --panel:#202427;
+  --agent:#1d2124; --raised:#2a2f33; --stroke:#333a3e;
+  --ink:#e8ebe9; --muted:#9aa3a6;
+
+  /* 纸面同族去掉黄绿偏移，正文用墨色而非灰绿 */
+  --paper:#faf9f6; --paper-ink:#33383a; --paper-muted:#6d7477; --paper-stroke:#e7e5e0;
+
+  --accent:#5f9d7f;         /* 单一强调色，饱和度 25% */
+  --accent-ink:#f2f7f4;
+  --sel-chap:#272e2b;       /* 选中靠中性抬高 + 左侧强调条，不染整块 */
+  --sel-rail:#242a2d;
+  --sel-lore:#272e2b;
+
+  /* 半径随层级收紧：内层小、容器大 */
+  --r-control:6px; --r-card:10px; --r-surface:14px; --r-pill:999px;
+
+  /* 分层、带色调的投影，单一光源在正上方 */
+  --shadow-menu:0 1px 1px rgba(8,12,14,.28), 0 4px 10px -2px rgba(8,12,14,.42), 0 16px 32px -8px rgba(8,12,14,.5);
+  --shadow-panel:-1px 0 0 rgba(255,255,255,.04), -12px 0 32px -8px rgba(6,10,12,.55);
+  --sheen:inset 0 1px 0 rgba(255,255,255,.05);          /* 顶部内高光 = 1px 边缘折射 */
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.028'/%3E%3C/svg%3E");
+
+  --dur:180ms; --ease:cubic-bezier(.32,.72,0,1); --press:scale(.97); --hover-lift:translateY(-1px);
+
+  /* 4px 基准刻度 + 中文micro下限抬到 11px */
+  --fs-body:14px; --fs-ui:13px; --fs-micro:11px; --fs-chapter:13px;
+  --fs-title:30px; --fs-prose:17.5px; --lh-prose:1.95;
+  --ls-brand:.02em; --ls-title:-.01em;
+
+  --gap-line:1px solid #0e1113;
+}
+
+/* ============================================================
+   1. 基础
+   ============================================================ */
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:#0d0f11;color:#cfd4d6;font:14px/1.5 var(--font-latin);
+     -webkit-font-smoothing:antialiased;font-synthesis:none}
+
+.page{max-width:1520px;margin:0 auto;padding:22px 22px 60px}
+.page-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;margin-bottom:6px}
+.page-head h1{font-size:19px;font-weight:600;letter-spacing:-.01em;color:#eef1f2;margin:0}
+.page-head p{margin:0;color:#8a9296;font-size:13px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 20px;padding:12px 14px;
+        border:1px solid #262b2e;border-radius:12px;background:#14171a;font-size:12px;color:#98a1a5}
+.legend b{color:#dfe4e6;font-weight:600}
+.legend i{font-style:normal;color:#6f9f86}
+
+.stage-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media (max-width:1180px){.stage-row{grid-template-columns:1fr}}
+
+.stage{display:grid;grid-template-rows:auto 1fr}
+
+/* 每列的标题条 */
+.stage-tag{display:flex;align-items:center;gap:9px;padding:0 2px 10px}
+.stage-tag .dot{width:7px;height:7px;border-radius:50%}
+[data-look="before"] .stage-tag .dot{background:#7b848a}
+[data-look="after"]  .stage-tag .dot{background:#5f9d7f}
+.stage-tag strong{font-size:13px;font-weight:600;color:#e6eaec;letter-spacing:.01em}
+.stage-tag span{font-size:12px;color:#7f888c}
+
+/* 舞台：把应用按真实 4 栏骨架缩到可对比的尺寸，不做等比缩放 */
+.stage .app{height:660px;border-radius:14px;overflow:hidden;position:relative;
+            outline:1px solid #2b3134;outline-offset:-1px}
+[data-look="before"] .stage .app{box-shadow:none}
+[data-look="after"]  .stage .app{box-shadow:0 1px 2px rgba(0,0,0,.4),0 24px 60px -24px rgba(0,0,0,.75)}
+
+/* ============================================================
+   2. 应用外壳
+   ============================================================ */
+.app{display:grid;grid-template-rows:44px 1fr 24px;
+     background:var(--bg);color:var(--ink);font-family:var(--font);
+     font-size:var(--fs-body);height:100%;position:relative;isolation:isolate}
+.app::after{content:"";position:absolute;inset:0;z-index:60;pointer-events:none;
+            background-image:var(--grain)}
+
+/* ---- 顶栏 ---- */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+        padding:0 14px;border-bottom:var(--gap-line);
+        background:var(--bg);box-shadow:var(--sheen);position:relative;z-index:20}
+.brand{display:flex;align-items:center;gap:9px;white-space:nowrap}
+.brand strong{font-size:16px;font-weight:600;letter-spacing:var(--ls-brand);color:var(--ink)}
+.brand>span{font-size:var(--fs-ui);color:var(--muted)}
+.badge{padding:3px 7px;border:1px solid var(--stroke);border-radius:var(--r-control);
+       color:var(--muted);font-size:var(--fs-micro);letter-spacing:.01em}
+[data-look="after"] .badge{border-color:transparent;background:var(--raised);
+       box-shadow:var(--sheen);color:var(--ink)}
+
+.tb-actions{display:flex;align-items:center;gap:6px;position:relative}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+     min-height:28px;padding:4px 8px;border:0;border-radius:var(--r-control);
+     background:transparent;color:var(--muted);font:inherit;font-size:var(--fs-ui);
+     cursor:pointer;
+     transition:background var(--dur) var(--ease),color var(--dur) var(--ease),
+                transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.btn:hover:not(:disabled){background:var(--raised);color:var(--ink)}
+[data-look="after"] .btn:hover:not(:disabled){transform:var(--hover-lift);box-shadow:var(--sheen)}
+.btn:active:not(:disabled){transform:var(--press)}
+.btn[aria-pressed="true"]{color:var(--ink)}
+[data-look="after"] .btn[aria-pressed="true"]{background:var(--sel-rail);box-shadow:var(--sheen)}
+.btn.outline{border:1px solid var(--stroke);color:var(--ink)}
+[data-look="after"] .btn.outline{border-color:transparent;background:var(--raised);box-shadow:var(--sheen)}
+.app :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- 四栏骨架（与真实实现一致） ---- */
+.layout{display:grid;grid-template-columns:52px 196px minmax(0,1fr) 268px;min-height:0}
+
+/* ---- 图标轨 ---- */
+.rail{display:flex;flex-direction:column;align-items:center;gap:8px;
+      padding:14px 5px 9px;background:var(--rail);border-right:var(--gap-line)}
+.emblem{width:24px;height:24px;color:var(--accent);margin-bottom:10px}
+[data-look="before"] .emblem{color:#b9d2c0}
+.rail button{width:42px;min-height:48px;flex-direction:column;gap:5px;color:var(--muted)}
+.rail button span{font-size:var(--fs-micro)}
+.rail button[aria-pressed="true"]{color:var(--ink);background:var(--sel-rail)}
+[data-look="after"] .rail button[aria-pressed="true"]{box-shadow:var(--sheen),inset 2px 0 0 var(--accent);border-radius:0 var(--r-control) var(--r-control) 0}
+.rail .spacer{margin-top:auto;font-size:var(--fs-micro);color:var(--muted);opacity:.75}
+
+/* ---- 目录栏 ---- */
+.sidebar{display:flex;flex-direction:column;min-width:0;overflow:hidden;
+         padding:16px 11px 12px;background:var(--panel);border-right:var(--gap-line);gap:12px}
+.project{display:flex;align-items:center;gap:10px;padding:0 3px}
+.cover{display:grid;place-items:center;width:34px;height:44px;flex:none;color:var(--accent);
+       background:var(--raised);border-radius:2px var(--r-control) var(--r-control) 2px;
+       border-left:3px solid var(--accent);box-shadow:var(--sheen)}
+[data-look="before"] .cover{color:#c4d6c8;background:#3d4a41;border-left-color:#53675a;border-radius:3px 6px 6px 3px}
+.project strong{font-size:var(--fs-body);font-weight:600;color:var(--ink);display:block}
+.project small{display:block;margin-top:3px;color:var(--muted);font-size:var(--fs-micro)}
+
+.search{display:flex;align-items:center;gap:7px;padding:6px 8px;color:var(--muted);
+        background:var(--bg);border:1px solid var(--stroke);border-radius:var(--r-control);
+        transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(95,157,127,.14)}
+.search input{width:100%;min-width:0;border:0;background:transparent;outline:none;
+              font:inherit;font-size:var(--fs-ui);color:var(--ink)}
+.search input::placeholder{color:var(--muted)}
+.kbd{margin-left:auto;padding:1px 5px;border:1px solid var(--stroke);border-radius:4px;
+     font-size:var(--fs-micro);color:var(--muted);background:var(--raised)}
+
+.shelf{display:flex;align-items:center;justify-content:space-between;padding:0 6px;color:var(--muted)}
+.shelf h2{margin:0;font-size:var(--fs-micro);font-weight:600;letter-spacing:.06em;text-transform:none}
+[data-look="after"] .shelf h2{letter-spacing:.09em;color:var(--muted)}
+.volume{display:flex;align-items:center;gap:6px;padding:0 4px;font-size:var(--fs-ui);color:var(--muted)}
+.volume .count{margin-left:auto;font-variant-numeric:tabular-nums}
+
+.chapters{display:flex;flex-direction:column;gap:2px;overflow:auto;min-height:0}
+.chap{display:flex;align-items:center;gap:8px;width:100%;padding:7px 7px;text-align:left;
+      border:0;border-radius:var(--r-control);background:transparent;color:inherit;
+      font:inherit;cursor:pointer;position:relative;
+      transition:background var(--dur) var(--ease),transform var(--dur) var(--ease),
+                 box-shadow var(--dur) var(--ease)}
+.chap:hover{background:var(--raised)}
+.chap:active{transform:var(--press)}
+.chap .txt{min-width:0;flex:1}
+.chap strong{display:block;font-size:var(--fs-chapter);font-weight:400;color:var(--ink);
+             overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.chap small{display:block;margin-top:3px;font-size:var(--fs-micro);color:var(--muted);
+            font-variant-numeric:tabular-nums}
+.chap .no{font-size:var(--fs-micro);color:var(--muted);font-variant-numeric:tabular-nums;
+          letter-spacing:.04em}
+.chap[aria-current="page"]{background:var(--sel-chap);color:var(--ink)}
+[data-look="after"] .chap[aria-current="page"]{
+  box-shadow:inset 2px 0 0 var(--accent);border-radius:0 var(--r-control) var(--r-control) 0;font-weight:500}
+[data-look="after"] .chap[aria-current="page"] strong{font-weight:500}
+.icon{flex:none;stroke:currentColor;fill:none;stroke-linecap:round;stroke-linejoin:round;
+      opacity:.9}
+[data-look="before"] .icon{stroke-width:1.6}
+[data-look="after"]  .icon{stroke-width:1.5}
+
+/* ---- 中间纸面 ---- */
+.center{display:flex;flex-direction:column;min-width:0;min-height:0;
+        background:var(--paper);color:var(--paper-ink);position:relative}
+.docbar{display:flex;align-items:stretch;justify-content:space-between;flex:none;height:36px;
+        background:var(--bg);color:var(--muted)}
+.docbar .tab{display:flex;align-items:center;gap:7px;padding:0 15px;background:var(--paper);
+             color:var(--paper-ink);border-top:2px solid transparent}
+[data-look="before"] .docbar .tab{border-top-color:#8ba58f}
+[data-look="after"]  .docbar .tab{border-top-color:var(--accent);border-radius:var(--r-control) var(--r-control) 0 0}
+.docbar .tab span{font-size:var(--fs-ui);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.docbar .kind{padding:0 14px;display:flex;align-items:center;font-size:var(--fs-micro);color:var(--muted)}
+
+.crumb{display:flex;align-items:center;gap:7px;flex:none;padding:11px 20px;
+       color:var(--paper-muted);font-size:var(--fs-micro)}
+.crumb .save{margin-left:auto;display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.dot-save{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+[data-look="before"] .dot-save{background:#718b6f}
+
+.paper-scroll{flex:1;min-height:0;overflow:auto}
+.manuscript{max-width:660px;margin:0 auto;padding:26px 34px 22px}
+.ms-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:22px}
+.draft{display:inline-block;padding:2px 6px;margin-bottom:12px;font-size:var(--fs-micro);
+       color:var(--accent);background:color-mix(in srgb,var(--accent) 11%,transparent);
+       border-radius:var(--r-control);letter-spacing:.02em}
+[data-look="before"] .draft{color:#586c53;background:#e7eddf;border-radius:3px}
+.ms-head h1{margin:0;font-size:var(--fs-title);font-weight:600;line-height:1.28;
+            letter-spacing:var(--ls-title);color:var(--paper-ink)}
+[data-look="before"] .ms-head h1{font-weight:500;line-height:1.5}
+.ms-head .vol{margin:6px 0 0;font-size:var(--fs-micro);color:var(--paper-muted)}
+.ms-mark{color:var(--accent);opacity:.5;margin-top:34px;flex:none}
+[data-look="before"] .ms-mark{color:#9dab94;margin-top:34px}
+
+/* 正文：中文行高、2em 首行缩进、真·衬线字栈 */
+.prose{font-family:var(--font-prose);font-size:var(--fs-prose);line-height:var(--lh-prose);
+       color:var(--paper-ink);text-align:left;text-wrap:pretty;line-break:strict;
+       max-width:34em;margin:0}
+.prose p{margin:0 0 .35em;text-indent:2em;hanging-punctuation:allow-end}
+.prose .ref{color:var(--accent);text-decoration:underline;
+            text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent);
+            text-underline-offset:4px;text-decoration-thickness:1px;cursor:pointer;
+            transition:color var(--dur) var(--ease),text-decoration-color var(--dur) var(--ease)}
+.prose .ref:hover{text-decoration-color:var(--accent)}
+[data-look="before"] .prose .ref{color:inherit;text-decoration-color:#a7b9a2}
+
+.ms-links{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:18px;padding-top:16px;
+          border-top:1px solid var(--paper-stroke);color:var(--paper-muted)}
+.ms-links>span{font-size:var(--fs-micro);margin-right:3px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;border:0;
+      border-radius:var(--r-control);background:var(--raised);color:var(--paper-muted);
+      font:inherit;font-size:var(--fs-micro);cursor:pointer;
+      transition:background var(--dur) var(--ease),color var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.chip:hover{color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--paper))}
+.chip:active{transform:var(--press)}
+[data-look="before"] .chip{background:#ecf0e5;color:#58694e}
+
+/* ---- Agent 栏 ---- */
+.agent{display:flex;flex-direction:column;min-height:0;background:var(--agent);
+       border-left:var(--gap-line);box-shadow:var(--shadow-panel);position:relative;z-index:10}
+.ahead{display:flex;align-items:center;justify-content:space-between;gap:10px;
+       padding:11px 14px 8px;min-height:42px}
+.ahead .who{display:flex;align-items:center;gap:7px;color:var(--ink)}
+.ahead strong{font-size:var(--fs-ui);font-weight:600}
+.ahead .mode{font-size:var(--fs-micro);color:var(--muted)}
+.atabs{display:flex;gap:18px;padding:0 14px;border-bottom:1px solid var(--stroke)}
+.atabs button{position:relative;padding:7px 0 9px;border:0;border-radius:0;background:transparent;
+              color:var(--muted);font:inherit;font-size:var(--fs-ui);cursor:pointer;
+              transition:color var(--dur) var(--ease)}
+.atabs button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+                     border-radius:2px 2px 0 0;background:var(--accent);opacity:0;
+                     transform:scaleX(.4);transform-origin:center;
+                     transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.atabs button:hover{color:var(--ink)}
+.atabs button[aria-selected="true"]{color:var(--ink)}
+.atabs button[aria-selected="true"]::after{opacity:1;transform:scaleX(1)}
+.tabcount{font-size:var(--fs-micro);font-variant-numeric:tabular-nums;padding:1px 4px;
+          border-radius:var(--r-pill);background:color-mix(in srgb,var(--accent) 20%,transparent);
+          color:var(--ink)}
+.abody{flex:1;min-height:0;overflow:auto;padding:0 14px 16px}
+.aintro{margin:20px 0 18px}
+.avatar{display:grid;place-items:center;width:32px;height:32px;border-radius:var(--r-card);
+        background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);flex:none}
+[data-look="before"] .avatar{width:34px;height:34px;border-radius:8px;background:#354238;color:#b4d0b4}
+.aintro h2{margin:12px 0 6px;font-size:16px;font-weight:600;line-height:1.5;
+           letter-spacing:-.005em;color:var(--ink)}
+[data-look="before"] .aintro h2{font-weight:500;line-height:1.65;letter-spacing:-.02em;color:#e1e9d8}
+.aintro p{margin:0;font-size:var(--fs-ui);line-height:1.75;color:var(--muted)}
+[data-look="before"] .aintro p{color:#b6c1b0;line-height:1.9}
+
+.msg{margin-top:16px;padding-top:13px;border-top:1px solid var(--stroke)}
+.msg .from{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.msg .from strong{font-size:var(--fs-ui);font-weight:600;color:var(--ink)}
+[data-look="before"] .msg .from strong{color:#d7e3cf}
+.msg .from .tag{padding:2px 6px;border:1px solid var(--stroke);border-radius:var(--r-control);
+                font-size:var(--fs-micro);color:var(--muted)}
+[data-look="before"] .msg .from .tag{border-color:#59694e;color:#b7c8ae;border-radius:3px}
+.msg p{margin:9px 0;font-size:var(--fs-ui);line-height:1.8;color:var(--ink);text-wrap:pretty}
+[data-look="before"] .msg p{color:#c6cfbf;line-height:1.95}
+
+.citations{display:flex;gap:6px;flex-wrap:wrap}
+.cite{padding:4px 7px;border:0;border-radius:var(--r-control);
+      background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);
+      font:inherit;font-size:var(--fs-micro);cursor:pointer;
+      transition:background var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.cite:hover{background:color-mix(in srgb,var(--accent) 24%,transparent)}
+.cite:active{transform:var(--press)}
+[data-look="before"] .cite{background:#384334;color:#c5dab8}
+
+.composer{margin:0 11px 11px;padding:10px;border:1px solid var(--stroke);
+          border-radius:var(--r-card);background:var(--raised);box-shadow:var(--sheen)}
+[data-look="before"] .composer{background:#2b302a;border-color:#59604f;border-radius:9px;box-shadow:none}
+.clabel{display:flex;align-items:center;gap:6px;font-size:var(--fs-micro);color:var(--muted)}
+.clabel .sel{margin-left:auto;font-variant-numeric:tabular-nums}
+.ctx{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 4px}
+.ctx button{padding:3px 6px;border:1px solid var(--stroke);border-radius:var(--r-pill);
+            background:transparent;color:var(--muted);font:inherit;font-size:var(--fs-micro);
+            cursor:pointer;transition:all var(--dur) var(--ease)}
+.ctx button:hover{color:var(--ink);border-color:var(--accent)}
+.ctx button[aria-pressed="true"]{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+[data-look="before"] .ctx button{border-radius:4px}
+[data-look="before"] .ctx button[aria-pressed="true"]{color:#e1eed4;background:#44523a;border-color:#70845e}
+.composer textarea{width:100%;min-height:62px;margin:8px 0 4px;padding:2px 0;border:0;
+                   background:transparent;outline:none;resize:none;color:var(--ink);
+                   font:inherit;font-size:var(--fs-ui);line-height:1.75}
+[data-look="before"] .composer textarea{color:#d5ecc3}
+.composer textarea::placeholder{color:var(--muted)}
+.cfoot{display:flex;align-items:center;justify-content:space-between;gap:6px;padding-top:6px}
+.cfoot>span{font-size:var(--fs-micro);color:var(--muted)}
+.send{display:grid;place-items:center;width:28px;height:27px;border:0;border-radius:var(--r-control);
+      background:var(--accent);color:var(--accent-ink);cursor:pointer;
+      transition:filter var(--dur) var(--ease),transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+.send:hover{filter:brightness(1.12);box-shadow:0 3px 10px -2px color-mix(in srgb,var(--accent) 55%,transparent)}
+.send:active{transform:var(--press)}
+[data-look="before"] .send{background:#b9cda6;color:#26341e}
+
+/* ---- 状态栏 ---- */
+.statusbar{display:flex;align-items:center;justify-content:space-between;gap:10px;
+           padding:0 12px;font-size:var(--fs-micro);color:var(--muted);
+           background:var(--rail);border-top:var(--gap-line)}
+.statusbar>div{display:flex;align-items:center;gap:9px;font-variant-numeric:tabular-nums}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+[data-look="before"] .sdot{background:#a0bc9e}
+
+/* 悬浮层：菜单与 toast，用来展示"投影是否成立" */
+.float-demo{border:1px solid var(--stroke);border-radius:var(--r-surface);
+            background:var(--raised);box-shadow:var(--shadow-menu);padding:6px;
+            position:absolute;right:86px;top:38px;width:180px;z-index:40;
+            animation:menuIn var(--dur) var(--ease) both}
+[data-look="before"] .float-demo{background:var(--panel);border-radius:7px;width:186px}
+.float-demo button{display:flex;width:100%;justify-content:flex-start;padding:9px 9px;
+                   border:0;border-radius:var(--r-control);background:transparent;
+                   color:var(--ink);font:inherit;font-size:var(--fs-ui);cursor:pointer;
+                   transition:background var(--dur) var(--ease)}
+.float-demo button:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+@keyframes menuIn{from{opacity:0;transform:translateY(-4px) scale(.985)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   3. 对照表
+   ============================================================ */
+.notes{margin-top:34px}
+.notes h2{font-size:15px;font-weight:600;color:#e9edee;margin:0 0 4px;letter-spacing:-.005em}
+.notes .sub{color:#8a9296;font-size:13px;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:9px 11px;border-bottom:1px solid #23282b;vertical-align:top}
+th{color:#9aa3a7;font-weight:600;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;
+   background:#14171a}
+td:first-child{color:#dfe4e6;white-space:nowrap}
+td code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11.5px;
+        color:#a8c7b6;background:#1a1e21;padding:1px 5px;border-radius:4px}
+.rank{color:#6f9f86;font-weight:600}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-head">
+    <h1>幻月 · 去 AI 味对照</h1>
+    <p>同一套四栏骨架、同一份 DOM。左列按源码真实取值还原，右列只换设计变量与状态层。</p>
+  </div>
+
+  <div class="legend">
+    <span><b>怎么用：</b>盯住同一处元素左右对比 —— 章节选中行、正文段落、Agent 气泡、悬浮菜单。</span>
+    <span><i>1</i> 字体与字号 &nbsp; <i>2</i> 强调色收敛 &nbsp; <i>3</i> 选中态 &nbsp; <i>4</i> 投影与半径层级</span>
+    <span><i>5</i> 悬停/按下反馈 &nbsp; <i>6</i> 纸面质感 &nbsp; <i>7</i> 中文正文排版 &nbsp; <i>8</i> 微标签可读性</span>
+  </div>
+
+  <div class="stage-row">
+    <!-- ============ 现状 ============ -->
+    <section class="stage" data-look="before">
+      <div class="stage-tag"><span class="dot"></span><strong>现状</strong><span>13px / 无动效 / 纯黑投影 / micro 9px</span></div>
+      <div class="app">
+        <div class="topbar">
+          <div class="brand"><strong>幻月</strong><span>创作工作台</span><span class="badge">前端预览</span></div>
+          <div class="tb-actions">
+            <button class="btn" aria-label="导航"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M15 4v16"/></svg></button>
+            <button class="btn">专注</button>
+            <button class="btn" aria-pressed="true">Agent</button>
+            <button class="btn outline">导出 <svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="float-demo">
+              <button>正文与设定 Markdown</button>
+              <button>完整预览项目 JSON</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="layout">
+          <nav class="rail">
+            <div class="emblem"><svg width="24" height="24" viewBox="0 0 30 30" fill="currentColor"><path d="M23 6a12 12 0 1 0 1 18A11 11 0 0 1 23 6Z"/><circle cx="23" cy="9" r="2"/></svg></div>
+            <button class="btn" aria-pressed="true"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-2H4z M20 4v15h-4a4 4 0 0 0-3 2"/></svg><span>正文</span></button>
+            <button class="btn"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0 M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span>人物</span></button>
+            <button class="btn"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0 M3 12h18"/></svg><span>世界</span></button>
+            <button class="btn"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2z M9 3v16 M15 5v16"/></svg><span>地图</span></button>
+            <span class="spacer">本机</span>
+          </nav>
+
+          <aside class="sidebar">
+            <div class="project">
+              <div class="cover"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-2H4z M20 4v15h-4a4 4 0 0 0-3 2"/></svg></div>
+              <div><strong>雾海来信</strong><small>示例作品 · 前端预览</small></div>
+            </div>
+            <label class="search">
+              <svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0 M15 15l6 6"/></svg>
+              <input placeholder="搜索章节与设定" readonly />
+              <span class="kbd">Ctrl K</span>
+            </label>
+            <div class="shelf"><h2>正文目录</h2><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M12 5v14 M5 12h14"/></svg></div>
+            <div class="volume"><svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>第一卷 · 海雾来时<span class="count">4</span></div>
+            <div class="chapters">
+              <button class="chap"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第一章 · 灯塔下的信</strong><small>1,842 字 · 编辑稿</small></span><span class="no">01</span></button>
+              <button class="chap"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第二章 · 潮汐表</strong><small>2,106 字 · 编辑稿</small></span><span class="no">02</span></button>
+              <button class="chap" aria-current="page"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第三章 · 她没有问他为什么</strong><small>1,377 字 · 编辑稿</small></span><span class="no">03</span></button>
+              <button class="chap"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第四章 · 北岸的雾</strong><small>968 字 · 草稿</small></span><span class="no">04</span></button>
+            </div>
+            <div class="shelf"><h2>故事资料</h2><svg class="icon" width="13" height="13" viewBox="0 0 24 24"><path d="m10 14 4-4 M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0"/></svg></div>
+          </aside>
+
+          <section class="center">
+            <div class="docbar">
+              <div class="tab"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span>第三章 · 她没有问他为什么</span></div>
+              <span class="kind">正文</span>
+            </div>
+            <div class="crumb">雾海来信 <svg class="icon" width="11" height="11" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg> 正文
+              <span class="save"><span class="dot-save"></span>已保存</span>
+            </div>
+            <div class="paper-scroll">
+              <div class="manuscript">
+                <div class="ms-head">
+                  <div>
+                    <span class="draft">编辑稿</span>
+                    <h1>她没有问他为什么</h1>
+                    <p class="vol">第一卷 · 海雾来时</p>
+                  </div>
+                  <span class="ms-mark"><svg class="icon" width="22" height="22" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-2H4z M20 4v15h-4a4 4 0 0 0-3 2"/></svg></span>
+                </div>
+                <div class="prose">
+                  <p>灯塔的灯在雾里转了一圈，又一圈。她把湿透的信纸摊在膝上，纸角被海风吹得发抖，像一只困在原地的小鸟。</p>
+                  <p><span class="ref">林晚</span>站在门边，手还搭在把手上。她没有问他为什么在这里，也没有问他从哪里来。她只是把炉子拨旺了一点，让屋里的光多撑一会儿。</p>
+                  <p>雾从窗缝渗进来，带着咸味。远处传来汽笛，一声长，两声短，是<span class="ref">雾港</span>的旧规矩——告诉归船，岸还在。</p>
+                </div>
+                <div class="ms-links">
+                  <span>本章关联</span>
+                  <button class="chip"><svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m10 14 4-4 M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0"/></svg>林晚</button>
+                  <button class="chip"><svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m10 14 4-4 M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0"/></svg>雾港</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="agent">
+            <div class="ahead">
+              <div class="who"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></svg><strong>一起写这一章</strong></div>
+              <span class="mode">交互演示</span>
+            </div>
+            <div class="atabs">
+              <button aria-selected="true">对话</button>
+              <button>修改 <span class="tabcount">1</span></button>
+            </div>
+            <div class="abody">
+              <div class="aintro">
+                <span class="avatar"><svg class="icon" width="17" height="17" viewBox="0 0 24 24"><path d="m4 20 4-1L20 7a2.1 2.1 0 0 0-3-3L5 16z M14 7l3 3"/></svg></span>
+                <h2>先讨论，再落到正文里</h2>
+                <p>我会先给出候选段落，由你决定要不要采纳。正文不会被自动覆盖。</p>
+              </div>
+              <div class="msg">
+                <div class="from"><strong>候选续写</strong><span class="tag">示例</span></div>
+                <p>她把灯芯挑高了一些。光在桌上铺开，照见信纸末尾那行被水泡开的字——像是有人写到一半，又被什么打断了。</p>
+                <div class="citations">
+                  <button class="cite">第三章 · 灯塔下的信</button>
+                  <button class="cite">人物 · 林晚</button>
+                </div>
+              </div>
+            </div>
+            <div class="composer">
+              <div class="clabel"><svg class="icon" width="13" height="13" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z"/></svg>已引用选段<span class="sel">42 字</span></div>
+              <div class="ctx">
+                <button aria-pressed="true">本章正文</button>
+                <button>人物卡</button>
+                <button>世界规则</button>
+              </div>
+              <textarea readonly placeholder="说说你想怎么改这一段…"></textarea>
+              <div class="cfoot"><span>交互演示 · 未连接模型</span>
+                <button class="send" aria-label="发送"><svg class="icon" width="15" height="15" viewBox="0 0 24 24"><path d="M5 12h14 M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <footer class="statusbar">
+          <div><span class="sdot"></span>独立预览 · 示例作品</div>
+          <span>5,293 字</span>
+          <div><span>中文创作</span>已保存</div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ============ 精修 ============ -->
+    <section class="stage" data-look="after">
+      <div class="stage-tag"><span class="dot"></span><strong>精修方向</strong><span>14px / 全状态动效 / 分层色调投影 / micro 11px</span></div>
+      <div class="app">
+        <div class="topbar">
+          <div class="brand"><strong>幻月</strong><span>创作工作台</span><span class="badge">前端预览</span></div>
+          <div class="tb-actions">
+            <button class="btn" aria-label="导航"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><path d="M3 4h18v16H3z M15 4v16"/></svg></button>
+            <button class="btn">专注</button>
+            <button class="btn" aria-pressed="true">Agent</button>
+            <button class="btn outline">导出 <svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="float-demo">
+              <button>正文与设定 Markdown</button>
+              <button>完整预览项目 JSON</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="layout">
+          <nav class="rail">
+            <div class="emblem"><svg width="24" height="24" viewBox="0 0 30 30" fill="currentColor"><path d="M23 6a12 12 0 1 0 1 18A11 11 0 0 1 23 6Z"/><circle cx="23" cy="9" r="2"/></svg></div>
+            <button class="btn" aria-pressed="true"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-2H4z M20 4v15h-4a4 4 0 0 0-3 2"/></svg><span>正文</span></button>
+            <button class="btn"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0 M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span>人物</span></button>
+            <button class="btn"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0 M3 12h18"/></svg><span>世界</span></button>
+            <button class="btn"><svg class="icon" width="20" height="20" viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2z M9 3v16 M15 5v16"/></svg><span>地图</span></button>
+            <span class="spacer">本机</span>
+          </nav>
+
+          <aside class="sidebar">
+            <div class="project">
+              <div class="cover"><svg class="icon" width="18" height="18" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-2H4z M20 4v15h-4a4 4 0 0 0-3 2"/></svg></div>
+              <div><strong>雾海来信</strong><small>示例作品 · 前端预览</small></div>
+            </div>
+            <label class="search">
+              <svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0 M15 15l6 6"/></svg>
+              <input placeholder="搜索章节与设定" readonly />
+              <span class="kbd">Ctrl K</span>
+            </label>
+            <div class="shelf"><h2>正文目录</h2><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M12 5v14 M5 12h14"/></svg></div>
+            <div class="volume"><svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>第一卷 · 海雾来时<span class="count">4</span></div>
+            <div class="chapters">
+              <button class="chap"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第一章 · 灯塔下的信</strong><small>1,842 字 · 编辑稿</small></span><span class="no">01</span></button>
+              <button class="chap"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第二章 · 潮汐表</strong><small>2,106 字 · 编辑稿</small></span><span class="no">02</span></button>
+              <button class="chap" aria-current="page"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第三章 · 她没有问他为什么</strong><small>1,377 字 · 编辑稿</small></span><span class="no">03</span></button>
+              <button class="chap"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span class="txt"><strong>第四章 · 北岸的雾</strong><small>968 字 · 草稿</small></span><span class="no">04</span></button>
+            </div>
+            <div class="shelf"><h2>故事资料</h2><svg class="icon" width="13" height="13" viewBox="0 0 24 24"><path d="m10 14 4-4 M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0"/></svg></div>
+          </aside>
+
+          <section class="center">
+            <div class="docbar">
+              <div class="tab"><svg class="icon" width="14" height="14" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z M14 3v6h5"/></svg><span>第三章 · 她没有问他为什么</span></div>
+              <span class="kind">正文</span>
+            </div>
+            <div class="crumb">雾海来信 <svg class="icon" width="11" height="11" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg> 正文
+              <span class="save"><span class="dot-save"></span>已保存</span>
+            </div>
+            <div class="paper-scroll">
+              <div class="manuscript">
+                <div class="ms-head">
+                  <div>
+                    <span class="draft">编辑稿</span>
+                    <h1>她没有问他为什么</h1>
+                    <p class="vol">第一卷 · 海雾来时</p>
+                  </div>
+                  <span class="ms-mark"><svg class="icon" width="22" height="22" viewBox="0 0 24 24"><path d="M4 4h6a3 3 0 0 1 3 3v13a4 4 0 0 0-3-2H4z M20 4v15h-4a4 4 0 0 0-3 2"/></svg></span>
+                </div>
+                <div class="prose">
+                  <p>灯塔的灯在雾里转了一圈，又一圈。她把湿透的信纸摊在膝上，纸角被海风吹得发抖，像一只困在原地的小鸟。</p>
+                  <p><span class="ref">林晚</span>站在门边，手还搭在把手上。她没有问他为什么在这里，也没有问他从哪里来。她只是把炉子拨旺了一点，让屋里的光多撑一会儿。</p>
+                  <p>雾从窗缝渗进来，带着咸味。远处传来汽笛，一声长，两声短，是<span class="ref">雾港</span>的旧规矩——告诉归船，岸还在。</p>
+                </div>
+                <div class="ms-links">
+                  <span>本章关联</span>
+                  <button class="chip"><svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m10 14 4-4 M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0"/></svg>林晚</button>
+                  <button class="chip"><svg class="icon" width="12" height="12" viewBox="0 0 24 24"><path d="m10 14 4-4 M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0"/></svg>雾港</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="agent">
+            <div class="ahead">
+              <div class="who"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></svg><strong>一起写这一章</strong></div>
+              <span class="mode">交互演示</span>
+            </div>
+            <div class="atabs">
+              <button aria-selected="true">对话</button>
+              <button>修改 <span class="tabcount">1</span></button>
+            </div>
+            <div class="abody">
+              <div class="aintro">
+                <span class="avatar"><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><path d="m4 20 4-1L20 7a2.1 2.1 0 0 0-3-3L5 16z M14 7l3 3"/></svg></span>
+                <h2>先讨论，再落到正文里</h2>
+                <p>我会先给出候选段落，由你决定要不要采纳。正文不会被自动覆盖。</p>
+              </div>
+              <div class="msg">
+                <div class="from"><strong>候选续写</strong><span class="tag">示例</span></div>
+                <p>她把灯芯挑高了一些。光在桌上铺开，照见信纸末尾那行被水泡开的字——像是有人写到一半，又被什么打断了。</p>
+                <div class="citations">
+                  <button class="cite">第三章 · 灯塔下的信</button>
+                  <button class="cite">人物 · 林晚</button>
+                </div>
+              </div>
+            </div>
+            <div class="composer">
+              <div class="clabel"><svg class="icon" width="13" height="13" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5z"/></svg>已引用选段<span class="sel">42 字</span></div>
+              <div class="ctx">
+                <button aria-pressed="true">本章正文</button>
+                <button>人物卡</button>
+                <button>世界规则</button>
+              </div>
+              <textarea readonly placeholder="说说你想怎么改这一段…"></textarea>
+              <div class="cfoot"><span>交互演示 · 未连接模型</span>
+                <button class="send" aria-label="发送"><svg class="icon" width="15" height="15" viewBox="0 0 24 24"><path d="M5 12h14 M13 6l6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <footer class="statusbar">
+          <div><span class="sdot"></span>独立预览 · 示例作品</div>
+          <span>5,293 字</span>
+          <div><span>中文创作</span>已保存</div>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <div class="notes">
+    <h2>八处差异，按性价比排序</h2>
+    <p class="sub">右列改动全部落在“设计变量 + 状态层”，不动布局结构，因此可以渐进替换，不需要重写界面。</p>
+    <table>
+      <thead><tr><th>#</th><th>位置</th><th>现状</th><th>改成</th><th>为什么这样就不"AI"</th></tr></thead>
+      <tbody>
+        <tr><td class="rank">1</td><td>全局字体</td><td><code>Segoe UI + 微软雅黑</code>，系统默认</td><td>拉丁 Inter，中文 MiSans/鸿蒙/思源，正文思源宋体</td><td>默认字栈让界面"没有作者"；衬线正文让写作工具有了编辑物的身份</td></tr>
+        <tr><td class="rank">2</td><td>正文段落</td><td>无缩进、行高 2.05、无孤字控制</td><td><code>text-indent:2em</code>、<code>text-wrap:pretty</code>、<code>line-break:strict</code>、行高 1.95</td><td>首行缩进 2em 是中文正文的标准；AI 生成的中文界面几乎总是忽略它。注意：中文<b>不要</b>用 <code>justify</code></td></tr>
+        <tr><td class="rank">3</td><td>micro 文本</td><td>9–10px</td><td>下限 11px，正文 14px</td><td>9px 中文基本不可读，是"凑尺寸"而非"排版"的证据</td></tr>
+        <tr><td class="rank">4</td><td>强调色</td><td>约 30 个近似绿，<code>#acd4c2</code> 冷色</td><td>单一 <code>#5f9d7f</code>，饱和度 25%，全部由变量派生</td><td>颜色收敛成系统；AI 的典型特征是同色系里塞进十几个随手取的近似值</td></tr>
+        <tr><td class="rank">5</td><td>章节选中态</td><td>整行染深绿 <code>#3c4940</code></td><td>中性抬高 + 左侧 2px 强调条</td><td>整块换色是"状态=颜色"的新手做法；结构化标记更像成熟 IDE 与阅读器</td></tr>
+        <tr><td class="rank">6</td><td>悬浮投影</td><td>单层纯黑 <code>#0004</code></td><td>三层、带青色调、单一光源</td><td>纯黑低透明投影是最容易识别的 AI 痕迹；真实光有层次也带环境色</td></tr>
+        <tr><td class="rank">7</td><td>悬停与按下</td><td>仅有背景变色，无按下反馈</td><td>180ms <code>cubic-bezier(.32,.72,0,1)</code>，按下 <code>scale(.97)</code></td><td>"有没有摸过"是手感的全部来源；无动效的界面读起来像截图而不是软件</td></tr>
+        <tr><td class="rank">8</td><td>圆角层级</td><td>全部 5px</td><td>控件 6 / 卡片 10 / 浮层 14 / 标签全圆</td><td>统一圆角是最典型的模板痕迹；半径随层级收紧才有"装配"过的感觉</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -181,8 +181,10 @@ pub trait MessageSink {
 }
 
 /// 收集到内存的 sink（测试与 [`ConversationAdapter::parse`] 默认实现使用）。
+/// 大会话不要用它——消息全部驻留内存，只配小数据。
 #[derive(Default)]
 pub struct VecSink {
+    /// 收集到的全部消息（按 emit 顺序）。
     pub messages: Vec<NormalizedMessage>,
 }
 
@@ -241,8 +243,12 @@ pub trait ConversationAdapter: Send + Sync {
 ///
 /// Codex（`response_item` 与 `event_msg` 双写）与 Kimi（`turn.prompt` 与 `prompt.accepted`）
 /// 都会把同一条文本记录两次。归一化后必须去重，否则 UI 出现重复气泡。
+///
+/// 只看「最近窗口」而非全局：双写总是相邻出现，全局去重会误杀合法的重复引用。
 pub struct DupFilter {
+    /// 最近窗口：(角色, 字节长度, 取样哈希)，容量 8
     recent: Vec<(Role, usize, u64)>,
+    /// 窗口内哈希的集合视图，O(1) 查询（与 recent 同步增删）
     seen_hashes: HashSet<u64>,
 }
 

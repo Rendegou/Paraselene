@@ -84,7 +84,8 @@ impl Database {
         &self.path
     }
 
-    /// 只读访问连接。
+    /// 只读访问连接。锁中毒（poisoned，即有线程 panic 时持锁）返回 Database 错误——
+    /// 比 `unwrap` 恢复更保守：连接状态不可信时拒绝服务，而不是假装没事。
     pub fn with_conn<T>(&self, f: impl FnOnce(&Connection) -> Result<T>) -> Result<T> {
         let guard = self
             .conn
@@ -94,6 +95,7 @@ impl Database {
     }
 
     /// 事务访问连接（自动提交 / 回滚）。
+    /// 闭包返回 Err 即回滚：事务内任何一步失败都不会留下半个写入。
     pub fn with_tx<T>(&self, f: impl FnOnce(&rusqlite::Transaction<'_>) -> Result<T>) -> Result<T> {
         let mut guard = self
             .conn
@@ -201,10 +203,7 @@ impl Database {
             let mut rows = rows;
             for row in rows.iter_mut() {
                 let raw = row.notes.take();
-                match raw
-                    .as_deref()
-                    .map(serde_json::from_str::<Vec<String>>)
-                {
+                match raw.as_deref().map(serde_json::from_str::<Vec<String>>) {
                     Some(Ok(notes)) => {
                         row.notes = Some(notes.join("；"));
                         row.notes_text = notes;
@@ -280,6 +279,7 @@ impl Database {
     }
 
     /// 覆盖写入会话的文件指纹（解析成功后调用）。
+    /// 先整删再插：raw_files 是「当前状态」表而非历史表，replace 语义明确。
     pub fn replace_fingerprints(
         &self,
         session_id: &str,

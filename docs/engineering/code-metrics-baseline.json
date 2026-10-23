@@ -1,0 +1,78 @@
+{
+  "tool": "code-metrics",
+  "toolVersion": "t05a-1",
+  "generatedAt": "2026-10-02T17:41:06.800Z",
+  "tsVersion": "5.9.3",
+  "limits": {
+    "function": 60,
+    "component": 150,
+    "hook": 60,
+    "module": 400,
+    "complexity": 10
+  },
+  "violationCount": 7,
+  "violations": [
+    {
+      "file": "src/LegacyApp.tsx",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 415,
+      "complexity": 0,
+      "limit": 400
+    },
+    {
+      "file": "src/lib/ipc.ts",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 401,
+      "complexity": 0,
+      "limit": 400
+    },
+    {
+      "file": "src/LegacyApp.tsx",
+      "name": "Card",
+      "kind": "component",
+      "lines": 242,
+      "complexity": 36,
+      "limit": 150,
+      "complexityLimit": 10
+    },
+    {
+      "file": "src/IdeaPage.tsx",
+      "name": "IdeaPage",
+      "kind": "component",
+      "lines": 163,
+      "complexity": 22,
+      "limit": 150,
+      "complexityLimit": 10
+    },
+    {
+      "file": "src/MemoryPage.tsx",
+      "name": "MemoryPage",
+      "kind": "component",
+      "lines": 142,
+      "complexity": 16,
+      "limit": 150,
+      "complexityLimit": 10
+    },
+    {
+      "file": "src/ImportSection.tsx",
+      "name": "ImportSection",
+      "kind": "component",
+      "lines": 93,
+      "complexity": 15,
+      "limit": 150,
+      "complexityLimit": 10
+    },
+    {
+      "file": "src/TargetPage.tsx",
+      "name": "TargetPage",
+      "kind": "component",
+      "lines": 73,
+      "complexity": 21,
+      "limit": 150,
+      "complexityLimit": 10
+    }
+  ]
+}
+

@@ -1,0 +1,334 @@
+.paragraph-slot {
+  margin: 24px 0 32px;
+  font: 400 14px/1.6 var(--studio-font);
+}
+.thread-panel {
+  max-height: min(420px, 50vh);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--studio-thread-border);
+  border-radius: 8px;
+  background: var(--studio-thread-bg);
+  color: var(--studio-paper-ink);
+  overflow: hidden;
+}
+.thread-panel-header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 16px;
+  gap: 12px;
+  border-bottom: 1px solid var(--studio-thread-line);
+}
+.thread-panel-header > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.thread-panel-header h2 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.thread-panel-header .thread-location {
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+  padding-right: 9px;
+  border-right: 1px solid var(--studio-thread-line);
+}
+.thread-panel-header .writing-link {
+  margin-left: 4px;
+  font-size: 12px;
+}
+.thread-panel-header > button {
+  color: var(--studio-paper-muted);
+  padding: 5px;
+}
+.thread-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.thread-tabs {
+  display: flex;
+  gap: 19px;
+  padding: 0 18px;
+  flex: none;
+}
+.writing-app .thread-tabs > button {
+  border-radius: 0;
+  padding: 8px 1px 9px;
+  font-size: 13px;
+  color: var(--studio-paper-muted);
+  border-bottom: 2px solid transparent;
+}
+.writing-app .thread-tabs > button[aria-pressed="true"] {
+  color: var(--studio-accent);
+  border-bottom-color: var(--studio-accent);
+  font-weight: 500;
+}
+.thread-tabs > button > span {
+  font-size: 12px;
+}
+.thread-content {
+  padding: 12px 18px 14px;
+  overflow: auto;
+  min-height: 0;
+  flex: 1;
+}
+.thread-discussion:empty {
+  display: none;
+}
+.thread-content:has(.thread-discussion:empty) {
+  padding: 0;
+  flex: 0;
+}
+.thread-discussion article + article {
+  border-top: 1px solid var(--studio-thread-line);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+.thread-discussion article > header,
+.thread-versions article > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+  margin-bottom: 8px;
+}
+.thread-discussion article > header strong,
+.thread-versions article > header strong {
+  font-weight: 500;
+  color: var(--studio-paper-ink);
+}
+.thread-discussion p {
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.thread-discussion details {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.thread-discussion summary {
+  color: var(--studio-accent);
+  cursor: pointer;
+}
+.thread-discussion details section {
+  margin-top: 13px;
+}
+.thread-discussion h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 7px;
+}
+.thread-discussion blockquote {
+  padding-left: 12px;
+  margin: 10px 0;
+  border-left: 1px solid #aebed6;
+  font-family: var(--studio-serif);
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+.thread-composer {
+  flex: none;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--studio-thread-line);
+}
+.thread-composer textarea {
+  width: 100%;
+  display: block;
+  background: #fff;
+  border: 1px solid var(--studio-thread-border);
+  border-radius: 6px;
+  resize: vertical;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 70px;
+  max-height: 120px;
+}
+.thread-composer textarea::placeholder,
+.thread-candidate textarea::placeholder {
+  color: var(--studio-paper-muted);
+}
+.thread-composer-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 9px;
+}
+.thread-composer-actions > span {
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+  margin-right: auto;
+}
+.thread-composer-actions > button {
+  font-size: 13px;
+}
+.thread-attached {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 15px;
+  margin-bottom: 8px;
+}
+.thread-attached > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.thread-attached > span > button:last-child {
+  padding: 2px 4px;
+  color: var(--studio-paper-muted);
+}
+.thread-candidate-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+}
+.thread-candidate-heading > button {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-color: var(--studio-thread-border);
+}
+.thread-candidate-heading > button[aria-pressed="true"] {
+  background: var(--studio-selected);
+  color: var(--studio-accent);
+}
+.thread-candidate textarea {
+  display: block;
+  width: 100%;
+  font: 400 20px/1.85 var(--studio-serif);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  resize: vertical;
+  min-height: 74px;
+  max-height: 160px;
+}
+.thread-diff {
+  font: 400 20px/1.85 var(--studio-serif);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 4px 0 18px;
+}
+.thread-diff ins {
+  text-decoration: none;
+  color: #365b43;
+  background: #e0ebdf;
+}
+.thread-diff del {
+  color: #914c42;
+  background: #f4e2df;
+}
+.thread-candidate-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 12px;
+}
+.thread-candidate-actions > small {
+  color: var(--studio-paper-muted);
+  font-size: 12px;
+  margin-left: auto;
+}
+.thread-warning {
+  font-size: 13px;
+  color: var(--studio-warning);
+  line-height: 1.85;
+  padding: 8px 0;
+}
+.thread-empty p {
+  font-size: 14px;
+  color: var(--studio-paper-muted);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.thread-versions > p {
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+  margin-bottom: 16px;
+}
+.thread-versions article {
+  padding: 12px 0;
+  border-top: 1px solid var(--studio-thread-line);
+}
+.thread-versions blockquote {
+  margin: 0;
+  font: 400 18px/1.9 var(--studio-serif);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.thread-drawer-panel {
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+  max-height: 100%;
+}
+.thread-drawer-panel .thread-content {
+  flex: 1;
+}
+.thread-reference-mobile {
+  overflow: auto;
+  min-height: 0;
+  flex: 1;
+}
+.writing-focused .paragraph-slot {
+  display: none;
+}
+@media (max-width: 760px) {
+  .paragraph-slot {
+    margin: 20px -10px 24px;
+  }
+  .thread-panel-header {
+    padding: 8px 12px;
+  }
+  .thread-panel-header > div {
+    gap: 7px;
+  }
+  .thread-panel-header .writing-link {
+    margin: 0;
+  }
+  .thread-content {
+    padding: 10px 12px;
+  }
+  .thread-tabs {
+    padding: 0 12px;
+  }
+  .thread-composer {
+    padding: 10px 12px;
+  }
+  .thread-composer textarea {
+    height: 70px;
+    resize: none;
+  }
+  .thread-composer-actions {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .thread-composer-actions > span {
+    flex-basis: 100%;
+  }
+  .thread-composer-actions > .writing-primary {
+    margin-left: auto;
+  }
+  .thread-candidate-actions {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .thread-candidate-actions > small {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+  .thread-candidate textarea,
+  .thread-diff {
+    font-size: 19px;
+  }
+}

@@ -1,77 +1,42 @@
-# AGENTS.md — 「幻月」Windows 常驻陪伴 Agent
+# AGENTS.md — 幻月工程入口
 
-本文件是对在本仓库工作的所有 Agent（Codex / Kimi / Claude / Cursor / 人工协作者）的**强制约束**。
+适用于 Codex、KIMI、Claude、Cursor 与人工协作者。优先级：用户明确指示 > 本文件 > 当前方向 > 当前看板 > Goal > 专项文档。冲突写入看板，不自行改产品范围。
 
-**指令优先级**：用户当次明确指示 > 本文件 > `docs/development-direction.md` > `docs/progress-checkpoint.md` > `幻月-Agent执行Goal.md` > 其他文档。冲突时以优先级高者为准，并在看板记录。
+## 开工必读
 
-## 1. 项目定位
+1. [README](README.md) → [当前方向](docs/development-direction.md) → [进度看板](docs/progress-checkpoint.md)。
+2. [项目地图](docs/engineering/project-map.md) → [代码规范](docs/engineering/code-standards.md)。
+3. 小说任务再读 [模块入口](docs/novel/README.md)；产品与总验收见 [brief](windows-companion-agent-brief.md)、[Goal](幻月-Agent执行Goal.md)。
 
-- 产品方向唯一来源：`windows-companion-agent-brief.md`（同一只常驻桌宠入口 → 旧想法花园 / 小说共写 / Python 5 分钟练习）。
-- 本仓库是**独立新产品**，不绑定任何公司业务项目；公司资料默认不导入、不作为数据来源、不作为需求来源。
-- 验收合同：`幻月-Agent执行Goal.md` 的 G01–G20；执行看板：`docs/progress-checkpoint.md`。
+## 当前任务与命名
 
-## 2. 环境硬约束
+- 2026-10-12 起只推进小说客户端：前端体验 → 真实内核接线 → 引用/Agent 深入。T05A–T05H 旧计划保留为历史与边界参考，不按全套并行展开；桌宠、学习、主动提醒退出当前排期。先看板认领，再改代码；同一任务一个负责人。
+- 每个新工程会话立即设置标题：`YYMMDD | [模块] 动作 + 具体对象/问题`，中文优先，约 10–28 个汉字。
+- 原因未知用“排查/定位/分析”；确认缺陷后用“修复”；新能力用“实现/增加/支持”；结构调整用“重构/拆分/迁移”。诊断明确后细化标题，禁用“继续开发/代码优化/修复问题”等空泛名称。
+- 工作副本为 `D:\MyAgent\paraselene-work`；未经用户授权不向 `D:\paraselene` 同步。保留已有修改，不 reset、清库或覆盖其他 Agent 成果。
 
-- Windows 11 开发机；Shell 一律用 **PowerShell 7（`pwsh`）**，禁止 Windows PowerShell 5.1。
-- Node.js 22、Rust **`stable-x86_64-pc-windows-gnu`**（本机无 MSVC，依据 docs/adr/0001）；构建前必须 `export PATH="/c/tools/paraselene-build/mingw64/bin:$PATH"`（便携 MinGW，含 windres/gcc，见 ADR-0001）。
-- 本地开发**禁用 Docker**；需要的运行时全部原生进程。
-- 一切路径、脚本、文档必须跨会话可复现：新机器按文档能重建环境。
+## 环境与边界
 
-## 3. 技术基线
+- Windows only；只用 PowerShell 7 `pwsh`，禁止 `powershell.exe` 与 Bash。原生 Windows 路径；本地不使用 Docker。
+- Node.js 22；Rust `stable-x86_64-pc-windows-gnu`。构建前：`$env:PATH='C:\tools\paraselene-build\mingw64\bin;' + $env:PATH`。见 [ADR-0001](docs/adr/0001-windows-gnu-toolchain.md)。
+- Tauri 2 只承载窗口/托盘/权限/IPC；领域逻辑放纯 Rust crates，核心不依赖 Tauri；lib crate-type 保持 rlib。
+- React/TS 组件只通过 `src/lib/ipc.ts` 访问原生能力，不直接导入 Tauri API。SQLite/FTS5 为本机权威存储。
+- 模型只走 DeepSeek 官方 API BYOK；Key 在系统安全存储；不使用网页登录态、Cookie 或反代。
+- Python 仅在已验证的隔离 Worker 运行；不得放宽全局 CSP/IPC 权限。Pyodide 不是天然安全沙箱，见 [ADR-0002](docs/adr/0002-python-sandbox-pyodide.md)。
 
-- **Tauri 2 + Rust**：Cargo workspace；核心逻辑为纯 Rust crate（不依赖 Tauri，可独立 `cargo test`），`src-tauri` 只做窗口/托盘/IPC 转发；lib crate-type 仅 `rlib`（ADR-0001）。
-- 前端 React + TypeScript + Vite；所有 IPC 调用收敛到**单一封装层**（参考 local-ai-chat-manager 的 `lib/ipc.ts` 模式），禁止组件内直接调 Tauri API。
-- 本地存储 **SQLite（FTS5）**；记忆原文与索引只留本机。
-- 模型：**DeepSeek 官方 API，用户自带 Key（BYOK）**；不使用网页版 ChatGPT 反代、Cookie 或登录态。
-- Python 执行环境：**Pyodide（WASM），已由 ADR-0002 锁定**，练习窗口按需加载；**WebView2 禁止开启 Node 集成/Node.js 桥接**（否则沙箱失效）。
-- 关键选型与版本用 `docs/adr/NNNN-主题.md` 锁定。
+## 隐私、复用与数据
 
-## 4. 密钥与隐私红线（不可协商）
+- 不读取、复制、打印或提交 `.env`、Key、SSH 私钥、Cookie、Agent auth/token 文件；原始导出与会话只读。
+- 不采集屏幕/键盘/麦克风，不全盘扫描。只处理用户授权目录/文件；公司资料默认不导入，项目不绑定公司业务。
+- 日志/错误/测试快照无私人正文；证据截图用合成或脱敏材料。语料、数据库、导出包不提交。
+- 角色分享包不得带脚本、凭据、对话、小说正文、学习代码或私人路径。四空间隔离保持有效。
+- 小说试写、AI 摘要/事实候选不自动成为正史；修改须绑定版本并经用户采纳；外发预览与一次性确认不可绕过。
+- 首选 [复用清单](docs/reuse-inventory.md) 的自有 MIT 代码。第三方只作设计参考；拷贝前核对许可证，记录来源、原路径与改动。
 
-- 禁止读取、复制、打印、提交任何凭据类内容：`.env`、API Key、SSH 私钥、浏览器 Cookie、各编码 Agent 的 `auth.json` / token 文件。
-- 不采集屏幕、键盘、麦克风；不做全盘扫描；只索引**用户明确授权**的目录与导出文件。
-- 原始会话/对话文件**只读**，永不修改。
-- 日志、错误上报、测试快照不包含记忆正文；截图类证据必须脱敏。
-- 分享角色包**不得**包含对话、小说正文、学习代码、文件路径、凭据；打包前自动检查（对应 G02）。
-- **仓库卫生**：只提交代码与说明文档。语料（对话记录、导出包）、密钥、本地数据、记忆库永不提交；`.gitignore` 已覆盖 `secrets/`、`data/`、`*.zip`、`ChatGPT-*`；新增文件类型时先判断它该不该进仓库。
+## 质量与交接
 
-## 5. 事实标记
-
-- 功能与数据一律标注 **REAL / SIMULATED / PLANNED**；禁止静默降级，禁止把"文档写了"说成"功能做了"。
-- 性能数字（冷启动、驻留内存、CPU、电量）必须来自本机实测，并记录硬件与系统环境。
-- 找不到证据时明确说"没找到 / 未验证"，不把模型猜测写成用户事实或项目事实。
-
-## 6. 验证纪律
-
-- 结论必须附：**实际命令、退出码、关键输出、证据路径**（`docs/evidence/Txx-YYYYMMDD.md`）。
-- "文档或代码存在"不算通过；历史 PASS 不自动有效，关键验收必须在当前代码上复跑。
-- 禁止无断言测试；目标测试失败与全量测试失败分开报告。
-
-## 7. 代码与注释质量
-
-- 注释写"为什么"：协议坑、逆向出的格式细节、权限边界、性能取舍；不复述代码在做什么。
-- 从其他仓库移植的代码，文件头必须注明：**来源仓库、原路径、许可证、移植改动**。
-- 公开 API（Rust 模块、TS 模块）写清契约：输入、输出、错误、副作用。
-
-## 8. 复用纪律
-
-- 首选复用 `docs/reuse-inventory.md` 中列出的**自有代码**（local-ai-chat-manager，MIT 许可）。
-- 第三方/上游克隆项目（DeepTutor、prime-agent 等）**只作设计参考**，不直接拷贝代码；确需引用先确认许可证。
-- 复用不是复制粘贴了事：移植后必须能通过新项目的测试，原项目的已知坑（见复用清单）必须一并处理或显式记录。
-
-## 9. 多 Agent 接手流程
-
-1. 开工前必读：`windows-companion-agent-brief.md` → `docs/development-direction.md` → `docs/progress-checkpoint.md`。
-2. 认领任务：在看板填负责人（分支或会话标识）、状态改 IN_PROGRESS；同一任务只能有一个负责人。
-3. 完成时：记录实际命令、退出码、关键结果、证据路径，才能把 `[ ]` 改 `[x]`、状态改 PASS。
-4. `PARTIAL / FAIL / NOT_RUN / BLOCKED / IN_PROGRESS` 一律不勾选。
-
-## 10. 允许停止的阻塞条件
-
-以下情形允许暂停并在看板记录（说明需要用户做什么）：
-
-1. 需要用户提供凭据、API Key 或数据授权；
-2. 需要付费资源或外部服务持续不可用；
-3. 需求矛盾或产品方向文档未覆盖的取舍；
-4. 技术 spike 证明关键假设不成立（如 Pyodide 资源占用超标）；
-5. 用户明确要求暂停。
+- 目录职责、依赖方向、函数长度和复杂度按 [代码规范](docs/engineering/code-standards.md)；不得继续扩大巨型组件/模块。
+- 公开 API 说明契约；注释解释原因、边界与取舍。异常、取消、过期版本必须显式处理。
+- REAL / SIMULATED / PLANNED 分开。代码存在不等于验收；性能数字必须实测，历史 PASS 不自动继承。
+- 每阶段记录实际命令、退出码、关键结果、限制与证据到 `docs/evidence/`，再更新看板；无断言测试不算证据。
+- 结束前写明修改文件、完成项、失败/未测项和下一动作。只在凭据/授权缺失、付费依赖、需求实质矛盾、关键 spike 失败或用户要求暂停时停；普通实现选择自行推进。

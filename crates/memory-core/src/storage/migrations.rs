@@ -34,7 +34,27 @@ use crate::model::INDEX_SCHEMA_VERSION;
 /// - 表形态从 external content 改为**独立表**：「索引前缀」与 external content 的
 ///   rebuild 语义不兼容（rebuild 按内容表全文重建，与触发器写入的截断文本不一致，
 ///   integrity-check 会失败）；独立表用 DELETE FROM ... WHERE rowid 维护，更直接。
-const MIGRATIONS: &[&str] = &[V1_INITIAL, V2_TRIGRAM, V3_SPACES, V4_TRIGRAM_SLIM];
+///
+/// - v5（T05 第一片）：小说文档的确认版本树和独立试写区。
+/// - v6（T06 第一片）：学习练习轨迹；只有后端已判定的测试结果可记录。
+/// - v7（T05B 第一片）：长篇工作台底座。
+/// - v8（T05C 第一片）：安全 patch 持久化。
+/// - v9（T05D 第一片）：设定集与出处锚点。
+/// - v10（T05E 第二片）：派生摘要与重建队列。
+const MIGRATIONS: &[&str] = &[
+    V1_INITIAL,
+    V2_TRIGRAM,
+    V3_SPACES,
+    V4_TRIGRAM_SLIM,
+    V5_NOVEL,
+    V6_LEARNING,
+    V7_NOVEL_WORKBENCH,
+    V8_NOVEL_PATCHES,
+    V9_LORE_ANCHORS,
+    V10_DERIVED_SUMMARIES,
+    include_str!("client_mvp_v11.sql"),
+    include_str!("client_mvp_v12.sql"),
+];
 
 /// 执行迁移（幂等，可重复调用）。
 pub fn migrate(conn: &mut Connection) -> Result<()> {
@@ -193,8 +213,9 @@ INSERT INTO message_fts_trigram (message_fts_trigram) VALUES ('rebuild');
 /// - 四空间是**叠加在原始导入会话之上的用户确认层**，原始 messages 表不动；
 /// - 隔离规则尽量下沉到 DDL CHECK（space 枚举、novel⇒work_id 必填、非 novel⇒
 ///   禁止 work_id、anchor 长度、禁止自链接），API 层再补人话错误信息；
-/// - `memory_links` 只允许通过 `spaces::link_memories` 显式写入——跨空间引用
-///   必须由用户触发（Goal §4.2 红线），任何自动/批量写入路径都不得碰这张表；
+/// - `memory_links` 只允许通过显式用户动作 API 写入（`spaces::link_memories`、
+///   `ideas::convert_idea`）——跨空间引用必须由用户触发（Goal §4.2 红线），
+///   任何自动/批量写入路径都不得碰这张表；
 /// - `memory_sources.session_id` 故意**不加外键**：出处链要在会话被清理 /
 ///   重新导入后仍然可展示（session_id 字符串 + anchor 已足够定位来源），
 ///   级联删除反而会把用户确认过的出处证据抹掉。
@@ -296,6 +317,103 @@ END;
 INSERT INTO message_fts_trigram (rowid, text, session_id)
 SELECT rowid, SUBSTR(text, 1, 4096), session_id FROM messages
 WHERE role != 'tool' AND text IS NOT NULL;
+"#;
+
+/// v5：试写不在正稿表中，后续上下文只能从文档当前 head 读取。
+const V5_NOVEL: &str = r#"
+CREATE TABLE novel_documents (
+    id              TEXT PRIMARY KEY,
+    work_id         TEXT NOT NULL REFERENCES works (id) ON DELETE CASCADE,
+    kind            TEXT NOT NULL CHECK (kind IN ('chapter','character','world','timeline','taboo')),
+    title           TEXT NOT NULL,
+    head_version_id TEXT,
+    created_at      TEXT NOT NULL,
+    updated_at      TEXT NOT NULL
+);
+CREATE INDEX idx_novel_documents_work ON novel_documents (work_id, kind, updated_at);
+
+CREATE TABLE novel_versions (
+    id                TEXT PRIMARY KEY,
+    document_id       TEXT NOT NULL REFERENCES novel_documents (id) ON DELETE CASCADE,
+    parent_version_id TEXT REFERENCES novel_versions (id),
+    body              TEXT NOT NULL,
+    origin            TEXT NOT NULL CHECK (origin IN ('user','accepted_draft')),
+    created_at        TEXT NOT NULL
+);
+CREATE INDEX idx_novel_versions_document ON novel_versions (document_id, created_at);
+
+CREATE TABLE novel_drafts (
+    id              TEXT PRIMARY KEY,
+    document_id     TEXT NOT NULL REFERENCES novel_documents (id) ON DELETE CASCADE,
+    base_version_id TEXT,
+    body            TEXT NOT NULL,
+    origin          TEXT NOT NULL CHECK (origin IN ('user','ai')),
+    status          TEXT NOT NULL CHECK (status IN ('pending','accepted','discarded')),
+    created_at      TEXT NOT NULL,
+    resolved_at     TEXT
+);
+CREATE INDEX idx_novel_drafts_document ON novel_drafts (document_id, status, created_at);
+"#;
+
+/// v6：与旧想法转成的 learning goal 关联，不复用跨空间记忆 payload。
+const V6_LEARNING: &str = r#"
+CREATE TABLE learning_attempts (
+    id             TEXT PRIMARY KEY,
+    goal_memory_id TEXT NOT NULL REFERENCES memories (id) ON DELETE CASCADE,
+    exercise_id    TEXT NOT NULL,
+    code           TEXT NOT NULL,
+    passed         INTEGER NOT NULL CHECK (passed IN (0, 1)),
+    passed_count   INTEGER NOT NULL CHECK (passed_count >= 0),
+    total_count    INTEGER NOT NULL CHECK (total_count > 0 AND passed_count <= total_count),
+    hint_level     INTEGER NOT NULL CHECK (hint_level BETWEEN 0 AND 3),
+    weak_topic     TEXT,
+    created_at     TEXT NOT NULL
+);
+CREATE INDEX idx_learning_attempts_goal ON learning_attempts (goal_memory_id, created_at, id);
+"#;
+
+/// v7：长篇工作台底座（T05B）。
+/// - 显式章序 `order_index`：目录顺序是用户承诺，不再由创建时间隐含表达；
+///   存量行按升级前的既有展示顺序（类型分组 + created_at + id）回填，保持观感不变。
+/// - `working_copies`：本机编辑稿（自动保存），乐观锁 revision；不是正稿，
+///   只有用户确认才进入 novel_versions。
+const V7_NOVEL_WORKBENCH: &str = r#"
+ALTER TABLE novel_documents ADD COLUMN order_index INTEGER NOT NULL DEFAULT 0;
+UPDATE novel_documents SET order_index = (
+    SELECT COUNT(*) FROM novel_documents older
+    WHERE older.work_id = novel_documents.work_id
+      AND (CASE older.kind WHEN 'character' THEN 0 WHEN 'world' THEN 1 WHEN 'timeline' THEN 2 WHEN 'taboo' THEN 3 ELSE 4 END,
+           older.created_at, older.id)
+        < (CASE novel_documents.kind WHEN 'character' THEN 0 WHEN 'world' THEN 1 WHEN 'timeline' THEN 2 WHEN 'taboo' THEN 3 ELSE 4 END,
+           novel_documents.created_at, novel_documents.id)
+);
+CREATE INDEX idx_novel_documents_order ON novel_documents (work_id, order_index, created_at, id);
+
+CREATE TABLE working_copies (
+    document_id       TEXT PRIMARY KEY REFERENCES novel_documents (id) ON DELETE CASCADE,
+    base_head_version TEXT,
+    revision          INTEGER NOT NULL CHECK (revision > 0),
+    body              TEXT NOT NULL,
+    content_hash      TEXT NOT NULL,
+    saved_at          TEXT NOT NULL
+);
+"#;
+
+/// v8：安全 patch。块与绑定条件整体存 JSON（块结构由 novel-core 定义并演进）；
+/// status 机 pending→applied/rejected 由命令层原子翻转，防重复应用。
+const V8_NOVEL_PATCHES: &str = r#"
+CREATE TABLE novel_patches (
+    id                    TEXT PRIMARY KEY,
+    document_id           TEXT NOT NULL REFERENCES novel_documents (id) ON DELETE CASCADE,
+    base_head_version     TEXT,
+    base_working_revision INTEGER,
+    quote_hash            TEXT NOT NULL,
+    blocks_json           TEXT NOT NULL,
+    status                TEXT NOT NULL CHECK (status IN ('pending','applied','rejected')),
+    created_at            TEXT NOT NULL,
+    resolved_at           TEXT
+);
+CREATE INDEX idx_novel_patches_document ON novel_patches (document_id, created_at);
 "#;
 
 #[cfg(test)]
@@ -508,14 +626,29 @@ mod tests {
             .unwrap()
         };
         assert_eq!(tri("vqtool"), 0, "tool 角色不应进 trigram");
-        assert_eq!(uni("zvqtool"), 1, "tool 角色仍应被 unicode61 覆盖（精确词检索）");
-        assert_eq!(tri("尾部唯一锚"), 0, "超出 4096 字符的部分不应入 trigram 索引");
+        assert_eq!(
+            uni("zvqtool"),
+            1,
+            "tool 角色仍应被 unicode61 覆盖（精确词检索）"
+        );
+        assert_eq!(
+            tri("尾部唯一锚"),
+            0,
+            "超出 4096 字符的部分不应入 trigram 索引"
+        );
         assert_eq!(tri("前前前"), 1, "前缀内的内容应正常入 trigram 索引");
         // 原文不受索引规则影响：messages 表仍存全文
         let full: String = conn
-            .query_row("SELECT text FROM messages WHERE id = 'kimi:v4#1'", [], |r| r.get(0))
+            .query_row(
+                "SELECT text FROM messages WHERE id = 'kimi:v4#1'",
+                [],
+                |r| r.get(0),
+            )
             .unwrap();
-        assert!(full.contains("尾部唯一锚词"), "原文必须完整保留在 messages 表");
+        assert!(
+            full.contains("尾部唯一锚词"),
+            "原文必须完整保留在 messages 表"
+        );
     }
 
     #[test]
@@ -639,7 +772,8 @@ mod tests {
             [],
         )
         .unwrap();
-        conn.execute("DELETE FROM memories WHERE id = 'm1'", []).unwrap();
+        conn.execute("DELETE FROM memories WHERE id = 'm1'", [])
+            .unwrap();
         let sources: i64 = conn
             .query_row("SELECT count(*) FROM memory_sources", [], |r| r.get(0))
             .unwrap();
@@ -694,7 +828,10 @@ mod tests {
                 |r| r.get(0),
             )
             .unwrap();
-        assert!(!sql.contains("content='messages'"), "v4 起 trigram 必须是独立表");
+        assert!(
+            !sql.contains("content='messages'"),
+            "v4 起 trigram 必须是独立表"
+        );
 
         // 数据不丢
         let messages: i64 = conn
@@ -722,11 +859,315 @@ mod tests {
         assert_eq!(tri("vquser"), 1, "存量 user 消息应回填进 trigram");
         assert_eq!(tri("vqtool"), 0, "存量 tool 消息不应回填进 trigram");
         assert_eq!(uni("zvquser"), 1);
-        assert_eq!(uni("zvqtool"), 1, "unicode61 索引不受影响，tool 仍可精确检索");
+        assert_eq!(
+            uni("zvqtool"),
+            1,
+            "unicode61 索引不受影响，tool 仍可精确检索"
+        );
 
         // 新触发器在迁移后依然同步（独立表按 rowid 删除）
         conn.execute("DELETE FROM messages WHERE id = 'kimi:v3#0'", [])
             .unwrap();
         assert_eq!(tri("vquser"), 0, "删除消息后 trigram 同步移除");
     }
+
+    #[test]
+    fn v4_库升级后_小说表可用且原作品记忆不丢() {
+        let mut conn = Connection::open_in_memory().unwrap();
+        conn.execute_batch("PRAGMA foreign_keys = ON;").unwrap();
+        conn.execute_batch(V1_INITIAL).unwrap();
+        conn.execute_batch(V2_TRIGRAM).unwrap();
+        conn.execute_batch(V3_SPACES).unwrap();
+        conn.execute_batch(V4_TRIGRAM_SLIM).unwrap();
+        conn.execute_batch("PRAGMA user_version = 4;").unwrap();
+        conn.execute(
+            "INSERT INTO works (id, title, created_at) VALUES ('old-work', '旧作品', '2026-09-26')",
+            [],
+        )
+        .unwrap();
+        conn.execute(
+            "INSERT INTO memories (id, space, work_id, kind, title, created_at, updated_at)
+             VALUES ('old-note', 'novel', 'old-work', 'inspiration', '原有灵感', '2026-09-26', '2026-09-26')", [],
+        ).unwrap();
+
+        migrate(&mut conn).unwrap();
+        migrate(&mut conn).unwrap();
+        let version: u32 = conn
+            .query_row("PRAGMA user_version", [], |r| r.get(0))
+            .unwrap();
+        let old_work: i64 = conn
+            .query_row(
+                "SELECT count(*) FROM works WHERE id = 'old-work'",
+                [],
+                |r| r.get(0),
+            )
+            .unwrap();
+        let old_note: i64 = conn
+            .query_row(
+                "SELECT count(*) FROM memories WHERE id = 'old-note'",
+                [],
+                |r| r.get(0),
+            )
+            .unwrap();
+        assert_eq!(version, INDEX_SCHEMA_VERSION);
+        assert_eq!((old_work, old_note), (1, 1));
+        conn.execute(
+            "INSERT INTO novel_documents (id, work_id, kind, title, created_at, updated_at)
+             VALUES ('chapter-1', 'old-work', 'chapter', '开头', '2026-09-27', '2026-09-27')",
+            [],
+        )
+        .unwrap();
+        let docs: i64 = conn
+            .query_row(
+                "SELECT count(*) FROM novel_documents WHERE work_id = 'old-work'",
+                [],
+                |r| r.get(0),
+            )
+            .unwrap();
+        assert_eq!(docs, 1);
+    }
+
+    #[test]
+    fn v5_升级到学习轨迹不改旧小说与学习目标() {
+        let mut conn = Connection::open_in_memory().unwrap();
+        conn.execute_batch("PRAGMA foreign_keys = ON;").unwrap();
+        for script in [V1_INITIAL, V2_TRIGRAM, V3_SPACES, V4_TRIGRAM_SLIM, V5_NOVEL] {
+            conn.execute_batch(script).unwrap();
+        }
+        conn.execute_batch("PRAGMA user_version = 5;").unwrap();
+        conn.execute(
+            "INSERT INTO works (id, title, created_at) VALUES ('work', '旧作品', '2026-09-27')",
+            [],
+        )
+        .unwrap();
+        conn.execute(
+            "INSERT INTO novel_documents (id, work_id, kind, title, created_at, updated_at)
+            VALUES ('chapter', 'work', 'chapter', '开头', '2026-09-27', '2026-09-27')",
+            [],
+        )
+        .unwrap();
+        conn.execute(
+            "INSERT INTO memories (id, space, kind, title, created_at, updated_at)
+            VALUES ('goal', 'learning', 'goal', '练 Python', '2026-09-27', '2026-09-27')",
+            [],
+        )
+        .unwrap();
+        migrate(&mut conn).unwrap();
+        migrate(&mut conn).unwrap();
+        let version: u32 = conn
+            .query_row("PRAGMA user_version", [], |r| r.get(0))
+            .unwrap();
+        let old_chapter: i64 = conn
+            .query_row(
+                "SELECT count(*) FROM novel_documents WHERE id = 'chapter'",
+                [],
+                |r| r.get(0),
+            )
+            .unwrap();
+        let old_goal: i64 = conn
+            .query_row("SELECT count(*) FROM memories WHERE id = 'goal'", [], |r| {
+                r.get(0)
+            })
+            .unwrap();
+        let attempts: i64 = conn
+            .query_row("SELECT count(*) FROM learning_attempts", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(
+            (version, old_chapter, old_goal, attempts),
+            (INDEX_SCHEMA_VERSION, 1, 1, 0)
+        );
+    }
+
+    #[test]
+    fn v7_升级后_章序保持既有展示顺序() {
+        // 模拟已有 v6 库：一部作品下三份章节，created_at 乱序插入；
+        // 迁移到 v7 后 order_index 必须复现旧查询（类型分组 + created_at + id）的
+        // 相对顺序——升级不改观感，只把顺序从"隐含"变为"可重排的显式承诺"。
+        let mut conn = Connection::open_in_memory().unwrap();
+        for script in [
+            V1_INITIAL,
+            V2_TRIGRAM,
+            V3_SPACES,
+            V4_TRIGRAM_SLIM,
+            V5_NOVEL,
+            V6_LEARNING,
+        ] {
+            conn.execute_batch(script).unwrap();
+        }
+        conn.execute_batch("PRAGMA user_version = 6;").unwrap();
+        conn.execute(
+            "INSERT INTO works (id, space, title, created_at) VALUES ('w1','novel','作品','2026-10-01T00:00:00Z')",
+            [],
+        )
+        .unwrap();
+        for (id, title, created) in [
+            ("c1", "第一章", "2026-10-02T00:00:00Z"),
+            ("c2", "第二章", "2026-10-01T00:00:00Z"),
+            ("c3", "第三章", "2026-10-03T00:00:00Z"),
+        ] {
+            conn.execute(
+                "INSERT INTO novel_documents (id, work_id, kind, title, created_at, updated_at)
+                 VALUES (?1,'w1','chapter',?2,?3,?3)",
+                rusqlite::params![id, title, created],
+            )
+            .unwrap();
+        }
+
+        migrate(&mut conn).unwrap();
+        migrate(&mut conn).unwrap(); // 幂等
+        let version: u32 = conn
+            .query_row("PRAGMA user_version", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(version, INDEX_SCHEMA_VERSION);
+
+        let mut stmt = conn
+            .prepare(
+                "SELECT id FROM novel_documents WHERE work_id = 'w1'
+                 ORDER BY order_index, created_at, id",
+            )
+            .unwrap();
+        let ordered: Vec<String> = stmt
+            .query_map([], |r| r.get(0))
+            .unwrap()
+            .map(|row| row.unwrap())
+            .collect();
+        assert_eq!(ordered, vec!["c2", "c1", "c3"], "回填顺序应等于旧展示顺序");
+    }
+
+    #[test]
+    fn v7_编辑稿表就绪且随文档级联删除() {
+        let mut conn = Connection::open_in_memory().unwrap();
+        for script in [
+            V1_INITIAL,
+            V2_TRIGRAM,
+            V3_SPACES,
+            V4_TRIGRAM_SLIM,
+            V5_NOVEL,
+            V6_LEARNING,
+        ] {
+            conn.execute_batch(script).unwrap();
+        }
+        conn.execute_batch("PRAGMA user_version = 6;").unwrap();
+        conn.execute(
+            "INSERT INTO works (id, space, title, created_at) VALUES ('w1','novel','作品','2026-10-01T00:00:00Z')",
+            [],
+        )
+        .unwrap();
+        conn.execute(
+            "INSERT INTO novel_documents (id, work_id, kind, title, created_at, updated_at)
+             VALUES ('c1','w1','chapter','第一章','2026-10-01T00:00:00Z','2026-10-01T00:00:00Z')",
+            [],
+        )
+        .unwrap();
+
+        migrate(&mut conn).unwrap();
+        conn.execute(
+            "INSERT INTO novel_versions (id, document_id, parent_version_id, body, origin, created_at)
+             VALUES ('v1','c1',NULL,'正文','user','2026-10-01T01:00:00Z')",
+            [],
+        )
+        .unwrap();
+        conn.execute(
+            "INSERT INTO working_copies (document_id, base_head_version, revision, body, content_hash, saved_at)
+             VALUES ('c1','v1',1,'编辑稿','h','2026-10-03T00:00:00Z')",
+            [],
+        )
+        .unwrap();
+        let wc: (String, i64) = conn
+            .query_row(
+                "SELECT body, revision FROM working_copies WHERE document_id = 'c1'",
+                [],
+                |r| Ok((r.get(0)?, r.get(1)?)),
+            )
+            .unwrap();
+        assert_eq!(wc, ("编辑稿".to_string(), 1));
+        conn.execute_batch("PRAGMA foreign_keys = ON;").unwrap();
+        conn.execute("DELETE FROM novel_documents WHERE id = 'c1'", [])
+            .unwrap();
+        let left: i64 = conn
+            .query_row("SELECT count(*) FROM working_copies", [], |r| r.get(0))
+            .unwrap();
+        assert_eq!(left, 0, "文档删除后编辑稿应级联删除");
+    }
 }
+
+/// v9：设定集与出处锚点。
+/// - lore_entries 身份是 id（同名异人不做唯一约束、不自动合并）；别名 JSON。
+/// - lore_versions 不可变版本链；作者确认在版本上留痕（AI 候选与作者确认分离）。
+/// - source_anchors 绑定不可变确认版本；正稿头移动后由查询端计算 stale，不删历史。
+///
+/// 注意（可疑处，待核）：`LoreKind::parse` 接受 `location`，但 v9 DDL 的
+/// kind CHECK 列表里没有 'location'——建 Location 条目会在 DDL 层被拒；
+/// 疑似 CHECK 清单漏配，需与迁移作者确认是有意裁剪还是疏漏。
+const V9_LORE_ANCHORS: &str = r#"
+CREATE TABLE lore_entries (
+    id            TEXT PRIMARY KEY,
+    work_id       TEXT NOT NULL REFERENCES works (id) ON DELETE CASCADE,
+    kind          TEXT NOT NULL CHECK (kind IN ('character','world','timeline','taboo','style')),
+    name          TEXT NOT NULL,
+    aliases       TEXT NOT NULL DEFAULT '[]',
+    status        TEXT NOT NULL CHECK (status IN ('candidate','confirmed','rejected')),
+    scope         TEXT NOT NULL DEFAULT 'whole',
+    head_version  INTEGER NOT NULL CHECK (head_version > 0),
+    created_at    TEXT NOT NULL,
+    updated_at    TEXT NOT NULL
+);
+CREATE INDEX idx_lore_entries_work ON lore_entries (work_id, kind, status);
+
+CREATE TABLE lore_versions (
+    id         TEXT PRIMARY KEY,
+    entry_id   TEXT NOT NULL REFERENCES lore_entries (id) ON DELETE CASCADE,
+    version    INTEGER NOT NULL,
+    body       TEXT NOT NULL,
+    confirmed  INTEGER NOT NULL CHECK (confirmed IN (0, 1)),
+    origin     TEXT NOT NULL CHECK (origin IN ('author','ai')),
+    created_at TEXT NOT NULL,
+    UNIQUE (entry_id, version)
+);
+
+CREATE TABLE source_anchors (
+    id                TEXT PRIMARY KEY,
+    work_id           TEXT NOT NULL REFERENCES works (id) ON DELETE CASCADE,
+    document_id       TEXT NOT NULL REFERENCES novel_documents (id) ON DELETE CASCADE,
+    source_version_id TEXT NOT NULL,
+    start_char        INTEGER NOT NULL CHECK (start_char >= 0),
+    end_char          INTEGER NOT NULL CHECK (end_char > start_char),
+    quote_hash        TEXT NOT NULL,
+    note              TEXT,
+    created_at        TEXT NOT NULL
+);
+CREATE INDEX idx_source_anchors_document ON source_anchors (document_id, created_at);
+"#;
+
+/// v10：派生摘要与重建队列。摘要不是原文：必须记来源版本与算法版本；
+/// 依赖的确认稿变化即 dirty；重建发布前再次核对来源，拒绝过期产物。
+const V10_DERIVED_SUMMARIES: &str = r#"
+CREATE TABLE chapter_summaries (
+    id              TEXT PRIMARY KEY,
+    work_id         TEXT NOT NULL REFERENCES works (id) ON DELETE CASCADE,
+    document_id     TEXT NOT NULL REFERENCES novel_documents (id) ON DELETE CASCADE,
+    source_version_id TEXT NOT NULL,
+    scope           TEXT NOT NULL DEFAULT 'chapter' CHECK (scope IN ('chapter','cumulative')),
+    body            TEXT NOT NULL,
+    algorithm       TEXT NOT NULL,
+    status          TEXT NOT NULL CHECK (status IN ('ready','dirty','failed')),
+    built_at        TEXT NOT NULL
+);
+CREATE INDEX idx_chapter_summaries_document ON chapter_summaries (document_id, scope, status);
+
+CREATE TABLE rebuild_jobs (
+    id         TEXT PRIMARY KEY,
+    work_id    TEXT NOT NULL REFERENCES works (id) ON DELETE CASCADE,
+    summary_id TEXT NOT NULL REFERENCES chapter_summaries (id) ON DELETE CASCADE,
+    status     TEXT NOT NULL CHECK (status IN ('queued','running','done','failed')),
+    attempts   INTEGER NOT NULL DEFAULT 0,
+    claim_info TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+CREATE INDEX idx_rebuild_jobs_status ON rebuild_jobs (status, created_at);
+"#;
+
+#[cfg(test)]
+#[path = "client_mvp_migration_tests.rs"]
+mod client_mvp_migration_tests;

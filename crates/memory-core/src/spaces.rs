@@ -35,8 +35,10 @@ pub enum Space {
 }
 
 impl Space {
+    /// 全部四个空间（测试与「逐空间校验」循环使用；生产查询必须显式单选）。
     pub const ALL: &[Space] = &[Space::Personal, Space::Idea, Space::Novel, Space::Learning];
 
+    /// 数据库 / JSON 中的存储形态（小写 snake）。
     pub const fn as_str(self) -> &'static str {
         match self {
             Space::Personal => "personal",
@@ -46,6 +48,7 @@ impl Space {
         }
     }
 
+    /// 从存储形态反解析；未知值返回 None（调用方应报错而不是猜一个空间）。
     pub fn parse(s: &str) -> Option<Self> {
         match s {
             "personal" => Some(Space::Personal),
@@ -152,6 +155,19 @@ pub struct MemorySource {
     pub anchor: Option<String>,
 }
 
+/// 精确出处文本；原会话缺失时仍保留已确认的 session id 与 anchor。
+#[derive(Debug, Clone, serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MemorySourceDetail {
+    pub session_id: String,
+    pub message_seq: Option<i64>,
+    pub anchor: Option<String>,
+    pub session_title: Option<String>,
+    pub source: Option<String>,
+    pub text: Option<String>,
+    pub timestamp: Option<String>,
+}
+
 /// 链接视图（from 的出链，附带 to 侧摘要；to 侧已软删的链接不出现）。
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -168,10 +184,13 @@ fn now() -> String {
     chrono::Utc::now().to_rfc3339()
 }
 
+/// JSON 文本列 → Value；损坏的 JSON 静默置 None——
+/// payload / reminder_pref 属于「尽力展示」的非关键列，不允许一条坏数据拖垮整条记忆读取。
 fn parse_json_col(text: Option<String>) -> Option<Value> {
     text.and_then(|t| serde_json::from_str(&t).ok())
 }
 
+/// memories 表行 → [`Memory`] 的通用映射，与 [`MEMORY_COLUMNS`] 列序强绑定。
 fn memory_from_row(row: &rusqlite::Row<'_>) -> rusqlite::Result<Memory> {
     Ok(Memory {
         id: row.get(0)?,
@@ -189,6 +208,7 @@ fn memory_from_row(row: &rusqlite::Row<'_>) -> rusqlite::Result<Memory> {
     })
 }
 
+/// memories 表查询的列清单常量：供 format! 拼 SQL 与 `memory_from_row` 共享，改列时必须同步改两处。
 const MEMORY_COLUMNS: &str =
     "id, space, work_id, kind, title, summary, status, reminder_pref, payload, created_at, updated_at, deleted_at";
 
@@ -327,6 +347,7 @@ impl Database {
         Ok(memory)
     }
 
+    /// 作品是否存在（create_memory 校验 novel 作用域用）。
     fn work_exists(&self, id: &str) -> Result<bool> {
         self.with_conn(|conn| {
             let n: i64 = conn.query_row(
@@ -362,7 +383,11 @@ impl Database {
             let sql = format!(
                 "SELECT {MEMORY_COLUMNS} FROM memories
                  WHERE space = ?1 AND deleted_at IS NULL {} ORDER BY updated_at DESC",
-                if status.is_some() { "AND status = ?2" } else { "" }
+                if status.is_some() {
+                    "AND status = ?2"
+                } else {
+                    ""
+                }
             );
             let mut stmt = conn.prepare_cached(&sql)?;
             let rows = match status {
@@ -439,6 +464,90 @@ impl Database {
         Ok(next)
     }
 
+    /// 用户纠正可见标题/摘要；以空间和版本作条件，避免跨空间误改或覆盖并发更新。
+    /// 不改变结构化 payload、出处、状态机或小说作品归属。
+    pub fn correct_memory_if_current(
+        &self,
+        id: &str,
+        space: Space,
+        expected_updated_at: &str,
+        title: &str,
+        summary: &str,
+    ) -> Result<Memory> {
+        let title = title.trim();
+        if title.is_empty() {
+            return Err(Error::parse("记忆标题不能为空"));
+        }
+        // 旧想法转换出的目标有额外关系：小说作品名必须与目标标题同步。
+        // 复用领域事务，避免通用纠正入口绕过该不变量。
+        for link in self.get_links(id)? {
+            if link.to_space != Space::Idea.as_str() {
+                continue;
+            }
+            if let Some(target) = self.converted_target(&link.to_id)? {
+                if target.id == id {
+                    if target.space != space.as_str() {
+                        return Err(Error::parse("记忆空间不匹配"));
+                    }
+                    return self.update_converted_target(
+                        &link.to_id,
+                        expected_updated_at,
+                        title,
+                        summary,
+                    );
+                }
+            }
+        }
+        self.with_conn(|conn| {
+            // 乐观锁：WHERE 里带 space + updated_at + 未删除三个条件，
+            // 影响行数不为 1 即说明被并发改过 / 删过 / 空间不对——统一报「请刷新」，
+            // 不允许「最后写入者静默覆盖」。
+            let changed = conn.execute(
+                "UPDATE memories SET title = ?4, summary = NULLIF(?5, ''), updated_at = ?6
+                 WHERE id = ?1 AND space = ?2 AND updated_at = ?3 AND deleted_at IS NULL",
+                params![
+                    id,
+                    space.as_str(),
+                    expected_updated_at,
+                    title,
+                    summary.trim(),
+                    now()
+                ],
+            )?;
+            if changed != 1 {
+                return Err(Error::parse("记忆已变化或不存在，请刷新后再试"));
+            }
+            Ok(conn.query_row(
+                &format!("SELECT {MEMORY_COLUMNS} FROM memories WHERE id = ?1"),
+                params![id],
+                memory_from_row,
+            )?)
+        })
+    }
+
+    /// 用户确认后软删；空间与版本必须仍匹配。原始导入会话不受影响。
+    ///
+    /// 与 [`Database::soft_delete_memory`] 的区别：带乐观锁（space + expected_updated_at），
+    /// 供「点了删除按钮的旧页面」使用；无条件版本走 soft_delete_memory。
+    pub fn soft_delete_memory_if_current(
+        &self,
+        id: &str,
+        space: Space,
+        expected_updated_at: &str,
+    ) -> Result<()> {
+        self.with_conn(|conn| {
+            let changed = conn.execute(
+                "UPDATE memories SET deleted_at = ?4, updated_at = ?4
+                 WHERE id = ?1 AND space = ?2 AND updated_at = ?3 AND deleted_at IS NULL",
+                params![id, space.as_str(), expected_updated_at, now()],
+            )?;
+            if changed != 1 {
+                return Err(Error::parse("记忆已变化或不存在，请刷新后再试"));
+            }
+            Ok(())
+        })
+    }
+
     /// 软删（G17 依赖）：`deleted_at` 打时间戳；默认查询从此不可见。
     /// 幂等：已软删的记忆再次调用返回 Ok。
     pub fn soft_delete_memory(&self, id: &str) -> Result<()> {
@@ -513,6 +622,44 @@ impl Database {
         })
     }
 
+    /// 读取这条记忆已绑定的确切原消息；不返回原始文件路径或完整会话。
+    ///
+    /// 注意 WHERE 里用 `ms.message_seq IS ?3` 而非 `=`：SQLite 中 `IS` 同时匹配
+    /// NULL 与值，这样「整会话级出处」（seq 为 NULL）也能命中，一处 SQL 覆盖两种形态。
+    pub fn get_memory_source_detail(
+        &self,
+        memory_id: &str,
+        session_id: &str,
+        message_seq: Option<i64>,
+    ) -> Result<Option<MemorySourceDetail>> {
+        if self.get_memory(memory_id)?.is_none() {
+            return Ok(None);
+        }
+        self.with_conn(|conn| {
+            conn.query_row(
+                "SELECT ms.session_id, ms.message_seq, ms.anchor,
+                        s.title, s.source, m.text, m.timestamp
+                 FROM memory_sources ms
+                 JOIN memories memory ON memory.id = ms.memory_id AND memory.deleted_at IS NULL
+                 LEFT JOIN sessions s ON s.id = ms.session_id
+                 LEFT JOIN messages m ON m.session_id = ms.session_id AND m.sequence = ms.message_seq
+                 WHERE ms.memory_id = ?1 AND ms.session_id = ?2 AND ms.message_seq IS ?3",
+                params![memory_id, session_id, message_seq],
+                |row| Ok(MemorySourceDetail {
+                    session_id: row.get(0)?,
+                    message_seq: row.get(1)?,
+                    anchor: row.get(2)?,
+                    session_title: row.get(3)?,
+                    source: row.get(4)?,
+                    text: row.get(5)?,
+                    timestamp: row.get(6)?,
+                }),
+            )
+            .optional()
+            .map_err(Into::into)
+        })
+    }
+
     // ------------------------------------------------------------------
     // 跨空间链接（红线：只允许本 API 显式写入，actor='user'，Goal §4.2）
     // ------------------------------------------------------------------
@@ -530,12 +677,11 @@ impl Database {
                 .ok_or_else(|| Error::not_found(format!("记忆 {id} 不存在或已删除")))?;
         }
         let exists: bool = self.with_conn(|conn| {
-            Ok(conn
-                .query_row(
-                    "SELECT count(*) > 0 FROM memory_links WHERE from_id = ?1 AND to_id = ?2",
-                    params![from_id, to_id],
-                    |r| r.get(0),
-                )?)
+            Ok(conn.query_row(
+                "SELECT count(*) > 0 FROM memory_links WHERE from_id = ?1 AND to_id = ?2",
+                params![from_id, to_id],
+                |r| r.get(0),
+            )?)
         })?;
         if exists {
             return Err(Error::parse("链接已存在"));
@@ -598,6 +744,108 @@ mod tests {
         }
     }
 
+    #[test]
+    fn 用户纠正与删除要求空间和当前版本且保留出处() {
+        let db = db();
+        seed_session(&db, "kimi:correction");
+        db.insert_messages(&[crate::storage::MessageRow {
+            id: "kimi:correction#2".into(),
+            session_id: "kimi:correction".into(),
+            sequence: 2,
+            role: "user".into(),
+            kind: "message".into(),
+            text: Some("这是我原来写的完整句子".into()),
+            tool_name: None,
+            timestamp: None,
+            raw: None,
+        }])
+        .unwrap();
+        let memory = db
+            .create_memory(new_memory(Space::Personal, "旧标题"))
+            .unwrap();
+        db.add_source(&memory.id, "kimi:correction", Some(2), Some("原句"))
+            .unwrap();
+        let source = db
+            .get_memory_source_detail(&memory.id, "kimi:correction", Some(2))
+            .unwrap()
+            .unwrap();
+        assert_eq!(source.text.as_deref(), Some("这是我原来写的完整句子"));
+        assert!(db
+            .get_memory_source_detail(&memory.id, "kimi:correction", Some(3))
+            .unwrap()
+            .is_none());
+
+        assert!(db
+            .correct_memory_if_current(
+                &memory.id,
+                Space::Idea,
+                &memory.updated_at,
+                "错误空间",
+                "摘要"
+            )
+            .is_err());
+        let corrected = db
+            .correct_memory_if_current(
+                &memory.id,
+                Space::Personal,
+                &memory.updated_at,
+                "新标题",
+                "纠正后的摘要",
+            )
+            .unwrap();
+        assert_eq!(corrected.title, "新标题");
+        assert_eq!(corrected.summary.as_deref(), Some("纠正后的摘要"));
+        assert_eq!(
+            db.get_sources(&memory.id).unwrap()[0].anchor.as_deref(),
+            Some("原句")
+        );
+        assert!(db
+            .correct_memory_if_current(
+                &memory.id,
+                Space::Personal,
+                &memory.updated_at,
+                "过期覆盖",
+                ""
+            )
+            .is_err());
+        assert!(db
+            .soft_delete_memory_if_current(&memory.id, Space::Idea, &corrected.updated_at)
+            .is_err());
+        db.soft_delete_memory_if_current(&memory.id, Space::Personal, &corrected.updated_at)
+            .unwrap();
+        assert!(db.get_memory(&memory.id).unwrap().is_none());
+        assert!(db.list_memories(Space::Personal, None).unwrap().is_empty());
+        assert_eq!(db.get_sources(&memory.id).unwrap().len(), 1);
+        assert!(db
+            .get_memory_source_detail(&memory.id, "kimi:correction", Some(2))
+            .unwrap()
+            .is_none());
+    }
+
+    #[test]
+    fn 纠正由旧想法转换的小说目标会同步作品标题() {
+        let db = db();
+        seed_session(&db, "kimi:novel-target");
+        let idea = db
+            .create_memory(new_memory(Space::Idea, "旧作品名"))
+            .unwrap();
+        db.add_source(&idea.id, "kimi:novel-target", None, Some("构思原句"))
+            .unwrap();
+        let converted = db.convert_idea(&idea.id, "novel").unwrap();
+        let changed = db
+            .correct_memory_if_current(
+                &converted.target.id,
+                Space::Novel,
+                &converted.target.updated_at,
+                "新作品名",
+                "修正摘要",
+            )
+            .unwrap();
+        assert_eq!(changed.title, "新作品名");
+        assert_eq!(db.list_works().unwrap()[0].title, "新作品名");
+        assert_eq!(db.get_sources(&changed.id).unwrap().len(), 1);
+    }
+
     /// 造一个真实会话（出处链要用）。
     fn seed_session(db: &Database, id: &str) {
         db.upsert_session_stub(&SessionStub {
@@ -615,14 +863,16 @@ mod tests {
         // G06 核心证据：四个空间各建数据，按 space 查询互不返回对方数据。
         let db = db();
         let work = db.create_work("测试作品").unwrap();
-        db.create_memory(new_memory(Space::Personal, "个人偏好")).unwrap();
+        db.create_memory(new_memory(Space::Personal, "个人偏好"))
+            .unwrap();
         db.create_memory(new_memory(Space::Idea, "旧想法")).unwrap();
         db.create_memory(NewMemory {
             work_id: Some(work.id.clone()),
             ..new_memory(Space::Novel, "小说设定")
         })
         .unwrap();
-        db.create_memory(new_memory(Space::Learning, "学习薄弱点")).unwrap();
+        db.create_memory(new_memory(Space::Learning, "学习薄弱点"))
+            .unwrap();
 
         for space in Space::ALL {
             let list = db.list_memories(*space, None).unwrap();
@@ -639,15 +889,25 @@ mod tests {
         // G06：默认不互通；link_memories（用户显式触发）后 from 侧可见出链，
         // to 侧不自动出现反向（单向可见，本测试固化该语义）。
         let db = db();
-        let a = db.create_memory(new_memory(Space::Personal, "个人 A")).unwrap();
+        let a = db
+            .create_memory(new_memory(Space::Personal, "个人 A"))
+            .unwrap();
         let b = db.create_memory(new_memory(Space::Idea, "想法 B")).unwrap();
 
         // 未链接：两边都看不到对方
         assert!(db.get_links(&a.id).unwrap().is_empty());
         assert!(db.get_links(&b.id).unwrap().is_empty());
         // 跨空间查询也互不可达（list 互不返回）
-        assert!(db.list_memories(Space::Personal, None).unwrap().iter().all(|m| m.id != b.id));
-        assert!(db.list_memories(Space::Idea, None).unwrap().iter().all(|m| m.id != a.id));
+        assert!(db
+            .list_memories(Space::Personal, None)
+            .unwrap()
+            .iter()
+            .all(|m| m.id != b.id));
+        assert!(db
+            .list_memories(Space::Idea, None)
+            .unwrap()
+            .iter()
+            .all(|m| m.id != a.id));
 
         // 用户显式链接 A → B
         db.link_memories(&a.id, &b.id).unwrap();
@@ -657,10 +917,17 @@ mod tests {
         assert_eq!(links_a[0].to_space, "idea");
         assert_eq!(links_a[0].actor, "user", "链接必须记录 actor=user");
         // 单向可见：to 侧不出现反向链接
-        assert!(db.get_links(&b.id).unwrap().is_empty(), "单向可见：to 侧不应有反向链接");
+        assert!(
+            db.get_links(&b.id).unwrap().is_empty(),
+            "单向可见：to 侧不应有反向链接"
+        );
 
         // 链接不改变 list 的隔离性（A 仍不出现在 idea 空间）
-        assert!(db.list_memories(Space::Idea, None).unwrap().iter().all(|m| m.id != a.id));
+        assert!(db
+            .list_memories(Space::Idea, None)
+            .unwrap()
+            .iter()
+            .all(|m| m.id != a.id));
 
         // 重复链接与自链接报错
         assert!(db.link_memories(&a.id, &b.id).is_err(), "重复链接应报错");
@@ -670,10 +937,15 @@ mod tests {
     #[test]
     fn 软删后默认查询不可见() {
         let db = db();
-        let m = db.create_memory(new_memory(Space::Personal, "将被删除")).unwrap();
+        let m = db
+            .create_memory(new_memory(Space::Personal, "将被删除"))
+            .unwrap();
         db.soft_delete_memory(&m.id).unwrap();
         assert!(db.get_memory(&m.id).unwrap().is_none(), "软删后 get 不可见");
-        assert!(db.list_memories(Space::Personal, None).unwrap().is_empty(), "软删后 list 不可见");
+        assert!(
+            db.list_memories(Space::Personal, None).unwrap().is_empty(),
+            "软删后 list 不可见"
+        );
         // 幂等：重复软删不报错
         db.soft_delete_memory(&m.id).unwrap();
     }
@@ -685,37 +957,114 @@ mod tests {
         assert_eq!(m.status.as_deref(), Some("liked"), "默认状态 liked");
 
         // 主路径 liked → started → done
-        let m = db.update_memory(&m.id, UpdateMemory { status: Some("started".into()), ..Default::default() }).unwrap();
+        let m = db
+            .update_memory(
+                &m.id,
+                UpdateMemory {
+                    status: Some("started".into()),
+                    ..Default::default()
+                },
+            )
+            .unwrap();
         assert_eq!(m.status.as_deref(), Some("started"));
-        let m = db.update_memory(&m.id, UpdateMemory { status: Some("done".into()), ..Default::default() }).unwrap();
+        let m = db
+            .update_memory(
+                &m.id,
+                UpdateMemory {
+                    status: Some("done".into()),
+                    ..Default::default()
+                },
+            )
+            .unwrap();
         assert_eq!(m.status.as_deref(), Some("done"));
 
         // 终态不可再迁移
-        assert!(db.update_memory(&m.id, UpdateMemory { status: Some("started".into()), ..Default::default() }).is_err());
+        assert!(db
+            .update_memory(
+                &m.id,
+                UpdateMemory {
+                    status: Some("started".into()),
+                    ..Default::default()
+                }
+            )
+            .is_err());
         // 非法取值
-        assert!(db.update_memory(&m.id, UpdateMemory { status: Some("nonsense".into()), ..Default::default() }).is_err());
+        assert!(db
+            .update_memory(
+                &m.id,
+                UpdateMemory {
+                    status: Some("nonsense".into()),
+                    ..Default::default()
+                }
+            )
+            .is_err());
 
         // liked 可直接 wrong / shelved；shelved 可重新 started
         let m2 = db.create_memory(new_memory(Space::Idea, "想法2")).unwrap();
-        let m2 = db.update_memory(&m2.id, UpdateMemory { status: Some("shelved".into()), ..Default::default() }).unwrap();
+        let m2 = db
+            .update_memory(
+                &m2.id,
+                UpdateMemory {
+                    status: Some("shelved".into()),
+                    ..Default::default()
+                },
+            )
+            .unwrap();
         assert_eq!(m2.status.as_deref(), Some("shelved"));
-        let m2 = db.update_memory(&m2.id, UpdateMemory { status: Some("started".into()), ..Default::default() }).unwrap();
+        let m2 = db
+            .update_memory(
+                &m2.id,
+                UpdateMemory {
+                    status: Some("started".into()),
+                    ..Default::default()
+                },
+            )
+            .unwrap();
         assert_eq!(m2.status.as_deref(), Some("started"));
-        assert!(db.update_memory(&m2.id, UpdateMemory { status: Some("liked".into()), ..Default::default() }).is_err(), "不能回退到 liked");
+        assert!(
+            db.update_memory(
+                &m2.id,
+                UpdateMemory {
+                    status: Some("liked".into()),
+                    ..Default::default()
+                }
+            )
+            .is_err(),
+            "不能回退到 liked"
+        );
 
         // 同状态赋值是幂等 no-op
-        db.update_memory(&m2.id, UpdateMemory { status: Some("started".into()), ..Default::default() }).unwrap();
+        db.update_memory(
+            &m2.id,
+            UpdateMemory {
+                status: Some("started".into()),
+                ..Default::default()
+            },
+        )
+        .unwrap();
 
         // 非 idea 空间禁止 status
-        let p = db.create_memory(new_memory(Space::Personal, "个人")).unwrap();
-        assert!(db.update_memory(&p.id, UpdateMemory { status: Some("started".into()), ..Default::default() }).is_err());
+        let p = db
+            .create_memory(new_memory(Space::Personal, "个人"))
+            .unwrap();
+        assert!(db
+            .update_memory(
+                &p.id,
+                UpdateMemory {
+                    status: Some("started".into()),
+                    ..Default::default()
+                }
+            )
+            .is_err());
     }
 
     #[test]
     fn novel_必须挂作品_其他空间禁止挂作品() {
         let db = db();
         // novel 无 work_id → 错
-        assert!(db.create_memory(new_memory(Space::Novel, "无作品")).is_err());
+        assert!(db
+            .create_memory(new_memory(Space::Novel, "无作品"))
+            .is_err());
         // work_id 不存在 → 错
         assert!(db
             .create_memory(NewMemory {
@@ -746,11 +1095,15 @@ mod tests {
     fn 出处链_添加读取与anchor限制() {
         let db = db();
         seed_session(&db, "kimi:src1");
-        let m = db.create_memory(new_memory(Space::Personal, "带出处")).unwrap();
+        let m = db
+            .create_memory(new_memory(Space::Personal, "带出处"))
+            .unwrap();
 
-        db.add_source(&m.id, "kimi:src1", Some(7), Some("短引用")).unwrap();
+        db.add_source(&m.id, "kimi:src1", Some(7), Some("短引用"))
+            .unwrap();
         // 幂等：同出处重复添加 = 更新 anchor
-        db.add_source(&m.id, "kimi:src1", Some(7), Some("更新后的引用")).unwrap();
+        db.add_source(&m.id, "kimi:src1", Some(7), Some("更新后的引用"))
+            .unwrap();
         // 会话级出处（无 message_seq）
         db.add_source(&m.id, "kimi:src1", None, None).unwrap();
 
@@ -762,7 +1115,9 @@ mod tests {
 
         // anchor 超 120 字报错
         let long = "长".repeat(121);
-        assert!(db.add_source(&m.id, "kimi:src1", Some(9), Some(&long)).is_err());
+        assert!(db
+            .add_source(&m.id, "kimi:src1", Some(9), Some(&long))
+            .is_err());
         // 记忆不存在 / 会话不存在 → 错
         assert!(db.add_source("不存在", "kimi:src1", None, None).is_err());
         assert!(db.add_source(&m.id, "kimi:不存在", None, None).is_err());
@@ -801,7 +1156,11 @@ mod tests {
         assert_eq!(resp.hits.len(), 1);
         let hit = &resp.hits[0];
         assert_eq!(hit.session_id, "kimi:meta1");
-        assert_eq!(hit.title.as_deref(), Some("元数据会话"), "命中应携带会话标题");
+        assert_eq!(
+            hit.title.as_deref(),
+            Some("元数据会话"),
+            "命中应携带会话标题"
+        );
         assert_eq!(hit.source, "kimi");
         // 反查：命中 → 会话详情
         let detail = db.get_session_detail(&hit.session_id).unwrap().unwrap();

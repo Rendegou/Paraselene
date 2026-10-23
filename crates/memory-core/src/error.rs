@@ -96,6 +96,8 @@ impl Error {
     /// 面向用户的中文提示。
     ///
     /// 不含 Rust 类型名、SQL 语句、堆栈，只说明「发生了什么 + 大致怎么办」。
+    /// 注意：Database 变体刻意不携带任何底层细节——SQL 原文可能含表结构 / 用户数据，
+    /// 只给「可尝试重建索引」的可执行建议；排障走日志侧的 `Display` / `ShortError`。
     pub fn user_message(&self) -> String {
         match self {
             Error::Adapter(msg) => format!("无法读取会话数据源：{msg}"),
@@ -144,6 +146,7 @@ impl From<serde_json::Error> for Error {
 
 impl From<std::io::Error> for Error {
     fn from(e: std::io::Error) -> Self {
+        // 此处拿不到路径上下文，path 置空；需要可定位错误时用 Error::io 或 IoContext::with_path。
         Error::Io {
             path: String::new(),
             source: e,

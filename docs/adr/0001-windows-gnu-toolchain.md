@@ -10,7 +10,7 @@ AGENTS.md 初版写的是"Rust stable MSVC 为正式打包路径"。T00 实测�
 ## 决定
 
 1. **默认工具链改为 `stable-x86_64-pc-windows-gnu`**（`rustup default` 已切换）。依据：用户自己的 local-ai-chat-manager 已用 MinGW-w64 在 Windows 验证过打包（MSI+NSIS），有成功先例。
-2. **便携 MinGW 工具链放在 `C:\tools\paraselene-build\mingw64\`**（仓库外，不入库）：从 MSYS2 镜像（TUNA）提取 gcc / binutils(windres,dlltool,as,ld,ar) / gcc-libs 15.2.0 / libwinpthread / gmp / mpfr / mpc / isl / zstd / crt-git 等包。构建前需 `export PATH="/c/tools/paraselene-build/mingw64/bin:$PATH"`。
+2. **便携 MinGW 工具链放在 `C:\tools\paraselene-build\mingw64\`**（仓库外，不入库）：从 MSYS2 镜像（TUNA）提取 gcc / binutils(windres,dlltool,as,ld,ar) / gcc-libs 15.2.0 / libwinpthread / gmp / mpfr / mpc / isl / zstd / crt-git 等包。构建前在 pwsh 执行 `$env:PATH='C:\tools\paraselene-build\mingw64\bin;' + $env:PATH`。
 3. **`mingw64/bin` 下的 `x86_64-w64-mingw32-gcc*.exe` 等带前缀别名移到 `mingw64/_hidden/`**：rustc 只认带前缀的链接器驱动，找不到才回退 rustup 自包含模式（自带 lld + 自包含 CRT 导入库，链接可靠）；windres 预处理又需要无前缀的 `gcc`，两者共存于 PATH 即可。
 4. **src-tauri 的 lib crate-type 只保留 `rlib`**：rustup 自包含模式的 lld 链接 cdylib 时报 `export ordinal too large: 90895`（超过 65535 上限）。幻月是 Windows-only 桌宠，不需要移动端的 staticlib/cdylib；如未来做移动端需重估（届时应改用完整 MSVC 或完整 MSYS2 环境）。
 5. 未来若用户安装 VS Build Tools，可切回 MSVC 并废弃本方案（tauri-winres 同样支持 rc.exe）。

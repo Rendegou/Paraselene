@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>幻月 · Agent 形态对照（四种）</title>
+<!--
+  形态对照件，不是产品代码。单文件、离线、无外部资源。
+  目的：唯一变量是「Agent 放在哪里 / 以什么形式存在」，其余一律固定。
+  所以这一版刻意不做花哨视觉 —— 免得你被样式分心。
+  基准取自真实代码：目录 220px / Agent 340px / 正文 18px / 行高 2.05
+  文案取自 seed.ts 真实素材（《雾港来信》第三章）。
+-->
+<style>
+:root{
+  --bg:#26292c; --panel:#303438; --raised:#3b4045; --stroke:#51565b;
+  --ink:#f2f1ee; --muted:#c2c5c7; --accent:#426c61;
+  --paper:#fbf9f4; --margin:#f3f1eb; --catalog:#efede7;
+  --ink-p:#333a38; --muted-p:#656b66; --line:#dddcd4;
+  --hover:#e6e7de; --selected:#dfe7df; --proposal:#dce8da; --rejected:#f2e1da;
+  --font:"Segoe UI","Microsoft YaHei UI",system-ui,sans-serif;
+  --serif:"Songti SC","SimSun",Georgia,serif;
+  --t:150ms cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:#14171a;color:#cfd5d3;font:13px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+
+.wrap{max-width:1560px;margin:0 auto;padding:22px 22px 70px}
+.head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:4px}
+.head h1{margin:0;font-size:18px;font-weight:600;color:#eef1f0;letter-spacing:-.01em}
+.head p{margin:0;color:#8a9295;font-size:13px}
+
+/* ---- 形态切换 ---- */
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 10px}
+.modes button{padding:9px 14px;border:1px solid #2f3538;border-radius:9px;background:#1a1e21;
+  color:#9aa3a6;font:inherit;font-size:13px;cursor:pointer;text-align:left;
+  transition:background var(--t),color var(--t),border-color var(--t),transform var(--t)}
+.modes button:hover{color:#e6eaea;border-color:#3d4549;transform:translateY(-1px)}
+.modes button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#f4f8f6}
+.modes button b{display:block;font-weight:600;font-size:13px;margin-bottom:2px}
+.modes button[aria-pressed="true"] b{color:#fff}
+.modes button span{font-size:11.5px;opacity:.85}
+
+.note{display:flex;gap:12px;align-items:flex-start;margin:14px 0 20px;padding:13px 15px;
+  border:1px solid #262c2f;border-radius:12px;background:#171b1e;font-size:12.5px;color:#95a0a3;line-height:1.75}
+.note b{color:#dfe5e7}
+.note code{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:#9dc0b0;
+  background:#1d2225;padding:1px 5px;border-radius:4px}
+
+/* ---- 舞台 ---- */
+.stage{height:672px;border:1px solid #2b3134;border-radius:14px;overflow:hidden;
+  background:var(--bg);position:relative;display:flex;flex-direction:column}
+
+/* 顶栏 */
+.bar{flex:none;height:52px;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:0 16px;border-bottom:1px solid #111417}
+.bar .brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-size:15px;font-weight:600}
+.bar .brand em{font-style:normal;font-size:12px;font-weight:400;color:var(--muted)}
+.bar .acts{display:flex;gap:6px;align-items:center}
+.bar .acts span{font-size:11.5px;color:var(--muted);padding:5px 7px;border:1px solid var(--stroke);
+  border-radius:5px;transition:background var(--t),color var(--t)}
+.bar .acts span:hover{background:var(--raised);color:var(--ink)}
+
+/* 主体网格：只有这一处随形态变化 */
+.body{flex:1;min-height:0;display:grid;grid-template-columns:220px minmax(0,1fr) 340px}
+.m-catalog .body{grid-template-columns:220px minmax(0,1fr)}
+.m-inline  .body{grid-template-columns:220px minmax(0,1fr)}
+.m-peer    .body{grid-template-columns:220px minmax(0,1fr)}
+
+/* ---- 目录 ---- */
+.cat{background:var(--catalog);border-right:1px solid var(--line);padding:16px 12px;
+  display:flex;flex-direction:column;gap:4px;overflow:hidden}
+.cat .proj{font-size:14px;font-weight:600;color:var(--ink-p);padding:0 4px 12px}
+.cat .vol{font-size:11px;color:var(--muted-p);padding:2px 4px 8px}
+.cat a{display:block;padding:8px;border-radius:5px;font-size:12.5px;color:#4d5450;
+  text-decoration:none;border-left:3px solid transparent;
+  transition:background var(--t),color var(--t)}
+.cat a:hover{background:var(--hover);color:var(--ink-p)}
+.cat a[aria-current]{background:var(--selected);border-left-color:var(--accent);color:var(--ink-p);font-weight:600}
+.cat .sec{margin-top:14px;padding:0 4px 6px;font-size:11px;color:var(--muted-p)}
+
+/* ---- 正文 ---- */
+.main{background:var(--paper);overflow:auto;display:flex;flex-direction:column}
+.doc{max-width:790px;width:100%;margin:0 auto;padding:26px 54px 40px}
+.doc .crumb{font-size:11px;color:var(--muted-p);margin-bottom:18px}
+h1.ch{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--ink-p);
+  margin:0 0 22px;letter-spacing:0;line-height:1.4}
+.prose{font-family:var(--serif);font-size:18px;line-height:2.05;color:var(--ink-p)}
+.prose p{margin:0 0 .2em;text-indent:0}
+/* 被讨论的那一段：唯一高亮 */
+.p-target{position:relative}
+.p-target .said{background:var(--selection, #dce7d9);box-shadow:0 0 0 3px #dce7d9}
+
+/* ---- 形态一：侧栏（现状） ---- */
+.aside{background:var(--margin);border-left:1px solid var(--line);display:flex;flex-direction:column;
+  min-height:0;overflow:hidden}
+.aside .h{padding:16px 16px 12px;border-bottom:1px solid var(--line)}
+.aside .h strong{display:block;font-size:15px;color:var(--ink-p);margin-bottom:4px}
+.aside .h span{font-size:11px;color:var(--muted-p)}
+.aside .scroll{flex:1;min-height:0;overflow:auto;padding:16px}
+.turn{margin-bottom:18px}
+.turn .who{font-size:11px;color:var(--muted-p);margin-bottom:6px;display:flex;justify-content:space-between}
+.turn blockquote{margin:0 0 10px;padding-left:10px;border-left:2px solid var(--accent);
+  font-family:var(--serif);font-size:14px;line-height:1.9;color:var(--ink-p)}
+.turn .say{font-size:12.5px;line-height:1.85;color:var(--ink-p)}
+.turn .say b{display:block;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.chips i{font-style:normal;font-size:11px;padding:3px 7px;border-radius:999px;
+  background:var(--hover);color:#59605c}
+.acts-row{display:flex;gap:8px;margin-top:11px}
+.btn{padding:6px 11px;border:1px solid transparent;border-radius:5px;font:inherit;font-size:12px;
+  cursor:pointer;transition:background var(--t),color var(--t),border-color var(--t),transform var(--t)}
+.btn:active{transform:translateY(1px)}
+.btn.solid{background:var(--accent);color:#f4f8f6}
+.btn.solid:hover{background:#4d7d70}
+.btn.ghost{border-color:var(--line);color:#5b625e}
+.btn.ghost:hover{background:var(--hover)}
+.aside .compose{flex:none;padding:12px;border-top:1px solid var(--line)}
+.aside textarea{width:100%;min-height:56px;padding:9px;border:1px solid var(--line);border-radius:5px;
+  background:var(--paper);font:inherit;font-size:12.5px;line-height:1.7;color:var(--ink-p);resize:none;outline:none}
+.aside textarea:focus{border-color:var(--accent)}
+.aside .crow{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.aside .crow span{font-size:11px;color:var(--muted-p)}
+
+/* ---- 形态二：页边批注 ---- */
+/* 正文与批注并排：正文列吃掉剩余宽度（自己的 max-width 决定不超宽），批注列固定 300px */
+.m-catalog .aside{display:none}
+.m-catalog .main{flex-direction:row;align-items:flex-start;justify-content:center;overflow:hidden}
+.m-catalog .doc{margin:0;overflow:auto;padding:26px 34px 40px 54px}
+.m-catalog .doc > .prose{max-width:36em}
+.m-catalog .doc > .margin-col{display:block}
+.margin-col{display:none;flex:none;width:300px;align-self:stretch;
+  padding:26px 22px 40px 0;overflow:auto}
+.mark{position:relative;padding:0 0 0 16px;margin-bottom:26px}
+.mark::before{content:"";position:absolute;left:0;top:9px;width:11px;height:1px;background:var(--accent);opacity:.6}
+.mark .lbl{font-size:11px;color:var(--accent);margin-bottom:6px;display:flex;gap:7px;align-items:center}
+.mark .lbl i{font-style:normal;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.mark .txt{font-size:12.5px;line-height:1.8;color:#4b514d}
+.mark .txt b{color:var(--ink-p)}
+.mark blockquote{margin:8px 0 0;padding-left:9px;border-left:2px solid var(--line);
+  font-family:var(--serif);font-size:13.5px;line-height:1.85;color:#5a615c}
+.mark .acts-row{margin-top:9px;gap:6px}
+.mark .btn{font-size:11.5px;padding:5px 9px}
+/* 段落与批注之间的连接线：从被讨论的段落右缘伸出去 */
+.p-target::after{content:"";position:absolute;right:-22px;top:1.15em;width:22px;height:1px;
+  background:var(--accent);opacity:.5}
+.m-catalog .p-target::after{display:block}
+
+/* ---- 形态三：就地展开 ---- */
+.m-inline .aside{display:none}
+.inline-slot{display:none}
+.m-inline .inline-slot{display:block}
+.inline-card{margin:14px 0 20px;border:1px solid var(--line);border-radius:8px;background:var(--margin);
+  overflow:hidden}
+.inline-card .top{display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;border-bottom:1px solid var(--line)}
+.inline-card .top b{font-size:12px;color:var(--ink-p);font-weight:600}
+.inline-card .top span{font-size:11px;color:var(--muted-p)}
+.inline-card .cols{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.inline-card .col{padding:13px 14px}
+.inline-card .col:first-child{border-right:1px solid var(--line)}
+.inline-card .col em{display:block;font-style:normal;font-size:10.5px;color:var(--muted-p);margin-bottom:7px;letter-spacing:.04em}
+.inline-card .col p{margin:0;font-family:var(--serif);font-size:15px;line-height:1.85;color:var(--ink-p)}
+.inline-card .col.was p{color:#6d736e}
+.inline-card .foot{display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;border-top:1px solid var(--line);background:var(--paper)}
+.inline-card .foot .why{font-size:11.5px;color:var(--muted-p);line-height:1.6}
+.inline-card .foot .why q{font-style:normal}
+
+/* 浮动动作条 */
+.floatbar{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px;
+  background:var(--panel);border:1px solid var(--stroke);box-shadow:0 10px 30px #0b0e1040}
+.floatbar button{padding:7px 13px;border:0;border-radius:999px;background:transparent;
+  color:var(--muted);font:inherit;font-size:12.5px;cursor:pointer;
+  transition:background var(--t),color var(--t)}
+.floatbar button:hover{background:var(--raised);color:var(--ink)}
+.floatbar button.on{background:var(--accent);color:#f4f8f6}
+
+/* ---- 形态四：版本对象 ---- */
+.m-peer .aside{display:none}
+.m-peer .body{grid-template-columns:200px minmax(0,1fr) 360px;background:var(--margin)}
+.m-peer .cat{background:transparent;border-right:1px solid var(--line)}
+.versions{display:flex;flex-direction:column;gap:0;overflow:auto;padding:18px 16px;min-height:0;
+  min-width:0;border-left:1px solid var(--line)}
+.versions .vh{font-size:12px;font-weight:600;color:var(--ink-p);padding:0 2px 4px}
+.versions .vs{font-size:11px;color:var(--muted-p);padding:0 2px 14px}
+.vrow{display:flex;gap:9px;padding:11px 2px;border-top:1px solid var(--line)}
+.vrow .num{flex:none;width:20px;height:20px;border-radius:5px;background:var(--hover);
+  display:grid;place-items:center;font-size:11px;color:#5b625e}
+.vrow .b{flex:1;min-width:0}
+.vrow .b q{display:block;font-family:var(--serif);font-size:13px;line-height:1.7;color:var(--ink-p);
+  text-decoration:none;margin-bottom:5px}
+.vrow .b .meta{font-size:10.5px;color:var(--muted-p)}
+.vrow.is-now .num{background:var(--accent);color:#f4f8f6}
+.vrow.is-now .b q{font-weight:600}
+.vrow.is-sug .num{background:var(--proposal);color:#3f5a4c}
+.vrow.is-sug q{background:var(--proposal);box-shadow:0 0 0 3px var(--proposal)}
+.vrow .b .acts-row{margin-top:8px;gap:6px}
+.vrow .b .btn{font-size:11.5px;padding:5px 9px}
+.vrow .no{font-size:10.5px;color:#a09a90;text-decoration:line-through}
+
+/* ---- 底部状态 ---- */
+.status{flex:none;height:28px;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:0 14px;background:var(--panel);border-top:1px solid #111417;
+  font-size:11px;color:var(--muted)}
+.status i{font-style:normal;display:flex;align-items:center;gap:6px}
+.status .dot{width:5px;height:5px;border-radius:50%;background:#7ba38d}
+
+/* 隐藏：随形态切换的说明 */
+.legend{margin-top:16px;display:grid;gap:10px}
+.legend .card{border:1px solid #262c2f;border-radius:12px;background:#171b1e;padding:14px 16px}
+.legend .card h3{margin:0 0 8px;font-size:13.5px;color:#e4e9ea;font-weight:600}
+.legend .card h3 span{font-weight:400;color:#7f8a8d;font-size:12.5px;margin-left:8px}
+.legend .card ul{margin:0;padding-left:18px;color:#95a0a3;font-size:12.5px;line-height:1.9}
+.legend .card li b{color:#cfd6d8}
+.legend .card .pick{margin-top:10px;font-size:12.5px;color:#9dc0b0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>Agent 放在哪里 —— 四种形态对照</h1>
+    <p>唯一变量是 Agent 的存在形式，其余全部固定。用的都是你《雾港来信》第三章的真实文案。</p>
+  </div>
+
+  <div class="modes" role="group" aria-label="形态切换">
+    <button type="button" data-mode="side" aria-pressed="true">
+      <b>① 侧栏</b><span>现状：正文 + 右侧对话栏</span></button>
+    <button type="button" data-mode="catalog">
+      <b>② 页边批注</b><span>批注贴在对应段落旁边</span></button>
+    <button type="button" data-mode="inline">
+      <b>③ 就地展开</b><span>正文里原地长出来，无面板</span></button>
+    <button type="button" data-mode="peer">
+      <b>④ 版本对象</b><span>讨论的就是段落本身</span></button>
+    <button type="button" data-mode="dock">
+      <b>⑤ 收进抽屉</b><span>默认零 Agent 面积</span></button>
+  </div>
+
+  <div class="note">
+    <div>
+      <b>说明：</b>这不是截图，是我按真实基准（目录 <code>220px</code> / Agent <code>340px</code> / 正文 <code>18px</code> / 行高 <code>2.05</code>）和你的真实文案现做的对照。
+      所以看的时候<b>别看视觉</b>——这一版我故意没做精致，免得你被样式分心。<b>只看一个问题：Agent 在哪个位置，你写作时最不被打断。</b>
+    </div>
+  </div>
+
+  <!-- ============ 舞台 ============ -->
+  <div class="stage m-side" id="stage">
+    <div class="bar">
+      <div class="brand">幻月 <em>雾港来信</em></div>
+      <div class="acts"><span>专注</span><span>导出</span></div>
+    </div>
+
+    <div class="body">
+      <!-- 目录 -->
+      <nav class="cat">
+        <div class="proj">雾港来信</div>
+        <div class="vol">第一卷 · 海雾来时</div>
+        <a href="#">第一章 · 雾中的港口</a>
+        <a href="#">第二章 · 雨中的钥匙</a>
+        <a href="#" aria-current="page">第三章 · 灯塔来信</a>
+        <a href="#">第四章 · 潮声以外</a>
+        <div class="sec">故事资料</div>
+        <a href="#">林汐 · 人物</a>
+        <a href="#">闻舟 · 人物</a>
+        <a href="#">雾港与灯塔 · 规则</a>
+        <a href="#">北岸灯塔 · 地点</a>
+      </nav>
+
+      <!-- 正文 -->
+      <main class="main">
+        <div class="doc">
+          <div class="crumb">第三章 · 灯塔来信</div>
+          <h1 class="ch">灯塔来信</h1>
+          <div class="prose">
+            <p>海雾是在凌晨退去的。</p>
+            <p>林汐沿着防波堤往前走，潮水在石缝里留下细碎的白沫。灯塔比她想象中更旧，门口的铁链已经锈成了暗红色。她从外套内袋取出钥匙。</p>
+            <p>门没有锁。</p>
+            <p class="p-target"><span class="said">“你比我想的来得早。”</span></p>
+            <p>闻舟站在门口，手里拿着两杯还冒热气的咖啡。他的目光落在那封信上，又很快移开。</p>
+            <p>“我父亲来过这里？”她问。</p>
+            <p>“很多人都来过。”</p>
+            <p>林汐把信翻过来。背面有一道很浅的折痕，像有人反复捏住同一个地方。她把它放进外套，没让闻舟看见信封上的字。</p>
+          </div>
+
+          <!-- 形态二才显示：页边批注（与正文同一网格） -->
+          <div class="margin-col" id="margincol">
+            <div class="mark">
+              <div class="lbl"><i></i>讨论 1 · 第 4 段</div>
+              <div class="txt"><b>保留试探，减少解释</b><br>让这句话透露他掌握时间，但不解释他为什么知道。</div>
+              <blockquote>“你比我想的来得早。”</blockquote>
+              <div class="acts-row">
+                <button class="btn solid" type="button">候选</button>
+                <button class="btn ghost" type="button">回复</button>
+              </div>
+            </div>
+            <div class="mark">
+              <div class="lbl"><i></i>线索 · 第 8 段</div>
+              <div class="txt">信的折痕在第一章和第三章各出现一次。这里可以不加解释。</div>
+              <div class="acts-row"><button class="btn ghost" type="button">查看</button></div>
+            </div>
+            <div class="mark">
+              <div class="lbl"><i></i>世界规则 · 第 1 段</div>
+              <div class="txt">「凌晨退去」和规则里「午夜持续亮灯」不冲突，但可以留一个暗示。</div>
+              <div class="acts-row"><button class="btn ghost" type="button">查看</button></div>
+            </div>
+          </div>
+
+          <!-- 形态三才显示：就地展开的候选 -->
+          <div class="inline-slot">
+            <div class="inline-card">
+              <div class="top"><b>候选改写 · 第 4 段</b><span>依据：林汐 / 说话方式 · 沈砚未定</span></div>
+              <div class="cols">
+                <div class="col was"><em>原文</em><p>“你比我想的来得早。”</p></div>
+                <div class="col now"><em>候选</em><p>“你来得比我算的早。”</p></div>
+              </div>
+              <div class="foot">
+                <div class="why">保留他对时间的掌握感，但把「想」换成「算」——更符合他修船人的具体。<br>不让他解释原因，符合你定的「不替林汐作决定」。</div>
+                <div class="acts-row" style="margin-top:0">
+                  <button class="btn ghost" type="button">拒绝</button>
+                  <button class="btn solid" type="button">采纳</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 形态一的浮动条不显示；三、五显示 -->
+        <div class="floatbar" id="floatbar">
+          <button type="button" class="on">讨论选段</button>
+          <button type="button">改写</button>
+          <button type="button">提取设定</button>
+        </div>
+      </main>
+
+      <!-- 形态一的侧栏 -->
+      <aside class="aside">
+        <div class="h"><strong>本章共写</strong><span>第三章 · 第 4 段 · 同一处讨论</span></div>
+        <div class="scroll">
+          <div class="turn">
+            <div class="who"><span>讨论 1 · 这句对白</span><span>定位原文</span></div>
+            <blockquote>“你比我想的来得早。”</blockquote>
+            <div class="say">
+              <b>保留试探，减少解释</b>
+              如果闻舟在等林汐，可以让这句话透露他掌握时间，同时保留他知道多少的悬念。
+            </div>
+            <div class="chips"><i>依据：林汐 / 说话方式</i><i>当前场景：北岸灯塔 / 会面</i></div>
+            <div class="acts-row">
+              <button class="btn solid" type="button">查看候选</button>
+              <button class="btn ghost" type="button">继续讨论</button>
+            </div>
+          </div>
+        </div>
+        <div class="compose">
+          <textarea placeholder="例如：更克制一些，但别透露钥匙来源…"></textarea>
+          <div class="crow">
+            <span>目标：第 4 段 · 已带入 1 项设定</span>
+            <button class="btn solid" type="button">暂存请求</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 形态四的版本列 -->
+      <aside class="versions" id="versions">
+        <div class="vh">第 4 段 · 三个版本</div>
+        <div class="vs">讨论的对象是这一段本身，不是一段对话记录</div>
+
+        <div class="vrow">
+          <div class="num">1</div>
+          <div class="b">
+            <q>“你比我想的来得早。”</q>
+            <div class="meta">原始 · 你写的 · 仍在使用</div>
+          </div>
+        </div>
+
+        <div class="vrow is-sug">
+          <div class="num">2</div>
+          <div class="b">
+            <q>“你来得比我算的早。”</q>
+            <div class="meta">候选 · 依据：林汐 / 说话方式</div>
+            <div class="acts-row">
+              <button class="btn solid" type="button">采纳</button>
+              <button class="btn ghost" type="button">拒绝</button>
+              <button class="btn ghost" type="button">问为什么</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="vrow">
+          <div class="num">3</div>
+          <div class="b">
+            <div class="no">“你比我想的要早。”</div>
+            <div class="meta">已拒绝 · 10-13 · 削弱了掌握感</div>
+          </div>
+        </div>
+
+        <div class="vs" style="padding-top:18px;border-top:1px solid var(--line);margin-top:6px">
+          段落是主体。对话只是它的历史记录，采纳后自动折叠成一行。
+        </div>
+      </aside>
+    </div>
+
+    <div class="status">
+      <i><span class="dot"></span>已保存到此设备 · 预览</i>
+      <i>林汐 · 闻舟 · 雾港与灯塔 已带入</i>
+      <i>1,047 字</i>
+    </div>
+  </div>
+
+  <!-- ============ 说明 ============ -->
+  <div class="legend" id="legend"></div>
+</div>
+
+<script>
+const COPY = {
+  side: {
+    t: "① 侧栏 —— 现状",
+    s: "Agent 是第二个 sidebar",
+    ul: [
+      "<b>优点：</b>随时可见，讨论历史完整，上下滚动不丢上下文。",
+      "<b>代价：</b>正文被永久压到 <b>约 820px</b>；你和 Agent 被一堵边线隔开，视线要来回跳。",
+      "<b>关键问题：</b>你已经有目录在左边了。左右各一个栏，正文被夹在中间——这是「奇怪」最大的来源，比字体比字号都大。",
+      "<b>还有一个隐患：</b>对话记录会一直长长地留在那里，而它和正文没有空间上的对应关系。看第 5 段的话，讨论却在面板顶部。"
+    ],
+    p: "如果要留侧栏，至少让它默认收起。"
+  },
+  catalog: {
+    t: "② 页边批注",
+    s: "批注贴着它讨论的那一段",
+    ul: [
+      "右侧那条不再是「聊天框」，而是<b>页边</b>。每条批注只占几行，垂直对齐到它讨论的段落，中间一条短横线连着。",
+      "正文因此拿回 <b>约 300px</b>，可以舒服到 790px。<b>这是最直接解决「挤」的一种。</b>",
+      "它来自纸媒的老办法：你读书时写在页边的东西。Scrivener 的 Inspector 就是这个思路。",
+      "讨论历史不会消失，而是<b>分散到各自的段落旁边</b>——看第 4 段时，第 4 段的批注就在旁边，不用滚。",
+      "代价：批注多了会显得碎；需要一步「只看当前段落」的过滤。"
+    ],
+    p: "这是我最推荐的一个。它保留了「旁边」这个直觉，但把 Agent 从「另一块区域」变成了「正文的注」。"
+  },
+  inline: {
+    t: "③ 就地展开",
+    s: "正文里原地长出来，没有面板",
+    ul: [
+      "选一段 → 点「改写」→ 候选<b>就在那一段下面展开</b>，左原文右候选，高度自适应。",
+      "Agent 不是一块区域，而是<b>一个出现在文字里的动作</b>。Typora / Notion 的 AI 都是这个方向。",
+      "屏幕下方那条浮动条只在<b>你选中文字时</b>才出现——不选就没有，不占任何面积。",
+      "它回答了你问的「崭新形式」：<b>Agent 不需要有位置，它只需要有入口。</b>",
+      "代价：需要多次来回讨论时，就地展开不如侧栏顺手；适合「一次改一处」的节奏。"
+    ],
+    p: "这个最接近「崭新」，但也最需要你先接受「Agent 平时不存在」。"
+  },
+  peer: {
+    t: "④ 版本对象",
+    s: "讨论的对象是段落本身",
+    ul: [
+      "右边不是对话框，是<b>这一段的所有版本</b>：原始、候选、你拒绝过的。",
+      "对话没有消失，它变成了版本的<b>注释</b>——采纳后自动折叠成一行「已采纳 · 依据：林汐 / 说话方式」。",
+      "它把「讨论」从<b>消息</b>变成了<b>对象</b>。你在写作软件里本来就习惯管理版本，不用再学一套聊天。",
+      "直接对应你文档里的要求：<b>「讨论锚点用文档 ID、版本、范围和引文核对，不能把第 5 段当稳定 ID」</b>——这个形态天然就是版本。",
+      "代价：不适合闲聊式探讨；如果只是想聊两句，它会显得太重。"
+    ],
+    p: "最贴合你自己的工作流，也最「不像聊天软件」。"
+  },
+  dock: {
+    t: "⑤ 收进抽屉",
+    s: "默认零 Agent 面积",
+    ul: [
+      "默认屏幕上<b>只有目录和正文</b>。Agent 完全不存在，直到你叫它。",
+      "这是把你自己写的 <code>DESIGN.md:16</code>「专注只保留正文」变成<b>默认状态</b>，而不是一个要手动进的功能。",
+      "iA Writer / Typora / Bear 都靠这一条成立：<b>写作软件的第一美德是让界面消失。</b>",
+      "代价：它没有解决「Agent 该长什么样」，只是先把它拿掉。所以它应该和 ② 或 ③ 组合，而不是单独用。"
+    ],
+    p: "这是前四种的地基：先确认「默认不显示」是对的，再决定叫出来时用哪种形态。"
+  }
+};
+
+const stage = document.getElementById('stage');
+const legend = document.getElementById('legend');
+const floatbar = document.getElementById('floatbar');
+const mods = [...document.querySelectorAll('.modes button')];
+
+function render(mode){
+  stage.className = 'stage m-' + mode;
+  floatbar.style.display = (mode === 'inline') ? 'flex' : 'none';
+  const c = COPY[mode];
+  legend.innerHTML = `<div class="card"><h3>${c.t}<span>${c.s}</span></h3>
+    <ul>${c.ul.map(x => `<li>${x}</li>`).join('')}</ul>
+    <div class="pick">${c.p}</div></div>`;
+  mods.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
+}
+mods.forEach(b => b.addEventListener('click', () => render(b.dataset.mode)));
+render('side');
+</script>
+</body>
+</html>

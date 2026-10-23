@@ -234,6 +234,9 @@ pub fn is_dir(path: &Path) -> bool {
 }
 
 /// 目录下的直接子目录名（升序，跳过隐藏目录与隐私红线）。
+///
+/// 跳过 `.` 开头目录是刻意的：适配器数据目录下的隐藏目录多为内部缓存 / 锁文件，
+/// 不是会话来源；命中隐私红线的目录即使存在也绝不返回，交由上层忽略。
 pub fn sub_dirs(path: &Path) -> Vec<PathBuf> {
     let mut out = Vec::new();
     let entries = match std::fs::read_dir(path) {

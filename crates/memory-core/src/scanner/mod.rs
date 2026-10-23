@@ -12,6 +12,21 @@ pub mod fingerprint;
 pub use fingerprint::{decide, hash_bytes, hash_file, quick_stat, Decision};
 
 use std::path::Path;
+use std::sync::atomic::{AtomicU64, Ordering};
+
+/// 进程内扫描调用计数（诊断用）。Relaxed 序足够：只用于观察「扫了几次」，
+/// 不需要跨线程精确时序。
+static SCAN_INVOCATIONS: AtomicU64 = AtomicU64::new(0);
+
+/// 当前进程启动后 `scan_adapter` 的调用次数（只含计数，不含路径或正文）。
+pub fn scan_invocations() -> u64 {
+    SCAN_INVOCATIONS.load(Ordering::Relaxed)
+}
+
+/// 计数 +1（crate 内调用）。
+pub(crate) fn record_scan_invocation() {
+    SCAN_INVOCATIONS.fetch_add(1, Ordering::Relaxed);
+}
 
 use crate::adapters::ConversationAdapter;
 use crate::error::Result;
@@ -51,6 +66,7 @@ pub fn scan_adapter(
     adapter: &dyn ConversationAdapter,
     manual_root: Option<&Path>,
 ) -> Result<ScanReport> {
+    record_scan_invocation();
     let mut report = ScanReport::default();
     let descriptors = adapter.scan(manual_root)?;
     report.scanned = descriptors.len();
@@ -67,12 +83,12 @@ pub fn scan_adapter(
             Ok(()) => {}
             Err(e) => {
                 report.failed += 1;
-                report.failures.push((descriptor.external_id.clone(), e.kind()));
-                report.warnings.push(format!(
-                    "{}: {}",
-                    descriptor.external_id,
-                    e.user_message()
-                ));
+                report
+                    .failures
+                    .push((descriptor.external_id.clone(), e.kind()));
+                report
+                    .warnings
+                    .push(format!("{}: {}", descriptor.external_id, e.user_message()));
             }
         }
     }
@@ -80,6 +96,8 @@ pub fn scan_adapter(
     Ok(report)
 }
 
+/// 单个会话的扫描-解析-落库流程（scan_adapter 的循环体）。
+/// 失败由调用方计入报告；本函数要么完整成功，要么在上层计一次失败。
 fn scan_one(
     db: &Database,
     adapter: &dyn ConversationAdapter,
@@ -91,7 +109,8 @@ fn scan_one(
     let primary_path = crate::error::display_path(&descriptor.primary_file);
 
     // 指纹门控：先比 size+mtime，变了才算 BLAKE3
-    let (decision, content_hash) = fingerprint::decide(&descriptor.primary_file, fingerprints.get(&primary_path))?;
+    let (decision, content_hash) =
+        fingerprint::decide(&descriptor.primary_file, fingerprints.get(&primary_path))?;
     match decision {
         Decision::Unchanged => {
             report.skipped += 1;

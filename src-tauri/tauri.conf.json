@@ -12,7 +12,20 @@
   "app": {
     "windows": [
       {
+        "label": "studio",
+        "title": "幻月 · 小说创作工作台",
+        "width": 1440,
+        "height": 940,
+        "minWidth": 760,
+        "minHeight": 560,
+        "center": true,
+        "visible": true,
+        "decorations": true,
+        "resizable": true
+      },
+      {
         "label": "pet",
+        "visible": false,
         "title": "幻月",
         "width": 120,
         "height": 120,
@@ -24,10 +37,35 @@
         "resizable": false,
         "maximizable": false,
         "shadow": false
+      },
+      {
+        "label": "card",
+        "title": "幻月",
+        "width": 440,
+        "height": 640,
+        "center": true,
+        "visible": false,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "resizable": false,
+        "maximizable": false
       }
     ],
     "security": {
-      "csp": null
+      "csp": {
+        "default-src": "'self'",
+        "connect-src": "ipc: http://ipc.localhost",
+        "img-src": "'self' data:",
+        "style-src": "'self' 'unsafe-inline'"
+      },
+      "devCsp": {
+        "default-src": "'self' http://localhost:1420 http://127.0.0.1:1420",
+        "connect-src": "ipc: http://ipc.localhost http://localhost:1420 http://127.0.0.1:1420 ws://localhost:1420 ws://127.0.0.1:1420",
+        "img-src": "'self' data:",
+        "style-src": "'self' 'unsafe-inline'",
+        "script-src": "'self' 'unsafe-eval'"
+      }
     }
   },
   "bundle": {

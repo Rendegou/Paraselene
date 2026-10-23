@@ -1,0 +1,30 @@
+.native-workspace-picker { height:100%; overflow:auto; padding:48px max(24px, calc((100vw - 760px) / 2)); background:#faf9f5; color:#292d34; font:16px/1.7 "Microsoft YaHei UI",sans-serif; }
+.native-workspace-picker form,.native-workspace-picker nav { display:flex; flex-direction:column; gap:12px; margin:24px 0; }
+.native-workspace-picker input { padding:10px; font:inherit; border:1px solid #dfe2e7; }
+.native-workspace-picker button,.native-chapter-controls button { padding:7px 12px; color:inherit; border:1px solid #dfe2e7; background:#f8f8f9; border-radius:6px; cursor:pointer; font:inherit; }
+.native-workspace-picker :focus-visible,.native-chapter-controls :focus-visible { outline:2px solid #49659c; outline-offset:3px; }
+.native-workspace-picker [role="alert"] { color:#955127; }
+.native-chapter-controls { position:relative; z-index:40; flex-shrink:0; font:14px/1.6 "Microsoft YaHei UI",sans-serif; color:#292d34; }
+.native-chapter-controls > section { position:absolute; right:0; top:calc(100% + 8px); max-height:60vh; width:min(520px,calc(100vw - 48px)); overflow:auto; background:#faf9f5; border:1px solid #dfe2e7; border-radius:8px; padding:16px; }
+.native-chapter-controls pre { white-space:pre-wrap; overflow-wrap:anywhere; font:inherit; user-select:text; }
+.native-chapter-controls h2 { font-size:16px; margin:16px 0 8px; }
+.native-chapter-controls section button { margin:4px; }
+.native-chapter-controls .native-source-version { position:fixed; inset:15vh 10vw auto; width:auto; }
+.native-app-root { display: flex; flex-direction: column; height: 100%; }
+.native-app-body { flex: 1; min-height: 0; overflow: hidden; }
+.native-root-error { flex-shrink: 0; padding: 8px 16px; background: #f8e9dc; color: #6b3722; }
+.studio-entity-detail div.studio-entity-body { white-space: pre-wrap; overflow-wrap: anywhere; user-select: text; }
+.native-source-version mark { background: #ead8b4; color: inherit; }
+.native-generation-preview { border-top: 1px solid #dfe2e7; padding: 16px; font: 14px/1.7 "Microsoft YaHei UI",sans-serif; }
+.native-generation-preview h3 { margin: 0 0 8px; font-size: 16px; }
+.native-generation-preview details { max-height: 280px; overflow: auto; margin: 12px 0; user-select: text; }
+.native-generation-preview pre { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.native-generation-preview button { margin: 4px 8px 4px 0; }
+.native-model-settings { width: min(520px,calc(100vw - 48px)); max-height: calc(100vh - 60px); overflow: auto; border: 1px solid #dfe2e7; border-radius: 8px; padding: 24px; background: #faf9f5; color: #292d34; font: 15px/1.7 "Microsoft YaHei UI",sans-serif; }
+.native-model-settings::backdrop { background: rgb(35 40 48 / 28%); }
+.native-model-settings header { display: flex; align-items: center; justify-content: space-between; }
+.native-model-settings h2 { margin: 0; font-size: 20px; }
+.native-model-settings form { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.native-model-settings input[type="password"] { padding: 10px; border: 1px solid #dfe2e7; font: inherit; }
+.native-model-settings button { padding: 7px 12px; color: inherit; border: 1px solid #dfe2e7; background: #f8f8f9; border-radius: 6px; font: inherit; cursor: pointer; }
+.native-model-settings [role="alert"] { color: #955127; }

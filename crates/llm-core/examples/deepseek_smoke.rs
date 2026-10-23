@@ -11,9 +11,12 @@ use futures_util::StreamExt;
 use paraselene_llm_core as llm;
 
 #[tokio::main]
+/// 冒烟主流程：读 Key → fetch_models → assemble+send（max_tokens=1，烧最少额度）。
+/// 任何一步失败都以错误返回，由调用方看退出码与红线的状态输出。
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let key_file = std::env::var("DEEPSEEK_KEY_FILE")
         .unwrap_or_else(|_| r"D:\paraselene\secrets\deepseek.key".to_string());
+    // Key 只留在内存变量里：不打印、不进日志、不进 panic 消息（AGENTS.md §4 红线）。
     let api_key = std::fs::read_to_string(&key_file)
         .map_err(|_| "读不到 Key 文件（DEEPSEEK_KEY_FILE 或默认路径）")?
         .trim()

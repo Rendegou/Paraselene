@@ -8,6 +8,6 @@ pub mod jsonl;
 
 pub use jsonl::{
     content_to_text, epoch_ms_to_rfc3339, epoch_secs_to_rfc3339, get_bool, get_i64, get_str,
-    normalize_timestamp, normalize_timestamp_value, stream_jsonl, value_to_text, Flow,
-    JsonlReport, ParseLimits,
+    normalize_timestamp, normalize_timestamp_value, stream_jsonl, value_to_text, Flow, JsonlReport,
+    ParseLimits,
 };

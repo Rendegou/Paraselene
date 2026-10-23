@@ -11,7 +11,9 @@ use serde::{Deserialize, Serialize};
 /// LLM 要求执行的工具调用（源 provider.ts ToolCallRequest；id 用于 tool_use ↔ tool_result 配对）。
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ToolCallRequest {
+    /// 调用 id：配对模型输出的 tool_use 与上层回传的 tool_result。
     pub id: String,
+    /// 工具名（应与 ProviderTool::name / 执行端注册名一致）。
     pub name: String,
     /// JSON 字符串（工具执行前由上层校验）
     pub arguments: String,
@@ -33,6 +35,7 @@ pub struct Message {
 }
 
 impl Message {
+    /// 构造 user 消息（便捷构造器；tool_calls/tool_call_id/name 全空）。
     pub fn user(text: impl Into<String>) -> Self {
         Message {
             role: MessageRole::User,
@@ -43,6 +46,7 @@ impl Message {
         }
     }
 
+    /// 构造 system 消息（便捷构造器；同上，仅有 role/content）。
     pub fn system(text: impl Into<String>) -> Self {
         Message {
             role: MessageRole::System,
@@ -67,7 +71,9 @@ pub enum MessageRole {
 /// 工具定义（源 provider.ts ProviderTool；OpenAI 协议 tools 数组项的核心字段）。
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ProviderTool {
+    /// 工具名：模型选择调用时引用，须与执行端注册名一致。
     pub name: String,
+    /// 功能描述：模型决定「何时调用该工具」的主要依据，写给模型看。
     pub description: String,
     /// JSON Schema 格式的参数定义
     pub parameters: serde_json::Value,
@@ -76,7 +82,9 @@ pub struct ProviderTool {
 /// token 用量（源 provider.ts Usage；API 不返回时 None，由 estimated_tokens 兜底）。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Usage {
+    /// 输入（prompt）token 数。
     pub input_tokens: u64,
+    /// 输出（completion）token 数。
     pub output_tokens: u64,
 }
 
@@ -102,6 +110,7 @@ impl FinishReason {
         }
     }
 
+    /// 序列化/IPC 用字符串（与 from_raw 互逆；未知原始值归 Error）。
     pub const fn as_str(self) -> &'static str {
         match self {
             FinishReason::Stop => "stop",
@@ -118,8 +127,11 @@ impl FinishReason {
 /// → done（流结束，usage 若有则带上——流式协议里 usage 在 finish 之后才到）。
 #[derive(Debug, Clone, PartialEq)]
 pub enum StreamEvent {
+    /// 逐 token 文本增量（流式主输出）。
     Delta { content: String },
+    /// 模型要求执行的工具调用集合（finish_reason 为 tool_calls 时先于 done 吐出）。
     ToolCalls { calls: Vec<ToolCallRequest> },
+    /// 流结束：finish_reason + usage（usage 可能缺省，展示层用 estimated_tokens 兜底）。
     Done {
         finish_reason: FinishReason,
         usage: Option<Usage>,

@@ -1,0 +1,264 @@
+{
+  "tool": "rust-code-metrics",
+  "tool_version": "t05a-1",
+  "generated_at": "1790962867s since epoch",
+  "limits": {
+    "function": 60,
+    "module": 400
+  },
+  "violation_count": 36,
+  "violations": [
+    {
+      "file": "crates/memory-core/src/adapters/codex.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 983,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/spaces.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 973,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/imports.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 910,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/adapters/kimi.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 878,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/storage/migrations.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 774,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/ideas.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 733,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/storage/sessions.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 535,
+      "limit": 400
+    },
+    {
+      "file": "src-tauri/src/commands/novel.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 503,
+      "limit": 400
+    },
+    {
+      "file": "crates/llm-core/src/sse.rs",
+      "name": "<module>",
+      "kind": "module",
+      "lines": 436,
+      "limit": 400
+    },
+    {
+      "file": "crates/memory-core/src/adapters/codex.rs",
+      "name": "on_item_completed",
+      "kind": "method",
+      "lines": 194,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/adapters/kimi.rs",
+      "name": "parse_streaming",
+      "kind": "method",
+      "lines": 112,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/adapters/codex.rs",
+      "name": "on_response_item",
+      "kind": "method",
+      "lines": 106,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/import_file.rs",
+      "name": "read_chatgpt_zip",
+      "kind": "function",
+      "lines": 104,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/storage/search.rs",
+      "name": "search",
+      "kind": "method",
+      "lines": 103,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/spaces.rs",
+      "name": "idea_状态机_合法与非法迁移",
+      "kind": "function",
+      "lines": 96,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/adapters/kimi.rs",
+      "name": "on_loop_event",
+      "kind": "method",
+      "lines": 91,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/storage/migrations.rs",
+      "name": "v2_库升级后_四空间表就绪且数据不丢",
+      "kind": "function",
+      "lines": 87,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/imports.rs",
+      "name": "scan_one",
+      "kind": "function",
+      "lines": 86,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/adapters/kimi.rs",
+      "name": "handle_line",
+      "kind": "method",
+      "lines": 85,
+      "limit": 60
+    },
+    {
+      "file": "src-tauri/src/lib.rs",
+      "name": "run",
+      "kind": "function",
+      "lines": 83,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/scanner/mod.rs",
+      "name": "scan_one",
+      "kind": "function",
+      "lines": 82,
+      "limit": 60
+    },
+    {
+      "file": "src-tauri/src/commands/novel.rs",
+      "name": "generate_fragment",
+      "kind": "function",
+      "lines": 82,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/spaces.rs",
+      "name": "create_memory",
+      "kind": "method",
+      "lines": 79,
+      "limit": 60
+    },
+    {
+      "file": "src-tauri/src/commands/import.rs",
+      "name": "select_import_file",
+      "kind": "function",
+      "lines": 79,
+      "limit": 60
+    },
+    {
+      "file": "src-tauri/src/commands/llm.rs",
+      "name": "llm_chat_send",
+      "kind": "function",
+      "lines": 78,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/spaces.rs",
+      "name": "用户纠正与删除要求空间和当前版本且保留出处",
+      "kind": "function",
+      "lines": 76,
+      "limit": 60
+    },
+    {
+      "file": "crates/novel-core/src/generation.rs",
+      "name": "prepare_with_request",
+      "kind": "function",
+      "lines": 75,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/storage/migrations.rs",
+      "name": "v3_库升级后_trigram_瘦身重建",
+      "kind": "function",
+      "lines": 72,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/imports.rs",
+      "name": "parse_chatgpt_markdown",
+      "kind": "function",
+      "lines": 71,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/ideas.rs",
+      "name": "confirm_idea",
+      "kind": "method",
+      "lines": 69,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/parser/jsonl.rs",
+      "name": "stream_jsonl",
+      "kind": "function",
+      "lines": 67,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/ideas.rs",
+      "name": "convert_idea",
+      "kind": "method",
+      "lines": 66,
+      "limit": 60
+    },
+    {
+      "file": "crates/llm-core/src/client.rs",
+      "name": "send",
+      "kind": "method",
+      "lines": 62,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/adapters/codex.rs",
+      "name": "on_event_msg",
+      "kind": "method",
+      "lines": 62,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/storage/migrations.rs",
+      "name": "trigram_瘦身规则_tool不进索引且文本截断",
+      "kind": "function",
+      "lines": 62,
+      "limit": 60
+    },
+    {
+      "file": "crates/memory-core/src/imports.rs",
+      "name": "parse_markdown",
+      "kind": "function",
+      "lines": 61,
+      "limit": 60
+    }
+  ]
+}

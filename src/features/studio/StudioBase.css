@@ -1,0 +1,7 @@
+html, body, #root { width: 100%; height: 100%; margin: 0; }
+.studio-app * { box-sizing: border-box; }
+.studio-app h1, .studio-app h2, .studio-app h3, .studio-app p { margin: 0; }
+.studio-app { user-select: text; font-synthesis: none; -webkit-font-smoothing: antialiased; }
+.studio-app button, .studio-app input, .studio-app textarea { font-family: inherit; }
+.studio-app input, .studio-app textarea { font-weight: 400; }
+.studio-app .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

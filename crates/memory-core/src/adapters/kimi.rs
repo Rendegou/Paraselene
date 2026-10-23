@@ -196,7 +196,10 @@ impl ConversationAdapter for KimiAdapter {
                 }
                 let hint = Self::count_sessions(&root);
                 if is_manual && hint == 0 {
-                    notes.push("该目录下未发现会话（sessions/<工作目录>/<会话>/agents/main/wire.jsonl）".to_string());
+                    notes.push(
+                        "该目录下未发现会话（sessions/<工作目录>/<会话>/agents/main/wire.jsonl）"
+                            .to_string(),
+                    );
                 }
                 vec![DetectionResult {
                     source: source_kind(),
@@ -388,6 +391,10 @@ impl ConversationAdapter for KimiAdapter {
 }
 
 /// 解析 `wire.jsonl` 的状态机。
+///
+/// 职责三件事：分片合并（同 step 的 `content.part` 拼成一条 assistant 消息）、
+/// 双写去重（`prompt.accepted` vs `turn.prompt` 按 promptId；assistant 双写在
+/// `on_agent_message_appended` 层直接跳过）、事件分类（可见 / 遥测 / 未知）。
 struct WireParser<'a> {
     sink: &'a mut dyn MessageSink,
     session_id: String,
@@ -551,7 +558,14 @@ impl<'a> WireParser<'a> {
             _ => {
                 // 先落盘未写完的 assistant 分片，保持叙事顺序（与 on_message 一致）
                 self.flush_pending()?;
-                self.emit(role, MessageKind::Message, Some(cap_text(text)), None, None, time)?
+                self.emit(
+                    role,
+                    MessageKind::Message,
+                    Some(cap_text(text)),
+                    None,
+                    None,
+                    time,
+                )?
             }
         }
         Ok(())
@@ -883,7 +897,9 @@ mod tests {
 
     /// 造一个 kimi 会话目录（state.json + agents/main/wire.jsonl）。
     fn wire_fixture(dir: &Path, state: Option<&str>, lines: &[&str]) -> SessionDescriptor {
-        let session_dir = dir.join("wd_proj_a87aa2d307e8").join("session_19845fba-49b3-454b-8877-36aee4013a0c");
+        let session_dir = dir
+            .join("wd_proj_a87aa2d307e8")
+            .join("session_19845fba-49b3-454b-8877-36aee4013a0c");
         std::fs::create_dir_all(session_dir.join("agents/main")).unwrap();
         if let Some(state) = state {
             std::fs::write(session_dir.join("state.json"), state).unwrap();
@@ -1005,6 +1021,9 @@ mod tests {
         assert!(info.created_at.is_some());
         assert!(info.partial, "未知事件应标记 partial");
         // 未知事件保留一个事件气泡
-        assert!(sink.messages.iter().any(|m| m.kind == MessageKind::Event && m.role == Role::Unknown));
+        assert!(sink
+            .messages
+            .iter()
+            .any(|m| m.kind == MessageKind::Event && m.role == Role::Unknown));
     }
 }

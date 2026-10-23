@@ -34,8 +34,15 @@ pub struct OpenAiCompatClient {
 impl OpenAiCompatClient {
     /// 新建客户端。`base_url` 形如 `https://api.deepseek.com/v1`（末尾斜杠有无均可）。
     pub fn new(base_url: impl Into<String>) -> Result<Self> {
+        Self::with_timeouts(base_url, Duration::from_secs(300), Duration::from_secs(60))
+    }
+
+    /// 连接 30 秒、整个请求 5 分钟、单次读取闲置 1 分钟；测试可注入短边界。
+    fn with_timeouts(base_url: impl Into<String>, total: Duration, idle: Duration) -> Result<Self> {
         let client = reqwest::Client::builder()
             .connect_timeout(Duration::from_secs(30))
+            .timeout(total)
+            .read_timeout(idle)
             .build()?;
         Ok(OpenAiCompatClient {
             base_url: base_url.into(),
@@ -48,10 +55,12 @@ impl OpenAiCompatClient {
         Self::new("https://api.deepseek.com/v1")
     }
 
+    /// 当前 base_url（调试用；注意返回值未做尾部斜杠归一化，拼 URL 请走 `endpoint`）。
     pub fn base_url(&self) -> &str {
         &self.base_url
     }
 
+    /// 端点拼接：去掉 base_url 尾部斜杠再补一个，容忍配置里多写/漏写斜杠。
     fn endpoint(&self, path: &str) -> String {
         format!("{}/{}", self.base_url.trim_end_matches('/'), path)
     }
@@ -108,19 +117,20 @@ impl OpenAiCompatClient {
                     Some(Err(e)) => {
                         // 流中途网络错误：按 openai-compat.ts:236-238 发 error 并终止
                         st.ended = true;
-                        return Some((Err(LlmError::Network(e.to_string())), st));
+                        return Some((Err(e.into()), st));
                     }
                     None => {
-                        // 流正常结束：flush 尾部半行 + 恒发 done（带 usage）
+                        // EOF 时 flush 尾部半行；仅已有服务端完成标记才发 done。
                         st.ended = true;
-                        let mut tail: Vec<StreamEvent> = st
+                        let tail: Vec<StreamEvent> = st
                             .parser
                             .feed_end()
                             .into_iter()
                             .flat_map(|ev| st.mapper.map(ev))
                             .collect();
-                        tail.push(st.mapper.stream_end());
-                        st.pending = tail.into_iter().map(Ok).collect::<Vec<_>>().into_iter();
+                        st.pending = tail.into_iter().map(Ok)
+                            .chain(std::iter::once(st.mapper.stream_end()))
+                            .collect::<Vec<_>>().into_iter();
                     }
                 }
             }
@@ -162,10 +172,15 @@ impl OpenAiCompatClient {
 
 /// send 的流式状态（unfold 状态机：字节 → SSE → provider 事件）。
 struct SendState<S> {
+    /// reqwest 字节流（随 SendState 一起 drop 即断开连接，取消语义的关键）。
     byte_stream: S,
+    /// SSE 行解析状态机（半包/粘包切分 + 脏数据重试降级）。
     parser: SseParser,
+    /// SSE 事件 → provider 事件的归一器（done 延后到流结束统一产出，等 usage 到齐）。
     mapper: EventMapper,
+    /// 当前字节块已转换出、尚未交付给调用方的事件队列。
     pending: std::vec::IntoIter<Result<StreamEvent>>,
+    /// EOF 或中途错误后置 true：flush 完 pending 即结束流。
     ended: bool,
 }
 
@@ -201,6 +216,7 @@ mod tests {
         format!("http://{addr}/v1")
     }
 
+    /// 测试构造：组一个最小 PreparedChat（personal 空间、单条 user 消息、指定模型）。
     fn prepared() -> PreparedChat {
         assemble_chat(
             &AllowAll,
@@ -217,6 +233,7 @@ mod tests {
         .unwrap()
     }
 
+    // 基准成功流：两个 delta chunk → finish stop → usage chunk → [DONE]（端到端事件顺序的参照）
     const SSE_OK: &[u8] = b"HTTP/1.1 200 OK\r\ncontent-type: text/event-stream\r\n\r\n\
 data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xe4\xbd\xa0\xe5\xa5\xbd\"},\"finish_reason\":null}]}\n\n\
 data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xef\xbc\x8c\xe4\xb8\x96\xe7\x95\x8c\"},\"finish_reason\":null}]}\n\n\
@@ -291,8 +308,8 @@ data: [DONE]\n\n";
     }
 
     #[tokio::test]
-    async fn send_中途断流_恒发done() {
-        // 对端只发了一个 delta 就断开：流结束仍恒发 done（?? 'stop'）
+    async fn send_中途断流_返回解析错误() {
+        // 对端只发了一个 delta 就断开：不能把半句标成成功。
         static RESP: &[u8] = b"HTTP/1.1 200 OK\r\ncontent-type: text/event-stream\r\n\r\n\
 data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xe5\x8d\x8a\xe5\x8f\xa5\"},\"finish_reason\":null}]}\n\n";
         let base = spawn_mock(RESP);
@@ -300,14 +317,11 @@ data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xe5\x8d\
         let mut stream = client.send(&prepared(), "sk-test").await.unwrap();
         let mut events = Vec::new();
         while let Some(ev) = stream.next().await {
-            events.push(ev.unwrap());
+            events.push(ev);
         }
-        assert!(matches!(&events[0], StreamEvent::Delta { content } if content == "半句"));
+        assert!(matches!(&events[0], Ok(StreamEvent::Delta { content }) if content == "半句"));
         match events.last().unwrap() {
-            StreamEvent::Done { finish_reason, usage } => {
-                assert_eq!(*finish_reason, FinishReason::Stop);
-                assert!(usage.is_none());
-            }
+            Err(LlmError::Parse(message)) => assert!(message.contains("完成标记")),
             other => panic!("{other:?}"),
         }
     }
@@ -320,5 +334,40 @@ data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xe5\x8d\
         let client = OpenAiCompatClient::new(base).unwrap();
         let models = client.fetch_models("sk-test").await.unwrap();
         assert_eq!(models, vec!["deepseek-flash", "deepseek-v4-pro"]);
+    }
+
+    fn stalled_stream(heartbeat: bool) -> String {
+        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
+        let addr = listener.local_addr().unwrap();
+        std::thread::spawn(move || {
+            let (mut socket, _) = listener.accept().unwrap();
+            let mut request = [0u8;16384];
+            let _ = socket.read(&mut request);
+            let _ = socket.write_all(b"HTTP/1.1 200 OK\r\ncontent-type: text/event-stream\r\n\r\n");
+            for _ in 0..50 {
+                std::thread::sleep(Duration::from_millis(20));
+                if heartbeat && socket.write_all(b": heartbeat\n\n").is_err() { break; }
+            }
+        });
+        format!("http://{addr}/v1")
+    }
+
+    #[tokio::test]
+    async fn 流式响应闲置超时单独分类() {
+        let client = OpenAiCompatClient::with_timeouts(stalled_stream(false),Duration::from_secs(3),Duration::from_millis(100)).unwrap();
+        let mut stream = client.send(&prepared(),"synthetic-key").await.unwrap();
+        let error = stream.next().await.unwrap().unwrap_err();
+        assert!(matches!(error,LlmError::Timeout));
+        assert_eq!(error.kind(),"timeout");
+        assert!(stream.next().await.is_none());
+    }
+
+    #[tokio::test]
+    async fn 持续心跳不能绕过请求总超时() {
+        let client = OpenAiCompatClient::with_timeouts(stalled_stream(true),Duration::from_millis(250),Duration::from_millis(150)).unwrap();
+        let mut stream = client.send(&prepared(),"synthetic-key").await.unwrap();
+        let error = stream.next().await.unwrap().unwrap_err();
+        assert!(matches!(error,LlmError::Timeout));
+        assert!(stream.next().await.is_none());
     }
 }

@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T17:16:54.7256514+08:00",
+  "title": "Design System: 幻月",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "暖白纸面",
+        "tonalRamp": [
+          "oklch(15.00% 0.00539 95.10)",
+          "oklch(26.43% 0.00539 95.10)",
+          "oklch(37.86% 0.00539 95.10)",
+          "oklch(49.29% 0.00539 95.10)",
+          "oklch(60.71% 0.00539 95.10)",
+          "oklch(72.14% 0.00539 95.10)",
+          "oklch(83.57% 0.00539 95.10)",
+          "oklch(95.00% 0.00539 95.10)"
+        ]
+      },
+      "frame": {
+        "role": "neutral",
+        "displayName": "浅灰框架",
+        "tonalRamp": [
+          "oklch(15.00% 0.00287 264.54)",
+          "oklch(26.43% 0.00287 264.54)",
+          "oklch(37.86% 0.00287 264.54)",
+          "oklch(49.29% 0.00287 264.54)",
+          "oklch(60.71% 0.00287 264.54)",
+          "oklch(72.14% 0.00287 264.54)",
+          "oklch(83.57% 0.00287 264.54)",
+          "oklch(95.00% 0.00287 264.54)"
+        ]
+      },
+      "toolbar": {
+        "role": "neutral",
+        "displayName": "浅色顶栏",
+        "tonalRamp": [
+          "oklch(15.00% 0.00132 286.38)",
+          "oklch(26.43% 0.00132 286.38)",
+          "oklch(37.86% 0.00132 286.38)",
+          "oklch(49.29% 0.00132 286.38)",
+          "oklch(60.71% 0.00132 286.38)",
+          "oklch(72.14% 0.00132 286.38)",
+          "oklch(83.57% 0.00132 286.38)",
+          "oklch(95.00% 0.00132 286.38)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "墨色",
+        "tonalRamp": [
+          "oklch(15.00% 0.01393 261.70)",
+          "oklch(26.43% 0.01393 261.70)",
+          "oklch(37.86% 0.01393 261.70)",
+          "oklch(49.29% 0.01393 261.70)",
+          "oklch(60.71% 0.01393 261.70)",
+          "oklch(72.14% 0.01393 261.70)",
+          "oklch(83.57% 0.01393 261.70)",
+          "oklch(95.00% 0.01393 261.70)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "次文字",
+        "tonalRamp": [
+          "oklch(15.00% 0.02278 260.15)",
+          "oklch(26.43% 0.02278 260.15)",
+          "oklch(37.86% 0.02278 260.15)",
+          "oklch(49.29% 0.02278 260.15)",
+          "oklch(60.71% 0.02278 260.15)",
+          "oklch(72.14% 0.02278 260.15)",
+          "oklch(83.57% 0.02278 260.15)",
+          "oklch(95.00% 0.02278 260.15)"
+        ]
+      },
+      "stroke": {
+        "role": "neutral",
+        "displayName": "细分隔线",
+        "tonalRamp": [
+          "oklch(15.00% 0.00753 260.73)",
+          "oklch(26.43% 0.00753 260.73)",
+          "oklch(37.86% 0.00753 260.73)",
+          "oklch(49.29% 0.00753 260.73)",
+          "oklch(60.71% 0.00753 260.73)",
+          "oklch(72.14% 0.00753 260.73)",
+          "oklch(83.57% 0.00753 260.73)",
+          "oklch(95.00% 0.00753 260.73)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "共写蓝",
+        "tonalRamp": [
+          "oklch(15.00% 0.09401 262.96)",
+          "oklch(26.43% 0.09401 262.96)",
+          "oklch(37.86% 0.09401 262.96)",
+          "oklch(49.29% 0.09401 262.96)",
+          "oklch(60.71% 0.09401 262.96)",
+          "oklch(72.14% 0.09401 262.96)",
+          "oklch(83.57% 0.09401 262.96)",
+          "oklch(95.00% 0.09401 262.96)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "共写蓝悬停",
+        "tonalRamp": [
+          "oklch(15.00% 0.09212 262.87)",
+          "oklch(26.43% 0.09212 262.87)",
+          "oklch(37.86% 0.09212 262.87)",
+          "oklch(49.29% 0.09212 262.87)",
+          "oklch(60.71% 0.09212 262.87)",
+          "oklch(72.14% 0.09212 262.87)",
+          "oklch(83.57% 0.09212 262.87)",
+          "oklch(95.00% 0.09212 262.87)"
+        ]
+      },
+      "selected": {
+        "role": "primary",
+        "displayName": "选中浅蓝",
+        "tonalRamp": [
+          "oklch(15.00% 0.01204 259.82)",
+          "oklch(26.43% 0.01204 259.82)",
+          "oklch(37.86% 0.01204 259.82)",
+          "oklch(49.29% 0.01204 259.82)",
+          "oklch(60.71% 0.01204 259.82)",
+          "oklch(72.14% 0.01204 259.82)",
+          "oklch(83.57% 0.01204 259.82)",
+          "oklch(95.00% 0.01204 259.82)"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "普通悬停",
+        "tonalRamp": [
+          "oklch(15.00% 0.00746 260.73)",
+          "oklch(26.43% 0.00746 260.73)",
+          "oklch(37.86% 0.00746 260.73)",
+          "oklch(49.29% 0.00746 260.73)",
+          "oklch(60.71% 0.00746 260.73)",
+          "oklch(72.14% 0.00746 260.73)",
+          "oklch(83.57% 0.00746 260.73)",
+          "oklch(95.00% 0.00746 260.73)"
+        ]
+      },
+      "selection": {
+        "role": "primary",
+        "displayName": "文字选择",
+        "tonalRamp": [
+          "oklch(15.00% 0.02260 260.72)",
+          "oklch(26.43% 0.02260 260.72)",
+          "oklch(37.86% 0.02260 260.72)",
+          "oklch(49.29% 0.02260 260.72)",
+          "oklch(60.71% 0.02260 260.72)",
+          "oklch(72.14% 0.02260 260.72)",
+          "oklch(83.57% 0.02260 260.72)",
+          "oklch(95.00% 0.02260 260.72)"
+        ]
+      },
+      "warning": {
+        "role": "neutral",
+        "displayName": "提示棕",
+        "tonalRamp": [
+          "oklch(15.00% 0.10643 49.97)",
+          "oklch(26.43% 0.10643 49.97)",
+          "oklch(37.86% 0.10643 49.97)",
+          "oklch(49.29% 0.10643 49.97)",
+          "oklch(60.71% 0.10643 49.97)",
+          "oklch(72.14% 0.10643 49.97)",
+          "oklch(83.57% 0.10643 49.97)",
+          "oklch(95.00% 0.10643 49.97)"
+        ]
+      },
+      "floating": {
+        "role": "neutral",
+        "displayName": "浮层白",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "thread": {
+        "role": "neutral",
+        "displayName": "线程浅灰蓝",
+        "tonalRamp": [
+          "oklch(15.00% 0.00574 264.53)",
+          "oklch(26.43% 0.00574 264.53)",
+          "oklch(37.86% 0.00574 264.53)",
+          "oklch(49.29% 0.00574 264.53)",
+          "oklch(60.71% 0.00574 264.53)",
+          "oklch(72.14% 0.00574 264.53)",
+          "oklch(83.57% 0.00574 264.53)",
+          "oklch(95.00% 0.00574 264.53)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "章节标题",
+        "purpose": "可编辑章节标题；窄屏降为27px。"
+      },
+      "body": {
+        "displayName": "小说正文",
+        "purpose": "本地中文衬线正文与桌面候选。"
+      },
+      "label": {
+        "displayName": "工具文字",
+        "purpose": "本地中文无衬线控件与线程工具。"
+      },
+      "small": {
+        "displayName": "次级文字",
+        "purpose": "引用入口及次级操作。"
+      },
+      "caption": {
+        "displayName": "辅助文字",
+        "purpose": "保存、字数与来源说明，最低12px。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "selection-actions",
+        "value": "0 3px 10px #24324714, 0 10px 28px #2432470a",
+        "purpose": "临时选段操作条。"
+      },
+      {
+        "name": "menu",
+        "value": "0 4px 12px #24324712, 0 12px 36px #2432470a",
+        "purpose": "版式与导出菜单。"
+      },
+      {
+        "name": "reference",
+        "value": "0 4px 16px #26344812, 0 16px 48px #2634480d",
+        "purpose": "桌面资料浮卡，窄屏线程内取消投影。"
+      },
+      {
+        "name": "navigation-drawer",
+        "value": "8px 0 32px #26344814",
+        "purpose": "窄窗口目录抽屉。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "writing-motion",
+        "value": "160ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "按钮背景、文字与边框状态；prefers-reduced-motion时禁用过渡与动画。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-padding",
+        "value": "1100px"
+      },
+      {
+        "name": "navigation-drawer",
+        "value": "900px"
+      },
+      {
+        "name": "narrow",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "主要按钮",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "记录请求、采纳等主要操作。",
+      "html": "<button class=\"ds-primary\">采纳修改</button>",
+      "css": ".ds-primary{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);transition:background-color 160ms cubic-bezier(.22,1,.36,1),color 160ms cubic-bezier(.22,1,.36,1),border-color 160ms cubic-bezier(.22,1,.36,1);padding:7px 14px;border:1px solid var(--studio-accent,#49659c);border-radius:6px;background:var(--studio-accent,#49659c);color:#fff;cursor:pointer}.ds-primary:hover:not(:disabled){background:#405b90;border-color:#405b90}.ds-primary:focus-visible{outline:2px solid var(--studio-accent,#49659c);outline-offset:3px;}.ds-primary:disabled{background:var(--studio-paper-stroke,#dfe2e7);border-color:var(--studio-paper-stroke,#dfe2e7);color:var(--studio-paper-muted,#616976);cursor:not-allowed}"
+    },
+    {
+      "name": "常规按钮",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "次级操作，透明底和轻微圆角。",
+      "html": "<button class=\"ds-ghost\">拒绝</button>",
+      "css": ".ds-ghost{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);transition:background-color 160ms cubic-bezier(.22,1,.36,1),color 160ms cubic-bezier(.22,1,.36,1),border-color 160ms cubic-bezier(.22,1,.36,1);padding:6px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--studio-paper-ink,#292d34);cursor:pointer}.ds-ghost:hover:not(:disabled){background:var(--studio-hover,#e9ecf1)}.ds-ghost:focus-visible{outline:2px solid var(--studio-accent,#49659c);outline-offset:3px;}.ds-ghost:disabled{color:var(--studio-paper-muted,#616976);opacity:.5;cursor:not-allowed}"
+    },
+    {
+      "name": "讨论输入",
+      "kind": "input",
+      "description": "线程内作者意图输入。",
+      "html": "<textarea class=\"ds-composer\" aria-label=\"讨论意图\" placeholder=\"这段的对白可以再克制一点。\"></textarea>",
+      "css": ".ds-composer{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);line-height:1.7;background:#fff;color:var(--studio-paper-ink,#292d34);border:1px solid #d8e0eb;border-radius:6px;padding:10px 12px;min-height:70px;max-height:120px;resize:vertical;width:100%}.ds-composer::placeholder{color:var(--studio-paper-muted,#616976)}.ds-composer:focus-visible{outline:2px solid var(--studio-accent,#49659c);outline-offset:3px;}"
+    },
+    {
+      "name": "选中章节",
+      "kind": "nav",
+      "refersTo": "navigation-selected",
+      "description": "当前章节在目录内保持可识别，包括悬停时。",
+      "html": "<nav aria-label=\"章节\"><button class=\"ds-chapter\" aria-current=\"page\"><span class=\"ds-number\">03</span><strong class=\"ds-title\">第3章 · 雾中的灯塔</strong></button></nav>",
+      "css": ".ds-chapter{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;padding:10px 11px;border:1px solid transparent;border-radius:6px;background:var(--studio-selected,#e8edf5);color:var(--studio-accent,#49659c);cursor:pointer}.ds-chapter:hover{background:var(--studio-selected,#e8edf5)}.ds-chapter:focus-visible{outline:2px solid var(--studio-accent,#49659c);outline-offset:3px;}.ds-number{font-size:12px;color:var(--studio-paper-muted,#616976);font-variant-numeric:tabular-nums;min-width:18px;padding-top:1px}.ds-title{font-weight:500;line-height:1.65;overflow-wrap:anywhere}"
+    },
+    {
+      "name": "段落共写",
+      "kind": "custom",
+      "refersTo": "thread-panel",
+      "description": "段下单处展开，讨论、候选与版本采用底线视图。",
+      "html": "<section class=\"ds-thread\" aria-label=\"段落共写\"><header class=\"ds-thread-header\">选段 · 共写</header><nav class=\"ds-thread-tabs\" aria-label=\"共写视图\"><button class=\"ds-thread-tab\" aria-pressed=\"true\">讨论</button><button class=\"ds-thread-tab\" aria-pressed=\"false\">候选</button><button class=\"ds-thread-tab\" aria-pressed=\"false\">版本</button></nav><p class=\"ds-thread-content\">保留当前人物的表达习惯。</p></section>",
+      "css": ".ds-thread{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);max-height:min(420px,50vh);display:flex;flex-direction:column;border:1px solid #d7e0ec;border-radius:8px;background:#f4f6fa;color:var(--studio-paper-ink,#292d34);overflow:hidden}.ds-thread-header{padding:11px 16px;border-bottom:1px solid #e1e6ef}.ds-thread-tabs{display:flex;gap:19px;padding:0 18px}.ds-thread-tab{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);font-size:13px;padding:8px 1px 9px;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--studio-paper-muted,#616976);cursor:pointer}.ds-thread-tab[aria-pressed=\"true\"]{color:var(--studio-accent,#49659c);border-bottom-color:var(--studio-accent,#49659c);font-weight:500}.ds-thread-tab:hover{background:var(--studio-hover,#e9ecf1)}.ds-thread-tab:focus-visible{outline:2px solid var(--studio-accent,#49659c);outline-offset:3px;}.ds-thread-content{padding:12px 18px 14px;overflow:auto;min-height:0;line-height:1.9}"
+    },
+    {
+      "name": "资料浮卡",
+      "kind": "card",
+      "refersTo": "reference-card",
+      "description": "内容内部滚动，底部动作始终在滚动区外。",
+      "html": "<section class=\"ds-reference\"><header class=\"ds-reference-header\">人物资料</header><div class=\"ds-reference-scroll\"><h2 class=\"ds-reference-title\">林雾</h2><p class=\"ds-reference-description\">沿着父亲留下的航海日志，追查归潮号的下落。</p></div><footer class=\"ds-reference-footer\"><button class=\"ds-reference-action\">引用这份资料</button><button class=\"ds-reference-action\">展开编辑</button></footer></section>",
+      "css": ".ds-reference{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);display:flex;flex-direction:column;max-height:min(520px,72vh);overflow:hidden;border-radius:10px;background:#fff;color:var(--studio-paper-ink,#292d34);box-shadow:0 4px 16px #26344812,0 16px 48px #2634480d}.ds-reference-header{padding:12px 16px;border-bottom:1px solid var(--studio-paper-stroke,#dfe2e7);color:var(--studio-paper-muted,#616976);font-size:12px;flex:none}.ds-reference-scroll{overflow:auto;min-height:0;padding:20px 22px}.ds-reference-title{font-size:24px;font-weight:500;margin:0 0 9px}.ds-reference-description{line-height:1.95}.ds-reference-footer{display:flex;gap:16px;flex:none;padding:12px 16px;border-top:1px solid var(--studio-paper-stroke,#dfe2e7);background:#f8f9fb}.ds-reference-action{font:400 14px/1.5 var(--studio-font,\"Notebook Sans\",\"Microsoft YaHei UI\",sans-serif);font-size:13px;border:1px solid transparent;border-radius:6px;padding:6px 10px;background:transparent;color:var(--studio-accent,#49659c);cursor:pointer}.ds-reference-action:hover{background:var(--studio-hover,#e9ecf1)}.ds-reference-action:focus-visible{outline:2px solid var(--studio-accent,#49659c);outline-offset:3px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "安静的写作纸面",
+    "overview": "正文是持续工作的中心。暖白纸面由浅中性灰目录和浅色顶栏包围，工具采用清晰的中文无衬线，小说正文采用中文衬线。默认只展开目录与正文，共写在作者选择的段落下出现，资料临时在附近打开。\n\n本文件从活动 Notebook 界面提取，更新于 2026-10-12。沿用正文优先、作者审核和精确出处的既有原则；新的浅色外框、离线字体和段落线程替代旧深灰顶栏与常驻侧边共写布局。",
+    "keyCharacteristics": [
+      "暖白正文与浅灰工具框架，以字与留白建立层级。",
+      "衬线正文与无衬线操作文字分工，辅助文字保持可读。",
+      "低饱和蓝只强调选中、焦点、引用和主要动作。",
+      "共写与资料按需展开，正文编辑器保持连续。"
+    ],
+    "rules": [
+      {
+        "name": "The Action Accent Rule",
+        "body": "强调色用于动作、选中、焦点与引用；整块工具框架保持中性。",
+        "section": "colors"
+      },
+      {
+        "name": "The Manuscript Type Rule",
+        "body": "正文按作者换行，不自动缩进或两端对齐；工具字号不用于小说正文。",
+        "section": "typography"
+      },
+      {
+        "name": "The One Active Thread Rule",
+        "body": "活动段落共写只有一处展开，关闭后保留线程状态，以页边标记重新打开。",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "**Do** 让正文使用本地衬线、工具使用本地无衬线，辅助文字保持至少 12px。",
+      "**Do** 让活动段下线程单处展开，长内容内部滚动。",
+      "**Do** 保留窄屏保存状态、版式入口及资料卡底部动作。",
+      "**Do** 区分文字选择、普通悬停、控件选中、焦点与禁用状态。"
+    ],
+    "donts": [
+      "**Don't** 恢复深灰顶栏、旧 220px 目录或常驻侧边 Agent 作为默认布局。",
+      "**Don't** 将讨论、请求或候选插入正文或正文导出。",
+      "**Don't** 隐藏失效来源，或以相似匹配替作者猜测出处。",
+      "**Don't** 把合成场景切换栏当成产品导航，或将会话版本视图扩展为另一套正式版本系统。"
+    ]
+  }
+}

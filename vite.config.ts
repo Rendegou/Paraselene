@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 // Tauri 2 期望 dev server 固定端口且环境变量前缀放行 TAURI_ENV_*（tauri.conf.json devUrl 指向此处）。
 export default defineConfig({
   plugins: [react()],
+  cacheDir: ".vite-cache",
   clearScreen: false,
   server: {
     port: 1420,

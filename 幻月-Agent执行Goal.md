@@ -17,6 +17,14 @@
 - 开工前必读：`AGENTS.md` → `windows-companion-agent-brief.md` → `docs/development-direction.md` → `docs/progress-checkpoint.md`。
 - 复用代码先看 `docs/reuse-inventory.md`，不要从零重写已有轮子。
 
+## 2026-10-03 小说专项验收扩展
+
+用户已明确改变本轮优先级：先实现长篇小说工作台T05A–T05H，T06延期，G12–G14保留PARTIAL而不勾选完成。原G01–G20仍是全产品完成合同。
+
+G09–G11新增要求：章节/设定目录、正文编辑、Agent/diff/引用工作台；设定集版本、人物动机/伏笔证据；有界分层上下文、派生失效重建、版本安全逐块修改与恢复。详细合同为 [N01–N12](docs/novel/implementation-plan.md)，全部当前状态NOT_RUN；按证据逐条更新。与G16外发、G19性能一起验收，不能用旧局部改写测试代替长篇通过。
+
+当前开发范围、顺序、规范以新方向/看板/小说专项文档为准。本节覆盖下文旧Phase顺序的冲突部分；资料与代码历史保留。总产品完成定义同时要求小说N01–N12通过。
+
 ## 1. 最终目标
 
 一只可自定义形象、安静常驻 Windows 桌面的轻量宠物（暂名「幻月」），作为**同一入口**提供三个闭环：
@@ -65,7 +73,7 @@
 - Tauri 2（窗口/托盘/透明）、Rust **`stable-x86_64-pc-windows-gnu`**（本机无 MSVC，ADR-0001 锁定；便携 MinGW 在 `C:\tools\paraselene-build\mingw64`，构建前加 PATH）、React 18 + TypeScript + Vite、SQLite（rusqlite bundled FTS5）。
 - DeepSeek 官方 API（2026-09-26 实测 Key 有效，当前模型：`deepseek-flash`——低延迟陪伴/提示，`deepseek-v4-pro`——复杂小说规划/学习解释；模型名运行时拉 `/models` 获取不写死，沿用 mycli `/model` 的模式；闲置不调用）。
 - **LLM 层优先移植 Cumulonimbus（`D:\mycli`，MIT）的 `src/llm/openai-compat.ts`**（OpenAI 兼容流式 + 工具调用收集，DeepSeek 直接可用）；对话调度采用其事件总线/取消信号树/状态机模式（Rust 侧重写），详见 `docs/reuse-inventory.md` §1。
-- Python 执行：**Pyodide（WASM），ADR-0002 已锁定**；WebView2 禁 Node 集成；练习窗口按需加载。
+- Python 执行：Pyodide（WASM）为候选引擎；隔离方案仍待 G13 真实 WebView2 反例测试，主 WebView 不运行用户代码（ADR-0002）；练习窗口按需加载。
 - 前端状态与 IPC：单一 `lib/ipc.ts` 封装层 + 轻量 store（沿用 local-ai-chat-manager 模式）。
 - 以上版本的最终锁定以 `docs/adr/` 为准。
 
@@ -108,6 +116,7 @@
 ### 4.4 Python 执行沙箱
 
 - 运行器不可读取用户私人目录、不可联网；隔离性必须有自动化测试证明（G13）。
+- Pyodide 的 `js` 模块可触达宿主 JavaScript；不得在有 Tauri IPC 权限的主 WebView 中执行不可信 Python。T06 必须先证明独立执行上下文无网络与 IPC 权限（ADR-0002）。
 - 展开窗口才加载执行环境；空闲不占用执行资源。
 
 ### 4.5 模型调用约束
@@ -138,7 +147,7 @@
 - `paraselene-memory-evidence`：记忆导入、四空间、出处检索与测试要求；
 - `paraselene-novel-cowriting`：试写/正稿隔离与一致性规则；
 - `paraselene-python-tutor`：练习流程、口令协议、沙箱要求；
-- `paraselene-privacy-review`：隐私红线自查清单（对应 AGENTS.md §4）。
+- `paraselene-privacy-review`：隐私红线自查清单（对应 AGENTS.md“隐私、复用与数据”）。
 
 ## 7. 必须维护的设计文档
 
@@ -213,4 +222,4 @@
 
 ## 13. Agent 首条执行提示词
 
-> 先读 `AGENTS.md`、`windows-companion-agent-brief.md`、`docs/development-direction.md`、`docs/progress-checkpoint.md`、`docs/reuse-inventory.md`。从看板中第一个未认领且依赖已满足的任务开始；按 AGENTS.md §9 流程认领、执行、记录证据。
+> 先读 `AGENTS.md`、`windows-companion-agent-brief.md`、`docs/development-direction.md`、`docs/progress-checkpoint.md`、`docs/reuse-inventory.md`。按当前方向优先从小说T05A–T05H中第一个未认领且依赖满足的任务开始；按AGENTS.md的质量与交接规则认领、执行、记录证据。

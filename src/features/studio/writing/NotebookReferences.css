@@ -1,0 +1,126 @@
+.reference-overlay {
+  position: fixed;
+  z-index: 40;
+  font: 400 14px/1.6 var(--studio-font);
+}
+.reference-overlay > .reference-card {
+  max-height: inherit;
+}
+.reference-card {
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 72vh;
+  overflow: hidden;
+  box-shadow:
+    0 4px 16px #26344812,
+    0 16px 48px #2634480d;
+}
+.reference-card > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  color: var(--studio-paper-muted);
+  font-size: 12px;
+  border-bottom: 1px solid var(--studio-paper-stroke);
+  flex: none;
+}
+.reference-card > header > button {
+  padding: 4px;
+}
+.reference-card-scroll {
+  overflow: auto;
+  min-height: 0;
+  padding: 20px 22px;
+}
+.reference-card h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 9px;
+}
+.reference-subtitle {
+  font-size: 13px;
+  color: var(--studio-paper-muted);
+  line-height: 1.8;
+}
+.reference-description {
+  padding: 19px 0 2px;
+  font-size: 14px;
+  line-height: 1.95;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.reference-card h3 {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 23px 0 10px;
+}
+.reference-sources {
+  display: flex;
+  flex-direction: column;
+}
+.writing-app .reference-sources > button {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 11px 0;
+  gap: 5px;
+  border-top: 1px solid var(--studio-paper-stroke);
+  border-radius: 0;
+}
+.reference-sources > button > span {
+  color: var(--studio-accent);
+  font-size: 12px;
+}
+.reference-sources q {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.reference-sources small {
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+}
+.reference-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.reference-card > footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--studio-paper-stroke);
+  background: #f8f9fb;
+  flex: none;
+}
+.reference-card > footer > button {
+  font-size: 13px;
+}
+.thread-reference-mobile .reference-card {
+  box-shadow: none;
+  border-radius: 0;
+  max-height: none;
+}
+@media (max-width: 760px) {
+  .thread-reference-mobile .reference-card > header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+  }
+  .thread-reference-mobile .reference-card {
+    max-height: calc(min(420px, 50vh) - 47px);
+  }
+  .reference-card-scroll {
+    padding: 16px;
+  }
+  .reference-card > footer {
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 9px;
+  }
+}

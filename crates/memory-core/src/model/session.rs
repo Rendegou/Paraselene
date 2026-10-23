@@ -18,20 +18,43 @@ use serde::{Deserialize, Serialize};
 
 use super::message::NormalizedMessage;
 
-/// Stable, validated source identifier. Unknown sources remain readable in snapshots.
+/// 稳定、经过校验的数据源标识。未知来源在快照里仍可读（Deserialize 失败即报错，
+/// 不允许静默落成空来源）。
 #[derive(Debug, Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Serialize)]
 #[serde(transparent)]
 pub struct SourceKind(std::borrow::Cow<'static, str>);
 
 impl SourceKind {
-    pub fn as_str(&self) -> &str { &self.0 }
+    /// 存储形态（小写短横线）。
+    pub fn as_str(&self) -> &str {
+        &self.0
+    }
+
+    /// 解析并规范化来源标识；非法返回 None。
+    ///
+    /// 校验规则不只是「看起来像 id」：
+    /// - 拒绝 Windows 设备名（con / prn / aux / nul / com1 / lpt3…）——来源 id 会拼进
+    ///   托管副本目录名，设备名在 Windows 上是非法目录名；
+    /// - 拒绝空串 / 超 64 字符 / 首尾短横线，保证 `<source>:<external_id>` 主键可解析。
     pub fn parse(s: &str) -> Option<Self> {
         let s = s.trim().to_ascii_lowercase();
-        let s = match s.as_str() { "kimi-code" | "kimicode" => "kimi", "z-code" => "zcode", _ => &s };
-        if s.is_empty() || s.len() > 64 || !s.bytes().all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-')
-            || !s.as_bytes()[0].is_ascii_alphanumeric() || s.ends_with('-')
+        let s = match s.as_str() {
+            "kimi-code" | "kimicode" => "kimi",
+            "z-code" => "zcode",
+            _ => &s,
+        };
+        if s.is_empty()
+            || s.len() > 64
+            || !s
+                .bytes()
+                .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'-')
+            || !s.as_bytes()[0].is_ascii_alphanumeric()
+            || s.ends_with('-')
             || matches!(s, "con" | "prn" | "aux" | "nul")
-            || (s.len() == 4 && (s.starts_with("com") || s.starts_with("lpt")) && s.as_bytes()[3].is_ascii_digit()) {
+            || (s.len() == 4
+                && (s.starts_with("com") || s.starts_with("lpt"))
+                && s.as_bytes()[3].is_ascii_digit())
+        {
             return None;
         }
         Some(Self(std::borrow::Cow::Owned(s.to_string())))

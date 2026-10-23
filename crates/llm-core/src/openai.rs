@@ -32,6 +32,8 @@ pub struct ChatRequestBody<'a> {
 }
 
 #[derive(Debug, Serialize)]
+/// 流式选项：强制 `include_usage`——usage chunk 在 finish 之后才到，
+/// 不显式要求的话 done 事件没有用量（幻月 E1 需要展示用量）。
 pub struct StreamOptions {
     pub include_usage: bool,
 }
@@ -87,6 +89,7 @@ pub fn to_openai_message(msg: &Message) -> Value {
 
 /// PreparedChat → 请求体（发送内容与预览内容同一份结构，防漂移）。
 pub fn request_body(prepared: &PreparedChat) -> ChatRequestBody<'_> {
+    // tools 展平成 OpenAI 包装格式：{type:"function", function:{name, description, parameters}}
     let tools = prepared.tools.as_ref().map(|ts| {
         ts.iter()
             .map(|t| {
@@ -125,11 +128,12 @@ pub fn acc_to_request(acc: &ToolCallAcc) -> ToolCallRequest {
 ///
 /// 对应 openai-compat.ts:166-229 的顺序规则：
 /// - delta 直发；tool_calls 在 finish 时先吐；done 延后到流结束（usage 在 finish 之后才到）；
-/// - 没 finish_reason 也恒发 done（?? 'stop'，openai-compat.ts:224-229）；
+/// - 缺少服务端完成标记的提前 EOF 报错，不能把不完整文本当成成功；
 /// - 取消（流被 drop）不发 error——调用方 drop 即取消，本转换器无 error 变体。
 pub struct EventMapper {
     finish_reason: Option<FinishReason>,
     usage: Option<Usage>,
+    completed: bool,
 }
 
 impl Default for EventMapper {
@@ -139,10 +143,12 @@ impl Default for EventMapper {
 }
 
 impl EventMapper {
+    /// 新建转换器：finish_reason/usage 尚未收到，completed=false。
     pub fn new() -> Self {
         EventMapper {
             finish_reason: None,
             usage: None,
+            completed: false,
         }
     }
 
@@ -164,6 +170,7 @@ impl EventMapper {
                 Vec::new()
             }
             SseEvent::Done { finish_reason, .. } => {
+                self.completed = true;
                 // 记录 finish_reason（第一个为准，openai-compat.ts:207 guard）；
                 // provider 级 done 由 stream_end 统一产出（带 usage）
                 if self.finish_reason.is_none() {
@@ -174,12 +181,15 @@ impl EventMapper {
         }
     }
 
-    /// 流结束（[DONE]、EOF 或断流）：恒发 done（openai-compat.ts:224-229）。
-    pub fn stream_end(&mut self) -> StreamEvent {
-        StreamEvent::Done {
+    /// 流结束时仅在服务端明确完成后报告成功。
+    pub fn stream_end(&mut self) -> crate::error::Result<StreamEvent> {
+        if !self.completed {
+            return Err(crate::error::LlmError::Parse("SSE 流缺少完成标记".into()));
+        }
+        Ok(StreamEvent::Done {
             finish_reason: self.finish_reason.take().unwrap_or(FinishReason::Stop),
             usage: self.usage.take(),
-        }
+        })
     }
 }
 
@@ -269,7 +279,7 @@ mod tests {
         out.extend(mapper.map(SseEvent::Done { finish_reason: "tool_calls".into(), tool_calls: vec![] }));
         // finish 之后才到的 usage chunk
         out.extend(mapper.map(SseEvent::Usage { input_tokens: 10, output_tokens: 20 }));
-        out.push(mapper.stream_end());
+        out.push(mapper.stream_end().unwrap());
         assert!(matches!(&out[0], StreamEvent::Delta { content } if content == "文本"));
         match out.last().unwrap() {
             StreamEvent::Done { finish_reason, usage } => {
@@ -281,15 +291,8 @@ mod tests {
     }
 
     #[test]
-    fn 断流也恒发done() {
-        // openai-compat.ts:224-229：没 finish_reason 也恒发 done（?? 'stop'）
+    fn 断流缺完成标记返回错误() {
         let mut mapper = EventMapper::new();
-        match mapper.stream_end() {
-            StreamEvent::Done { finish_reason, usage } => {
-                assert_eq!(finish_reason, FinishReason::Stop);
-                assert!(usage.is_none());
-            }
-            other => panic!("{other:?}"),
-        }
+        assert!(matches!(mapper.stream_end(), Err(crate::error::LlmError::Parse(_))));
     }
 }

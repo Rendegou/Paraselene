@@ -1,0 +1,457 @@
+.writing-sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--studio-catalog);
+  border-right: 1px solid var(--studio-paper-stroke);
+}
+.writing-sidebar-brand {
+  height: 56px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 11px;
+  color: var(--studio-paper-ink);
+}
+.writing-sidebar-brand > span {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.writing-sidebar-brand > svg {
+  color: var(--studio-accent);
+}
+.writing-sidebar-brand > button {
+  margin-left: auto;
+  color: var(--studio-paper-muted);
+  padding: 5px;
+}
+.writing-search {
+  margin: 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  background: #eaecf0;
+  border-radius: 6px;
+  color: var(--studio-paper-muted);
+}
+.writing-search input {
+  border: 0;
+  outline: none;
+  background: transparent;
+  min-width: 0;
+  width: 100%;
+  font-size: 13px;
+}
+.writing-search input::placeholder {
+  color: var(--studio-paper-muted);
+}
+.writing-search:focus-within {
+  outline: 2px solid var(--studio-accent);
+  outline-offset: 3px;
+}
+.writing-sidebar-tabs {
+  display: flex;
+  gap: 14px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--studio-paper-stroke);
+}
+.writing-app .writing-sidebar-tabs button {
+  padding: 7px 2px 12px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--studio-paper-muted);
+  font-size: 13px;
+}
+.writing-sidebar-tabs button > span {
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+}
+.writing-app .writing-sidebar-tabs button[aria-pressed="true"] {
+  border-bottom-color: var(--studio-accent);
+  color: var(--studio-paper-ink);
+  font-weight: 500;
+}
+.writing-index-scroll {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  padding: 16px 12px;
+}
+.writing-index-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  margin-bottom: 12px;
+  color: var(--studio-paper-muted);
+  font-size: 12px;
+}
+.writing-index-heading > button,
+.writing-index-heading .studio-new-entity > button {
+  padding: 4px;
+}
+.writing-chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.writing-app .writing-chapter-list > button {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+  padding: 10px 11px;
+  font-size: 14px;
+}
+.writing-chapter-list > button > span {
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 18px;
+  padding-top: 1px;
+}
+.writing-chapter-list > button > strong {
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.writing-app .writing-chapter-list > button[aria-current="page"] {
+  background: var(--studio-selected);
+  color: var(--studio-accent);
+}
+.writing-app .writing-chapter-list > button[aria-current="page"]:hover {
+  background: var(--studio-selected);
+}
+.writing-chapter-list > button[aria-current="page"] > strong {
+  font-weight: 500;
+}
+.writing-resource-index > section {
+  margin: 16px 0 24px;
+}
+.writing-resource-index h3 {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--studio-paper-muted);
+  padding: 0 8px;
+  margin-bottom: 7px;
+}
+.writing-resource-index section > button {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 9px 8px;
+  font-size: 13px;
+}
+.writing-resource-index section > button > span {
+  flex: 1;
+  text-align: left;
+}
+.writing-resource-index section > button > svg {
+  color: var(--studio-paper-muted);
+  flex: none;
+}
+.writing-resource-index .writing-map-link {
+  margin-top: 8px;
+  padding: 10px 8px;
+}
+.writing-sidebar > footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-top: 1px solid var(--studio-paper-stroke);
+  color: var(--studio-paper-muted);
+  font-size: 12px;
+}
+.writing-sidebar > footer > button {
+  padding: 6px;
+}
+.writing-toolbar {
+  height: 56px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  gap: 16px;
+  border-bottom: 1px solid var(--studio-paper-stroke);
+  background: var(--studio-toolbar);
+}
+.writing-work-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.writing-work-identity > strong {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.writing-work-identity {
+  min-width: 0;
+}
+.writing-mobile-save {
+  display: none;
+}
+.writing-mobile-save.has-error {
+  color: var(--studio-warning);
+}
+.writing-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+.writing-toolbar-actions > button {
+  color: var(--studio-paper-muted);
+  padding: 6px 9px;
+}
+.writing-toolbar-actions > button[aria-pressed="true"] {
+  color: var(--studio-accent);
+  background: var(--studio-selected);
+}
+.writing-save {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--studio-paper-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+.writing-save > span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--studio-ok);
+}
+.writing-save.has-error {
+  color: var(--studio-warning);
+}
+.writing-save.has-error > span {
+  background: var(--studio-warning);
+}
+.writing-menu {
+  position: relative;
+}
+.writing-menu > button {
+  color: var(--studio-paper-muted);
+}
+/* 查找按钮桌面只显示文字；窄屏标签收起时切换为放大镜图标。 */
+.writing-find > svg {
+  display: none;
+}
+.writing-menu-popup {
+  position: absolute;
+  top: 39px;
+  right: 0;
+  z-index: 25;
+  min-width: 210px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow:
+    0 4px 12px #24324712,
+    0 12px 36px #2432470a;
+  animation: writing-pop var(--writing-motion);
+}
+.writing-menu-popup > button {
+  width: 100%;
+  padding: 10px;
+  justify-content: flex-start;
+  text-align: left;
+  white-space: nowrap;
+}
+.writing-menu-popup > button[aria-pressed="true"] {
+  background: var(--studio-selected);
+  color: var(--studio-accent);
+}
+.writing-menu-popup > strong,
+.writing-menu-popup > p,
+.writing-menu-popup > label {
+  display: block;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+  font-weight: 400;
+}
+/* 查找弹层输入：与线程输入同一语言（白底、细描边、control 圆角）。 */
+.writing-menu-popup input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 4px;
+  padding: 8px 10px;
+  background: #fff;
+  border: 1px solid var(--studio-paper-stroke);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--studio-paper-ink);
+}
+.writing-app .studio-new-entity {
+  position: relative;
+}
+.writing-app .studio-new-entity > div {
+  position: absolute;
+  top: 31px;
+  right: 0;
+  width: 140px;
+  z-index: 20;
+  padding: 6px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px #24324718;
+  animation: writing-pop var(--writing-motion);
+}
+.writing-app .studio-new-entity > div button {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  padding: 9px;
+}
+.writing-app .studio-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex: none;
+  padding: 8px 24px;
+  background: var(--studio-selected);
+  border-top: 1px solid var(--studio-paper-stroke);
+  color: var(--studio-accent);
+  font-size: 13px;
+}
+.writing-app .studio-notice.studio-error {
+  color: var(--studio-warning);
+  background: #fff0e5;
+}
+.writing-global-drawer {
+  height: min(360px, 45vh);
+  min-height: 200px;
+  border-top: 1px solid var(--studio-paper-stroke);
+  flex: none;
+  overflow: hidden;
+}
+.writing-focused .writing-global-drawer {
+  display: none;
+}
+.design-scenarios {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 26px;
+  border-bottom: 1px solid var(--studio-paper-stroke);
+  background: #f1f4f9;
+  flex: none;
+  font-size: 12px;
+}
+.design-scenarios > span {
+  color: var(--studio-paper-muted);
+  margin-right: 10px;
+}
+.design-scenarios > small {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--studio-paper-muted);
+}
+.design-scenarios > button {
+  font-size: 13px;
+}
+.design-scenarios > button[aria-pressed="true"] {
+  background: #fff;
+  color: var(--studio-accent);
+}
+@media (max-width: 1100px) {
+  .writing-save {
+    margin-right: 0;
+  }
+  .writing-toolbar {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 900px) {
+  .writing-save {
+    display: none;
+  }
+  .writing-mobile-save {
+    display: block;
+    font-size: 12px;
+    color: var(--studio-paper-muted);
+    white-space: nowrap;
+  }
+}
+@media (max-width: 760px) {
+  .writing-toolbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .writing-work-title {
+    gap: 4px;
+  }
+  .writing-work-identity > strong {
+    font-size: 14px;
+  }
+  .writing-toolbar-actions {
+    gap: 1px;
+  }
+  .writing-toolbar-actions > button {
+    padding: 6px;
+  }
+  .writing-toolbar-actions > button > span,
+  .writing-toolbar-actions .writing-menu > button > span {
+    display: none;
+  }
+  .writing-find > svg {
+    display: block;
+  }
+  .writing-toolbar-actions .writing-menu > button {
+    padding: 6px;
+  }
+  .writing-appearance-control {
+    display: block;
+  }
+  .writing-appearance-control .writing-menu > button {
+    font-size: 12px;
+    padding: 6px;
+    gap: 2px;
+  }
+  .design-scenarios {
+    gap: 2px;
+    padding: 8px 12px;
+  }
+  .design-scenarios > span,
+  .design-scenarios > small {
+    display: none;
+  }
+  .design-scenarios > button {
+    flex: 1;
+  }
+  .writing-app .studio-notice {
+    padding: 7px 14px;
+  }
+}
+.writing-discussion-index { position: relative; font-size: 13px; }
+.writing-discussion-index summary { cursor: pointer; list-style: none; padding: 6px 8px; border-radius: 6px; }
+.writing-discussion-index summary:hover { background: var(--studio-hover); }
+.writing-discussion-index nav {
+  position: absolute; right: 0; top: 100%; z-index: 40;
+  width: min(320px, calc(100vw - 48px)); max-height: min(360px, 50vh);
+  overflow: auto; padding: 8px;
+  border-radius: 8px; background: #fff;
+  box-shadow:
+    0 4px 12px #24324712,
+    0 12px 36px #2432470a;
+  animation: writing-pop var(--writing-motion);
+}
+.writing-discussion-index nav button { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; text-align: left; padding: 10px; }
+.writing-discussion-index nav small { color: var(--studio-paper-muted); }

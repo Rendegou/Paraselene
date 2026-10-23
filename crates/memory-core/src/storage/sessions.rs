@@ -506,8 +506,7 @@ impl Database {
 
     /// 项目聚合列表（左栏）。
     pub fn list_projects(&self) -> Result<Vec<ProjectSummary>> {
-        let sql =
-            "SELECT project_path,
+        let sql = "SELECT project_path,
                     count(*) AS session_count,
                     max(COALESCE(updated_at, created_at)) AS last_updated,
                     group_concat(DISTINCT source) AS sources

@@ -37,33 +37,61 @@
 //!   role='tool' 不进 trigram（实测占其 postings 约 3/4），文本截 4096 字符入索引
 //!   （原文完整保留在 messages 表）——真实库 trigram 从约 885MB 降到约 183MB，
 //!   整库 1.51GB → 805MB（VACUUM 后）。
+//!   2026-09-27 修正：题集评测路径原先未接入 [`Database::search`]；现三字以上
+//!   中文等非 ASCII 查询走 trigram，短查询与纯 ASCII 查询仍走 unicode61。
+//!   正式 API 已在原 24 题真实语料上复评：recall@5 23/24、top-1 22/24；
+//!   短片段含标注 anchor 仅 4/24，展示出处时须打开原文而非只依赖 snippet。
 
+// 模块对外可见性说明：均为 `pub mod`，领域边界由各自模块文档界定；
+// 下游（Tauri 壳 / 前端 IPC）只允许通过本文件底部的 `pub use` 扁平导出取用，
+// 不直接深入模块内部路径，保证内部重构不影响调用方。
 pub mod adapters;
 pub mod error;
+pub mod ideas;
+pub mod import_file;
 pub mod imports;
+pub mod learning;
 pub mod model;
+pub mod novel;
 pub mod parser;
 pub mod paths;
 pub mod scanner;
 pub mod spaces;
 pub mod storage;
 
-pub use adapters::{
-    CodexAdapter, ConversationAdapter, KimiAdapter, MessageSink, VecSink,
-};
+// —— 扁平化重导出：crate 根的公开 API 面 ——
+// 约定：每个领域只导出「类型 + 主要入口函数」，内部辅助类型留在模块内。
+
+/// 适配器层：会话源（Codex / Kimi）探测、扫描、解析的统一抽象。
+pub use adapters::{CodexAdapter, ConversationAdapter, KimiAdapter, MessageSink, VecSink};
+/// 统一错误类型与 Result 别名，全 crate 可失败操作的返回类型。
 pub use error::{Error, ErrorKind, Result};
+/// 灵感（对话中捕获的待整理想法）领域类型。
+pub use ideas::{ConvertedIdea, IdeaCandidate, IdeaSource};
+/// 显式导入流水线：预览 → 确认 → 托管副本 → 入库，含 ChatGPT Markdown 导出。
 pub use imports::{
     import_package, parse_input, preview, scan_imports, write_managed_copies, ImportFormat,
-    ImportMessage, ImportPackage, ImportPreview, ImportReport, ImportSession,
-    ScanImportsReport,
+    ImportMessage, ImportPackage, ImportPreview, ImportReport, ImportSession, ScanImportsReport,
 };
+/// 学习（题目 / 作答记录）领域类型。
+pub use learning::{LearningAttempt, NewLearningAttempt};
+/// 归一化会话 / 消息模型：适配器与存储层之间的唯一契约。
 pub use model::{
     DetectionResult, MessageKind, NormalizedMessage, NormalizedSession, ParsedSessionInfo,
     RawFileRef, Role, SessionDescriptor, SourceKind, INDEX_SCHEMA_VERSION,
 };
-pub use spaces::{
-    Memory, MemoryLinkView, MemorySource, NewMemory, Space, UpdateMemory, Work, IDEA_STATUSES,
+/// 小说领域：稿件版本树、章节、草稿、补丁、设定集（lore）与摘要重建。
+pub use novel::{
+    encode_blocks, ChapterSummary, DraftOrigin, LoreEntry, LoreKind, LoreVersion, NewSourceAnchor,
+    NovelCanonicalEntry, NovelDocument, NovelDocumentSummary, NovelDraft, NovelKind, NovelPatchRecord,
+    NovelThread, NovelVersion, RebuildJob, SourceAnchor, WorkingCopy, SUMMARY_ALGORITHM_V1,
+    NovelOperation, NovelOperationBinding, OperationReference,
 };
+/// 四空间用户确认层：记忆 / 出处的 CRUD、隔离、状态机与显式跨空间链接。
+pub use spaces::{
+    Memory, MemoryLinkView, MemorySource, MemorySourceDetail, NewMemory, Space, UpdateMemory, Work, IDEA_STATUSES,
+};
+/// 存储层：SQLite（FTS5）连接、检索查询构造与各类行 / 摘要视图模型。
 pub use storage::{
     build_match_query, build_trigram_match_query, Database, DatabaseSink, FingerprintRow,
     MessageRow, ProjectSummary, RawFileRow, SearchHit, SearchOrder, SearchQuery, SearchResponse,

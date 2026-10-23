@@ -155,7 +155,10 @@ impl ConversationAdapter for CodexAdapter {
                 } else if std::env::var_os("CODEX_HOME").is_some() {
                     notes.push("来自环境变量 CODEX_HOME".to_string());
                 } else {
-                    notes.push(format!("自动探测目录 {}", crate::error::display_path(&root)));
+                    notes.push(format!(
+                        "自动探测目录 {}",
+                        crate::error::display_path(&root)
+                    ));
                 }
                 let rollouts = collect_rollouts(&root);
                 if rollouts.is_empty() {
@@ -995,7 +998,8 @@ mod tests {
 
     /// 造一个 rollout 描述符指向临时文件。
     fn rollout_fixture(dir: &Path, lines: &[&str]) -> SessionDescriptor {
-        let file = dir.join("rollout-2026-09-01T10-00-00-019d7b0d-8791-7181-951f-7b0b9c0a6ba7.jsonl");
+        let file =
+            dir.join("rollout-2026-09-01T10-00-00-019d7b0d-8791-7181-951f-7b0b9c0a6ba7.jsonl");
         let mut f = std::fs::File::create(&file).unwrap();
         for line in lines {
             writeln!(f, "{line}").unwrap();
@@ -1096,7 +1100,9 @@ mod tests {
     fn rollout_大文件流式解析计数正确() {
         // 5000 行事件（含双写），验证流式路径的计数与去重在多行下保持稳定
         let dir = tempfile::tempdir().unwrap();
-        let file = dir.path().join("rollout-2026-09-01T10-00-00-019d7b0d-8791-7181-951f-7b0b9c0a6ba7.jsonl");
+        let file = dir
+            .path()
+            .join("rollout-2026-09-01T10-00-00-019d7b0d-8791-7181-951f-7b0b9c0a6ba7.jsonl");
         let mut f = std::fs::File::create(&file).unwrap();
         for i in 0..2500 {
             writeln!(f, r#"{{"timestamp":"2026-09-01T10:00:00Z","type":"response_item","payload":{{"type":"message","role":"assistant","content":[{{"type":"output_text","text":"回答{i}"}}]}}}}"#).unwrap();

@@ -11,6 +11,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "pyodide": "^314.0.7"
+    "pyodide": "314.0.7"
   }
 }

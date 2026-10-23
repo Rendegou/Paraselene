@@ -1,0 +1,10 @@
+[package]
+name = "paraselene-character-core"
+version = "0.1.0"
+edition = "2021"
+description = "幻月角色外观与安全分享包的纯 Rust 规则"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

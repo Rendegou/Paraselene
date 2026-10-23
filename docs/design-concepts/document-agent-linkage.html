@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>幻月 · 正文与共写联动草图</title>
+  <style>
+    :root { --paper:#f8f6f0; --margin:#f0f1e9; --ink:#373d39; --muted:#66705e; --line:#d4d9cc; --accent:#486844; --soft:#e0e9d5; --chrome:#26292d; --chrome-ink:#e1e5dd; --chrome-muted:#b6bfb2; --radius:5px; --fast:140ms; --ease:cubic-bezier(.2,.7,.2,1); }
+    * { box-sizing:border-box; }
+    html,body { height:100%; margin:0; }
+    body { background:var(--paper); color:var(--ink); font:13px/1.65 "Segoe UI","Microsoft YaHei UI",sans-serif; }
+    h1,h2,h3,p { margin:0; }
+    button,input,textarea { font:inherit; }
+    button { cursor:pointer; color:inherit; background:transparent; border:0; border-radius:var(--radius); transition:background var(--fast) var(--ease),color var(--fast) var(--ease),transform var(--fast) var(--ease); }
+    button:hover { background:var(--soft); }
+    button:active { transform:translateY(1px); }
+    button:disabled { opacity:.45; cursor:default; }
+    :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+    ::selection { background:var(--soft); }
+    [hidden] { display:none !important; }
+    .prototype { display:flex; flex-direction:column; height:100dvh; overflow:hidden; }
+    .top { display:flex; align-items:center; justify-content:space-between; height:52px; flex:none; padding:0 24px; color:var(--chrome-ink); background:var(--chrome); }
+    .top strong { font-size:17px; font-weight:600; }
+    .top span { margin-left:16px; color:var(--chrome-muted); font-size:12px; }
+    .top small { font-size:11px; color:var(--chrome-muted); }
+    .modes { display:flex; align-items:center; flex:none; gap:8px; padding:10px 24px; min-height:49px; background:var(--paper); border-bottom:1px solid var(--line); }
+    .modes > span { font-size:12px; color:var(--muted); margin-right:12px; }
+    .modes button { min-height:30px; padding:4px 12px; border:1px solid transparent; }
+    .modes button[aria-pressed="true"] { border-color:var(--line); font-weight:600; color:var(--accent); background:var(--soft); }
+    .workspace { flex:1; min-height:0; display:grid; grid-template-columns:200px minmax(360px,1fr) 330px; }
+    .catalog { overflow:auto; padding:28px 16px; border-right:1px solid var(--line); background:var(--margin); }
+    .catalog h2 { font-size:14px; font-weight:600; margin:0 10px 20px; }
+    .catalog p { font-size:11px; color:var(--muted); margin:0 10px 8px; }
+    .catalog button { display:block; width:100%; text-align:left; min-height:40px; padding:8px 10px; font-size:12px; }
+    .catalog button.current { font-weight:600; color:var(--accent); background:var(--soft); }
+    .catalog button.current::before { content:""; width:5px; height:5px; background:var(--accent); border-radius:50%; display:inline-block; margin-right:8px; vertical-align:middle; }
+    .catalog .materials { margin-top:32px; }
+    .page { overflow:auto; min-height:0; padding:32px 52px; }
+    .page-inner { max-width:690px; margin:0 auto; }
+    .breadcrumb { font-size:11px; color:var(--muted); margin-bottom:30px; }
+    .page h1 { font-size:26px; font-weight:500; margin-bottom:8px; }
+    .page .description { font-size:12px; color:var(--muted); margin-bottom:29px; }
+    .prose { font:17px/2.05 "SimSun","Noto Serif CJK SC",serif; }
+    .prose p { margin-bottom:22px; }
+    .prose .person { font:inherit; padding:0; border-radius:0; text-decoration:underline; text-underline-offset:5px; text-decoration-color:#9bad93; }
+    .selected { position:relative; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-bottom:22px; }
+    .selected > p { margin:0; }
+    mark { background:var(--soft); color:inherit; padding:3px 0; }
+    .anchor { position:absolute; top:18px; right:-35px; width:24px; height:24px; border:1px solid var(--accent); color:var(--accent); background:var(--paper); border-radius:50%; font:600 12px/1 "Segoe UI",sans-serif; }
+    .anchor[aria-pressed="true"] { color:var(--paper); background:var(--accent); }
+    .anchor-line { position:absolute; top:29px; right:-52px; width:17px; height:1px; background:var(--accent); }
+    .selection-actions { margin-top:13px; display:flex; gap:8px; align-items:center; font:12px/1.6 "Microsoft YaHei UI",sans-serif; }
+    .selection-actions button { padding:3px 7px; color:var(--accent); }
+    .selection-actions span { margin-left:auto; color:var(--muted); font-size:11px; }
+    .margin { display:flex; flex-direction:column; min-height:0; border-left:1px solid var(--line); background:var(--margin); }
+    .margin-head { flex:none; padding:22px 24px 15px; border-bottom:1px solid var(--line); }
+    .margin-head h2 { font-size:16px; font-weight:600; }
+    .margin-head p { margin-top:4px; font-size:12px; color:var(--muted); }
+    .margin-body { overflow:auto; flex:1; min-height:0; padding:21px 24px; }
+    .scope { display:flex; align-items:center; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:11px; }
+    .text-link { font-size:12px; color:var(--accent); padding:2px 0; border-radius:0; text-decoration:underline; text-underline-offset:3px; }
+    blockquote { margin:0 0 22px; font:16px/1.9 "SimSun",serif; color:var(--ink); }
+    .thread h3 { font-size:13px; font-weight:600; margin-bottom:10px; }
+    .thread p { font-size:13px; line-height:1.9; margin-bottom:14px; }
+    .thread .references { font-size:12px; color:var(--muted); border-top:1px solid var(--line); padding-top:14px; }
+    .references button { padding:2px 0; color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+    .primary { min-height:34px; padding:7px 13px; background:var(--accent); color:var(--paper); font-size:12px; }
+    .primary:hover { background:#3c5838; }
+    .composer { flex:none; padding:14px 24px 18px; border-top:1px solid var(--line); }
+    .composer label { display:block; color:var(--muted); font-size:11px; margin-bottom:7px; }
+    .composer textarea { width:100%; height:65px; resize:vertical; background:var(--paper); color:var(--ink); border:1px solid var(--line); border-radius:var(--radius); padding:9px 11px; font-size:13px; }
+    .composer textarea::placeholder { color:var(--muted); }
+    .composer > div { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+    .composer small { color:var(--muted); font-size:11px; }
+    .profile h3 { font-size:20px; font-weight:500; margin-bottom:6px; }
+    .profile p { margin:15px 0; font-size:13px; line-height:1.9; }
+    .profile label { display:block; margin:20px 0 8px; font-size:11px; color:var(--muted); }
+    .profile .primary { margin-top:16px; }
+    .review p { margin-bottom:17px; line-height:1.9; }
+    .review blockquote { margin-bottom:16px; }
+    .review small { display:block; font-size:11px; color:var(--muted); margin-bottom:7px; }
+    .review-actions { display:flex; gap:10px; margin-top:22px; }
+    .inline-edit del { color:#884c41; background:#f4e6dd; }
+    .inline-edit ins { color:var(--accent); background:var(--soft); text-decoration:none; margin-left:8px; }
+    .task-draft { border-top:1px solid var(--line); padding-top:14px; margin-top:20px; }
+    .status { flex:none; height:27px; display:flex; align-items:center; justify-content:space-between; padding:0 24px; font-size:11px; color:var(--muted); border-top:1px solid var(--line); }
+    @media(max-width:1100px) { .workspace{grid-template-columns:minmax(360px,1fr) 310px;} .catalog{display:none;} .page{padding:26px 40px;} .anchor-line{right:-40px;width:5px;} }
+    @media(max-width:760px) {
+      .top{padding:0 16px;height:45px;} .top span{margin-left:10px;} .top small{display:none;}
+      .modes{gap:4px;padding:8px 10px;} .modes > span{display:none;} .modes button{flex:1;padding:4px 6px;font-size:12px;}
+      .workspace{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(210px,1fr) minmax(270px,47%);}
+      .page{padding:20px 34px 20px 24px;} .breadcrumb{margin-bottom:16px;} .page h1{font-size:22px;}
+      .page .description{margin-bottom:20px;} .anchor{right:-29px;} .anchor-line{display:none;}
+      .margin{border-left:0;border-top:1px solid var(--accent);}
+      .margin-head{padding:10px 16px;} .margin-head h2{font-size:14px;} .margin-head p{font-size:11px;}
+      .margin-body{padding:13px 16px;} .composer{padding:10px 16px;display:grid;grid-template-columns:minmax(0,1fr) 78px;gap:8px;}
+      .composer textarea{height:44px;} .composer label,.composer small{display:none;}
+      .composer > div{margin-top:0;justify-content:flex-end;}
+      .status{padding:0 12px;} .status span:last-child{display:none;}
+    }
+    @media(prefers-reduced-motion:reduce) { button{transition:none;} }
+  </style>
+</head>
+<body>
+<div class="prototype">
+  <header class="top"><div><strong>幻月</strong><span>雾海来信</span></div><small>布局草图 · 虚构素材 · 未连接模型</small></header>
+  <nav class="modes" aria-label="体验协作状态"><span>体验三个状态</span><button data-mode="chat" aria-pressed="true">讨论选段</button><button data-mode="lore" aria-pressed="false">查看设定</button><button data-mode="review" aria-pressed="false">审阅修改</button></nav>
+  <div class="workspace">
+    <aside class="catalog" aria-label="章节与资料"><h2>雾海来信</h2><p>第一卷 · 海雾来时</p><button disabled title="草图仅演示第三章">第一章 · 潮汐以外</button><button disabled title="草图仅演示第三章">第二章 · 不存在的航线</button><button class="current">第三章 · 雾中的灯塔</button><button disabled title="草图仅演示第三章">第四章 · 归潮</button><p class="materials">故事资料</p><button data-mode="lore">沈砚 · 人物设定</button><button data-mode="lore" data-entity="bell">第十三声钟响 · 世界规则</button><button data-mode="lore" data-entity="tower">旧灯塔 · 地点</button></aside>
+    <main class="page" aria-label="小说正文"><div class="page-inner"><div class="breadcrumb">正文 / 第三章</div><h1>雾中的灯塔</h1><p class="description">编辑稿 · 讨论与修改对应到具体段落</p><div class="prose">
+      <p>雾是在傍晚漫上来的。</p>
+      <p>起初只是水面上很薄的一层，像有人把一封没有写完的信，轻轻铺在了海上。等林雾走到白塔港尽头，整座灯塔只剩下一点模糊的轮廓。</p>
+      <p>她把那封信又读了一遍。</p>
+      <p id="paragraph-four">纸上的字迹已经洇开，唯独最后一句还清晰得像刚刚写下：不要相信第十三声钟响。</p>
+      <section class="selected" id="paragraph-five" aria-label="正在讨论的第5段"><p id="dialogue"><mark>“你还是来了。”</mark></p><button class="anchor" aria-label="打开第5段的讨论" aria-pressed="true">1</button><span class="anchor-line" aria-hidden="true"></span><div class="selection-actions"><button data-mode="chat">讨论这段</button><button data-mode="review">建议改写</button><span>第5段</span></div></section>
+      <p id="paragraph-six"><button class="person" data-mode="lore">沈砚</button>站在灯塔的阴影里，肩头落着细密的水珠。他没有撑伞，右手握着一枚旧铜钥匙。林雾注意到，钥匙柄上的纹路，与信封封蜡上的裂纹一模一样。</p>
+      <p>她没有问他为什么在这里。</p><p>有些问题，一旦问出口，就再也无法假装自己不知道答案。</p>
+    </div></div></main>
+    <aside class="margin" aria-label="对应正文的共写区"><header class="margin-head"><h2 id="panel-title">本章共写</h2><p id="panel-subtitle">第三章 · 第5段 · 同一处讨论</p></header>
+      <div class="margin-body">
+        <section id="chat" class="thread"><div class="scope"><span>讨论 1 · 这句对白</span><button class="text-link" data-locate>定位原文</button></div><blockquote>“你还是来了。”</blockquote><h3>保留试探，减少解释</h3><p>如果沈砚在等待林雾，可以让这句话透露预期，同时保留他知道多少的悬念。</p><p class="references">依据：<button data-mode="lore">沈砚 / 说话方式</button><br>当前场景：<button data-mode="lore" data-entity="tower">旧灯塔 / 会面</button></p><button class="text-link" data-mode="review">在原段落查看修改建议</button><div id="draft" class="task-draft" hidden><h3>本段的请求草稿</h3><p id="draft-text"></p><small>交互示意，未发送给模型。</small></div></section>
+        <section id="lore" class="profile" hidden><button class="text-link" data-mode="chat">返回这段讨论</button><h3 id="entity-title" style="margin-top:20px">沈砚</h3><p id="entity-description">引航员。提供线索，但暂时未获林雾信任。</p><label>与当前段落有关</label><p id="entity-rule">少解释，以动作透露立场；当前章节不直接揭露铜钥匙的来源。</p><label>正文依据</label><button class="text-link" data-locate id="entity-source">第5段 · “你还是来了。”</button><p>查资料时，正文位置和这段讨论保持不变。</p><button class="primary" id="attach">把这条设定带回讨论</button></section>
+        <section id="review" class="review" hidden><div class="scope"><span>修改建议 1 · 对应第5段</span><button class="text-link" data-locate>定位原文</button></div><small>正文中已显示修改前后</small><blockquote>“你还是来了。” → “我猜你会来。”</blockquote><p>改动意图：把陈述改为试探，保留人物的隐瞒。</p><p>来源：沈砚 / 说话方式。<br>只修改这句对白。</p><div class="review-actions"><button class="primary" id="accept">采纳这处</button><button id="reject">拒绝</button></div><p id="review-result" hidden style="margin-top:18px"></p><button class="text-link" id="undo" hidden>撤销示例修改</button></section>
+      </div>
+      <form class="composer"><label for="instruction">继续讨论第5段</label><textarea id="instruction" placeholder="例如：更克制一些，但别透露钥匙来源…"></textarea><div><small id="context">目标：第5段 · 沈砚设定</small><button class="primary" type="submit">暂存请求</button></div></form>
+    </aside>
+  </div><footer class="status"><span id="status">交互草图；不改动现有应用与作品</span><span>正文、资料、讨论共享同一个段落目标</span></footer>
+</div>
+<script>
+  const modes = ['chat','lore','review'];
+  let accepted = false;
+  const titles = { chat:['本章共写','第三章 · 第5段 · 同一处讨论'], lore:['查看人物设定','资料查看 · 正文位置保持'], review:['审阅本段修改','第三章 · 第5段 · 一处候选'] };
+  function changeMode(mode) {
+    for (const name of modes) document.getElementById(name).hidden = name !== mode;
+    for (const button of document.querySelectorAll('.modes button')) button.setAttribute('aria-pressed',String(button.dataset.mode === mode));
+    document.getElementById('panel-title').textContent = titles[mode][0];
+    document.getElementById('panel-subtitle').textContent = titles[mode][1];
+    document.getElementById('dialogue').innerHTML = accepted ? '<mark>“我猜你会来。”</mark>' : mode === 'review' ? '<span class="inline-edit"><del>“你还是来了。”</del><ins>“我猜你会来。”</ins></span>' : '<mark>“你还是来了。”</mark>';
+  }
+  let inspected = 'shen';
+  const profiles = {
+    shen:['沈砚','引航员。提供线索，但暂时未获林雾信任。','少解释，以动作透露立场；当前章节不直接揭露铜钥匙的来源。','第5段 · “你还是来了。”'],
+    tower:['旧灯塔','白塔港尽头，林雾与沈砚在此会面。','可以看到离港的归潮号，但看不到钟声的来源。','第三章 · 灯塔会面场景'],
+    bell:['第十三声钟响','信中的警告，当前尚未揭示真相。','只呈现警告，不把主角尚未知晓的答案写出来。','第三章 · 不要相信第十三声钟响。']
+  };
+  function showProfile(id) {
+    inspected=id;
+    const values=profiles[id];
+    ['entity-title','entity-description','entity-rule','entity-source'].forEach((name,index)=>document.getElementById(name).textContent=values[index]);
+    document.getElementById('entity-source').dataset.target=id==='bell'?'paragraph-four':id==='tower'?'paragraph-six':'paragraph-five';
+  }
+  for (const button of document.querySelectorAll('[data-mode]')) button.addEventListener('click',()=>{
+    if(button.dataset.mode==='lore') showProfile(button.dataset.entity||'shen');
+    changeMode(button.dataset.mode);
+    if(innerWidth<=760) document.getElementById('paragraph-five').scrollIntoView({block:'center'});
+  });
+  document.querySelector('.anchor').addEventListener('click',()=>changeMode('chat'));
+  for (const button of document.querySelectorAll('[data-locate]')) button.addEventListener('click',()=>document.getElementById(button.dataset.target||'paragraph-five').scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'}));
+  document.getElementById('attach').addEventListener('click',()=>{ changeMode('chat'); document.getElementById('context').textContent='目标：第5段 · 已带入'+profiles[inspected][0]+'设定'; });
+  document.getElementById('accept').addEventListener('click',()=>{ accepted=true; changeMode('review'); document.getElementById('review-result').hidden=false; document.getElementById('review-result').textContent='已应用到这张草图的正文，可撤销。'; document.getElementById('undo').hidden=false; document.getElementById('accept').disabled=true; document.getElementById('reject').disabled=true; });
+  document.getElementById('undo').addEventListener('click',()=>{ accepted=false; document.getElementById('accept').disabled=false; document.getElementById('reject').disabled=false; document.getElementById('review-result').hidden=true; document.getElementById('undo').hidden=true; changeMode('chat'); });
+  document.getElementById('reject').addEventListener('click',()=>{ changeMode('chat'); document.getElementById('status').textContent='候选已拒绝，草图中的原文保持。'; });
+  document.querySelector('form').addEventListener('submit',event=>{ event.preventDefault(); const input=document.getElementById('instruction'); if(!input.value.trim())return; document.getElementById('draft-text').textContent=input.value; document.getElementById('draft').hidden=false; input.value=''; changeMode('chat'); });
+  if(innerWidth<=760) requestAnimationFrame(()=>document.getElementById('paragraph-five').scrollIntoView({block:'center'}));
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# 幻月 Rust 代码度量工具（T05A）。
+# 通过 syn(AST)识别函数，统计有效行（排除空行与整行注释）；
+# 阈值与口径见 docs/engineering/code-standards.md（普通函数<=60，生产模块<=400）。
+[package]
+name = "paraselene-code-metrics"
+version = "0.1.0"
+edition = "2021"
+description = "AST-based Rust function/module effective-line metrics with baseline emit/verify"
+license = "MIT"
+publish = false
+
+[dependencies]
+syn = { version = "2", features = ["full", "parsing", "visit"] }
+proc-macro2 = { version = "1", features = ["span-locations"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

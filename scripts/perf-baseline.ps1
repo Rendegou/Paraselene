@@ -11,6 +11,9 @@
 .PARAMETER ProcessName
     被采样进程名（不含 .exe），默认 paraselene。
 
+.PARAMETER ProcessId
+    可选的进程 ID。指定后只测这一实例，避免同名进程混入。
+
 .PARAMETER IntervalSeconds
     采样间隔秒数，默认 5。
 
@@ -26,6 +29,8 @@
 [CmdletBinding()]
 param(
     [string]$ProcessName = "paraselene",
+    [ValidateRange(0, 2147483647)]
+    [int]$ProcessId = 0,
     [ValidateRange(1, 3600)]
     [int]$IntervalSeconds = 5,
     [ValidateRange(1, 100000)]
@@ -46,7 +51,12 @@ if ($outDir -and -not (Test-Path $outDir)) {
     New-Item -ItemType Directory -Path $outDir -Force | Out-Null
 }
 
-$logicalCores = (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
+try {
+    $logicalCores = (Get-CimInstance Win32_ComputerSystem -ErrorAction Stop).NumberOfLogicalProcessors
+} catch {
+    $logicalCores = [Environment]::ProcessorCount
+    Write-Warning "CIM 不可用，改用 .NET 报告的 $logicalCores 个逻辑核。"
+}
 $rows = [System.Collections.Generic.List[object]]::new()
 $prevCpuSeconds = $null
 $prevTime = $null
@@ -54,7 +64,11 @@ $prevTime = $null
 Write-Host "采样进程 '$ProcessName'：$Samples 次 × $IntervalSeconds 秒（$logicalCores 逻辑核）→ $OutCsv"
 
 for ($i = 0; $i -lt $Samples; $i++) {
-    $procs = @(Get-Process -Name $ProcessName -ErrorAction SilentlyContinue)
+    if ($ProcessId -gt 0) {
+        $procs = @(Get-Process -Id $ProcessId -ErrorAction SilentlyContinue | Where-Object { $_.ProcessName -eq $ProcessName })
+    } else {
+        $procs = @(Get-Process -Name $ProcessName -ErrorAction SilentlyContinue)
+    }
     if ($procs.Count -eq 0) {
         Write-Warning "第 $i 次采样：未找到进程 '$ProcessName'，跳过（应用未启动？）"
         Start-Sleep -Seconds $IntervalSeconds
@@ -93,6 +107,9 @@ if ($rows.Count -eq 0) {
 }
 
 $rows | Export-Csv -Path $OutCsv -NoTypeInformation -Encoding utf8
+if ($rows.Count -ne $Samples) {
+    Write-Error "只得到 $($rows.Count)/$Samples 行，进程曾缺席，不能作为完整连续采样。CSV 已保留供排查：$OutCsv"
+}
 $avgMem = ($rows | Measure-Object -Property WorkingSet64MB -Average).Average
 $maxMem = ($rows | Measure-Object -Property WorkingSet64MB -Maximum).Maximum
 Write-Host ("完成：{0} 行。平均驻留 {1:N1} MB，峰值 {2:N1} MB。" -f $rows.Count, $avgMem, $maxMem)

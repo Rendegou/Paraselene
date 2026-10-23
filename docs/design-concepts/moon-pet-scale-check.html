@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>月相小兽 · 实际尺寸检查</title>
+  <style>
+    :root { font-family: "Microsoft YaHei UI", "Segoe UI", sans-serif; color: #2b3040; background: #efede8; }
+    * { box-sizing: border-box; }
+    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 48px; }
+    h1 { margin: 0; font-size: 22px; }
+    p { max-width: 60ch; color: #5a6070; line-height: 1.7; font-size: 13px; }
+    .samples { display: grid; gap: 16px; margin-top: 24px; }
+    .sample { min-height: 170px; padding: 15px 20px; border-radius: 14px; overflow-x: auto; }
+    .sample.dark { color: #f4eee4; background: #171d29; }
+    .sample.light { color: #202838; background: #f7f3eb; border: 1px solid #d8d3c9; }
+    .caption { display: block; margin-bottom: 10px; font-size: 11px; letter-spacing: .05em; }
+    .strip { display: block; width: auto; height: 120px; max-width: none; }
+    .large { width: 100%; max-width: 680px; margin-top: 28px; }
+    .large img { display: block; width: 100%; height: auto; }
+    @media (max-width: 420px) { body { padding: 22px 12px; } .sample { padding: 13px 10px; } }
+  </style>
+</head>
+<body>
+  <h1>月相小兽 · 120px 检查</h1>
+  <p>从左到右：待机、被点、睡眠。下方按角色实际显示高度缩放整张状态稿，用于判断缩小后剪影与表情是否还清楚。状态稿尚未拆成独立可用的动画帧。</p>
+  <div class="samples">
+    <div class="sample dark"><span class="caption">深色桌面</span><img class="strip" src="moon-pet-states-v1.png" alt="月相小兽的待机、被点和睡眠三姿态"></div>
+    <div class="sample light"><span class="caption">浅色桌面</span><img class="strip" src="moon-pet-states-v1.png" alt="月相小兽的待机、被点和睡眠三姿态"></div>
+  </div>
+  <div class="large"><img src="moon-pet-states-v1.png" alt="月相小兽三姿态大图"></div>
+</body>
+</html>

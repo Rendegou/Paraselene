@@ -11,7 +11,7 @@
 | M00 迁移计划与 ADR | codex/dsh-migration-docs | PASS | [计划](dsh-migration-plan.md)、ADR-0003、技术基线和回退；文档检查通过 |
 | M01 运行时契约与现有界面接入 | codex/dsh-runtime-port | PASS | 独立 TS 接口、现有界面接入；8 项合成传输测试、类型检查、Web 构建通过；[证据](evidence/M01-20261023.md) |
 | M02 dsh 桥接验证 | codex/dsh-runtime-bridge | PASS | 固定版本、独立 profile、自有协议；真实运行时/模拟模型 9 项测试通过；[证据](evidence/M02-20261023.md) |
-| M03 受控模型出口 | 待认领 | PLANNED | 最终请求预览、一次性票据、空间重检、原生凭据 |
+| M03 受控模型出口 | codex/dsh-native-egress | IN_PROGRESS | M03a 原生冻结请求与运行票据已通过 47 项 Rust 测试；[证据](evidence/M03-20261023.md)。M03b provider/宿主接线继续推进 |
 | M04 业务工具与记忆隔离 | 待认领 | PLANNED | 有出处检索、试写提案、学习；保持数据库权威 |
 | M05 Windows 切换与验收 | 待认领 | PLANNED | 打包、资源实测、崩溃恢复、旧实现回退 |
 

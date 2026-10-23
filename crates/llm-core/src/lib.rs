@@ -27,6 +27,7 @@
 pub mod client;
 pub mod context;
 pub mod error;
+pub mod egress;
 pub mod openai;
 pub mod provider;
 pub mod preview;
@@ -35,6 +36,7 @@ pub mod sse;
 pub use client::OpenAiCompatClient;
 pub use context::{assemble_chat, estimate_tokens, AllowAll, ChatRequest, CloudGate, PreparedChat, Space, SpaceSwitch};
 pub use error::{LlmError, Result};
+pub use egress::{AuthorizedCall, CallPurpose, EgressError, EgressLedger, EgressPreview, ModelProposal, RunGrant, RunScope};
 pub use provider::{
     FinishReason, Message, MessageRole, ProviderTool, StreamEvent, ToolCallRequest, Usage,
 };

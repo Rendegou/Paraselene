@@ -35,6 +35,8 @@ impl OpenAiCompatClient {
     /// 新建客户端。`base_url` 形如 `https://api.deepseek.com/v1`（末尾斜杠有无均可）。
     pub fn new(base_url: impl Into<String>) -> Result<Self> {
         let client = reqwest::Client::builder()
+            // 凭据只发送到已配置端点，禁止 307/308 带正文与授权重定向。
+            .redirect(reqwest::redirect::Policy::none())
             .connect_timeout(Duration::from_secs(30))
             .build()?;
         Ok(OpenAiCompatClient {
@@ -65,12 +67,31 @@ impl OpenAiCompatClient {
         prepared: &PreparedChat,
         api_key: &str,
     ) -> Result<futures_util::stream::BoxStream<'static, Result<StreamEvent>>> {
-        let body = request_body(prepared);
+        let body = serde_json::to_string(&request_body(prepared))
+            .map_err(|_| LlmError::BadRequest("请求无法序列化".into()))?;
+        self.send_body(body, api_key).await
+    }
+
+    /// 发送原生出口已冻结的字节，不再序列化、修改消息或追加 provider 元数据。
+    pub async fn send_frozen(
+        &self,
+        frozen: &crate::egress::FrozenChat,
+        api_key: &str,
+    ) -> Result<futures_util::stream::BoxStream<'static, Result<StreamEvent>>> {
+        self.send_body(frozen.body_json().to_owned(), api_key).await
+    }
+
+    async fn send_body(
+        &self,
+        body: String,
+        api_key: &str,
+    ) -> Result<futures_util::stream::BoxStream<'static, Result<StreamEvent>>> {
         let resp = self
             .client
             .post(self.endpoint("chat/completions"))
             .bearer_auth(api_key)
-            .json(&body)
+            .header(reqwest::header::CONTENT_TYPE, "application/json")
+            .body(body)
             .send()
             .await?;
         let status = resp.status();
@@ -224,6 +245,13 @@ data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xef\xbc\
 data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{},\"finish_reason\":\"stop\"}]}\n\n\
 data: {\"id\":\"x\",\"choices\":[],\"usage\":{\"prompt_tokens\":12,\"completion_tokens\":5}}\n\n\
 data: [DONE]\n\n";
+
+    #[tokio::test]
+    async fn redirect_is_not_followed_with_request_or_credentials() {
+        let base = spawn_mock(b"HTTP/1.1 307 Temporary Redirect\r\nLocation: http://127.0.0.1:1/unapproved\r\nContent-Length: 0\r\n\r\n");
+        let client = OpenAiCompatClient::new(base).unwrap();
+        assert!(matches!(client.send(&prepared(), "synthetic-not-a-credential").await, Err(LlmError::HttpStatus(307))));
+    }
 
     #[tokio::test]
     async fn send_正常流_delta与usage() {

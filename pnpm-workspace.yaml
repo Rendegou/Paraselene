@@ -1,0 +1,6 @@
+packages:
+  - '.'
+
+allowBuilds:
+  # tsx uses esbuild for the TypeScript contract tests.
+  esbuild: true

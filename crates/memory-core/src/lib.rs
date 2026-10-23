@@ -37,10 +37,16 @@
 //!   role='tool' 不进 trigram（实测占其 postings 约 3/4），文本截 4096 字符入索引
 //!   （原文完整保留在 messages 表）——真实库 trigram 从约 885MB 降到约 183MB，
 //!   整库 1.51GB → 805MB（VACUUM 后）。
+//!   2026-09-27 修正：题集评测路径原先未接入 [`Database::search`]；现三字以上
+//!   中文等非 ASCII 查询走 trigram，短查询与纯 ASCII 查询仍走 unicode61。
+//!   正式 API 已在原 24 题真实语料上复评：recall@5 23/24、top-1 22/24；
+//!   短片段含标注 anchor 仅 4/24，展示出处时须打开原文而非只依赖 snippet。
 
 pub mod adapters;
 pub mod error;
 pub mod imports;
+pub mod import_file;
+pub mod ideas;
 pub mod model;
 pub mod parser;
 pub mod paths;
@@ -57,6 +63,7 @@ pub use imports::{
     ImportMessage, ImportPackage, ImportPreview, ImportReport, ImportSession,
     ScanImportsReport,
 };
+pub use ideas::{ConvertedIdea, IdeaCandidate, IdeaSource};
 pub use model::{
     DetectionResult, MessageKind, NormalizedMessage, NormalizedSession, ParsedSessionInfo,
     RawFileRef, Role, SessionDescriptor, SourceKind, INDEX_SCHEMA_VERSION,

@@ -2,6 +2,6 @@
   "$schema": "../gen/schemas/desktop-schema.json",
   "identifier": "default",
   "description": "桌宠窗口默认权限：仅核心默认集 + 拖动区域所需 start-dragging",
-  "windows": ["pet"],
+  "windows": ["pet", "card"],
   "permissions": ["core:default", "core:window:allow-start-dragging"]
 }

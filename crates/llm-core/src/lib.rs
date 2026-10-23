@@ -29,6 +29,7 @@ pub mod context;
 pub mod error;
 pub mod openai;
 pub mod provider;
+pub mod preview;
 pub mod sse;
 
 pub use client::OpenAiCompatClient;
@@ -37,4 +38,5 @@ pub use error::{LlmError, Result};
 pub use provider::{
     FinishReason, Message, MessageRole, ProviderTool, StreamEvent, ToolCallRequest, Usage,
 };
+pub use preview::{IssuedPreview, PreviewLedger};
 pub use sse::{ParserState, SseEvent, SseParser, ToolCallAcc};

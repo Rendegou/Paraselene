@@ -1,0 +1,14 @@
+.target-back { margin: -10px 0 12px; }
+.target-page .page-heading { margin-bottom: 20px; }
+.target-origin { display: flex; align-items: center; gap: 9px; min-height: 58px; padding: 9px 12px; border: 1px solid #5d6672; border-radius: 9px; background: var(--panel); }
+.target-origin span { flex: none; color: var(--accent); font-size: 11px; }
+.target-origin strong { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); font-size: 13px; }
+.target-origin .text-action { flex: none; }
+.target-page textarea { min-height: 112px; }
+.target-source { margin-top: 25px; padding-top: 17px; border-top: 1px solid #56606b; }
+.target-source h3 { color: #f8ecda; font-size: 14px; }
+.target-source > p:last-child { max-height: 245px; margin-top: 12px; padding: 13px; overflow: auto; border-radius: 8px; background: var(--field); color: var(--ink); font-size: 13px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.target-page .notice { margin: 16px 0 0; }
+.target-missing { margin-top: 30px; color: var(--ink); }
+.target-missing h2 { font-size: 19px; }
+.target-missing p { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.6; }

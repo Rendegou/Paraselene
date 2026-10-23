@@ -1,0 +1,25 @@
+.import-section { padding-bottom: 23px; border-bottom: 1px solid #56606b; }
+.import-section .section-title { margin-top: 20px; }
+.import-sources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin: 16px 0 0; padding: 0; border: 0; }
+.import-sources legend { margin-bottom: 8px; color: var(--ink); font-size: 12px; }
+.import-sources label { display: flex; align-items: center; gap: 8px; min-height: 38px; padding: 7px 10px; border: 1px solid #69737c; border-radius: 7px; color: var(--ink); font-size: 12px; cursor: pointer; }
+.settings-page .import-section .import-sources label { margin-top: 0; }
+.import-sources label.chosen { border-color: var(--accent); background: #4c453d; }
+.import-sources input { margin: 0; accent-color: var(--accent); }
+.import-pick { margin-top: 13px; }
+.import-review, .import-result { margin-top: 20px; padding-top: 16px; border-top: 1px solid #56606b; }
+.import-review h4 { color: #f8ecda; font-size: 14px; line-height: 1.5; }
+.import-review h4:focus { outline: none; }
+.import-review h4:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.import-file-name { margin-top: 8px; color: var(--ink); font-size: 13px; overflow-wrap: anywhere; }
+.import-warning, .import-error { margin-top: 10px; color: #f6d8ae; font-size: 12px; line-height: 1.6; }
+.import-review details { margin-top: 11px; color: var(--muted); font-size: 12px; }
+.import-review details summary { color: var(--accent); cursor: pointer; }
+.import-review ul { margin: 8px 0 0; padding-left: 20px; }
+.import-sample { margin-top: 14px; max-height: 220px; overflow-y: auto; border-radius: 8px; background: var(--field); padding: 12px; }
+.import-sample strong { color: #f8ecda; font-size: 12px; }
+.import-sample p { margin-top: 9px; color: var(--ink); font-size: 12px; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.import-sample p span { display: block; margin-bottom: 3px; color: var(--accent); font-size: 11px; }
+.import-actions { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.import-result p { color: var(--ink); font-size: 12px; line-height: 1.6; }
+.import-result .text-action { margin-top: 10px; }

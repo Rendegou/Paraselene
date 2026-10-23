@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>幻月桌宠 · 好奇姿态 120px 检查</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 28px; color: #f4eee4; background: #171d29; font: 14px/1.5 "Microsoft YaHei UI", sans-serif; }
+  h1 { margin: 0 0 8px; font-size: 20px; }
+  p { margin: 0 0 22px; color: #bdb9b0; }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(282px, 1fr)); gap: 18px; max-width: 920px; }
+  section { padding: 16px; border: 1px solid #4c5662; border-radius: 12px; }
+  h2 { margin: 0 0 12px; font-size: 15px; }
+  .pair { display: flex; gap: 10px; }
+  .sample { flex: 0 0 120px; width: 120px; height: 120px; display: grid; place-items: center; }
+  .sample.dark { background: #202838; }
+  .sample.light { background: #e7e8e9; }
+  img { display: block; width: 112px; height: 112px; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 8px 7px #0c101977); }
+  small { display: block; margin: 5px 0 14px; color: #bdb9b0; }
+  @media (max-width: 820px) { .grid { grid-template-columns: 1fr; } }
+</style>
+<h1>好奇姿态 · 实际 120px 尺寸</h1>
+<p>左边待机，右边好奇；在深浅桌面上检查剪影、额记、尾巴和爪子。</p>
+<div class="grid">
+  <section><h2>月亮</h2><div class="pair"><div class="sample dark"><img src="../../src/assets/companions/moon-idle.png" alt="月亮待机"></div><div class="sample dark"><img src="../../src/assets/companions/moon-curious.png" alt="月亮好奇"></div></div><small>深色桌面</small><div class="pair"><div class="sample light"><img src="../../src/assets/companions/moon-idle.png" alt="月亮待机"></div><div class="sample light"><img src="../../src/assets/companions/moon-curious.png" alt="月亮好奇"></div></div></section>
+  <section><h2>星星</h2><div class="pair"><div class="sample dark"><img src="../../src/assets/companions/star-idle.png" alt="星星待机"></div><div class="sample dark"><img src="../../src/assets/companions/star-curious.png" alt="星星好奇"></div></div><small>深色桌面</small><div class="pair"><div class="sample light"><img src="../../src/assets/companions/star-idle.png" alt="星星待机"></div><div class="sample light"><img src="../../src/assets/companions/star-curious.png" alt="星星好奇"></div></div></section>
+  <section><h2>云朵</h2><div class="pair"><div class="sample dark"><img src="../../src/assets/companions/cloud-idle.png" alt="云朵待机"></div><div class="sample dark"><img src="../../src/assets/companions/cloud-curious.png" alt="云朵好奇"></div></div><small>深色桌面</small><div class="pair"><div class="sample light"><img src="../../src/assets/companions/cloud-idle.png" alt="云朵待机"></div><div class="sample light"><img src="../../src/assets/companions/cloud-curious.png" alt="云朵好奇"></div></div></section>
+</div>
+</html>

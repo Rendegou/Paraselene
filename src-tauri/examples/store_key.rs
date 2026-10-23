@@ -21,7 +21,7 @@ fn main() {
     }
     match key::set_api_key(api_key) {
         Ok(()) => {
-            assert!(key::has_api_key());
+            assert!(key::has_api_key().expect("凭据管理器应可查询 Key 状态"));
             println!("[store_key] 已写入 Windows 凭据管理器（dev.paraselene.app / deepseek-api-key）");
         }
         Err(e) => {

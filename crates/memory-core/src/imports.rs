@@ -569,6 +569,7 @@ fn managed_files(root: &Path) -> Vec<PathBuf> {
 /// 与源项目的差异：没有适配器注册表 / 设置开关，导入目录就是全部范围；
 /// 单个会话失败只计入报告，不影响其他会话。
 pub fn scan_imports(db: &Database, root: &Path) -> Result<ScanImportsReport> {
+    crate::scanner::record_scan_invocation();
     let mut report = ScanImportsReport::default();
     if !root.is_dir() { return Ok(report); }
 

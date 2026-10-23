@@ -11,31 +11,55 @@
 //!   组装期即拒绝（GateClosed），拒绝早于任何网络活动。
 
 use futures_util::StreamExt;
+use std::sync::atomic::{AtomicU64, Ordering};
 use tauri::ipc::Channel;
 use tauri::State;
 
 use paraselene_llm_core as llm;
 use paraselene_memory_core::Database;
 
+static NETWORK_ATTEMPTS: AtomicU64 = AtomicU64::new(0);
+
+pub fn network_attempts() -> u64 {
+    NETWORK_ATTEMPTS.load(Ordering::Relaxed)
+}
+
 /// Tauri 管理的 LLM 状态（Database 来自 memory-core，settings KV 存每空间云开关）。
 pub struct LlmState {
     pub db: std::sync::Arc<Database>,
+    pub previews: std::sync::Mutex<llm::PreviewLedger>,
+}
+
+/// 查询某个记忆空间的云调用开关；未配置时默认开启，读库失败时返回错误。
+#[tauri::command]
+pub fn get_cloud_enabled(state: State<'_, LlmState>, space: llm::Space) -> Result<bool, String> {
+    state.db.get_setting(&format!("cloud_enabled:{}", space.as_str()))
+        .map(|value| value.map(|v| v == "true").unwrap_or(true))
+        .map_err(|e| e.to_string())
+}
+
+/// 设置单个空间的云调用开关；关闭后预览与发送都会拒绝。
+#[tauri::command]
+pub fn set_cloud_enabled(state: State<'_, LlmState>, space: llm::Space, enabled: bool) -> Result<(), String> {
+    state.db.set_setting(
+        &format!("cloud_enabled:{}", space.as_str()),
+        if enabled { "true" } else { "false" },
+    ).map_err(|e| e.to_string())
 }
 
 /// CloudGate 实现：读 memory-core settings KV 的 `cloud_enabled:<space>`。
-/// 约定：值为 "false" 时关闭；键不存在或其他值一律放行（默认 true，Goal §4.5）。
+/// 约定：键不存在时默认开启；异常值与读库错误都拒绝云调用。
 pub struct SettingsGate<'a> {
     db: &'a Database,
 }
 
 impl<'a> llm::CloudGate for SettingsGate<'a> {
     fn cloud_enabled(&self, space: llm::Space) -> bool {
-        self.db
-            .get_setting(&format!("cloud_enabled:{}", space.as_str()))
-            .ok()
-            .flatten()
-            .map(|v| v != "false")
-            .unwrap_or(true)
+        match self.db.get_setting(&format!("cloud_enabled:{}", space.as_str())) {
+            Ok(Some(value)) => value == "true",
+            Ok(None) => true,
+            Err(_) => false,
+        }
     }
 }
 
@@ -78,7 +102,7 @@ impl From<&llm::LlmError> for LlmStreamEvent {
     }
 }
 
-/// 默认模型（Goal §3：deepseek-flash 低延迟陪伴/提示；模型名运行时拉 /models 不写死）。
+/// 默认模型；设置页可主动从 /models 刷新并覆盖这个值。
 const DEFAULT_MODEL: &str = "deepseek-flash";
 
 /// 组装（不发送）。kill switch 在组装期生效，拒绝时返回错误字符串（含「kill switch」）。
@@ -87,42 +111,80 @@ fn assemble(db: &Database, request: llm::ChatRequest) -> llm::Result<llm::Prepar
     llm::assemble_chat(&gate, request, DEFAULT_MODEL)
 }
 
-/// 外发前预览（G16）：组装但不发送，返回的 PreparedChat 可直接展示
-/// （messages / model / estimated_tokens / space——与随后 send 的内容是同一份结构）。
+/// 外发前预览（G16）：组装但不发送，返回一次性票据和可展示内容；
+/// 发送时仅消费后端保存的那份 PreparedChat。
 #[tauri::command]
 pub fn llm_chat_preview(
     state: State<'_, LlmState>,
-    request: llm::ChatRequest,
-) -> Result<llm::PreparedChat, String> {
-    assemble(&state.db, request).map_err(|e| e.to_string())
+    mut request: llm::ChatRequest,
+) -> Result<llm::IssuedPreview, String> {
+    let character = crate::commands::character::load(&state.db)?;
+    request.messages.insert(0, llm::Message::system(character.voice.instruction()));
+    let prepared = assemble(&state.db, request).map_err(|e| e.to_string())?;
+    let mut previews = state
+        .previews
+        .lock()
+        .map_err(|_| "预览状态不可用，请重试".to_string())?;
+    Ok(previews.issue(prepared))
 }
 
-/// 发送（流式）：keyring 取 Key → llm-core 发送 → channel 逐事件推送。
+/// 发送（流式）：消费预览票据 → keyring 取 Key → llm-core 发送 → channel 逐事件推送。
 /// 401 等错误经 channel 推结构化错误事件（kind="auth"，前端提示「Key 无效」）。
 #[tauri::command]
 pub async fn llm_chat_send(
     state: State<'_, LlmState>,
-    request: llm::ChatRequest,
+    preview_id: String,
     channel: Channel<LlmStreamEvent>,
 ) -> Result<(), String> {
     let db = state.db.clone();
 
-    // 组装（kill switch 在这里生效，拒绝早于任何网络活动）
-    let prepared = match assemble(&db, request) {
-        Ok(p) => p,
-        Err(e) => {
-            let _ = channel.send(LlmStreamEvent::from(&e));
+    // 只消费后端签发的一次性预览；前端不能替换消息或跳过预览直接发送。
+    let prepared = match state
+        .previews
+        .lock()
+        .map_err(|_| "预览状态不可用，请重试".to_string())?
+        .take(&preview_id)
+    {
+        Some(prepared) => prepared,
+        None => {
+            let _ = channel.send(LlmStreamEvent::Error {
+                kind: "bad_request".into(),
+                message: "预览已失效，请重新查看外发内容".into(),
+            });
             return Ok(());
         }
     };
 
-    // Key 从 keyring 直取直用（G15：不出 Rust 侧，不打日志）
-    let Some(key) = crate::commands::key::get_api_key() else {
+    // 发送用户刚看到的 PreparedChat；发送前再检查开关，避免预览后关闭仍外发。
+    if !llm::CloudGate::cloud_enabled(&SettingsGate { db: &db }, prepared.space) {
         let _ = channel.send(LlmStreamEvent::Error {
-            kind: "no_key".into(),
-            message: "未设置 API Key（请先在设置中填写 DeepSeek Key）".into(),
+            kind: "gate_closed".into(),
+            message: "该空间已关闭云模型调用".into(),
         });
         return Ok(());
+    }
+    if prepared.messages.is_empty() || prepared.model.trim().is_empty() {
+        let _ = channel.send(LlmStreamEvent::Error {
+            kind: "bad_request".into(),
+            message: "预览内容无效，请重新预览".into(),
+        });
+        return Ok(());
+    }
+
+    // Key 从 keyring 直取直用（G15：不出 Rust 侧，不打日志）
+    let key = match crate::commands::key::get_api_key() {
+        Ok(Some(key)) => key,
+        Ok(None) => {
+            let _ = channel.send(LlmStreamEvent::Error {
+                kind: "no_key".into(),
+                message: "未设置 API Key（请先在设置中填写 DeepSeek Key）".into(),
+            });
+            return Ok(());
+        }
+        Err(message) => {
+            let _ = channel.send(LlmStreamEvent::Error { kind: "credential_store".into(), message });
+            return Ok(());
+        }
     };
 
     let client = match llm::OpenAiCompatClient::deepseek() {
@@ -132,6 +194,7 @@ pub async fn llm_chat_send(
             return Ok(());
         }
     };
+    NETWORK_ATTEMPTS.fetch_add(1, Ordering::Relaxed);
     let mut stream = match client.send(&prepared, &key).await {
         Ok(s) => s,
         Err(e) => {
@@ -157,9 +220,10 @@ pub async fn llm_chat_send(
 #[tauri::command]
 pub async fn llm_fetch_models(state: State<'_, LlmState>) -> Result<Vec<String>, String> {
     let _ = &state.db;
-    let key = crate::commands::key::get_api_key()
+    let key = crate::commands::key::get_api_key()?
         .ok_or_else(|| "未设置 API Key（请先在设置中填写 DeepSeek Key）".to_string())?;
     let client = llm::OpenAiCompatClient::deepseek().map_err(|e| e.to_string())?;
+    NETWORK_ATTEMPTS.fetch_add(1, Ordering::Relaxed);
     client.fetch_models(&key).await.map_err(|e| e.to_string())
 }
 

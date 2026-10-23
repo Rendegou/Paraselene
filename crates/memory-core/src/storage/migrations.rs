@@ -193,8 +193,9 @@ INSERT INTO message_fts_trigram (message_fts_trigram) VALUES ('rebuild');
 /// - 四空间是**叠加在原始导入会话之上的用户确认层**，原始 messages 表不动；
 /// - 隔离规则尽量下沉到 DDL CHECK（space 枚举、novel⇒work_id 必填、非 novel⇒
 ///   禁止 work_id、anchor 长度、禁止自链接），API 层再补人话错误信息；
-/// - `memory_links` 只允许通过 `spaces::link_memories` 显式写入——跨空间引用
-///   必须由用户触发（Goal §4.2 红线），任何自动/批量写入路径都不得碰这张表；
+/// - `memory_links` 只允许通过显式用户动作 API 写入（`spaces::link_memories`、
+///   `ideas::convert_idea`）——跨空间引用必须由用户触发（Goal §4.2 红线），
+///   任何自动/批量写入路径都不得碰这张表；
 /// - `memory_sources.session_id` 故意**不加外键**：出处链要在会话被清理 /
 ///   重新导入后仍然可展示（session_id 字符串 + anchor 已足够定位来源），
 ///   级联删除反而会把用户确认过的出处证据抹掉。

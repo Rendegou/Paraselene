@@ -12,6 +12,18 @@ pub mod fingerprint;
 pub use fingerprint::{decide, hash_bytes, hash_file, quick_stat, Decision};
 
 use std::path::Path;
+use std::sync::atomic::{AtomicU64, Ordering};
+
+static SCAN_INVOCATIONS: AtomicU64 = AtomicU64::new(0);
+
+/// 当前进程启动后 `scan_adapter` 的调用次数（只含计数，不含路径或正文）。
+pub fn scan_invocations() -> u64 {
+    SCAN_INVOCATIONS.load(Ordering::Relaxed)
+}
+
+pub(crate) fn record_scan_invocation() {
+    SCAN_INVOCATIONS.fetch_add(1, Ordering::Relaxed);
+}
 
 use crate::adapters::ConversationAdapter;
 use crate::error::Result;
@@ -51,6 +63,7 @@ pub fn scan_adapter(
     adapter: &dyn ConversationAdapter,
     manual_root: Option<&Path>,
 ) -> Result<ScanReport> {
+    record_scan_invocation();
     let mut report = ScanReport::default();
     let descriptors = adapter.scan(manual_root)?;
     report.scanned = descriptors.len();

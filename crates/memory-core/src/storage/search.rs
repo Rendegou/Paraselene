@@ -3,7 +3,7 @@
 //! 移植自 local-ai-chat-manager（GitHub: Rendegou/local-ai-chat-manager，MIT 许可）
 //! 原路径：crates/aichat-core/src/storage/search.rs
 //! 移植改动（单机裁剪）：筛选条件与命中结构去掉 `machine_id` / 归档字段；
-//! 新增「写入-搜索-高亮往返」与「中文连续字符串命中」两个行为测试（见文件尾 tests）。
+//! 新增写入往返测试；中文查询接入 G05 题集验证的 trigram 索引（见文件尾 tests）。
 
 use rusqlite::{params_from_iter, ToSql};
 
@@ -132,10 +132,20 @@ pub fn build_trigram_match_query(input: &str) -> String {
 }
 
 impl Database {
-    /// 执行全文搜索。
+    /// 执行全文搜索。含非 ASCII 字母的三字以上查询走 G05 验证的 trigram 索引；
+    /// 更短的输入与纯 ASCII 查询走 unicode61，保留英文前缀搜索。
     pub fn search(&self, query: &SearchQuery) -> Result<SearchResponse> {
         let start = std::time::Instant::now();
-        let match_query = build_match_query(&query.text);
+        let trigram_query = if query.text.chars().any(|c| !c.is_ascii() && c.is_alphanumeric()) {
+            build_trigram_match_query(&query.text)
+        } else {
+            String::new()
+        };
+        let (fts_table, match_query) = if trigram_query.is_empty() {
+            ("message_fts", build_match_query(&query.text))
+        } else {
+            ("message_fts_trigram", trigram_query)
+        };
         if match_query.is_empty() {
             return Ok(SearchResponse {
                 hits: Vec::new(),
@@ -188,13 +198,13 @@ impl Database {
         };
         let sql = format!(
             "SELECT m.session_id, m.id, m.sequence, m.role, m.kind, m.timestamp,
-                    snippet(message_fts, 0, '<mark>', '</mark>', '…', 18) AS snippet,
-                    bm25(message_fts) AS score,
+                    snippet({fts_table}, 0, '<mark>', '</mark>', '…', 18) AS snippet,
+                    bm25({fts_table}) AS score,
                     s.title, s.project_path, s.source, s.updated_at
-             FROM message_fts
-             JOIN messages m ON m.rowid = message_fts.rowid
+             FROM {fts_table}
+             JOIN messages m ON m.rowid = {fts_table}.rowid
              JOIN sessions s ON s.id = m.session_id
-             WHERE message_fts MATCH ?1{extra}
+             WHERE {fts_table} MATCH ?1{extra}
              ORDER BY {order}
              LIMIT ? OFFSET ?"
         );
@@ -367,11 +377,22 @@ mod tests {
     }
 
     #[test]
-    fn 中文按连续字符串命中_已知限制行为基线() {
-        // 已知限制（lib.rs 模块文档 / G05）：FTS5 unicode61 分词器不做中文分词，
-        // 连续中文整体成为一个词元 —— 只有「从头开始的前缀」查询可命中，
-        // 句中 / 句尾词检索不到。本测试固化当前行为基线；
-        // 中文检索方案（字符 n-gram / 关键词 / 语义召回对比）待题集验证后替换（G05）。
+    fn 中文句中片段应进入正式搜索结果() {
+        let db = db_with_one_message("幻月桌宠的记忆引擎");
+        let resp = db.search(&SearchQuery {
+            text: "记忆引擎".into(),
+            limit: 10,
+            ..Default::default()
+        }).unwrap();
+        assert_eq!(resp.hits.len(), 1, "已评测的 trigram 索引必须接入正式 search API");
+        assert_eq!(resp.hits[0].message_id, "kimi:rt#0");
+        assert!(resp.hits[0].snippet.contains("<mark>"), "原文片段应有可见命中标记");
+        assert!(resp.match_query.contains("\"记忆引擎\""));
+    }
+
+    #[test]
+    fn 中文短查询回退与长查询使用_trigram() {
+        // 两字以内仍受 unicode61 的前缀边界限制；三字以上走 trigram。
         let db = db_with_one_message("幻月桌宠的记忆引擎");
 
         // 全串精确查询：命中（完整词元）
@@ -407,7 +428,7 @@ mod tests {
             .unwrap();
         assert_eq!(mid.hits.len(), 0, "句中词命中不了是已知限制的行为基线");
 
-        // 句尾词：不命中（同上）
+        // 句尾四字词：trigram 能找回句中片段。
         let tail = db
             .search(&SearchQuery {
                 text: "记忆引擎".into(),
@@ -416,6 +437,6 @@ mod tests {
                 ..Default::default()
             })
             .unwrap();
-        assert_eq!(tail.hits.len(), 0, "句尾词命中不了是已知限制的行为基线");
+        assert_eq!(tail.hits.len(), 1, "句尾中文词应走 trigram 命中");
     }
 }

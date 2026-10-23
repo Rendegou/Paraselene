@@ -111,16 +111,17 @@ impl OpenAiCompatClient {
                         return Some((Err(LlmError::Network(e.to_string())), st));
                     }
                     None => {
-                        // 流正常结束：flush 尾部半行 + 恒发 done（带 usage）
+                        // EOF 时 flush 尾部半行；仅已有服务端完成标记才发 done。
                         st.ended = true;
-                        let mut tail: Vec<StreamEvent> = st
+                        let tail: Vec<StreamEvent> = st
                             .parser
                             .feed_end()
                             .into_iter()
                             .flat_map(|ev| st.mapper.map(ev))
                             .collect();
-                        tail.push(st.mapper.stream_end());
-                        st.pending = tail.into_iter().map(Ok).collect::<Vec<_>>().into_iter();
+                        st.pending = tail.into_iter().map(Ok)
+                            .chain(std::iter::once(st.mapper.stream_end()))
+                            .collect::<Vec<_>>().into_iter();
                     }
                 }
             }
@@ -291,8 +292,8 @@ data: [DONE]\n\n";
     }
 
     #[tokio::test]
-    async fn send_中途断流_恒发done() {
-        // 对端只发了一个 delta 就断开：流结束仍恒发 done（?? 'stop'）
+    async fn send_中途断流_返回解析错误() {
+        // 对端只发了一个 delta 就断开：不能把半句标成成功。
         static RESP: &[u8] = b"HTTP/1.1 200 OK\r\ncontent-type: text/event-stream\r\n\r\n\
 data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xe5\x8d\x8a\xe5\x8f\xa5\"},\"finish_reason\":null}]}\n\n";
         let base = spawn_mock(RESP);
@@ -300,14 +301,11 @@ data: {\"id\":\"x\",\"choices\":[{\"index\":0,\"delta\":{\"content\":\"\xe5\x8d\
         let mut stream = client.send(&prepared(), "sk-test").await.unwrap();
         let mut events = Vec::new();
         while let Some(ev) = stream.next().await {
-            events.push(ev.unwrap());
+            events.push(ev);
         }
-        assert!(matches!(&events[0], StreamEvent::Delta { content } if content == "半句"));
+        assert!(matches!(&events[0], Ok(StreamEvent::Delta { content }) if content == "半句"));
         match events.last().unwrap() {
-            StreamEvent::Done { finish_reason, usage } => {
-                assert_eq!(*finish_reason, FinishReason::Stop);
-                assert!(usage.is_none());
-            }
+            Err(LlmError::Parse(message)) => assert!(message.contains("完成标记")),
             other => panic!("{other:?}"),
         }
     }

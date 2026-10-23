@@ -20,6 +20,7 @@ use crate::provider::{Message, ProviderTool};
 /// llm-core 保持独立不反向依赖 memory-core（crate 可独立测试/演进）；
 /// 值的对应关系由本枚举的 as_str/parse 保证（personal/idea/novel/learning）。
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum Space {
     Personal,
     Idea,
@@ -97,13 +98,13 @@ impl CloudGate for SpaceSwitch {
 }
 
 /// 对话请求（组装前的用户意图）。
-/// IPC 边界可反序列化（src-tauri 的 llm_chat_preview / llm_chat_send 直接收此结构）。
+/// IPC 预览命令可反序列化此结构；发送命令只接收一次性预览票据。
 #[derive(Debug, Clone, serde::Deserialize)]
 pub struct ChatRequest {
     /// 记忆空间（决定 kill switch 检查哪一路开关）
     pub space: Space,
     pub messages: Vec<Message>,
-    /// 模型名；None 用调用方给的默认模型（运行时从 /models 拉取的名字，不写死）
+    /// 模型名；None 用调用方给的默认模型。设置页可主动从 /models 刷新名单。
     pub model: Option<String>,
     pub max_tokens: Option<u32>,
     pub temperature: Option<f32>,
@@ -266,7 +267,7 @@ mod tests {
         )
         .unwrap();
         let snapshot = serde_json::to_value(&prepared).unwrap();
-        assert_eq!(snapshot["space"], "Novel");
+        assert_eq!(snapshot["space"], "novel");
         assert_eq!(snapshot["model"], "deepseek-v4-pro");
         assert_eq!(snapshot["messages"][0]["role"], "user");
         assert_eq!(snapshot["messages"][0]["content"], "写一段");

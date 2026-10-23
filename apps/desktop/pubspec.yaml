@@ -1,5 +1,5 @@
 name: paraselene_flutter
-description: "Paraselene Windows M1 synthetic bridge acceptance runner."
+description: "Paraselene Windows writing workbench with Rust-backed synthetic storage."
 publish_to: 'none'
 version: 0.1.0
 

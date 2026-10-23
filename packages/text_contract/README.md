@@ -8,7 +8,7 @@ out-of-range offsets, surrogate splits and stale exact quotes using typed
 `ContractFailureCode` values. It never normalizes author text.
 
 `TargetSnapshot` freezes the entire exact base body, quote and range. Transaction
-mapping belongs to the future editor. Revalidation checks the explicit mapped
+mapping belongs to the desktop editor. Revalidation checks the explicit mapped
 range without searching. Restoration of the original range requires exact whole
 body equality. `BodyFingerprint.fromRust` validates only lowercase 64-digit hex
 wire syntax; Rust remains the sole BLAKE3 authority. Syntax acceptance cannot

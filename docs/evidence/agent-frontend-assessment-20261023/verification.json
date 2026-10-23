@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "timezone": "Asia/Shanghai",
+  "recordedAt": "2026-10-23T09:16:33+08:00",
+  "sourceCommit": "046530f3149e8e4abdb4342a818503119832c5ee",
+  "sourceTreeCleanBeforeAndAfterGate": true,
+  "command": "pwsh -NoProfile -File scripts/check-frontend.ps1 -Test -ReportDirectory build/agent-audit-20261023-elevated",
+  "commandExitCode": 1,
+  "runId": "08c737b87386499088e09c325ca9ea6a",
+  "selectedChecksStatus": "FAIL",
+  "overallStatus": "FAIL",
+  "sdk": {
+    "flutter": "3.32.1",
+    "dart": "Dart SDK version: 3.8.1 (stable) (Wed May 28 00:47:25 2025 -0700) on \"windows_x64\""
+  },
+  "ast": {
+    "status": "PASS",
+    "files": 141,
+    "violations": 0,
+    "findings": []
+  },
+  "regression": {
+    "passed": 673,
+    "failed": 3,
+    "failures": [
+      {
+        "file": "apps/desktop/test/m2_workbench_test.dart",
+        "line": 133,
+        "test": "focus exits and wide mode changes readable manuscript width",
+        "error": "Expected 2 CheckedPopupMenuItem<bool>, found 0"
+      },
+      {
+        "file": "apps/desktop/test/ui_completion_contract_test.dart",
+        "line": 53,
+        "test": "selector preserves historic values and keyboard focus at 1.0",
+        "error": "Bad state: No element for old CheckedPopupMenuItem finder"
+      },
+      {
+        "file": "apps/desktop/test/ui_completion_contract_test.dart",
+        "line": 53,
+        "test": "selector preserves historic values and keyboard focus at 2.0",
+        "error": "Bad state: No element for old CheckedPopupMenuItem finder"
+      }
+    ]
+  },
+  "checks": [
+    {
+      "check": "ast-structure-theme",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\ast-structure-theme.txt"
+    },
+    {
+      "check": "gate-negative-tests",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\gate-negative-tests.txt"
+    },
+    {
+      "check": "gate-analyze",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\gate-analyze.txt"
+    },
+    {
+      "check": "arb-contract",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\arb-contract.txt"
+    },
+    {
+      "check": "l10n-freshness",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\l10n-freshness.txt"
+    },
+    {
+      "check": "app-format",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\app-format.txt"
+    },
+    {
+      "check": "text-format",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\text-format.txt"
+    },
+    {
+      "check": "gate-format",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\gate-format.txt"
+    },
+    {
+      "check": "app-analyze",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\app-analyze.txt"
+    },
+    {
+      "check": "text-analyze",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\text-analyze.txt"
+    },
+    {
+      "check": "text-tests",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\text-tests.txt"
+    },
+    {
+      "check": "regression-production",
+      "status": "FAIL",
+      "selected": true,
+      "exitCode": 1,
+      "detail": "build\\agent-audit-20261023-elevated\\regression-production.txt"
+    },
+    {
+      "check": "regression-owned",
+      "status": "PASS",
+      "selected": true,
+      "exitCode": 0,
+      "detail": "build\\agent-audit-20261023-elevated\\regression-owned.txt"
+    },
+    {
+      "check": "golden-comparison",
+      "status": "SKIPPED",
+      "selected": false,
+      "exitCode": null,
+      "detail": "Select -Golden; never updates baselines"
+    },
+    {
+      "check": "windows-release-build",
+      "status": "SKIPPED",
+      "selected": false,
+      "exitCode": null,
+      "detail": "Select -WindowsBuild"
+    },
+    {
+      "check": "physical-ime",
+      "status": "NOT_RUN",
+      "selected": false,
+      "exitCode": null,
+      "detail": "Requires separate real-system evidence"
+    },
+    {
+      "check": "physical-dpi-multimonitor",
+      "status": "NOT_RUN",
+      "selected": false,
+      "exitCode": null,
+      "detail": "Requires separate real-system evidence"
+    },
+    {
+      "check": "screen-reader",
+      "status": "NOT_RUN",
+      "selected": false,
+      "exitCode": null,
+      "detail": "Requires separate real-system evidence"
+    },
+    {
+      "check": "clean-machine-installation",
+      "status": "NOT_RUN",
+      "selected": false,
+      "exitCode": null,
+      "detail": "Requires separate real-system evidence"
+    }
+  ],
+  "fingerprints": [
+    {
+      "path": "apps/desktop/pubspec.lock",
+      "sha256": "06d966501215abdb5211ada0c5cb3718b870e1b2904f47ad74d8e6b3630783f0"
+    },
+    {
+      "path": "packages/text_contract/pubspec.lock",
+      "sha256": "9c892c4cf7f36d4ff1550d4783f0924ef741eb50bcd81fc16b28785b640e9423"
+    },
+    {
+      "path": "tools/frontend_checks/pubspec.lock",
+      "sha256": "b873fab2331ac3d7100349dfb9db7579a3586774a9b181bbb16d382d553ce7e5"
+    },
+    {
+      "path": "build/rust-m1-msvc/debug/paraselene_bridge.dll",
+      "sha256": "44cc9204cde25c0ecab46ecc9b40916b67cec21392a170f6ecb9c2b9db09e231"
+    },
+    {
+      "path": "build/rust-m4-test-msvc/debug/paraselene_bridge.dll",
+      "sha256": "57860222a22fa772c5049844ae7f531a38929b4a67dc1a5db130f88789cc6abd"
+    }
+  ],
+  "fullLogs": "build/agent-audit-20261023-elevated (local ignored build output)",
+  "failureExcerpts": "failure-excerpts.txt",
+  "initialEnvironmentAttempt": {
+    "logs": "build/agent-audit-20261023",
+    "issue": "Sandbox denied Flutter SDK cache/lockfile; audit process tree stopped; retried with SDK cache permission",
+    "usedForProductConclusion": false
+  },
+  "limits": [
+    "No golden comparison in this run",
+    "No Release build in this run",
+    "No physical IME, DPI/multimonitor, screen reader or clean-machine installation run",
+    "No author databases or real model calls"
+  ]
+}

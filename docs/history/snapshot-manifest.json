@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "archivedOn": "2026-10-23",
+  "purpose": "Historical snapshots; not current scope, authorization or acceptance status",
+  "snapshots": [
+    {
+      "source": "docs/progress.md",
+      "path": "snapshots/progress-before-unification-20261023.md",
+      "sha256": "b2e5852ab07ad76e16fd3f44c3a4efc250f548ed31cb4c92d5725d1e618effd1",
+      "bytes": 28502
+    },
+    {
+      "source": ".superpowers/sdd/progress.md",
+      "path": "snapshots/m4-sdd-before-unification-20261023.md",
+      "sha256": "4b0a8d43a2a2200560451b8d9598cd105788d44604d0b6e2650767ddb49aaee3",
+      "bytes": 3811
+    },
+    {
+      "source": "../paraselene-flutter-migration/MIGRATION_PLAN.md (historical source only)",
+      "path": "snapshots/migration-plan-before-unification-20261023.md",
+      "sha256": "d92e66f4b7c0d12b673e63d62177dd4c201ff0c54278eda0a81b8e72abd23d57",
+      "bytes": 59136
+    }
+  ]
+}

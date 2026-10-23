@@ -1,58 +1,39 @@
-# 幻月 Flutter 迁移
+# 幻月 Windows 写作工作台
 
-实施依据：[迁移计划](../paraselene-flutter-migration/MIGRATION_PLAN.md)。独立目标，原Tauri工程只读。
+Flutter 桌面展示层 + Rust 本地业务核心。生产编辑器、原位讨论、资料/出处和版本工作流已接入；默认工作台使用真实桥接的应用自有持久合成库。原 Tauri 工程保持只读，作者数据库尚未接管。
 
-## 当前状态（2026-10-22）
+## 当前入口
 
-生产编辑器（raw UTF-16 排版/绘制/输入、段下讨论、出处装饰）已接入工作台。操作整改 R01–R16 与原生控件外观收尾有分项历史证据；本轮统一前端规范并对全部自有生产 Dart 代码整改，当前验证状态以最新 evidence 为准。工作树保留既有修改；真实物理 IME、DPI/多屏、屏幕阅读器、外网模型和净机安装仍需各自验收，不能宣称全产品替代完成。
+- [产品目标与本阶段范围](docs/product-scope.md)：做什么、用户结果与非目标。
+- [当前状态与任务队列](docs/progress.md)：最新验证、已知失败与下一动作。
+- [Agent 工程入口](AGENTS.md)：常驻环境/数据边界与按任务阅读。
+- [架构与数据合同](docs/engineering/architecture-contracts.md)：Rust 权威、Unicode、保存/版本/关闭及原生边界。
+- [前端工程规范](docs/engineering/frontend-standards.md)与[设计系统](DESIGN.md)：怎么实现、允许哪些视觉/控件差异。
+- [Agent 开发与验收流程](docs/engineering/agent-workflow.md)、[任务合同模板](docs/engineering/task-template.md)：一张任务如何实施、验证与交接。
+- [历史索引](docs/history/README.md)：原迁移计划和进度原字节快照；历史报告不覆盖当前目标或状态。
 
-- 进度与当前里程碑：[docs/progress.md](docs/progress.md)
-- 当前前端工程规则：[frontend-standards.md](docs/engineering/frontend-standards.md)
-- 当前视觉/控件/排版角色：[DESIGN.md](DESIGN.md)
-- 最新规范/细节验收：[2026-10-22接续记录](docs/evidence/frontend-standards-20261021/detail-followup-20261022.md)
-- 最新交互与页面覆盖：[交互状态合同](docs/evidence/ui-interaction-20261021/README.md)、[辅助页面矩阵](docs/evidence/ui-completion-20261021/README.md)
-- 整改证据索引：[docs/evidence/operation-parity-20261020/README.md](docs/evidence/operation-parity-20261020/README.md)
-- 视觉对齐证据：[docs/evidence/UI-PARITY-20261020.md](docs/evidence/UI-PARITY-20261020.md)
-- 中文注释规范与记录：[docs/engineering/comment-style-20261020.md](docs/engineering/comment-style-20261020.md)、[docs/evidence/COMMENT-PASS-20261020.md](docs/evidence/COMMENT-PASS-20261020.md)
+当前应用验证仍有明确失败与未测项，具体以进度页为准。真实模型、物理 IME、DPI/多屏、屏幕阅读器、净机安装和发布各自验收，不能从本机编译或历史测试数字推断通过。
 
-统一前端检查入口（仓库根目录，首次先恢复工具包的离线依赖）：
+## 工程与检查
+
+- `apps/desktop/`：Windows Flutter 应用；[桌面包说明](apps/desktop/README.md)。
+- `packages/text_contract/`：纯 Dart Text/Locale 合同。
+- `rust/application/`、`rust/bridge/`、`rust/core/`：应用编排、FRB 和固定核心快照。
+- `tools/frontend_checks/`：AST/主题/ARB 检查；[工具说明](tools/frontend_checks/README.md)。
+- `scripts/`：PowerShell 检查与构建入口；`docs/evidence/`：分次验证证据。
+
+在仓库根目录使用 PowerShell 7：
 
 ```powershell
-dart pub get --offline --directory tools/frontend_checks
+pwsh -NoProfile -File scripts/check-docs.ps1
 pwsh -NoProfile -File scripts/check-frontend.ps1
 pwsh -NoProfile -File scripts/check-frontend.ps1 -Test
 ```
 
-默认检查 AST 结构/主题/菜单状态边界、严格 ARB、官方 gen-l10n 输出一致性、格式及分析；`-Test` 增加普通回归。本地化检查在隔离临时项目中生成，不写原工程；文案变更后先运行官方 `flutter gen-l10n`。golden 与真实 Windows 矩阵独立报告，门禁自身也有正反向测试。应用和纯 Dart 包须预先恢复各自锁定依赖；SDK 路径参数与其他验证选项见脚本帮助。
+文档检查核对当前入口的本地链接和历史快照完整性。前端默认入口核对全部自有生产 Dart 的结构/主题、ARB、官方本地化生成物、格式及分析；`-Test` 增加普通回归与隔离 FFI。应用、纯文本包和检查工具须预先按锁文件恢复依赖，原生检查须有正确的生产/test-support DLL；脚本参数可覆盖 SDK/DLL 路径。
 
-模块定向测试入口（`apps/desktop` 下）：
+golden、Release、原生矩阵和发布完成条件见工作流。现有脚本的成功只代表所选自动检查成功，不代表产品发布认证。验证日志先写 `build/`，确认后按任务归档必要证据。
 
-```powershell
-dart format --output=none --set-exit-if-changed lib test integration_test bin
-flutter analyze --fatal-infos
-flutter test test/operation_parity
-flutter test test/editor test/cowrite test/writing_features_test.dart test/m2_workbench_test.dart test/source_marks_test.dart test/m2_locale_test.dart
-```
+## 文本、语言与模型
 
-以下 M0–M2 段落描述的是当时里程碑状态，保留为历史记录。
-
-M0提供纯Dart Text/Locale合同；M1增加实际FRB/Rust桥接与SQLite合成验收；M2增加中英工作台、作品选择、目录、专注/宽稿及只读正文预览。默认使用真实桥接的临时合成库，作者数据库接管与正文编辑属于后续里程碑。
-
-Windows PowerShell 7：
-
-```powershell
-pwsh -File scripts/check-m0.ps1
-pwsh -File scripts/check-m1.ps1 -WindowsBuild
-pwsh -File scripts/verify-m1-bundle.ps1
-pwsh -File scripts/check-m2.ps1 -WindowsBuild
-```
-
-SDK路径可通过`-DartExecutable`覆盖；依赖先在纯Dart包内`dart pub get`、桌面包内`flutter pub get`，Rust校验使用锁定依赖及offline。检查入口逐项失败即非0，证据分别在`docs/evidence/m0`、`m1`、`m2`；不会执行模型、凭据或原工程examples。
-
-多语言从Unicode合同起步：界面语言、作品/章节语言、模型输出语言分离。首批UI locale规划zh-Hans/en；当前包的语言元数据能描述其他language/script/region，并不代表对应界面已翻译/发布。
-
-进度与环境阻塞见[进度记录](docs/progress.md)。
-
-M1环境与验收范围见[真实验收证据](docs/evidence/M1-20261015.md)。绑定重生成入口为`pwsh -File scripts/generate-m1-bridge.ps1`，固定FRB2.11.1；运行前依赖须已恢复，Rust构建使用锁定依赖和offline。M1应用只创建受控临时合成库，不接受未知已有SQLite文件，重开合同限同一进程。
-
-M2验收与截图见[工作台证据](docs/evidence/M2-20261015.md)。启动Release包中的`paraselene_flutter.exe`，点击“创建示例材料”体验中英切换；这些固定示例并非作者作品，仓库正常关闭时清理临时库。进程直接结束时不保证异步清理完成。`--m1-ui`保留原生诊断界面，`--m1-probe --report=<绝对路径>`保留自动验收入口。整个Release目录一起分发，或使用`build/paraselene-m2-windows-x64.zip`。
+保留确切 Unicode 原文，Rust 维护正文 hash/事务权威。UI locale、稿件语言、输出语言独立；当前 UI 验证资源范围为 zh-Hans/en，其他语言和 RTL harness 不代表已发布翻译。模型仅官方 DeepSeek BYOK 接缝，发送前完整预览并明确确认；日常开发检查不读取真实凭据、不操作作者库或发模型请求。

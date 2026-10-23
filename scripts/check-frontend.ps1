@@ -96,6 +96,11 @@ function Invoke-FrontDartTests([string]$Name, [string]$Directory) {
 }
 
 function Invoke-FrontStatic {
+    Invoke-FrontCheck 'documentation' 'pwsh' `
+        @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'check-docs.ps1'),
+            '-ReportPath', (Join-Path $ReportDirectory 'documentation.json')) $frontRoot
+    Invoke-FrontCheck 'documentation-negative-tests' 'pwsh' `
+        @('-NoProfile', '-File', (Join-Path $PSScriptRoot 'test-docs.ps1')) $frontRoot
     if ($RestoreTools) {
         Invoke-FrontCheck 'restore-tools-offline' $DartExecutable `
             @('pub', 'get', '--offline') $frontTools

@@ -1,6 +1,18 @@
 # 幻月 · Flutter 工作台设计系统
 
-更新：2026-10-22。当前 Windows Flutter 客户端沿用原版“安静的写作纸面”：正文持续居中，工具按需出现，不重做品牌。工程和验收规则见 [前端规范](docs/engineering/frontend-standards.md)，实现进度见 [当前记录](docs/progress.md)。本文件定义当前设计要求，不用旧 M2 只读预览描述当前编辑器。
+更新：2026-10-23。当前 Windows Flutter 客户端沿用原版“安静的写作纸面”：正文持续居中，工具按需出现，不重做品牌。工程和验收规则见 [前端规范](docs/engineering/frontend-standards.md)，实现进度见 [当前记录](docs/progress.md)。本文件定义当前设计要求，不用旧 M2 只读预览描述当前编辑器。
+
+## 复用与状态参考
+
+产品范围见[当前目标](docs/product-scope.md)，交付流程见[Agent 工作流](docs/engineering/agent-workflow.md)。UI 任务先选已有角色、参考截图与适用状态，写明允许差异，再实现和查看实际渲染；本文件不维护当前通过数量。
+
+- 按钮/图标与输入底座：[WorkbenchControls](apps/desktop/lib/theme/workbench_controls.dart)、[控件合同](apps/desktop/test/ui_control_contract_test.dart)。
+- 选择器/菜单：[WorkbenchSelect](apps/desktop/lib/theme/workbench_select.dart)、[补充控件合同](apps/desktop/test/ui_completion_contract_test.dart)；最新失败状态以进度页为准，不能因存在样例就认定通过。
+- 主题与对比度：[主题合同](apps/desktop/test/theme_accessibility_contract_test.dart)。
+- 弹窗/辅助页与讨论状态：[页面采集 harness](apps/desktop/test/ui_completion_capture_test.dart)、[状态采集 harness](apps/desktop/test/ui_interaction_capture_test.dart)。采集图片不等于比较通过。
+- 2026-10-22 的[常规窗口](docs/evidence/frontend-standards-20261021/toolbar-after.png)与[窄窗200%](docs/evidence/frontend-standards-20261021/narrow-after-200.png)是既有视觉参考；当前修改仍需自己的实际验收。
+
+状态按风险覆盖默认、hover、pressed、keyboard-focus、selected、disabled，以及加载/空/失败/忙碌/取消/迟到响应。共享控件合同与页面操作分别证明，不把底座通过继承成每个页面通过。
 
 ## 令牌与实现职责
 

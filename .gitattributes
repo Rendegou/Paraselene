@@ -2,3 +2,5 @@
 rust/core/** -text whitespace=cr-at-eol
 # Keep vendored license text byte-for-byte, including upstream whitespace.
 apps/desktop/assets/fonts/*-OFL.txt -text whitespace=cr-at-eol,-blank-at-eol
+# Historical source snapshots retain the bytes recorded by snapshot-manifest.json.
+docs/history/snapshots/** -text whitespace=cr-at-eol

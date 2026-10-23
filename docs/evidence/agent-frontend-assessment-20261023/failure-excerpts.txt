@@ -1,0 +1,96 @@
+Source: build/agent-audit-20261023-elevated/regression-production.txt
+Commit: 046530f3149e8e4abdb4342a818503119832c5ee
+Workspace prefix replaced with <workspace>; original line numbers preserved.
+
+40: 00:05 +36: <workspace>/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+41: 00:05 +37: <workspace>/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+42: 00:06 +38: <workspace>/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+43: 00:06 +38: <workspace>/apps/desktop/test/m2_workbench_test.dart: focus exits and wide mode changes readable manuscript width
+44: ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+45: The following TestFailure was thrown running a test:
+46: Expected: exactly 2 matching candidates
+47:   Actual: _TypeWidgetFinder:<Found 0 widgets with type "CheckedPopupMenuItem<bool>": []>
+48:    Which: means none were found but some were expected
+49: 
+50: When the exception was thrown, this was the stack:
+51: #4      _chooseLayout (file:///<workspace>/apps/desktop/test/m2_workbench_test.dart:134:3)
+52: <asynchronous suspension>
+53: #5      main.<anonymous closure> (file:///<workspace>/apps/desktop/test/m2_workbench_test.dart:88:5)
+54: <asynchronous suspension>
+55: #6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+56: <asynchronous suspension>
+57: #7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+58: <asynchronous suspension>
+59: <asynchronous suspension>
+60: (elided one frame from package:stack_trace)
+61: 
+62: This was caught by the test expectation on the following line:
+63:   file:///<workspace>/apps/desktop/test/m2_workbench_test.dart line 134
+64: The test description was:
+65:   focus exits and wide mode changes readable manuscript width
+66: ════════════════════════════════════════════════════════════════════════════════════════════════════
+67: 00:06 +38 -1: <workspace>/apps/desktop/test/m1_real_ffi_test.dart: real DLL preserves synthetic contracts and releases sessions
+68: 00:06 +38 -1: <workspace>/apps/desktop/test/m2_workbench_test.dart: focus exits and wide mode changes readable manuscript width [E]
+69:   Test failed. See exception logs above.
+70:   The test description was: focus exits and wide mode changes readable manuscript width
+71:   
+
+203: 00:12 +162 -1: <workspace>/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 1.0
+204: 00:12 +163 -1: <workspace>/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 1.0
+205: 00:12 +164 -1: <workspace>/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 1.0
+206: ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+207: The following StateError was thrown running a test:
+208: Bad state: No element
+209: 
+210: When the exception was thrown, this was the stack:
+211: #0      Iterable.last (dart:core/iterable.dart:679:7)
+212: #1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+213: #3      Iterable.single (dart:core/iterable.dart:694:13)
+214: #4      WidgetController.widget (package:flutter_test/src/controller.dart:804:30)
+215: #5      main.<anonymous closure> (file:///<workspace>/apps/desktop/test/ui_completion_contract_test.dart:53:16)
+216: <asynchronous suspension>
+217: #6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+218: <asynchronous suspension>
+219: #7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+220: <asynchronous suspension>
+221: <asynchronous suspension>
+222: (elided 2 frames from dart:async-patch and package:stack_trace)
+223: 
+224: The test description was:
+225:   selector preserves historic values and keyboard focus at 1.0
+226: ════════════════════════════════════════════════════════════════════════════════════════════════════
+227: 00:12 +164 -2: <workspace>/apps/desktop/test/m4_controller_test.dart: a scroll during an in-flight prefs write still lands
+228: 00:12 +164 -2: <workspace>/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 1.0 [E]
+229:   Test failed. See exception logs above.
+230:   The test description was: selector preserves historic values and keyboard focus at 1.0
+231:   
+
+238: 00:12 +168 -2: <workspace>/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 2.0
+239: ══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+240: The following StateError was thrown running a test:
+241: Bad state: No element
+242: 
+243: When the exception was thrown, this was the stack:
+244: #0      Iterable.last (dart:core/iterable.dart:679:7)
+245: #1      _LastFinderMixin.filter (package:flutter_test/src/finders.dart:1367:28)
+246: #3      Iterable.single (dart:core/iterable.dart:694:13)
+247: #4      WidgetController.widget (package:flutter_test/src/controller.dart:804:30)
+248: #5      main.<anonymous closure> (file:///<workspace>/apps/desktop/test/ui_completion_contract_test.dart:53:16)
+249: <asynchronous suspension>
+250: #6      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:193:15)
+251: <asynchronous suspension>
+252: #7      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1064:5)
+253: <asynchronous suspension>
+254: <asynchronous suspension>
+255: (elided 2 frames from dart:async-patch and package:stack_trace)
+256: 
+257: The test description was:
+258:   selector preserves historic values and keyboard focus at 2.0
+259: ════════════════════════════════════════════════════════════════════════════════════════════════════
+260: 00:12 +168 -3: <workspace>/apps/desktop/test/source_marks_real_ffi_test.dart: real workspace loads source marks and opens linked lore detail
+261: 00:12 +168 -3: <workspace>/apps/desktop/test/ui_completion_contract_test.dart: selector preserves historic values and keyboard focus at 2.0 [E]
+262:   Test failed. See exception logs above.
+263:   The test description was: selector preserves historic values and keyboard focus at 2.0
+264:   
+
+777: 00:38 +673 -3: Some tests failed.

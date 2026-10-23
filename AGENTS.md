@@ -1,15 +1,29 @@
-# 幻月 Flutter 迁移工程
+# 幻月工程入口
 
-- Windows only，PowerShell 7 `pwsh`；禁止 Bash/powershell.exe。
-- 工作仅在本独立目标目录。原 `D:\MyAgent\paraselene-work` 只读；不 reset/清理/修改其源码或作者数据。
-- 计划：`D:\MyAgent\paraselene-flutter-migration\MIGRATION_PLAN.md`；逐模块记录 `docs/progress.md` 与 `docs/evidence`。
-- 前端开工必读：[前端规范](docs/engineering/frontend-standards.md) → [设计系统](DESIGN.md) → [当前进度](docs/progress.md)。前端规则以这两个现行规范为准；日期化交接、研究方案与 evidence 记录历史或结果，不覆盖当前规则。
-- 纯文本保留原 UTF-16/Unicode 标量/BLAKE3 合同；不得归一化或翻译作者正文。
-- UI locale、作品/章节语言和输出语言独立。当前 UI 支持规划为 zh-Hans/en；其他 locale 不能伪称已发布。
-- Rust 是数据库、业务采纳和正文 hash 的权威。纯 Dart 包不依赖 Flutter、IO或数据库；可执行 probes/tests 允许本地合成文件。
-- 不读取 Key、env、认证或作者 DB/作品；不发模型/付费请求。未来仅官方 DeepSeek BYOK，完整材料预览与明确确认。
-- 每模块 format/analyze/真实行为测试/可执行验证；mock 不代表 FFI/IME/Windows 通过。NOT_RUN/FAIL 不冒充 PASS。
-- 普通函数目标40有效行、上限60，生产模块≤400；公开接口说明单位/错误/副作用。禁止吞错/忽略检查/删功能换编译。
-- 自有生产 Dart 代码全量接受 AST 长度/主题边界检查，无历史违规基线；Widget 用命名类组合，不用返回 Widget 的页面构建助手。生成文件与固定第三方快照按规范明确排除，不手改。
-- 统一检查入口：`pwsh -NoProfile -File scripts/check-frontend.ps1`；普通全量回归加 `-Test`。检查失败或环境不可用必须非零退出，golden 与原生系统验收单独报告。
-- 每新任务立即按 `YYMMDD | [幻月] 动作 + 具体目标` 更新会话标题。
+适用于本仓库的人工与 Agent 协作者。用户明确要求优先；以下文档各自维护一种事实，技能和历史记录不另建产品范围或覆盖当前合同。
+
+## 按任务读取
+
+- 新功能、排期或接手续作：[产品目标](docs/product-scope.md) → [当前状态](docs/progress.md)。
+- 架构、存储、编辑器、原生接线：[架构与数据合同](docs/engineering/architecture-contracts.md)。
+- Flutter 界面或交互：[前端规范](docs/engineering/frontend-standards.md) → [设计系统](DESIGN.md)。
+- 实施、验证与交接：[Agent 工作流](docs/engineering/agent-workflow.md)；较大任务按[任务合同模板](docs/engineering/task-template.md)落定范围和验收。
+- 历史方案、日期化报告与 evidence 用于追溯；当前任务、授权和完成状态只看上述入口。[历史索引](docs/history/README.md)不作为执行队列。
+
+## 环境与数据边界
+
+- Windows only，只用 PowerShell 7 `pwsh`，禁止 Bash 和 `powershell.exe`。
+- 工作仅在本独立目标仓库。原 `D:\MyAgent\paraselene-work` 只读；不 reset、清理或覆盖其他协作者成果。
+- 不读取 Key、env、认证或作者 DB/作品，不发真实模型/付费请求。现有模型接缝仅官方 DeepSeek BYOK；真实外发仍须完整材料预览与明确确认，不能把历史报告当本次外发许可。
+- Rust 是数据库、正式版本、采纳事务和正文 BLAKE3 的权威；保留 UTF-16/Unicode 标量合同，不归一化或翻译作者正文。
+- 纯 Dart 包的生产代码不依赖 Flutter、IO 或数据库；测试/probe 可使用受控合成文件。UI locale、稿件语言与输出语言独立。
+
+## 实施与交付
+
+- 沿用构造注入、ChangeNotifier/Listenable 和现有 repository/native gateway；技能中的其他架构、依赖和长度阈值不自动引入。
+- 按完整用户流程交付正常、失败、取消和适用边界状态。代码组织、60/400 有效行上限、主题、异步和控件要求由前端规范唯一维护；不复制成另一套清单。
+- 已授权范围内的常规实现、合成测试和失败修正自主推进。产品范围或数据合同实质冲突时写明冲突；不以旧计划中的“未授权/暂停”代替当前用户指示。
+- 文档入口检查：`pwsh -NoProfile -File scripts/check-docs.ps1`。前端静态检查：`pwsh -NoProfile -File scripts/check-frontend.ps1`；普通全量回归加 `-Test`。按改动风险选择验证，详见工作流。
+- 当前提交/工作树、命令、退出码、断言与失败/未测项必须对应。mock 不代表 FFI/IME/Windows 通过；截图不代表 golden 通过。不得吞错、删功能/断言、忽略检查或自动改基线换绿。
+- 更新同一份当前状态与证据，已完成的检查不因交接重复冒充新验证；开发通过、UI 验收和发布批准分别说明。
+- 每个新任务立即设置 `YYMMDD | [幻月] 动作 + 具体目标` 标题；原因未知用“排查/定位”，确认缺陷后才用“修复”，目标实质变化时更新标题。
